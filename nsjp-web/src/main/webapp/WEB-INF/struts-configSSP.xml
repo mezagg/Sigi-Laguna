@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+ Nombre del Programa : struts-configSSP.xml
+ Autor               : rgama
+ Compania            : Ultrasist
+ Proyecto            : NSJP                    Fecha: dd/mm/aaaa
+ Marca de cambio     : N/A
+ Descripcion General : Archivo de configuracion de struts
+ Programa Dependiente: N/A
+ Programa Subsecuente: N/A
+ Cond. de ejecucion  : N/A
+ Dias de ejecucion   : N/A                             Horario: N/A
+                              MODIFICACIONES
+ Autor               : N/A
+ Compania            : N/A
+ Proyecto            : N/A                                   Fecha: N/A
+ Modificacion        : N/A
+-->
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" 
+"http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+
+	<display-name>Ultrasist</display-name>
+	<description>SSP</description>
+	
+	
+	<!-- ========== Definiciones de Form Bean =================== -->
+	<form-beans>
+		 
+    </form-beans>
+	
+	<global-exceptions />
+	
+	<!-- ========= Forward's  Globales ========================== -->
+	<global-forwards>
+	</global-forwards>
+ 
+ 
+   <!-- ========== Mapeo de Acciones =========================== -->
+	<action-mappings>
+	
+		<!--	Acciones para Unidad de Captura-->
+		<action path="/ingresarIPH" forward="/WEB-INF/paginas/ssp/ingresarIPH.jsp" />
+		<action path="/mostrarIPH" forward="/WEB-INF/paginas/ssp/mostrarIPH.jsp" />
+	
+		<action path="/consultarIPHs"
+				type="mx.gob.segob.nsjp.web.ssp.action.InformePHAction"
+				name=""
+				scope="request"
+		       	parameter="consultarIPHs"
+		       	validate="false">
+		</action>
+	
+		<action path="/generarExpedienteSSP"
+			type="mx.gob.segob.nsjp.web.ssp.action.SeguridadPublicaAction"
+			name=""
+			scope="request"
+	       	parameter="generarExpedienteSSP"
+	       	validate="false">
+		</action>
+	
+		<action path="/consultarIPHPorNumeroDeFolio"
+				type="mx.gob.segob.nsjp.web.ssp.action.InformePHAction"
+				name=""
+				scope="request"
+		       	parameter="consultarIPHPorNumeroDeFolio"
+		       	validate="false">
+		</action>
+	    <!--	FIN de Acciones para Unidad de Captura y SSP-->
+	
+		<!-- INFORME POLICIAL HOMOLOGADO -->
+		<action path="/consultarIPH"
+				type="mx.gob.segob.nsjp.web.ssp.action.InformePHAction"
+				name=""
+				scope="request"
+		       	parameter="consultarIPHPorNombreoFechas"
+		       	validate="false">
+		</action>
+		
+		<action path="/generarFolioIPH"
+				type="mx.gob.segob.nsjp.web.ssp.action.InformePHAction"
+				name=""
+				scope="request"
+		       	parameter="generarFolioIPH"
+		       	validate="false">
+		</action>
+	
+		<action path="/consultaFuncionarioSuperior"
+				type="mx.gob.segob.nsjp.web.ssp.action.InformePHAction"
+				name=""
+				scope="request"
+		       	parameter="consultaFuncionarioSuperior"
+		       	validate="false">
+		</action>
+	
+		<action path="/consultarCatalogoTipoParticipacion"
+				type="mx.gob.segob.nsjp.web.catalogo.action.ConsultarCatalogosAction"
+				name=""
+				scope="request"
+				parameter="consultarCatalogoTipoParticipacion"
+				validate="false">				
+		</action>
+	
+		<action path="/consultarCatalogoTurnoLaboral"
+				type="mx.gob.segob.nsjp.web.ssp.action.InformePHAction"
+				name=""
+				scope="request"
+				parameter="consultarCatalogoTurnoLaboral"
+				validate="false">				
+		</action>
+		<action path="/consultarCatalogoCorporacion"
+				type="mx.gob.segob.nsjp.web.ssp.action.InformePHAction"
+				name=""
+				scope="request"
+				parameter="consultarCatalogoCoorporaciones"
+				validate="false">				
+		</action>
+		
+		<action path="/consultarSubtipoEvento"
+				type="mx.gob.segob.nsjp.web.ssp.action.InformePHAction"
+				name=""
+				scope="request"
+				parameter="consultarSubtipoEvento"
+				validate="false">				
+		</action>
+		<action path="/consultaCatalogoTipoCarretera"
+				type="mx.gob.segob.nsjp.web.ssp.action.InformePHAction"
+				name=""
+				scope="request"
+				parameter="consultaCatalogoTipoCarretera"
+				validate="false">				
+		</action>
+		<action path="/guardarDatosGeneralesIPH"
+				type="mx.gob.segob.nsjp.web.ssp.action.InformePHAction"
+				name=""
+				scope="request"
+				parameter="guardarDatosGeneralesIPH"
+				validate="false">				
+		</action>
+		<action path="/generarInformeIPH"
+				type="mx.gob.segob.nsjp.web.ssp.action.InformePHAction"
+				name=""
+				scope="request"
+				parameter="generarInformeIPH"
+				validate="false">				
+		</action>
+		<!-- FIN INFORME POLICIAL HOMOLOGADO -->
+	
+	
+	<!--INICIAN ACTION CONSULTA IPH-->
+		<action path="/consultarInformePolicialHomologadoPorFolio"
+			type="mx.gob.segob.nsjp.web.ssp.action.InformePHAction"
+			name=""
+			scope="request"
+	       	parameter="consultarInformePolicialHomologadoPorFolio"
+	       	validate="false">
+		</action>
+
+		<action path="/ingresarHechosIPH"       forward="/WEB-INF/paginas/ingresarHechosIPHView.jsp"/>
+		
+		<!--FINALIZAN ACTION CONSULTA IPH-->
+	</action-mappings>
+	
+</struts-config>
