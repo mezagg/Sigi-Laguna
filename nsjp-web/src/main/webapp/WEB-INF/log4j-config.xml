@@ -9,7 +9,7 @@
 		</layout>
 	</appender>
 	<appender name="desa" class="org.apache.log4j.RollingFileAppender">
-		<param name="File" value="C:/logs/nsjp.log" />
+		<param name="File" value="/Users/israel/opt/web/tomcat-7.0.62/logs/nsjp.log" />
 		<param name="MaxFileSize" value="5000KB" />
 		<param name="MaxBackupIndex" value="9" />
 		<layout class="org.apache.log4j.PatternLayout">
@@ -18,7 +18,7 @@
 		</layout>
 	</appender>
 	<appender name="peticiones" class="org.apache.log4j.RollingFileAppender">
-		<param name="File" value="C:/logs/bitacoraPeticionesPorInstitucion.log" />
+		<param name="File" value="/Users/israel/opt/web/tomcat-7.0.62/logs/bitacoraPeticionesPorInstitucion.log" />
 		<param name="MaxFileSize" value="10MB" />
 		<param name="MaxBackupIndex" value="9" />
 		<layout class="org.apache.log4j.PatternLayout">
@@ -33,10 +33,10 @@
 		<appender-ref ref="desa" />
 		<appender-ref ref="consola" />
 	</logger>
-		<logger name="mx.gob.segob.nsjp" additivity="false">
+		<!--logger name="mx.gob.segob.nsjp" additivity="false">
 		<level value="fatal" />
 		<appender-ref ref="peticiones" />
-	</logger>
+	</logger-->
 	<logger name="org.springframework" additivity="false">
 		<level value="error" />
 		<appender-ref ref="desa" />

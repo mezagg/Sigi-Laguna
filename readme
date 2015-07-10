@@ -1,8 +1,9 @@
 1.- Definir las rutas del pom principal:
   nsjp.home al home del proyecto
   domain.home es el home del domain en glassfish
+2.- en nsjp-web WEB-INF/log4j-config.xml configurar la ruta de los logs.
 
-2.- Antes de hacer deploy configurar del datasource en el server con el nombre: jdbc/nsjpDS
+3.- Antes de hacer deploy configurar del datasource en el server con el nombre: jdbc/nsjpDS
 
 
  Compilación sin pruebas:
