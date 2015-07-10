@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	
+
 	<groupId>mx.gob.segob.nsjp</groupId>
 	<artifactId>nsjp</artifactId>
 	<version>1.0-SNAPSHOT</version>
@@ -13,11 +13,11 @@
 	nsjp [Parent Project]
   </name>
 	<url>http://maven.apache.org</url>
- 
+
 	<properties>
 		<!-- Numero de versiones de algunas librerias. -->
 		<project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
-		<nsjp.home>C:\backup\SIGI\SIGI2015\cursoTecnicoSIGI\nsjp\</nsjp.home>
+		<nsjp.home>/Users/israel/development/lucasian/SIGI-Saltillo</nsjp.home>
 		<domain.home>C:\glassfish3\glassfish\domains\domain1</domain.home>
 	</properties>
 
@@ -101,7 +101,7 @@
 				<artifactId>spring-test</artifactId>
 				<version>3.0.5.RELEASE</version>
 				<scope>test</scope>
-			</dependency>			
+			</dependency>
 			<dependency>
 				<groupId>commons-dbcp</groupId>
 				<artifactId>commons-dbcp</artifactId>
@@ -187,7 +187,7 @@
 				<groupId>org.apache.poi</groupId>
 				<artifactId>poi</artifactId>
 				<version>3.8</version>
-			</dependency>			
+			</dependency>
 				<!-- Jetty is needed if you're are not using the CXFServlet -->
 			<!--dependency>
 				<groupId>org.apache.cxf</groupId>
@@ -199,8 +199,8 @@
 
 	<build>
 		<plugins>
-		
-			
+
+
 			<!-- Configuracion para el plugin de generacion de proyectos en Eclipse. -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -270,7 +270,15 @@
 			  <snapshots>
 				 <enabled>true</enabled>
 			  </snapshots>
-		</repository>		
+		</repository>
+		<repository>
+			  <id>Nuxeo-public</id>
+			  <name>Nuxeo public Repository</name>
+			  <url>https://maven.nuxeo.org/nexus/content/groups/public</url>
+			  <snapshots>
+				 <enabled>true</enabled>
+			  </snapshots>
+		</repository>
 	</repositories>
 	<modules>
 		<module>nsjp-comun</module>

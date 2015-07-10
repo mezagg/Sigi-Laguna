@@ -1,0 +1,9 @@
+1.- Definir las rutas del pom principal:
+  nsjp.home al home del proyecto
+  domain.home es el home del domain en glassfish
+
+2.- Antes de hacer deploy configurar del datasource en el server con el nombre: jdbc/nsjpDS
+
+
+ Compilación sin pruebas:
+ mvn clean install -DskipTests=true -gs=settings.xml
