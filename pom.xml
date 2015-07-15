@@ -17,8 +17,8 @@
 	<properties>
 		<!-- Numero de versiones de algunas librerias. -->
 		<project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
-		<nsjp.home>C:\backup\SIGI\SIGI2015\cursoTecnicoSIGI\nsjp\</nsjp.home>
-		<domain.home>C:\glassfish3\glassfish\domains\domain1</domain.home>
+		<nsjp.home>.</nsjp.home>
+		<domain.home>/apps/domains/domain1</domain.home>
 	</properties>
 
 	<dependencyManagement>
@@ -164,9 +164,7 @@
 			<dependency>
 				<groupId>com.microsoft.sqlserver</groupId>
 				<artifactId>sqljdbc4</artifactId>
-				<version>1</version>
-				<scope>system</scope>
-				<systemPath>${nsjp.home}/nsjp-etc/jdbc/sqljdbc4.jar</systemPath>
+				<version>4.0</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.cxf</groupId>
