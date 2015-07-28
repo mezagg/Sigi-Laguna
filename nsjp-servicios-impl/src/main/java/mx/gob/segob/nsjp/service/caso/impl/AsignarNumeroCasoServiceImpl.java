@@ -90,7 +90,7 @@ public class AsignarNumeroCasoServiceImpl implements AsignarNumeroCasoService {
 		String prefijoDeInstitucion = "";
 		//String libres = "XX";
 		String distrito = "";
-		String claveRegion = "";
+		//String claveRegion = "";
 		String unidad = "";
 		String consecutivoDelCaso = "";
 		
@@ -126,11 +126,11 @@ public class AsignarNumeroCasoServiceImpl implements AsignarNumeroCasoService {
 		//Se obtiene el distrito
 		distrito = funcionarioDTO.getDiscriminante().getDistrito().getClaveRomanaDistrito();
 		//Se obtiene la region
-		claveRegion = funcionarioDTO.getDiscriminante().getClaveRegion();
+		//claveRegion = funcionarioDTO.getDiscriminante().getClaveRegion();
 
 		//Se genera el numero de Caso
 		consecutivoDelCaso = prefijoDelEstado + SEPARADOR + prefijoDeInstitucion + SEPARADOR
-				+ claveRegion +SEPARADOR
+				//+ claveRegion +SEPARADOR
 				+ distrito + SEPARADOR
 				+ unidad + SEPARADOR + anio + SEPARADOR + consecutivoDelCaso;
 		
@@ -155,7 +155,7 @@ public class AsignarNumeroCasoServiceImpl implements AsignarNumeroCasoService {
 
 	public String consultarConsecutivoCaso(String ultimoNumeroGeneralCaso) throws NSJPNegocioException{
 		String consecutivoDelCaso = "";
-		if(ultimoNumeroGeneralCaso!=null && ultimoNumeroGeneralCaso.length() == 27) {
+		if(ultimoNumeroGeneralCaso!=null && ultimoNumeroGeneralCaso.length() >= 27) {
 			//pe 01/02/XX/RBO/2011/CC-12345 -> CC-12346 
 			consecutivoDelCaso = ConsecutivosUtil.incrementarConsecutivoNumeroCaso(ultimoNumeroGeneralCaso);
 		} else {
