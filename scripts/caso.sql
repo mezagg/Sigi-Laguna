@@ -1,9 +1,9 @@
 ALTER TABLE [dbo].[Caso]
-ALTER COLUMN [cNumeroGeneralCaso] [cadena 32];
+ALTER COLUMN [cNumeroGeneralCaso] [varchar](32);
 GO
 
 ALTER TABLE [dbo].[CatDiscriminante]
-ADD COLUMN [region_id] [numeric](18, 0) NULL;
+ADD [region_id] [numeric](18, 0) NULL;
 GO
 
 
