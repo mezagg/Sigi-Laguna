@@ -90,6 +90,7 @@ public class AsignarNumeroCasoServiceImpl implements AsignarNumeroCasoService {
 		String prefijoDeInstitucion = "";
 		//String libres = "XX";
 		String distrito = "";
+		String claveRegion = "";
 		String unidad = "";
 		String consecutivoDelCaso = "";
 		
@@ -124,10 +125,14 @@ public class AsignarNumeroCasoServiceImpl implements AsignarNumeroCasoService {
 
 		//Se obtiene el distrito
 		distrito = funcionarioDTO.getDiscriminante().getDistrito().getClaveRomanaDistrito();
+		//Se obtiene la region
+		claveRegion = funcionarioDTO.getDiscriminante().getClaveRegion();
 
 		//Se genera el numero de Caso
-		consecutivoDelCaso = prefijoDelEstado + SEPARADOR + prefijoDeInstitucion + SEPARADOR + distrito + SEPARADOR +
-			unidad + SEPARADOR + anio + SEPARADOR + consecutivoDelCaso;
+		consecutivoDelCaso = prefijoDelEstado + SEPARADOR + prefijoDeInstitucion + SEPARADOR
+				+ claveRegion +SEPARADOR
+				+ distrito + SEPARADOR
+				+ unidad + SEPARADOR + anio + SEPARADOR + consecutivoDelCaso;
 		
 		Caso caso = new Caso();
 		caso.setEstatus(casoDTO.getEstatus().getShort());
