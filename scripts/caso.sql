@@ -6,6 +6,10 @@ ALTER TABLE [dbo].[CatDiscriminante]
 ADD [region_id] [numeric](18, 0) NULL;
 GO
 
+ALTER TABLE [dbo].[CatDistrito]
+ADD [region_id] [numeric](18, 0) NULL;
+GO
+
 
 CREATE TABLE [dbo].[Region](
 	[region_id] [numeric](18, 0) NOT NULL,
@@ -20,3 +24,23 @@ CREATE TABLE [dbo].[Region](
 GO
 
 
+ALTER TABLE [dbo].[CatDiscriminante]  WITH CHECK ADD  CONSTRAINT [FK_CatDiscriminante_Region] FOREIGN KEY([region_id])
+REFERENCES [dbo].[Region] ([region_id])
+GO
+
+ALTER TABLE [dbo].[CatDiscriminante] CHECK CONSTRAINT [FK_CatDiscriminante_Region]
+GO
+
+ALTER TABLE [dbo].[CatDiscriminante]  WITH NOCHECK ADD  CONSTRAINT [fk01_CatDiscriminante_CatDistrito] FOREIGN KEY([catDistrito_id])
+REFERENCES [dbo].[CatDistrito] ([catDistrito_id])
+GO
+
+ALTER TABLE [dbo].[CatDiscriminante] CHECK CONSTRAINT [fk01_CatDiscriminante_CatDistrito]
+GO
+
+ALTER TABLE [dbo].[CatDistrito]  WITH CHECK ADD  CONSTRAINT [FK_CatDistrito_Region] FOREIGN KEY([region_id])
+REFERENCES [dbo].[Region] ([region_id])
+GO
+
+ALTER TABLE [dbo].[CatDistrito] CHECK CONSTRAINT [FK_CatDistrito_Region]
+GO
