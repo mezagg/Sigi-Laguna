@@ -1017,6 +1017,44 @@
 						</select>
 		 			</td>
 				</tr>
+
+
+				<tr>
+					<td id="idsp1">
+					</td>
+					<td align="center" id="idsp2">
+						<p>Entidad Federativa:</p>
+					</td>
+					<td align="center">
+						<select id="x1"  name="x1" style="width: 182px;" tabindex="15">
+							<option value="">- Seleccione -</option>
+							<option value="">Coahuila</option>
+							<option value="">DF</option>
+						</select>
+					</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+
+				<tr>
+					<td id="idsp3">
+					</td>
+					<td align="center" id="idsp4">
+						<p>Region:</p>
+					</td>
+					<td align="center">
+						<select id="x2"  name="x2" style="width: 182px;" tabindex="16">
+							<option value="">- Seleccione -</option>
+							<option value="">Carbonifera</option>
+							<option value="">Region Norte</option>
+						</select>
+					</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+
 				<tr>
 					<td>
 					</td>
