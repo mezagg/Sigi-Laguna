@@ -8,55 +8,10 @@
 				value="[%d{dd-MM-yy HH:mm:ss,SSS}] %5p (%45C{4}-%30M:%4L) -> %m%n" />
 		</layout>
 	</appender>
-	<appender name="desa" class="org.apache.log4j.RollingFileAppender">
-		<param name="File" value="C:/logs/nsjp.log" />
-		<param name="MaxFileSize" value="5000KB" />
-		<param name="MaxBackupIndex" value="9" />
-		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern"
-				value="[%d{dd-MM-yy HH:mm:ss,SSS}] %5p (%45C{4}-%30M:%4L) -> %m%n" />
-		</layout>
-	</appender>
-	<appender name="peticiones" class="org.apache.log4j.RollingFileAppender">
-		<param name="File" value="C:/logs/bitacoraPeticionesPorInstitucion.log" />
-		<param name="MaxFileSize" value="10MB" />
-		<param name="MaxBackupIndex" value="9" />
-		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern"
-				value="%m[%d{dd-MM-yy HH:mm:ss,SSS}]%n" />
-		</layout>
-	</appender>
-	<!--APPENDERS -->
-	<!--LOGGERS -->
-	<logger name="mx.gob.segob.nsjp" additivity="false">
-		<level value="debug" />
-		<appender-ref ref="desa" />
-		<appender-ref ref="consola" />
-	</logger>
-		<logger name="mx.gob.segob.nsjp" additivity="false">
-		<level value="fatal" />
-		<appender-ref ref="peticiones" />
-	</logger>
-	<logger name="org.springframework" additivity="false">
-		<level value="error" />
-		<appender-ref ref="desa" />
-	</logger>
-	<logger name="org.springframework.orm" additivity="false">
-		<level value="error" />
-		<appender-ref ref="desa" />
-	</logger>
-	<logger name="org.springframework.transaction" additivity="false">
-		<level value="info" />
-		<appender-ref ref="desa" />
-	</logger>
-	<logger name="org.hibernate" additivity="false">
-		<level value="error" />
-		<appender-ref ref="desa" />
-	</logger>
 	<!--ROOT -->
 	<root>
-		<level value="error" />
-		<appender-ref ref="desa" />
+		<level value="info" />
+		<appender-ref ref="consola" />
 	</root>
 	<!--ROOT -->
 	<!--LOGGERS -->
