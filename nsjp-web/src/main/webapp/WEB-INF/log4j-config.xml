@@ -10,7 +10,7 @@
 	</appender>
 	<!--ROOT -->
 	<root>
-		<level value="error" />
+		<level value="info" />
 		<appender-ref ref="consola" />
 	</root>
 	<!--ROOT -->
