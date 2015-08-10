@@ -860,6 +860,10 @@
 				}
 				
 				numeroCaso='<%= request.getSession().getAttribute("numeroCasoConsul")%>';
+
+				if(numeroCaso == undefined || numeroCaso == null || numeroCaso == "null"){
+					numeroCaso = '- PENDIENTE -';
+				}
 				titulo=titulo+" No. Caso: "+numeroCaso;
 				window.parent.tituloVentana(titulo);
 			}
