@@ -920,6 +920,15 @@ public interface ExpedienteDelegate {
 		throws NSJPNegocioException;
 
     /**
+     * Metodo que permite crear un nuevo numero de expediente, expediente y su caso
+     * @param expedienteDTO
+     * @return ExpedienteDTO
+     * @throws NSJPNegocioException
+     */
+    public ExpedienteDTO generarExpedienteSinCaso(ExpedienteDTO expedienteDTO)
+            throws NSJPNegocioException;
+
+    /**
 	 * Servicio utilizado para obtener los expedientes recibidos de IPH, es decir, 
 	 * remision IPH. 
 	 * 
