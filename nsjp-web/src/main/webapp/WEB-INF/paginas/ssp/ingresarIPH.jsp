@@ -916,8 +916,9 @@
 		<tr>			
 			<td align="right">
 					<!--<input type="button" value="Guardado Parcial" id="btnIPHGuardadoParcial" class="back_button" onclick="guardarDatosGeneralesIPH()"/> -->
+					<input type="button" value="Adjuntar" id="btnAdjuntar" class="back_button" onclick="guardarDatosGeneralesIPH()"/>
 					<input type="button" value="Guardar" id="btnIPHGuardadoParcial" class="back_button" onclick="guardarDatosGeneralesIPH()"/>
-					 <input type="button" value="Generar Informe" class="btn_Generico" onclick="generarInformeIPH()"/>
+					<input type="button" value="Generar Informe" class="btn_Generico" onclick="generarInformeIPH()"/>
 			</td>
 		</tr>
 	</table>
