@@ -621,7 +621,7 @@ public class ConsultaAction extends GenericAction{
 	 * @return
 	 * @throws IOException
 	 */
-	public ActionForward nuevoExpedienteUIOld(ActionMapping mapping, ActionForm form,
+	public ActionForward nuevoExpedienteUI(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
 		
@@ -691,7 +691,7 @@ public class ConsultaAction extends GenericAction{
 	 * @return
 	 * @throws IOException
 	 */
-	public ActionForward nuevoExpedienteUI(ActionMapping mapping, ActionForm form,
+	public ActionForward nuevoExpedienteUISinCaso(ActionMapping mapping, ActionForm form,
 										   HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
 
