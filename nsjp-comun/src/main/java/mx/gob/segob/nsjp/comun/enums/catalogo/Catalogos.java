@@ -246,7 +246,8 @@ public enum Catalogos {
     CORPORACION,
     //Tabla CatFormaNotificacion, no se encuentra dentro de la tabla Catalogo.
     CAT_FORMAS_NOTIFICACION,
-    ESTATUS_AMPARO;
+    ESTATUS_AMPARO,
+    REGION;
     
     /**
      * 
