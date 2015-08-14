@@ -860,6 +860,10 @@
 				}
 				
 				numeroCaso='<%= request.getSession().getAttribute("numeroCasoConsul")%>';
+
+				if(numeroCaso == undefined || numeroCaso == null || numeroCaso == "null"){
+					numeroCaso = '- PENDIENTE -';
+				}
 				titulo=titulo+" No. Caso: "+numeroCaso;
 				window.parent.tituloVentana(titulo);
 			}
@@ -2954,7 +2958,7 @@
 			idWindowIngresarProbResponsable++;
 			var titulo = "Ingresar " + etiquetaProbableProp;
 			$.newWindow({id:"iframewindowIngresarProbResponsable" + idWindowIngresarProbResponsable, statusBar: true, posx:75,posy:30,width:1100,height:530,title:titulo, type:"iframe"});
-			$.updateWindowContent("iframewindowIngresarProbResponsable" + idWindowIngresarProbResponsable,'<iframe src="<%= request.getContextPath() %>/IngresarProbResponsable.do?numeroExpediente='+numeroExpediente +'&calidadInv=PROBABLE_RESPONSABLE&idDefensor='+idDefensor+'&detenido='+muestraDetenido+'&sistemaTrad='+sistemaTrad+'" width="1100" height="530" />');
+			$.updateWindowContent("iframewindowIngresarProbResponsable" + idWindowIngresarProbResponsable,'<iframe src="<%= request.getContextPath() %>/IngresarProbResponsable.do?numeroExpediente='+idNumeroExpedienteOp +'&calidadInv=PROBABLE_RESPONSABLE&idDefensor='+idDefensor+'&detenido='+muestraDetenido+'&sistemaTrad='+sistemaTrad+'" width="1100" height="530" />');
 			$("#" +"iframewindowIngresarProbResponsable" + idWindowIngresarProbResponsable + " .window-maximizeButton").click();
 		}
 

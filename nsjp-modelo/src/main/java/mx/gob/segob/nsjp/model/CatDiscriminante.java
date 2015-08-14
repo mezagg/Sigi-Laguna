@@ -30,6 +30,7 @@ public class CatDiscriminante implements Serializable {
     private CatDistrito distrito;//     	campo llave NOT NULL,
     private String clave;//	cadena 10 NOT NULL,
     private String nombre;//            	cadena 300 NOT NULL,
+	private Region region;
 	/**
 	 * BD se tiene el valor: 
 	 * 		1.- Agencia 
@@ -115,6 +116,12 @@ public class CatDiscriminante implements Serializable {
 	public Short getClasificacion() {
 		return clasificacion;
 	}
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "region_id", nullable = true)
+	public Region getRegion() {
+		return region;
+	}
 	/**
 	 * @param catDiscriminanteId the catDiscriminanteId to set
 	 */
@@ -155,5 +162,8 @@ public class CatDiscriminante implements Serializable {
 		this.esOpcionUIE = esOpcionUIE;
 	}
 
-    
+
+	public void setRegion(Region region) {
+		this.region = region;
+	}
 }

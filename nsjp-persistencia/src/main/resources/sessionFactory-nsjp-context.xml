@@ -286,6 +286,9 @@
 				
 				<value>mx.gob.segob.nsjp.model.DiscriminanteUIEspecializada</value>
 				<value>mx.gob.segob.nsjp.model.AcumulacionNumeroExpediente</value>
+
+				<!-- Actualización de NUC para que contemple Region-->
+				<value>mx.gob.segob.nsjp.model.Region</value>
 				
 			</list>
 		</property>

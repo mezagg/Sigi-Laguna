@@ -21,6 +21,7 @@ public class CatDiscriminanteTransformer {
 		
 		CatDiscriminanteDTO dto= new CatDiscriminanteDTO(scr.getCatDiscriminanteId(), catDistrito, scr.getClave(), scr.getNombre(), scr.getClasificacion());
 		dto.setEsOpcionUIE(scr.getEsOpcionUIE());
+		dto.setClaveRegion(scr.getRegion().getClaveRegion());
 		return dto;
 	}
 

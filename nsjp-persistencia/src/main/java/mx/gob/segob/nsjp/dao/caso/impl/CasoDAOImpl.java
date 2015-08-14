@@ -62,7 +62,7 @@ public class CasoDAOImpl extends GenericDaoHibernateImpl<Caso, Long> implements
 		if( monogramaInstitucion!=null && !monogramaInstitucion.trim().isEmpty()){
             queryStr.append(" WHERE obj.numeroGeneralCaso LIKE '____").
                   append(monogramaInstitucion).
-                  append("________").
+                  append("_%_______").
 //                  TODO se elimina el reinicio por año en los numeros de caso por peticion de PG (COAH)
 //                  append(anio).
                   append("%' ");

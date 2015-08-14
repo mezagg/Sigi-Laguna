@@ -254,7 +254,7 @@ public class InvolucradoFormUtil {
 				}*/
 				
 				//Guardo objeto media filiacion en el involucrado
-				involucradoDTO.setMediaFiliacionDTO(obtenerMediaFiliacion(forma));
+				//involucradoDTO.setMediaFiliacionDTO(obtenerMediaFiliacion(forma));
 			}
 		} else if (forma.getCalidadDelIndividuo().equals(
 				CALIDAD_CONTACTO_ORGANIZACIONAL)) {
@@ -535,15 +535,16 @@ public class InvolucradoFormUtil {
 		
 		List<ValorDTO> listaValor=new ArrayList<ValorDTO>();
 		String[] idsOcupaciones = forma.getOcupacion().split(",");
+		//FIXME comentado para ver si corre flujo
 		if(idsOcupaciones!=null && idsOcupaciones[0]!=""){
 			for (int i = 0; i < idsOcupaciones.length; i++) {
 				valorGenerico = new ValorDTO();
-				Long ocupacion=Long.parseLong(idsOcupaciones[i]);
-				valorGenerico.setIdCampo(ocupacion);
-				listaValor.add(valorGenerico);
+				//Long ocupacion=Long.parseLong(idsOcupaciones[i]);
+				//valorGenerico.setIdCampo(ocupacion);
+				//listaValor.add(valorGenerico);
 			}
 		}
-		involucradoDTO.setValorIdOcupacion(listaValor);
+		//involucradoDTO.setValorIdOcupacion(listaValor);
 		
 		listaValor=new ArrayList<ValorDTO>();
 		String[] idsNacionalidades = forma.getNacionalidad().split(",");

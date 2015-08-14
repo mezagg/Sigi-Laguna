@@ -133,12 +133,14 @@ function nuevaDenunciaUI() {
     var numeroExpediente;
     var numeroExpedienteId;
     var numeroCasoNuevo;
-	////ya estaba
     var idNuevaDenuncia = 1;
     //variable que indica si es un ingreso o una consulta
     var ingresoDenuncia = false;
     var registrarUIE = true;
-    
+
+	/*
+		Cambia de nuevoExpedienteUI a nuevoExpedienteUISinCaso para Generar Denuncias sin caso
+	 */
    	$.ajax({
 		type: 'POST',
 		url:  contextoPagina + '/nuevoExpedienteUI.do?registrarUIE='+registrarUIE,
@@ -154,7 +156,11 @@ function nuevaDenunciaUI() {
 		}
 		
 	});
-   	
+
+	if( ! numeroCasoNuevo){
+		numeroCasoNuevo = '- PENDIENTE -';
+	}
+
 	idWindowNuevaDenuncia++;
 	isWindowOpen = true;
 	customVentana(	"iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia, 

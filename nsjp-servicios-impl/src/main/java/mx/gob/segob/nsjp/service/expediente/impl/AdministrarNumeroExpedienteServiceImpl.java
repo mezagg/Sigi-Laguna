@@ -81,13 +81,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * Este caso de uso permitirá al solicitante del servicio crear un número de expediente
+ * Este caso de uso permitirï¿½ al solicitante del servicio crear un nï¿½mero de expediente
  *  y asignarlo a un expediente, o en su caso crear un nuevo expediente en el sistema.
- *  La información que tendrá e nuevo número de expediente es:
+ *  La informaciï¿½n que tendrï¿½ e nuevo nï¿½mero de expediente es:
  *    - Usuario firmado.
  *    
- *  La información que tendrá el nuevo expediente es:
- *    - Número de expediente.
+ *  La informaciï¿½n que tendrï¿½ el nuevo expediente es:
+ *    - Nï¿½mero de expediente.
  *    - Usuario firmado.
  */
 @Service
@@ -148,48 +148,48 @@ public class AdministrarNumeroExpedienteServiceImpl implements AdministrarNumero
 				|| institucionDTO.getInstitucionId() == null)
 			throw new NSJPNegocioException(CodigoError.PARAMETROS_INSUFICIENTES);
 		
-    	//1.- Verificar si existe el Expediente, al que se le va a asignar el número de expediente.
+    	//1.- Verificar si existe el Expediente, al que se le va a asignar el nï¿½mero de expediente.
 		existeExpediente = this.validarSiExisteExpediente(expedienteDTO.getNumeroExpedienteId());
     	if (!existeExpediente){
 	    	//FA1 .- Si no existe el Expediente se crea uno nuevo
     		expedienteDTO = this.crearExpediente();
     	}
     	
-    	//2.- Consultar el ultimo numero consecutivo asignado a un expediente para la institución.
+    	//2.- Consultar el ultimo numero consecutivo asignado a un expediente para la instituciï¿½n.
     	//Si es nuevo el Expediente, la consulta regresara null
     	ultimoNumeroExpediente = this.consultarUltimoNumeroExpediente(institucionDTO.getInstitucionId());    	
     	if (ultimoNumeroExpediente == null){
     		
-    		//FA2.- Si no existe un número de expediente asignado dentro de la institución-área a la que pertenece el usuario.
+    		//FA2.- Si no existe un nï¿½mero de expediente asignado dentro de la instituciï¿½n-ï¿½rea a la que pertenece el usuario.
     		prefijo = jerarquiaOrganizacionalService.consultarPrefijo(institucionDTO);
     		
-    		//2. El sistema asigna a la parte del número consecutivo del número de expediente un cero
+    		//2. El sistema asigna a la parte del nï¿½mero consecutivo del nï¿½mero de expediente un cero
     		//Sufijo en A-00000
     		consecutivo = ConsecutivosUtil.CONSECUTIVO_INICIAL;
     	}else{
-    		//FIXME GBP MOCK Se tiene en Harcode un número de expediente 
+    		//FIXME GBP MOCK Se tiene en Harcode un nï¿½mero de expediente 
     		//Este mock es para construir un numero de expediente de acuerdo al desarrollo del CU Administracion de numero de expedientes
     		ultimoNumeroExpediente = "000/PR/15/RBO/2011/B-99999";
 
-    		//Se descarta los 4 caracteres del año incluyendo el separador, por esta razón se resta 5
+    		//Se descarta los 4 caracteres del aï¿½o incluyendo el separador, por esta razï¿½n se resta 5
     		prefijo = ultimoNumeroExpediente.substring(0,ultimoNumeroExpediente.lastIndexOf(ConsecutivosUtil.SEPARADOR_PREFIJOS) - 5 );
     		    		
-    		//3.- Asignar nuevo expediente a través del último número + 1
+    		//3.- Asignar nuevo expediente a travï¿½s del ï¿½ltimo nï¿½mero + 1
     		consecutivo = ultimoNumeroExpediente.substring(ultimoNumeroExpediente.lastIndexOf(ConsecutivosUtil.SEPARADOR_PREFIJOS)+1 );
         	consecutivo= this.generarConsecutivoNumeroExpediente(consecutivo);
     	}
 
-    	//Manejo del año
+    	//Manejo del aï¿½o
     	Calendar fechaActual = new GregorianCalendar();
     	anio = "/" + fechaActual.get(Calendar.YEAR) + "/";
     	
     	ultimoNumeroExpediente = prefijo + anio + consecutivo;
     	
-    	logger.info("Nuevo Número Expedeinte:"+ ultimoNumeroExpediente);
+    	logger.info("Nuevo Nï¿½mero Expedeinte:"+ ultimoNumeroExpediente);
     	
     	expedienteDTO.setNumeroExpediente(ultimoNumeroExpediente);
     	
-    	//4.- Asociar número de expediente al expediente y al usuario.
+    	//4.- Asociar nï¿½mero de expediente al expediente y al usuario.
     	expedienteDTO.setUsuario(usuarioDTO);
     	
     	//TODO GBP En la siguiente operacion realiza el registro en BD  
@@ -203,7 +203,7 @@ public class AdministrarNumeroExpedienteServiceImpl implements AdministrarNumero
 	public String consultarUltimoNumeroExpediente(Long idInstitucion) throws NSJPNegocioException {
 
 		if (logger.isDebugEnabled())
-			logger.debug("/**** Servicio para consultar el último Numero de expediente ****/");
+			logger.debug("/**** Servicio para consultar el ï¿½ltimo Numero de expediente ****/");
 		
 		if( idInstitucion==null)
 			throw new NSJPNegocioException(CodigoError.PARAMETROS_INSUFICIENTES);
@@ -264,7 +264,7 @@ public class AdministrarNumeroExpedienteServiceImpl implements AdministrarNumero
         if ( usuario==null || usuario.getFuncionario()==null )
         	throw new NSJPNegocioException(CodigoError.PARAMETROS_INSUFICIENTES);
         
-        //Asociar al Número de Expediente al Expediente
+        //Asociar al Nï¿½mero de Expediente al Expediente
         NumeroExpediente numeroExpediente= new NumeroExpediente();
         numeroExpediente.setExpediente(expediente);
         if( expedienteDto.getEtapa()!= null && expedienteDto.getEtapa().getIdCampo()!= null )
@@ -292,15 +292,15 @@ public class AdministrarNumeroExpedienteServiceImpl implements AdministrarNumero
 			throw new NSJPNegocioException(CodigoError.PARAMETROS_INSUFICIENTES);
 
 		logger.info("Solicitud:"+solicitud );
-		logger.info("Solicitud NmExp:"+solicitud.getNumeroExpediente() );
+		logger.info("Solicitud NmExp:" + solicitud.getNumeroExpediente());
 		
 		NumeroExpediente numeroExpediente = numeroExpedienteDAO.obtenerNumeroExpediente(expedienteDTO.getNumeroExpediente(),null);
 		
 		if(numeroExpediente==null)
 			throw new NSJPNegocioException(CodigoError.PARAMETROS_INSUFICIENTES);
 		
-		logger.info("numeroExpediente:"+numeroExpediente );
-		logger.info("NumeroExpediente:"+numeroExpediente.getNumeroExpediente() );
+		logger.info("numeroExpediente:" + numeroExpediente);
+		logger.info("NumeroExpediente:" + numeroExpediente.getNumeroExpediente());
 		
 
 		solicitud.setNumeroExpediente(numeroExpediente);
@@ -326,7 +326,7 @@ public class AdministrarNumeroExpedienteServiceImpl implements AdministrarNumero
 		NumeroExpediente numExp = exp!=null&&exp.getNumeroExpedientes().size()==1?exp.getNumeroExpedientes().iterator().next():null;
 		
 		if(numExp == null){
-			//Crear expediente y número
+			//Crear expediente y nï¿½mero
 			expediente = crearExpediente();
 			expediente = ExpedienteTransformer.transformaExpediente(expedienteDAO.read(expediente.getExpedienteId()));
 			expediente.setArea(new AreaDTO(Areas.ATENCION_TEMPRANA_DEFENSORIA));
@@ -336,7 +336,7 @@ public class AdministrarNumeroExpedienteServiceImpl implements AdministrarNumero
 			asignarNumeroExpedienteService.asignarNumeroExpediente(expediente);
 		} else {
 		    if (exp!=null && exp.getNumeroExpedientes().size()>1) {
-		           //Crear expediente y número
+		           //Crear expediente y nï¿½mero
 	            expediente = caso==null ? crearExpediente():crearExpediente(caso.getCasoId());
 	            expediente = ExpedienteTransformer.transformaExpediente(expedienteDAO.read(expediente.getExpedienteId()));
 	            expediente.setArea(new AreaDTO(Areas.ATENCION_TEMPRANA_DEFENSORIA));
@@ -350,7 +350,7 @@ public class AdministrarNumeroExpedienteServiceImpl implements AdministrarNumero
 	}
 	
 	/**
-	 * Operación que realiza la funcionalidad de validar si existe un expediente 
+	 * Operaciï¿½n que realiza la funcionalidad de validar si existe un expediente 
      * Recibe el id del expediente
      * Devuelve un valor boleano, verdadero en caso de que exista, falso en caso contrario
 	 * 
@@ -371,15 +371,15 @@ public class AdministrarNumeroExpedienteServiceImpl implements AdministrarNumero
 	
 	/**
 	 * 
-	 * Operación que realiza la funcionalidad de asignar el nuevo número de expediente.
-	 * recibe el último número del expediente registrado.Lo asigna a través del último número +1.
-	 * Regresa el número de expediente de tipo cadena, en caso contrario devuelve null.
+	 * Operaciï¿½n que realiza la funcionalidad de asignar el nuevo nï¿½mero de expediente.
+	 * recibe el ï¿½ltimo nï¿½mero del expediente registrado.Lo asigna a travï¿½s del ï¿½ltimo nï¿½mero +1.
+	 * Regresa el nï¿½mero de expediente de tipo cadena, en caso contrario devuelve null.
 	 * 
 	 * El formato del consecutivo del numero de Expediente es:
 	 * 	C-DDDDD
 	 * donde:
-	 * 	C: Cáracter {A-Z}
-	 *  D: Dígito {0-9} 
+	 * 	C: Cï¿½racter {A-Z}
+	 *  D: Dï¿½gito {0-9} 
 	 * Ejemplo: 
 	 * 	C-12345
 	 *
@@ -639,6 +639,71 @@ public class AdministrarNumeroExpedienteServiceImpl implements AdministrarNumero
         return expBD;
 	}
 
+
+	@Transactional
+	public ExpedienteDTO generarNuevoExpedienteSinCaso(ExpedienteDTO expedienteDTO) throws NSJPNegocioException{
+		if (logger.isDebugEnabled())
+			logger.debug("/**** Servicio para crear un expediente, numero Expediente ****/");
+
+		if (expedienteDTO == null
+				|| expedienteDTO.getUsuario() == null
+				|| expedienteDTO.getUsuario().getFuncionario() == null
+				|| expedienteDTO.getUsuario().getFuncionario()
+				.getJerarquiaOrganizacional() == null
+				|| expedienteDTO.getUsuario().getFuncionario()
+				.getJerarquiaOrganizacional()
+				.getJerarquiaOrganizacionalId() == null) {
+			throw new NSJPNegocioException(CodigoError.PARAMETROS_INSUFICIENTES);
+		}
+
+		//CasoDTO casoDTO = new CasoDTO();
+
+		/*if (expedienteDTO.getUsuario().getFuncionario()
+				.getJerarquiaOrganizacional().getJerarquiaOrganizacionalId() != Areas.AGENCIA_DEL_MINISTERIO_PUBLICO
+				.ordinal()) {
+
+			// Se genera el caso para ser asociado al Expediente
+
+			casoDTO.setFechaApertura(new Date());
+			casoDTO.setEstatus(EstatusCaso.INVESTIGACION);
+			casoDTO = casoService.asignarNumeroCaso(casoDTO, expedienteDTO
+					.getUsuario().getFuncionario());
+		}*/
+
+		ExpedienteDTO expParam = new ExpedienteDTO();
+		ExpedienteDTO expBD = null;
+		expParam.setFechaApertura(new Date());
+		//Se settea al usuario coordinador
+		expParam.setUsuario(expedienteDTO.getUsuario());
+		expParam.setArea(expedienteDTO.getUsuario().getArea());
+		//expParam.setCasoDTO(casoDTO);
+		expParam.setCatUIE(expedienteDTO.getCatUIE());
+
+		// Para los expedientes generados en PJ, se debe utilizar el tipo CAUSA
+		if (expedienteDTO.getArea() != null
+				&& expedienteDTO.getArea().getAreaId() != null
+				&& expedienteDTO.getArea().getAreaId()
+				.equals(Long.parseLong(""+Areas.DEPARTAMENTO_CAUSA.ordinal()))) {
+
+			ValorDTO tipoExpValor = new ValorDTO(
+					TipoExpediente.CAUSA.getValorId());
+			expParam.setTipoExpediente(tipoExpValor);
+		}
+
+		//Es necesario para generar el Numero de Expediente
+		expBD = asignarNumeroExpedienteService.asignarNumeroExpediente(expParam);
+		//expBD.setCasoDTO(casoDTO);
+		if(expedienteDTO.getCatUIE()!=null){
+
+			CatUIEspecializada catUIEspecializada=catUIEspecializadaDAO.read(expedienteDTO.getCatUIE());
+			if(catUIEspecializada!=null){
+				Expediente expediente=expedienteDAO.read(expBD.getExpedienteId());
+				expediente.setCatUIEspecializada(catUIEspecializada);
+				expedienteDAO.update(expediente);
+			}
+		}
+		return expBD;
+	}
 
 	@Override
 	public Long consultarEstatusNumeroExpedienteByNumeroExpedienteId(

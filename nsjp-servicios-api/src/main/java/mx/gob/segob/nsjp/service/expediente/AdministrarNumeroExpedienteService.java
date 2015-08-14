@@ -194,6 +194,14 @@ public interface AdministrarNumeroExpedienteService {
 	 */
 	public ExpedienteDTO generarNuevoExpedienteConCaso(ExpedienteDTO expedienteDTO) throws NSJPNegocioException;
 
+	/**
+	 * Permite crear un nuevo expediente con un nuevo numero de Expediente
+	 * @param expedienteDTO
+	 * @return
+	 * @throws NSJPNegocioException
+	 */
+	public ExpedienteDTO generarNuevoExpedienteSinCaso(ExpedienteDTO expedienteDTO) throws NSJPNegocioException;
+
 
 	/**
 	 * Servicio que permite pasar un involucrado de un expediente a otro expediente

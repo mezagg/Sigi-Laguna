@@ -1,0 +1,1 @@
+Para debug con glassfish4.1 deshabilitar las variables adicionales JAVA_OPTS en la seccion de Startup/Connection para dbug
