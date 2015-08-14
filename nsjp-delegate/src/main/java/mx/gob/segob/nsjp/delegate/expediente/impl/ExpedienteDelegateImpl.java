@@ -182,7 +182,7 @@ public class ExpedienteDelegateImpl implements ExpedienteDelegate {
 	public List<InvolucradoDTO> consultarExpedientesPorFiltrosYDiscriminante(
 			FiltroExpedienteDTO filtrosBusquedaExpediente,UsuarioDTO usuarioFirmado)
 			throws NSJPNegocioException {
-		return service.buscarExpedientesPorFiltrosYDiscriminante(filtrosBusquedaExpediente,usuarioFirmado);
+		return service.buscarExpedientesPorFiltrosYDiscriminante(filtrosBusquedaExpediente, usuarioFirmado);
 	}
 
 	@Override
@@ -431,8 +431,8 @@ public class ExpedienteDelegateImpl implements ExpedienteDelegate {
 	public List<ExpedienteDTO> consultarExpedientePorAreaEstatusRemitente(
 			UsuarioDTO usuarioDTO, AreaDTO area,
 			Long estatusExpediente) throws NSJPNegocioException {
-		return service.consultarExpedientePorAreaEstatusRemitente( usuarioDTO,  area,
-				 estatusExpediente);
+		return service.consultarExpedientePorAreaEstatusRemitente(usuarioDTO, area,
+				estatusExpediente);
 	}
 
 
@@ -525,7 +525,7 @@ public class ExpedienteDelegateImpl implements ExpedienteDelegate {
 	public List<ExpedienteDTO> consultarNumeroExpedienteByTipoYEstatus(
 			TipoExpediente tipoExpediente, EstatusExpediente estatusExpediente)
 			throws NSJPNegocioException {		
-		return service.consultarNumeroExpedienteByTipoYEstatus(tipoExpediente, estatusExpediente,null);
+		return service.consultarNumeroExpedienteByTipoYEstatus(tipoExpediente, estatusExpediente, null);
 	}
 	
     public NotaExpedienteDTO consultarNotaPorId(Long idNota)throws NSJPNegocioException {
@@ -619,21 +619,21 @@ public class ExpedienteDelegateImpl implements ExpedienteDelegate {
     @Override
     public List<ExpedienteDTO> consultarNumeroExpedienteByEstatus(
             EstatusExpediente estatusExpediente) throws NSJPNegocioException {
-        return service.consultarNumeroExpedienteByTipoYEstatus(null, estatusExpediente,null);   
+        return service.consultarNumeroExpedienteByTipoYEstatus(null, estatusExpediente, null);
         }
     
 	@Override
 	public List<ExpedienteDTO> consultarNumeroDeExpedienteConHechoPorFiltros(
 			EstatusExpediente estatusExpediente, UsuarioDTO usuario,
 			Date fechaInicio, Date fechaFin) throws NSJPNegocioException {
-		return service.consultarNumeroDeExpedienteConHechoPorFiltros(estatusExpediente, usuario,fechaInicio,fechaFin);
+		return service.consultarNumeroDeExpedienteConHechoPorFiltros(estatusExpediente, usuario, fechaInicio, fechaFin);
 	}
 	
 	@Override
 	public List<ExpedienteDTO> consultarNumeroDeExpedienteSinHechoPorFiltros(
 			EstatusExpediente estatusExpediente, UsuarioDTO usuario,
 			Date fechaInicio, Date fechaFin) throws NSJPNegocioException {
-		return service.consultarNumeroDeExpedienteSinHechoPorFiltros(estatusExpediente, usuario,fechaInicio,fechaFin);
+		return service.consultarNumeroDeExpedienteSinHechoPorFiltros(estatusExpediente, usuario, fechaInicio, fechaFin);
 	}
 
 	public ExpedienteDTO generarNuevoExpedienteUAVD(DelitoPersonaDTO delitoPersonaDTO) throws NSJPNegocioException{
@@ -650,6 +650,11 @@ public class ExpedienteDelegateImpl implements ExpedienteDelegate {
 		throws NSJPNegocioException{
     return administrarNumeroExpediente.generarNuevoExpedienteConCaso(expedienteDTO);
     }
+
+	public ExpedienteDTO generarExpedienteSinCaso(ExpedienteDTO expedienteDTO)
+			throws NSJPNegocioException{
+		return administrarNumeroExpediente.generarNuevoExpedienteSinCaso(expedienteDTO);
+	}
 
 	public List<ExpedienteDTO> buscarRemisionesConIPH(EstatusExpediente estatusExpediente)throws NSJPNegocioException{
 		return service.buscarRemisionesConIPH(estatusExpediente);

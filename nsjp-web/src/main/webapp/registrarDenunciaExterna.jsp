@@ -56,6 +56,10 @@
 	    		}
 	    		
 	    	});
+
+			if( ! numeroCasoNuevo){
+				numeroCasoNuevo = '- PENDIENTE -';
+			}
 	        var pantallaSolicitada=3;
         	idWindowNuevaDenuncia++;
     		window.parent.nuevaVentanaMenuIntermedio(idExpediente,numeroExpediente,numeroExpedienteId,numeroCasoNuevo,pantallaSolicitada);

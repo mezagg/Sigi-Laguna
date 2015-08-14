@@ -584,7 +584,7 @@ public class ConsultaAction extends GenericAction{
 			writer.print("<rows>");
 			int lTotalRegistros=listaExpedientesVisitaduria.size();
 			writer.print("<records>" + lTotalRegistros + "</records>");	
-			log.info("ejecutando action VisitaduiraAction - consultaexpedientesVisitadores :: "+lTotalRegistros);
+			log.info("ejecutando action VisitaduiraAction - consultaexpedientesVisitadores :: " + lTotalRegistros);
 			
 			for (ExpedienteDTO expedienteDTO : listaExpedientesVisitaduria) {
 				writer.print("<row id='"+expedienteDTO.getNumeroExpedienteId()+"'>");
@@ -611,7 +611,16 @@ public class ConsultaAction extends GenericAction{
 		}
 		return null;
 	}
-	
+
+	/**
+	 * nuevoExpedienteUI Expediente con Caso
+	 * @param mapping
+	 * @param form
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws IOException
+	 */
 	public ActionForward nuevoExpedienteUI(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
@@ -662,6 +671,73 @@ public class ConsultaAction extends GenericAction{
 			converter.alias("expedienteDTO", ExpedienteDTO.class);
 			String xml = converter.toXML(expedienteDTO);
 			//super.escribirRespuesta(response, xml);
+			response.setContentType("text/xml");
+			PrintWriter pw = response.getWriter();
+			pw.print(xml);
+			pw.flush();
+			pw.close();
+		} catch (Exception e) {
+			log.error(e.getMessage(), e);
+		}
+		return null;
+	}
+
+	/**
+	 * Cambio a sin CASO
+	 * @param mapping
+	 * @param form
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws IOException
+	 */
+	public ActionForward nuevoExpedienteUISinCaso(ActionMapping mapping, ActionForm form,
+										   HttpServletRequest request, HttpServletResponse response)
+			throws IOException {
+
+		try {
+
+			log.info("ejecutando Action consultar Action en el metodo nuevoExpedienteUI");
+			ExpedienteDTO expedienteDTO=new ExpedienteDTO();
+
+			expedienteDTO.setFechaApertura(new Date());
+			UsuarioDTO usuario=super.getUsuarioFirmado(request);
+
+			expedienteDTO.setArea(usuario.getAreaActual());
+
+			usuario.getFuncionario().setDepartamento(new DepartamentoDTO(usuario.getFuncionario().getJerarquiaOrganizacional().getJerarquiaOrganizacionalId(),null));
+			usuario.getFuncionario().getDepartamento().setArea(new AreaDTO(usuario.getFuncionario().getJerarquiaOrganizacional().getJerarquiaOrganizacionalId()));
+			expedienteDTO.setUsuario(usuario);
+			String incompetencia = request.getParameter("activarIncompetencia");
+			if( incompetencia != null && incompetencia.equals("true")
+					&& usuario.getFuncionario()!=null && usuario.getFuncionario().getUnidadIEspecializada()!=null
+					&& usuario.getFuncionario().getUnidadIEspecializada().getCatUIEId()!=null){
+				expedienteDTO.setCatUIE(usuario.getFuncionario().getUnidadIEspecializada().getCatUIEId());
+			}
+			String registrarUIE = request.getParameter("registrarUIE");
+			if( registrarUIE != null && registrarUIE.equals("true")
+					&& usuario.getFuncionario()!=null && usuario.getFuncionario().getUnidadIEspecializada()!=null
+					&& usuario.getFuncionario().getUnidadIEspecializada().getCatUIEId()!=null){
+				expedienteDTO.setCatUIE(usuario.getFuncionario().getUnidadIEspecializada().getCatUIEId());
+			}
+			expedienteDTO = expedienteDelegate.generarExpedienteSinCaso(expedienteDTO);
+			expedienteDTO.setConsulta(false);
+			request.getSession().setAttribute("numeroExpediente", expedienteDTO.getNumeroExpediente());
+			String pm=request.getParameter("pm");
+			log.info("************************************** Metodo nuevoExpedienteUI el id del numero de expediente  es: "+expedienteDTO.getNumeroExpediente());
+			log.info("************************************** Metodo nuevoExpedienteUI el id del numero de expediente  es: "+expedienteDTO.getExpedienteId());
+			super.setExpedienteTrabajo(request, expedienteDTO);
+			if(pm==null){
+				actividadDelegate.registrarActividad(expedienteDTO, usuario.getFuncionario(), Actividades.ATENDER_CANALIZACION_UI.getValorId());
+			}
+
+			log.info("$$$$$$$$$$$$$$$$$$$$$$$$  activarIncompetencia es "+incompetencia);
+			if( incompetencia != null && incompetencia.equals("true")){
+				expedienteDelegate.actualizarTipoExpediente( expedienteDTO, OrigenExpediente.INCOMPETENCIA);
+			}
+
+			converter.alias("expedienteDTO", ExpedienteDTO.class);
+			String xml = converter.toXML(expedienteDTO);
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();
 			pw.print(xml);

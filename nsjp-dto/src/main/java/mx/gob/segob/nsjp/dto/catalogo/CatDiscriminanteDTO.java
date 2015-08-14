@@ -23,6 +23,7 @@ public class CatDiscriminanteDTO extends GenericDTO implements Comparable{
     private String nombre;
     private Short tipo;
     private Boolean esOpcionUIE;
+	private String claveRegion;
     
     
     public CatDiscriminanteDTO(){
@@ -46,6 +47,21 @@ public class CatDiscriminanteDTO extends GenericDTO implements Comparable{
 		this.nombre = nombreDisc;
 		this.tipo = tipo;
 	}
+
+	/*public CatDiscriminanteDTO(Long catDiscriminanteId,
+							   CatDistritoDTO catDistrito, String claveDiscriminante,
+							   String nombreDisc, Short tipo
+								,String claveRegion) {
+		this(catDiscriminanteId,catDistrito,claveDiscriminante,nombreDisc,tipo);
+
+		this.claveRegion = claveRegion;
+
+		//this.catDiscriminanteId = catDiscriminanteId;
+		//this.distrito = catDistrito;
+		//this.clave = claveDiscriminante;
+		//this.nombre = nombreDisc;
+		//this.tipo = tipo;
+	}*/
 	
 	
 	/**
@@ -146,6 +162,13 @@ public class CatDiscriminanteDTO extends GenericDTO implements Comparable{
 
 	public void setEsOpcionUIE(Boolean esOpcionUIE) {
 		this.esOpcionUIE = esOpcionUIE;
-	}    
+	}
 
+	public String getClaveRegion() {
+		return claveRegion;
+	}
+
+	public void setClaveRegion(String claveRegion) {
+		this.claveRegion = claveRegion;
+	}
 }
