@@ -34,6 +34,7 @@ import mx.gob.segob.nsjp.model.Forma;
 import mx.gob.segob.nsjp.model.JerarquiaOrganizacional;
 import mx.gob.segob.nsjp.model.Municipio;
 import mx.gob.segob.nsjp.model.Parametro;
+import mx.gob.segob.nsjp.model.Region;
 import mx.gob.segob.nsjp.model.SalaAudiencia;
 import mx.gob.segob.nsjp.model.SalaTemporal;
 import mx.gob.segob.nsjp.model.Valor;
@@ -107,6 +108,21 @@ public class CatalogoTransformer {
             for (Municipio row : input) {
                 resp.add(new CatalogoDTO(row.getMunicipioId(), row
                         .getNombreMunicipio()));
+            }
+        }
+        return resp;
+    }
+    /**
+     * 
+     * @param input
+     * @return
+     */
+    public static List<CatalogoDTO> transformarReg(List<Region> input) {
+        final List<CatalogoDTO> resp = new ArrayList<CatalogoDTO>();
+        if (input != null && !input.isEmpty()) {
+            for (Region row : input) {
+                resp.add(new CatalogoDTO(row.getRegionId(), row
+                        .getNombre()));
             }
         }
         return resp;

@@ -75,7 +75,7 @@ public class VerificadorEstatusSesionFilter implements Filter {
 				manejarSesionExistente(servletRequest, servletResponse, chain,
 						request, response);
 				
-				registraPeticionEnBitacora(url, request);
+				//registraPeticionEnBitacora(url, request);
 				
 			} else {
 				chain.doFilter(servletRequest, servletResponse);
@@ -178,7 +178,7 @@ public class VerificadorEstatusSesionFilter implements Filter {
 			//log.info("LA peticion es correcta no existe un usuario de sesion pero es parte del login.jsp");
 			chain.doFilter(servletRequest, servletResponse);
 		} else {
-			//log.info("No fue posible obtener el usuario de sesion");
+			log.error("No fue posible obtener el usuario de sesion");
 			response.sendRedirect(request1.getContextPath() + "/" + urlRedirec);
 		}
 	}
