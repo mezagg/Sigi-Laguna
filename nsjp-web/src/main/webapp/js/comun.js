@@ -1081,7 +1081,7 @@ function abreVentanaAdjuntarDocumentoAExpediente(){
 		$.newWindow({id:"iframewindowAdjuntarDocumento", statusBar: true, posx:50,posy:50,width:450,height:200,title:"Adjuntar documento", type:"iframe"});
 		$.updateWindowContent("iframewindowAdjuntarDocumento",'<iframe src="' + contextoPagina + '/adjuntarDocumentoAExpedienteGenerico.jsp?extensionesPermitidas=' + extensionesPermitidas + '&idExpediente='+idExpedienteop+'" width="450" height="200" />');
 	}else{
-		if(typeof(idNumeroExpediente) != "undefined" && typeof(idNumeroExpediente) != "null" && idNumeroExpediente != ""){
+            if(typeof(idNumeroExpediente) != "undefined" && typeof(idNumeroExpediente) != "null" && idNumeroExpediente != ""){
 			$.newWindow({id:"iframewindowAdjuntarDocumento", statusBar: true, posx:50,posy:50,width:450,height:200,title:"Adjuntar documento", type:"iframe"});
 			$.updateWindowContent("iframewindowAdjuntarDocumento",'<iframe src="' + contextoPagina + '/adjuntarDocumentoAExpedienteGenerico.jsp?extensionesPermitidas=' + extensionesPermitidas + '&idNumeroExpediente='+idNumeroExpediente+'" width="450" height="200" />');
 		}else{

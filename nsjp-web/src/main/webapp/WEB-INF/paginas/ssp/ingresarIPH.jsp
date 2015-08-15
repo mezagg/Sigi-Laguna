@@ -85,7 +85,8 @@
 	var numeroExpediente="";
 	var numeroExpedienteId = '<%= request.getParameter("numeroExpedienteId")%>';
 	var numeroExpedienteIdConsulta = <%=request.getSession().getAttribute("numeroExpedienteId")%>;
-	
+
+	var idExpedienteop = '<%= request.getParameter("numeroExpedienteId")%>';
 	var lsDatosMotivo="";
     
     var idWindowIngresarVictima           = 1;	
@@ -102,7 +103,11 @@
 	var idWindowIngresarSustancia         = 1;	
 	var idWindowIngresarNumerario         = 1;
 	var idWindowIngresarOtros = 1;
-	var isDetenidoExist                   = false;	
+	var isDetenidoExist                   = false;
+
+    //Extensiones permitidas para documentos adjuntos
+    var extensionesPermitidasAudio = '.mp3,.wma,.aaa';
+    var extensionesPermitidasImagen = '.jpg,.png';
 
 	var idWindowAsntarRegCadCus = 1;
 	var folioIPH='<%= request.getParameter("folioIPH")%>';
@@ -916,7 +921,7 @@
 		<tr>			
 			<td align="right">
 					<!--<input type="button" value="Guardado Parcial" id="btnIPHGuardadoParcial" class="back_button" onclick="guardarDatosGeneralesIPH()"/> -->
-					<input type="button" value="Adjuntar" id="btnAdjuntar" class="back_button" onclick="guardarDatosGeneralesIPH()"/>
+					<input type="button" value="Adjuntar" id="btnAdjuntar" class="btn_Generico" onclick="abreVentanaAdjuntarDocumentoAExpediente()"/>
 					<input type="button" value="Guardar" id="btnIPHGuardadoParcial" class="back_button" onclick="guardarDatosGeneralesIPH()"/>
 					<input type="button" value="Generar Informe" class="btn_Generico" onclick="generarInformeIPH()"/>
 			</td>
