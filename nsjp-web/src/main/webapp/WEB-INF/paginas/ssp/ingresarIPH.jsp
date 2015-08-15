@@ -30,7 +30,7 @@
 	<!--Hoja de estilos para el grid-->
 	<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/jqgrid/ui.jqgrid.css" />
 	
-	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/demo.css" />
+	<!--link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/demo.css" /-->
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery.timeentry.css"/>  
 	
 	
@@ -55,7 +55,7 @@
 	
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.layout-1.3.0.js"></script>
 	
-	<script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/demo.js"></script>
+	<!--script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/demo.js"></script-->
 	<script type="text/javascript" src="<%= request.getContextPath() %>/resources/js/jquery.timeentry.js"></script>
 
    <script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/ckeditor/ckeditor.js"></script>
@@ -921,7 +921,7 @@
 		<tr>			
 			<td align="right">
 					<!--<input type="button" value="Guardado Parcial" id="btnIPHGuardadoParcial" class="back_button" onclick="guardarDatosGeneralesIPH()"/> -->
-					<input type="button" value="Adjuntar" id="btnAdjuntar" class="btn_Generico" onclick="abreVentanaAdjuntarDocumentoAExpediente()"/>
+					<input type="button" value="Adjuntar Documento" id="btnAdjuntar" class="btn_Generico" onclick="abreVentanaAdjuntarDocumentoAExpediente()"/>
 					<input type="button" value="Guardar" id="btnIPHGuardadoParcial" class="back_button" onclick="guardarDatosGeneralesIPH()"/>
 					<input type="button" value="Generar Informe" class="btn_Generico" onclick="generarInformeIPH()"/>
 			</td>

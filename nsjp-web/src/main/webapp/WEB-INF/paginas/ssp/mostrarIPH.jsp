@@ -30,8 +30,7 @@
 	
 	<!--Hoja de estilos para el grid-->
 	<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/jqgrid/ui.jqgrid.css" />
-	
-	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/demo.css" />
+
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery.timeentry.css"/>  
 	
 	
@@ -53,8 +52,7 @@
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jqgrid/jquery.jqGrid.js"></script>
 	
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.layout-1.3.0.js"></script>
-	
-	<script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/demo.js"></script>
+
 	<script type="text/javascript" src="<%= request.getContextPath() %>/resources/js/jquery.timeentry.js"></script>
 
    <script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/ckeditor/ckeditor.js"></script>
@@ -90,6 +88,8 @@
 	var operativoId;
 	var primeraVezGridDocumentosDigitalesPropios = true;
 	var iphReplica="false";
+
+	var idExpedienteop;
     
     var idWindowIngresarVictima           = 1;	
 	//var idWindowIngresarTraductor         = 1;	
@@ -108,6 +108,10 @@
 	var isDetenidoExist                   = false;	
 
 	var idWindowAsntarRegCadCus = 1;
+
+	//Extensiones permitidas para documentos adjuntos
+	var extensionesPermitidasAudio = '.mp3,.wma,.aaa';
+	var extensionesPermitidasImagen = '.jpg,.png';
 
 	var folioIPH='<%= request.getParameter("folioIPH")%>';
 	var rowid = <%=request.getParameter("rowid")%>;
@@ -262,7 +266,8 @@
 			$("#divOperativo").hide();
 		}
 
-		numeroExpedienteId = $(xml).find('unicoIdNumeroExpediente').text(); 
+		numeroExpedienteId = $(xml).find('unicoIdNumeroExpediente').text();
+		idExpedienteop = numeroExpedienteId;
 		numeroExpediente = $(xml).find('expediente').find('numeroExpediente').first().text();
 		expedienteId=$(xml).find('expediente').find('expedienteId').first().text();
 		if($(xml).find('operativo').find('operativoId').first().text() != null && $(xml).find('operativo').find('operativoId').first().text() != ""){
@@ -1445,6 +1450,7 @@
 	<table width="100%" class="back_pleca_h">
 		<tr>			
 			<td align="right">
+					<input type="button" value="Adjuntar Documento" id="btnAdjuntar" class="btn_Generico" onclick="abreVentanaAdjuntarDocumentoAExpediente()"/>
 					 <input type="button" value="Guardar" id="btnIPHGuardadoParcial" class="back_button" onclick="guardarDatosGeneralesIPH()"/>
 					 <input type="button" value="Generar Informe" class="back_button" onclick="generarInformeIPH()"/>
 			</td>
