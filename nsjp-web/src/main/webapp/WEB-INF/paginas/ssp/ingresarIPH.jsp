@@ -106,8 +106,8 @@
 	var isDetenidoExist                   = false;
 
     //Extensiones permitidas para documentos adjuntos
-    var extensionesPermitidasAudio = '.mp3,.wma,.aaa';
-    var extensionesPermitidasImagen = '.jpg,.png';
+    var extensionesPermitidasAudio = '';
+    var extensionesPermitidasImagen = '';
 
 	var idWindowAsntarRegCadCus = 1;
 	var folioIPH='<%= request.getParameter("folioIPH")%>';

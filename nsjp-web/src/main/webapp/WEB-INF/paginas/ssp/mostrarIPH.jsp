@@ -110,8 +110,8 @@
 	var idWindowAsntarRegCadCus = 1;
 
 	//Extensiones permitidas para documentos adjuntos
-	var extensionesPermitidasAudio = '.mp3,.wma,.aaa';
-	var extensionesPermitidasImagen = '.jpg,.png';
+	var extensionesPermitidasAudio = '';
+	var extensionesPermitidasImagen = '';
 
 	var folioIPH='<%= request.getParameter("folioIPH")%>';
 	var rowid = <%=request.getParameter("rowid")%>;

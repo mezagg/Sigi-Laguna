@@ -1075,7 +1075,16 @@ function recuperaTituloVisor(idFrame){
 
 function abreVentanaAdjuntarDocumentoAExpediente(){
 	
-	var extensionesPermitidas = ".pdf," + extensionesPermitidasAudio + "," + extensionesPermitidasImagen;
+	var extensionesPermitidas = ".pdf";
+
+
+    if( extensionesPermitidasAudio.length > 0 ){
+        extensionesPermitidas = extensionesPermitidas + ","+ extensionesPermitidasAudio;
+    }
+
+    if( extensionesPermitidasImagen.length > 0 ){
+        extensionesPermitidas = extensionesPermitidas + ","+ extensionesPermitidasImagen;
+    }
 	
 	if(typeof(idExpedienteop) != "undefined" && typeof(idExpedienteop) != "null" && idExpedienteop != ""){
 		$.newWindow({id:"iframewindowAdjuntarDocumento", statusBar: true, posx:50,posy:50,width:450,height:200,title:"Adjuntar documento", type:"iframe"});
