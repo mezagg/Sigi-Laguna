@@ -268,7 +268,6 @@
                 <forward name="directorDeUnidadesDeInvestigacion" path="indexDirectivosView.page" />
                 <forward name="direccionAprehensiones" path="indexDirectorAprehension.page" />
                 <forward name="coordinadorPoliciaMinisterial" path="coordinadorPoliciaMinisterial.page" />
-
                 
 		<!-- DEFENSORIA  -->
 		
@@ -7414,7 +7413,7 @@
 	       	validate="false">
 	</action>
 	
-	<action path="/visorAtencionSolicitudesPericiales" forward="/WEB-INF/paginas/visorAtencionSolicitudesPericiales.jsp" />	
+	<action path="/visorAtencionSolicitudesPericiales" forward="/WEB-INF/paginas/visorAtencionSolicitudesPericiales.jsp" />
 	
 	<action path="/designarPerito" forward="/WEB-INF/paginas/visorDesignarPerito.jsp" />
 	<action path="/reasignarSolicitud" forward="/WEB-INF/paginas/visorReasignarSolicitud.jsp" />
@@ -11132,6 +11131,13 @@
      
       <action path="/generarExhorto" forward="/WEB-INF/paginas/exhortosIncludeView.jsp" />
       
+      <action path="/visorSolicitudesDirectorPeritos" forward="/WEB-INF/paginas/visorSolicitudesDirectorPeritos.jsp" />
+      
+      <!-- 	//vista cadena de custodia sin opcion a modificar -->
+      <action path="/consultarCadenaCustodiaDirector" forward="/WEB-INF/paginas/consultarCadenaCustodiaDirector.jsp"/>
+      
+      <!-- 		//vista de almacen sin opcion a modificar -->
+      <action path="/visorAlmacenDirector"   forward="/WEB-INF/paginas/visorAlmacenDirector.jsp"/>
 	
 	</action-mappings>
 	
