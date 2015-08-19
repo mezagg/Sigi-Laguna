@@ -72,7 +72,7 @@
 		$("#tableSolsXAtender").treeview();
                 $("#tableSolsAtendidas").treeview();
 
-//		$("#cargaTodasSols").click(cargaTodasLasSolicitudes);
+		$("#cargaTodasSols").click(cargaTodasLasSolicitudes);
 
 		outerLayout = $("body").layout( layoutSettings_Outer );
 
