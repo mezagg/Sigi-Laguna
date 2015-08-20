@@ -17,7 +17,7 @@
 	<properties>
 		<!-- Numero de versiones de algunas librerias. -->
 		<project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
-		<nsjp.home>.</nsjp.home>
+		<nsjp.home>/home/pamela/development/SIGI-Saltillo</nsjp.home>
 		<domain.home>/apps/domains/domain1</domain.home>
 	</properties>
 
