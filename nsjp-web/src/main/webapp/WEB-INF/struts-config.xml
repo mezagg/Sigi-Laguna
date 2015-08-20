@@ -11145,7 +11145,7 @@
 				scope="request"
                                 parameter="cargarGridMenuSolicitudesCompartidas"
                                 validate="false">
-</action>
+      </action>
 	
 	</action-mappings>
 	

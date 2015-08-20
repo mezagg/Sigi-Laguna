@@ -19,11 +19,20 @@
  */
 package mx.gob.segob.nsjp.service.funcionario;
 
+import java.util.List;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
 import mx.gob.segob.nsjp.dto.funcionario.FuncionarioDTO;
 
 public interface ConsultarFuncionarioService {
 
 	public FuncionarioDTO obtenerFuncionarioDTO(FuncionarioDTO funcionario)throws NSJPNegocioException;
+        
+        /**
+	 * Enable JC. Desarrollado para compartir solicitudes en UAVD.
+	 * Retorna todos los funcionarios de UAVD, incluyendo coordinadores.
+	 * @return
+	 * @throws NSJPNegocioException
+	 */
+	   List<FuncionarioDTO> consultarSubordinadosUAVD() throws NSJPNegocioException;
 	
 }

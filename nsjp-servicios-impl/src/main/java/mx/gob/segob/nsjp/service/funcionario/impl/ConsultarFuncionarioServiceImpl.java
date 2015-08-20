@@ -1,5 +1,7 @@
 package mx.gob.segob.nsjp.service.funcionario.impl;
 
+import java.util.ArrayList;
+import java.util.List;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
 import mx.gob.segob.nsjp.dao.funcionario.FuncionarioDAO;
 import mx.gob.segob.nsjp.dto.funcionario.FuncionarioDTO;
@@ -24,6 +26,15 @@ public class ConsultarFuncionarioServiceImpl implements
 			throws NSJPNegocioException {
 		Funcionario func = funcionarioDAO.read(funcionario.getClaveFuncionario());
 		return FuncionarioTransformer.transformarFuncionario(func);
+	}
+        
+        @Override
+	public List<FuncionarioDTO> consultarSubordinadosUAVD() throws NSJPNegocioException{
+		List<Funcionario> subordinadosBD = funcionarioDAO.consultarSubordinadosUAVD();
+		if(subordinadosBD != null){
+			return FuncionarioTransformer.transformarFuncionarios(subordinadosBD);
+		}
+		return new ArrayList<FuncionarioDTO>();
 	}
 
 }

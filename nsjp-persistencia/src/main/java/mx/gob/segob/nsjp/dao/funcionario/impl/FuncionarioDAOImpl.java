@@ -1,21 +1,12 @@
 /**
- * Nombre del Programa : FuncionarioDAOImpl.java
- * Autor                            : cesarAgutin
- * Compania                    : Ultrasist
- * Proyecto                      : NSJP                    Fecha: 25 Apr 2011
- * Marca de cambio        : N/A
- * Descripcion General    : Implementacion de los metodos de acceso a datos de la entidad Funcionario
- * Programa Dependiente  :N/A
- * Programa Subsecuente :N/A
- * Cond. de ejecucion        :N/A
- * Dias de ejecucion          :N/A                             Horario: N/A
- *                              MODIFICACIONES
- *------------------------------------------------------------------------------
- * Autor                       :N/A
- * Compania               :N/A
- * Proyecto                 :N/A                                 Fecha: N/A
- * Modificacion           :N/A
- *------------------------------------------------------------------------------
+ * Nombre del Programa : FuncionarioDAOImpl.java Autor : cesarAgutin Compania :
+ * Ultrasist Proyecto : NSJP Fecha: 25 Apr 2011 Marca de cambio : N/A
+ * Descripcion General : Implementacion de los metodos de acceso a datos de la
+ * entidad Funcionario Programa Dependiente :N/A Programa Subsecuente :N/A Cond.
+ * de ejecucion :N/A Dias de ejecucion :N/A Horario: N/A MODIFICACIONES
+ * ------------------------------------------------------------------------------
+ * Autor :N/A Compania :N/A Proyecto :N/A Fecha: N/A Modificacion :N/A
+ * ------------------------------------------------------------------------------
  */
 package mx.gob.segob.nsjp.dao.funcionario.impl;
 
@@ -58,32 +49,27 @@ import org.springframework.stereotype.Repository;
 
 /**
  * Implementacion de los metodos de acceso a datos de la entidad Funcionario.
- * 
+ *
  * @version 1.0
  * @author cesarAgustin
- * 
+ *
  */
 @Repository
 public class FuncionarioDAOImpl extends
         GenericDaoHibernateImpl<Funcionario, Long> implements FuncionarioDAO {
 
-	private static final Logger log = Logger
+    private static final Logger log = Logger
             .getLogger(FuncionarioDAOImpl.class);
-	
+
     @Autowired
     private NumeroExpedienteDAO numeroExpedienteDAO;
 
     /**
      * Metodo que permite consultar a una lista de funcionarios por su puesto
-     * Este metodo sera usado para obtener la informacion de:
-     * -Abogado defensor.
-     * -Coordinador de defensores.
-     * -Coordinador de fiscales.
-     * -Coordinador de servicios periciales.
-     * -Fiscal general.
-     * -Fiscal.
-     * -Juez.
-     * -Magistrado.
+     * Este metodo sera usado para obtener la informacion de: -Abogado defensor.
+     * -Coordinador de defensores. -Coordinador de fiscales. -Coordinador de
+     * servicios periciales. -Fiscal general. -Fiscal. -Juez. -Magistrado.
+     *
      * @param idPuesto
      * @return
      */
@@ -98,35 +84,33 @@ public class FuncionarioDAOImpl extends
     }
 
     @SuppressWarnings("unchecked")
-	public List<Funcionario> consultarFuncionariosPorRolMultiRol(Long idRol) {
+    public List<Funcionario> consultarFuncionariosPorRolMultiRol(Long idRol) {
         StringBuffer queryString = new StringBuffer();
-		queryString.append("SELECT F FROM Funcionario F ").append(
-				" LEFT JOIN  F.usuario.usuarioRoles as UR ").append(
-				" WHERE 1= 1 ")
-				;
-		if( idRol !=null && idRol > 0){
-			queryString. append(" AND UR.rol.rolId = ").append(
-					idRol);
-		}
-		queryString.append(" AND F.usuario.esActivo= ").append(Boolean.TRUE);
+        queryString.append("SELECT F FROM Funcionario F ").append(
+                " LEFT JOIN  F.usuario.usuarioRoles as UR ").append(
+                        " WHERE 1= 1 ");
+        if (idRol != null && idRol > 0) {
+            queryString.append(" AND UR.rol.rolId = ").append(
+                    idRol);
+        }
+        queryString.append(" AND F.usuario.esActivo= ").append(Boolean.TRUE);
         queryString.append(" ORDER BY F.nombreFuncionario");
-        
-        
+
         final PaginacionDTO pag = PaginacionThreadHolder.get();
         return super.ejecutarQueryPaginado(queryString, pag);
-    } 
-    
+    }
+
     @Override
     public Funcionario consultarFuncionarioXExpediente(NumeroExpediente numeroExpediente) {
         StringBuilder queryString = new StringBuilder();
         queryString.append("SELECT ne ").
                 append(" FROM NumeroExpediente ne ").
                 append(" WHERE ne.numeroExpediente = :expediente ").
-        		append(" AND ne.numeroExpedienteId = :numeroExpedienteId ");
+                append(" AND ne.numeroExpedienteId = :numeroExpedienteId ");
         Query query = super.getSession().createQuery(queryString.toString());
         query.setParameter("expediente", numeroExpediente.getNumeroExpediente());
         query.setParameter("numeroExpedienteId", numeroExpediente.getNumeroExpedienteId());
-        
+
         NumeroExpediente rstNumeroExpediente = null;
         rstNumeroExpediente = (NumeroExpediente) query.uniqueResult();
         Funcionario resultado = null;
@@ -140,7 +124,7 @@ public class FuncionarioDAOImpl extends
      * Metodo que permite consultar a un funcionario por su puesto Este metodo
      * sera usado para obtener la informacion de: - Abogado defensor -
      * Coordinador de Periciales - Coordinador de Defensores
-     * 
+     *
      * @param idPuesto
      * @return
      */
@@ -168,160 +152,159 @@ public class FuncionarioDAOImpl extends
     public List<Funcionario> consultarFuncionariosPorEspecialidadYPuestoDisponiblesParaFechaYHoraAudiencia(
             Date fecha, Integer duracionEstimada,
             Boolean paridadJuez, Funcionario funcionario) throws NSJPNegocioException {
-    	
+
         String minInicioAudiencia = "(datepart(HOUR, ja.audiencia.fechaAudiencia ) * 60 + 	datepart(MINUTE, ja.audiencia.fechaAudiencia ))";
         String minFinAudiencia = "(datepart(HOUR, ja.audiencia.fechaAudiencia ) * 60 + datepart(MINUTE, ja.audiencia.fechaAudiencia ) + ja.audiencia.duracionEstimada)";
-        
+
         Calendar cal = Calendar.getInstance();
         cal.setTime(fecha);
-        
+
         int minInicioAudienciaAProgramar = cal.get(Calendar.HOUR_OF_DAY) * 60
                 + cal.get(Calendar.MINUTE);
         int minFinAudienciaAProgramar = minInicioAudienciaAProgramar
                 + duracionEstimada;
-        
-        
+
         StringBuffer strQuery = new StringBuffer();
-        
+
         strQuery.append(" FROM Funcionario j WHERE 1=1");
-        if (funcionario.getDiscriminante() != null){
-        	if (funcionario.getDiscriminante().getCatDiscriminanteId() != null){
-        		strQuery.append(" AND j.discriminante.catDiscriminanteId = ");
-        		strQuery.append(funcionario.getDiscriminante().getCatDiscriminanteId());
-        	}
+        if (funcionario.getDiscriminante() != null) {
+            if (funcionario.getDiscriminante().getCatDiscriminanteId() != null) {
+                strQuery.append(" AND j.discriminante.catDiscriminanteId = ");
+                strQuery.append(funcionario.getDiscriminante().getCatDiscriminanteId());
+            }
         }
-        
+
         strQuery.append(" AND j.usuario.usuarioId IN ");
-        strQuery.append(" (SELECT ur.usuario.usuarioId FROM UsuarioRol ur WHERE ur.rol.rolId = "+ Roles.JUEZPJ.getValorId() + " ) AND ");
-        strQuery.append((paridadJuez!=null? " (j.esPar = "+ (paridadJuez?"1":"0") + " OR j.esPar IS NULL) AND " :""));
+        strQuery.append(" (SELECT ur.usuario.usuarioId FROM UsuarioRol ur WHERE ur.rol.rolId = " + Roles.JUEZPJ.getValorId() + " ) AND ");
+        strQuery.append((paridadJuez != null ? " (j.esPar = " + (paridadJuez ? "1" : "0") + " OR j.esPar IS NULL) AND " : ""));
         strQuery.append(" NOT EXISTS ( ");
         strQuery.append(" SELECT ja.id.claveFuncionario ");
         strQuery.append(" FROM FuncionarioAudiencia ja  WHERE ");
         strQuery.append(" ja.funcionario = j ");
         strQuery.append(" AND CONVERT (nvarchar, ja.audiencia.fechaAudiencia, 103) = ? ");
         strQuery.append(" AND ( ");
-        
+
         strQuery.append("( ? = ");
         strQuery.append(minInicioAudiencia);
         strQuery.append(" ) ");
-        
+
         strQuery.append(" OR ( ( ");
         strQuery.append(minInicioAudiencia);
         strQuery.append(" < ? ) AND ( ? < ");
         strQuery.append(minFinAudiencia);
         strQuery.append(" ) )");
-        
+
         strQuery.append(" OR ( ( ");
         strQuery.append(minInicioAudiencia);
         strQuery.append(" < ? ) AND ( ? < ");
         strQuery.append(minFinAudiencia);
         strQuery.append(" ) )");
-        
+
         strQuery.append(" ) ");
         strQuery.append(" ) ORDER BY j.cargaTrabajo ASC ");
-        
+
         return getHibernateTemplate().find(strQuery.toString(),
-        		DateUtils.formatear(fecha),
-                minInicioAudienciaAProgramar,minFinAudienciaAProgramar,minFinAudienciaAProgramar,minInicioAudienciaAProgramar,minInicioAudienciaAProgramar);        
+                DateUtils.formatear(fecha),
+                minInicioAudienciaAProgramar, minFinAudienciaAProgramar, minFinAudienciaAProgramar, minInicioAudienciaAProgramar, minInicioAudienciaAProgramar);
     }
-    
+
     @Override
     public void deleteFuncionarioAudiencia(List<FuncionarioAudiencia> funcs) {
         getHibernateTemplate().deleteAll(funcs);
     }
-    
-    @SuppressWarnings("unchecked")
-	public List<Funcionario> consultarFuncionariosPorFiltroYRol(Funcionario filtro,Long idRol) {
 
-    	final PaginacionDTO pag = PaginacionThreadHolder.get();
-    	StringBuffer queryString = new StringBuffer();
-    	
-        if(filtro.getBuscarPorJerarquiasHijas()!= null && filtro.getBuscarPorJerarquiasHijas()) {
-        	queryString.append(" SELECT new Funcionario( F, UR.rol ) FROM Funcionario F ");
+    @SuppressWarnings("unchecked")
+    public List<Funcionario> consultarFuncionariosPorFiltroYRol(Funcionario filtro, Long idRol) {
+
+        final PaginacionDTO pag = PaginacionThreadHolder.get();
+        StringBuffer queryString = new StringBuffer();
+
+        if (filtro.getBuscarPorJerarquiasHijas() != null && filtro.getBuscarPorJerarquiasHijas()) {
+            queryString.append(" SELECT new Funcionario( F, UR.rol ) FROM Funcionario F ");
         } else {
-        	queryString.append("SELECT F FROM Funcionario F");
-        }		
+            queryString.append("SELECT F FROM Funcionario F");
+        }
         queryString.append(" LEFT JOIN  F.usuario.usuarioRoles as UR ");
         queryString.append(" WHERE 1 = 1 ");
-        
-		if (idRol != null && idRol > 0) {
-			queryString.append(" AND UR.rol.rolId = ").append(idRol);
-		}
 
-		// Permite filtrar por el nombre
-		if (filtro.getNombreFuncionario() != null) {
-			queryString.append(" AND lower(F.nombreFuncionario) like \'%")
-					.append(filtro.getNombreFuncionario().toLowerCase()).append("%\'");
-		}
-
-		// Permite filtrar por el apellido paterno
-		if (filtro.getApellidoPaternoFuncionario() != null) {
-			queryString
-					.append(" AND lower(F.apellidoPaternoFuncionario) like \'%")
-					.append(filtro.getApellidoPaternoFuncionario().toLowerCase())
-					.append("%\'");
-		}
-
-		// Permite filtrar por el apellido materno
-		if (filtro.getApellidoMaternoFuncionario() != null) {
-			queryString
-					.append(" AND lower(F.apellidoMaternoFuncionario) like \'%")
-					.append(filtro.getApellidoMaternoFuncionario().toLowerCase())
-					.append("%\'");
-		}
-
-		// Permite filtrar por la Especialidad
-		if (filtro.getEspecialidad() != null
-				&& filtro.getEspecialidad().getValorId() != null) {
-			queryString.append(" AND F.especialidad.valorId = ").append(
-					filtro.getEspecialidad().getValorId());
-		}
-
-		// Permite filtrar por el Tipo de Especialidad
-		if (filtro.getTipoEspecialidad() != null
-				&& filtro.getTipoEspecialidad().getValorId() != null) {
-			queryString.append(" AND F.tipoEspecialidad.valorId = ").append(
-					filtro.getTipoEspecialidad().getValorId());
-		}
-
-		// Permite filtrar por Puesto
-		if (filtro.getPuesto() != null) {
-			queryString.append(" AND F.puesto.valorId = ").append(
-					filtro.getPuesto().getValorId());
-		}
-		
-		//Permite filtrar por la UIE
-        if(filtro.getUnidadIEspecializada()!=null){
-			queryString.append(" AND F.unidadIEspecializada = "
-					+ filtro.getUnidadIEspecializada().getCatUIEId());
+        if (idRol != null && idRol > 0) {
+            queryString.append(" AND UR.rol.rolId = ").append(idRol);
         }
-        
+
+        // Permite filtrar por el nombre
+        if (filtro.getNombreFuncionario() != null) {
+            queryString.append(" AND lower(F.nombreFuncionario) like \'%")
+                    .append(filtro.getNombreFuncionario().toLowerCase()).append("%\'");
+        }
+
+        // Permite filtrar por el apellido paterno
+        if (filtro.getApellidoPaternoFuncionario() != null) {
+            queryString
+                    .append(" AND lower(F.apellidoPaternoFuncionario) like \'%")
+                    .append(filtro.getApellidoPaternoFuncionario().toLowerCase())
+                    .append("%\'");
+        }
+
+        // Permite filtrar por el apellido materno
+        if (filtro.getApellidoMaternoFuncionario() != null) {
+            queryString
+                    .append(" AND lower(F.apellidoMaternoFuncionario) like \'%")
+                    .append(filtro.getApellidoMaternoFuncionario().toLowerCase())
+                    .append("%\'");
+        }
+
+        // Permite filtrar por la Especialidad
+        if (filtro.getEspecialidad() != null
+                && filtro.getEspecialidad().getValorId() != null) {
+            queryString.append(" AND F.especialidad.valorId = ").append(
+                    filtro.getEspecialidad().getValorId());
+        }
+
+        // Permite filtrar por el Tipo de Especialidad
+        if (filtro.getTipoEspecialidad() != null
+                && filtro.getTipoEspecialidad().getValorId() != null) {
+            queryString.append(" AND F.tipoEspecialidad.valorId = ").append(
+                    filtro.getTipoEspecialidad().getValorId());
+        }
+
+        // Permite filtrar por Puesto
+        if (filtro.getPuesto() != null) {
+            queryString.append(" AND F.puesto.valorId = ").append(
+                    filtro.getPuesto().getValorId());
+        }
+
+        //Permite filtrar por la UIE
+        if (filtro.getUnidadIEspecializada() != null) {
+            queryString.append(" AND F.unidadIEspecializada = "
+                    + filtro.getUnidadIEspecializada().getCatUIEId());
+        }
+
         //Permite filtrar por discriminante
-        if(filtro.getDiscriminante()!=null && filtro.getDiscriminante().getCatDiscriminanteId()!=null){
-			queryString.append(" AND F.discriminante.catDiscriminanteId = "
-					+ filtro.getDiscriminante().getCatDiscriminanteId());
+        if (filtro.getDiscriminante() != null && filtro.getDiscriminante().getCatDiscriminanteId() != null) {
+            queryString.append(" AND F.discriminante.catDiscriminanteId = "
+                    + filtro.getDiscriminante().getCatDiscriminanteId());
         }
-        
+
         queryString.append(" ORDER BY F.nombreFuncionario ASC ");
-        
+
         return super.ejecutarQueryPaginado(queryString, pag);
     }
-    
+
     @SuppressWarnings("unchecked")
-	public List<Funcionario> consultarFuncionarioXFiltro(Funcionario filtro, Boolean esCambiarResponsableAExpediente) {
+    public List<Funcionario> consultarFuncionarioXFiltro(Funcionario filtro, Boolean esCambiarResponsableAExpediente) {
         StringBuffer queryString = new StringBuffer();
         // Para no discrimiar el rol se hacen joins
-        if(filtro.getBuscarPorJerarquiasHijas()!= null && filtro.getBuscarPorJerarquiasHijas()) {
-        	queryString.append(" SELECT new Funcionario( p, r ) FROM Funcionario p ");
-        	queryString.append(" LEFT JOIN  p.usuario u ");
-        	queryString.append(" LEFT JOIN u.usuarioRoles ur ");
-        	queryString.append(" LEFT JOIN ur.rol r ");
+        if (filtro.getBuscarPorJerarquiasHijas() != null && filtro.getBuscarPorJerarquiasHijas()) {
+            queryString.append(" SELECT new Funcionario( p, r ) FROM Funcionario p ");
+            queryString.append(" LEFT JOIN  p.usuario u ");
+            queryString.append(" LEFT JOIN u.usuarioRoles ur ");
+            queryString.append(" LEFT JOIN ur.rol r ");
         } else {
-        	queryString.append(" SELECT p FROM Funcionario p ");
+            queryString.append(" SELECT p FROM Funcionario p ");
         }
-        
+
         queryString.append("WHERE 1=1");
-        
+
         // Permite filtrar por el nombre
         if (filtro.getNombreFuncionario() != null) {
             queryString.append(" AND lower(p.nombreFuncionario) like \'%").append(filtro.getNombreFuncionario()).append("%\'");
@@ -350,151 +333,157 @@ public class FuncionarioDAOImpl extends
             queryString.append(" AND p.tipoEspecialidad.valorId = ").append(
                     filtro.getTipoEspecialidad().getValorId());
         }
-        
+
         // Permite filtrar por Puesto
-        if(filtro.getPuesto() != null
-        		&& filtro.getPuesto().getValorId() != null){
-        	queryString.append(" AND p.puesto.valorId = ").append(
+        if (filtro.getPuesto() != null
+                && filtro.getPuesto().getValorId() != null) {
+            queryString.append(" AND p.puesto.valorId = ").append(
                     filtro.getPuesto().getValorId());
         }
-     
+
         // Permite filtrar por Número de empleado
-        if(filtro.getNumeroEmpleado()!=null)
-        {
-        	queryString.append(" AND p.numeroEmpleado = '").append(
+        if (filtro.getNumeroEmpleado() != null) {
+            queryString.append(" AND p.numeroEmpleado = '").append(
                     filtro.getNumeroEmpleado()).append("'");
         }
-                
-     // Permite filtrar por Identificador de personal operativo
-        if(filtro.getClaveFuncionario()!=null)
-        	queryString.append(" AND p.claveFuncionario ="+filtro.getClaveFuncionario());
-     // Permite filtrar por CURP
-        if(filtro.getCurp()!=null)
-        	queryString.append(" AND lower(p.curp) like \'%").append(filtro.getCurp()).append("%\'");
-     // Permite filtrar por RFC (con homoclave)
-        if(filtro.getRfc()!=null)
-        	queryString.append(" AND lower(p.rfc) like \'%").append(filtro.getRfc()).append("%\'");
-     // Permite filtrar por Correo electrónico (email))
-        if(filtro.getEmail()!=null)
-        	queryString.append(" AND lower(p.email) like \'%").append(filtro.getEmail()).append("%\'");
-     // Permite filtrar por Cédula profesional
-        if(filtro.getCedula()!=null)
-        	queryString.append(" AND lower(p.cedula) like \'%").append(filtro.getCedula()).append("%\'");
-     // Permite filtrar por Área
-        if(filtro.getArea() != null){
-        	if(filtro.getArea().getJerarquiaOrganizacionalId()!=null){
-        		
-        		if(filtro.getArea().getJerarquiaOrganizacionalId().longValue() == Areas.COORDINACION_UEI_GENERAL.parseLong() ){
-        	        if(filtro.getBuscarPorJerarquiasHijas()!= null && filtro.getBuscarPorJerarquiasHijas()) {
-        	        	String rolesPermitidasCoordinadorAMPGen = Roles.AGENTEMP.getValorId()+ "," + Roles.COORDINADORAMP.getValorId();
-        	        	queryString.append(" AND ur.rol.rolId IN (").append(rolesPermitidasCoordinadorAMPGen).append(") ");        			
-        	        }
-        		}else{
-        			if(filtro.getBuscarPorJerarquiasHijas()!= null && filtro.getBuscarPorJerarquiasHijas()) {
+
+        // Permite filtrar por Identificador de personal operativo
+        if (filtro.getClaveFuncionario() != null) {
+            queryString.append(" AND p.claveFuncionario =" + filtro.getClaveFuncionario());
+        }
+        // Permite filtrar por CURP
+        if (filtro.getCurp() != null) {
+            queryString.append(" AND lower(p.curp) like \'%").append(filtro.getCurp()).append("%\'");
+        }
+        // Permite filtrar por RFC (con homoclave)
+        if (filtro.getRfc() != null) {
+            queryString.append(" AND lower(p.rfc) like \'%").append(filtro.getRfc()).append("%\'");
+        }
+        // Permite filtrar por Correo electrónico (email))
+        if (filtro.getEmail() != null) {
+            queryString.append(" AND lower(p.email) like \'%").append(filtro.getEmail()).append("%\'");
+        }
+        // Permite filtrar por Cédula profesional
+        if (filtro.getCedula() != null) {
+            queryString.append(" AND lower(p.cedula) like \'%").append(filtro.getCedula()).append("%\'");
+        }
+        // Permite filtrar por Área
+        if (filtro.getArea() != null) {
+            if (filtro.getArea().getJerarquiaOrganizacionalId() != null) {
+
+                if (filtro.getArea().getJerarquiaOrganizacionalId().longValue() == Areas.COORDINACION_UEI_GENERAL.parseLong()) {
+                    if (filtro.getBuscarPorJerarquiasHijas() != null && filtro.getBuscarPorJerarquiasHijas()) {
+                        String rolesPermitidasCoordinadorAMPGen = Roles.AGENTEMP.getValorId() + "," + Roles.COORDINADORAMP.getValorId();
+                        queryString.append(" AND ur.rol.rolId IN (").append(rolesPermitidasCoordinadorAMPGen).append(") ");
+                    }
+                } else {
+                    if (filtro.getBuscarPorJerarquiasHijas() != null && filtro.getBuscarPorJerarquiasHijas()) {
 //            			queryString.append(" AND ( u.esActivo = 1) ");
-        				if(filtro.getArea().getJerarquiaOrganizacionalId().longValue() == Areas.COORDINACION_PERICIALES_DEF.parseLong() && esCambiarResponsableAExpediente){
-        					queryString.append(" AND ( r.jerarquiaOrganizacional.jerarquiaOrganizacionalId IN (").append(Areas.SERVICIOS_PERICIALES_PG.parseLong())
-        					.append(", ").append(Areas.SERVICIOS_PERICIALES_DEF.parseLong()).append(")");
-        					
-        				}else{
-        					queryString.append(" AND ( r.jerarquiaOrganizacional.jerarquiaOrganizacionalId IN (");
-        	        		queryString.append(filtro.getArea().getJerarquiaOrganizacionalId());
-        	        		if(filtro.getArea().getJerarquiaOrganizacionalId().longValue() == Areas.COORDINACION_UNIDAD_INVESTIGACION.parseLong()){
-        	        			queryString.append(", ").append(Areas.UNIDAD_INVESTIGACION.parseLong());
-        	        		}else if (filtro.getArea().getJerarquiaOrganizacionalId().longValue() == Areas.JUSTICIA_ALTERNATIVA_RESTAURATIVA.parseLong()){
-        	        			queryString.append(", ").append(Areas.FISCAL_FACILITADOR.parseLong());
-        	        		}
-        	        		queryString.append(")");
-        				}
-    	        		
-            			queryString.append(" OR r.jerarquiaOrganizacional.jerarquiaOrganizacionalId IN ( " );
-            			queryString.append(" select v.jerarquiaOrganizacionalId ");
-            			queryString.append(" from JerarquiaOrganizacional v ");
-            			if(filtro.getArea().getJerarquiaOrganizacionalId().longValue() == Areas.COORDINACION_PERICIALES_DEF.parseLong() && esCambiarResponsableAExpediente){
-            				queryString.append(" where v.jerarquiaOrgResponsable IN (").append(Areas.SERVICIOS_PERICIALES_PG.parseLong())
-        					.append(", ").append(Areas.SERVICIOS_PERICIALES_DEF.parseLong()).append(")");
-        				}else{
-        					queryString.append(" where v.jerarquiaOrgResponsable IN (");
-                			queryString.append(filtro.getArea().getJerarquiaOrganizacionalId());
-                			if(filtro.getArea().getJerarquiaOrganizacionalId().longValue() == Areas.COORDINACION_UNIDAD_INVESTIGACION.parseLong()){
-        	        			queryString.append(", ").append(Areas.UNIDAD_INVESTIGACION.parseLong());
-        	        		}else if (filtro.getArea().getJerarquiaOrganizacionalId().longValue() == Areas.JUSTICIA_ALTERNATIVA_RESTAURATIVA.parseLong()){
-        	        			queryString.append(", ").append(Areas.FISCAL_FACILITADOR.parseLong());
-        	        		}
-                			queryString.append(")");
-        				}
-            			queryString.append(" ) ) ");
-            		} else {        			
-    	        		queryString.append(" AND p.claveFuncionario in( ");
-    	        		queryString.append(" SELECT funcionario.claveFuncionario FROM Usuario WHERE usuarioId in(");
-    	        		queryString.append(" SELECT id.usuarioId FROM UsuarioRol WHERE id.rolId in(");
-    	        		if(filtro.getArea().getJerarquiaOrganizacionalId().longValue() == Areas.COORDINACION_PERICIALES_DEF.parseLong() && esCambiarResponsableAExpediente){
-    	        			queryString.append(" SELECT rolId FROM Rol WHERE ( jerarquiaOrganizacional.jerarquiaOrganizacionalId IN (").append(Areas.SERVICIOS_PERICIALES_PG.parseLong())
-        					.append(", ").append(Areas.SERVICIOS_PERICIALES_DEF.parseLong()).append(")");
-    	        		}else{
-    	        			queryString.append(" SELECT rolId FROM Rol WHERE ( jerarquiaOrganizacional.jerarquiaOrganizacionalId = ");
-        	        		queryString.append(filtro.getArea().getJerarquiaOrganizacionalId());
-    	        		}
-    	        		
-    	        		if(filtro.getRol() != null && filtro.getRol().getRolId()>0L){
-    	        			queryString.append(" AND rolId = ")
-    	        					   .append(filtro.getRol().getRolId());
-    	        		}	        		
-    	        		queryString.append(" ) ) ) ) ");
-            		}
+                        if (filtro.getArea().getJerarquiaOrganizacionalId().longValue() == Areas.COORDINACION_PERICIALES_DEF.parseLong() && esCambiarResponsableAExpediente) {
+                            queryString.append(" AND ( r.jerarquiaOrganizacional.jerarquiaOrganizacionalId IN (").append(Areas.SERVICIOS_PERICIALES_PG.parseLong())
+                                    .append(", ").append(Areas.SERVICIOS_PERICIALES_DEF.parseLong()).append(")");
+
+                        } else {
+                            queryString.append(" AND ( r.jerarquiaOrganizacional.jerarquiaOrganizacionalId IN (");
+                            queryString.append(filtro.getArea().getJerarquiaOrganizacionalId());
+                            if (filtro.getArea().getJerarquiaOrganizacionalId().longValue() == Areas.COORDINACION_UNIDAD_INVESTIGACION.parseLong()) {
+                                queryString.append(", ").append(Areas.UNIDAD_INVESTIGACION.parseLong());
+                            } else if (filtro.getArea().getJerarquiaOrganizacionalId().longValue() == Areas.JUSTICIA_ALTERNATIVA_RESTAURATIVA.parseLong()) {
+                                queryString.append(", ").append(Areas.FISCAL_FACILITADOR.parseLong());
+                            }
+                            queryString.append(")");
+                        }
+
+                        queryString.append(" OR r.jerarquiaOrganizacional.jerarquiaOrganizacionalId IN ( ");
+                        queryString.append(" select v.jerarquiaOrganizacionalId ");
+                        queryString.append(" from JerarquiaOrganizacional v ");
+                        if (filtro.getArea().getJerarquiaOrganizacionalId().longValue() == Areas.COORDINACION_PERICIALES_DEF.parseLong() && esCambiarResponsableAExpediente) {
+                            queryString.append(" where v.jerarquiaOrgResponsable IN (").append(Areas.SERVICIOS_PERICIALES_PG.parseLong())
+                                    .append(", ").append(Areas.SERVICIOS_PERICIALES_DEF.parseLong()).append(")");
+                        } else {
+                            queryString.append(" where v.jerarquiaOrgResponsable IN (");
+                            queryString.append(filtro.getArea().getJerarquiaOrganizacionalId());
+                            if (filtro.getArea().getJerarquiaOrganizacionalId().longValue() == Areas.COORDINACION_UNIDAD_INVESTIGACION.parseLong()) {
+                                queryString.append(", ").append(Areas.UNIDAD_INVESTIGACION.parseLong());
+                            } else if (filtro.getArea().getJerarquiaOrganizacionalId().longValue() == Areas.JUSTICIA_ALTERNATIVA_RESTAURATIVA.parseLong()) {
+                                queryString.append(", ").append(Areas.FISCAL_FACILITADOR.parseLong());
+                            }
+                            queryString.append(")");
+                        }
+                        queryString.append(" ) ) ");
+                    } else {
+                        queryString.append(" AND p.claveFuncionario in( ");
+                        queryString.append(" SELECT funcionario.claveFuncionario FROM Usuario WHERE usuarioId in(");
+                        queryString.append(" SELECT id.usuarioId FROM UsuarioRol WHERE id.rolId in(");
+                        if (filtro.getArea().getJerarquiaOrganizacionalId().longValue() == Areas.COORDINACION_PERICIALES_DEF.parseLong() && esCambiarResponsableAExpediente) {
+                            queryString.append(" SELECT rolId FROM Rol WHERE ( jerarquiaOrganizacional.jerarquiaOrganizacionalId IN (").append(Areas.SERVICIOS_PERICIALES_PG.parseLong())
+                                    .append(", ").append(Areas.SERVICIOS_PERICIALES_DEF.parseLong()).append(")");
+                        } else {
+                            queryString.append(" SELECT rolId FROM Rol WHERE ( jerarquiaOrganizacional.jerarquiaOrganizacionalId = ");
+                            queryString.append(filtro.getArea().getJerarquiaOrganizacionalId());
+                        }
+
+                        if (filtro.getRol() != null && filtro.getRol().getRolId() > 0L) {
+                            queryString.append(" AND rolId = ")
+                                    .append(filtro.getRol().getRolId());
+                        }
+                        queryString.append(" ) ) ) ) ");
+                    }
             		//Codigo anterior
 //            		queryString.append(" AND p.area.jerarquiaOrganizacionalId = ").append(filtro.getArea().getJerarquiaOrganizacionalId());
-            		
-        		}
-        	}
-        }     
+
+                }
+            }
+        }
         //Permite filtrar por la UIE
-        if(filtro.getUnidadIEspecializada()!=null) {
-        	queryString.append(" AND p.unidadIEspecializada = "+filtro.getUnidadIEspecializada().getCatUIEId());
+        if (filtro.getUnidadIEspecializada() != null) {
+            queryString.append(" AND p.unidadIEspecializada = " + filtro.getUnidadIEspecializada().getCatUIEId());
         }
 
         // Permite filtrar por Coordinarod AMP General, Coordinador AMP y Coordinador JAR y si es es cambiar responsable a expediente
         if (filtro.getRol() != null
-        		&& filtro.getRol().getJerarquiaOrganizacional() != null
-        		&& filtro.getRol().getJerarquiaOrganizacional().getJerarquiaOrganizacionalId() != null 
-        		&& filtro.getRol().getJerarquiaOrganizacional().getJerarquiaOrganizacionalId().longValue() > 0
-        		&& (filtro.getRol().getJerarquiaOrganizacional().getJerarquiaOrganizacionalId().longValue() == Areas.COORDINACION_UEI_GENERAL.parseLong()
-        		|| filtro.getRol().getJerarquiaOrganizacional().getJerarquiaOrganizacionalId().longValue() == Areas.COORDINACION_UNIDAD_INVESTIGACION.parseLong()
-        		|| filtro.getRol().getJerarquiaOrganizacional().getJerarquiaOrganizacionalId().longValue() == Areas.JUSTICIA_ALTERNATIVA_RESTAURATIVA.parseLong())
-        		&& esCambiarResponsableAExpediente != null
-        		&& esCambiarResponsableAExpediente){
-        	// Para el distrito
-        	if(filtro.getDiscriminante() !=null 
-            		&& filtro.getDiscriminante().getDistrito() != null
-            		&& filtro.getDiscriminante().getDistrito().getCatDistritoId() > 0){
-    			queryString. append(" AND p.discriminante.distrito.catDistritoId = ").append(filtro.getDiscriminante().getDistrito().getCatDistritoId());
-    		}
+                && filtro.getRol().getJerarquiaOrganizacional() != null
+                && filtro.getRol().getJerarquiaOrganizacional().getJerarquiaOrganizacionalId() != null
+                && filtro.getRol().getJerarquiaOrganizacional().getJerarquiaOrganizacionalId().longValue() > 0
+                && (filtro.getRol().getJerarquiaOrganizacional().getJerarquiaOrganizacionalId().longValue() == Areas.COORDINACION_UEI_GENERAL.parseLong()
+                || filtro.getRol().getJerarquiaOrganizacional().getJerarquiaOrganizacionalId().longValue() == Areas.COORDINACION_UNIDAD_INVESTIGACION.parseLong()
+                || filtro.getRol().getJerarquiaOrganizacional().getJerarquiaOrganizacionalId().longValue() == Areas.JUSTICIA_ALTERNATIVA_RESTAURATIVA.parseLong())
+                && esCambiarResponsableAExpediente != null
+                && esCambiarResponsableAExpediente) {
+            // Para el distrito
+            if (filtro.getDiscriminante() != null
+                    && filtro.getDiscriminante().getDistrito() != null
+                    && filtro.getDiscriminante().getDistrito().getCatDistritoId() > 0) {
+                queryString.append(" AND p.discriminante.distrito.catDistritoId = ").append(filtro.getDiscriminante().getDistrito().getCatDistritoId());
+            }
         }
-        
+
         // Permite filtrar por Discriminante
-        if(filtro.getDiscriminante() != null && filtro.getDiscriminante().getCatDiscriminanteId() != null && filtro.getDiscriminante().getCatDiscriminanteId() > 0){
-        	CatDiscriminante catDiscriminante = filtro.getDiscriminante();        	
-        	if(catDiscriminante.getCatDiscriminanteId() != null && !catDiscriminante.getCatDiscriminanteId().equals(0L)){
-        		queryString.append(" AND p.discriminante.catDiscriminanteId = " + catDiscriminante.getCatDiscriminanteId() + " ");
-        	}
-        } 
-        
-        
+        if (filtro.getDiscriminante() != null && filtro.getDiscriminante().getCatDiscriminanteId() != null && filtro.getDiscriminante().getCatDiscriminanteId() > 0) {
+            CatDiscriminante catDiscriminante = filtro.getDiscriminante();
+            if (catDiscriminante.getCatDiscriminanteId() != null && !catDiscriminante.getCatDiscriminanteId().equals(0L)) {
+                queryString.append(" AND p.discriminante.catDiscriminanteId = " + catDiscriminante.getCatDiscriminanteId() + " ");
+            }
+        }
+
         queryString.append(" ORDER BY p.nombreFuncionario");
-        
+
         final PaginacionDTO pag = PaginacionThreadHolder.get();
         return ejecutarQueryPaginado(queryString, pag);
     }
 
     /**
-     * Metodo que permite consultar los defensores de acuerdo a un tipo de Defensa
+     * Metodo que permite consultar los defensores de acuerdo a un tipo de
+     * Defensa
+     *
      * @param idTipoDefensa Recibe el tipo de defensa que se va a consultar.
-     * @return Devuelve un listado de defensores que ejercen ese tipo de Defensa.
+     * @return Devuelve un listado de defensores que ejercen ese tipo de
+     * Defensa.
      * @author ricardo
      */
     //NOTA: Tipo defensa -> tipoEspecialidad y Especialidad(es)
     @SuppressWarnings("unchecked")
-	public List<Funcionario> consultarDefensorPorTipoDefensa(Long idTipoDefensa) {
+    public List<Funcionario> consultarDefensorPorTipoDefensa(Long idTipoDefensa) {
         StringBuffer queryString = new StringBuffer();
         queryString.append("SELECT f FROM Funcionario f ").append(" WHERE f.puesto.valorId = ").append(Puestos.ABOGADO_DEFENSOR.getValorId()).append(" AND f.tipoEspecialidad.valorId = :idTipoDefensa");
         queryString.append(" ORDER BY f.nombreFuncionario");
@@ -506,6 +495,7 @@ public class FuncionarioDAOImpl extends
 
     /**
      * Metodo que permite consultar los defensores
+     *
      * @return Devuelve un listado de defensores
      * @author ricardo
      */
@@ -514,7 +504,7 @@ public class FuncionarioDAOImpl extends
         StringBuffer queryString = new StringBuffer();
         queryString.append("SELECT f FROM Funcionario f ").append(" WHERE f.puesto.valorId = ").append(Puestos.ABOGADO_DEFENSOR.getValorId());
         queryString.append(" ORDER BY f.nombreFuncionario");
-       
+
         Query query = super.getSession().createQuery(queryString.toString());
         return query.list();
     }
@@ -547,23 +537,23 @@ public class FuncionarioDAOImpl extends
         // Volvemos a validar el nombre, el apellido paterno y materno.
         if (criterios.getNombreFuncionario() != null) {
             query.setParameter("nombreFuncionario",
-                    "%"+ criterios.getNombreFuncionario().toLowerCase() + "%");
+                    "%" + criterios.getNombreFuncionario().toLowerCase() + "%");
         }
         if (criterios.getApellidoPaternoFuncionario() != null) {
             query.setParameter("apellidoPaternoFuncionario",
-                    "%"+criterios.getApellidoPaternoFuncionario().toLowerCase()+"%");
+                    "%" + criterios.getApellidoPaternoFuncionario().toLowerCase() + "%");
         }
         if (criterios.getApellidoMaternoFuncionario() != null) {
             query.setParameter("apellidoMaternoFuncionario",
-                    "%"+criterios.getApellidoMaternoFuncionario().toLowerCase() + "%");
+                    "%" + criterios.getApellidoMaternoFuncionario().toLowerCase() + "%");
         }
         return query.list();
     }
 
     @Override
     public void asociarPeritoExpediente(Funcionario perito, Expediente expediente) {
-        NumeroExpediente numExpediente =
-                numeroExpedienteDAO.obtenerNumeroExpediente(expediente.getNumeroExpediente(),null);
+        NumeroExpediente numExpediente
+                = numeroExpedienteDAO.obtenerNumeroExpediente(expediente.getNumeroExpediente(), null);
         if (numExpediente != null) {
             numExpediente.setFuncionario(perito);
             numeroExpedienteDAO.saveOrUpdate(numExpediente);
@@ -584,131 +574,128 @@ public class FuncionarioDAOImpl extends
         return funcionarioEvidencia;
     }
 
-
     @SuppressWarnings("unchecked")
-	public List<Funcionario> consultarFuncionariosPorAreaYPuesto(Long area,
-			Long puesto) {
+    public List<Funcionario> consultarFuncionariosPorAreaYPuesto(Long area,
+            Long puesto) {
         StringBuffer consulta = new StringBuffer();
-        	consulta.append("SELECT f FROM Funcionario f ")
-        			.append("JOIN f.usuario.usuarioRoles AS ur ")
-        			.append("WHERE f.area.jerarquiaOrganizacionalId = "+area+" ")
-        			.append("AND ur.rol.jerarquiaOrganizacional.jerarquiaOrganizacionalId = "+area+" ");
-        if(puesto != null){
-        	consulta.append("AND f.puesto.valorId = "+puesto);
+        consulta.append("SELECT f FROM Funcionario f ")
+                .append("JOIN f.usuario.usuarioRoles AS ur ")
+                .append("WHERE f.area.jerarquiaOrganizacionalId = " + area + " ")
+                .append("AND ur.rol.jerarquiaOrganizacional.jerarquiaOrganizacionalId = " + area + " ");
+        if (puesto != null) {
+            consulta.append("AND f.puesto.valorId = " + puesto);
         }
-        
+
         final PaginacionDTO pag = PaginacionThreadHolder.get();
         logger.debug("pag :: " + pag);
         if (pag != null && pag.getCampoOrd() != null) {
             if (pag.getCampoOrd().equals("nombre")) {
-            	consulta.append(" order by ");
-            	consulta.append("f.nombreFuncionario");
-            	consulta.append(" ").append(pag.getDirOrd());
-            }
-            else if (pag.getCampoOrd().equals("puesto")) { 
-            	consulta.append(" order by ");
-            	consulta.append("f.Puesto_val");
-            	consulta.append(" ").append(pag.getDirOrd());
+                consulta.append(" order by ");
+                consulta.append("f.nombreFuncionario");
+                consulta.append(" ").append(pag.getDirOrd());
+            } else if (pag.getCampoOrd().equals("puesto")) {
+                consulta.append(" order by ");
+                consulta.append("f.Puesto_val");
+                consulta.append(" ").append(pag.getDirOrd());
             }
         }
         return super.ejecutarQueryPaginado(consulta, pag);
-	}
+    }
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Funcionario> consultarFuncionarioPorDepartamento(
-			Long idDepartamento) {
-		StringBuilder queryString = new StringBuilder();
-		queryString.append("FROM Funcionario f");
-		queryString.append(" WHERE f.area="+idDepartamento);
-		queryString.append(" ORDER BY f.nombreFuncionario");
-		Query query = super.getSession().createQuery(queryString.toString());
-		return query.list();
-	}
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<Funcionario> consultarFuncionarioPorDepartamento(
+            Long idDepartamento) {
+        StringBuilder queryString = new StringBuilder();
+        queryString.append("FROM Funcionario f");
+        queryString.append(" WHERE f.area=" + idDepartamento);
+        queryString.append(" ORDER BY f.nombreFuncionario");
+        Query query = super.getSession().createQuery(queryString.toString());
+        return query.list();
+    }
 
-	@Override
-	public Funcionario obtenerInformacionDefensorPorId(Long id_Defensor) {
-		final StringBuffer queryStr = new StringBuffer();
+    @Override
+    public Funcionario obtenerInformacionDefensorPorId(Long id_Defensor) {
+        final StringBuffer queryStr = new StringBuffer();
         queryStr.append(" from Funcionario d");
         queryStr.append(" where d.claveFuncionario = ");
         queryStr.append(id_Defensor);
         Query qry = super.getSession().createQuery(queryStr.toString());
         return (Funcionario) qry.uniqueResult();
-	}
+    }
 
-	@Override
-	@SuppressWarnings("unchecked")
-	public List<Funcionario> consultarFuncionariosSubordinados(
-			Funcionario funcionario,  List<Long> roles) {
-		Query query = null;
-		StringBuffer queryString = new StringBuffer();
-		queryString.append("SELECT F FROM Funcionario F WHERE F.claveFuncionario IN ( ");
-		queryString.append("SELECT f.claveFuncionario FROM Funcionario f ")
-		.append(" LEFT JOIN  f.usuario.usuarioRoles as UR ")
-		.append(" WHERE 1= 1 ");
-		
-		if( roles != null && !roles.isEmpty()){
-			queryString. append(" AND UR.rol.rolId IN (:idsRoles)");
-		}
-		
-		if (funcionario.getDiscriminante() != null
-				&& funcionario.getDiscriminante().getDistrito() != null
-				&& funcionario.getDiscriminante().getDistrito().getCatDistritoId() != null
-				&& funcionario.getDiscriminante().getDistrito().getCatDistritoId() > 0) {
-			queryString
-					.append(" AND f.discriminante.distrito.catDistritoId=")
-					.append(funcionario.getDiscriminante().getDistrito().getCatDistritoId()).append("");
-		}
-		
-		if (funcionario.getUnidadIEspecializada() != null
-				&& funcionario.getUnidadIEspecializada().getCatUIEId() != null
-				&& funcionario.getUnidadIEspecializada().getCatUIEId() > 0 ) {
-			queryString
-					.append(" AND f.unidadIEspecializada.catUIEId=")
-					.append(funcionario.getUnidadIEspecializada().getCatUIEId()).append("");
-		}
-		
-		queryString.append(" AND f.usuario.esActivo= ").append(Boolean.TRUE);
-		queryString.append(" GROUP BY f.claveFuncionario");
-		queryString.append(" )");
-		queryString.append(" ORDER BY F.nombreFuncionario");
-		
-		query = super.getSession().createQuery(queryString.toString());
-		
-		if( roles != null && !roles.isEmpty()){
-			query.setParameterList("idsRoles", roles);
-		}
-		
-		final PaginacionDTO pag = PaginacionThreadHolder.get();
-		return ejecutarQueryPaginado(query, pag);
-	}
+    @Override
+    @SuppressWarnings("unchecked")
+    public List<Funcionario> consultarFuncionariosSubordinados(
+            Funcionario funcionario, List<Long> roles) {
+        Query query = null;
+        StringBuffer queryString = new StringBuffer();
+        queryString.append("SELECT F FROM Funcionario F WHERE F.claveFuncionario IN ( ");
+        queryString.append("SELECT f.claveFuncionario FROM Funcionario f ")
+                .append(" LEFT JOIN  f.usuario.usuarioRoles as UR ")
+                .append(" WHERE 1= 1 ");
 
-	@Override
-	public Funcionario obtenerDefensorAsignadoAExpediente(Long expedienteId) {
-		StringBuffer queryString = new StringBuffer();
-		queryString.append("SELECT ne.funcionario FROM NumeroExpediente ne ")
-					.append("WHERE ne.expediente=").append(expedienteId);
-		Query query = super.getSession().createQuery(queryString.toString());
-		return (Funcionario) query.uniqueResult();
-	}
+        if (roles != null && !roles.isEmpty()) {
+            queryString.append(" AND UR.rol.rolId IN (:idsRoles)");
+        }
 
+        if (funcionario.getDiscriminante() != null
+                && funcionario.getDiscriminante().getDistrito() != null
+                && funcionario.getDiscriminante().getDistrito().getCatDistritoId() != null
+                && funcionario.getDiscriminante().getDistrito().getCatDistritoId() > 0) {
+            queryString
+                    .append(" AND f.discriminante.distrito.catDistritoId=")
+                    .append(funcionario.getDiscriminante().getDistrito().getCatDistritoId()).append("");
+        }
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Funcionario> obtenerFuncionariosConUsuario()
-			throws NSJPNegocioException {
-        StringBuffer hqlQuery = new StringBuffer();
-        hqlQuery.append("SELECT f ")
-        		.append("FROM Funcionario f ")
-        		.append("WHERE f.usuario.usuarioId > 0")
-        		.append(" AND f.usuario.esActivo=").append(Boolean.TRUE)
-        		.append(" ORDER BY f.nombreFuncionario");
-        Query query = super.getSession().createQuery(hqlQuery.toString());
-        return query.list();
-	}
+        if (funcionario.getUnidadIEspecializada() != null
+                && funcionario.getUnidadIEspecializada().getCatUIEId() != null
+                && funcionario.getUnidadIEspecializada().getCatUIEId() > 0) {
+            queryString
+                    .append(" AND f.unidadIEspecializada.catUIEId=")
+                    .append(funcionario.getUnidadIEspecializada().getCatUIEId()).append("");
+        }
+
+        queryString.append(" AND f.usuario.esActivo= ").append(Boolean.TRUE);
+        queryString.append(" GROUP BY f.claveFuncionario");
+        queryString.append(" )");
+        queryString.append(" ORDER BY F.nombreFuncionario");
+
+        query = super.getSession().createQuery(queryString.toString());
+
+        if (roles != null && !roles.isEmpty()) {
+            query.setParameterList("idsRoles", roles);
+        }
+
+        final PaginacionDTO pag = PaginacionThreadHolder.get();
+        return ejecutarQueryPaginado(query, pag);
+    }
+
+    @Override
+    public Funcionario obtenerDefensorAsignadoAExpediente(Long expedienteId) {
+        StringBuffer queryString = new StringBuffer();
+        queryString.append("SELECT ne.funcionario FROM NumeroExpediente ne ")
+                .append("WHERE ne.expediente=").append(expedienteId);
+        Query query = super.getSession().createQuery(queryString.toString());
+        return (Funcionario) query.uniqueResult();
+    }
 
     @SuppressWarnings("unchecked")
-	@Override
+    @Override
+    public List<Funcionario> obtenerFuncionariosConUsuario()
+            throws NSJPNegocioException {
+        StringBuffer hqlQuery = new StringBuffer();
+        hqlQuery.append("SELECT f ")
+                .append("FROM Funcionario f ")
+                .append("WHERE f.usuario.usuarioId > 0")
+                .append(" AND f.usuario.esActivo=").append(Boolean.TRUE)
+                .append(" ORDER BY f.nombreFuncionario");
+        Query query = super.getSession().createQuery(hqlQuery.toString());
+        return query.list();
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
     public Funcionario consultaFuncionarioPorNombreInstitucionPuesto(Funcionario funcionario) {
         StringBuilder sb = new StringBuilder();
         sb.append("SELECT f FROM Funcionario f").
@@ -734,9 +721,9 @@ public class FuncionarioDAOImpl extends
         return resultado;
     }
 
-	@Override
-	public boolean existeDisponibilidad(Long claveFuncionario, Date time,
-			Long limite) {
+    @Override
+    public boolean existeDisponibilidad(Long claveFuncionario, Date time,
+            Long limite) {
         final SimpleDateFormat formato = new SimpleDateFormat("yyyyMMdd");
         final StringBuffer qry = new StringBuffer();
         qry.append(" select SUM(a.duracionEstimada)");
@@ -755,45 +742,45 @@ public class FuncionarioDAOImpl extends
             logger.debug("suma :: " + suma);
             logger.debug("limiteOcupacion :: " + limite);
         }
-        if(limite != null){
-        	return (suma == null || suma < limite);
+        if (limite != null) {
+            return (suma == null || suma < limite);
         }
         return (suma == null);
-	}
+    }
 
-	@Override
-	public Funcionario obtenerFuncionarioXNumeroEmpleado(String numeroEmpleado) {
-		final StringBuffer qry = new StringBuffer();
-		
-		qry.append(" FROM Funcionario f");
-		qry.append(" WHERE f.numeroEmpleado="+numeroEmpleado);
-		
-		Query query = super.getSession().createQuery(qry.toString());
-		return (Funcionario) query.uniqueResult();
-	}
+    @Override
+    public Funcionario obtenerFuncionarioXNumeroEmpleado(String numeroEmpleado) {
+        final StringBuffer qry = new StringBuffer();
 
-	@Override
-	public Almacen obtenerAlmacenXFuncionario(Long idFuncionario) {
-		final StringBuffer qry = new StringBuffer();
-		
-		qry.append(" SELECT ea.almacen FROM  EncargadoAlmacen ea");
-		qry.append(" WHERE ea.funcionario="+idFuncionario);
-		
-		Query query = super.getSession().createQuery(qry.toString());
-		return (Almacen) query.uniqueResult();
-	}
+        qry.append(" FROM Funcionario f");
+        qry.append(" WHERE f.numeroEmpleado=" + numeroEmpleado);
+
+        Query query = super.getSession().createQuery(qry.toString());
+        return (Funcionario) query.uniqueResult();
+    }
+
+    @Override
+    public Almacen obtenerAlmacenXFuncionario(Long idFuncionario) {
+        final StringBuffer qry = new StringBuffer();
+
+        qry.append(" SELECT ea.almacen FROM  EncargadoAlmacen ea");
+        qry.append(" WHERE ea.funcionario=" + idFuncionario);
+
+        Query query = super.getSession().createQuery(qry.toString());
+        return (Almacen) query.uniqueResult();
+    }
 
     @SuppressWarnings("unchecked")
-	@Override
+    @Override
     public Funcionario obtenerFuncionarioPorNombreCompleto(String nombreCompleto) {
         StringBuffer hqlQuery = new StringBuffer();
         hqlQuery.append(" FROM Funcionario f ");
         hqlQuery.append(" WHERE f.nombreFuncionario+' '+ f.apellidoPaternoFuncionario");
-        hqlQuery.append("+' '+f.apellidoMaternoFuncionario = '"+nombreCompleto+"'");
+        hqlQuery.append("+' '+f.apellidoMaternoFuncionario = '" + nombreCompleto + "'");
         logger.debug("hqlQuery :: " + hqlQuery);
-        Query query = super.getSession().createQuery(hqlQuery.toString());  
+        Query query = super.getSession().createQuery(hqlQuery.toString());
         List<Funcionario> temp = query.list();
-        if (temp!=null && temp.size()==1) {
+        if (temp != null && temp.size() == 1) {
             return temp.get(0);
         }
         return null;
@@ -805,61 +792,62 @@ public class FuncionarioDAOImpl extends
         hqlQuery.append(" SELECT count(*) ");
         hqlQuery.append(" FROM Funcionario f ");
         logger.debug("hqlQuery :: " + hqlQuery);
-        Query query = super.getSession().createQuery(hqlQuery.toString());  
-        return  (Long) query.uniqueResult();
+        Query query = super.getSession().createQuery(hqlQuery.toString());
+        return (Long) query.uniqueResult();
     }
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Funcionario> consultarFuncionariosXAgencia(Long idAgencia) {
-		StringBuffer hqlQuery = new StringBuffer();
-		
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<Funcionario> consultarFuncionariosXAgencia(Long idAgencia) {
+        StringBuffer hqlQuery = new StringBuffer();
+
         hqlQuery.append("SELECT f ")
-        		.append("FROM Funcionario f ")
-        		.append("WHERE f.agencia="+idAgencia);
+                .append("FROM Funcionario f ")
+                .append("WHERE f.agencia=" + idAgencia);
         hqlQuery.append(" ORDER BY f.nombreFuncionario");
-        
+
         Query query = super.getSession().createQuery(hqlQuery.toString());
         return query.list();
-	}
+    }
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<JerarquiaOrganizacional> consultarAreasXAgencia(Long idAgencia) {
-		StringBuffer hqlQuery = new StringBuffer();
-		
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<JerarquiaOrganizacional> consultarAreasXAgencia(Long idAgencia) {
+        StringBuffer hqlQuery = new StringBuffer();
+
         hqlQuery.append("SELECT distinct f.area ")
-        		.append("FROM Funcionario f ")
-        		.append("WHERE f.agencia="+idAgencia);
-        
-        Query query = super.getSession().createQuery(hqlQuery.toString());
-        return query.list();
-	}
-	
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Funcionario> consultarFuncionariosPorDiscriminante(Long catDiscriminanteId,Long idUIE) {
-		StringBuffer hqlQuery = new StringBuffer();
-		
-        hqlQuery.append(" SELECT f ")
-        		.append(" FROM Funcionario f ")
-        		.append(" WHERE f.discriminante.catDiscriminanteId ="+catDiscriminanteId);
-        if(idUIE!=null && idUIE!=0L)
-        	hqlQuery.append(" AND f.unidadIEspecializada = "+idUIE);
-		hqlQuery.append(" order by  f.nombreFuncionario");
-        
-        Query query = super.getSession().createQuery(hqlQuery.toString());
-        return query.list();
-	}
+                .append("FROM Funcionario f ")
+                .append("WHERE f.agencia=" + idAgencia);
 
-	@Override
-    public Funcionario consultarFuncionarioXNumeroExpYTipo (String numeroExpediente, Long area) {
+        Query query = super.getSession().createQuery(hqlQuery.toString());
+        return query.list();
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<Funcionario> consultarFuncionariosPorDiscriminante(Long catDiscriminanteId, Long idUIE) {
+        StringBuffer hqlQuery = new StringBuffer();
+
+        hqlQuery.append(" SELECT f ")
+                .append(" FROM Funcionario f ")
+                .append(" WHERE f.discriminante.catDiscriminanteId =" + catDiscriminanteId);
+        if (idUIE != null && idUIE != 0L) {
+            hqlQuery.append(" AND f.unidadIEspecializada = " + idUIE);
+        }
+        hqlQuery.append(" order by  f.nombreFuncionario");
+
+        Query query = super.getSession().createQuery(hqlQuery.toString());
+        return query.list();
+    }
+
+    @Override
+    public Funcionario consultarFuncionarioXNumeroExpYTipo(String numeroExpediente, Long area) {
         StringBuilder queryString = new StringBuilder();
         queryString.append("SELECT ne ").
                 append(" FROM NumeroExpediente ne ").
                 append(" WHERE ne.numeroExpediente = :numeroExpediente");
-        if(area != null){
-            queryString.append(" AND ne.numeroExpediente.jerarquiaOrganizacional.jerarquiaOrganizacionalId = ").append(area);        	
+        if (area != null) {
+            queryString.append(" AND ne.numeroExpediente.jerarquiaOrganizacional.jerarquiaOrganizacionalId = ").append(area);
         }
         Query query = super.getSession().createQuery(queryString.toString());
         query.setParameter("numeroExpediente", numeroExpediente);
@@ -872,503 +860,539 @@ public class FuncionarioDAOImpl extends
         return resultado;
     }
 
-	/* (non-Javadoc)
-	 * @see mx.gob.segob.nsjp.dao.funcionario.FuncionarioDAO#consultarFuncionariosXCriterio(mx.gob.segob.nsjp.dto.funcionario.CriterioConsultaFuncionarioExternoDTO)
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Funcionario> consultarFuncionariosXCriterio(
-			CriterioConsultaFuncionarioExternoDTO criterioConsultaFuncionarioExternoDTO, 
-			Funcionario funcionario)
-			throws NSJPNegocioException {
-		
-		List<Funcionario> funcionariosExpediente = null;
-		List<Funcionario> funcionariosRol = null;
-		List<Funcionario> funcionariosExternos = null;
-		
-		if(!validaDiscriminante(criterioConsultaFuncionarioExternoDTO)
-				&& !validaRol(criterioConsultaFuncionarioExternoDTO)
-				&& !validaNumeroCaso(criterioConsultaFuncionarioExternoDTO)
-				&& !validaNumeroExpediente(criterioConsultaFuncionarioExternoDTO)
-				&& !validaFuncionarioExterno(criterioConsultaFuncionarioExternoDTO) ) {
-			
-			throw new NSJPNegocioException(CodigoError.PARAMETROS_INSUFICIENTES);
-		}
-		
-		if (validaDiscriminante(criterioConsultaFuncionarioExternoDTO)
-				|| ( validaRol(criterioConsultaFuncionarioExternoDTO)
-						 && !validaFuncionarioExterno(criterioConsultaFuncionarioExternoDTO) )){
-			
-			String consultaFuncionario = creaQueryConsultaXCriterioFuncionario(criterioConsultaFuncionarioExternoDTO);
-			Query query = super.getSession().createQuery(consultaFuncionario);
-			agregarParametrosQueryFuncionario(query, criterioConsultaFuncionarioExternoDTO);
-			logger.debug("Query de funcionario :: " + query);
-			funcionariosRol = (List<Funcionario>) query.list();
-		}
-		
-		if (validaNumeroCaso(criterioConsultaFuncionarioExternoDTO)
-					|| validaNumeroExpediente(criterioConsultaFuncionarioExternoDTO)){
-			
-			String consultaExpediente = creaQueryConsultaXCriterioExpediente(criterioConsultaFuncionarioExternoDTO);
-			Query queryExpediente = super.getSession().createQuery(consultaExpediente);
-			agregarParametrosQueryExpediente(queryExpediente, criterioConsultaFuncionarioExternoDTO);
-			logger.debug("Query de expediente :: " + queryExpediente);
-			funcionariosExpediente = (List<Funcionario>) queryExpediente.list();
-		}
-		
-		if(validaFuncionarioExterno(criterioConsultaFuncionarioExternoDTO)){
-			//este funcionario se utiliza para traer los funcionarios externos pertenecientes a un area y/o departamento			
-			if(funcionario != null) {
-				
-				if (criterioConsultaFuncionarioExternoDTO.getRolDTO() != null){
-					RolDTO rolDTO = criterioConsultaFuncionarioExternoDTO.getRolDTO();
-					Rol rol = new Rol(rolDTO.getRolId());
-					funcionario.setRol(rol);
-				}
-				
-				funcionariosExternos = this.consultarFuncionarioXFiltro(funcionario, false);
-			}	
-		}
-			
-		List<Funcionario> funcionariosConsolidados = consolidarFuncionarios(funcionariosExpediente, funcionariosRol, funcionariosExternos);
+    /* (non-Javadoc)
+     * @see mx.gob.segob.nsjp.dao.funcionario.FuncionarioDAO#consultarFuncionariosXCriterio(mx.gob.segob.nsjp.dto.funcionario.CriterioConsultaFuncionarioExternoDTO)
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<Funcionario> consultarFuncionariosXCriterio(
+            CriterioConsultaFuncionarioExternoDTO criterioConsultaFuncionarioExternoDTO,
+            Funcionario funcionario)
+            throws NSJPNegocioException {
 
-		return funcionariosConsolidados;
-	}
-	
-	/**
-	 * M&eacute;todo utilitario que se encarga de validar que el n&uacute;mero del caso 
-	 * venga dentro de los criterios sobre los cuales se va a filtrar la consulta. 
-	 * @param criterio - El DTO con los filtros que se van a inyectar en la consulta.
-	 * @return boolean - bandera que indica si el n&uacute;mero del caso se encuentra 
-	 * 					 en el criterio.
-	 */
-	private boolean validaNumeroCaso(CriterioConsultaFuncionarioExternoDTO criterio){
-		boolean valido = false;
-		if (criterio.getExpendienteDTO()!= null 
-				&& criterio.getExpendienteDTO().getCasoDTO() != null
-				&& criterio.getExpendienteDTO().getCasoDTO().getNumeroGeneralCaso() != null
-				&& !criterio.getExpendienteDTO().getCasoDTO().getNumeroGeneralCaso().isEmpty()){
-			valido = true;
-		}
-		return valido;
-	}
-	
-	/**
-	 * M&eacute;todo utilitario que se encarga de validar que el n&uacute;mero del expediente 
-	 * venga dentro de los criterios sobre los cuales se va a filtrar la consulta. 
-	 * @param criterio - El DTO con los filtros que se van a inyectar en la consulta.
-	 * @return boolean - bandera que indica si el n&uacute;mero del expediente se encuentra 
-	 * 					 en el criterio.
-	 */
-	private boolean validaNumeroExpediente(CriterioConsultaFuncionarioExternoDTO criterio){
-		boolean valido = false;
-		if (criterio.getExpendienteDTO()!= null 
-				&& criterio.getExpendienteDTO().getNumeroExpediente() != null
-				&& !criterio.getExpendienteDTO().getNumeroExpediente().isEmpty()){
-			valido = true;
-		}
-		return valido;
-	}
-	
-	/**
-	 * M&eacute;todo utilitario que se encarga de validar que se reciba un &aacute;rea y un   
-	 * departamento como los criterios sobre los cuales se va a filtrar la consulta. 
-	 * @param criterio - El DTO con los filtros que se van a inyectar en la consulta.
-	 * @return boolean - bandera que indica si el nombre del discriminante se encuentra 
-	 * 					 en el criterio.
-	 */
-	private boolean validaFuncionarioExterno (CriterioConsultaFuncionarioExternoDTO criterio){
-		boolean valido = false;
-		
-		if (criterio.getFuncionarioDTO()!= null 
-				&& criterio.getFuncionarioDTO().getDepartamento() != null
-				&& criterio.getFuncionarioDTO().getDepartamento().getArea() != null
-				&& criterio.getFuncionarioDTO().getDepartamento().getArea().getAreaId()>0L){
-			valido = true;
-		}
-		return valido;
-	}
-		
-	
-	
-	/**
-	 * M&eacute;todo utilitario que se encarga de validar que el nombre del rol 
-	 * venga dentro de los criterios sobre los cuales se va a filtrar la consulta. 
-	 * @param criterio - El DTO con los filtros que se van a inyectar en la consulta.
-	 * @return boolean - bandera que indica si el nombre del rol se encuentra 
-	 * 					 en el criterio.
-	 */
-	private boolean validaRol(CriterioConsultaFuncionarioExternoDTO criterio){
-		boolean valido = false;
-		if (criterio.getRolDTO()!= null 
-				&& criterio.getRolDTO().getNombreRol() != null
-				&& !criterio.getRolDTO().getNombreRol().isEmpty()){
-			valido = true;
-		}
-		return valido;
-	}
-	
-	/**
-	 * M&eacute;todo utilitario que se encarga de validar que el nombre del discriminante 
-	 * venga dentro de los criterios sobre los cuales se va a filtrar la consulta. 
-	 * @param criterio - El DTO con los filtros que se van a inyectar en la consulta.
-	 * @return boolean - bandera que indica si el nombre del discriminante se encuentra 
-	 * 					 en el criterio.
-	 */
-	private boolean validaDiscriminante (CriterioConsultaFuncionarioExternoDTO criterio){
-		boolean valido = false;
-		if (criterio.getFuncionarioDTO()!= null 
-				&& criterio.getFuncionarioDTO().getDiscriminante() != null
-				&& criterio.getFuncionarioDTO().getDiscriminante().getNombre() != null
-				&& !criterio.getFuncionarioDTO().getDiscriminante().getNombre().isEmpty()){
-			valido = true;
-		}
-		return valido;
-	}
-	
-	/**
-	 * M&eacute;todo que lleva a cabo la creación de la consulta que se va a ejecutar dentro de la
-	 * base de datos para obtener los datos del funcionario en base a un criterio.
-	 * @param criterio - El DTO con los filtros que se van a inyectar en la consulta.
-	 * @return String - La consulta generada en un formato de cadena de HQL.
-	 */
-	private String creaQueryConsultaXCriterioFuncionario(CriterioConsultaFuncionarioExternoDTO criterio){
-		StringBuffer sb = new StringBuffer(" SELECT f ")
-								   .append(" FROM Funcionario as f ")
-								   .append(" LEFT JOIN f.usuario.usuarioRoles as ur")
-								   .append(" WHERE 1 = 1 ");
-		if (validaRol(criterio)){
-			sb.append(" AND ur.rol.nombreRol = :nombreRol ");
-		}
-		if(validaDiscriminante(criterio)){
-			sb.append(" AND f.discriminante.nombre = :nombreDiscriminante ");
-		}
-		return sb.toString();
-	}
-	
-	/**
-	 * M&eacute;todo que lleva a cabo la creación de la consulta que se va a ejecutar dentro de la
-	 * base de datos para obtener los datos del funcionario en base a un criterio.
-	 * @param criterio - El DTO con los filtros que se van a inyectar en la consulta.
-	 * @return String - La consulta generada en un formato de cadena de HQL.
-	 */
-	private String creaQueryConsultaXCriterioExpediente(CriterioConsultaFuncionarioExternoDTO criterio){
-		StringBuffer sb = new StringBuffer(" SELECT ne.funcionario ")
-								   .append(" FROM NumeroExpediente as ne ")
-								   .append(" WHERE 1 = 1 ");
-		if (validaNumeroExpediente(criterio)){
-			sb.append(" AND ne.numeroExpediente = :numExp ");
-		}
-		if (validaNumeroCaso(criterio)){
-			sb.append(" AND ne.expediente.caso.numeroGeneralCaso = :numCaso ");
-		}
-		return sb.toString();
-	}
-	
-	/**
-	 * M&eacute;todo que se encarga de reemplazar los parametros a la consulta de funcionarios
-	 * por criterio (Rol y distrito).
-	 * @param query - La consulta que se va a ejecutar en la base de datos.
-	 * @param criterio - El DTO con los filtros que se van a inyectar en la consulta.
-	 */
-	private void agregarParametrosQueryFuncionario(Query query, CriterioConsultaFuncionarioExternoDTO criterio){
-		if (validaRol(criterio)){
-			query.setParameter("nombreRol", criterio.getRolDTO().getNombreRol());
-		}
-		if(validaDiscriminante(criterio)){
-			query.setParameter("nombreDiscriminante", criterio.getFuncionarioDTO().getDiscriminante().getNombre());
-		}
-	}
-	
-	/**
-	 * M&eacute;todo que se encarga de reemplazar los parametros a la consulta de funcionarios
-	 * por criterio (Expediente).
-	 * @param query - La consulta que se va a ejecutar en la base de datos.
-	 * @param criterio - El DTO con los filtros que se van a inyectar en la consulta.
-	 */
-	private void agregarParametrosQueryExpediente(Query query, CriterioConsultaFuncionarioExternoDTO criterio){
-		if (validaNumeroExpediente(criterio)){
-			query.setParameter("numExp", criterio.getExpendienteDTO().getNumeroExpediente());
-		}
-		if (validaNumeroCaso(criterio)){
-			query.setParameter("numCaso", criterio.getExpendienteDTO().getCasoDTO().getNumeroGeneralCaso());
-		}
-	}
-	
-	/**
-	 * M&eacute;todo utilitario que se encarga de llevar a cabo la consolidaci&oacute;n de los 
-	 * funcionarios que se obtienen a partir de la consulta por criterios.  
-	 * @param funsExpediente - Funcionarios obtenidos por n&uacute;mero de expediente y/o caso
-	 * @param funsFuncionario - Funcionarios obtenidos por rol y/o distrito.
-	 * @param funsExternos - Funcionarios obtenidos por &aacute;rea y/o departamento
-	 * @return List<Funcionario> - Lista de funcionarios consolidada, evitando repetidos.
-	 */
-	private List<Funcionario> consolidarFuncionarios(
-					List<Funcionario> funsExpediente, 
-					List<Funcionario> funsFuncionario,  
-					List<Funcionario> funsExternos){
-		HashMap<Long, Funcionario> consolidado = new HashMap<Long, Funcionario>();
-		if (funsExpediente != null && !funsExpediente.isEmpty()){
-			for (Funcionario exp : funsExpediente){
-				if (!consolidado.containsKey(exp.getClaveFuncionario())){
-					consolidado.put(exp.getClaveFuncionario(), exp);					
-				}
-			}
-		}
-		
-		if (funsFuncionario != null && !funsFuncionario.isEmpty()){
-			for (Funcionario fun : funsFuncionario){
-				if (!consolidado.containsKey(fun.getClaveFuncionario())){
-					consolidado.put(fun.getClaveFuncionario(), fun);					
-				}
-			}
-		}
-		
-		if (funsExternos != null && !funsExternos.isEmpty()){
-			for (Funcionario externo : funsExternos){
-				if (!consolidado.containsKey(externo.getClaveFuncionario())){
-					consolidado.put(externo.getClaveFuncionario(), externo);					
-				}
-			}
-		}
-		return new ArrayList<Funcionario>(consolidado.values());
-	}
-	
-	
-	@SuppressWarnings("unchecked")
-	public List<Funcionario> consultarFuncionariosPorRolyPorDistrito(Long idRol, Long idDistrito) {
+        List<Funcionario> funcionariosExpediente = null;
+        List<Funcionario> funcionariosRol = null;
+        List<Funcionario> funcionariosExternos = null;
+
+        if (!validaDiscriminante(criterioConsultaFuncionarioExternoDTO)
+                && !validaRol(criterioConsultaFuncionarioExternoDTO)
+                && !validaNumeroCaso(criterioConsultaFuncionarioExternoDTO)
+                && !validaNumeroExpediente(criterioConsultaFuncionarioExternoDTO)
+                && !validaFuncionarioExterno(criterioConsultaFuncionarioExternoDTO)) {
+
+            throw new NSJPNegocioException(CodigoError.PARAMETROS_INSUFICIENTES);
+        }
+
+        if (validaDiscriminante(criterioConsultaFuncionarioExternoDTO)
+                || (validaRol(criterioConsultaFuncionarioExternoDTO)
+                && !validaFuncionarioExterno(criterioConsultaFuncionarioExternoDTO))) {
+
+            String consultaFuncionario = creaQueryConsultaXCriterioFuncionario(criterioConsultaFuncionarioExternoDTO);
+            Query query = super.getSession().createQuery(consultaFuncionario);
+            agregarParametrosQueryFuncionario(query, criterioConsultaFuncionarioExternoDTO);
+            logger.debug("Query de funcionario :: " + query);
+            funcionariosRol = (List<Funcionario>) query.list();
+        }
+
+        if (validaNumeroCaso(criterioConsultaFuncionarioExternoDTO)
+                || validaNumeroExpediente(criterioConsultaFuncionarioExternoDTO)) {
+
+            String consultaExpediente = creaQueryConsultaXCriterioExpediente(criterioConsultaFuncionarioExternoDTO);
+            Query queryExpediente = super.getSession().createQuery(consultaExpediente);
+            agregarParametrosQueryExpediente(queryExpediente, criterioConsultaFuncionarioExternoDTO);
+            logger.debug("Query de expediente :: " + queryExpediente);
+            funcionariosExpediente = (List<Funcionario>) queryExpediente.list();
+        }
+
+        if (validaFuncionarioExterno(criterioConsultaFuncionarioExternoDTO)) {
+            //este funcionario se utiliza para traer los funcionarios externos pertenecientes a un area y/o departamento			
+            if (funcionario != null) {
+
+                if (criterioConsultaFuncionarioExternoDTO.getRolDTO() != null) {
+                    RolDTO rolDTO = criterioConsultaFuncionarioExternoDTO.getRolDTO();
+                    Rol rol = new Rol(rolDTO.getRolId());
+                    funcionario.setRol(rol);
+                }
+
+                funcionariosExternos = this.consultarFuncionarioXFiltro(funcionario, false);
+            }
+        }
+
+        List<Funcionario> funcionariosConsolidados = consolidarFuncionarios(funcionariosExpediente, funcionariosRol, funcionariosExternos);
+
+        return funcionariosConsolidados;
+    }
+
+    /**
+     * M&eacute;todo utilitario que se encarga de validar que el n&uacute;mero
+     * del caso venga dentro de los criterios sobre los cuales se va a filtrar
+     * la consulta.
+     *
+     * @param criterio - El DTO con los filtros que se van a inyectar en la
+     * consulta.
+     * @return boolean - bandera que indica si el n&uacute;mero del caso se
+     * encuentra en el criterio.
+     */
+    private boolean validaNumeroCaso(CriterioConsultaFuncionarioExternoDTO criterio) {
+        boolean valido = false;
+        if (criterio.getExpendienteDTO() != null
+                && criterio.getExpendienteDTO().getCasoDTO() != null
+                && criterio.getExpendienteDTO().getCasoDTO().getNumeroGeneralCaso() != null
+                && !criterio.getExpendienteDTO().getCasoDTO().getNumeroGeneralCaso().isEmpty()) {
+            valido = true;
+        }
+        return valido;
+    }
+
+    /**
+     * M&eacute;todo utilitario que se encarga de validar que el n&uacute;mero
+     * del expediente venga dentro de los criterios sobre los cuales se va a
+     * filtrar la consulta.
+     *
+     * @param criterio - El DTO con los filtros que se van a inyectar en la
+     * consulta.
+     * @return boolean - bandera que indica si el n&uacute;mero del expediente
+     * se encuentra en el criterio.
+     */
+    private boolean validaNumeroExpediente(CriterioConsultaFuncionarioExternoDTO criterio) {
+        boolean valido = false;
+        if (criterio.getExpendienteDTO() != null
+                && criterio.getExpendienteDTO().getNumeroExpediente() != null
+                && !criterio.getExpendienteDTO().getNumeroExpediente().isEmpty()) {
+            valido = true;
+        }
+        return valido;
+    }
+
+    /**
+     * M&eacute;todo utilitario que se encarga de validar que se reciba un
+     * &aacute;rea y un departamento como los criterios sobre los cuales se va a
+     * filtrar la consulta.
+     *
+     * @param criterio - El DTO con los filtros que se van a inyectar en la
+     * consulta.
+     * @return boolean - bandera que indica si el nombre del discriminante se
+     * encuentra en el criterio.
+     */
+    private boolean validaFuncionarioExterno(CriterioConsultaFuncionarioExternoDTO criterio) {
+        boolean valido = false;
+
+        if (criterio.getFuncionarioDTO() != null
+                && criterio.getFuncionarioDTO().getDepartamento() != null
+                && criterio.getFuncionarioDTO().getDepartamento().getArea() != null
+                && criterio.getFuncionarioDTO().getDepartamento().getArea().getAreaId() > 0L) {
+            valido = true;
+        }
+        return valido;
+    }
+
+    /**
+     * M&eacute;todo utilitario que se encarga de validar que el nombre del rol
+     * venga dentro de los criterios sobre los cuales se va a filtrar la
+     * consulta.
+     *
+     * @param criterio - El DTO con los filtros que se van a inyectar en la
+     * consulta.
+     * @return boolean - bandera que indica si el nombre del rol se encuentra en
+     * el criterio.
+     */
+    private boolean validaRol(CriterioConsultaFuncionarioExternoDTO criterio) {
+        boolean valido = false;
+        if (criterio.getRolDTO() != null
+                && criterio.getRolDTO().getNombreRol() != null
+                && !criterio.getRolDTO().getNombreRol().isEmpty()) {
+            valido = true;
+        }
+        return valido;
+    }
+
+    /**
+     * M&eacute;todo utilitario que se encarga de validar que el nombre del
+     * discriminante venga dentro de los criterios sobre los cuales se va a
+     * filtrar la consulta.
+     *
+     * @param criterio - El DTO con los filtros que se van a inyectar en la
+     * consulta.
+     * @return boolean - bandera que indica si el nombre del discriminante se
+     * encuentra en el criterio.
+     */
+    private boolean validaDiscriminante(CriterioConsultaFuncionarioExternoDTO criterio) {
+        boolean valido = false;
+        if (criterio.getFuncionarioDTO() != null
+                && criterio.getFuncionarioDTO().getDiscriminante() != null
+                && criterio.getFuncionarioDTO().getDiscriminante().getNombre() != null
+                && !criterio.getFuncionarioDTO().getDiscriminante().getNombre().isEmpty()) {
+            valido = true;
+        }
+        return valido;
+    }
+
+    /**
+     * M&eacute;todo que lleva a cabo la creación de la consulta que se va a
+     * ejecutar dentro de la base de datos para obtener los datos del
+     * funcionario en base a un criterio.
+     *
+     * @param criterio - El DTO con los filtros que se van a inyectar en la
+     * consulta.
+     * @return String - La consulta generada en un formato de cadena de HQL.
+     */
+    private String creaQueryConsultaXCriterioFuncionario(CriterioConsultaFuncionarioExternoDTO criterio) {
+        StringBuffer sb = new StringBuffer(" SELECT f ")
+                .append(" FROM Funcionario as f ")
+                .append(" LEFT JOIN f.usuario.usuarioRoles as ur")
+                .append(" WHERE 1 = 1 ");
+        if (validaRol(criterio)) {
+            sb.append(" AND ur.rol.nombreRol = :nombreRol ");
+        }
+        if (validaDiscriminante(criterio)) {
+            sb.append(" AND f.discriminante.nombre = :nombreDiscriminante ");
+        }
+        return sb.toString();
+    }
+
+    /**
+     * M&eacute;todo que lleva a cabo la creación de la consulta que se va a
+     * ejecutar dentro de la base de datos para obtener los datos del
+     * funcionario en base a un criterio.
+     *
+     * @param criterio - El DTO con los filtros que se van a inyectar en la
+     * consulta.
+     * @return String - La consulta generada en un formato de cadena de HQL.
+     */
+    private String creaQueryConsultaXCriterioExpediente(CriterioConsultaFuncionarioExternoDTO criterio) {
+        StringBuffer sb = new StringBuffer(" SELECT ne.funcionario ")
+                .append(" FROM NumeroExpediente as ne ")
+                .append(" WHERE 1 = 1 ");
+        if (validaNumeroExpediente(criterio)) {
+            sb.append(" AND ne.numeroExpediente = :numExp ");
+        }
+        if (validaNumeroCaso(criterio)) {
+            sb.append(" AND ne.expediente.caso.numeroGeneralCaso = :numCaso ");
+        }
+        return sb.toString();
+    }
+
+    /**
+     * M&eacute;todo que se encarga de reemplazar los parametros a la consulta
+     * de funcionarios por criterio (Rol y distrito).
+     *
+     * @param query - La consulta que se va a ejecutar en la base de datos.
+     * @param criterio - El DTO con los filtros que se van a inyectar en la
+     * consulta.
+     */
+    private void agregarParametrosQueryFuncionario(Query query, CriterioConsultaFuncionarioExternoDTO criterio) {
+        if (validaRol(criterio)) {
+            query.setParameter("nombreRol", criterio.getRolDTO().getNombreRol());
+        }
+        if (validaDiscriminante(criterio)) {
+            query.setParameter("nombreDiscriminante", criterio.getFuncionarioDTO().getDiscriminante().getNombre());
+        }
+    }
+
+    /**
+     * M&eacute;todo que se encarga de reemplazar los parametros a la consulta
+     * de funcionarios por criterio (Expediente).
+     *
+     * @param query - La consulta que se va a ejecutar en la base de datos.
+     * @param criterio - El DTO con los filtros que se van a inyectar en la
+     * consulta.
+     */
+    private void agregarParametrosQueryExpediente(Query query, CriterioConsultaFuncionarioExternoDTO criterio) {
+        if (validaNumeroExpediente(criterio)) {
+            query.setParameter("numExp", criterio.getExpendienteDTO().getNumeroExpediente());
+        }
+        if (validaNumeroCaso(criterio)) {
+            query.setParameter("numCaso", criterio.getExpendienteDTO().getCasoDTO().getNumeroGeneralCaso());
+        }
+    }
+
+    /**
+     * M&eacute;todo utilitario que se encarga de llevar a cabo la
+     * consolidaci&oacute;n de los funcionarios que se obtienen a partir de la
+     * consulta por criterios.
+     *
+     * @param funsExpediente - Funcionarios obtenidos por n&uacute;mero de
+     * expediente y/o caso
+     * @param funsFuncionario - Funcionarios obtenidos por rol y/o distrito.
+     * @param funsExternos - Funcionarios obtenidos por &aacute;rea y/o
+     * departamento
+     * @return List<Funcionario> - Lista de funcionarios consolidada, evitando
+     * repetidos.
+     */
+    private List<Funcionario> consolidarFuncionarios(
+            List<Funcionario> funsExpediente,
+            List<Funcionario> funsFuncionario,
+            List<Funcionario> funsExternos) {
+        HashMap<Long, Funcionario> consolidado = new HashMap<Long, Funcionario>();
+        if (funsExpediente != null && !funsExpediente.isEmpty()) {
+            for (Funcionario exp : funsExpediente) {
+                if (!consolidado.containsKey(exp.getClaveFuncionario())) {
+                    consolidado.put(exp.getClaveFuncionario(), exp);
+                }
+            }
+        }
+
+        if (funsFuncionario != null && !funsFuncionario.isEmpty()) {
+            for (Funcionario fun : funsFuncionario) {
+                if (!consolidado.containsKey(fun.getClaveFuncionario())) {
+                    consolidado.put(fun.getClaveFuncionario(), fun);
+                }
+            }
+        }
+
+        if (funsExternos != null && !funsExternos.isEmpty()) {
+            for (Funcionario externo : funsExternos) {
+                if (!consolidado.containsKey(externo.getClaveFuncionario())) {
+                    consolidado.put(externo.getClaveFuncionario(), externo);
+                }
+            }
+        }
+        return new ArrayList<Funcionario>(consolidado.values());
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<Funcionario> consultarFuncionariosPorRolyPorDistrito(Long idRol, Long idDistrito) {
         StringBuffer queryString = new StringBuffer();
-		queryString.append("SELECT F FROM Funcionario F ").append(
-				" LEFT JOIN  F.usuario.usuarioRoles as UR ").append(
-				" WHERE 1= 1 ");
-		
-		queryString.append(" AND F.usuario.esActivo= ").append(Boolean.TRUE);
-				
-		if( idRol !=null && idRol > 0){
-			queryString. append(" AND UR.rol.rolId = ").append(
-					idRol);
-		}
-		
-		if( idDistrito !=null && idDistrito > 0){
-			queryString. append(" AND F.discriminante.distrito.catDistritoId = ").append(
-					idDistrito);
-		}
-		
+        queryString.append("SELECT F FROM Funcionario F ").append(
+                " LEFT JOIN  F.usuario.usuarioRoles as UR ").append(
+                        " WHERE 1= 1 ");
+
+        queryString.append(" AND F.usuario.esActivo= ").append(Boolean.TRUE);
+
+        if (idRol != null && idRol > 0) {
+            queryString.append(" AND UR.rol.rolId = ").append(
+                    idRol);
+        }
+
+        if (idDistrito != null && idDistrito > 0) {
+            queryString.append(" AND F.discriminante.distrito.catDistritoId = ").append(
+                    idDistrito);
+        }
+
         final PaginacionDTO pag = PaginacionThreadHolder.get();
 
-		logger.debug("pag :: " + pag);
-		if (pag != null && pag.getCampoOrd() != null) {
-			if (pag.getCampoOrd().equals("1")) {
-				queryString.append(" order by ");
-				queryString.append("F.nombreFuncionario");
-				queryString.append(" ").append(pag.getDirOrd());
-			}
-			if (pag.getCampoOrd().equals("2")) {
-				queryString.append(" order by ");
-				queryString.append("F.apellidoPaternoFuncionario");
-				queryString.append(" ").append(pag.getDirOrd());
-			}
-			if (pag.getCampoOrd().equals("3")) {
-				queryString.append(" order by ");
-				queryString.append("F.apellidoMaternoFuncionario");
-				queryString.append(" ").append(pag.getDirOrd());
-			}
-		}else{
-			queryString.append(" order by ");
-			queryString.append(" F.nombreFuncionario, F.apellidoPaternoFuncionario");			
-		}
-		
-		return super.ejecutarQueryPaginado(queryString, pag);          
-    }
-	
-	@SuppressWarnings("unchecked")
-	public List<Funcionario> consultarFuncionariosPorRolPrincipalyPorDistrito(
-			Long idRol, Long idDistrito) {
-		StringBuffer queryString = new StringBuffer();
-		queryString.append("SELECT F FROM Funcionario F ")
-				.append(" LEFT JOIN  F.usuario.usuarioRoles as UR ")
-				.append(" WHERE UR.esPrincipal = ").append(Boolean.TRUE);
-		queryString.append(" AND F.usuario.esActivo= ").append(Boolean.TRUE);
-		queryString.append(" AND UR.rol.rolId = ").append(idRol);
+        logger.debug("pag :: " + pag);
+        if (pag != null && pag.getCampoOrd() != null) {
+            if (pag.getCampoOrd().equals("1")) {
+                queryString.append(" order by ");
+                queryString.append("F.nombreFuncionario");
+                queryString.append(" ").append(pag.getDirOrd());
+            }
+            if (pag.getCampoOrd().equals("2")) {
+                queryString.append(" order by ");
+                queryString.append("F.apellidoPaternoFuncionario");
+                queryString.append(" ").append(pag.getDirOrd());
+            }
+            if (pag.getCampoOrd().equals("3")) {
+                queryString.append(" order by ");
+                queryString.append("F.apellidoMaternoFuncionario");
+                queryString.append(" ").append(pag.getDirOrd());
+            }
+        } else {
+            queryString.append(" order by ");
+            queryString.append(" F.nombreFuncionario, F.apellidoPaternoFuncionario");
+        }
 
-		if (idDistrito != null && idDistrito > 0) {
-			queryString
-					.append(" AND F.discriminante.distrito.catDistritoId = ")
-					.append(idDistrito);
-		}
-		queryString
-				.append(" ORDER BY F.nombreFuncionario, F.apellidoPaternoFuncionario, F.apellidoMaternoFuncionario");
-		Query query = super.getSession().createQuery(queryString.toString());
-		return query.list();
-	}
-	
-	
-	/* (non-Javadoc)
-	 * @see mx.gob.segob.nsjp.dao.funcionario.FuncionarioDAO#validarFuncionariosRol(java.util.List, java.lang.Long)
-	 */
-	@SuppressWarnings("unchecked")
-	public List<Funcionario> validarFuncionariosRol(List<Funcionario> funcionarios, Long idRol)throws NSJPNegocioException{
-        
-		if(funcionarios == null || funcionarios.isEmpty() || idRol == null || idRol <= 0 ){
-			throw new NSJPNegocioException(CodigoError.PARAMETROS_INSUFICIENTES);
-		}
-		
-		StringBuffer queryString = new StringBuffer();
-		queryString.append("SELECT F FROM Funcionario F ").append(
-				" LEFT JOIN  F.usuario.usuarioRoles as UR ").append(
-				" WHERE ");
-		
-		queryString.append(" F.claveFuncionario in (");
-		int j = 0;
-		for(Funcionario func: funcionarios){
-			if(j>0){
-				queryString.append(",");
-			}
-			queryString.append(func.getClaveFuncionario());
-			j++;			
-		}
-		queryString.append(")");
-		queryString. append(" AND UR.rol.rolId = ").append(idRol);
-		queryString.append(" ORDER BY F.nombreFuncionario, F.apellidoPaternoFuncionario, F.apellidoMaternoFuncionario");
-				
+        return super.ejecutarQueryPaginado(queryString, pag);
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<Funcionario> consultarFuncionariosPorRolPrincipalyPorDistrito(
+            Long idRol, Long idDistrito) {
+        StringBuffer queryString = new StringBuffer();
+        queryString.append("SELECT F FROM Funcionario F ")
+                .append(" LEFT JOIN  F.usuario.usuarioRoles as UR ")
+                .append(" WHERE UR.esPrincipal = ").append(Boolean.TRUE);
+        queryString.append(" AND F.usuario.esActivo= ").append(Boolean.TRUE);
+        queryString.append(" AND UR.rol.rolId = ").append(idRol);
+
+        if (idDistrito != null && idDistrito > 0) {
+            queryString
+                    .append(" AND F.discriminante.distrito.catDistritoId = ")
+                    .append(idDistrito);
+        }
+        queryString
+                .append(" ORDER BY F.nombreFuncionario, F.apellidoPaternoFuncionario, F.apellidoMaternoFuncionario");
+        Query query = super.getSession().createQuery(queryString.toString());
+        return query.list();
+    }
+
+    /* (non-Javadoc)
+     * @see mx.gob.segob.nsjp.dao.funcionario.FuncionarioDAO#validarFuncionariosRol(java.util.List, java.lang.Long)
+     */
+    @SuppressWarnings("unchecked")
+    public List<Funcionario> validarFuncionariosRol(List<Funcionario> funcionarios, Long idRol) throws NSJPNegocioException {
+
+        if (funcionarios == null || funcionarios.isEmpty() || idRol == null || idRol <= 0) {
+            throw new NSJPNegocioException(CodigoError.PARAMETROS_INSUFICIENTES);
+        }
+
+        StringBuffer queryString = new StringBuffer();
+        queryString.append("SELECT F FROM Funcionario F ").append(
+                " LEFT JOIN  F.usuario.usuarioRoles as UR ").append(
+                        " WHERE ");
+
+        queryString.append(" F.claveFuncionario in (");
+        int j = 0;
+        for (Funcionario func : funcionarios) {
+            if (j > 0) {
+                queryString.append(",");
+            }
+            queryString.append(func.getClaveFuncionario());
+            j++;
+        }
+        queryString.append(")");
+        queryString.append(" AND UR.rol.rolId = ").append(idRol);
+        queryString.append(" ORDER BY F.nombreFuncionario, F.apellidoPaternoFuncionario, F.apellidoMaternoFuncionario");
+
         final PaginacionDTO pag = PaginacionThreadHolder.get();
-        return super.ejecutarQueryPaginado(queryString, pag);          
+        return super.ejecutarQueryPaginado(queryString, pag);
     }
-	
-	
-	@SuppressWarnings("unchecked")
-	public List<Funcionario> consultarFuncionariosDeAudienciaPorEspecialidad(Long idAudiencia, List<Long> especialidades) {
 
-    	StringBuffer queryStr = new StringBuffer();
-    	
-    	String idsEspecialidades = "";
-    	
-    	if(especialidades != null && especialidades.size() > 0){
-    		for (Long id : especialidades) {
-    			idsEspecialidades = idsEspecialidades + id + ",";
-    		}
-    		idsEspecialidades = idsEspecialidades.substring(0, idsEspecialidades.lastIndexOf(","));
-    	}
-		
-    	    	
-		queryStr.append("SELECT F FROM Funcionario F where 1=1 ");
-		
-		if(especialidades != null && especialidades.size() > 0){
-			queryStr.append(" AND F.tipoEspecialidad.valorId IN (");
-			queryStr.append(idsEspecialidades);
-			queryStr.append(")");			
-		}
-		
-		queryStr.append(" AND F.claveFuncionario IN (");
-			queryStr.append(" SELECT fa.funcionario.claveFuncionario FROM FuncionarioAudiencia fa where fa.audiencia.audienciaId = ").append(idAudiencia);
-		queryStr.append(")");		
-        
-       
+    @SuppressWarnings("unchecked")
+    public List<Funcionario> consultarFuncionariosDeAudienciaPorEspecialidad(Long idAudiencia, List<Long> especialidades) {
+
+        StringBuffer queryStr = new StringBuffer();
+
+        String idsEspecialidades = "";
+
+        if (especialidades != null && especialidades.size() > 0) {
+            for (Long id : especialidades) {
+                idsEspecialidades = idsEspecialidades + id + ",";
+            }
+            idsEspecialidades = idsEspecialidades.substring(0, idsEspecialidades.lastIndexOf(","));
+        }
+
+        queryStr.append("SELECT F FROM Funcionario F where 1=1 ");
+
+        if (especialidades != null && especialidades.size() > 0) {
+            queryStr.append(" AND F.tipoEspecialidad.valorId IN (");
+            queryStr.append(idsEspecialidades);
+            queryStr.append(")");
+        }
+
+        queryStr.append(" AND F.claveFuncionario IN (");
+        queryStr.append(" SELECT fa.funcionario.claveFuncionario FROM FuncionarioAudiencia fa where fa.audiencia.audienciaId = ").append(idAudiencia);
+        queryStr.append(")");
+
         final PaginacionDTO pag = PaginacionThreadHolder.get();
 
-		logger.debug("pag :: " + pag);
-		if (pag != null && pag.getCampoOrd() != null) {
-			if (pag.getCampoOrd().equals("1")) {
-				queryStr.append(" order by ");
-				queryStr.append("F.nombreFuncionario");
-				queryStr.append(" ").append(pag.getDirOrd());
-			}
-		}
-		
-		return super.ejecutarQueryPaginado(queryStr, pag);   
+        logger.debug("pag :: " + pag);
+        if (pag != null && pag.getCampoOrd() != null) {
+            if (pag.getCampoOrd().equals("1")) {
+                queryStr.append(" order by ");
+                queryStr.append("F.nombreFuncionario");
+                queryStr.append(" ").append(pag.getDirOrd());
+            }
+        }
+
+        return super.ejecutarQueryPaginado(queryStr, pag);
     }
-	
-	
-	@SuppressWarnings("unchecked")
-	public List<Funcionario> consultarFuncionarioXFiltroYAreas(Funcionario filtro, List<Long> idsJerarquiaOrganizacional) {
-		Query query = null;
+
+    @SuppressWarnings("unchecked")
+    public List<Funcionario> consultarFuncionarioXFiltroYAreas(Funcionario filtro, List<Long> idsJerarquiaOrganizacional) {
+        Query query = null;
 
         StringBuffer queryString = new StringBuffer();
 
         queryString.append(" SELECT DISTINCT(f) FROM Funcionario f ");
         queryString.append(" LEFT JOIN  f.usuario u ");
-    	queryString.append(" LEFT JOIN u.usuarioRoles ur ");
-    	queryString.append(" LEFT JOIN ur.rol r ");
-    	
+        queryString.append(" LEFT JOIN u.usuarioRoles ur ");
+        queryString.append(" LEFT JOIN ur.rol r ");
+
         queryString.append(" WHERE 1=1");
-        
+
         // Permite filtrar por Distrito
-        if(filtro.getDiscriminante() != null && filtro.getDiscriminante().getDistrito()!= null &&
-        		filtro.getDiscriminante().getDistrito().getCatDistritoId() != null && filtro.getDiscriminante().getDistrito().getCatDistritoId() > 0){
-        		queryString.append(" AND f.discriminante.distrito.catDistritoId = " + filtro.getDiscriminante().getDistrito().getCatDistritoId() + " ");
+        if (filtro.getDiscriminante() != null && filtro.getDiscriminante().getDistrito() != null
+                && filtro.getDiscriminante().getDistrito().getCatDistritoId() != null && filtro.getDiscriminante().getDistrito().getCatDistritoId() > 0) {
+            queryString.append(" AND f.discriminante.distrito.catDistritoId = " + filtro.getDiscriminante().getDistrito().getCatDistritoId() + " ");
         }
-        
+
         // Permite filtrar por Discriminante
-        if(filtro.getDiscriminante() != null && filtro.getDiscriminante().getCatDiscriminanteId() != null && filtro.getDiscriminante().getCatDiscriminanteId() > 0){
-        		queryString.append(" AND f.discriminante.catDiscriminanteId = " + filtro.getDiscriminante().getCatDiscriminanteId() + " ");
+        if (filtro.getDiscriminante() != null && filtro.getDiscriminante().getCatDiscriminanteId() != null && filtro.getDiscriminante().getCatDiscriminanteId() > 0) {
+            queryString.append(" AND f.discriminante.catDiscriminanteId = " + filtro.getDiscriminante().getCatDiscriminanteId() + " ");
         }
-            	
+
         //Permite filtrar por la UIE
-        if(filtro.getUnidadIEspecializada()!=null && filtro.getUnidadIEspecializada().getCatUIEId() != null && filtro.getUnidadIEspecializada().getCatUIEId()  > 0L) {
-        	queryString.append(" AND f.unidadIEspecializada = "+filtro.getUnidadIEspecializada().getCatUIEId());
+        if (filtro.getUnidadIEspecializada() != null && filtro.getUnidadIEspecializada().getCatUIEId() != null && filtro.getUnidadIEspecializada().getCatUIEId() > 0L) {
+            queryString.append(" AND f.unidadIEspecializada = " + filtro.getUnidadIEspecializada().getCatUIEId());
         }
-        
+
         // Permite filtrar por Área
-    	if(idsJerarquiaOrganizacional != null && idsJerarquiaOrganizacional.size() >0){
-    				logger.debug("IDS de la jerarquia: " + idsJerarquiaOrganizacional.toString());
-    	        	queryString.append(" AND r.jerarquiaOrganizacional.jerarquiaOrganizacionalId IN (:idsJerarquiaOrganizacional)");        			
-    	}
-        
-    	queryString.append(" AND f.usuario.esActivo= ").append(Boolean.TRUE);
-        
+        if (idsJerarquiaOrganizacional != null && idsJerarquiaOrganizacional.size() > 0) {
+            logger.debug("IDS de la jerarquia: " + idsJerarquiaOrganizacional.toString());
+            queryString.append(" AND r.jerarquiaOrganizacional.jerarquiaOrganizacionalId IN (:idsJerarquiaOrganizacional)");
+        }
+
+        queryString.append(" AND f.usuario.esActivo= ").append(Boolean.TRUE);
+
         final PaginacionDTO pag = PaginacionThreadHolder.get();
 
-		logger.debug("pag :: " + pag);
-		if (pag != null && pag.getCampoOrd() != null) {
-			if (pag.getCampoOrd().equals("1")) {
-				queryString.append(" order by ");
-				queryString.append(" f.nombreFuncionario");
-				queryString.append(" ").append(pag.getDirOrd());
-			}
-			if (pag.getCampoOrd().equals("2")) {
-				queryString.append(" order by ");
-				queryString.append(" f.apellidoPaternoFuncionario");
-				queryString.append(" ").append(pag.getDirOrd());
-			}
-			if (pag.getCampoOrd().equals("3")) {
-				queryString.append(" order by ");
-				queryString.append(" f.apellidoMaternoFuncionario");
-				queryString.append(" ").append(pag.getDirOrd());
-			}
-		}
-		
-		query = super.getSession().createQuery(queryString.toString());
-		
-		if(idsJerarquiaOrganizacional != null && idsJerarquiaOrganizacional.size() >0){
-			query.setParameterList("idsJerarquiaOrganizacional", idsJerarquiaOrganizacional);
-		}
-    	
-    	
-		return ejecutarQueryPaginado(query, pag);
+        logger.debug("pag :: " + pag);
+        if (pag != null && pag.getCampoOrd() != null) {
+            if (pag.getCampoOrd().equals("1")) {
+                queryString.append(" order by ");
+                queryString.append(" f.nombreFuncionario");
+                queryString.append(" ").append(pag.getDirOrd());
+            }
+            if (pag.getCampoOrd().equals("2")) {
+                queryString.append(" order by ");
+                queryString.append(" f.apellidoPaternoFuncionario");
+                queryString.append(" ").append(pag.getDirOrd());
+            }
+            if (pag.getCampoOrd().equals("3")) {
+                queryString.append(" order by ");
+                queryString.append(" f.apellidoMaternoFuncionario");
+                queryString.append(" ").append(pag.getDirOrd());
+            }
+        }
+
+        query = super.getSession().createQuery(queryString.toString());
+
+        if (idsJerarquiaOrganizacional != null && idsJerarquiaOrganizacional.size() > 0) {
+            query.setParameterList("idsJerarquiaOrganizacional", idsJerarquiaOrganizacional);
+        }
+
+        return ejecutarQueryPaginado(query, pag);
     }
-	
-	@Override
-    public Funcionario consultarFuncionarioXIdUsuario (Long idUsuario) {
-		Funcionario fun = null;
-		
-		try{
-			StringBuilder queryString = new StringBuilder();
-			queryString.append("SELECT f ").
-			append(" FROM Usuario u").
-			append(" INNER JOIN u.funcionario f").
-			append(" WHERE u.usuarioId = :idUsuario");
-			
-			Query query = super.getSession().createQuery(queryString.toString());
-			query.setParameter("idUsuario", idUsuario);
-			fun = (Funcionario) query.uniqueResult();
-			
-		}catch(Exception e){
-			log.error("Error al tratar de obtener el funcionario, FuncionarioDAOImpl : consultarFuncionarioXIdUsuario ", e);
-		}
-        
-        
+
+    @Override
+    public Funcionario consultarFuncionarioXIdUsuario(Long idUsuario) {
+        Funcionario fun = null;
+
+        try {
+            StringBuilder queryString = new StringBuilder();
+            queryString.append("SELECT f ").
+                    append(" FROM Usuario u").
+                    append(" INNER JOIN u.funcionario f").
+                    append(" WHERE u.usuarioId = :idUsuario");
+
+            Query query = super.getSession().createQuery(queryString.toString());
+            query.setParameter("idUsuario", idUsuario);
+            fun = (Funcionario) query.uniqueResult();
+
+        } catch (Exception e) {
+            log.error("Error al tratar de obtener el funcionario, FuncionarioDAOImpl : consultarFuncionarioXIdUsuario ", e);
+        }
+
         return fun;
     }
 
-	
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<Funcionario> consultarSubordinadosUAVD() {
+        StringBuffer queryString = new StringBuffer();
+        queryString.append("FROM Funcionario f where f.area.jerarquiaOrganizacionalId in(")
+                .append(Areas.COORDINACION_ATENCION_VICTIMAS.ordinal())
+                .append(",")
+                .append(Areas.ATENCION_VICTIMAS.ordinal())
+                .append(",")
+                .append(Areas.ATENCION_JURIDICA.ordinal())
+                .append(",")
+                .append(Areas.ATENCION_PSICOLOGICA.ordinal())
+                .append(")");
+        Query query = super.getSession().createQuery(queryString.toString());
+        return query.list();
+    }
+
 }
