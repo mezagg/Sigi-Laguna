@@ -6,10 +6,10 @@
 <%@ page import="mx.gob.segob.nsjp.comun.enums.institucion.Areas"%>
 <%@page import="mx.gob.segob.nsjp.dto.usuario.RolDTO"%>
 <%@page import="mx.gob.segob.nsjp.dto.usuario.UsuarioDTO"%>
-<%
+<% 
 	UsuarioDTO usuario = (UsuarioDTO) request.getSession().getAttribute("KEY_SESSION_USUARIO_FIRMADO");
 	RolDTO rolDTO = usuario.getRolACtivo().getRol();
- %>
+ %> 
 <html>
 <head>
 	<%@ page import="mx.gob.segob.nsjp.comun.enums.institucion.Areas" %>
@@ -20,11 +20,11 @@
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/treeview/jquery.treeview.css" />
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/estilos.css" media="screen" />
 	<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/jqgrid/ui.jqgrid.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/jquery.easyaccordion.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/jquery.easyaccordion.css" />				
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/ui-lightness/jquery-ui-1.8.11.custom.css" />
-	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery.timeentry.css"/>
+	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery.timeentry.css"/>  
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/jquery.zweatherfeed.css" />
-
+	
 	<script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery-1.5.1.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/timer/jquery.idletimeout.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/timer/jquery.idletimer.js"></script>
@@ -39,13 +39,13 @@
 	<script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery.easyAccordion.js"></script>
 	<script type="text/javascript" src="<%= request.getContextPath() %>/resources/js/jquery.timeentry.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.zweatherfeed.js"></script>
-	<script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery.blockUI.js"></script>
+	<script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery.blockUI.js"></script>			
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/sesion.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/comun.js?n=1"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/bloqueaTecla.js?n=1"></script>
-
 	<!-- Enable JC Funciones comunes para UAVD -->
 	<script type="text/javascript" src="<%=request.getContextPath()%>/jsEnableIT/comunesUAVD.js"></script>
+
 
 	<script type="text/javascript">
 
@@ -53,36 +53,37 @@
 	var sesionActiva = '<%= (request.getSession().getAttribute(LoginAction.KEY_SESSION_USUARIO_FIRMADO)!=null)%>';
 	var tiempoActiva = '<%=((ConfiguracionDTO) request.getSession().getAttribute(GenericAction.KEY_SESSION_CONFIGURACION_GLOBAL)).getTiempoBloqueoSesion()%>';
 	estaSesionActiva();
-
+	
 	var outerLayout, innerLayout;
-
+	
 	var idsTiposSolicitudes="";
-        var estadoSolicitud='<%=EstatusSolicitud.ABIERTA.getValorId()%>';
-
+	var estadoSolicitud='<%=EstatusSolicitud.ABIERTA.getValorId()%>';
+		
 	$(document).ready(function() {
 		jQuery(document).ajaxStop(jQuery.unblockUI);
-
-		//obtenemos el tiempo de las alarmas y ponemos en marcha el timer
+		
+		//obtenemos el tiempo de las alarmas y ponemos en marcha el timer		
 		var tiempo='<%=((ConfiguracionDTO) request.getSession().getAttribute(GenericAction.KEY_SESSION_CONFIGURACION_GLOBAL)).getTiempoRevisionAlarmas()%>';
 		setInterval(muestraAlerta, tiempo);
-
+		
 		//Mandamos consultar los tipos de solicitud dependiendo del Area del Funcionario
 		consultarTiposSolicitudPorAreaDelFuncionario('tableSolsXAtender', <%= Areas.ATENCION_VICTIMAS.parseLong() %>,<%=EstatusSolicitud.ABIERTA.getValorId()%>);
 		consultarTiposSolicitudPorAreaDelFuncionario('tableSolsAtendidas', <%= Areas.ATENCION_VICTIMAS.parseLong() %>,<%=EstatusSolicitud.EN_PROCESO.getValorId()%>);
 		$("#tableSolsXAtender").treeview();
-                $("#tableSolsAtendidas").treeview();
+		$("#tableSolsAtendidas").treeview();
 
-		$("#cargaTodasSols").click(cargaTodasLasSolicitudes);
-
+		
 		outerLayout = $("body").layout( layoutSettings_Outer );
 
 		$("#accordionmenuprincipal").accordion({  fillSpace: true });
 		$("#accordionmenuderprincipal").accordion({ fillSpace: true});
-                $("#accordionmenuderprincipal").accordion( "option", "icons", null );
+		$("#accordionmenuderprincipal").accordion( "option", "icons", null );
 
-		$("#dialogoChat").dialog({ autoOpen: false,
-			modal: true,
-			title: 'Chat',
+		
+		
+		$("#dialogoChat").dialog({ autoOpen: false, 
+			modal: true, 
+			title: 'Chat', 
 			dialogClass: 'alert',
 			modal: true,
 			width: 500 ,
@@ -90,8 +91,8 @@
 			buttons: {"Cancelar":function() {
 								$(this).dialog("close");
 							}
-						}
-		});
+						} 
+		});	
 		$( "#dialog-logout" ).dialog({
 			autoOpen: false,
 			resizable: false,
@@ -110,12 +111,12 @@
 				}
 			}
 		});
-
-
+		
+		
 		muestraGadgets();
 		cargaTodasLasSolicitudes();
 
-
+							
 		/*******************************
 		 ***  CUSTOM LAYOUT BUTTONS  ***
 		 *******************************
@@ -151,19 +152,19 @@
 		createInnerLayout () ;
 		cargaOcupacion();
 
-
+						
 		$("#controlAgenda").click(creaAgenda);
-
-
+			
+		
 		//agregamos el click para redireccionar a la valoracion de hechos
-		$("#hrefHechos").click(realizarValoracionHechos);
+		$("#hrefHechos").click(realizarValoracionHechos);	
 
 		var ambiente='<%=((ConfiguracionDTO) request.getSession().getAttribute(GenericAction.KEY_SESSION_CONFIGURACION_GLOBAL)).getAmbiente()%>';
 		if(ambiente == undefined || ambiente == "undefined"){
 			ambiente = "";
 		}
 		$("#ambienteLb").html('<strong><big>'+ambiente+'</big></strong>');
-
+                
 		//Enable JC Clic sobre el menu Expedientes Compartidos
 		$("#expCompartidos").click(activaSolicitudesCompartidas);
 
@@ -192,6 +193,7 @@
 			sortorder: "desc"
 		}).navGrid('#pagerSolicitudesCompartidas',{edit:false,add:false,del:false});
 		//FIN GRID Solicitudes Compartidas
+
 	});
 	//Fin Ready
 
@@ -201,18 +203,18 @@
 		*Funcion que carga todos los tipos de solicitudes, en la carga inicial
 		*/
 		function cargaTodasLasSolicitudes(estado){
-                        
-                        if(isEmpty(estado)){
+			
+			if(isEmpty(estado)){
 				estadoSolicitud='<%=EstatusSolicitud.ABIERTA.getValorId()%>';
 			}else{
 				estadoSolicitud=estado;
 			}
-                        
-			if(primeraConsulta == true){
 
-				jQuery("#gridSolsXAtndr").jqGrid({
-					url:'<%= request.getContextPath()%>/consultaSolsXAtnderUAVD.do?tipoSoliciutd='+idsTiposSolicitudes+'&idArea=0&estatus='+estadoSolicitud,
-					datatype: "xml",
+			if(primeraConsulta == true){
+				
+				jQuery("#gridSolsXAtndr").jqGrid({ 
+					url:'<%= request.getContextPath()%>/consultaSolsXAtnderUAVD.do?tipoSoliciutd='+idsTiposSolicitudes+'&idArea=0&estatus='+estadoSolicitud, 
+					datatype: "xml", 
 					colNames:['Solicitud','Fecha de Solicitud', 'Hora de Solicitud','V&iacute;ctima','Delito','&Aacute;rea que Solicita' ],
 	                colModel:[ {name:'Caso',index:'Caso', width:80,align:'center'},
 	                           {name:'Fecha',index:'fecha', width:120,align:'center'},
@@ -233,7 +235,7 @@
 				}).navGrid('#pagerGridSolsXAtndr',{edit:false,add:false,del:false});
 
 				primeraConsulta=false;
-
+				
 				$("#gview_gridSolsXAtndr .ui-jqgrid-bdiv").css('height', '385px');
 			}
 			else{
@@ -241,38 +243,38 @@
 				$("#gridSolsXAtndr").trigger("reloadGrid");
 			}
 		}
-
+	
 
 		function verExpediente(idExpediente, numeroExpediente) {
 			$.newWindow({id:"iframewindowExp" + idExpediente, statusBar: true, posx:200,posy:50,width:1140,height:400,title:numeroExpediente, type:"iframe"});
-		    $.updateWindowContent("iframewindowExp" + idExpediente,'<iframe src="<%= request.getContextPath() %>/IngresarMenuIntermedio.do" width="1140" height="400" />');
+		    $.updateWindowContent("iframewindowExp" + idExpediente,'<iframe src="<%= request.getContextPath() %>/IngresarMenuIntermedio.do" width="1140" height="400" />');			
 		}
 
 		function ejecutaChat() {
 			$("#dialogoChat").dialog( "open" );
 		}
-
-
+		
+	
 		function creaAgenda() {
 			$.newWindow({id:"iframewindowagenda", statusBar: true, posx:10,posy:10,width:1150,height:600,title:"Agenda", type:"iframe"});
-		    $.updateWindowContent("iframewindowagenda",'<iframe src="<%= request.getContextPath() %>/InicioAgenda.do" width="1150" height="600" />');
+		    $.updateWindowContent("iframewindowagenda",'<iframe src="<%= request.getContextPath() %>/InicioAgenda.do" width="1150" height="600" />');		
 		}
 
 		function justiciaRestaurativa() {
 			$.newWindow({id:"iframewindowjusticia", statusBar: true, posx:200,posy:50,width:1140,height:400,title:"Justicia Restaurativa", type:"iframe"});
-		    $.updateWindowContent("iframewindowjusticia",'<iframe src="<%= request.getContextPath() %>/JusticiaRestaurativa.do" width="1140" height="400" />');
+		    $.updateWindowContent("iframewindowjusticia",'<iframe src="<%= request.getContextPath() %>/JusticiaRestaurativa.do" width="1140" height="400" />');		
 		}
 
 		function generarDocumentoViwe() {
 			$.newWindow({id:"iframewindowGenerarDocumento", statusBar: true, posx:255,posy:111,width:1024,height:471,title:"Generar Documento", type:"iframe"});
 		    $.updateWindowContent("iframewindowGenerarDocumento",'<iframe src="<%= request.getContextPath() %>/generarDocumento.do" width="1140" height="400" />');
-
+		    		
 		}
-
-
-
-
-
+		
+		
+		
+		
+		
 		function cargaOcupacion(){
 		    	//alert("cargaOcupacion");
 		    	$.ajax({
@@ -287,14 +289,14 @@
 		    			$('#consultaVictima').append('<li value="' + $(this).find('gcNombre').text() +  '" title="'+ $(this).find('gcDescripcion').text() + '"  style="background:#99C"  >'+ $(this).find('gcDescripcion').text() + '</li>');
 		    			});
 		    		}
-
+		    		
 		    	});
 		    }
 
 		var casoAbierto = Array();
-
-		function agregaExpediente (idCaso) {
-			//alert("agregarExpediente:" + idCaso)
+		
+		function agregaExpediente (idCaso) {	
+			//alert("agregarExpediente:" + idCaso)	
 			if (casoAbierto[idCaso ] != true) {
 				$.ajax({
 		    		type: 'POST',
@@ -309,13 +311,13 @@
 		    					add: branches
 		    				});
 			    		});
-		    		}
+		    		}		    		
 		    	});
 			}
 			casoAbierto[idCaso] = true;
 		}
 
-
+		
 
 
 /*
@@ -430,17 +432,17 @@
 		,	fxName:					"drop"
 		,	fxSpeed:				"normal"
 		,	fxSettings:				{ easing: "" } // nullify default easing
-		,	est__onresize:		function () { $("#accordionmenuderprincipal").accordion("resize"); }
+		,	est__onresize:		function () { $("#accordionmenuderprincipal").accordion("resize"); }		
 		}
 	,	center: {
 			paneSelector:			"#mainContent" 			// sample: use an ID to select pane instead of a class
-		,	onresize:				"innerLayout.resizeAll"	// resize INNER LAYOUT when center pane resizes
+		,	onresize:				"innerLayout.resizeAll"	// resize INNER LAYOUT when center pane resizes	
 		,	minWidth:				200
 		,	minHeight:				200
-		,	onresize_end:			function () { $("#gridSolsXAtndr").setGridWidth($("#mainContent").width() - 5, true); }
+		,	onresize_end:			function () { $("#gridSolsXAtndr").setGridWidth($("#mainContent").width() - 5, true); }		
 		}
 	};
-
+	
 	/*
 	*Listener del click para la redireccion a la valoracion de hechos
 	*/
@@ -454,25 +456,25 @@
 		 	id=1;
 		 	var pantalla=5;
 		 	var idsNecesarios=idrow.split(",");
-
+		 	
 			var idSolicitud=idsNecesarios[0];
 			var idNumeroExpediente=idsNecesarios[3];
 			var numeroExpediente=idsNecesarios[2];
 			var numeroExpedienteId=idsNecesarios[1];
-                        
-                        var asignado = 0; 
+			
+			var asignado = 0; 
 			
 			if(estadoSolicitud=='<%=EstatusSolicitud.EN_PROCESO.getValorId()%>'){
 				asignado = 1;
 			}
-                        
-		    $.newWindow({id:"iframewindowRegistraDatosPersona", statusBar: true, posx:255,posy:111,width:911,height:465,title:"Expediente: "+ numeroExpediente, type:"iframe"});
-		    $.updateWindowContent("iframewindowRegistraDatosPersona",'<iframe src="<%= request.getContextPath() %>/RegistraDatosPersonaUAVD.do?idCompuesto='+idrow+'&idDatoPersona='+id +'&pantalla='+pantalla+'&idNumeroExpediente='+idNumeroExpediente+'&asignado='+asignado+' " width="1140" height="400" />');
+		 	
+			$.newWindow({id:"iframewindowRegistraDatosPersona", statusBar: true, posx:255,posy:111,width:911,height:465,title:"Expediente: "+ numeroExpediente, type:"iframe"});
+		    $.updateWindowContent("iframewindowRegistraDatosPersona",'<iframe src="<%= request.getContextPath() %>/RegistraDatosPersonaUAVD.do?idCompuesto='+idrow+'&idDatoPersona='+id +'&pantalla='+pantalla+'&idNumeroExpediente='+idNumeroExpediente+'&asignado='+asignado+' " width="1140" height="400" />');	
 		    $("#" +"iframewindowRegistraDatosPersona" +" .window-maximizeButton").click();
 			}
-
+	
 		/*
-		 *Funcion para consultar los tipos de solicitud y generar
+		 *Funcion para consultar los tipos de solicitud y generar 
 		 * el arbol dinamico de los tipos de solicitud en el menu izquierdo
 		 * param - nombre del elemento en el que se construira de manera dinamica
 		 * los tipos de solicutd
@@ -493,7 +495,7 @@
 						var trTabla = '<li class="closed">';
 						trTabla = trTabla + '<span class="file"><a onclick="cargaGridSolsXAtndr('+$(this).find("idCampo").text()+','+idArea+','+estatus+')">'+$(this).find("valor").text()+'</a></span>';
 						trTabla = trTabla + '</li>';
-
+						
 						$('#'+idDivArbol).append(trTabla);
 						//cosntruyo la cadena con los ids de los tipos de solicitud
 						if(idsTiposSolicitudes.length==0)
@@ -506,10 +508,10 @@
 						}
 					});
 				}
-
+				
 			});
 		}
-
+		
 		/*
 		*Funcion para realizar la consulta del grid de solicitudes por Atender
 		*/
@@ -517,15 +519,14 @@
 		{
 			jQuery("#gridSolsXAtndr").jqGrid('setGridParam', {url:'<%= request.getContextPath()%>/consultaSolsXAtnderUAVD.do?tipoSoliciutd='+tipoSolicitud+'&idArea='+idArea+'&estatus='+estatus,datatype: "xml", page:1 });
 			$("#gridSolsXAtndr").trigger("reloadGrid");
-			ocultaMuestraGrids("solsXAtndr");
 		}
-                
-                function recargarGridSolsXAtendr(){
+		
+		function recargarGridSolsXAtendr(){
 			
 			jQuery("#gridSolsXAtndr").jqGrid('setGridParam', {url:'<%= request.getContextPath()%>/consultaSolsXAtnderUAVD.do?tipoSoliciutd='+idsTiposSolicitudes+'&idArea=0&estatus='+estadoSolicitud,datatype: "xml" });
 			$("#gridSolsXAtndr").trigger("reloadGrid");
 		}
-                
+		
 		/******************************************************    FUNCIONES PARA LAS ALARMAS      ***************************************************/
 		function muestraAlerta(){
 			var op="";
@@ -543,13 +544,13 @@
 	    				idAlerta=$(this).find('alertaId').text();
 	    				var nombre=$(this).find('nombre').first().text();
 	    				$("#mensajeAlarma").html(nombre);
-
+	    				
 	        			llamaraCambia(op,idAlerta);
 					});
 	   		}
 	   	});
-
-
+			
+			
 
 		}
 
@@ -580,7 +581,7 @@
 
 		function llamaraCambia(op,idAlerta){
 			//alert('la segunda op:'+op);
-			if(op!="false"){
+			if(op!="false"){		
 				$( "#dialog-alarm" ).dialog({
 					resizable: false,
 					height:150,
@@ -601,7 +602,7 @@
 							$( this ).dialog( "close" );
 							$( "#dialog:ui-dialog" ).dialog( "destroy" );
 							nuevoPoppupAlarma(idAlerta);
-
+							
 						}
 					}
 				});
@@ -653,7 +654,7 @@
 				}
 			});
 			$( ".ui-icon-closethick,.ui-dialog-titlebar-close" ).hide();
-
+				
 		}
 		/******************************************************  FIN  FUNCIONES PARA LAS ALARMAS      ***************************************************/
 		/*
@@ -680,7 +681,6 @@
 					 					"<a  onclick=\"cargaRolNuevo('"+rolnuevo+"');\">" + rolDesc +
 					 					"</a></span></td>";
 					trTabla = trTabla + "</tr>";
-
 
 					$('#tableRolMenu').append(trTabla);
 				});
@@ -739,7 +739,8 @@
 		$("#" +"iframewindowAPSE"+iframewindowAPSE + " .window-maximizeButton").click();
 		iframewindowAPSE++;
 	}
-	</script>
+	
+	</script>	
 </head>
 
 <body>
@@ -754,8 +755,14 @@
 				<ul id="tableSolsXAtender" style="cursor:pointer" class="filetree">
 				</ul>
 			</div>
-			<!--Enable JC AGREGAR EL FILTRO CORRESPONDIENTE PARA EXPEDIENTES-->
 			<h3 ><a href="#" id="cargaTodasSolsAtendidas" onclick="cargaTodasLasSolicitudes(<%=EstatusSolicitud.EN_PROCESO.getValorId()%>)"><span >Solicitudes atendidas</span></a></h3>
+			<div>
+				<ul id="tableSolsAtendidas" style="cursor:pointer" class="filetree">
+				</ul>
+			</div>
+			<!--AGREGAR EL FILTRO CORRESPONDIENTE PARA EXPEDIENTES-->
+                        <!--Enable JC AGREGAR EL FILTRO CORRESPONDIENTE PARA EXPEDIENTES COMPARTIDOS-->
+			<h3><a href="#"><span>Expedientes</span></a></h3>
 			<div>
 		        <ul id="tableExpPropios" style="cursor:pointer" class="filetree">
 					<li class="filetree">
@@ -775,10 +782,10 @@
 				<h4>
 					<a href="#" >Datos Personales</a>
 				</h4>
-				<div>
+				<div>				
 					<center>
 						 <jsp:include page="/WEB-INF/paginas/datosPersonalesUsuario.jsp" flush="true"></jsp:include>
-					</center>
+					</center>					
 				</div>
 				<!-- <h4>
 					<a href="#">Calendario</a>
@@ -796,7 +803,7 @@
 						<jsp:include page="/WEB-INF/paginas/agendaUsuario.jsp" flush="true"></jsp:include>
 					</center>
 					<br />
-
+					
 				</div>
 <!--				<h4>-->
 <!--					<a href="#">Clima</a>-->
@@ -808,7 +815,7 @@
 					<a href="#">Chat</a>
 				</h4>
 				<div align="center">
-
+				
 					<div id="dialogoChat" title="Chat" align="center">
 						<iframe src="<%=((ConfiguracionDTO)session.getAttribute(LoginAction.KEY_SESSION_CONFIGURACION_GLOBAL)).getUrlServidorChat()%>" frameborder="0" width="380" height="280"></iframe>
 					</div>
@@ -855,9 +862,9 @@
 					          </table></td>
 					          <td width="103"><table width="89" border="0" cellspacing="0" cellpadding="0">
 					            <tr>
-					            	<td width="107" class="txt_menu_top">Cerrar sesi&oacute;n</td>
-					            	<td width="42" class="txt_menu_top"><a href="#" onclick='$("#dialog-logout").dialog( "open" );'><img src="<%=request.getContextPath()%>/resources/images/btn_cerrar.png" width="29" height="26" border="0"></a></td>
-					            	<!--
+					            	
+					            	
+					            	<!-- 
 					              <td width="53" class="txt_menu_top">Buscar</td>
 					              <td width="147"><img src="<%=request.getContextPath()%>/resources/images/icn_buscar.png" width="22" height="23" border="0"></td>
 					               -->
@@ -866,8 +873,8 @@
 					            <label for="textfield"></label></td>
 					          <td width="204"><table width="89" border="0" cellspacing="0" cellpadding="0">
 					            <tr>
-					              <td width="47">Ayuda</td>
-					              <td width="42"><a href="#"><img src="<%=request.getContextPath()%>/resources/images/btn_ayuda.png" width="29" height="26" border="0"></a></td>
+					              <td width="107" class="txt_menu_top">Cerrar sesi&oacute;n</td>
+					              <td width="42" class="txt_menu_top"><a href="#" onclick='$("#dialog-logout").dialog( "open" );'><img src="<%=request.getContextPath()%>/resources/images/btn_cerrar.png" width="29" height="26" border="0"></a></td>
 					            </tr>
 					          </table></td>
 					        </tr>
@@ -876,7 +883,7 @@
 					        <tr>
 					          <td width="363" align="right" valign="middle"><TABLE border=0 cellSpacing=0 cellPadding=0 width="300" height="100%">
 					            <TBODY>
-					              <TR>
+					              <TR>          
 					              <TR vAlign=top>
 					                <TD width=128 align=right valign="middle"><table width="141" border="0" cellspacing="0" cellpadding="0">
 					                  <tr>
@@ -893,7 +900,7 @@
 					  </TD>
 					  </TR>
 				  </TBODY>
-			  </TABLE>
+			  </TABLE>		
 		</div>
 	<ul class="toolbar">
 		<div id="menu_head">
@@ -901,8 +908,9 @@
 		</div>
 		<div id="menu_config">
 <!--			<li id="verde">Configuraci&oacute;n&nbsp;<img src="<%= request.getContextPath() %>/resources/images/icn_config.png" width="15" height="16"></li>-->
-				<li id="tbarBtnAsignarPermisosASubordinados" class="pen" onclick="asignarPermisos();">Asignar Permisos a Subordinados</li>
-		</div>
+			<li id="tbarBtnAsignarPermisosASubordinados" class="pen" onclick="asignarPermisos();">Asignar Permisos a Subordinados</li>
+
+                </div>
 	</ul>
 </div>
 
@@ -912,7 +920,7 @@
 	  <tr>
 	    <!-- <td height="15">&nbsp;</td>  -->
 		<td height="15" align="center" style="border-left:#FFFFFF; border-top:#FFFFFF;">
-        	<label id="ambienteLb" style="color:#FBFBEF"></label>
+        	<label id="ambienteLb" style="color:#FBFBEF"></label>	
 		</td>
 	  </tr>
 	</table>
@@ -927,15 +935,15 @@
 		<div id="mainContent">
 		<div class="ui-layout-center">
 		<div class="ui-layout-content">
-			<div id="divGridSolsXAtndr">
-				<table id="gridSolsXAtndr"></table>
-				<div id="pagerGridSolsXAtndr"></div>
-			</div>
-			<!--Enable JC GRID Expedientes compartidos -->
-			<div id="divGridSolicitudesCompartidas" style="display: none;">
-			 	<table id="gridSolicitudesCompartidas"></table>
-				<div id="pagerSolicitudesCompartidas"></div>
-			</div>
+		<div class="ui-layout-north">
+			<table id="gridSolsXAtndr"></table>
+			<div id="pagerGridSolsXAtndr"></div>
+		</div>
+                <!--Enable JC GRID Expedientes compartidos -->
+                <div id="divGridSolicitudesCompartidas" style="display: none;">
+                        <table id="gridSolicitudesCompartidas"></table>
+                        <div id="pagerSolicitudesCompartidas"></div>
+                </div>
 		</div>
 		</div>
 		</div>
@@ -952,14 +960,14 @@
 			<span id="mensajeAlarma">mensajeConfigurable</span>
 		</p>
 	</div>
-
+	
 			<!-- dialogos para Bloqueo de pantalla-->
 	<div id="dialog-bloqueo" title="Bloqueo Sesi&oacute;n"  style="display: none;">
 		<p align="center">
 			<table border="0">
 				<tr>
 					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contraseña para desbloquear.</td>
-
+					
 				</tr>
 				<tr>
 					<td align="right"><label style="color:#4A5C68">Contraseña:</label></td>
@@ -993,7 +1001,7 @@
 
 			<p>¿Desea continuar con la sesi&oacute;n?</p>
 	</div>
-
+	
 	<div id="dialog-alarmPos" title="Alarma ">
 		<p align="center">
 			<span id="mensaje">Tiempo deseado para aplazar la alerta</span><br/>
@@ -1012,6 +1020,6 @@
 $( "#dialog-alarm" ).dialog();
 $( "#dialog-alarmPos" ).dialog();
 $( "#dialog-alarm" ).dialog( "destroy" );
-$( "#dialog-alarmPos" ).dialog( "destroy" );
+$( "#dialog-alarmPos" ).dialog( "destroy" );	
 </script>
 </html>
