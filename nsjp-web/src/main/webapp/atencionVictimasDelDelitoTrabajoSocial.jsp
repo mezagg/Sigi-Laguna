@@ -811,16 +811,16 @@
 					            </tr>
 					          </table></td>
 					          <td width="103"><table width="89" border="0" cellspacing="0" cellpadding="0">
-					            <tr>
+<%--					            <tr>
 					            	<td width="107" class="txt_menu_top">Cerrar sesi&oacute;n</td>
 					            	<td width="42" class="txt_menu_top"><a href="#" onclick='$("#dialog-logout").dialog( "open" );'><img src="<%=request.getContextPath()%>/resources/images/btn_cerrar.png" width="29" height="26" border="0"></a></td>
-					            	<!-- 
+					            	 
 					              <td width="53" class="txt_menu_top">Buscar</td>
 					              <td width="147"><img src="<%=request.getContextPath()%>/resources/images/icn_buscar.png" width="22" height="23" border="0"></td>
-					               -->
-					            </tr>
+					               
+					            </tr> --%>
 					          </table>
-					            <label for="textfield"></label></td>
+					            <label for="textfield"></label></td>r
 					          <td width="204"><table width="89" border="0" cellspacing="0" cellpadding="0">
 					            <tr>
 					              <td width="107" class="txt_menu_top">Cerrar sesi&oacute;n</td>
@@ -899,11 +899,11 @@
 		</div>
         </div>
 
-<!--	<div id="dialog-logout" title="Cerrar Sesi&oacute;n">
+	<div id="dialog-logout" title="Cerrar Sesi&oacute;n">
 		<p align="center">
 			<span id="logout">¿Desea cerrar su sesi&oacute;n?</span>
 		</p>
-	</div>-->
+	</div>
 	<!-- dialogos para las alarmas -->
 	<div id="dialog-alarm" title="Alarma ">
 		<p align="center">

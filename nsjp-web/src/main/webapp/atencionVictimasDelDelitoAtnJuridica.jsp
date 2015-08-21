@@ -110,7 +110,10 @@ body,td,th {
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/sesion.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/comun.js?n=1"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/bloqueaTecla.js?n=1"></script>
-
+        
+        <!-- Enable JC Funciones comunes para UAVD -->
+	<script type="text/javascript" src="<%=request.getContextPath()%>/jsEnableIT/comunesUAVD.js"></script>
+        
 	<script type="text/javascript">
 
 	var contextoPagina = "${pageContext.request.contextPath}";
@@ -209,7 +212,7 @@ body,td,th {
 				viewrecords: true,
 				id: 'pager1',
 				onSelectRow: function(id){
-					registraDatosPersona(id);
+					registraDatosPersona(id,0);
 					},
 				sortorder: "desc"
 			}).navGrid('#pagerGridSolsXAtndr',{edit:false,add:false,del:false});		
@@ -279,6 +282,37 @@ body,td,th {
 			ambiente = "";
 		}
 		$("#ambienteLb").html('<strong><big>'+ambiente+'</big></strong>');
+                
+                //Enable JC Clic sobre el menu Expedientes Compartidos
+		$("#expCompartidos").click(activaSolicitudesCompartidas);
+		$("#expPropios").click(function (){
+				cargaGridSolsXAtndr(<%=TiposSolicitudes.ATENCION_JURIDICA.getValorId()%>,<%= Areas.COORDINACION_ATENCION_VICTIMAS.parseLong() %>);
+			}
+		);
+		//ENABLE JC GRID Solicitudes Compartidas
+		jQuery("#gridSolicitudesCompartidas").jqGrid({
+			url:'<%=request.getContextPath()%>/CargarGridMenuSolicitudesCompartidas.do',
+			datatype: "xml",
+			colNames:['Expediente','Fecha', 'Víctima','Delito'],
+			colModel:[ 	{name:'Expediente',index:'1', width:300, align:'center'},
+						{name:'Fecha',index:'2', width:70, align:'center'},
+						{name:'Denunciante',index:'3', width:250, align:'center'},
+						{name:'Delito',index:'4', width:150, align:'center'}
+					],
+			pager: jQuery('#pagerSolicitudesCompartidas'),
+			rowNum:10,
+			rowList:[10,20,30,40,50,60,70,80,90,100],
+			autoheight: true,
+			autowidth: true,
+			sortname: '1',
+			viewrecords: true,
+			ondblClickRow: function(rowid) {
+				registraDatosPersona(rowid,<%=TiposSolicitudes.ATENCION_JURIDICA.getValorId()%>);
+			},
+			sortorder: "desc"
+		}).navGrid('#pagerSolicitudesCompartidas',{edit:false,add:false,del:false});
+		$("#gview_gridSolicitudesCompartidas .ui-jqgrid-bdiv").css('height', '410px');
+		//FIN GRID Solicitudes Compartidas
 	});
 
 		function seleccionFila1(){
@@ -540,7 +574,7 @@ body,td,th {
 		location.href='<%= request.getContextPath()%>/RealizarValoracionHechos.do';
 	}
 
-	 function registraDatosPersona(idrow) {
+	 function registraDatosPersona(idrow, tipoSolCompartida) {
 		 	//el idrow es un id compuesto: idSolicitud,ExpedienteId,NumeroExpediente,NumeroExpedienteId
 		 	id=1;
 		 	var pantalla=1;
@@ -553,7 +587,7 @@ body,td,th {
 		 	
 			$.newWindow({id:"iframewindowRegistraDatosPersona", statusBar: true, posx:255,posy:111,width:911,height:465,title:"Expediente: "+ numeroExpediente, type:"iframe"});
 		    //$.updateWindowContent("iframewindowRegistraDatosPersona",'<iframe src="<%= request.getContextPath() %>/RegistraDatosPersonaUAVD.do?idCompuesto='+idrow+'&idDatoPersona='+id +'&pantalla='+pantalla+'&idNumeroExpediente='+idNumeroExpediente+'" width="1140" height="400" />');
-		    $.updateWindowContent("iframewindowRegistraDatosPersona",'<iframe src="<%= request.getContextPath() %>/RegistraDatosPersonaUAVD.do?idCompuesto='+idrow+'&idDatoPersona='+id +'&pantalla='+pantalla+'&idNumeroExpediente='+idNumeroExpediente+'&idSolicitud='+idSolicitud+'" width="1140" height="400" />');	
+                    $.updateWindowContent("iframewindowRegistraDatosPersona",'<iframe src="<%= request.getContextPath() %>/RegistraDatosPersonaUAVD.do?idCompuesto='+idrow+'&idDatoPersona='+id +'&pantalla='+pantalla+'&idNumeroExpediente='+idNumeroExpediente+'&idSolicitud='+idSolicitud+'&tipoSolCompartida='+tipoSolCompartida+'" width="1140" height="400" />');
 		    $("#" +"iframewindowRegistraDatosPersona" +" .window-maximizeButton").click();
 			}
 	
@@ -600,7 +634,8 @@ body,td,th {
 		*/
 		function cargaGridSolsXAtndr(tipoSolicitud,idArea)
 		{
-			jQuery("#gridSolsXAtndr").jqGrid('setGridParam', {url:'<%= request.getContextPath()%>/consultaSolsXAtnderUAVD.do?tipoSoliciutd='+tipoSolicitud+'&idArea='+idArea+'&estatus=<%=EstatusSolicitud.EN_PROCESO.getValorId()%>',datatype: "xml" });
+//			jQuery("#gridSolsXAtndr").jqGrid('setGridParam', {url:'<%= request.getContextPath()%>/consultaSolsXAtnderUAVD.do?tipoSoliciutd='+tipoSolicitud+'&idArea='+idArea+'&estatus=<%=EstatusSolicitud.EN_PROCESO.getValorId()%>',datatype: "xml" });
+                        jQuery("#gridSolsXAtndr").jqGrid('setGridParam', {url:'<%= request.getContextPath()%>/BusquedaInicialExpPsicologicosUAVDGrid.do?idArea='+<%= Areas.COORDINACION_ATENCION_VICTIMAS.parseLong() %>+'&estatus='+<%=EstatusSolicitud.EN_PROCESO.getValorId()%>+'&tipoSoliciutd='+<%=TiposSolicitudes.ATENCION_JURIDICA.getValorId()%>+'&cadenaArea=ATNJUR',datatype: "xml" });
 			$("#gridSolsXAtndr").trigger("reloadGrid");
 			ocultaMuestraGrids("gridSolsXAtndr");
 		}
@@ -740,7 +775,83 @@ body,td,th {
 	 *Funcion para consultar los roles extras de cada usuario y
 	 * construlle el arbol dinamico de los tipos de rol en el menu derecho
 	 */
-		
+	function consultarTiposRol()
+	{
+		//limpiamos el menu de los tipos de solicitud
+		$("#tableRolMenu").empty();
+		//lanzamos la consulta del tipo de solicitudes
+		$.ajax({
+			type: 'POST',
+			url: '<%= request.getContextPath()%>/consultaMenuRol.do',
+			data: '',
+			dataType: 'xml',
+			async: false,
+			success: function(xml){
+				$(xml).find('RolDTO').each(function(){
+					var rolnuevo=$(this).find("nombreRol").text();
+					var rolDesc=$(this).find("descripcionRol").text();
+					var trTabla = "<tr>";
+					trTabla = trTabla + "<td><span><img src='<%=request.getContextPath()%>/resources/css/check.png' width='16' height='16' />"+
+					 					"<a  onclick=\"cargaRolNuevo('"+rolnuevo+"');\">" + rolDesc +
+					 					"</a></span></td>";
+					trTabla = trTabla + "</tr>";
+					$('#tableRolMenu').append(trTabla);
+				});
+			}
+
+		});
+	}
+
+	function cargaRolNuevo(rolNuevo){
+		///rolRedirec
+		//alert(rolNuevo);
+		document.frmRol2.rolname.value = rolNuevo;
+		document.frmRol2.submit();
+
+	}
+
+	//************************
+	//Enable JC Abre ventana para asignar permisos
+	//************************
+
+
+	/*
+	* Enable JC Funcion para recargar el grid de expedientes compartidos desde el arbol izquierdo
+	*/
+	function activaSolicitudesCompartidas()
+	{
+		jQuery("#gridSolicitudesCompartidas").jqGrid('setGridParam',
+				{url:'<%=request.getContextPath()%>/CargarGridMenuSolicitudesCompartidas.do',
+				datatype: "xml" });
+			 $("#gridSolicitudesCompartidas").trigger("reloadGrid");
+			 ocultaMuestraGrids("expCompartidos");
+			$("#gridSolicitudesCompartidas").setGridWidth($("#mainContent").width() - 5, true);
+			$("#gview_gridSolicitudesCompartidas .ui-jqgrid-bdiv").css('height', '410px');
+			$("#gview_gridSolicitudesCompartidas .ui-jqgrid-bdiv").css('width', '900px');
+	}
+
+	//Enable JC Intercambia el grid de solicitudes y expedientes compartidos.
+	function ocultaMuestraGrids(idDivGrid)
+	{
+		if(idDivGrid == "expCompartidos"){
+			$("#divGridSolsXAtndr").hide();
+			$("#divGridSolicitudesCompartidas").show();
+		}else if(idDivGrid == "gridSolsXAtndr"){
+			$("#divGridSolsXAtndr").show();
+			$("#divGridSolicitudesCompartidas").hide();
+		}
+	}
+
+	/**
+	 * Enable JC Abre ventana para asignar permisos
+	 */
+	var iframewindowAPSE = 0;
+	function asignarPermisos(){
+		$.newWindow({id:"iframewindowAPSE"+iframewindowAPSE, statusBar: true, posx:0,posy:0,width:1430,height:670,title:"Asignar permisos sobre Expediente: ", type:"iframe"});
+		$.updateWindowContent("iframewindowAPSE"+iframewindowAPSE,'<iframe src="<%=request.getContextPath()%>/asigarPermisosExpediente.do?idsTiposSolicitudes='+idsTiposSolicitudes+'" width="1430" height="670" />');
+		$("#" +"iframewindowAPSE"+iframewindowAPSE + " .window-maximizeButton").click();
+		iframewindowAPSE++;
+	}	
 	</script>	
 </head>
 
@@ -751,9 +862,18 @@ body,td,th {
 
 	<div class="content">
 		<div id="accordionmenuprincipal">
-			<h3><a href="#">&nbsp;Expedientes</a></h3>
+			<h3 id="expPropios"><a href="#">&nbsp;Expedientes</a></h3>
 			<div>
 			</div>
+                        <!--Enable JC AGREGAR EL FILTRO CORRESPONDIENTE PARA EXPEDIENTES COMPARTIDOS-->
+			<h3><a href="#"><span>Otros Expedientes</span></a></h3>
+			<div>
+		        <ul id="tableExpPropios" style="cursor:pointer" class="filetree">
+					<li class="filetree">
+						<span id="expCompartidos" >Expedientes Compartidos</span>
+					</li>
+				</ul>
+		 	</div>
 			<!-- <h3><a href="#">Solicitudes por Atender</a></h3>
 			<div>
 				<table width="100%" border="0" bordercolor="#FFFFFF" cellspacing="0" cellpadding="0" bgcolor="#EEEEEE" style="cursor:pointer" id="tableSolsXAtender">
@@ -941,7 +1061,7 @@ body,td,th {
 				<li id="Ayuda" ><span></span>Ayuda&nbsp;<img src="<%= request.getContextPath() %>/resources/images/icn_help4.png" width="15" height="16"></li>
 		--></div>
 		<div id="menu_config">
-		
+                    <li id="tbarBtnAsignarPermisosASubordinados" class="pen" onclick="asignarPermisos();">Asignar Permisos a Subordinados</li>
 			<!--<li id="generarDocumento">Generar Documento&nbsp;<img src="<%= request.getContextPath() %>/resources/images/icn_dctowri.png" width="15" height="16"></li>
 			<li>Guardar&nbsp;<img src="<%= request.getContextPath() %>/resources/images/icn_save_ch.png" width="15" height="16"></li>
 			<li>Digitalizar Documentos&nbsp;<img src="<%= request.getContextPath() %>/resources/images/icn_scan.png" width="15" height="15"></li>
@@ -977,10 +1097,15 @@ body,td,th {
 		<div id="mainContent">
 		<div class="ui-layout-center">
 		<div class="ui-layout-content">
-		<div class="ui-layout-north">
+		<div id="divGridSolsXAtndr" class="ui-layout-north">
 			<table id="gridSolsXAtndr"></table>
 			<div id="pagerGridSolsXAtndr"></div>
 		</div>
+                    <!--Enable JC GRID Expedientes compartidos -->
+			<div id="divGridSolicitudesCompartidas" style="display: none;">
+			 	<table id="gridSolicitudesCompartidas"></table>
+				<div id="pagerSolicitudesCompartidas"></div>
+			</div>
 		</div>
 		</div>
 		</div>

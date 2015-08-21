@@ -826,7 +826,7 @@
 											</tr>
 										</table> <label for="textfield"></label>
 									</td>
-									<td width="204"><table width="89" border="0"
+<!--									<td width="204"><table width="89" border="0"
 											cellspacing="0" cellpadding="0">
 											<tr>
 												<td width="47">Ayuda</td>
@@ -837,7 +837,7 @@
 												</td>
 											</tr>
 										</table>
-									</td>
+									</td>-->
 								</tr>
 							</table>
 							<table width="363" border="0" cellspacing="0" cellpadding="0">
