@@ -43,6 +43,9 @@
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/sesion.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/comun.js?n=1"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/bloqueaTecla.js?n=1"></script>
+	<!-- Enable JC Funciones comunes para UAVD -->
+	<script type="text/javascript" src="<%=request.getContextPath()%>/jsEnableIT/comunesUAVD.js"></script>
+
 
 	<script type="text/javascript">
 
@@ -161,6 +164,36 @@
 			ambiente = "";
 		}
 		$("#ambienteLb").html('<strong><big>'+ambiente+'</big></strong>');
+                
+		//Enable JC Clic sobre el menu Expedientes Compartidos
+		$("#expCompartidos").click(activaSolicitudesCompartidas);
+
+		//ENABLE JC GRID Solicitudes Compartidas
+		jQuery("#gridSolicitudesCompartidas").jqGrid({
+			url:'<%=request.getContextPath()%>/CargarGridMenuSolicitudesCompartidas.do',
+			datatype: "xml",
+			colNames:['Solicitud','Fecha de Solicitud', 'Hora de Solicitud','V&iacute;ctima','Delito','&Aacute;rea que Solicita' ],
+			colModel:[ {name:'Caso',index:'Caso', width:80,align:'center'},
+                       {name:'Fecha',index:'fecha', width:120,align:'center'},
+                       {name:'Hora',index:'hora', width:100,align:'center'},
+                       {name:'Prob',index:'prob', width:200,align:'center'},
+                       {name:'Delito',index:'delito', width:200,align:'center'},
+                       {name:'Quien',index:'quien', width:250,align:'center'}
+                      ],
+			pager: jQuery('#pagerSolicitudesCompartidas'),
+			rowNum:10,
+			rowList:[10,20,30,40,50,60,70,80,90,100],
+			autoheight: true,
+			autowidth: true,
+			sortname: '1',
+			viewrecords: true,
+			ondblClickRow: function(rowid) {
+				registraDatosPersona(rowid);
+			},
+			sortorder: "desc"
+		}).navGrid('#pagerSolicitudesCompartidas',{edit:false,add:false,del:false});
+		//FIN GRID Solicitudes Compartidas
+
 	});
 	//Fin Ready
 
@@ -628,6 +661,84 @@
 	 *Funcion para consultar los roles extras de cada usuario y
 	 * construlle el arbol dinamico de los tipos de rol en el menu derecho
 	 */
+	function consultarTiposRol()
+	{
+		//limpiamos el menu de los tipos de solicitud
+		$("#tableRolMenu").empty();
+		//lanzamos la consulta del tipo de solicitudes
+		$.ajax({
+			type: 'POST',
+			url: '<%= request.getContextPath()%>/consultaMenuRol.do',
+			data: '',
+			dataType: 'xml',
+			async: false,
+			success: function(xml){
+				$(xml).find('RolDTO').each(function(){
+					var rolnuevo=$(this).find("nombreRol").text();
+					var rolDesc=$(this).find("descripcionRol").text();
+					var trTabla = "<tr>";
+					trTabla = trTabla + "<td><span><img src='<%=request.getContextPath()%>/resources/css/check.png' width='16' height='16' />"+
+					 					"<a  onclick=\"cargaRolNuevo('"+rolnuevo+"');\">" + rolDesc +
+					 					"</a></span></td>";
+					trTabla = trTabla + "</tr>";
+
+					$('#tableRolMenu').append(trTabla);
+				});
+			}
+
+		});
+	}
+
+	function cargaRolNuevo(rolNuevo){
+		///rolRedirec
+		//alert(rolNuevo);
+		document.frmRol2.rolname.value = rolNuevo;
+		document.frmRol2.submit();
+
+	}
+
+	//************************
+	//Enable JC Abre ventana para asignar permisos
+	//************************
+
+
+	/*
+	* Enable JC Funcion para recargar el grid de expedientes compartidos desde el arbol izquierdo
+	*/
+	function activaSolicitudesCompartidas()
+	{
+		jQuery("#gridSolicitudesCompartidas").jqGrid('setGridParam',
+				{url:'<%=request.getContextPath()%>/CargarGridMenuSolicitudesCompartidas.do',
+				datatype: "xml" });
+			 $("#gridSolicitudesCompartidas").trigger("reloadGrid");
+			 ocultaMuestraGrids("expCompartidos");
+			$("#gridSolicitudesCompartidas").setGridWidth($("#mainContent").width() - 5, true);
+			$("#gview_gridSolicitudesCompartidas .ui-jqgrid-bdiv").css('width', '900px');
+	}
+
+	//Enable JC Intercambia el grid de solicitudes y expedientes compartidos.
+	function ocultaMuestraGrids(idDivGrid)
+	{
+		if(idDivGrid == "expCompartidos"){
+			$("#divGridSolsXAtndr").hide();
+			$("#divGridSolicitudesCompartidas").show();
+		}
+		if(idDivGrid == "solsXAtndr"){
+			$("#divGridSolsXAtndr").show();
+			$("#divGridSolicitudesCompartidas").hide();
+		}
+	}
+
+	/**
+	 * Enable JC Abre ventana para asignar permisos
+	 */
+	var iframewindowAPSE = 0;
+	function asignarPermisos(){
+		$.newWindow({id:"iframewindowAPSE"+iframewindowAPSE, statusBar: true, posx:0,posy:0,width:1430,height:670,title:"Asignar permisos sobre Expediente: ", type:"iframe"});
+		$.updateWindowContent("iframewindowAPSE"+iframewindowAPSE,'<iframe src="<%=request.getContextPath()%>/asigarPermisosExpediente.do?idsTiposSolicitudes='+idsTiposSolicitudes+'" width="1430" height="670" />');
+		$("#" +"iframewindowAPSE"+iframewindowAPSE + " .window-maximizeButton").click();
+		iframewindowAPSE++;
+	}
 	
 	</script>	
 </head>
@@ -650,6 +761,15 @@
 				</ul>
 			</div>
 			<!--AGREGAR EL FILTRO CORRESPONDIENTE PARA EXPEDIENTES-->
+                        <!--Enable JC AGREGAR EL FILTRO CORRESPONDIENTE PARA EXPEDIENTES COMPARTIDOS-->
+			<h3><a href="#"><span>Expedientes</span></a></h3>
+			<div>
+		        <ul id="tableExpPropios" style="cursor:pointer" class="filetree">
+					<li class="filetree">
+						<span id="expCompartidos" >Expedientes compartidos</span>
+					</li>
+				</ul>
+		 	</div>
 		</div>
 	</div>
 	<!-- div class="footer">&nbsp;</div-->
@@ -788,7 +908,9 @@
 		</div>
 		<div id="menu_config">
 <!--			<li id="verde">Configuraci&oacute;n&nbsp;<img src="<%= request.getContextPath() %>/resources/images/icn_config.png" width="15" height="16"></li>-->
-		</div>
+			<li id="tbarBtnAsignarPermisosASubordinados" class="pen" onclick="asignarPermisos();">Asignar Permisos a Subordinados</li>
+
+                </div>
 	</ul>
 </div>
 
@@ -817,6 +939,11 @@
 			<table id="gridSolsXAtndr"></table>
 			<div id="pagerGridSolsXAtndr"></div>
 		</div>
+                <!--Enable JC GRID Expedientes compartidos -->
+                <div id="divGridSolicitudesCompartidas" style="display: none;">
+                        <table id="gridSolicitudesCompartidas"></table>
+                        <div id="pagerSolicitudesCompartidas"></div>
+                </div>
 		</div>
 		</div>
 		</div>
