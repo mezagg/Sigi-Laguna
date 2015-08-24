@@ -38,29 +38,10 @@ public class NombreDemografico implements java.io.Serializable {
     private Valor edoFisico;
     private Valor edoConsciencia;
     private Valor edoConscienciaInconsciente;
-    private String testCurso;
-    private String testCursoDos;
+
     // Constructors
 
-    @Column(name = "cTestCurso", length = 10)
-    public String getTestCurso() {
-		return testCurso;
-	}
-
-	public void setTestCurso(String testCurso) {
-		this.testCurso = testCurso;
-	}
-
-    @Column(name = "cTestCursoDos", length = 10)
-    public String getTestCursoDos() {
-		return testCursoDos;
-	}
-
-	public void setTestCursoDos(String testCursoDos) {
-		this.testCursoDos = testCursoDos;
-	}
-
-	/** default constructor */
+    /** default constructor */
     public NombreDemografico() {
     }
 

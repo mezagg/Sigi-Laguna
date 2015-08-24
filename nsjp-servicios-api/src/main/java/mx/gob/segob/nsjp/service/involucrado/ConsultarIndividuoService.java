@@ -31,7 +31,6 @@ import mx.gob.segob.nsjp.dto.involucrado.InvolucradoDTO;
 import mx.gob.segob.nsjp.dto.usuario.UsuarioDTO;
 
 
-
 /**
  * Contrato del servicio para consultar un individuo de acuerdo a ciertos parametros de busqueda.
  * @version 1.0
@@ -141,9 +140,4 @@ public interface ConsultarIndividuoService {
 	 */
 	public List<InvolucradoDTO> consultarProbResParaSolicitarAudienciaPorCaso(
 			CasoDTO casoDTO,UsuarioDTO usuarioFirmado)throws NSJPNegocioException;
-
-	public List<InvolucradoDTO> consultarIndiciadosPorExpediente(
-			Long expedienteId) throws NSJPNegocioException;
 }
-
-

@@ -2155,25 +2155,7 @@ public enum Indicadores {
 				OrientacionGrafica.Vertical, TipoGrafica.BarChart3D, true, true
 				),
 				
-				INDICADOR_107(107L,
-						"Indicador Curso",
-						PGJ,
-						Arrays.asList("fechaIncio","fechaFin"),
-						Arrays.asList("Expediente" ,"Fecha Creacion","Caso", "Hecho", "Distrito"),
-						" select	distinct e.Expediente_id as Expediente, e.dFechaCreacion as 'Fecha Creacion', " + 
-						" c.cNumeroGeneralCaso as 'Caso', case when isnull(Hecho_id,0) = 0 then 'NO' " +
-						" else 'SI' end as Hecho,cdt.cNombre as Distrito "+
-						" from	Caso c	inner join Expediente e on c.Caso_id = e.Caso_id " +
-						" left join Hecho h on e.Expediente_id=h.Expediente_id " +
-						" inner join CatDiscriminante cdi on cdi.catDiscriminante_id = e.catDiscriminante_id " +
-						" inner join CatDistrito cdt on cdt.catDistrito_id = cdi.catDistrito_id " +
-						" where convert(date, E.dFechaCreacion, 103) between convert(date,:fechaIncio,103) AND convert(date,:fechaFin,103) "+
-						" order by c.cNumeroGeneralCaso ",
-						4, 3, -1,
-						"Distrito","Hecho",
-						OrientacionGrafica.Vertical, TipoGrafica.BarChart3D, true, true
-						),			
-					;
+			;
 	
 	
 	private static final String ETIQUETA_AGENCIA = "Agencia";

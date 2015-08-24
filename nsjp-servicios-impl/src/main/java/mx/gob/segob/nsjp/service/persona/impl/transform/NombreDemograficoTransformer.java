@@ -190,8 +190,6 @@ public class NombreDemograficoTransformer {
 			nomDemografico.setEdoConsciencia(new Valor(nomDemograficoDTO.getEdoConsciencia().getIdCampo()));
 		if(nomDemograficoDTO.getEdoConscienciaInconsciente() != null)
 			nomDemografico.setEdoConscienciaInconsciente(new Valor(nomDemograficoDTO.getEdoConscienciaInconsciente().getIdCampo()));
-		nomDemografico.setTestCurso(nomDemograficoDTO.getTestCurso());
-		nomDemografico.setTestCursoDos(nomDemograficoDTO.getTestCursoDos());		
 		
 		return nomDemografico;
 	}
@@ -238,8 +236,6 @@ public class NombreDemograficoTransformer {
 			nomDemograficoDTO.setEdoConsciencia(new ValorDTO(nomDemografico.getEdoConsciencia().getValorId(), nomDemografico.getEdoConsciencia().getValor()));
 		if(nomDemografico.getEdoConscienciaInconsciente() != null)
 			nomDemograficoDTO.setEdoConscienciaInconsciente(new ValorDTO(nomDemografico.getEdoConscienciaInconsciente().getValorId(), nomDemografico.getEdoConscienciaInconsciente().getValor()));
-		nomDemograficoDTO.setTestCurso(nomDemografico.getTestCurso());
-		nomDemograficoDTO.setTestCursoDos(nomDemografico.getTestCursoDos());		
 		
 		return nomDemograficoDTO;
 	}

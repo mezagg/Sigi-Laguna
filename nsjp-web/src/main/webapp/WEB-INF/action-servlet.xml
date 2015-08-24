@@ -31,8 +31,6 @@
 	<bean name="/guardarConfiguracionSubRol" class="mx.gob.segob.nsjp.web.rol.action.ConfiguracionSubRolAction"></bean>
 	<bean name="/consultarConfiguracionSubRol" class="mx.gob.segob.nsjp.web.rol.action.ConfiguracionSubRolAction"></bean>
 	
-	<bean name="/consultarIndiciados" class="mx.gob.segob.nsjp.web.carpetaejecucion.action.AdministrarCarpetaEjecucionAction"></bean>
-	<bean name="/cargarDelitoProbable" class="mx.gob.segob.nsjp.web.hecho.action.IngresarHechosAction"></bean>
 	
 	
 	<!-- INICIA: MENUS-->
