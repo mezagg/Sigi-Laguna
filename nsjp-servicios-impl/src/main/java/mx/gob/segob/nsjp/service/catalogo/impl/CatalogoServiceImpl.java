@@ -53,6 +53,7 @@ import mx.gob.segob.nsjp.dao.domicilio.CatTipoAsentamientoDAO;
 import mx.gob.segob.nsjp.dao.domicilio.CiudadDAO;
 import mx.gob.segob.nsjp.dao.domicilio.EntidadFederativaDAO;
 import mx.gob.segob.nsjp.dao.domicilio.MunicipioDAO;
+import mx.gob.segob.nsjp.dao.catalogo.RegionDAO;
 import mx.gob.segob.nsjp.dao.expediente.ExpedienteDAO;
 import mx.gob.segob.nsjp.dao.forma.FormaDAO;
 import mx.gob.segob.nsjp.dao.institucion.ConfInstitucionDAO;
@@ -91,6 +92,7 @@ import mx.gob.segob.nsjp.model.Municipio;
 import mx.gob.segob.nsjp.model.Parametro;
 import mx.gob.segob.nsjp.model.SalaAudiencia;
 import mx.gob.segob.nsjp.model.Valor;
+import mx.gob.segob.nsjp.model.Region;
 import mx.gob.segob.nsjp.service.catalogo.CatalogoService;
 import mx.gob.segob.nsjp.service.catalogo.impl.transform.CatAreaNegocioTransformer;
 import mx.gob.segob.nsjp.service.catalogo.impl.transform.CatalogoTransformer;
@@ -178,6 +180,8 @@ public class CatalogoServiceImpl implements CatalogoService {
     private ExpedienteDAO expedienteDAO;
     @Autowired
     private CatCausaVehiculoDAO catCausaVehiculoDAO;
+    @Autowired
+    private RegionDAO regionDAO;
     
     @Override
     public List<CatalogoDTO> recuperarCatalogo(Catalogos cat)
@@ -279,6 +283,9 @@ public class CatalogoServiceImpl implements CatalogoService {
             case CAT_FORMAS_NOTIFICACION:
             	List<CatFormaNotificacion> formasNotificacion = catFormaNotificacionDAO.consultarFormasNotificacionValidas();
             	return CatalogoTransformer.transformarCatFormasNotificacion(formasNotificacion);
+            case REGION:
+            	List<Region> regiones = this.regionDAO.findAll("nombre",true);
+            	return CatalogoTransformer.transformarReg(regiones);
             default :
                 final List<Valor> fromBD = this.catDAO
                         .recuperarCatalogoSencillo(cat);

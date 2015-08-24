@@ -60,6 +60,7 @@ import mx.gob.segob.nsjp.dao.domicilio.CatTipoAsentamientoDAO;
 import mx.gob.segob.nsjp.dao.domicilio.CiudadDAO;
 import mx.gob.segob.nsjp.dao.domicilio.EntidadFederativaDAO;
 import mx.gob.segob.nsjp.dao.domicilio.MunicipioDAO;
+import mx.gob.segob.nsjp.dao.catalogo.RegionDAO;
 import mx.gob.segob.nsjp.dao.elemento.ElementoDAO;
 import mx.gob.segob.nsjp.dao.forma.FormaDAO;
 import mx.gob.segob.nsjp.dao.funcionario.FuncionarioDAO;
@@ -92,6 +93,7 @@ import mx.gob.segob.nsjp.model.Forma;
 import mx.gob.segob.nsjp.model.Funcionario;
 import mx.gob.segob.nsjp.model.JerarquiaOrganizacional;
 import mx.gob.segob.nsjp.model.Municipio;
+import mx.gob.segob.nsjp.model.Region;
 import mx.gob.segob.nsjp.model.Registro;
 import mx.gob.segob.nsjp.model.Valor;
 import mx.gob.segob.nsjp.service.catalogo.AdministrarCatalogoService;
@@ -136,6 +138,8 @@ public class AdministrarCatalogoServiceImpl
     private RegistroDAO regDao;
 
     // dao para catalogos en otras entidades
+    @Autowired
+    private RegionDAO regionDAO;
     @Autowired
     private EntidadFederativaDAO entidadFedDAO = null;
     @Autowired
@@ -460,9 +464,13 @@ public class AdministrarCatalogoServiceImpl
                                                             			if(objetoObtenido instanceof ConfInstitucion){
                                                             				obtenerConfInstitucion(exDto, objetoObtenido);
                                                             			}else {
+                                                                                    if(objetoObtenido instanceof Region){
+                                                            				obtenerPadreRegion(exDto, objetoObtenido);
+                                                                                    }else{
 																			logger.warn("Objeto no identificado "
 																					+ objetoObtenido
 																							.getClass());
+                                                                                    }                                                                                                                                                                                                                     
                                                                 		}
                                                             		}
                                                             	}   
@@ -579,6 +587,13 @@ public class AdministrarCatalogoServiceImpl
     	ValorDTO valorDtoPadre = new ValorDTO(0L, valCat.getNombre());
     	exDto.setValor(String.valueOf(valCat.getEntidadFederativaId()));
     	exDto.setCatalogoPadre(new Long(Catalogos.ENTIDAD_FEDERATIVA.ordinal()));
+    	exDto.setValorPadre(valorDtoPadre);
+    }
+    private void obtenerPadreRegion(ValorDTO exDto, Object objetoObtenido) {
+    	Region valCat = this.regionDAO.read(((Region) objetoObtenido).getRegionId());
+    	ValorDTO valorDtoPadre = new ValorDTO(0L, valCat.getNombre());
+    	exDto.setValor(String.valueOf(valCat.getRegionId()));
+    	exDto.setCatalogoPadre(new Long(Catalogos.REGION.ordinal()));
     	exDto.setValorPadre(valorDtoPadre);
     }
     
