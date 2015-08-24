@@ -253,6 +253,11 @@
 	</build>
 	<repositories>
 		<repository>
+			<id>Mvn Central</id>
+			<name>MVN Central repository</name>
+			<url>http://mvnrepository.com/</url>
+		</repository>
+		<!--repository>
 			<id>JBoss</id>
 			<name>JBoss repository</name>
 			<url>https://repository.jboss.org/nexus/content/groups/public-jboss</url>
@@ -272,7 +277,7 @@
 			  <snapshots>
 				 <enabled>true</enabled>
 			  </snapshots>
-		</repository>		
+		</repository-->		
 	</repositories>
 	<modules>
 		<module>nsjp-comun</module>
