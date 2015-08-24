@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<!--APPENDERS -->
+	<appender name="consola" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="[%d{dd-MM-yy HH:mm:ss,SSS}] %5p (%45C{4}-%30M:%4L) -> %m%n" />
+		</layout>
+	</appender>
+	<!--ROOT -->
+	<root>
+		<level value="error" />
+		<appender-ref ref="consola" />
+	</root>
+	<!--ROOT -->
+	<!--LOGGERS -->
+</log4j:configuration>
