@@ -30,7 +30,7 @@
 	<!--Hoja de estilos para el grid-->
 	<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/jqgrid/ui.jqgrid.css" />
 	
-	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/demo.css" />
+	<!--link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/demo.css" /-->
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery.timeentry.css"/>  
 	
 	
@@ -55,7 +55,7 @@
 	
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.layout-1.3.0.js"></script>
 	
-	<script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/demo.js"></script>
+	<!--script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/demo.js"></script-->
 	<script type="text/javascript" src="<%= request.getContextPath() %>/resources/js/jquery.timeentry.js"></script>
 
    <script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/ckeditor/ckeditor.js"></script>
@@ -85,7 +85,8 @@
 	var numeroExpediente="";
 	var numeroExpedienteId = '<%= request.getParameter("numeroExpedienteId")%>';
 	var numeroExpedienteIdConsulta = <%=request.getSession().getAttribute("numeroExpedienteId")%>;
-	
+
+	var idExpedienteop = '<%= request.getParameter("numeroExpedienteId")%>';
 	var lsDatosMotivo="";
     
     var idWindowIngresarVictima           = 1;	
@@ -102,7 +103,11 @@
 	var idWindowIngresarSustancia         = 1;	
 	var idWindowIngresarNumerario         = 1;
 	var idWindowIngresarOtros = 1;
-	var isDetenidoExist                   = false;	
+	var isDetenidoExist                   = false;
+
+    //Extensiones permitidas para documentos adjuntos
+    var extensionesPermitidasAudio = '';
+    var extensionesPermitidasImagen = '';
 
 	var idWindowAsntarRegCadCus = 1;
 	var folioIPH='<%= request.getParameter("folioIPH")%>';
@@ -916,8 +921,9 @@
 		<tr>			
 			<td align="right">
 					<!--<input type="button" value="Guardado Parcial" id="btnIPHGuardadoParcial" class="back_button" onclick="guardarDatosGeneralesIPH()"/> -->
+					<input type="button" value="Adjuntar Documento" id="btnAdjuntar" class="btn_Generico" onclick="abreVentanaAdjuntarDocumentoAExpediente()"/>
 					<input type="button" value="Guardar" id="btnIPHGuardadoParcial" class="back_button" onclick="guardarDatosGeneralesIPH()"/>
-					 <input type="button" value="Generar Informe" class="btn_Generico" onclick="generarInformeIPH()"/>
+					<input type="button" value="Generar Informe" class="btn_Generico" onclick="generarInformeIPH()"/>
 			</td>
 		</tr>
 	</table>

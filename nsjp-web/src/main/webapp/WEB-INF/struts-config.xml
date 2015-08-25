@@ -4006,14 +4006,6 @@
 				parameter="consultarDocumentos"
 				validate="false">				
 	</action>
-
-	<action path="/consultarIndiciados"
-				type="mx.gob.segob.nsjp.web.carpetaejecucion.action.AdministrarCarpetaEjecucionAction"
-				name="BuscarCasosForm"
-				scope="request"
-				parameter="obtenerListaIndiciadosPorExpediente"
-				validate="false">				
-	</action>
 	
 	<action path="/consultarDocumentosPorTipo"
 				type="mx.gob.segob.nsjp.web.atencionTempranaPenal.action.AtencionTempranaPenalAction"
@@ -6966,14 +6958,6 @@
 			name="HechoForm"
 			scope="request"
 			parameter="consultarTipoConclusion"
-			validate="false">
-	</action>
-
-	<action path="/cargarDelitoProbable"
-			type="mx.gob.segob.nsjp.web.hecho.action.IngresarHechosAction"
-			name="HechoForm"
-			scope="request"
-			parameter="consultarDelito"
 			validate="false">
 	</action>
 	

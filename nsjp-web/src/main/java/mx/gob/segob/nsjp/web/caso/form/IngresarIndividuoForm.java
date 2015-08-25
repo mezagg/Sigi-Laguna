@@ -75,10 +75,6 @@ public class IngresarIndividuoForm extends GenericForm{
 	private Long edoFisico;
 	private Long edoConsciencia;
 	private Long edoConscienciaInconsciente;
-	private String testCurso;
-	private String testCursoDos;
-
-
 	//Generales de detenido
 	private String fechaInicioLapso;
 	private String horaInicioLapso;
@@ -282,20 +278,6 @@ public class IngresarIndividuoForm extends GenericForm{
     private String inclinacionFrente;
     // Fin Jacob
 	
-	
-	public String getTestCurso() {
-		return testCurso;
-	}
-	public void setTestCurso(String testCurso) {
-		this.testCurso = testCurso;
-	}
-	public String getTestCursoDos() {
-		return testCursoDos;
-	}
-	public void setTestCursoDos(String testCursoDos) {
-		this.testCursoDos = testCursoDos;
-	}
-    
 	/**
 	 * Método de acceso al campo motivoComparecencia.
 	 * @return El valor del campo motivoComparecencia

@@ -390,33 +390,6 @@
 			});
 			
 
-			$("#tabTestCurso").one("click", function() {
-				jQuery("#gridDetalleTestCurso").jqGrid({ 
-					url:'<%=request.getContextPath()%>/consultarIndiciados.do?expedienteId='+idExpedienteop, 
-					datatype: "xml",
-					colNames:['Nombre','Apellido Paterno','Apellido Materno'],
-					colModel:[ 	{name:'Nombre',index:'nombre', width:200},
-								{name:'ApellidoPaterno',index:'apPaterno', width:170},							
-								{name:'ApellidoMaterno',index:'apMaterno', width:400},
-								],
-					pager: jQuery('#pager1TestCurso'),
-					rowNum:10,
-					rowList:[10,20,30,40,50,60,70,80,90,100],
-					autowidth: false,
-					width:1100,
-					sortname: 'turno',
-					viewrecords: true,
-					id: 'divgrid',
-					onSelectRow: function(id){
-						
-						},
-					sortorder: "desc"
-				}).navGrid('#pager1TestCurso',{edit:false,add:false,del:false});
-				$("#gview_gridDetalleTestCurso .ui-jqgrid-bdiv").css('height', '200px');
-			});
-			
-			
-			
 			//$( "#dialogDos:ui-dialog" ).dialog( "destroy" );
 			$( "#dialogModosYGrados:ui-dialog" ).dialog( "destroy" );
 			
@@ -1491,7 +1464,6 @@
 				$("#conclusionTab").hide();	
 			
 			consultarConclusion();
-			cargaDelito();
 			
 		});
 		//Termina funcion on ready del documento
@@ -5235,31 +5207,7 @@
 			  }
 			});
 		  }
-
-			/*
-			  *Funcion que realiza la carga del combo delito
-			  */
-			  function cargaDelito() {
-				  
-				$('#cbxDelito').empty();
-				$('#cbxDelito').append('<option value="-1">-Seleccione-</option>');
-				
-				$.ajax({
-				  type: 'POST',
-				  url: '<%= request.getContextPath()%>/cargarDelitoProbable.do',
-				  data: '',
-				  dataType: 'xml',
-				  async: false,
-				  success: function(xml){
-					var option;
-					$(xml).find('catTipoConclusion').each(function(){
-						$('#cbxDelito').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
-				    });			
-				  }
-				});
-			  }
-		
-		function cargaCalendarioTipoConclusion(){
+		  function cargaCalendarioTipoConclusion(){
 				
 				$("#fechaConclusion").datepicker({
 					dateFormat: 'dd/mm/yy',
@@ -5396,7 +5344,6 @@
 			<li class="tabTabsAlertas"><a href="#tabs-14" onclick="alertas()">Bitácora de alarmas</a></li>
 			<li class="tabTabsAmparos"><a href="#tabs-15" onclick="consultarAmparosPorExpediente()">Amparo</a></li>
 			<li class="tabTabsConclusion" id="conclusionTab"><a href="#tabsHechos-17">Conclusi&#243;n</a></li>
-			<li class="tabTabsTestCurso"><a href="#tabs-18" onclick="documentos()" id="tabTestCurso">Probable Responsable</a></li>
 		</ul>
 		
 		<!--COMIENZAN TABS INFERIORES DE INDIVIDUO-->
@@ -6306,52 +6253,6 @@
 					    		
 						    </table>
 					    </div>
-					    
-	
-	
-		<div id="tabs-18" class="tabTabsTestCurso">
-		<br>
-			<table id="gridDetalleTestCurso"></table>
-			<div id="pager1TestCurso"></div>
-			<form name="frmDoc" action="<%= request.getContextPath() %>/ConsultarContenidoArchivoDigital.do" method="post">
-				<!--<input type="hidden" name="documentoId" />-->
-			</form>
-				<form name="frmDoc2" action="<%= request.getContextPath() %>/GenerarDocumentoDirecto.do" method="post">
-					<input type="hidden" name="formaId" />
-					<input type="hidden" name="numeroUnicoExpediente" />
-				</form>
-				
-						<table width="800px"  height="200px" border="0" cellspacing="0" cellpadding="0" id="tableConclusion" class="back_hechos">
-					    		<tr>
-					    			<td valign="top">
-					    				<table width="500px" border="0" style="margin-top: 60px">
-					    					<tr>
-									    		<td align="right" width="40%">Descripci&#243;n:</td>
-									    		<td>
-									    			<input type="text" id="cDescripcion" name="cDescripcion" />
-									    		</td>
-									    	</tr>
-									    	<tr>
-									    		<td align="right">Catalogo Delito:</td>
-									    		<td>
-									    			<select id="cbxDelito" style="width:200px;" tabindex="2" onchange="cargaDelito()">
-										                <option value="-1">-Seleccione-</option>
-										            </select>
-									    		</td>
-									    	</tr>
-
-					    				</table>
-					    			</td>
-					    			<td>
-					    				<input type="button" id="btnConclusionExpe" onclick="guardarConclusion()" value="Guardar" class="btn_Generico">
-					    			</td>
-					    		</tr>
-					    		
-					    		
-						    </table>
-				
-		</div>
-					    
         	<!--TERMINAN TABS Conclucion-->	
 	</div>
 	<!--TERMINAN TABS SUPERIORES (PRINCIPALES)-->

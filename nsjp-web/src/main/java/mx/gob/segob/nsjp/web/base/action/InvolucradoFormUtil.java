@@ -412,8 +412,6 @@ public class InvolucradoFormUtil {
 		datosGenerales.setApellidoPaterno(forma.getApellidoPaterno());
 		datosGenerales.setApellidoMaterno(forma.getApellidoMaterno());
 		retorno.setNombre(forma.getNombre()+" "+forma.getApellidoPaterno()+" "+forma.getApellidoMaterno());
-		datosGenerales.setTestCurso(forma.getTestCurso());
-		datosGenerales.setTestCursoDos(forma.getTestCursoDos());
 		
 		//TODO JORGE Se debe de persistir desde la primera vez. Revisar impacto en Vista.
 		if(forma.getNombre()==null){
