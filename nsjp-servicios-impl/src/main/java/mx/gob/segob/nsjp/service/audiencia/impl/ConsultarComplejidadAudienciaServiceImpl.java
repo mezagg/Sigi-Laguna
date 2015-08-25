@@ -72,8 +72,13 @@ public class ConsultarComplejidadAudienciaServiceImpl implements
 		
 		Valor complejidad=valDao.consultarComplejidadTipoAudiencia(tipo);
 		
+		ValorDTO compDTO;
 		/*Transformaci&oacute;n*/
-		ValorDTO compDTO = new ValorDTO(complejidad.getValorId(), complejidad.getValor(), complejidad.getCampoCatalogo().getNombreCampo());
+		if(complejidad != null){
+			compDTO = new ValorDTO(complejidad.getValorId(), complejidad.getValor(), complejidad.getCampoCatalogo().getNombreCampo());			
+		}else{
+			compDTO = new ValorDTO();
+		}
 		
 		return compDTO;
 	}

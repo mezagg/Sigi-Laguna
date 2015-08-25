@@ -397,7 +397,8 @@ public class ConsultarDelitoPersonaServiceImpl implements
 
 	private void validarInvolucradosOrganizaciones(
 			DelitoPersonaDTO delitoPersonaDTO) {
-		if(delitoPersonaDTO.getVictima().getTipoPersona().equals(0L)){
+		if(delitoPersonaDTO != null && delitoPersonaDTO.getVictima() != null
+				&& delitoPersonaDTO.getVictima().getTipoPersona().equals(0L)){
 			try {
 				OrganizacionDTO organizacionDTO = 
 						ingresarOrganizacionService.consultarOrganizacionPorInvolucrado(delitoPersonaDTO.getVictima().getElementoId());
@@ -411,7 +412,8 @@ public class ConsultarDelitoPersonaServiceImpl implements
 				e.printStackTrace();
 			}
 		}
-		if(delitoPersonaDTO.getProbableResponsable().getTipoPersona().equals(0L)){
+		if(delitoPersonaDTO != null && delitoPersonaDTO.getProbableResponsable() != null
+				&& delitoPersonaDTO.getProbableResponsable().getTipoPersona().equals(0L)){
 			try {
 				OrganizacionDTO organizacionDTO = 
 						ingresarOrganizacionService.consultarOrganizacionPorInvolucrado(delitoPersonaDTO.getProbableResponsable().getElementoId());

@@ -102,9 +102,6 @@ public class ParametrosDocumentoTransformer {
 		//recuperar las organizaciones denunciantes
 		parametrosDocumento.setDenunciantesOrganizacion(expediente.getInvolucradoByCalidad(DENUNCIANTE_ORGANIZACION));
 		
-		
-		parametrosDocumento.setNuc(expediente.getCasoDTO().getNumeroGeneralCaso());
-		
 		//llenar objetos
 		parametrosDocumento.setGrupoObjetosExpediente(new ArrayList<GrupoObjetosExpedienteDTO>());
 		llenarGruposDeObjetos(parametrosDocumento,expediente);

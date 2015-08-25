@@ -335,8 +335,6 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
         parametros += '&escolaridad=' + $('#datosGeneralesCmpEscolaridad option:selected').val();
         parametros += '&estadoCivil=' + $('#datosGeneralesCmpEstadoCivil option:selected').val();
         parametros += '&sexo=' + $(':radio[name=rbtSexoDatosGenerales]:checked').val();
-        parametros += '&testCurso=' + $('#testCurso').val();
-        parametros += '&testCursoDos=' + $('#testCursoDos').val();
         var alias=$('#datosGeneralesCmpAlias').val();
         if(alias!=null)
         {
@@ -426,8 +424,6 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 		   }
 
 			function desavilitarDatosGenerales(){
-				 $('#TestCurso').attr("disabled","disabled");
-				 $('#TestCursoDos').attr("disabled","disabled");
 				 $('#datosGeneralesCmpNombres').attr("disabled","disabled");
 				 $('#datosGeneralesCmpApaterno').attr("disabled","disabled");
 				 $('#datosGeneralesCmpMaterno').attr("disabled","disabled");
@@ -477,8 +473,6 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
  			}
 			
 			function avilitarDatosGenerales(){
-				$('#testCurso').attr("disabled","");
-				$('#testCursoDos').attr("disabled","");
 				$('#datosGeneralesCmpNombres').attr("disabled","");
 				$('#datosGeneralesCmpApaterno').attr("disabled","");
 				 $('#datosGeneralesCmpMaterno').attr("disabled","");
@@ -687,9 +681,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 			   $('#cbxEdoConciencia').find("option[value='"+$(xml).find('nombresDemograficoDTO').find('edoConsciencia').find('idCampo').text()+"']").attr("selected","selected");
 			   cargaComboEdoConscienciaInconsciente();
 			   $('#cbxEdoInconciente').find("option[value='"+$(xml).find('nombresDemograficoDTO').find('edoConscienciaInconsciente').find('idCampo').text()+"']").attr("selected","selected");
-			   $('#testCurso').val($(xml).find('nombresDemograficoDTO').find('testCurso').first().text());
-			   $('#testCursoDos').val($(xml).find('nombresDemograficoDTO').find('testCursoDos').first().text());
-		   
+			   
 			   pintaDatosNacimiento(xml);
 			   
 			   var fechaCreacion = $(xml).find('involucradoDTO').find('strFechaCreacion').first().text();
@@ -1445,28 +1437,6 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
     	</td>
 	</tr>
 	
-	<tr>
-		<td align="right">Test Curso:</td>
-		<td><input type="text" size="10" maxlength="10" class=""
-			id="testCurso" name="testCurso"
-			onkeypress="return soloLetrasNPunto(event,this.id);" onblur="validaSoloLetras(this);"
-			 tabindex="3"/></td>
-            <td>
-            </td>
-            <td></td>
-	</tr>
-
-	<tr>
-		<td align="right">Test CursoDos:</td>
-		<td><input type="text" size="10" maxlength="10" class=""
-			id="testCursoDos" name="testCursoDos"
-			onkeypress="return soloLetrasNPunto(event,this.id);" onblur="validaSoloLetras(this);"
-			 tabindex="3"/></td>
-            <td>
-            </td>
-            <td></td>
-	</tr>
-
   </TBODY>
 </table>
 

@@ -341,6 +341,4 @@ public interface InvolucradoDelegate {
    	public List<InvolucradoDTO> consultarProbResParaSolicitarAudienciaPorCaso(
 			CasoDTO casoDTO, UsuarioDTO usuarioDTO)
 			throws NSJPNegocioException;
-	public List<InvolucradoDTO> consultarIndiciadosPorExpediente(
-			Long expedienteId) throws NSJPNegocioException;
 }

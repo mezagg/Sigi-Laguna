@@ -21,7 +21,6 @@ package mx.gob.segob.nsjp.web.hecho.action;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -37,7 +36,6 @@ import mx.gob.segob.nsjp.delegate.catalogo.CatalogoDelegate;
 import mx.gob.segob.nsjp.delegate.expediente.ExpedienteDelegate;
 import mx.gob.segob.nsjp.delegate.hecho.ConclusionHechoDelegate;
 import mx.gob.segob.nsjp.delegate.hecho.HechoDelegate;
-import mx.gob.segob.nsjp.dto.catalogo.CatDelitoDTO;
 import mx.gob.segob.nsjp.dto.catalogo.CatalogoDTO;
 import mx.gob.segob.nsjp.dto.catalogo.ValorDTO;
 import mx.gob.segob.nsjp.dto.domicilio.AsentamientoDTO;
@@ -623,43 +621,6 @@ public class IngresarHechosAction extends GenericAction {
 		}
 		return null;
 	}
-
-	/**
-	 * Método utilizado para realizar la carga del combo Delito
-	 * 
-	 * @param mapping
-	 * @param form
-	 * @param request
-	 * @param response
-	 */
-	public ActionForward consultarDelito(ActionMapping mapping, ActionForm form,
-			HttpServletRequest request, HttpServletResponse response)
-			throws IOException {
-		try {
-			// Carga catalogo Delito
-			log.debug("ejecutando Action cargarCatalogos");
-			List<CatDelitoDTO> listaCatalogo = service.consultarDelito();
-			List<CatalogoDTO> lista = new ArrayList<CatalogoDTO>();
-			for (CatDelitoDTO catDelitoDTO : listaCatalogo){
-				 CatalogoDTO catalogoDTO = new CatalogoDTO();
-				 catalogoDTO.setClave(catDelitoDTO.getCatDelitoId());
-				 catalogoDTO.setValor(catDelitoDTO.getNombre());
-				 lista.add(catalogoDTO);
-			}
-			converter.alias("listaCatalogo", java.util.List.class);
-			converter.alias("catTipoConclusion", CatalogoDTO.class);
-			String xml = converter.toXML(lista);
-			response.setContentType("text/xml");
-			PrintWriter pw = response.getWriter();
-			pw.print(xml);
-			pw.flush();
-			pw.close();
-		} catch (Exception e) {
-			log.error(e.getMessage(), e);
-		}
-		return null;
-	}	
-	
 	
 	/**
 	 * Método utilizado para realizar la carga del combo Tipo SubConclusion

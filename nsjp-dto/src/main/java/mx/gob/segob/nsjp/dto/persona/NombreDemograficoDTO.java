@@ -41,8 +41,6 @@ public class NombreDemograficoDTO extends GenericDTO {
     private ValorDTO edoFisico;
     private ValorDTO edoConsciencia;
     private ValorDTO edoConscienciaInconsciente;
-    private String testCurso;
-    private String testCursoDos;
 
     
     /**
@@ -322,18 +320,6 @@ public class NombreDemograficoDTO extends GenericDTO {
 	}
 	public void setEdoConscienciaInconsciente(ValorDTO edoConscienciaInconsciente) {
 		this.edoConscienciaInconsciente = edoConscienciaInconsciente;
-	}
-	public String getTestCurso() {
-		return testCurso;
-	}
-	public void setTestCurso(String testCurso) {
-		this.testCurso = testCurso;
-	}
-	public String getTestCursoDos() {
-		return testCursoDos;
-	}
-	public void setTestCursoDos(String testCursoDos) {
-		this.testCursoDos = testCursoDos;
 	}
 	
 

@@ -17,7 +17,7 @@
 	<properties>
 		<!-- Numero de versiones de algunas librerias. -->
 		<project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
-		<nsjp.home>C:\backup\SIGI\SIGI2015\cursoTecnicoSIGI\nsjp\</nsjp.home>
+		<nsjp.home>${driver.jdbc}</nsjp.home>
 		<domain.home>C:\glassfish3\glassfish\domains\domain1</domain.home>
 	</properties>
 
@@ -199,8 +199,6 @@
 
 	<build>
 		<plugins>
-		
-			
 			<!-- Configuracion para el plugin de generacion de proyectos en Eclipse. -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
