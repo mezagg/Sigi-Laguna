@@ -853,18 +853,4 @@ public class ConsultarIndividuoServiceImpl implements ConsultarIndividuoService 
 		return invDTOs;
 	}
 
-	@Override
-	public List<InvolucradoDTO> consultarIndiciadosPorExpediente(Long expedienteId) throws NSJPNegocioException{
-		if (expedienteId == null || expedienteId <= 0L){
-			logger.error("expdienteId nulo o expediente igual a cero");
-			throw new NSJPNegocioException(CodigoError. PARAMETROS_INSUFICIENTES);
-			}
-		List<InvolucradoDTO> lista = new ArrayList<InvolucradoDTO>();
-		List<Involucrado> involist = involucradoDAO.consultarIndiciadosPorExpediente(expedienteId);
-		for (Involucrado involucrado : involist){
-			InvolucradoDTO involucradoDTO = InvolucradoTransformer.transformarInvolucrado(involucrado);
-			lista.add(involucradoDTO);
-		}
-		return lista;
-	}
 }

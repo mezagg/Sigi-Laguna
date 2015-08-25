@@ -583,27 +583,6 @@ public class InvolucradoDAOImpl extends GenericDaoHibernateImpl<Involucrado, Lon
 		
 		return super.ejecutarQueryPaginado(queryString, pag);
 	}
-	@Override
-	public List<Involucrado> consultarIndiciadosPorExpediente(Long expedienteId){
-		final StringBuffer queryString = new StringBuffer();
-		queryString.append("SELECT i ")
-					.append( "FROM Involucrado i ")
-					.append(" WHERE i.expediente.expedienteId=").append(expedienteId)
-					.append(" and i.calidad.tipoCalidad.valorId = " + Calidades.PROBABLE_RESPONSABLE_PERSONA.getValorId());
-		
-		final PaginacionDTO pag = PaginacionThreadHolder.get();
-		
-		logger.debug("pag :: " + pag);
-		if (pag != null && pag.getCampoOrd() != null) {
-			if (pag.getCampoOrd().equals("2")) {
-				queryString.append(" order by ");
-				queryString.append(" i.expediente.expedienteId");
-				queryString.append(" ").append(pag.getDirOrd());
-			}
-		}
-		
-		return super.ejecutarQueryPaginado(queryString, pag);		
-		
-	}
+
 
 }

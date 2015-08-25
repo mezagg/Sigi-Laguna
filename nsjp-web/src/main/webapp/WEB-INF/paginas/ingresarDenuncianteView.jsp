@@ -204,8 +204,7 @@
 					$('#iDenuncianteWorkSheet').show();
 					$('#modificarDatos').hide();
 					$("#modificarDatos").click(avilitaDatos);
-					cargaOrganizacion(
-							);
+					cargaOrganizacion();
 					
 					//codigo para anular 
 					$('#anularInvolucrado').hide();

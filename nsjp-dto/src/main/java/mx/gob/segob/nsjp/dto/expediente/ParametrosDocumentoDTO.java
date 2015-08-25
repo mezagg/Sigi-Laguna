@@ -54,16 +54,6 @@ public class ParametrosDocumentoDTO extends GenericDTO {
 	 * 
 	 */
 	private static final long serialVersionUID = -5677530541596828292L;
-	private String nuc;
-	
-	public String getNuc() {
-		return nuc;
-	}
-
-	public void setNuc(String nuc) {
-		this.nuc = nuc;
-	}
-
 	private Long expedienteId;
     private String numeroExpediente;
     private Date fechaApertura;

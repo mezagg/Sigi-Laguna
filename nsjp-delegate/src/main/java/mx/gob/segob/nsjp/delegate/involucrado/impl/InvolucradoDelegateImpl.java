@@ -285,10 +285,4 @@ public class InvolucradoDelegateImpl implements InvolucradoDelegate {
 				.consultarProbResParaSolicitarAudienciaPorCaso(casoDTO,
 						usuarioDTO);
 	}
-	
-	@Override
-	public List<InvolucradoDTO> consultarIndiciadosPorExpediente(
-			Long expedienteId) throws NSJPNegocioException{
-		return consultarIndividuoService.consultarIndiciadosPorExpediente(expedienteId);
-	}
 }

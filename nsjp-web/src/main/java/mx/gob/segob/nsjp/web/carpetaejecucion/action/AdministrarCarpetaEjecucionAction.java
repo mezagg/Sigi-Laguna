@@ -44,7 +44,6 @@ import mx.gob.segob.nsjp.delegate.audiencia.AudienciaDelegate;
 import mx.gob.segob.nsjp.delegate.documento.DocumentoDelegate;
 import mx.gob.segob.nsjp.delegate.expediente.CarpetaEjecucionDelegate;
 import mx.gob.segob.nsjp.delegate.expediente.ExpedienteDelegate;
-import mx.gob.segob.nsjp.delegate.involucrado.InvolucradoDelegate;
 import mx.gob.segob.nsjp.delegate.medidasalternas.MedidasAlternasDelegate;
 import mx.gob.segob.nsjp.delegate.solicitud.SolicitudDelegate;
 import mx.gob.segob.nsjp.dto.audiencia.AudienciaDTO;
@@ -55,7 +54,6 @@ import mx.gob.segob.nsjp.dto.documento.DocumentoDTO;
 import mx.gob.segob.nsjp.dto.evidencia.EvidenciaDTO;
 import mx.gob.segob.nsjp.dto.expediente.ExpedienteDTO;
 import mx.gob.segob.nsjp.dto.forma.FormaDTO;
-import mx.gob.segob.nsjp.dto.involucrado.InvolucradoDTO;
 import mx.gob.segob.nsjp.dto.medida.MedidaAlternaDTO;
 import mx.gob.segob.nsjp.dto.solicitud.SolicitudAudienciaDTO;
 import mx.gob.segob.nsjp.dto.solicitud.SolicitudDTO;
@@ -90,8 +88,6 @@ public class AdministrarCarpetaEjecucionAction extends GenericAction {
 	AudienciaDelegate audienciaDelegate;
 	@Autowired
 	MedidasAlternasDelegate medidasAlternasDelegate;
-	@Autowired
-	InvolucradoDelegate involucradoDelegate;
 	
 	
 	/** Log de clase */
@@ -1182,44 +1178,6 @@ public class AdministrarCarpetaEjecucionAction extends GenericAction {
 			log.error(e);
 		}				
 		return null;	
-	}
-
-	public ActionForward obtenerListaIndiciadosPorExpediente(ActionMapping mapping, ActionForm form,
-			HttpServletRequest request, HttpServletResponse response)
-			throws IOException {
-		 
-		Long expedienteId = NumberUtils.toLong(request.getParameter("expedienteId"));
-		
-		List<InvolucradoDTO>  lista = null;
-		try{
-			lista = involucradoDelegate.consultarIndiciadosPorExpediente(expedienteId);
-		}
-		catch(NSJPNegocioException e) {
-			log.error(e);
-		}
-		response.setContentType("text/xml; charset=UTF-8");
-		response.setHeader("Cache-Control", "no-cache");
-		PrintWriter writer = response.getWriter();
-
-		log.debug("Recuperando nombres de PR de carpeta para grid: elementos: " + lista.size());
-		writer.print("<rows>");
-	
-		writer.print("<records>" + lista.size() + "</records>");
-
-		for (InvolucradoDTO involucradoDTO : lista) {
-			writer.print("<row id='" + involucradoDTO.getElementoId()+ "'>");
-			writer.print("<cell>" + involucradoDTO.getPrimerNombreDemografico().getNombre() + "</cell>");
-			writer.print("<cell>" + involucradoDTO.getPrimerNombreDemografico().getApellidoPaterno() + "</cell>");
-			writer.print("<cell>" + involucradoDTO.getPrimerNombreDemografico().getApellidoMaterno() + "</cell>");
-			writer.print("</row>");
-		}			
-		
-		writer.print("</rows>");
-		writer.flush();
-		writer.close();
-		
-		
-		return null;
 	}
 	
 }
