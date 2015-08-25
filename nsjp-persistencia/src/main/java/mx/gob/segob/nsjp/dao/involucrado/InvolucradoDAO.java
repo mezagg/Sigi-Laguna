@@ -232,6 +232,5 @@ public interface InvolucradoDAO extends GenericDao<Involucrado, Long> {
 	 */
 	public List<Involucrado> consultarInvolucradosByExpedientePaginacion(Long expedienteId);
 
-	public List<Involucrado> consultarIndiciadosPorExpediente(Long expediente);
 	
 }
