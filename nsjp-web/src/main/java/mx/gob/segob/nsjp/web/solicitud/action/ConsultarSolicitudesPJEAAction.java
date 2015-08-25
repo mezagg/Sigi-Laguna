@@ -917,10 +917,10 @@ public class ConsultarSolicitudesPJEAAction extends GenericAction {
 				tipo = NumberUtils.toLong(tipoAudiencia);
 			}
 			
-			TipoAudiencia tipoAudienciaSolicitada = TipoAudiencia.getByValor(tipo);
+//			TipoAudiencia tipoAudienciaSolicitada = TipoAudiencia.getByValor(tipo);
 			AudienciaDTO audiencia = new AudienciaDTO();
 			audiencia.setId(NumberUtils.toLong(audienciaId));
-			audiencia.setTipoAudiencia(new ValorDTO(tipoAudienciaSolicitada.getValorId()));
+			audiencia.setTipoAudiencia(new ValorDTO(tipo));
 			boolean automatico = false;
 			boolean juezSustituto = false;
 			if(request.getParameter("automatico") != null){
