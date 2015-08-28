@@ -166,9 +166,8 @@
 			<dependency>
 				<groupId>com.microsoft.sqlserver</groupId>
 				<artifactId>sqljdbc4</artifactId>
-				<version>1</version>
-				<scope>system</scope>
-				<systemPath>${nsjp.home}/nsjp-etc/jdbc/sqljdbc4.jar</systemPath>
+				<version>4.0</version>
+				
 			</dependency>
 			<dependency>
 				<groupId>org.apache.cxf</groupId>
