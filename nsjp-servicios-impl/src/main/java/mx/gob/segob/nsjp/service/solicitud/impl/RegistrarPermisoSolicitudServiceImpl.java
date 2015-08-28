@@ -68,7 +68,7 @@ public class RegistrarPermisoSolicitudServiceImpl implements
 		permisoSolicitud.setEsEscritura(permiso);
 
 		permisoSolicitud.setId(permisoExpedienteId);
-
+                permisoSolicitud.setFechaModificacion(new Date());
 		permisoSolicitudDAO.saveOrUpdate(permisoSolicitud);
 
 		if (logger.isDebugEnabled())
