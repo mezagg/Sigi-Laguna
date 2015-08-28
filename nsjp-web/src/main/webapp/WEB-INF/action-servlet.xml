@@ -2082,6 +2082,7 @@ Fin solicitar audiencia
         <bean name="/CargarGridSubordinadosUAVD" class="mx.gob.segob.nsjp.web.solicitud.action.ConsultarTodasSolicitudesUAVDAction"></bean>
         <bean name="/CargarGridTodasSolicitudesCoordinador" class="mx.gob.segob.nsjp.web.solicitud.action.ConsultarTodasSolicitudesUAVDAction"></bean>
         <bean name="/CargarGridMenuSolicitudesCompartidas" class="mx.gob.segob.nsjp.web.solicitud.action.ConsultarTodasSolicitudesUAVDAction"></bean>
+        <bean name="/CargarGridTodasSolicitudesSubAreas" class="mx.gob.segob.nsjp.web.solicitud.action.ConsultarTodasSolicitudesUAVDAction"></bean>
 <!-- INICIAN FUNCIONES EN COMUN -->
 	<bean name="/consultarDatosFuncionario" class="mx.gob.segob.nsjp.web.ssp.action.InformePHAction"/>
 	<bean name="/eliminarProbableResponsable" class="mx.gob.segob.nsjp.web.seguridadPublica.action.RegistroDetencionAction"/>

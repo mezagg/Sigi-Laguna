@@ -11173,6 +11173,14 @@
               parameter="cargarGridTodasSolicitudesCoordinador"
               validate="false">
       </action>
+      
+      <action path="/CargarGridTodasSolicitudesSubAreas"
+	      type="mx.gob.segob.nsjp.web.solicitud.action.ConsultarTodasSolicitudesUAVDAction"
+	      name=""
+	      scope="request"
+              parameter="cargarGridTodasSolicitudesSubAreas"
+              validate="false">
+      </action>
 	
       </action-mappings>
 	
