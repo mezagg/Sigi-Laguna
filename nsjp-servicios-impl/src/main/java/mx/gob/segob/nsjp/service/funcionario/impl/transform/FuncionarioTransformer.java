@@ -109,11 +109,10 @@ public class FuncionarioTransformer {
             funcionarioDto.setTipoEspecialidad(new ValorDTO(funcionario
                     .getTipoEspecialidad().getValorId(), funcionario
                     .getTipoEspecialidad().getValor()));
-
+        
         if (funcionario.getArea() != null) {
-
             JerarquiaOrganizacionalDTO jo = new JerarquiaOrganizacionalDTO(
-                    funcionario.getArea().getJerarquiaOrganizacionalId());
+                    funcionario.getArea().getJerarquiaOrganizacionalId(), funcionario.getArea().getNombre());
             funcionarioDto.setJerarquiaOrganizacional(jo);
 
             JerarquiaOrganizacional jerarq = funcionario.getArea();
@@ -519,6 +518,7 @@ public class FuncionarioTransformer {
         List<FuncionarioDTO> resp = new ArrayList<FuncionarioDTO>();
 
         for (Funcionario f : lsfun) {
+            logger.info("AREA: " + f.getArea().getNombre());
             FuncionarioDTO fundto = FuncionarioTransformer
                     .transformarFuncionario(f);
             resp.add(fundto);

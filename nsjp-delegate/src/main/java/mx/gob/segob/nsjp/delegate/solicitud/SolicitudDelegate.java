@@ -932,4 +932,16 @@ public interface SolicitudDelegate {
 	 */
     public List<SolicitudMandamientoDTO> consultarSolicitudesMandatoJudicialPorFiltro(SolicitudMandamientoDTO solicitudMandamientoDTO)
             throws NSJPNegocioException;
+    
+    /**
+	 * Enable JC. Compartir solicitudes UAVD
+	 * @param funcionarioId
+	 * @param solicitudId
+	 * @param fechaVencimiento
+	 * @param permiso
+	 */
+	void asignarPermisoSolicitudFuncionario(Long funcionarioId, Long solicitudId, Date fechaVencimiento, Boolean permiso)
+		throws NSJPNegocioException;
+        
+        void eliminarPermisoSolicitudFuncionario(Long funcionarioId, Long solicitudId)throws NSJPNegocioException;
 }

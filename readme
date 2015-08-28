@@ -1,11 +1,7 @@
 El ambiente de compilacion requiere
-<<<<<<< HEAD
--Java 1.7
--Maven 3.3.3
-=======
+
 -Java 1.6
 -Maven 3.2.1
->>>>>>> 2241d669a456199399da5bc31c6db32bb7354af3
 
 
 Definir variable de JAVA_HOME y M2_HOME e incluir en el path
@@ -13,19 +9,12 @@ export PATH=$JAVA_HOME/bin:$M2_HOME/bin
 
 
 incluir en el repositorio de maven las siguientes librerias
-<<<<<<< HEAD
-mvn install:install-file -Dfile=./nsjp-etc/kaptcha-2.3.jar -DgroupId=com.google.code -DartifactId=kaptcha -Dversion=2.3 -Dpackaging=jar
-mvn install:install-file -Dfile=./nsjp-etc/jdbc/sqljdbc4.jar -DgroupId=com.microsoft.sqlserver -DartifactId=sqljdbc4 -Dversion=4.0 -Dpackaging=jar
 
-Para compilar:
-mvn clean install -Dmaven.test.skip=true
-=======
 mvn install:install-file -Dfile=./nsjp-etc/kaptcha-2.3.jar -DgroupId=com.google.code -DartifactId=kaptcha -Dversion=2.3 -Dpackaging=jar -gs=settings_jdk1.6
 mvn install:install-file -Dfile=./nsjp-etc/jdbc/sqljdbc4.jar -DgroupId=com.microsoft.sqlserver -DartifactId=sqljdbc4 -Dversion=4.0 -Dpackaging=jar -gs=settings_jdk1.6
 
 Para compilar:
 mvn clean install -Dmaven.test.skip=true -gs=settings_jdk1.6
->>>>>>> 2241d669a456199399da5bc31c6db32bb7354af3
 
 
 1.- Definir las rutas del pom principal:
@@ -37,8 +26,4 @@ mvn clean install -Dmaven.test.skip=true -gs=settings_jdk1.6
 
 
  Compilación sin pruebas:
-<<<<<<< HEAD
- mvn clean install -DskipTests=true -gs=settings.xml
-=======
  mvn clean install -DskipTests=true -gs=settings_jdk1.6
->>>>>>> 2241d669a456199399da5bc31c6db32bb7354af3

@@ -45,8 +45,11 @@
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/comun.js?n=1"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/bloqueaTecla.js?n=1"></script>
 
-	<script type="text/javascript">
-
+	<!-- Enable JC Funciones comunes para UAVD -->
+	<script type="text/javascript" src="<%=request.getContextPath()%>/jsEnableIT/comunesUAVD.js"></script>
+        
+        <script type="text/javascript">
+            
 	var contextoPagina = "${pageContext.request.contextPath}";
 	var sesionActiva = '<%= (request.getSession().getAttribute(LoginAction.KEY_SESSION_USUARIO_FIRMADO)!=null)%>';
 	var tiempoActiva = '<%=((ConfiguracionDTO) request.getSession().getAttribute(GenericAction.KEY_SESSION_CONFIGURACION_GLOBAL)).getTiempoBloqueoSesion()%>';
@@ -138,7 +141,7 @@
 				viewrecords: true,
 				id: 'pager1',
 				onSelectRow: function(id){
-					registraDatosPersona(id);
+					registraDatosPersona(id,0);
 					},
 				sortorder: "desc"
 			}).navGrid('#pagerGridSolsXAtndr',{edit:false,add:false,del:false});		
@@ -191,6 +194,38 @@
 			ambiente = "";
 		}
 		$("#ambienteLb").html('<strong><big>'+ambiente+'</big></strong>');
+                
+                //Enable JC Clic sobre el menu Expedientes Compartidos
+		$("#expCompartidos").click(activaSolicitudesCompartidas);
+		$("#expPropios").click(function (){
+				cargaGridSolsXAtndr(<%=TiposSolicitudes.ATENCION_PSICOLOGICA.getValorId()%>,<%=Areas.COORDINACION_ATENCION_VICTIMAS.parseLong()%>);
+			}
+		);
+
+		//ENABLE JC GRID Solicitudes Compartidas
+		jQuery("#gridSolicitudesCompartidas").jqGrid({
+			url:'<%=request.getContextPath()%>/CargarGridMenuSolicitudesCompartidas.do',
+			datatype: "xml",
+			colNames:['Expediente','Fecha', 'Víctima','Delito'],
+			colModel:[ 	{name:'Expediente',index:'1', width:300, align:'center'},
+						{name:'Fecha',index:'2', width:70, align:'center'},
+						{name:'Denunciante',index:'3', width:250, align:'center'},
+						{name:'Delito',index:'4', width:150, align:'center'}
+					],
+			pager: jQuery('#pagerSolicitudesCompartidas'),
+			rowNum:10,
+			rowList:[10,20,30,40,50,60,70,80,90,100],
+			autoheight: true,
+			autowidth: true,
+			sortname: '1',
+			viewrecords: true,
+			ondblClickRow: function(rowid) {
+				registraDatosPersona(rowid,<%=TiposSolicitudes.ATENCION_PSICOLOGICA.getValorId()%>);
+			},
+			sortorder: "desc"
+		}).navGrid('#pagerSolicitudesCompartidas',{edit:false,add:false,del:false});
+		$("#gview_gridSolicitudesCompartidas .ui-jqgrid-bdiv").css('height', '410px');
+		//FIN GRID Solicitudes Compartidas
 	});
 
 		function verExpediente(idExpediente, numeroExpediente) {
@@ -393,7 +428,7 @@
 		location.href='<%=request.getContextPath()%>/RealizarValoracionHechos.do';
 	}
 
-	 function registraDatosPersona(idrow) {
+	 function registraDatosPersona(idrow, tipoSolCompartida) {
 		 	//el idrow es un id compuesto: idSolicitud,ExpedienteId,NumeroExpediente,NumeroExpedienteId
 		 	id=1;
 		 	var pantalla=1;
@@ -405,9 +440,9 @@
 			var numeroExpedienteId=idsNecesarios[1];
 		 	
 			$.newWindow({id:"iframewindowRegistraDatosPersona", statusBar: true, posx:255,posy:111,width:911,height:465,title:"Expediente: "+ numeroExpediente, type:"iframe"});
-		    //$.updateWindowContent("iframewindowRegistraDatosPersona",'<iframe src="<%=request.getContextPath()%>/RegistraDatosPersonaUAVD.do?idCompuesto='+idrow+'&idDatoPersona='+id +'&pantalla='+pantalla+'&idNumeroExpediente='+idNumeroExpediente+'" width="1140" height="400" />');
-		    $.updateWindowContent("iframewindowRegistraDatosPersona",'<iframe src="<%= request.getContextPath() %>/RegistraDatosPersonaUAVD.do?idCompuesto='+idrow+'&idDatoPersona='+id +'&pantalla='+pantalla+'&idNumeroExpediente='+idNumeroExpediente+'&idSolicitud='+idSolicitud+'" width="1140" height="400" />');		
-		    $("#" +"iframewindowRegistraDatosPersona" +" .window-maximizeButton").click();
+		    //$.updateWindowContent("iframewindowRegistraDatosPersona",'<iframe src="<%=request.getContextPath()%>/RegistraDatosPersonaUAVD.do?idCompuesto='+idrow+'&idDatoPersona='+id +'&pantalla='+pantalla+'&idNumeroExpediente='+idNumeroExpediente+'" width="1140" height="400" />');	
+		    $.updateWindowContent("iframewindowRegistraDatosPersona",'<iframe src="<%= request.getContextPath() %>/RegistraDatosPersonaUAVD.do?idCompuesto='+idrow+'&idDatoPersona='+id +'&pantalla='+pantalla+'&idNumeroExpediente='+idNumeroExpediente+'&idSolicitud='+idSolicitud+'&tipoSolCompartida='+tipoSolCompartida+'" width="1140" height="400" />');
+                    $("#" +"iframewindowRegistraDatosPersona" +" .window-maximizeButton").click();
 			}
 	
 		/*
@@ -453,8 +488,9 @@
 		*/
 		function cargaGridSolsXAtndr(tipoSolicitud,idArea)
 		{
-			jQuery("#gridSolsXAtndr").jqGrid('setGridParam', {url:'<%=request.getContextPath()%>/consultaSolsXAtnderUAVD.do?tipoSoliciutd='+tipoSolicitud+'&idArea='+idArea+'&estatus=<%=EstatusSolicitud.ABIERTA.getValorId()%>,<%=EstatusSolicitud.EN_PROCESO.getValorId()%>',datatype: "xml" });
-			$("#gridSolsXAtndr").trigger("reloadGrid");
+			<%-- jQuery("#gridSolsXAtndr").jqGrid('setGridParam', {url:'<%=request.getContextPath()%>/consultaSolsXAtnderUAVD.do?tipoSoliciutd='+tipoSolicitud+'&idArea='+idArea+'&estatus=<%=EstatusSolicitud.ABIERTA.getValorId()%>,<%=EstatusSolicitud.EN_PROCESO.getValorId()%>',datatype: "xml" });--%>
+			jQuery("#gridSolsXAtndr").jqGrid('setGridParam', {url:'<%=request.getContextPath()%>/BusquedaInicialExpPsicologicosUAVDGrid.do?idArea='+<%=Areas.COORDINACION_ATENCION_VICTIMAS.parseLong()%>+'&estatus='+<%=EstatusSolicitud.EN_PROCESO.getValorId()%>+'&tipoSoliciutd='+<%=TiposSolicitudes.ATENCION_PSICOLOGICA.getValorId()%>+'&cadenaArea=PSICO',datatype: "xml" });
+                        $("#gridSolsXAtndr").trigger("reloadGrid");
 			ocultaMuestraGrids("gridSolsXAtndr");
 		}
 		
@@ -579,7 +615,85 @@
 	 *Funcion para consultar los roles extras de cada usuario y
 	 * construlle el arbol dinamico de los tipos de rol en el menu derecho
 	 */
-	
+         function consultarTiposRol()
+	{
+		//limpiamos el menu de los tipos de solicitud
+		$("#tableRolMenu").empty();
+		//lanzamos la consulta del tipo de solicitudes
+		$.ajax({
+			type: 'POST',
+			url: '<%= request.getContextPath()%>/consultaMenuRol.do',
+			data: '',
+			dataType: 'xml',
+			async: false,
+			success: function(xml){
+				$(xml).find('RolDTO').each(function(){
+					var rolnuevo=$(this).find("nombreRol").text();
+					var rolDesc=$(this).find("descripcionRol").text();
+					var trTabla = "<tr>";
+					trTabla = trTabla + "<td><span><img src='<%=request.getContextPath()%>/resources/css/check.png' width='16' height='16' />"+
+					 					"<a  onclick=\"cargaRolNuevo('"+rolnuevo+"');\">" + rolDesc +
+					 					"</a></span></td>";
+					trTabla = trTabla + "</tr>";
+
+
+					$('#tableRolMenu').append(trTabla);
+				});
+			}
+
+		});
+	}
+
+	function cargaRolNuevo(rolNuevo){
+		///rolRedirec
+		//alert(rolNuevo);
+		document.frmRol2.rolname.value = rolNuevo;
+		document.frmRol2.submit();
+
+	}
+
+	//************************
+	//Enable JC Abre ventana para asignar permisos
+	//************************
+
+
+	/*
+	* Enable JC Funcion para recargar el grid de expedientes compartidos desde el arbol izquierdo
+	*/
+	function activaSolicitudesCompartidas()
+	{
+		jQuery("#gridSolicitudesCompartidas").jqGrid('setGridParam',
+				{url:'<%=request.getContextPath()%>/CargarGridMenuSolicitudesCompartidas.do',
+				datatype: "xml" });
+			 $("#gridSolicitudesCompartidas").trigger("reloadGrid");
+			 ocultaMuestraGrids("expCompartidos");
+			$("#gridSolicitudesCompartidas").setGridWidth($("#mainContent").width() - 5, true);
+			$("#gview_gridSolicitudesCompartidas .ui-jqgrid-bdiv").css('height', '410px');
+			$("#gview_gridSolicitudesCompartidas .ui-jqgrid-bdiv").css('width', '900px');
+	}
+
+	//Enable JC Intercambia el grid de solicitudes y expedientes compartidos.
+	function ocultaMuestraGrids(idDivGrid)
+	{
+		if(idDivGrid == "expCompartidos"){
+			$("#divGridSolsXAtndr").hide();
+			$("#divGridSolicitudesCompartidas").show();
+		}else if(idDivGrid == "gridSolsXAtndr"){
+			$("#divGridSolsXAtndr").show();
+			$("#divGridSolicitudesCompartidas").hide();
+		}
+	}
+
+	/**
+	 * Enable JC Abre ventana para asignar permisos
+	 */
+	var iframewindowAPSE = 0;
+	function asignarPermisos(){
+		$.newWindow({id:"iframewindowAPSE"+iframewindowAPSE, statusBar: true, posx:0,posy:0,width:1430,height:670,title:"Asignar permisos sobre Expediente: ", type:"iframe"});
+		$.updateWindowContent("iframewindowAPSE"+iframewindowAPSE,'<iframe src="<%=request.getContextPath()%>/asigarPermisosExpediente.do?idsTiposSolicitudes='+idsTiposSolicitudes+'" width="1430" height="670" />');
+		$("#" +"iframewindowAPSE"+iframewindowAPSE + " .window-maximizeButton").click();
+		iframewindowAPSE++;
+	}
 	</script>	
 </head>
 
@@ -590,10 +704,19 @@
 	
 		<div class="content">
 			<div id="accordionmenuprincipal">
-				<h3><a href="#"><img src="<%=request.getContextPath()%>/resources/images/icn_carpprincipal.png" id="botpenal" width="15" height="15">&nbsp;Expedientes</a></h3>
+				<h3 id="expPropios"><a href="#"><img src="<%=request.getContextPath()%>/resources/images/icn_carpprincipal.png" id="botpenal" width="15" height="15">&nbsp;Expedientes</a></h3>
 				<div>			
 						
 				</div>
+                                <!--Enable JC AGREGAR EL FILTRO CORRESPONDIENTE PARA EXPEDIENTES COMPARTIDOS-->
+				<h3><a href="#"><span>Otros Expedientes</span></a></h3>
+				<div>
+			        <ul id="tableExpPropios" style="cursor:pointer" class="filetree">
+						<li class="filetree">
+							<span id="expCompartidos" >Expedientes Compartidos</span>
+						</li>
+				</ul>
+                                </div>
 			</div>
 		</div>
 	</div>
@@ -703,7 +826,7 @@
 											</tr>
 										</table> <label for="textfield"></label>
 									</td>
-									<td width="204"><table width="89" border="0"
+<!--									<td width="204"><table width="89" border="0"
 											cellspacing="0" cellpadding="0">
 											<tr>
 												<td width="47">Ayuda</td>
@@ -714,7 +837,7 @@
 												</td>
 											</tr>
 										</table>
-									</td>
+									</td>-->
 								</tr>
 							</table>
 							<table width="363" border="0" cellspacing="0" cellpadding="0">
@@ -752,6 +875,7 @@
 <!-- 				<li id="generarDocumento">Generar Documento&nbsp;<img src="<%=request.getContextPath()%>/resources/images/icn_dctowri.png" width="15" height="16"></li> -->
 <!-- 				<li>Guardar&nbsp;<img src="<%=request.getContextPath()%>/resources/images/icn_save_ch.png" width="15" height="16"></li> -->
 <!--				<li id="verde">Configuraci&oacute;n&nbsp;<img src="<%=request.getContextPath()%>/resources/images/icn_config.png" width="15" height="16"></li>-->
+                            <li id="tbarBtnAsignarPermisosASubordinados" class="pen" onclick="asignarPermisos();">Asignar Permisos a Subordinados</li>
 			</div>
 		</ul>
 	</div>
@@ -776,10 +900,15 @@
 
 	<div id="mainContent">
 		<div class="ui-layout-center">
-			<div class="ui-layout-content">
-				<div class="ui-layout-north">
+			<div id="ui-layout-content">
+				<div id="divGridSolsXAtndr">
 					<table id="gridSolsXAtndr"></table>
 					<div id="pagerGridSolsXAtndr"></div>
+                                </div>
+                                <!--Enable JC GRID Expedientes compartidos -->
+				<div id="divGridSolicitudesCompartidas" style="display: none;">
+				 	<table id="gridSolicitudesCompartidas"></table>
+					<div id="pagerSolicitudesCompartidas"></div>
 				</div>
 			</div>
 		</div>

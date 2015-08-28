@@ -1,5 +1,8 @@
 <%@page import="mx.gob.segob.nsjp.dto.usuario.UsuarioDTO"%>
 <%@page import="mx.gob.segob.nsjp.dto.funcionario.FuncionarioDTO"%>
+<%@ page import="mx.gob.segob.nsjp.comun.enums.institucion.Areas" %>
+<%@ page import="mx.gob.segob.nsjp.comun.enums.solicitud.EstatusSolicitud" %>
+<%@ page import="mx.gob.segob.nsjp.comun.enums.solicitud.TiposSolicitudes" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -46,20 +49,26 @@
 	<script type="text/javascript" src="<%= request.getContextPath()%>/js/comun.js?n=1"></script>
 	<script type="text/javascript" src="<%= request.getContextPath()%>/js/permisosExpediente/cmpAsignarPermisosSobreExpediente.js?n=1"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/bloqueaTecla.js?n=1"></script>
+        <script type="text/javascript" src="<%= request.getContextPath()%>/js/permisosSolicitud/cmpAsignarPermisosSobreSolicitud.js"></script>
+        <script type="text/javascript" src="<%=request.getContextPath()%>/jsEnableIT/comunesUAVD.js"></script>
 	<script type="text/javascript">
 	<%	
 	UsuarioDTO usuario =((UsuarioDTO)request.getSession().getAttribute("KEY_SESSION_USUARIO_FIRMADO"));
 	FuncionarioDTO funcionario =usuario.getFuncionario();
 	Long claveFuncionario = funcionario.getClaveFuncionario();
-	
 	%>
 		var contextPath = "<%= request.getContextPath()%>";
+                var areaUsuario = <%=usuario.getAreaActual().getAreaId()%>;
+                var idsTiposSolicitudes = "";
+                var estatusSol = "";
+                var cadenaArea = "";
+                var idArea = "";
 		$(document).ready(function() {
 			
 			//se ocultan ya que su funcionalidad no afecta y para evitar confusiones al usuario
 			
-			$("#permisosAsignar").hide();
-			$("#permisosModificar").hide();
+//			$("#permisosAsignar").hide();
+//			$("#permisosModificar").hide();
 			
 			$("#fechaVencimiento").datepicker({
 				changeMonth: true,
@@ -69,8 +78,38 @@
 				changeMonth: true,
 				changeYear: true
 			});	
-			initAsignarPermisosSobreExpediente(<%=claveFuncionario%>);
-						
+                        
+                        if(areaUsuario == 12){//Coordinador UAVD
+                            estatusSol = <%=EstatusSolicitud.ABIERTA.getValorId()%>;
+                            estatusSol += ",";
+                            estatusSol += <%=EstatusSolicitud.EN_PROCESO.getValorId()%>;
+                            idsTiposSolicitudes = "<%=request.getParameter("idsTiposSolicitudes")%>";
+
+                            initAsignarPermisosSobreSolicitudCoordinador(areaUsuario, <%=claveFuncionario%>, estatusSol, idsTiposSolicitudes);
+                        }else if(areaUsuario == 56){//TSocial
+                            idArea = "<%=Areas.COORDINACION_ATENCION_VICTIMAS.parseLong()%>";
+                            estatusSol = "<%=EstatusSolicitud.EN_PROCESO.getValorId()%>";
+                            idsTiposSolicitudes = "<%=TiposSolicitudes.TRABAJO_SOCIAL.getValorId()%>";
+                            cadenaArea = "TRABSOC";
+
+                            initAsignarPermisosSobreSolicitudSubAreas(areaUsuario, <%=claveFuncionario%>, idArea, estatusSol, idsTiposSolicitudes, cadenaArea);
+                        }else if(areaUsuario == 57){//Psicologica
+                            idArea = "<%=Areas.COORDINACION_ATENCION_VICTIMAS.parseLong()%>";
+                            estatusSol = "<%=EstatusSolicitud.EN_PROCESO.getValorId()%>";
+                            idsTiposSolicitudes = "<%=TiposSolicitudes.ATENCION_PSICOLOGICA.getValorId()%>";
+                            cadenaArea = "PSICO";
+
+                            initAsignarPermisosSobreSolicitudSubAreas(areaUsuario, <%=claveFuncionario%>, idArea, estatusSol, idsTiposSolicitudes, cadenaArea);
+                        }else if(areaUsuario == 58){//Juridica
+                            idArea = "<%=Areas.COORDINACION_ATENCION_VICTIMAS.parseLong()%>";
+                            estatusSol = "<%=EstatusSolicitud.EN_PROCESO.getValorId()%>";
+                            idsTiposSolicitudes = "<%=TiposSolicitudes.ATENCION_JURIDICA.getValorId()%>";
+                            cadenaArea = "ATNJUR";
+
+                            initAsignarPermisosSobreSolicitudSubAreas(areaUsuario, <%=claveFuncionario%>, idArea, estatusSol, idsTiposSolicitudes, cadenaArea);
+                        }else{
+                            initAsignarPermisosSobreExpediente(<%=claveFuncionario%>);
+                        }			
 		});
 	</script>
 	
@@ -82,7 +121,7 @@
 		<label>Expedientes Propios</label>
 		<div id="divExpedientesPropios">
 			<table id="gridExpedientesPropios"></table>
-			<div id="pagerExpedientesPropios"></div>
+			<div id="pagerExpedientesPropios"></div>    
 		</div>
 	</td>
 </tr>
@@ -106,7 +145,7 @@
 		<strong>Fecha Vencimiento:</strong><input type="text" id="fechaVencimiento"/>
 	</td>
 	<td width="40%">
-		<input type="button" onclick="asignarPermisoSobreExpedientes()" value="Asignar permiso" class="btn_Generico">
+		<input type="button" onclick="asignarPermisos()" value="Asignar permiso" class="btn_Generico">
 	</td>
 </form>
 </tr>
@@ -120,8 +159,8 @@
 		<strong>Fecha Vencimiento:</strong><input type="text" id="modFechaVencimiento"/>
 	</td>
 	<td width="30%">
-		<input type="button" onclick="modificarPermisoSobreExpedientes()" value="Actualizar permiso" class="btn_Generico">
-		<input type="button" onclick="eliminarPermisoSobreExpedientes()" value="Eliminar permiso" class="btn_Generico">
+		<input type="button" onclick="modificarPermisos()" value="Actualizar permiso" class="btn_Generico">
+		<input type="button" onclick="eliminarPermisos()" value="Eliminar permiso" class="btn_Generico">
 	</td>
 </form>
 </tr>
