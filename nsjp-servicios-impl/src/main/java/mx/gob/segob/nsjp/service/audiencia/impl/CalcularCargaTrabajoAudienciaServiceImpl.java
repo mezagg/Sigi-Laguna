@@ -32,6 +32,7 @@ import mx.gob.segob.nsjp.model.InvolucradoAudiencia;
 import mx.gob.segob.nsjp.service.audiencia.CalcularCargaTrabajoAudienciaService;
 import mx.gob.segob.nsjp.service.audiencia.ConsultarComplejidadAudienciaService;
 
+import org.apache.commons.lang.math.NumberUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -53,7 +54,7 @@ public class CalcularCargaTrabajoAudienciaServiceImpl implements
 	public Double calcularCargaTrabajoAudiencia(AudienciaDTO audienciaDTO)
 			throws NSJPNegocioException {
 		Audiencia audiencia = audienciaDAO.read(audienciaDTO.getId());
-		Double complejidad = Double.parseDouble(ccas.consultarComplejidadAudiencia(audienciaDTO).getValor());
+		Double complejidad = NumberUtils.toDouble(ccas.consultarComplejidadAudiencia(audienciaDTO).getValor());
 
 		Set<InvolucradoAudiencia> involucradosAudiencia = audiencia.getInvlucradoAudiencias();
 		Involucrado involucrado;
