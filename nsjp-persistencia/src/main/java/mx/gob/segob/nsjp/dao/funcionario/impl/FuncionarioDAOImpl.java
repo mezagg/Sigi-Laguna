@@ -1382,17 +1382,17 @@ public class FuncionarioDAOImpl extends
     @Override
     public List<Funcionario> consultarSubordinadosUAVD() {
         StringBuffer queryString = new StringBuffer();
-        queryString.append("FROM Funcionario f where f.area.jerarquiaOrganizacionalId in(")
-                .append(Areas.COORDINACION_ATENCION_VICTIMAS.ordinal())
-                .append(",")
-                .append(Areas.ATENCION_VICTIMAS.ordinal())
-                .append(",")
-                .append(Areas.ATENCION_JURIDICA.ordinal())
-                .append(",")
-                .append(Areas.ATENCION_PSICOLOGICA.ordinal())
-                .append(")");
-        Query query = super.getSession().createQuery(queryString.toString());
-        return query.list();
+    	queryString.append("FROM Funcionario f where f.area.jerarquiaOrganizacionalId in(")
+    				.append(Areas.COORDINACION_ATENCION_VICTIMAS.ordinal())
+    				.append(",")
+    				.append(Areas.ATENCION_VICTIMAS.ordinal())
+    				.append(",")
+    				.append(Areas.ATENCION_JURIDICA.ordinal())
+    				.append(",")
+    				.append(Areas.ATENCION_PSICOLOGICA.ordinal())
+    				.append(")");
+    	Query query = super.getSession().createQuery(queryString.toString());
+    	return query.list();
     }
 
 }

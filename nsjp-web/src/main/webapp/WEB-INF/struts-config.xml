@@ -560,12 +560,28 @@
                 parameter="asignarPermisosSobreExpedinte"
                 validate="false">
 		</action>
+                
+                <action path="/AsignarPermisosSobreSolicitud"
+				type="mx.gob.segob.nsjp.web.solicitud.action.AsignarPermisosAFuncionarioSobreSolicitudAction"
+				name=""
+				scope="request"
+                parameter="asignarPermisosSobreSolicitud"
+                validate="false">
+		</action>
 		
 		<action path="/EliminarPermisosSobreExpedinte"
 				type="mx.gob.segob.nsjp.web.expdiente.action.AsignarPermisosAFuncionarioSobreExpedienteAction"
 				name=""
 				scope="request"
                 parameter="eliminarPermisosSobreExpedinte"
+                validate="false">
+		</action>
+                
+                <action path="/EliminarPermisosSobreSolicitud"
+				type="mx.gob.segob.nsjp.web.solicitud.action.AsignarPermisosAFuncionarioSobreSolicitudAction"
+				name=""
+				scope="request"
+                parameter="eliminarPermisosSobreSolicitud"
                 validate="false">
 		</action>
 		
@@ -11130,8 +11146,35 @@
                                 parameter="cargarGridMenuSolicitudesCompartidas"
                                 validate="false">
       </action>
+      
+      <!-- *******************************************
+		Enable JC Action para compartir solicitudes UAVD
+      ******************************************** -->
+      <action path="/CargarGridSolicitudesCompartidasSubordinado"
+	      type="mx.gob.segob.nsjp.web.solicitud.action.ConsultarTodasSolicitudesUAVDAction"
+	      name=""
+	      scope="request"
+              parameter="cargarGridSolicitudesCompartidasSubordinado"
+              validate="false">
+      </action>
+      
+      <action path="/CargarGridSubordinadosUAVD"
+	      type="mx.gob.segob.nsjp.web.solicitud.action.ConsultarTodasSolicitudesUAVDAction"
+	      name=""
+	      scope="request"
+              parameter="cargarGridSubordinadosUAVD"
+              validate="false">
+      </action>
+      
+      <action path="/CargarGridTodasSolicitudesCoordinador"
+	      type="mx.gob.segob.nsjp.web.solicitud.action.ConsultarTodasSolicitudesUAVDAction"
+	      name=""
+	      scope="request"
+              parameter="cargarGridTodasSolicitudesCoordinador"
+              validate="false">
+      </action>
 	
-	</action-mappings>
+      </action-mappings>
 	
 	<controller nocache="true">
 		<set-property property="processorClass" value="org.springframework.web.struts.DelegatingTilesRequestProcessor"/>

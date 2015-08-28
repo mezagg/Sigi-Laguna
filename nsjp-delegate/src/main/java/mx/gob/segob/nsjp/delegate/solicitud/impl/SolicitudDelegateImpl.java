@@ -61,6 +61,7 @@ import mx.gob.segob.nsjp.service.solicitud.EnviarSolicitudDeTranscripcionService
 import mx.gob.segob.nsjp.service.solicitud.EnviarSolicitudService;
 import mx.gob.segob.nsjp.service.solicitud.RecibirSolicitudCiudadanaDefensoriaService;
 import mx.gob.segob.nsjp.service.solicitud.RegistrarAvisoDeDetencionService;
+import mx.gob.segob.nsjp.service.solicitud.RegistrarPermisoSolicitudService;
 import mx.gob.segob.nsjp.service.solicitud.RegistrarSolicitudDefensorEncargadoSalaService;
 import mx.gob.segob.nsjp.service.solicitud.RegistrarSolicitudService;
 import mx.gob.segob.nsjp.service.solicitud.SolicitarDefensorService;
@@ -126,7 +127,12 @@ public class SolicitudDelegateImpl implements SolicitudDelegate {
 	private AtenderSolicitudDeDefensorService atenderSolicitudDeDefensorService;
 	@Autowired
 	private AdministrarNumeroExpedienteSolicitudAudienciaService administrarNumeroExpedienteSolicitudAudienciaService;
-	
+    /**
+     * Enable JC Compartir solicitudes UAVD
+     */
+    @Autowired
+    private RegistrarPermisoSolicitudService registrarPermisoSolicitudService; 
+    
     @Override
     public List<SolicitudDTO> consultarSolicitudesPorExpediente(
             ExpedienteDTO filtro) throws NSJPNegocioException {
@@ -574,5 +580,21 @@ public class SolicitudDelegateImpl implements SolicitudDelegate {
 			throws NSJPNegocioException {
 		return solicitudService
 				.consultarSolicitudesMandatoJudicialPorFiltro(solicitudMandamientoDTO);
+	}
+        
+        /**
+	 * Enable JC Compartir solicitudes UAVD
+	 */
+	@Override
+	public void asignarPermisoSolicitudFuncionario(Long funcionarioId, Long solicitudId, Date fechaVencimiento, Boolean permiso) throws NSJPNegocioException{
+		registrarPermisoSolicitudService.registrarPermisoSolicitudFuncionario(funcionarioId, solicitudId, fechaVencimiento, permiso);
+	}
+        
+        /**
+	 * Enable JC Compartir solicitudes UAVD
+	 */
+	@Override
+	public void eliminarPermisoSolicitudFuncionario(Long funcionarioId, Long solicitudId)throws NSJPNegocioException{
+		registrarPermisoSolicitudService.eliminarPermisoSolicitudFuncionario(funcionarioId, solicitudId);
 	}
 }

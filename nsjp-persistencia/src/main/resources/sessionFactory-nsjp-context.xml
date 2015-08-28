@@ -289,7 +289,8 @@
 
 				<!-- Actualización de NUC para que contemple Region-->
 				<value>mx.gob.segob.nsjp.model.Region</value>
-				
+			<!-- Enable IT JC Otorgar Permisos en UAVD -->
+				<value>mx.gob.segob.nsjp.model.PermisoSolicitud</value>
 			</list>
 		</property>
 	</bean>

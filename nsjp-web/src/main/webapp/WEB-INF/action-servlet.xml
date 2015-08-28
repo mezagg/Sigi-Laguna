@@ -84,7 +84,9 @@
 	<bean name="/AsignarPermisosSobreExpedinte" 	class="mx.gob.segob.nsjp.web.expdiente.action.AsignarPermisosAFuncionarioSobreExpedienteAction"/>
 	<bean name="/EliminarPermisosSobreExpedinte" 	class="mx.gob.segob.nsjp.web.expdiente.action.AsignarPermisosAFuncionarioSobreExpedienteAction"/>
 	<bean name="/reasignarFuncionarioAExpedinte" 	class="mx.gob.segob.nsjp.web.expdiente.action.AsignarPermisosAFuncionarioSobreExpedienteAction"/>
-	
+	<bean name="/AsignarPermisosSobreSolicitud" class="mx.gob.segob.nsjp.web.solicitud.action.AsignarPermisosAFuncionarioSobreSolicitudAction"></bean>
+        	<bean name="/EliminarPermisosSobreSolicitud" class="mx.gob.segob.nsjp.web.solicitud.action.AsignarPermisosAFuncionarioSobreSolicitudAction"></bean>
+        
 	<!-- TERMINA ADMINISTRACION DE ERMISOS DE ACCESO A EXPEDIENTES -->
 
 
@@ -2073,7 +2075,13 @@ Fin solicitar audiencia
 	<bean name="/enviarAvisosDetencionIPH" class="mx.gob.segob.nsjp.web.ssp.action.SeguridadPublicaAction"/>
 <!--  TERMINAN ACCIONES REGISTRO DE DETENCION -->
 
-
+    <!-- ************************************************
+	Enable JC Actions para compartir Solicitudes UAVD
+	************************************************* -->
+       	<bean name="/CargarGridSolicitudesCompartidasSubordinado" class="mx.gob.segob.nsjp.web.solicitud.action.ConsultarTodasSolicitudesUAVDAction"></bean>
+        <bean name="/CargarGridSubordinadosUAVD" class="mx.gob.segob.nsjp.web.solicitud.action.ConsultarTodasSolicitudesUAVDAction"></bean>
+        <bean name="/CargarGridTodasSolicitudesCoordinador" class="mx.gob.segob.nsjp.web.solicitud.action.ConsultarTodasSolicitudesUAVDAction"></bean>
+        <bean name="/CargarGridMenuSolicitudesCompartidas" class="mx.gob.segob.nsjp.web.solicitud.action.ConsultarTodasSolicitudesUAVDAction"></bean>
 <!-- INICIAN FUNCIONES EN COMUN -->
 	<bean name="/consultarDatosFuncionario" class="mx.gob.segob.nsjp.web.ssp.action.InformePHAction"/>
 	<bean name="/eliminarProbableResponsable" class="mx.gob.segob.nsjp.web.seguridadPublica.action.RegistroDetencionAction"/>
@@ -2111,7 +2119,5 @@ Fin solicitar audiencia
 	<!-- INICIA MODULO DE RS -->
 	<!-- FINALIZA MODULO DE RS -->
 	
-	<bean name="/realizarConsultaCiudadana" class="mx.gob.segob.nsjp.web.expdiente.action.BusquedaExpedienteAction"/>
-	
-	
+	<bean name="/realizarConsultaCiudadana" class="mx.gob.segob.nsjp.web.expdiente.action.BusquedaExpedienteAction"/>	
 </beans>

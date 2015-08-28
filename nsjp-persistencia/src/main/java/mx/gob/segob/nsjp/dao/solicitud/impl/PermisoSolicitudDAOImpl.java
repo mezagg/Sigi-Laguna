@@ -31,11 +31,14 @@ public class PermisoSolicitudDAOImpl extends GenericDaoHibernateImpl<PermisoSoli
 			logger.warn("El funcionarioId es NULL. Se regresa lista vacia.");
 			return new ArrayList<PermisoSolicitud>();
 		}else{
+                        logger.info("ID DEL FUNCIONARIO: " + funcionarioId);
 			Calendar diaActual = Calendar.getInstance();
 			StringBuffer queryString = new StringBuffer();
 			queryString.append("SELECT ps FROM PermisoSolicitud ps WHERE ")
 						.append("ps.funcionario=").append(funcionarioId)
 						.append(" AND CONVERT (VARCHAR, ps.fechaLimite, 112)>=").append(DateUtils.formatearBD(diaActual.getTime()));
+                        
+                        logger.info("DESPUES DE LA CONSULTA");
 
 			final PaginacionDTO pag = PaginacionThreadHolder.get();
 			return ejecutarQueryPaginado(queryString, pag);
