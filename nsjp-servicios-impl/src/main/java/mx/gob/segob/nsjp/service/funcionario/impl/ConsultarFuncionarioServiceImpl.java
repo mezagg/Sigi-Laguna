@@ -33,10 +33,6 @@ public class ConsultarFuncionarioServiceImpl implements
     @Override
     public List<FuncionarioDTO> consultarSubordinadosUAVD() throws NSJPNegocioException {
         List<Funcionario> subordinadosBD = funcionarioDAO.consultarSubordinadosUAVD();
-        for (Funcionario s : subordinadosBD) {
-            logger.info("NOMBRE COMPLETO: " + s.getNombreCompleto());
-            logger.info("NOMBRE COMPLETO: " + s.getArea().getNombre());
-        }
         if (subordinadosBD != null) {
             return FuncionarioTransformer.transformarFuncionarios(subordinadosBD);
         }

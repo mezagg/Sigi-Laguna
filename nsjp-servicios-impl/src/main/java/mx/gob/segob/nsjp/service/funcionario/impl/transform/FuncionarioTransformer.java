@@ -110,9 +110,7 @@ public class FuncionarioTransformer {
                     .getTipoEspecialidad().getValorId(), funcionario
                     .getTipoEspecialidad().getValor()));
         
-        logger.info("ANTES DEL TRANSFORMER");
         if (funcionario.getArea() != null) {
-            logger.info("AREA TRANSFORMER: " + funcionario.getArea().getNombre());
             JerarquiaOrganizacionalDTO jo = new JerarquiaOrganizacionalDTO(
                     funcionario.getArea().getJerarquiaOrganizacionalId(), funcionario.getArea().getNombre());
             funcionarioDto.setJerarquiaOrganizacional(jo);

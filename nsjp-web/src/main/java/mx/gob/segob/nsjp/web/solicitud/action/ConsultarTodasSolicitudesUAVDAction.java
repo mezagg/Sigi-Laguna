@@ -224,9 +224,6 @@ public class ConsultarTodasSolicitudesUAVDAction extends GenericAction {
             HttpServletRequest req, HttpServletResponse resp) {
         try {
             List<FuncionarioDTO> subordinados = funcionarioDelegate.obtenerSubordinadosUAVD();
-            for (FuncionarioDTO s : subordinados) {
-                    logger.info("GERARQUIA ORGANIZACIONAL" + s.getJerarquiaOrganizacional());
-            }
             //Enable JC. Calcular valores de paginacion (nueva clase).
             Paginacion paginacion = PaginarGrid.calcularPaginacion(req, subordinados.size());
             List<FuncionarioDTO> subordinadosPaginados = PaginarGrid.<FuncionarioDTO>obtenerElementosSegunPaginacion(paginacion, subordinados);
