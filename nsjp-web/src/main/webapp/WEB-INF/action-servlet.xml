@@ -95,8 +95,12 @@
 	</bean>
     <bean name="/ConsultarListaEstadoCivil" class="mx.gob.segob.nsjp.web.persona.action.IngresarDatosGeneralesAction">
 	</bean>
- <bean name="/ConsultarCatalogoEscolaridad" class="mx.gob.segob.nsjp.web.persona.action.IngresarDatosGeneralesAction">
+ 	<bean name="/ConsultarCatalogoEscolaridad" class="mx.gob.segob.nsjp.web.persona.action.IngresarDatosGeneralesAction">
 	</bean>
+
+	<bean name="/ConsultarCatalogoSituacionJuridicaDetenido" class="mx.gob.segob.nsjp.web.persona.action.IngresarDatosGeneralesAction">
+	</bean>
+
 	<bean name="/ConsultarCatalogoReligion" class="mx.gob.segob.nsjp.web.persona.action.IngresarDatosGeneralesAction">
 	</bean>
     <bean name="/ConsultarCatalogoOcupacion" class="mx.gob.segob.nsjp.web.persona.action.IngresarDatosGeneralesAction">

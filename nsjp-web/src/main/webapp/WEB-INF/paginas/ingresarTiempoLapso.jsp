@@ -26,6 +26,33 @@
    $('#idHoraDateLapsoInicio,#idHoraDateLapsoFin').timeEntry({beforeShow: customRange,timeSteps:[1,1,0],ampmPrefix: ' '});
  });
 
+
+jQuery().ready(	function () {
+
+	$("#situacionJuridicaCombo").one("click", function () {
+		cargaSituacionJuridica();
+	});
+
+});
+
+
+/*try{
+	if(idElemento != undefined && (idElemento == null || idElemento == "null"|| idElemento == "0")){
+
+		$("#situacionJuridicaCombo").one("click", function() {
+			cargaSituacionJuridica();
+		});
+
+	}else{
+		cargaSituacionJuridica();
+	}
+
+}catch(e){
+	cargaSituacionJuridica();
+}*/
+
+
+
     /*
      *Funcion para recuperar los datos de tiempo lapso
      */
@@ -222,6 +249,27 @@
 			$('#idHoraDateLapsoInicio').timeEntry('change', {beforeShow: customRange,timeSteps:[1,1,0],ampmPrefix: ' '});			
 		}
 	}
+
+function cargaSituacionJuridica(){
+	$('#situacionJuridicaCombo').addClass("cargando");
+
+	$.ajax({
+		type: 'POST',
+		url: '<%=request.getContextPath()%>/ConsultarCatalogoSituacionJuridicaDetenido.do',
+		data: '',
+		dataType: 'xml',
+		async: false,
+		success: function(xml){
+			var option;
+			$(xml).find('catSituacionJuridicaDetenido').each(function(){
+				$('#situacionJuridicaCombo').append('<option value="' + $(this).find('clave').text() + '">'+ $(this).find('valor').text() + '</option>');
+			});
+
+			$('#situacionJuridicaCombo').removeClass("cargando");
+
+		}
+	});
+}
   
 </script>
 
@@ -258,5 +306,12 @@
 		<td><div id="idHoraLapso2">
 		<input type="text" id="idHoraDateLapsoFin" size="10" class="timeRange" value="8:00" onblur="cuandoCambien(this.id);"/>
 		</div></td>
+	</tr>
+	<tr>
+		<td align="right">Situación Juridica:</td>
+		<td><select id="situacionJuridicaCombo"
+					name="situacionJuridicaCombo" style="width: 180px;" >
+			<option>- Selecciona -</option>
+		</select></td>
 	</tr>
 </table>
