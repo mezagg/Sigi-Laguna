@@ -160,7 +160,7 @@ public ActionForward consultarCatalogoIdioma(ActionMapping mapping, ActionForm f
 			throws IOException {
 		try {
 			log.info("ejecutando Action Cargar Combo Escolaridad");
-			List<CatalogoDTO> listaCatalogo=catDelegate.recuperarCatalogo(Catalogos.SITUACION_JURIDICA_DETENIDO);
+			List<CatalogoDTO> listaCatalogo=catDelegate.recuperarCatalogo(Catalogos.SITUACION_JURIDICA);
 
 
 			converter.alias("listaCatalogo", java.util.List.class);

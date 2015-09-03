@@ -417,8 +417,8 @@ DD P {
 			id='<%=request.getAttribute("idIndividuoProp")%>';
 			if(id!=null){
 				var estaDetenido =$('#chkPResponsableDetenido').is(':checked');
-				if(estaDetenido){	
-					 consulta(id);
+				if(estaDetenido){
+					consulta(id);
 				}
 			}
 		}
@@ -839,7 +839,7 @@ DD P {
 		  $('#ingresarTiempoOtroPResponsable').hide(); 
 		  habilitaTextDetenido();
 		  detenidoText=true;
-		  cambiaLapso(); 
+		  cambiaLapso();
 		}
 		
 		function anularDefensor(){
@@ -1243,7 +1243,8 @@ DD P {
 						params += datosPestania;
 	
 						//verificar que cuando esta marcado Detenido, lleve las fechas
-						if(estaDetenido && ($('#idFechaDateLapso').val() == '' || $('#idFechaDateLapso2').val() == '')) {
+						if(estaDetenido && ($('#idFechaDateLapso').val() == '' || $('#idFechaDateLapso2').val() == ''
+								|| $('#situacionJuridicaCombo').val() == '')) {
 							customAlert("Debes ingresar tanto la fecha de inicio como la de fin");
 							fechasDetencion = false;
 						}

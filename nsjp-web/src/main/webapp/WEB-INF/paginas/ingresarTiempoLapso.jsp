@@ -36,23 +36,6 @@ jQuery().ready(	function () {
 });
 
 
-/*try{
-	if(idElemento != undefined && (idElemento == null || idElemento == "null"|| idElemento == "0")){
-
-		$("#situacionJuridicaCombo").one("click", function() {
-			cargaSituacionJuridica();
-		});
-
-	}else{
-		cargaSituacionJuridica();
-	}
-
-}catch(e){
-	cargaSituacionJuridica();
-}*/
-
-
-
     /*
      *Funcion para recuperar los datos de tiempo lapso
      */
@@ -63,6 +46,7 @@ jQuery().ready(	function () {
   			lsDatosTiempoLapso+="&horaInicioLapso="+$("#idHoraDateLapsoInicio").val();
   			lsDatosTiempoLapso+="&fechaFinLapso="+$("#idFechaDateLapso2").val();
   			lsDatosTiempoLapso+="&horaFinLapso="+$("#idHoraDateLapsoFin").val();
+		 lsDatosTiempoLapso+="&situacionJuridica="+$("#situacionJuridicaCombo").val();
   	   return lsDatosTiempoLapso;
      }
 
@@ -121,7 +105,13 @@ jQuery().ready(	function () {
     	 //$("#idHoraDateLapsoFin").timeEntry('setTime', datos2[1].substring(0,5));
     	 $("#idHoraDateLapsoInicio").click();
     	 $("#idHoraDateLapsoFin").click();
-     }
+
+		 //alert("valorSituacionJuridica: "+$(xml).find('valorSituacionJuridica').find('valor').first().text());
+		 //$('#situacionJuridicaCombo').val($(xml).find('valorSituacionJuridica').find('valor').first().text());
+
+		cargaSituacionJuridica($(xml).find('valorSituacionJuridica').find('idCampo').first().text());
+
+	 }
      
      
      function bloqueaCamposTiempoLapso(bandera)
@@ -149,8 +139,8 @@ jQuery().ready(	function () {
  	//Funcion que valida si los campos estan llenos al enviar 
  	function validaCamposFecha() {
 
-		if ($('#idFechaDateLapso').val() == '' || $('#idFechaDateLapso2').val() == '') {
-			customAlert("Debes ingresar tanto la fecha de inicio como la de fin");
+		if ($('#idFechaDateLapso').val() == '' || $('#idFechaDateLapso2').val() == '' ) {
+			customAlert("Debes ingresar tanto la fecha de detencion como la de disponibilidad y la situacion juridica");
 			validaFecha = false;
 		} else {
 
@@ -187,7 +177,7 @@ jQuery().ready(	function () {
  				}
  			}
  			if(validaFecha==false){	
- 				customAlert("La fecha final debe de ser mayor o igual a la fecha inicial");
+ 				customAlert("La fecha disponibilidad debe de ser mayor o igual a la fecha detencion");
  			}
  		}	
  	}   
@@ -250,7 +240,7 @@ jQuery().ready(	function () {
 		}
 	}
 
-function cargaSituacionJuridica(){
+function cargaSituacionJuridica(valorSituacion){
 	$('#situacionJuridicaCombo').addClass("cargando");
 
 	$.ajax({
@@ -266,7 +256,7 @@ function cargaSituacionJuridica(){
 			});
 
 			$('#situacionJuridicaCombo').removeClass("cargando");
-
+			$('#situacionJuridicaCombo').val(valorSituacion);
 		}
 	});
 }
@@ -311,7 +301,7 @@ function cargaSituacionJuridica(){
 		<td align="right">Situación Juridica:</td>
 		<td><select id="situacionJuridicaCombo"
 					name="situacionJuridicaCombo" style="width: 180px;" >
-			<option>- Selecciona -</option>
+			<option value="">- Selecciona -</option>
 		</select></td>
 	</tr>
 </table>
