@@ -87,6 +87,7 @@ public class InvolucradoFormUtil {
 	public static Long TIPO_PERSONA_MORAL = new Long(0L);
 	public static Long TIPO_PERSONA_FISICA = new Long(1L);
 	public static Long IDCAMPO_TIPOORGANIZACION = new Long(419L);
+	public static Long IDCAMPO_SITUACION_JURIDICA = new Long(61L);
 
 	/**
 	 * Metodo de utileria que se encarga de extraer los datos de la forma de Involucrado,  
@@ -235,7 +236,11 @@ public class InvolucradoFormUtil {
 					}
 					detencionDTOs.add(detencionDTO);
 					involucradoDTO.setDetenciones(detencionDTOs);
-											
+
+					ValorDTO situacionJuridicaDTO = new ValorDTO();
+					situacionJuridicaDTO.setIdCampo(IDCAMPO_SITUACION_JURIDICA);
+					situacionJuridicaDTO.setValor(((IngresarIndividuoForm) form).getSituacionJuridica());
+					involucradoDTO.setValorSituacionJuridica(situacionJuridicaDTO);
 				}
 				//agregamos los alias del involucrado
 				/*if(StringUtils.isNotBlank(forma.getAlias()))

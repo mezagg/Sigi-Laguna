@@ -33,6 +33,7 @@ import mx.gob.segob.nsjp.comun.enums.relacion.Relaciones;
 import mx.gob.segob.nsjp.comun.enums.relacion.TipoRelacion;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
 import mx.gob.segob.nsjp.dao.catalogo.CatEtapaDAO;
+import mx.gob.segob.nsjp.dao.catalogo.ValorDAO;
 import mx.gob.segob.nsjp.dao.involucrado.InvolucradoDAO;
 import mx.gob.segob.nsjp.dao.involucrado.InvolucradoNacionalidadDAO;
 import mx.gob.segob.nsjp.dao.involucrado.InvolucradoOcupacionDAO;
@@ -118,6 +119,8 @@ public class IngresarIndividuoServiceImpl implements IngresarIndividuoService {
 	private RelacionDAO relacionDAO;
 	@Autowired
 	private CatEtapaDAO catEtapaDAO;
+	@Autowired
+	private ValorDAO valorDAO;
 
 	@Override
 	public Long ingresarIndividuoInterInstitucion(
@@ -252,12 +255,20 @@ public class IngresarIndividuoServiceImpl implements IngresarIndividuoService {
 		}
 
 		// SITUACION JURIDICA
-		if (involucradoDTO.getCalidadDTO().getCalidades()
-				.equals(Calidades.PROBABLE_RESPONSABLE_PERSONA)
-				|| involucradoDTO.getCalidadDTO().getCalidades()
-						.equals(Calidades.PROBABLE_RESPONSABLE_ORGANIZACION))
-			involucrado.setSituacionJuridica(new Valor(
-					SituacionJuridica.INDICIADO.getValorId()));
+		ValorDTO situacionJuridicaDTO = involucradoDTO.getValorSituacionJuridica();
+
+		if( situacionJuridicaDTO == null ) {
+
+			if (involucradoDTO.getCalidadDTO().getCalidades()
+					.equals(Calidades.PROBABLE_RESPONSABLE_PERSONA)
+					|| involucradoDTO.getCalidadDTO().getCalidades()
+					.equals(Calidades.PROBABLE_RESPONSABLE_ORGANIZACION))
+				involucrado.setSituacionJuridica(new Valor(
+						SituacionJuridica.INDICIADO.getValorId()));
+		}else{
+			Valor situacionJuridica = valorDAO.read(new Long(situacionJuridicaDTO.getValor()));
+			involucrado.setSituacionJuridica(situacionJuridica);
+		}
 
 		// MEDIA FILIACION - SOLO PARA VICTIMA Y PROBABLE RESPOSABLE
 		logger.info("/****  PROBABLE_RESPONSABLE_PERSONA: "

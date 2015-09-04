@@ -26,9 +26,11 @@ import java.util.Set;
 
 import mx.gob.segob.nsjp.comun.enums.calidad.Calidades;
 import mx.gob.segob.nsjp.comun.enums.excepciones.CodigoError;
+import mx.gob.segob.nsjp.comun.enums.involucrado.SituacionJuridica;
 import mx.gob.segob.nsjp.comun.enums.relacion.Relaciones;
 import mx.gob.segob.nsjp.comun.enums.relacion.TipoRelacion;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
+import mx.gob.segob.nsjp.dao.catalogo.ValorDAO;
 import mx.gob.segob.nsjp.dao.involucrado.AliasInvolucradoDAO;
 import mx.gob.segob.nsjp.dao.involucrado.DetencionDAO;
 import mx.gob.segob.nsjp.dao.involucrado.InvolucradoDAO;
@@ -119,7 +121,8 @@ public class ModificarIndividuoServiceImpl implements ModificarIndividuoService 
 	private GenerarRelacionService generarRelacionService;
 	@Autowired
 	private DetencionDAO detencionDAO;
-	
+	@Autowired
+	private ValorDAO valorDAO;
 	
 	@Override
 	public Long actualizarIndividuo(InvolucradoDTO involucradoDTO) throws NSJPNegocioException {
@@ -172,6 +175,22 @@ public class ModificarIndividuoServiceImpl implements ModificarIndividuoService 
 					}
 				}
 			}
+		}
+
+		// SITUACION JURIDICA
+		ValorDTO situacionJuridicaDTO = involucradoDTO.getValorSituacionJuridica();
+
+		if( situacionJuridicaDTO == null ) {
+
+			if (involucradoDTO.getCalidadDTO().getCalidades()
+					.equals(Calidades.PROBABLE_RESPONSABLE_PERSONA)
+					|| involucradoDTO.getCalidadDTO().getCalidades()
+					.equals(Calidades.PROBABLE_RESPONSABLE_ORGANIZACION))
+				invoBD.setSituacionJuridica(new Valor(
+						SituacionJuridica.INDICIADO.getValorId()));
+		}else{
+			Valor situacionJuridica = valorDAO.read(new Long(situacionJuridicaDTO.getValor()));
+			invoBD.setSituacionJuridica(situacionJuridica);
 		}
 		
 		//ORGANIZACION

@@ -30,7 +30,8 @@
 jQuery().ready(	function () {
 
 	$("#situacionJuridicaCombo").one("click", function () {
-		cargaSituacionJuridica();
+		if( $("#situacionJuridicaCombo option").length <= 1 )
+			cargaSituacionJuridica();
 	});
 
 });
@@ -124,6 +125,7 @@ jQuery().ready(	function () {
 		   	 $("#idHoraDateLapsoFin").attr('disabled','disabled');
 		   	 $("#idHoraDateLapsoInicio").attr('disabled','disabled');
 		   	 $("#idHoraDateLapsoFin").attr('disabled','disabled');
+			 $("#situacionJuridicaCombo").attr('disabled','disabled');
     	}
     	else
     	{
@@ -133,6 +135,7 @@ jQuery().ready(	function () {
 	       	 $("#idHoraDateLapsoFin").attr('disabled','');
 	       	 $("#idHoraDateLapsoInicio").attr('disabled','');
 	       	 $("#idHoraDateLapsoFin").attr('disabled','');
+			 $("#situacionJuridicaCombo").attr('disabled','');
     	}    	
      }
 

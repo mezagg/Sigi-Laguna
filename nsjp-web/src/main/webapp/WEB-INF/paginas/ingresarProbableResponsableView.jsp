@@ -1243,8 +1243,7 @@ DD P {
 						params += datosPestania;
 	
 						//verificar que cuando esta marcado Detenido, lleve las fechas
-						if(estaDetenido && ($('#idFechaDateLapso').val() == '' || $('#idFechaDateLapso2').val() == ''
-								|| $('#situacionJuridicaCombo').val() == '')) {
+						if(estaDetenido && ($('#idFechaDateLapso').val() == '' || $('#idFechaDateLapso2').val() == '')) {
 							customAlert("Debes ingresar tanto la fecha de inicio como la de fin");
 							fechasDetencion = false;
 						}
