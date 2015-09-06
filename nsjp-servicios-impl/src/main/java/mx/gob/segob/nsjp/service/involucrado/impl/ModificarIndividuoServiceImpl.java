@@ -176,22 +176,6 @@ public class ModificarIndividuoServiceImpl implements ModificarIndividuoService 
 				}
 			}
 		}
-
-		// SITUACION JURIDICA
-		ValorDTO situacionJuridicaDTO = involucradoDTO.getValorSituacionJuridica();
-
-		if( situacionJuridicaDTO == null ) {
-
-			if (involucradoDTO.getCalidadDTO().getCalidades()
-					.equals(Calidades.PROBABLE_RESPONSABLE_PERSONA)
-					|| involucradoDTO.getCalidadDTO().getCalidades()
-					.equals(Calidades.PROBABLE_RESPONSABLE_ORGANIZACION))
-				invoBD.setSituacionJuridica(new Valor(
-						SituacionJuridica.INDICIADO.getValorId()));
-		}else{
-			Valor situacionJuridica = valorDAO.read(new Long(situacionJuridicaDTO.getValor()));
-			invoBD.setSituacionJuridica(situacionJuridica);
-		}
 		
 		//ORGANIZACION
 		if (idCalidadInv.equals(Calidades.DENUNCIANTE.getValorId()) ||
@@ -460,6 +444,23 @@ public class ModificarIndividuoServiceImpl implements ModificarIndividuoService 
         }        
         
 		invoBD.setEsMismoDomicilio(involucradoDTO.getEsMismoDomicilio());
+
+		// SITUACION JURIDICA
+		ValorDTO situacionJuridicaDTO = involucradoDTO.getValorSituacionJuridica();
+
+		if( situacionJuridicaDTO == null ) {
+
+			if (involucradoDTO.getCalidadDTO().getCalidades()
+					.equals(Calidades.PROBABLE_RESPONSABLE_PERSONA)
+					|| involucradoDTO.getCalidadDTO().getCalidades()
+					.equals(Calidades.PROBABLE_RESPONSABLE_ORGANIZACION))
+				invoBD.setSituacionJuridica(new Valor(
+						SituacionJuridica.INDICIADO.getValorId()));
+		}else{
+			Valor situacionJuridica = valorDAO.read(new Long(situacionJuridicaDTO.getValor()));
+			invoBD.setSituacionJuridica(situacionJuridica);
+		}
+
 		involucradoDAO.update(invoBD);
 		
 		// Generar relaciones quien detuvo
