@@ -73,7 +73,7 @@
 	var	pantallaSolicitadaCD = 4;
 
 	$(document).ready(function() {
-		
+		console.log("dentro del web app y carpeta de investigacion");
 		$('#remisionesIPH').click(cargaGridInformePolicial);
 				
 		$("#divGridSolsXAtndr").hide();
@@ -781,6 +781,7 @@
 	}
 	
 	function cambiarResponsableExpediente() {
+            console.log("APRETASTE EL BOTON DE cambiarResponsableExpediente");
 		customVentana("cambiarResponsableExpediente", "Cambiar Responsable A Expediente", "/cambiarResponsableExpediente.do");
 	}
 	
