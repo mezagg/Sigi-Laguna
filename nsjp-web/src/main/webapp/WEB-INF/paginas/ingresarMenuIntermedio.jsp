@@ -538,9 +538,9 @@
 				}
 
 				if(visualizaPestanaJar==1 || visualizaPestanaJar=='1'){
-					ocultaMuestraTabVisor("tabTabsHechos",0);
-					ocultaMuestraTabVisor("tabTabsInv",0);
-					ocultaMuestraTabVisor("tabTabsDelito",0);						
+//					ocultaMuestraTabVisor("tabTabsHechos",0);
+//					ocultaMuestraTabVisor("tabTabsInv",0);
+//					ocultaMuestraTabVisor("tabTabsDelito",0);						
 					ocultaMuestraTabVisor("tabTabsObjs",0);
 				}
 			}else if(pantallaSolicitada==AGENTE_MP){//agentemp
@@ -613,9 +613,9 @@
 				ocultaMuestraTabVisor("tabTabsCadCus",0);
 				
 				if(visualizaPestanaJar==1 || visualizaPestanaJar=='1'){
-					ocultaMuestraTabVisor("tabTabsHechos",0);
-					ocultaMuestraTabVisor("tabTabsInv",0);
-					ocultaMuestraTabVisor("tabTabsDelito",0);						
+//					ocultaMuestraTabVisor("tabTabsHechos",0);
+//					ocultaMuestraTabVisor("tabTabsInv",0);
+//					ocultaMuestraTabVisor("tabTabsDelito",0);						
 					ocultaMuestraTabVisor("tabTabsObjs",0);
 				}
 			} else if(pantallaSolicitada==POLICIA_MINISTERIAL){//policia ministerial
