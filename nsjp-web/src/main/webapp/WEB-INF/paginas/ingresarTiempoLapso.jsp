@@ -26,6 +26,17 @@
    $('#idHoraDateLapsoInicio,#idHoraDateLapsoFin').timeEntry({beforeShow: customRange,timeSteps:[1,1,0],ampmPrefix: ' '});
  });
 
+
+jQuery().ready(	function () {
+
+	$("#situacionJuridicaCombo").one("click", function () {
+		if( $("#situacionJuridicaCombo option").length <= 1 )
+			cargaSituacionJuridica();
+	});
+
+});
+
+
     /*
      *Funcion para recuperar los datos de tiempo lapso
      */
@@ -36,6 +47,7 @@
   			lsDatosTiempoLapso+="&horaInicioLapso="+$("#idHoraDateLapsoInicio").val();
   			lsDatosTiempoLapso+="&fechaFinLapso="+$("#idFechaDateLapso2").val();
   			lsDatosTiempoLapso+="&horaFinLapso="+$("#idHoraDateLapsoFin").val();
+		 lsDatosTiempoLapso+="&situacionJuridica="+$("#situacionJuridicaCombo").val();
   	   return lsDatosTiempoLapso;
      }
 
@@ -94,7 +106,13 @@
     	 //$("#idHoraDateLapsoFin").timeEntry('setTime', datos2[1].substring(0,5));
     	 $("#idHoraDateLapsoInicio").click();
     	 $("#idHoraDateLapsoFin").click();
-     }
+
+		 //alert("valorSituacionJuridica: "+$(xml).find('valorSituacionJuridica').find('valor').first().text());
+		 //$('#situacionJuridicaCombo').val($(xml).find('valorSituacionJuridica').find('valor').first().text());
+
+		cargaSituacionJuridica($(xml).find('valorSituacionJuridica').find('idCampo').first().text());
+
+	 }
      
      
      function bloqueaCamposTiempoLapso(bandera)
@@ -107,6 +125,7 @@
 		   	 $("#idHoraDateLapsoFin").attr('disabled','disabled');
 		   	 $("#idHoraDateLapsoInicio").attr('disabled','disabled');
 		   	 $("#idHoraDateLapsoFin").attr('disabled','disabled');
+			 $("#situacionJuridicaCombo").attr('disabled','disabled');
     	}
     	else
     	{
@@ -116,14 +135,15 @@
 	       	 $("#idHoraDateLapsoFin").attr('disabled','');
 	       	 $("#idHoraDateLapsoInicio").attr('disabled','');
 	       	 $("#idHoraDateLapsoFin").attr('disabled','');
+			 $("#situacionJuridicaCombo").attr('disabled','');
     	}    	
      }
 
  	//Funcion que valida si los campos estan llenos al enviar 
  	function validaCamposFecha() {
 
-		if ($('#idFechaDateLapso').val() == '' || $('#idFechaDateLapso2').val() == '') {
-			customAlert("Debes ingresar tanto la fecha de inicio como la de fin");
+		if ($('#idFechaDateLapso').val() == '' || $('#idFechaDateLapso2').val() == '' ) {
+			customAlert("Debes ingresar tanto la fecha de detencion como la de disponibilidad y la situacion juridica");
 			validaFecha = false;
 		} else {
 
@@ -160,7 +180,7 @@
  				}
  			}
  			if(validaFecha==false){	
- 				customAlert("La fecha final debe de ser mayor o igual a la fecha inicial");
+ 				customAlert("La fecha disponibilidad debe de ser mayor o igual a la fecha detencion");
  			}
  		}	
  	}   
@@ -222,6 +242,27 @@
 			$('#idHoraDateLapsoInicio').timeEntry('change', {beforeShow: customRange,timeSteps:[1,1,0],ampmPrefix: ' '});			
 		}
 	}
+
+function cargaSituacionJuridica(valorSituacion){
+	$('#situacionJuridicaCombo').addClass("cargando");
+
+	$.ajax({
+		type: 'POST',
+		url: '<%=request.getContextPath()%>/ConsultarCatalogoSituacionJuridicaDetenido.do',
+		data: '',
+		dataType: 'xml',
+		async: false,
+		success: function(xml){
+			var option;
+			$(xml).find('catSituacionJuridicaDetenido').each(function(){
+				$('#situacionJuridicaCombo').append('<option value="' + $(this).find('clave').text() + '">'+ $(this).find('valor').text() + '</option>');
+			});
+
+			$('#situacionJuridicaCombo').removeClass("cargando");
+			$('#situacionJuridicaCombo').val(valorSituacion);
+		}
+	});
+}
   
 </script>
 
@@ -258,5 +299,12 @@
 		<td><div id="idHoraLapso2">
 		<input type="text" id="idHoraDateLapsoFin" size="10" class="timeRange" value="8:00" onblur="cuandoCambien(this.id);"/>
 		</div></td>
+	</tr>
+	<tr>
+		<td align="right">Situación Juridica:</td>
+		<td><select id="situacionJuridicaCombo"
+					name="situacionJuridicaCombo" style="width: 180px;" >
+			<option value="">- Selecciona -</option>
+		</select></td>
 	</tr>
 </table>

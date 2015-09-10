@@ -62,6 +62,8 @@ public class InvolucradoViewDTO extends GenericDTO {
     private Short subtipoDeEvento;
 	private Short condicion;
 
+	private String situacionJuridica;
+
 	
 	/**
 	 * 
@@ -334,4 +336,11 @@ public class InvolucradoViewDTO extends GenericDTO {
 		this.condicion = condicion;
 	}
 
+	public String getSituacionJuridica() {
+		return situacionJuridica;
+	}
+
+	public void setSituacionJuridica(String situacionJuridica) {
+		this.situacionJuridica = situacionJuridica;
+	}
 }

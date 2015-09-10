@@ -417,8 +417,8 @@ DD P {
 			id='<%=request.getAttribute("idIndividuoProp")%>';
 			if(id!=null){
 				var estaDetenido =$('#chkPResponsableDetenido').is(':checked');
-				if(estaDetenido){	
-					 consulta(id);
+				if(estaDetenido){
+					consulta(id);
 				}
 			}
 		}
@@ -839,7 +839,7 @@ DD P {
 		  $('#ingresarTiempoOtroPResponsable').hide(); 
 		  habilitaTextDetenido();
 		  detenidoText=true;
-		  cambiaLapso(); 
+		  cambiaLapso();
 		}
 		
 		function anularDefensor(){

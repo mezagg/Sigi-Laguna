@@ -128,9 +128,9 @@ public ActionForward consultarCatalogoIdioma(ActionMapping mapping, ActionForm f
 		try {
     		log.info("ejecutando Action Cargar Combo Escolaridad"); 
     		List<CatalogoDTO> listaCatalogo=catDelegate.recuperarCatalogo(Catalogos.ESCOLARIDAD);
-    		
-    		
-    		
+
+
+			int situacioId = Catalogos.SITUACION_JURIDICA_DETENIDO.ordinal();
     	
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catEscolaridad", CatalogoDTO.class);
@@ -153,6 +153,31 @@ public ActionForward consultarCatalogoIdioma(ActionMapping mapping, ActionForm f
 		return null;
 		
 		
+	}
+
+	public ActionForward consultarCatalogoSituacionJuridicaDetenido(ActionMapping mapping, ActionForm form,
+													  HttpServletRequest request, HttpServletResponse response)
+			throws IOException {
+		try {
+			log.info("ejecutando Action Cargar Combo Escolaridad");
+			List<CatalogoDTO> listaCatalogo=catDelegate.recuperarCatalogo(Catalogos.SITUACION_JURIDICA);
+
+
+			converter.alias("listaCatalogo", java.util.List.class);
+			converter.alias("catSituacionJuridicaDetenido", CatalogoDTO.class);
+
+			String xml = converter.toXML(listaCatalogo);
+			response.setContentType("text/xml");
+			PrintWriter pw = response.getWriter();
+			pw.print(xml);
+			pw.flush();
+			pw.close();
+		}
+		catch (Exception e) {
+			log.info(e);
+		}
+
+		return null;
 	}
 	
 	public ActionForward consultarCatalogoNacionalidad (ActionMapping mapping, ActionForm form,
@@ -195,9 +220,7 @@ public ActionForward consultarCatalogoIdioma(ActionMapping mapping, ActionForm f
 		try {
     		log.info("ejecutando Action Cargar Combo Religion"); 
     		List<CatalogoDTO> listaCatalogo=catDelegate.recuperarCatalogo(Catalogos.RELIGION);
-    		
-    		
-    		
+
     	
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catReligion", CatalogoDTO.class);
