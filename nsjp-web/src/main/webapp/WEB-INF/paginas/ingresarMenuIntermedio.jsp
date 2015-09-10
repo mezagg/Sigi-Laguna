@@ -2566,7 +2566,7 @@
 				    	      if($(this).find('nombre').text()=='null'){
 								  liga += 'Desconocido';
 							  }else{
-								  liga = liga + $(this).find('nombre').text() +' - ' + '<bean:message key="indiciado"/>';
+								  liga = liga + $(this).find('nombre').text() +' - ' + $(this).find('situacionJuridica').text();
 							  }
 							  liga += '</a></td></tr>';
 			    	    	  $('#tblProbableResponsable').append(liga);

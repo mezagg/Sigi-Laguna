@@ -1514,6 +1514,11 @@ public class AtencionTempranaPenalAction extends GenericAction{
 					log.info("PROBABLE RESPONSABLE::::: "+involucrado.getCalidadDTO().getValorIdCalidad().getIdCampo()+"::::"+Calidades.PROBABLE_RESPONSABLE_PERSONA.getValorId());
 					log.info("PROBABLE RESPONSABLE::::: "+involucradoView.getNombre());
 				}
+
+				if( involucrado.getEsDetenido()){
+					involucradoView.setSituacionJuridica(involucrado.getValorSituacionJuridica().getValor());
+				}
+
 				listaInvolucrados.add(involucradoView);
 			}
 			log.info("$$$$ numero el Expediente consultar involucrados  listaInvolucrados.size()$$$ : "+listaInvolucrados.size());
