@@ -843,15 +843,13 @@ input.error {
 											}else{//No tiene permisos para visualizar el expediente
 												customAlert("Usted no es el dueño del expediente,<br> y no cuenta con permisos para consultarlo.","");
 											}	 
-							 			 }    
-																							
+							 			 }    											
 									},								
 									caption:"Resultado de la B&uacute;squeda" 
 							});
 									  
-			 			 }// fin else
-					
-				configurarColumnasGridBuscarExpedientes(tipoBusqueda);
+			 			 }// fin else		
+				configurarColumnasGridBuscarExpedientes(tipoBusqueda);	
 		}
 		
 		//Función que genera un nuevo número de expediente para la UI en el mismo expediente

@@ -73,7 +73,6 @@
 	var	pantallaSolicitadaCD = 4;
 
 	$(document).ready(function() {
-		
 		$('#remisionesIPH').click(cargaGridInformePolicial);
 				
 		$("#divGridSolsXAtndr").hide();

@@ -740,6 +740,10 @@
 		iframewindowAPSE++;
 	}
 	
+        function cambiarResponsableExpediente() {
+		customVentana("cambiarResponsableExpediente", "Cambiar Responsable A Expediente", "/cambiarResponsableExpediente.do");
+	}
+        
 	</script>	
 </head>
 
@@ -909,7 +913,10 @@
 		<div id="menu_config">
 <!--			<li id="verde">Configuraci&oacute;n&nbsp;<img src="<%= request.getContextPath() %>/resources/images/icn_config.png" width="15" height="16"></li>-->
 			<li id="tbarBtnAsignarPermisosASubordinados" class="pen" onclick="asignarPermisos();">Asignar Permisos a Subordinados</li>
-
+                        <li onclick="cambiarResponsableExpediente();" class="lens" id="tbarBtnCambiarResponsableExpediente">									
+				<span></span>
+				Cambiar De Responsable A Un Expediente
+			</li>
                 </div>
 	</ul>
 </div>
