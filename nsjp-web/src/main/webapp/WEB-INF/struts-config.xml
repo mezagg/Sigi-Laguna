@@ -1229,7 +1229,17 @@
 				parameter="consultarCatalogoEscolaridad"
                 validate="false">
                 <forward name="success" path="/WEB-INF/paginas/vAdmonIndividuo.jsp" /> 
-		</action> 
+		</action>
+
+
+		<action path="/ConsultarCatalogoSituacionJuridicaDetenido"
+				type="mx.gob.segob.nsjp.web.persona.action.IngresarDatosGeneralesAction"
+				name="IngresarDatosGeneralesForm"
+				scope="request"
+				parameter="consultarCatalogoSituacionJuridicaDetenido"
+				validate="false">
+			<forward name="success" path="/WEB-INF/paginas/vAdmonIndividuo.jsp" />
+		</action>
 		
 			<!--   Consultar Religion -->
 		<action path="/ConsultarCatalogoReligion"

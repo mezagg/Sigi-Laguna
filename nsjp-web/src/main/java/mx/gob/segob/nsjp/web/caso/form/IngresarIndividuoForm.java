@@ -80,6 +80,7 @@ public class IngresarIndividuoForm extends GenericForm{
 	private String horaInicioLapso;
 	private String fechaFinLapso;
 	private String horaFinLapso;
+	private String situacionJuridica;
 
 	//Domicilio
 	private String pais;
@@ -277,7 +278,8 @@ public class IngresarIndividuoForm extends GenericForm{
     private String frenteAncho;
     private String inclinacionFrente;
     // Fin Jacob
-	
+
+
 	/**
 	 * Método de acceso al campo motivoComparecencia.
 	 * @return El valor del campo motivoComparecencia
@@ -2903,5 +2905,12 @@ public class IngresarIndividuoForm extends GenericForm{
 			String asentamientoColoniaDefDenuncia) {
 		this.asentamientoColoniaDefDenuncia = asentamientoColoniaDefDenuncia;
 	}
-    
+
+	public String getSituacionJuridica() {
+		return situacionJuridica;
+	}
+
+	public void setSituacionJuridica(String situacionJuridica) {
+		this.situacionJuridica = situacionJuridica;
+	}
 }
