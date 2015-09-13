@@ -590,7 +590,7 @@ public class AdministrarNumeroExpedienteServiceImpl implements AdministrarNumero
 
 		
 		
-		/*CasoDTO casoDTO = new CasoDTO();
+		CasoDTO casoDTO = new CasoDTO();
 		
 		if (expedienteDTO.getUsuario().getFuncionario()
 				.getJerarquiaOrganizacional().getJerarquiaOrganizacionalId() != Areas.AGENCIA_DEL_MINISTERIO_PUBLICO
@@ -603,14 +603,14 @@ public class AdministrarNumeroExpedienteServiceImpl implements AdministrarNumero
 			casoDTO = casoService.asignarNumeroCaso(casoDTO, expedienteDTO
 					.getUsuario().getFuncionario());
 		}
-		*/
+
 		ExpedienteDTO expParam = new ExpedienteDTO();
         ExpedienteDTO expBD = null;
         expParam.setFechaApertura(new Date());
         //Se sette al usuario coordinador
         expParam.setUsuario(expedienteDTO.getUsuario());
         expParam.setArea(expedienteDTO.getUsuario().getArea());
-        //expParam.setCasoDTO(casoDTO);
+        expParam.setCasoDTO(casoDTO);
         expParam.setCatUIE(expedienteDTO.getCatUIE());
         
 		// Para los expedientes generados en PJ, se debe utilizar el tipo CAUSA
@@ -626,7 +626,7 @@ public class AdministrarNumeroExpedienteServiceImpl implements AdministrarNumero
        
         //Es necesario para generar el Numero de Expediente
         expBD = asignarNumeroExpedienteService.asignarNumeroExpediente(expParam);
-        //expBD.setCasoDTO(casoDTO);
+        expBD.setCasoDTO(casoDTO);
         if(expedienteDTO.getCatUIE()!=null){
         	
         	CatUIEspecializada catUIEspecializada=catUIEspecializadaDAO.read(expedienteDTO.getCatUIE());

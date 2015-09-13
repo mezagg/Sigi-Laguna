@@ -21,6 +21,7 @@ package mx.gob.segob.nsjp.service.caso.impl;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import mx.gob.segob.nsjp.comun.enums.configuracion.Parametros;
 import mx.gob.segob.nsjp.comun.enums.excepciones.CodigoError;
@@ -69,7 +70,6 @@ public class AsignarNumeroCasoServiceImpl implements AsignarNumeroCasoService {
 	@Autowired
 	private JerarquiaOrganizacionalDAO jerarquiaOrganizacionalDAO;
 	
-	
 	@Transactional(isolation=Isolation.READ_COMMITTED)
 	//     Estado / Instituci�n / Libres / Unidad / A�o / Letra - Consecutivo
 	//       3    /      2      /    2   /   3    /  4  /   2   -     5
@@ -77,48 +77,42 @@ public class AsignarNumeroCasoServiceImpl implements AsignarNumeroCasoService {
 	public synchronized CasoDTO asignarNumeroCaso(CasoDTO casoDTO, FuncionarioDTO funcionarioDTO) throws NSJPNegocioException {
 		if (logger.isInfoEnabled())
 			logger.info("");
-		
-		if (funcionarioDTO == null || funcionarioDTO.getDepartamento() == null || funcionarioDTO.getDepartamento().getArea() == null || funcionarioDTO.getDepartamento().getArea().getAreaId()<= 0) 
-	           throw new NSJPNegocioException(CodigoError.PARAMETROS_INSUFICIENTES);
-		
+
+		if (funcionarioDTO == null || funcionarioDTO.getDepartamento() == null || funcionarioDTO.getDepartamento().getArea() == null || funcionarioDTO.getDepartamento().getArea().getAreaId() <= 0)
+			throw new NSJPNegocioException(CodigoError.PARAMETROS_INSUFICIENTES);
+
 		Long idDepartamento = 0L;
-		if( funcionarioDTO.getDepartamento().getDepartamentoId() != null && funcionarioDTO.getDepartamento().getDepartamentoId()> 0)
+		if (funcionarioDTO.getDepartamento().getDepartamentoId() != null && funcionarioDTO.getDepartamento().getDepartamentoId() > 0)
 			idDepartamento = funcionarioDTO.getDepartamento().getDepartamentoId();
 		Long idArea = funcionarioDTO.getDepartamento().getArea().getAreaId();
-		
+
 		String prefijoDelEstado = "";
 		String prefijoDeInstitucion = "";
 		//String libres = "XX";
 		String distrito = "";
-		//String claveRegion = "";
+		String claveRegion = "";
 		String unidad = "";
 		String consecutivoDelCaso = "";
-		
+
 		//Fecha actual
-		Date fechaApertura = casoDTO.getFechaApertura()==null?new Date():casoDTO.getFechaApertura(); 
+		Date fechaApertura = casoDTO.getFechaApertura() == null ? new Date() : casoDTO.getFechaApertura();
 		Calendar calTemp = Calendar.getInstance();
-        calTemp.setTime(casoDTO.getFechaApertura());
-        String anio = String.valueOf(calTemp.get(Calendar.YEAR));
-        
-        //Obtener la institucion actual
-        ConfInstitucion institucionActual = casoDao.consultarInsitucionActual();
+		calTemp.setTime(casoDTO.getFechaApertura());
+		String anio = String.valueOf(calTemp.get(Calendar.YEAR));
 
-        //Se obtiene el prefijo de la unidad
-      	unidad = jerarquiaOrganizacionalDAO.read(idArea).getAbreviatura();
-      	//Codigo para controlar la lonjitud de la abreviatura de la unidad ya que puede estar mas grande
-      	if(unidad.length()>3){
-      		unidad=unidad.substring(0, 3);
-      	}
-      	
-		// El sistema consulta el �ltimo n�mero de caso creado
-		String ultimoNumeroGeneralCaso = casoDao.recuperarUltimoNumero(institucionActual.getMonograma());
+		//Obtener la institucion actual
+		ConfInstitucion institucionActual = casoDao.consultarInsitucionActual();
 
-		//Consecutivo del n�mero del caso consultado
-		consecutivoDelCaso = consultarConsecutivoCaso(ultimoNumeroGeneralCaso);
-							
+		//Se obtiene el prefijo de la unidad
+		unidad = jerarquiaOrganizacionalDAO.read(idArea).getAbreviatura();
+		//Codigo para controlar la lonjitud de la abreviatura de la unidad ya que puede estar mas grande
+		if (unidad.length() > 3) {
+			unidad = unidad.substring(0, 3);
+		}
+
 		//Se obtiene el prefijo del estado
 		prefijoDelEstado = obtenerPrefijoDelEstado();
-		
+
 		//Se obtiene el prefijo de la institucion
 		ConfInstitucion loConfIns = obtenerInstitucion();
 		prefijoDeInstitucion = loConfIns.getMonograma();
@@ -126,14 +120,93 @@ public class AsignarNumeroCasoServiceImpl implements AsignarNumeroCasoService {
 		//Se obtiene el distrito
 		distrito = funcionarioDTO.getDiscriminante().getDistrito().getClaveRomanaDistrito();
 		//Se obtiene la region
-		//claveRegion = funcionarioDTO.getDiscriminante().getClaveRegion();
+		if (funcionarioDTO != null && funcionarioDTO.getDiscriminante() != null) {
+			claveRegion = funcionarioDTO.getDiscriminante().getClaveRegion();
+		}
+
+
+		List<Parametro> parametrosNUC = parametroDAO.obtenerPorClaveBase("NUC");
+		Boolean conEstado = false;
+		Boolean conInstitucion = false;
+		Boolean conRegion = false;
+		Boolean conDistrito = false;
+		Boolean conUnidad = false;
+
+		for (Parametro parametro : parametrosNUC) {
+			if (parametro.getClave().equalsIgnoreCase("NUC_ESTADO") && parametro.getValor().equals("*")) {
+				conEstado = true;
+			}
+			if (parametro.getClave().equalsIgnoreCase("NUC_REGION") && parametro.getValor().equals("*")) {
+				conRegion = true;
+			}
+			if (parametro.getClave().equalsIgnoreCase("NUC_INSTITUCION") && parametro.getValor().equals("*")) {
+				conInstitucion = true;
+			}
+			if (parametro.getClave().equalsIgnoreCase("NUC_DISTRITO") && parametro.getValor().equals("*")) {
+				conDistrito = true;
+			}
+			if (parametro.getClave().equalsIgnoreCase("NUC_UNIDAD") && parametro.getValor().equals("*")) {
+				conUnidad = true;
+			}
+		}
 
 		//Se genera el numero de Caso
+
+
+		if (conEstado) {
+			consecutivoDelCaso = prefijoDelEstado;
+		}
+
+		if (conInstitucion) {
+			if (consecutivoDelCaso.length() == 0) {
+				consecutivoDelCaso = prefijoDeInstitucion;
+			}
+		 	else {
+				consecutivoDelCaso = consecutivoDelCaso + SEPARADOR + prefijoDeInstitucion;
+			}
+		}
+
+		if( conRegion ) {
+			if (consecutivoDelCaso.length() == 0) {
+				consecutivoDelCaso = claveRegion;
+			} else {
+				consecutivoDelCaso = consecutivoDelCaso + SEPARADOR + claveRegion;
+			}
+		}
+
+		if( conDistrito ) {
+			if (consecutivoDelCaso.length() == 0) {
+				consecutivoDelCaso = distrito;
+			} else {
+				consecutivoDelCaso = consecutivoDelCaso + SEPARADOR + distrito;
+			}
+		}
+
+		if( conUnidad ) {
+			if (consecutivoDelCaso.length() == 0) {
+				consecutivoDelCaso = unidad;
+			} else {
+				consecutivoDelCaso = consecutivoDelCaso + SEPARADOR + unidad;
+			}
+		}
+
+		consecutivoDelCaso = consecutivoDelCaso +SEPARADOR + anio;
+
+
+		// El sistema consulta el �ltimo n�mero de caso creado
+		String ultimoNumeroGeneralCaso = casoDao.recuperarUltimoNumeroCasoXCadenaBase(consecutivoDelCaso);
+
+		//Consecutivo del n�mero del caso consultado
+		String consecutivoDelCasoBase = consultarConsecutivoCaso(ultimoNumeroGeneralCaso);
+
+		consecutivoDelCaso = consecutivoDelCaso +SEPARADOR + consecutivoDelCasoBase;
+
+		/*
 		consecutivoDelCaso = prefijoDelEstado + SEPARADOR + prefijoDeInstitucion + SEPARADOR
-				//+ claveRegion +SEPARADOR
+				+ claveRegion +SEPARADOR
 				+ distrito + SEPARADOR
 				+ unidad + SEPARADOR + anio + SEPARADOR + consecutivoDelCaso;
-		
+		*/
 		Caso caso = new Caso();
 		caso.setEstatus(casoDTO.getEstatus().getShort());
 		caso.setFechaApertura(fechaApertura);
@@ -155,8 +228,7 @@ public class AsignarNumeroCasoServiceImpl implements AsignarNumeroCasoService {
 
 	public String consultarConsecutivoCaso(String ultimoNumeroGeneralCaso) throws NSJPNegocioException{
 		String consecutivoDelCaso = "";
-		if(ultimoNumeroGeneralCaso!=null && ultimoNumeroGeneralCaso.length() >= 27) {
-			//pe 01/02/XX/RBO/2011/CC-12345 -> CC-12346 
+		if(ultimoNumeroGeneralCaso!=null && ultimoNumeroGeneralCaso.length() > 0) {
 			consecutivoDelCaso = ConsecutivosUtil.incrementarConsecutivoNumeroCaso(ultimoNumeroGeneralCaso);
 		} else {
 			consecutivoDelCaso = "AA-00001";
