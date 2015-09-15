@@ -226,7 +226,6 @@
 		var valorParametroNumExpAlterno = 0;
 		//Comienza funcion on ready del documento
 		$(document).ready(function() {
-			
 			valorParametroNumExpAlterno = consultaParametroNumExpAlterno();
 			
 			//Permite abrir el visor de solo consulta
@@ -543,6 +542,7 @@
 //					ocultaMuestraTabVisor("tabTabsDelito",0);						
 					ocultaMuestraTabVisor("tabTabsObjs",0);
 				}
+                                
 			}else if(pantallaSolicitada==AGENTE_MP){//agentemp
 				
 				// Recargar el grid principal del menú intermedio
@@ -1696,8 +1696,8 @@
 		
 	function notaExpediente(idNota)
 	{
-		idWindowGenerarNotas++;
-		$.newWindow({id:"iframewindowGenerarNotas" + idWindowGenerarNotas, statusBar: true, posx:200,posy:50,width:700, height:450,title:"Nota de Expediente", type:"iframe", modal:true});
+            idWindowGenerarNotas++;
+	    $.newWindow({id:"iframewindowGenerarNotas" + idWindowGenerarNotas, statusBar: true, posx:200,posy:50,width:700, height:450,title:"Nota de Expediente", type:"iframe", modal:true});
 	    $.updateWindowContent("iframewindowGenerarNotas" + idWindowGenerarNotas,'<iframe src="<%= request.getContextPath() %>/capturarNotaExpediente.do?idNumeroExpedienteOp='+idNumeroExpedienteOp +'&idNota='+idNota+'&porFuncionario=true " width="700" height="450" />');
 	}
 	
@@ -1750,7 +1750,7 @@
 	*POR EL MOMENTO SOLO SE CONSULTA UNA NOTA
 	*/
 	function consultarNotas(){
-		var notas=$('#editor1').val();
+                var notas=$('#editor1').val();
 		$.ajax({
 			type: 'POST',
 			url: '<%= request.getContextPath()%>/consultarNotasExpediente.do?idNumeroExpediente='+idNumeroExpedienteOp+'&porFuncionario=true',
@@ -2613,7 +2613,7 @@
 		*Funcion para pintar el hecho del expediente en su tab correspondiente
 		*/
 		function cargarHechoExpediente(idNumeroExpediente){
-	    	$.ajax({
+                $.ajax({
 	    		type: 'POST',
 	    		url: '<%=request.getContextPath()%>/ConsultaHechoExpediente.do',
 	    		data: 'idNumeroExpediente='+idNumeroExpediente,
@@ -3500,15 +3500,15 @@
 		/***** FIN cargar otros *****/
 		
 		function ingresarHechos() {
-			idWindowIngresarHechos++;
-			$.newWindow({id:"iframewindowHecho" + idWindowIngresarHechos, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Hechos", type:"iframe"});
+                    idWindowIngresarHechos++;
+                    $.newWindow({id:"iframewindowHecho" + idWindowIngresarHechos, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Hechos", type:"iframe"});
 		    $.updateWindowContent("iframewindowHecho" + idWindowIngresarHechos,'<iframe src="<%= request.getContextPath() %>/IngresarHechos.do?numeroExpediente='+numeroExpediente +'&idNumeroExpedienteOp='+idNumeroExpedienteOp+'&idCalidad=DENUNCIANTE&idHecho=0&menuIntermedio=1'+'&pantallaSolicitada='+pantallaSolicitada+'" width="1100" height="530" />');
 		    $("#" +"iframewindowHecho" + idWindowIngresarHechos + " .window-maximizeButton").click();
 		}
 		
 		function consultarHecho(idHecho,idNumeroExpediente) {
-			idWindowIngresarHechos++;
-			$.newWindow({id:"iframewindowHecho" + idWindowIngresarHechos, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Hechos", type:"iframe"});
+                    idWindowIngresarHechos++;
+		    $.newWindow({id:"iframewindowHecho" + idWindowIngresarHechos, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Hechos", type:"iframe"});
 		    $.updateWindowContent("iframewindowHecho" + idWindowIngresarHechos,'<iframe src="<%= request.getContextPath() %>/IngresarHechos.do?numeroExpediente='+numeroExpediente +'&idNumeroExpedienteOp='+idNumeroExpedienteOp+'&idCalidad=DENUNCIANTE&idHecho='+idHecho +'&menuIntermedio=1'+'&pantallaSolicitada='+pantallaSolicitada+'" width="1100" height="530" />');
 		    $("#" +"iframewindowHecho" + idWindowIngresarHechos + " .window-maximizeButton").click();
 		}
@@ -3573,7 +3573,7 @@
 		}
 		
 		function cargaInstitucionesExternas(){
-			$.ajax({
+                        $.ajax({
 		    	type: 'POST',
 		    	url: '<%= request.getContextPath()%>/consultarInstitucionesExternas.do',
 		    	data: '',
@@ -3936,7 +3936,7 @@
 			} 
 			//ahora mandamos los delitos al back-end
 			var params="delitos="+nombreDelPrincipal+"-"+delitosNormales+"&numExp="+numeroExpediente;
-			$.ajax({
+                  $.ajax({
 	       	  url: '<%= request.getContextPath()%>/guardarDelitosAgraviadosATP.do',
 	    	  dataType: 'xml',
 	    	  Type: 'POST',

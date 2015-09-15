@@ -13,20 +13,30 @@
 	<%@ page import="mx.gob.segob.nsjp.comun.enums.solicitud.TiposSolicitudes"%>
 	<%@ page import="mx.gob.segob.nsjp.comun.enums.solicitud.EstatusSolicitud"%>
 	<%@ page import="mx.gob.segob.nsjp.dto.configuracion.ConfiguracionDTO"%>
-    <%@ page import="mx.gob.segob.nsjp.web.base.action.GenericAction"%>
+        <%@ page import="mx.gob.segob.nsjp.web.base.action.GenericAction"%>
+        <%@ page import="mx.gob.segob.nsjp.comun.enums.objeto.Objetos" %>
+        <%@ page import="mx.gob.segob.nsjp.comun.enums.actividad.CategoriasActividad" %>
+        <%@ page import="mx.gob.segob.nsjp.comun.enums.expediente.OrigenExpediente"%>
+        <%@ page import="mx.gob.segob.nsjp.comun.enums.configuracion.Parametros"%>
+        <%@ page import="mx.gob.segob.nsjp.comun.enums.institucion.Instituciones" %>
+        <%@ page import="mx.gob.segob.nsjp.comun.enums.excepciones.CodigoError" %>
+        <%@page import="mx.gob.segob.nsjp.dto.usuario.UsuarioDTO"%>
+	<%@ page import="mx.gob.segob.nsjp.comun.enums.seguridad.Roles" %>
+	<%@page import="mx.gob.segob.nsjp.comun.enums.actividad.ConfActividadDocumento"%>
+	<%@ page import="mx.gob.segob.nsjp.comun.constants.ConstantesGenerales"%>
 	
 	
 	<title>Registrar Datos Persona</title>
-<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/multiselect/jquery.multiselect.css" />
-<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/multiselect/style.css" />
-<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/multiselect/prettify.css" />
+<!--<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/r //esources/css/multiselect/jquery.multiselect.css" />-->
+<!--<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/re //sources/css/multiselect/style.css" />-->
+<!--<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/res //ources/css/multiselect/prettify.css" />-->
 <!--  <link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/multiselect/jquery-ui.css" />-->
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/ui-lightness/jquery-ui-1.8.11.custom.css" />
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css" />
 <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/jquery.windows-engine.css"/>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/layout_complex.css" media="screen" />
 
-<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css" />
+<!--<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css" />-->
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/estilos.css" media="screen" />
 <link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/ui-lightness/jquery-ui-1.8.11.custom.css" />
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/ui-lightness/jquery-ui-1.8.11.custom.css" />
@@ -36,14 +46,20 @@
 
 <!--Se importan los scripts necesarios-->
 <script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery-1.5.1.js"></script>
+<script type="text/javascript" src="<%= request.getContextPath() %>/resources/js/jquery-ui-1.8.11.custom.min.js"></script>
 <script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery-ui-1.8.10.custom.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jqgrid/i18n/grid.locale-es.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jqgrid/jquery.jqGrid.js"></script>
+<script type="text/javascript" src="<%= request.getContextPath()%>/js/jqgrid/jquery.jqGrid.min.js"></script>
 <script type="text/javascript" src="<%= request.getContextPath() %>/resources/js/jquery.windows-engine.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/bloqueaTecla.js?n=1"></script>
+<script type="text/javascript" src="<%= request.getContextPath()%>/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="<%= request.getContextPath()%>/js/prettify.js"></script>
 		
 <script src="<%=request.getContextPath()%>/resources/js/wdCalendar/Plugins/jquery.ui.timepicker.js"></script>
 <script src="<%=request.getContextPath()%>/resources/js/wdCalendar/Plugins/jquery.ui.datepicker-es.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.layout-1.3.0.js"></script>
+<script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery.blockUI.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/comun.js?n=1"></script>
 	
 	<!--ESTILOS PARA LAS TABS-->
@@ -63,7 +79,7 @@ var resRad;
 	var valorVacio = "<div style=\"background-color: #f2f2f2; color:#393939;\"> </div>";
 	var valorNO = "<div style=\"background-color: #f2f2f2; color:#393939;\">No </div>";
 	var valorSI = "<div style=\"background-color: #f2f2f2; color:#393939;\">Si </div>";
-	 
+	 var CONTEXT_ROOT = '<%= request.getContextPath()%>';
 	 var idSolicitud=0;
 	 var idNumeroExpediente=0;
 	 var numeroExpediente="";
@@ -78,9 +94,12 @@ var resRad;
 	 var idExpedienteop;
 	 var idWindowPantallaActuaciones = 1;
 	 var extensionesPermitidasAudio = '<%=((ConfiguracionDTO) request.getSession().getAttribute(GenericAction.KEY_SESSION_CONFIGURACION_GLOBAL)).getExtensionesPermitidasAlAdjuntarAudio() %>';
-		var extensionesPermitidasImagen = '<%=((ConfiguracionDTO) request.getSession().getAttribute(GenericAction.KEY_SESSION_CONFIGURACION_GLOBAL)).getExtensionesPermitidasAlAdjuntarImagen() %>';
-
-	 
+	 var extensionesPermitidasImagen = '<%=((ConfiguracionDTO) request.getSession().getAttribute(GenericAction.KEY_SESSION_CONFIGURACION_GLOBAL)).getExtensionesPermitidasAlAdjuntarImagen() %>';
+         var idWindowIngresarHechos = 1;
+         var validaDelitoGrave='<%=((ConfiguracionDTO) request.getSession().getAttribute(GenericAction.KEY_SESSION_CONFIGURACION_GLOBAL)).getValidaDelitoGrave() %>';
+	 var reloadGridDelito=false;
+         var validaDelito=false;
+                
 	 $(document).ready(function() {
 
 		 var areaId;
@@ -88,7 +107,9 @@ var resRad;
 		$("#tabsPrincipal").tabs();
 		$("#tabschild6" ).tabs();
 		$("#tabsconsultaprincipal-2").tabs();
+                $( "#tabschild17" ).tabs();
 		$("#btnAgregarNotaEvaluacion").click(guardaNotaEvaluacion);
+                $("#ingresarHechos").click(ingresarHechos);
 		$("#cbxAccionesTabTS").change(seleccionaActuacionTrabajoSocial);
 		$("#cbxAccionesTabJ").change(seleccionaActuacionJuridico);
 
@@ -112,7 +133,22 @@ var resRad;
 		idTipoSolicitud=idsNecesarios[4];
 		cargarInvolucradosExpediente(numeroExpedienteId);
 		cargaGridDocumentosDigitalesPropios();
-		
+		cargarHechoExpediente(idExpedienteop);
+                
+                $("#tapDelitoYRelaciones").one("click", function() {
+		    $('#tapDelitoYRelaciones').addClass("cargando");				
+			//Carga grid con el catalogo de los delitos
+			cargaGridDelitos();
+			//consultamos las actividades dependiendo de los delitos del expediente
+		   	muestraActividadesSugeridasEnConsultaExpediente();
+        		$('#tapDelitoYRelaciones').removeClass("cargando");
+		});
+                
+                //seteamos los listener de los radios para la relacion de Delitos por Person o por Delito
+		$("#rdbMenuInterRelDelXPersona").bind("click",ocultaMuestraTblsRelacionarDelitos);
+		$("#rdbMenuInterRelDelXDelito").bind("click",ocultaMuestraTblsRelacionarDelitos);
+		$("#rdbMenuInterRelDelXTodos").bind("click",ocultaMuestraTblsRelacionarDelitos);
+                
 		//grid para los documentos
 		jQuery("#gridDetalleFrmPrincipal").jqGrid({ 
 			url:'<%=request.getContextPath()%>/consultarDocumentos.do?idExpedienteop='+numeroExpedienteId, 
@@ -217,7 +253,7 @@ var resRad;
 		//cargaGridOpciones();
 		cargaInformacionDeResumen();
 		//Se oculta la pestaña de NOtas
-		$("#tabNotas").hide();
+//		$("#tabNotas").hide();
 		
 		if(asignado==1 || asignado=='1'){
 			$( "#btnSolicitarAyuda" ).hide();
@@ -858,14 +894,6 @@ function popopAsistencia(rowid){
 				});
 			}
 			
-			/********************************** FUNCIONES PARA GENERAR NOTAS  **********************************/
-			function notaExpediente(idNota)
-			{
-				idWindowGenerarNotas++;
-				$.newWindow({id:"iframewindowGenerarNotas" + idWindowGenerarNotas, statusBar: true, posx:200,posy:50,width:700, height:450,title:"Nota de Expediente", type:"iframe"});
-			    $.updateWindowContent("iframewindowGenerarNotas" + idWindowGenerarNotas,'<iframe src="<%= request.getContextPath() %>/capturarNotaExpediente.do?idNumeroExpedienteOp='+numeroExpedienteId +'&idNota='+idNota+' " width="700" height="450" />');
-			}
-			
 			/********************************** fin FUNCIONES PARA GENERAR NOTAS  **********************************/
 			
 			function cargaComboFuncionariosXArea(areaId){
@@ -906,13 +934,783 @@ function popopAsistencia(rowid){
 					}
 				});
 			}
+                        
+        function notaExpediente(idNota)
+	{
+	    idWindowGenerarNotas++;
+	    $.newWindow({id:"iframewindowGenerarNotas" + idWindowGenerarNotas, statusBar: true, posx:200,posy:50,width:700, height:450,title:"Nota de Expediente", type:"iframe", modal:true});
+	    $.updateWindowContent("iframewindowGenerarNotas" + idWindowGenerarNotas,'<iframe src="<%= request.getContextPath() %>/capturarNotaExpediente.do?idNumeroExpedienteOp='+ numeroExpedienteId +'&idNota='+idNota+'&porFuncionario=true " width="700" height="450" />');
+	}
+                        
+        function cargaNota(id,nombre){
+            var row=$('#rowNota_'+id);
+            $(row).remove();
+            $('#tablaNotasExpediente').append('<tr id="rowNota_'+id+'"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a id="consultarNota_'+id+'" onclick="notaExpediente('+id+')">'+nombre+'</a></td></tr>');
+            //cerrarVentanaNota();
+	} 
+         
+        /*
+	*Consultar las notas del expediente
+	*POR EL MOMENTO SOLO SE CONSULTA UNA NOTA
+	*/
+	function consultarNotas(){
+		var notas=$('#editor1').val();
+		$.ajax({
+			type: 'POST',
+			url: '<%= request.getContextPath()%>/consultarNotasExpediente.do?idNumeroExpediente='+numeroExpedienteId+'&porFuncionario=true',
+			data: '',
+			dataType: 'xml',
+			async: false,
+			success: function(xml){
+				$(xml).find('notaExpedienteDTO').each(function(){
+					cargaNota($(this).find('idNota').text(),$(this).find('nombreNota').text());
+				});
+			}
+		});
+	}
+        
+        $("#tabNotas").one("click", function() {
+            consultarNotas();
+	});
+        
+        function cargaIngresoHecho(nombre,id){
+            $("#ingresarHechos").hide();
+            $('#tableHecho').append('<tr><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a id="hecho_'+id+'" onclick="consultarHecho('+id+','+idExpedienteop+');">'+nombre+'</a></td></tr>');
+            cerrarVentanaHecho();
+	}
+        
+        function cerrarVentanaHecho(){
+            var pantalla ="iframewindowHecho";
+            pantalla += idWindowIngresarHechos;
+            $.closeWindow(pantalla);
+	}
+        
+        function ingresarHechos() {
+            idWindowIngresarHechos++;
+            $.newWindow({id:"iframewindowHecho" + idWindowIngresarHechos, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Hechos", type:"iframe"});
+            $.updateWindowContent("iframewindowHecho" + idWindowIngresarHechos,'<iframe src="<%= request.getContextPath() %>/IngresarHechos.do?numeroExpediente='+numeroExpediente +'&idNumeroExpedienteOp='+idExpedienteop+'&idCalidad=DENUNCIANTE&idHecho=0&menuIntermedio=1'+'&pantallaSolicitada='+ 5 +'" width="1100" height="530" />');
+            $("#" +"iframewindowHecho" + idWindowIngresarHechos + " .window-maximizeButton").click();
+	}
+        
+        function consultarHecho(idHecho,idNumeroExpediente) {
+            idWindowIngresarHechos++;
+	    $.newWindow({id:"iframewindowHecho" + idWindowIngresarHechos, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Hechos", type:"iframe"});
+	    $.updateWindowContent("iframewindowHecho" + idWindowIngresarHechos,'<iframe src="<%= request.getContextPath() %>/IngresarHechos.do?numeroExpediente='+numeroExpediente +'&idNumeroExpedienteOp='+idExpedienteop+'&idCalidad=DENUNCIANTE&idHecho='+idHecho +'&menuIntermedio=1'+'&pantallaSolicitada='+5+'" width="1100" height="530" />');
+            
+	    $("#" +"iframewindowHecho" + idWindowIngresarHechos + " .window-maximizeButton").click();
+	}
+        
+        /*
+	*Funcion para pintar el hecho del expediente en su tab correspondiente
+	*/
+	function cargarHechoExpediente(idNumeroExpediente){
+            $.ajax({
+	    	type: 'POST',
+	    	url: '<%=request.getContextPath()%>/ConsultaHechoExpediente.do',
+	    	data: 'idNumeroExpediente='+idNumeroExpediente,
+	    	dataType: 'xml',
+	    	async: false,
+	    	success: function(xml){
+	    		if(parseInt($(xml).find('code').text())==0){
+                            $(xml).find('hechoDTO').each(function(){
+                                var liga = '<tr><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="consultarHecho(' + $(this).find('hechoId').text() + ','+idNumeroExpediente+');">';
+				liga += "Hecho";
+				liga += '</a></td></tr>';
+                                $('#tableHecho').append(liga);
+			    	//deshabilitamos el boton de guardado
+			    	$('#ingresarHechos').css('display','none');
+			    });
+                        }  
+	    	}	
+	    });
+	}
+        
+        function recargaGridAgenteMP(){
+//            window.parent.regresaGrid();
+	}
+
+function canalizarControversiaExisteDelitoGrave(actividad,estatusId,titulo, formaID, numeroExpediente ) {
+		if(existeProbableResponsableReincidente() == "true"){
+						
+			var texto = "Existe " +
+						msjProbableResponsableProp +
+						" reincidente. ¿Desea enviar a la unidad de controversias?"
+			
+			customConfirm (texto, "Aviso", 
+					function(){
+						canalizarControversiaPRReincidente(actividad,estatusId,titulo, formaID, numeroExpediente);
+					},
+					recargarActuaciones()
+					);
+		}
+		else{
+			canalizarControversiaPRReincidente(actividad,estatusId,titulo, formaID, numeroExpediente);
+		}
+	}
+	
+	function canalizarControversiaPRReincidente(actividad,estatusId,titulo, formaID, numeroExpediente){
+		var excede = excedeMediaAritmeticaDelitos(); 
+		if( excede == "null"){
+			alertDinamico("Existe un problema con la media aritmética de los delitos");
+		}else{
+			if(excede == "true"){
+				customConfirm ("La media aritmética de los delitos excede lo permitido. ¿Desea enviar a la unidad de controversias?", "Aviso", 
+						function(){
+							canalizarControversiaMediaAritmética(actividad,estatusId,titulo, formaID, numeroExpediente);
+						},
+						recargarActuaciones()
+						);
+			}else if(excede == "false"){
+				canalizarControversiaMediaAritmética(actividad,estatusId,titulo, formaID, numeroExpediente);
+			}
+		}			
+	}
+
+        function canalizarControversiaMediaAritmética(actividad,estatusId,titulo, formaID, numeroExpediente){
+		idWindowPantallaActuaciones++;
+		if(actividad == '<%= Actividades.DIRIGIR_A_LA_UNIDAD_DE_SOLUCION_DE_CONTROVERSIAS.getValorId()%>' || 
+		   actividad=='<%=Actividades.DIRIGIR_A_LA_UNIDAD_DE_SOLUCION_DE_CONTROVERSIAS_SIN_SUSPENDER_EXPEDIENTE.getValorId()%>'){
+			$.newWindow({id:"iframewindowGenerarDocumento"+idWindowPantallaActuaciones, statusBar: true, posx:200,posy:50,width:1140,height:400,title:""+titulo, type:"iframe", confirmarCierreVentana:confirmarCierreVentana});
+		    $.updateWindowContent("iframewindowGenerarDocumento"+idWindowPantallaActuaciones,'<iframe src="<%= request.getContextPath() %>/generarDocumentoSinCaso.do?formaId='+formaID+'&numeroUnicoExpediente='+numeroExpediente+'&actividadId='+actividad+'&idNumeroExpediente='+idNumeroExpedienteOp+'&esTransaccional='+true+'&idWindowPantallaActuaciones='+idWindowPantallaActuaciones+'" width="1140" height="400" />');
+		}else{
+			registrarActividadExpediente(actividad,estatusId,0);
+			$.newWindow({id:"iframewindowGenerarDocumento"+idWindowPantallaActuaciones, statusBar: true, posx:200,posy:50,width:1140,height:400,title:""+titulo, type:"iframe", confirmarCierreVentana:confirmarCierreVentana});
+		    $.updateWindowContent("iframewindowGenerarDocumento"+idWindowPantallaActuaciones,'<iframe src="<%= request.getContextPath() %>/generarDocumentoSinCaso.do?formaId='+formaID+'&numeroUnicoExpediente='+numeroExpediente+'&actividadId='+actividad+'&idNumeroExpediente='+idNumeroExpedienteOp+'&esTransaccional='+true+'&idWindowPantallaActuaciones='+idWindowPantallaActuaciones+'" width="1140" height="400" />');
+		    recargarActuaciones();						
+		}
+        }
+        
+                function ocultaMuestraTblsRelacionarDelitos()
+		{
+			var relacionDelitoPorPErsonaDelito = $(':radio[name=relacionaDelitos]:checked').val();
+			if(parseInt(relacionDelitoPorPErsonaDelito)==0)
+			{
+				//Relacion por persona
+				$("#tblRelacionaDelXPersona").show();
+				$("#tblRelacionaDelXDelito").hide();
+				$("#tblRelacionaDelXTodos").hide();
+			}
+			else if(parseInt(relacionDelitoPorPErsonaDelito)==1)
+			{
+				//Relacion por delito
+				$("#tblRelacionaDelXDelito").show();
+				$("#tblRelacionaDelXPersona").hide();
+				$("#tblRelacionaDelXTodos").hide();
+			}
+			else
+			{
+				//Relacion por todos
+				$("#tblRelacionaDelXDelito").hide();
+				$("#tblRelacionaDelXPersona").hide();
+				$("#tblRelacionaDelXTodos").show();
+				cargaGridConsultaDelitosTodos();
+			}	
+		}
+
+                /*
+		*Funcion para asociar los delitos del grid de agraviados con el 
+		*expediente
+		*/
+		function guardarDelitosAgraviadosExp()
+		{
+			//obtenemos los ID's de los renglones del Grid de Agraviados
+			var arrayIDs = new Array() ;
+			var arrayIDs=jQuery("#gridDelitosAgraviados").getDataIDs();			
+			
+			//validamos que haya delitos en el grid de agraviados
+			if(arrayIDs.length<1)
+			{
+				alertDinamico("Debe agregar al menos un delito agraviado");
+				return;
+			}
+			
+			//validamos si no hay un delito grave, que al menos exista un delito principal
+			if(parseInt(existeUnDelitoPrincipalEnGrid())==0){
+				alertDinamico("Debe seleccionar un delito principal");	
+				return;
+			}
+			
+			//revisamos que si hay un delito grave se haya seleccionado
+			if(existeDelitoGraveEnGrid())
+			{
+				if(parseInt(existeUnDelitoPrincipalGraveSeleccionado())==0)
+				{
+					alertDinamico("Debe seleccionar un delito grave como principal");
+					return;
+				}	
+			}
+			//obtenemos el ID del delito principal
+			var idDelPrincipal=$('input[name=gridDelitos]:checked').attr('id').split('_')[1];
+			var nombreDelPrincipal=jQuery("#gridDelitosAgraviados").jqGrid('getRowData',idDelPrincipal).Tipo;
+			var delitosNormales="";			
+			//barremos el grid para generar la cadena de IDs de los delitos normales
+			for (i=0;i<arrayIDs.length;i++)
+			{
+				if(arrayIDs[i]!=idDelPrincipal)
+				{
+					var retd = jQuery("#gridDelitosAgraviados").jqGrid('getRowData',arrayIDs[i]);
+					if(delitosNormales.length>0)
+					{
+						delitosNormales=delitosNormales+","+retd.Tipo;//arrayIDs[i];
+					}
+					else
+					{
+						delitosNormales=""+retd.Tipo;//arrayIDs[i];
+					}
+				}
+			} 
+			//ahora mandamos los delitos al back-end
+			var params="delitos="+nombreDelPrincipal+"-"+delitosNormales+"&numExp="+numeroExpediente;
+			$.ajax({
+	       	  url: '<%= request.getContextPath()%>/guardarDelitosAgraviadosATP.do',
+	    	  dataType: 'xml',
+	    	  Type: 'POST',
+	    	  data:params,
+	    	  async: false,
+	    	  success: function(xml){
+	    		  if(parseInt($(xml).find('code').text())==0)
+	    		  {
+	    			  isDelitoSaved=true;
+	    			//mostramos las leyendas de canalizacion debajo del grid
+	    			  if(existeDelitoGraveEnGrid())
+	    			  {
+//	    				  if(pantallaSolicitada!=AGENTE_MP){
+	      					  $("#leyendaUnDelitoGrave").show();
+	      					  $("#leyendaNingunDelitoGrave").hide();  
+//	    				  }else{
+//	    					  $("#leyendaUnDelitoGrave,#leyendaNingunDelitoGrave").hide();
+//	    				  }
+	    			  }
+	    			  else
+	    			  {
+	    				  $("#leyendaUnDelitoGrave").hide();
+	    				  $("#leyendaNingunDelitoGrave").show();
+	    			  }
+	    			  //lanzamos la consulta de actividades que depende de los delitos almacenados
+	    			  	$.ajax({
+				       	  url: '<%= request.getContextPath()%>/consultarActividadesPorDelitosDelExpediente.do',
+				    	  dataType: 'xml',
+				    	  Type: 'POST',
+				    	  data:params,
+				    	  async: false,
+				    	  success: function(xml){
+				    		  if(parseInt($(xml).find('code').text())==0)
+				    		  {
+				    			  $("#actividadesXDelitosDelExpediente").empty();
+				    			  var actividades="";
+				    			  //barremos las activiades y generamos el html para ser pintado
+				    			  //debajo del anuncio de canalizacion
+				    			  $(xml).find('ValorDTO').each(function(){
+				    				  actividades = actividades + $(this).find('valor').text()+"<br/>";
+					    	          });
+				    			  $("#actividadesXDelitosDelExpediente").html(actividades);
+				    		  }  			    		
+						  }
+	    				});
+	    				
+//	    			  if (typeof cargaGridDelitosAgraviados == 'function' ){
+	    				  cargaGridDelitosAgraviados();
+//	    			  }
+	    			  
+	    			  //fin de la consulta de actividades que depende de los delitos almacenados
+	    			  alertDinamico("Se guardaron exitosamente los delitos seleccionados");
+	    		  }	 
+	    		  else
+	    		  {
+	    			  isDelitoSaved=false;
+	    			  alertDinamico("Ocurrió un error al tratar de guardar los delitos agraviados");
+	    		  }   			    		
+			  }
+	    	});
+		}
+        
+               /*
+		* Funcion que revisa que exista un delito grave en el grid de delitos denunciados 
+		*/		
+		function existeUnDelitoPrincipalEnGrid()
+		{			
+			var idRdb="";
+			var bandera1=0;
+			var bandera2=1;
+			
+			idRdb=$('input[name=gridDelitos]:checked').attr('id');
+			if(idRdb!=null)
+			{
+				idRdb=idRdb.split('_')[1];
+				if(idRdb!="")
+				{
+					var resp=jQuery("#gridDelitosAgraviados").jqGrid('getRowData',idRdb);
+					if(resp.Gravedad=="No")
+					{
+						//prendemos la bandera al encontrar un radio seleccionado
+						bandera1=1;	
+					}
+				}	
+			}
+			else
+			{				
+				bandera1=0;
+			}
+			
+			var arrayIDs = jQuery("#gridDelitosAgraviados").getDataIDs();
+			
+			for (i=0;i<arrayIDs.length;i++)
+			{								
+				var row = jQuery("#gridDelitosAgraviados").jqGrid('getRowData',arrayIDs[i]);
+			
+				if(row.GravedadFormateada=="Si") bandera2=0; 
+			} 					
+			
+			if(bandera2==1 && bandera1==0)
+			return 0;
+			else return 1;
+		}
+                
+        function canalizarInvestigadoresNoExisteDelitoGrave(actividad,estatusId,titulo, formaID, numeroExpediente ){
+		//verificamos si se tienen relaciones de delito-persona o delito-delito
+		if(consultaTotalRelacionesDelitoPorTodos() <= 0)
+		{
+			var texto = "No se tienen registradas relaciones de los delitos con el " +
+						msjProbableResponsableProp +
+						" ¿Desea enviar a la unidad de fiscales investigadores?"
+			
+			customConfirm (texto, "Aviso", 
+					function(){
+						canalizarInvestigadoresSinRelaciones(actividad,estatusId,titulo, formaID, numeroExpediente);
+					},
+					recargarActuaciones()
+					);
+		}
+		else{
+			canalizarInvestigadoresSinRelaciones(actividad,estatusId,titulo, formaID, numeroExpediente);
+		}	
+	}
+	
+	function canalizarInvestigadoresSinRelaciones(actividad,estatusId,titulo, formaID, numeroExpediente){
+		//Mostrar ventana de Canalización a la Unidad de Fiscales Investigadores
+		idWindowPantallaActuaciones++;
+ 		$.newWindow({id:"iframewindowGenerarDocumento"+idWindowPantallaActuaciones, statusBar: true, posx:200,posy:50,width:1140,height:400,title:"", type:"iframe",confirmarCierreVentana:confirmarCierreVentana});
+		$.updateWindowContent("iframewindowGenerarDocumento"+idWindowPantallaActuaciones,'<iframe src="<%= request.getContextPath()%>/canalizarAUnidadFiscalesInv.do?formaId='+formaID+'&numeroUnicoExpediente='+numeroExpediente+'&actividadId='+actividad+'&numeroExpedienteId='+idNumeroExpedienteOp+'&esTransaccional='+true+'&idWindowPantallaActuaciones='+idWindowPantallaActuaciones+'" width="1140" height="400" />');
+	}
+        
+        /*
+	*Funcion para mostrar las actividades sugeridas dependiendo de los delitos en el expediente 
+	*cuando se consulta un expediente
+	*/
+	function muestraActividadesSugeridasEnConsultaExpediente(){
+            //obtenemos los ID's de los renglones del Grid de Agraviados
+            var arrayIDs = new Array() ;
+            var arrayIDs=jQuery("#gridDelitosAgraviados").getDataIDs();
+            //validamos que haya delitos en el grid de agraviados
+            if(arrayIDs.length<1)
+            {
+		return;
+            }
+            //obtenemos el ID del delito principal			
+            var idDelPrincipal=$('input[name=gridDelitos]:checked').attr('id').split('_')[1];
+            if(idDelPrincipal==null || idDelPrincipal=='null')
+            {
+		return;	
+            }
+            var nombreDelPrincipal=jQuery("#gridDelitosAgraviados").jqGrid('getRowData',idDelPrincipal).Tipo;
+            var delitosNormales="";			
+            //barremos el grid para generar la cadena de IDs de los delitos normales
+            for (i=0;i<arrayIDs.length;i++)
+            {
+		if(arrayIDs[i]!=idDelPrincipal) {
+                    var retd = jQuery("#gridDelitosAgraviados").jqGrid('getRowData',arrayIDs[i]);
+                    if(delitosNormales.length>0){
+                        delitosNormales=delitosNormales+","+retd.Tipo;//arrayIDs[i];
+                    }else{
+                        delitosNormales=""+retd.Tipo;//arrayIDs[i];
+                    }
+		}
+            } 
+            
+            //ahora mandamos los delitos al back-end
+            var params="delitos="+nombreDelPrincipal+"-"+delitosNormales+"&numExp="+numeroExpediente;
+		
+            //mostramos las leyendas de canalizacion debajo del grid
+  			  if(existeDelitoGraveEnGrid())
+  			  {
+                            $("#leyendaUnDelitoGrave,#leyendaNingunDelitoGrave").hide();
+  			  }
+  			  else
+  			  {
+  				  $("#leyendaUnDelitoGrave").hide();
+  				  $("#leyendaNingunDelitoGrave").show();
+  			  }
+  			  //lanzamos la consulta de actividades que depende de los delitos almacenados
+  			  	$.ajax({
+	       	  url: '<%= request.getContextPath()%>/consultarActividadesPorDelitosDelExpediente.do',
+	    	  dataType: 'xml',
+	    	  Type: 'POST',
+	    	  data:params,
+	    	  async: true,
+	    	  success: function(xml){
+	    		  if(parseInt($(xml).find('code').text())==0)
+	    		  {
+	    			  $("#actividadesXDelitosDelExpediente").empty();
+	    			  var actividades="";
+	    			  //barremos las activiades y generamos el html para ser pintado
+	    			  //debajo del anuncio de canalizacion
+	    			  $(xml).find('ValorDTO').each(function(){
+	    				  actividades = actividades + $(this).find('valor').text()+"<br/>";
+		    	      });
+	    			  $("#actividadesXDelitosDelExpediente").html(actividades);
+	    		  }  			    		
+			  }
+  				});
+  			  //fin de la consulta de actividades que depende de los delitos almacenados
+		}
+                
+                function revisaEsDelitoGraveUno(idRadio)
+		{
+			//recuperamos el valor de la columna gravedad del delito
+			var ret = jQuery("#gridCatDelitos").jqGrid('getRowData',idRadio);
+			var retDos = jQuery("#gridDelitosAgraviados").jqGrid('getRowData',idRadio);
+			var isGrave="No";
+			var delitos=<%=(String)request.getSession().getAttribute("delitosXML")%>;
+			var delitosXML=$(''+delitos);
+			//mostramos los botones correspondientes dependiento del tipo de delito
+			if(ret.Gravedad!=null)
+			{
+				isGrave=ret.Gravedad;
+			}
+			else
+			{
+				isGrave=retDos.Gravedad;
+			}
+			if(isGrave=="No")
+			{
+				//revisamos que no exista un delito grave NO seleccionado
+				if(existeDelitoGraveEnGrid())
+				{
+					//se le indica al usuario que seleccione un delito grave como principal
+					customAlert("Si no hay reincidencia por parte del Probable Part&iacute;cipe,\n se debe canalizar al Centro de Justicia Restaurativa.");
+				}
+			}
+		}
+		
+		function revisaEsDelitoGrave(idRadio)
+		{
+			//recuperamos el valor de la columna gravedad del delito
+			var ret = jQuery("#gridCatDelitos").jqGrid('getRowData',idRadio);
+			var retDos = jQuery("#gridDelitosAgraviados").jqGrid('getRowData',idRadio);
+			var isGrave="No";
+			
+			var delitos=<%=(String)request.getSession().getAttribute("delitosXML")%>;
+			var delitosXML=$(''+delitos);
+			//mostramos los botones correspondientes dependiento del tipo de delito
+			if(ret.Gravedad!=null)
+			{
+				isGrave=ret.Gravedad;
+			}
+			else
+			{
+				isGrave=retDos.Gravedad;
+			}
+			if(isGrave=="No")
+			{
+				//revisamos que no exista un delito grave NO seleccionado
+				if(existeDelitoGraveEnGrid())
+				{
+					//se le indica al usuario que seleccione un delito grave como principal
+					customAlert("Si no hay reincidencia por parte del Probable Part&iacute;cipe,\n se debe canalizar al Centro de Justicia Restaurativa.");
+				}
+				else
+				{
+					mostraDivGenerarOficioCanalizacion(1);	
+				}
+			}
+			else{
+				//barro el pseudo-XML de delitos	
+				delitosXML.find('catDelitoDTO').each(function(){
+					if($(this).find('claveDelito').text()==idRadio)
+					{
+						if($(this).find('departamento').text()!="")
+						{
+							//seteamos el combo de la pestaña de Acciones dependiendo del departamento
+							$('#cbxCanalizaAUI').val(parseInt($(this).find('departamento').find('departamentoId').text()));
+							$('#cbxCanalizaAUI').multiselect('refresh');
+							mostraDivGenerarOficioCanalizacion(2);
+						}
+						else
+						{
+							//seteamos el combo de la pestaña de Acciones dependiendo de la institucion
+							$('#cbxCanalizaAIE').val(parseInt($(this).find('institucion').find('institucionId').text()));
+							$('#cbxCanalizaAIE').multiselect('refresh');
+							mostraDivGenerarOficioCanalizacion(3);
+						}
+					}
+				});
+			}
+		}
+		
+		/*
+		* Funcion que recorre el grid de delitos agraviados para revisar si existe 
+		*un delito grave que no fue seleccionado como principal, de existir regresa true en 
+		*caso contrario regresa false
+		*/
+		function existeDelitoGraveEnGrid()
+		{
+			var bandera=false;
+			//obtenemos los ID's de los renglones del Grid
+			var arrayIDs = new Array() ;
+			var arrayIDs=jQuery("#gridDelitosAgraviados").getDataIDs();
+			//barremos el grid para revisar si hay por lo menos un delito marcado como grave
+			for (i=0;i<arrayIDs.length;i++)
+			{
+				//revisamos el checkbox del renglon i-esimo para ver si es grave
+				var isGrave=jQuery("#gridDelitosAgraviados").jqGrid('getRowData',arrayIDs[i]);
+				if(isGrave.Gravedad=="Yes")
+				{
+					bandera=true;
+				}
+			} 
+			return bandera;
+		}
+		
+                /*
+		* Funcion que recorre el grid de delitos agraviados para revisar si existe 
+		*un delito grave que no fue seleccionado como principal, de existir regresa true en 
+		*caso contrario regresa false
+		*/
+		function existeDelitoGraveEnGrid()
+		{
+			var bandera=false;
+			//obtenemos los ID's de los renglones del Grid
+			var arrayIDs = new Array() ;
+			var arrayIDs=jQuery("#gridDelitosAgraviados").getDataIDs();
+			//barremos el grid para revisar si hay por lo menos un delito marcado como grave
+			for (i=0;i<arrayIDs.length;i++)
+			{
+				//revisamos el checkbox del renglon i-esimo para ver si es grave
+				var isGrave=jQuery("#gridDelitosAgraviados").jqGrid('getRowData',arrayIDs[i]);
+				if(isGrave.Gravedad=="Yes")
+				{
+					bandera=true;
+				}
+			} 
+			return bandera;
+		}
+		
+		/*
+		*Funcion para saber si se selecciono un delito como principal
+		*/
+		function existeUnDelitoPrincipalGraveSeleccionado()
+		{
+			var bandera=0;
+			//obtengo el ID del rdb del delito seleccionado
+			var idRdb="";
+			idRdb=$('input[name=gridDelitos]:checked').attr('id');
+			if(idRdb!=null)
+			{
+				idRdb=idRdb.split('_')[1];
+				if(idRdb!="")
+				{
+					var resp=jQuery("#gridDelitosAgraviados").jqGrid('getRowData',idRdb);
+					if(resp.Gravedad=="Yes")
+					{
+						//prendemos la badnera al encontrar un radio seleccionado
+						bandera=1;	
+					}
+				}	
+			}
+			else
+			{
+				alertDinamico("Debe seleccionar un delito principal para poder guardar");	
+				bandera=2;
+			}
+			return bandera;
+		}
+                
+                function validaGuardadoDefinitivo()
+		{
+			//revisamos que selecciono el tipo: Denuncia o Querella en generales
+			//obtengo el ID del rdb del delito seleccionado
+			var idRdbTipo="";
+			var banderaTipo=false;
+			idRdbTipo=$('input[name=generales]:checked').attr('id');
+			if(idRdbTipo!=null)
+			{
+				if(idRdbTipo!="")
+				{
+					//reviso si el delito seleccionado es grave o no
+					if(idRdbTipo=="rbtnDenuncia")//Denuncia
+					{
+						$("#btnAccDenuncia").show();
+						$("#tdCbxAccionesTab").show();
+						$("#btnAccQuerella").hide();
+						//revisamos si ya guardo el delito
+						if(isDelitoSaved)
+						{
+							//$("#btnAccDenuncia").attr("disabled", "");
+						}
+						else
+						{
+							alertDinamico("Debe de seleccionar guardar en la pestaña Delito");
+							return;
+						}
+					}
+					else//rbtnQuerella querella
+					{
+						$("#btnAccQuerella").show();
+						$("#btnAccDenuncia").hide();
+						$("#tdCbxAccionesTab").hide();
+					}
+					banderaTipo=true;
+				}
+			}
+			if(!banderaTipo)
+			{
+				alertDinamico("Debe seleccionar el tipo en la pestaña Generales");
+				return;
+			}
+		}
+                
+                function mostraDivGenerarOficioCanalizacion(idDiv)
+		{
+			$("#divCanalizaAUI,#divCanalizaAIE,#btnCanalizaAJR").hide();
+			if(parseInt(idDiv)==1)
+			{
+				$("#btnCanalizaAJR").show();
+				$("#btnGenerarAcciones").hide();
+			}
+			else if(parseInt(idDiv)==2)
+			{
+				$("#divCanalizaAUI").show();
+				$("#btnGenerarAcciones").show();
+			}
+			else if(parseInt(idDiv)==3)
+			{
+				$("#divCanalizaAIE").show();
+				$("#btnGenerarAcciones").show();
+			}
+		}
+                
+function muestraDivInformativoCanalizacion()
+		{
+			$("#spanGralUI,#spanGralIE,#spanGralJAR,#spanInfoGralUI,#spanInfoGralIE").hide();
+			if($("#divCanalizaAUI").is(':visible'))
+			{
+				$("#spanInfoGralUI").html($("#cbxCanalizaAUI option:selected").text());
+				$("#spanInfoGralUI").show();
+				$("#spanGralUI").show();
+			}
+			else if($("#divCanalizaAIE").is(':visible'))
+			{
+				$("#spanInfoGralIE").html($("#cbxCanalizaAIE option:selected").text());
+				$("#spanInfoGralIE").show();
+				$("#spanGralIE").show();
+			}
+			else if($("#btnCanalizaAJR").is(':visible'))
+			{
+				$("#spanGralJAR").show();
+			}
+		}
+                
+                function muestraDIVSCanalizacion()
+		{
+			//obtenemos los ID's de los renglones del Grid de Agraviados
+			var arrayIDs = new Array() ;
+			var arrayIDs=jQuery("#gridDelitosAgraviados").getDataIDs();
+			//validamos que haya delitos en el grid de agraviados
+			if(arrayIDs.length<1)
+			{
+				alertDinamico("Debe agregar al menos un delito agraviado");
+				return false;
+			}
+			//revisamos que si hay un delito grave se haya seleccionado
+			if(existeDelitoGraveEnGrid())
+			{
+				if(parseInt(existeUnDelitoPrincipalGraveSeleccionado())==0)
+				{
+					alertDinamico("Debe seleccionar un delito grave como principal");
+					return false;
+				}	
+			}
+			//obtenemos el ID del delito principal
+			var idDelPrincipal=$('input[name=gridDelitos]:checked').attr('id').split('_')[1];
+			//recuperamos el valor de la columna gravedad del delito
+			var retDos = jQuery("#gridDelitosAgraviados").jqGrid('getRowData',idDelPrincipal);
+			var isGrave="No";
+			var delitos=<%=(String)request.getSession().getAttribute("delitosXML")%>;
+			var delitosXML=$(''+delitos);
+			//seteamos la gravedad
+			isGrave=retDos.Gravedad;
+			if(isGrave=="No")
+			{
+				mostraDivGenerarOficioCanalizacion(1);	
+			}
+			else
+			{
+				//barro el pseudo-XML de delitos
+				delitosXML.find('catDelitoDTO').each(function()
+				{
+					if($(this).find('claveDelito').text()==idDelPrincipal)
+					{
+						if($(this).find('departamento').text()!="")
+						{
+							//seteamos el combo de la pestaña de Acciones dependiendo del departamento
+							$('#cbxCanalizaAUI').val(parseInt($(this).find('departamento').find('departamentoId').text()));
+							$('#cbxCanalizaAUI').multiselect('refresh');
+							mostraDivGenerarOficioCanalizacion(2);
+						}
+						else
+						{
+							//seteamos el combo de la pestaña de Acciones dependiendo de la institucion
+							$('#cbxCanalizaAIE').val(parseInt($(this).find('institucion').find('institucionId').text()));
+							$('#cbxCanalizaAIE').multiselect('refresh');
+							mostraDivGenerarOficioCanalizacion(3);
+						}
+					}
+				});
+			}
+			return true;
+		}
+                
+                function gridRelacionarDelitosTabDelito(){
+			cargaComboProbableResponsableRDPPV();
+			cargaComboDelitosAAsociarRDPD();
+			jQuery("#gridDetalleTabDelitoRelDel").jqGrid({ 
+				 
+				datatype: "xml", 
+				colNames:['','', '','', '','','', '','','' ], 
+				colModel:[ 	{name:'caso',index:'caso', width:20}, 
+							{name:'expediente',index:'expediente', width:20}, 
+							{name:'defensor',index:'defensor', width:20}, 
+							{name:'detenido',index:'detenido', width:20},
+							{name:'delito',index:'delito', width:20},
+							{name:'institucion',index:'institucion', width:20},
+							{name:'fecha',index:'fecha', width:20},
+							{name:'hora',index:'hora', width:20},
+							{name:'abogado',index:'abogado', width:20},
+							{name:'enterado',index:'enterado', width:20}
+						],
+				pager: jQuery('#pagerGridDetalleTabDelitoRelDel'),
+				rowNum:10,
+				rowList:[10,20,30],
+				autowidth: true,
+				sortname: 'detalle',
+				viewrecords: true,
+				sortorder: "desc"
+					
+			}).navGrid('#pagerGridDetalleTabDelitoRelDel',{edit:false,add:false,del:false});
+
+			// $("#gview_gridDetalleFrmPrincipalTres .ui-jqgrid-bdiv").css('height', '200px');	
+
+			}
+        
 </script>
 <body>
+    
 <div id="tabsPrincipal">
 				<ul>
 					<li><a href="#tabsconsultaprincipal-1">Resumen</a></li>
 					<li><a href="#tabsconsultaprincipal-2">Involucrado</a></li>
-				
+                                        <li class="tabTabsHechos"><a href="#tabs-3" id="tapHechos">Hechos</a></li>
+                                        <li class="tabTabsRelacionesDelitosPersonas"><a href="#tabs-17" id="tapDelitoYRelaciones" onclick="cargarGridsInvolucradosRelDelitoPersonaPG()">Delito y Relaciones Delito-Persona</a></li>
 					<li class="tabPsicologica"><a href="#tabsconsultaprincipal-4">Atención Psicológica</a></li>
 					<li class="tabSocial"><a href="#tabsconsultaprincipal-6">Trabajo Social</a></li>
 					<li class="tabJuridica"><a href="#tabsconsultaprincipal-7">Atención Jurídica</a></li>
@@ -921,6 +1719,46 @@ function popopAsistencia(rowid){
 			
 					
 				</ul>
+    
+                <!--COMIENZAN TAB HECHOS-->
+		<div id="tabs-3" class="tabTabsHechos">
+			<div id="tabschild3" class="tabs-bottom">
+				<ul>
+					<!--<li><a href="#tabschild3-1">Hechos</a></li>-->				
+				</ul>
+				<div id="tabschild3-1">
+					<div style="width: 1042px; height: 490px;" class="back_hechos">
+						<table    border="0" cellspacing="0" cellpadding="0" id="tableHecho" class="back_hechos" style="padding: .5cm; " >
+							<tr valign="top">
+								<td valign="top"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="ingresarHechos" value="Ingreso Hecho" class="btn_Generico"/></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--TERMINA TAB HECHOS-->
+                
+                <!--COMIENZAN TABS INFERIORES DE DELITO Y RELACIONES DELITO PERSONA-->
+		<div id="tabs-17" class="tabTabsRelacionesDelitosPersonas">
+			<div id="tabschild17" class="tabs-bottom">
+				<ul>
+					<li><a href="#tabschild17-1" onclick="">Relaci&oacute;n Delito Persona</a></li>
+					<li><a href="#tabschild17-2" onclick="gridRelacionesDelitoPersonaModosParticipacionPG();">Grado De Participaci&oacute;n</a></li>					
+				</ul>
+				<div id="tabschild17-1">
+					<div style="overflow-x:scroll; width:100%; height:100%" style="overflow-y:hidden;">
+						<jsp:include page="establecerRelacionesDelitoPersonaPG.jsp"></jsp:include>
+					</div>
+				</div>
+				<div id="tabschild17-2">
+					<div>
+						<jsp:include page="establecerModosYGradosDeParticipacion.jsp"></jsp:include>
+					</div>
+				</div>
+			</div>
+		</div>
+	<!--TERMINAN TABS INFERIORES DE DELITO Y RELACIONES DELITO PERSONA-->
 				
 		<!--Comienza div para ver los documentos propios del perito-->
 				<div id="tabsconsultaprincipal-1">
