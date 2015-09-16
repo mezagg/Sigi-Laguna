@@ -19,9 +19,7 @@
 */
 package mx.gob.segob.nsjp.service.caso.impl;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 import mx.gob.segob.nsjp.comun.enums.configuracion.Parametros;
 import mx.gob.segob.nsjp.comun.enums.excepciones.CodigoError;
@@ -69,6 +67,36 @@ public class AsignarNumeroCasoServiceImpl implements AsignarNumeroCasoService {
 	private ConfInstitucionDAO confInstitucionDAO;
 	@Autowired
 	private JerarquiaOrganizacionalDAO jerarquiaOrganizacionalDAO;
+
+
+
+	private class Llave{
+		HashSet<String> llaves = new HashSet<String>();
+		String general;
+
+		public Llave(){}
+
+
+		public void init(String data){
+			StringTokenizer st = new StringTokenizer(data,",");
+
+			while( st.hasMoreTokens()){
+				if( st.countTokens() == 1){
+					general = st.nextToken();
+				}else {
+					llaves.add(st.nextToken());
+				}
+			}
+		}
+
+		public String getLlave(String baseData){
+			if( llaves.contains(baseData) ){
+				return baseData;
+			}else {
+				return general;
+			}
+		}
+	}
 	
 	@Transactional(isolation=Isolation.READ_COMMITTED)
 	//     Estado / Instituci�n / Libres / Unidad / A�o / Letra - Consecutivo
@@ -132,21 +160,34 @@ public class AsignarNumeroCasoServiceImpl implements AsignarNumeroCasoService {
 		Boolean conDistrito = false;
 		Boolean conUnidad = false;
 
+		//Dsitribucion de contadores y llaves
+		Llave estadoLlave = new Llave();
+		Llave institucionLlave = new Llave();
+		Llave regionLlave = new Llave();
+		Llave distritoLlave = new Llave();
+		Llave unidadLlave = new Llave();
+
+
 		for (Parametro parametro : parametrosNUC) {
-			if (parametro.getClave().equalsIgnoreCase("NUC_ESTADO") && parametro.getValor().equals("*")) {
+			if (parametro.getClave().equalsIgnoreCase("NUC_ESTADO") ) {
 				conEstado = true;
+				estadoLlave.init(parametro.getValor());
 			}
-			if (parametro.getClave().equalsIgnoreCase("NUC_REGION") && parametro.getValor().equals("*")) {
+			if (parametro.getClave().equalsIgnoreCase("NUC_REGION") ) {
 				conRegion = true;
+				regionLlave.init(parametro.getValor());
 			}
-			if (parametro.getClave().equalsIgnoreCase("NUC_INSTITUCION") && parametro.getValor().equals("*")) {
+			if (parametro.getClave().equalsIgnoreCase("NUC_INSTITUCION") ) {
 				conInstitucion = true;
+				institucionLlave.init(parametro.getValor());
 			}
-			if (parametro.getClave().equalsIgnoreCase("NUC_DISTRITO") && parametro.getValor().equals("*")) {
+			if (parametro.getClave().equalsIgnoreCase("NUC_DISTRITO") ) {
 				conDistrito = true;
+				distritoLlave.init(parametro.getValor());
 			}
-			if (parametro.getClave().equalsIgnoreCase("NUC_UNIDAD") && parametro.getValor().equals("*")) {
+			if (parametro.getClave().equalsIgnoreCase("NUC_UNIDAD") ) {
 				conUnidad = true;
+				unidadLlave.init(parametro.getValor());
 			}
 		}
 
@@ -154,10 +195,12 @@ public class AsignarNumeroCasoServiceImpl implements AsignarNumeroCasoService {
 
 
 		if (conEstado) {
+			prefijoDelEstado = estadoLlave.getLlave(prefijoDelEstado);
 			consecutivoDelCaso = prefijoDelEstado;
 		}
 
 		if (conInstitucion) {
+			prefijoDeInstitucion = institucionLlave.getLlave(prefijoDeInstitucion);
 			if (consecutivoDelCaso.length() == 0) {
 				consecutivoDelCaso = prefijoDeInstitucion;
 			}
@@ -167,6 +210,7 @@ public class AsignarNumeroCasoServiceImpl implements AsignarNumeroCasoService {
 		}
 
 		if( conRegion ) {
+			claveRegion = regionLlave.getLlave(claveRegion);
 			if (consecutivoDelCaso.length() == 0) {
 				consecutivoDelCaso = claveRegion;
 			} else {
@@ -175,6 +219,7 @@ public class AsignarNumeroCasoServiceImpl implements AsignarNumeroCasoService {
 		}
 
 		if( conDistrito ) {
+			distrito = distritoLlave.getLlave(distrito);
 			if (consecutivoDelCaso.length() == 0) {
 				consecutivoDelCaso = distrito;
 			} else {
@@ -183,6 +228,7 @@ public class AsignarNumeroCasoServiceImpl implements AsignarNumeroCasoService {
 		}
 
 		if( conUnidad ) {
+			unidad = unidadLlave.getLlave(unidad);
 			if (consecutivoDelCaso.length() == 0) {
 				consecutivoDelCaso = unidad;
 			} else {
