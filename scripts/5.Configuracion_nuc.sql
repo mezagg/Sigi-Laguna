@@ -1,3 +1,10 @@
+/**
+Ejemplo de configuracion.
+
+Para conformar la llave del nuc se deben de insertar el parametro asociado a la llave, junto con en cValor separado por comas
+las claves asociadas a la llave, el ultimo valor es tomado como default
+
+ */
 insert into [Parametro] ( [cDescripcion], [cValor], [cTipoValor], [cClave])
 values ( 'ESTADO', 'COA', '1', 'NUC_ESTADO');
 
