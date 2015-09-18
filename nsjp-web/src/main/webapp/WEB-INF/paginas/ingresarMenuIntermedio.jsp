@@ -1,4 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@page import="mx.gob.segob.nsjp.comun.enums.expediente.EstatusTurno"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.forma.Formas"%>
 <%@page import="mx.gob.segob.nsjp.model.Forma"%>
@@ -4693,7 +4692,7 @@
    				dataType: 'xml',
    				async: false,
    				success: function(xml){
-   					existeProbRespReincidente = $(xml).find('boolean').text();
+   					existeProbRespReincidente = $(xml).find('boolean').text();  
    				}
             });
 
@@ -4901,7 +4900,6 @@
 				}
 			});
 		} --%>
-		
 		/*
 		*Funcion que verifica si la bandera del numero de expediente alterno, se encuentra encendida
 		*para sustituir el numero de expediente, por el numero de expediente alterno
@@ -4924,8 +4922,6 @@
 
 			return parametroConfirm;
 		}
-				
-
 		/*
 		*Funcion que controla la generacion del numero de expediente alterno
 		*/
@@ -4951,7 +4947,6 @@
 				}
 			}
 		} --%>
-
 		/*
 		*Funcion para validar si se puede realizar la solicitud de
 		*defensor
@@ -4992,8 +4987,6 @@
 				}
 			} , parametros);
 		}
-
-
 		//variable para controlar el id de la ventana de solicitar defensor
 		var windowIdSolicitarDefensor = 1;
 
@@ -5025,8 +5018,6 @@
 		    $.updateWindowContent("iframewindowSolicitarDefensor"+windowIdSolicitarDefensor,'<iframe src="<%= request.getContextPath() %>/solicitarDefensor.jsp?parametrosVentana='+parametrosVentana+'" width="800" height="360"/>');
 			windowIdSolicitarDefensor++;			
 		}
-
-		
 		/*
 		*Funcion abrir el editor de texto para enviar la solicitud de defensor
 		*/
@@ -5038,22 +5029,18 @@
 		    $.updateWindowContent("iframewindowGenerarDocumento"+idWindowPantallaActuaciones,'<iframe src="<%= request.getContextPath() %>/generarDocumentoSinCaso.do?formaId='+formaId+'&numeroUnicoExpediente='+numeroExpediente+'&idWindowPantallaActuaciones='+idWindowPantallaActuaciones+'&actividadId='+actividadId+'&esTransaccional='+true+'" width="1140" height="400" />');
 		    $("#" +"iframewindowGenerarDocumento" + " .window-maximizeButton").click();
 		}
-
-		
 		/*
 		*Cierra la ventana de confirmacion de solicitud de defensor
 		*/
 		function cerrarVentanaSolicitudDeDefensor(idWindow){
 			$.closeWindow(idWindow);
-		}	
-
+		}
 		function cerrarVentanaGenerarDocumentoDefensor(idWindow){
 
 			var idCompleto = "iframewindowGenerarDocumento"+idWindow
 			
 			$.closeWindow(idCompleto);
 		}
-		
 		/*
 		*  Funcion que carga la informacion de las solicitudes periciales del expediente activo.
 		*/
@@ -5062,8 +5049,6 @@
 			jQuery("#gridSolicitudesPeri2").trigger("reloadGrid");
 			jQuery("#gridSolicitudesPeri3").trigger("reloadGrid");
 		}
-		
-		
 		function abreVentanaReasignarUIEExpediente(){
 			if(typeof(idExpedienteop) != "undefined" && typeof(idExpedienteop) != "null" && idExpedienteop != ""){
 				$.newWindow({id:"iframewindowReasignarUIEDeExpediente", statusBar: true, posx:50,posy:50,width:900,height:300,title:"Reasignar Unidad de Investigaci&oacute;n Especializada", type:"iframe"});
@@ -5072,7 +5057,6 @@
 					alert("Imposible reasignar la Unidad de Investigaci&oacute;n especializada");
 			}   
 		}
-		
 		function cargaGridJudiaciales(){
 			
 			jQuery("#gridDetalleFrmPrincipalAudiencias").jqGrid({
@@ -5106,7 +5090,6 @@
 			jQuery("#gridDetalleFrmPrincipalAudiencias").jqGrid('setGridParam', {url:'<%=request.getContextPath()%>/consultarAudiencias.do?numeroExpediente='+numeroExpediente, datatype: "xml"});
 			$("#gridDetalleFrmPrincipalAudiencias").trigger("reloadGrid");
 		}
-		
 		/*
 		*Funcion que consulta y carga el grid con las solicitudes policia ministerial
 		*/
@@ -5130,18 +5113,12 @@
 				sortorder: "desc"
 			});
 		}
-		
 		/*
 		*  Funcion que carga la informacion de las solicitudes periciales del expediente activo.
 		*/
 		function cargaGridPoliciaMinisterial(){
 			jQuery("#gridSolicitudesPoli").trigger("reloadGrid");
 		}
-
-
-		
-		/*******************************FUNCIONES PARA PODEJ JUDICIAL***************************************/
- 
 		/*
 		*Funcion para recargar el grid de solicitudes de acc. penal privada
 		*cuando esta en estatus de NO atendidas.
@@ -5155,7 +5132,6 @@
 				window.parent.cargaGirdSolicitudesAccPenalPrivadaPJENC('<%=EstatusTurno.ESPERA.getValorId()%>');
 		  	}
 		}
-
 		//Variable para controlar la apertura del visor de solicitudes de audiencia
 		var idWindowVisorAtnPublicoSol = 0;
 		
@@ -5177,14 +5153,12 @@
 				customAlert("Ya cuenta con una ventana abierta.<br> Por favor cierrela, e int&eacute;ntelo nuevamente",'<bean:message key="aviso"/>');
 			}
 		}
-
 		/*
 		*Funcion que despues de enviar la solicitud de audiencia, cierra la ventan
 		*/
 		function cerrarVentanaNuevaSolicitud(){
 			$.closeWindow("iframewindowVisorAtnPublicoSolicitudes"+idWindowVisorAtnPublicoSol);
-		}	
-		
+		}
 		/*
 		  *Funcion que realiza la carga del combo de tipo conclusion
 		  */
@@ -5228,7 +5202,6 @@
 		  *Funcion que realiza la carga del combo de tipo subConclusion
 		  */
 		  function cargaTipoSubConclusion() {
-			
 		  	var tipoConclusion = $("#cbxTipoConclusion option:selected").val();
 			if(tipoConclusion != <%=ConstantesGenerales.HECHOS_TIPO_CONCLUSION_ARCHIVO_TEMP_ID%> && tipoConclusion != "-1" ){
 				
@@ -5254,12 +5227,10 @@
 				$('#cbxTipoSubConclusion').hide();
 			}
 		  }
-		  
 		  function guardarConclusion(){
 			  var tipoConclusion = $("#cbxTipoConclusion option:selected").val();
 			  var subTipoConclusion = $("#cbxTipoSubConclusion option:selected").val();
 			  var fechaConclusion = $("#fechaConclusion").val();
-			  
 			  $.ajax({
 					type: 'POST',
 					url: '<%=request.getContextPath()%>/guardarConclusionNumeroExpe.do',
@@ -5276,9 +5247,7 @@
 			
     	      
 		  }
-		  
 		  function consultarConclusion(){
-			  
 			  $.ajax({
 					type: 'POST',
 					url: '<%=request.getContextPath()%>/consultarConclusionNumeroExpe.do',
@@ -5303,9 +5272,7 @@
     	     // cargaTipoSubConclusion();
     	    //  var tipoSubConclusion=$(xml).find('conclusionHechoDTO').find('tipoSubConclusion').find('idCampo').text();
     	    //  $('#cbxTipoSubConclusion').find("option[value='"+tipoSubConclusion+"']").attr("selected","selected");
-    	      
 		  }
-		
 	</script>	
 </head>
 
@@ -6542,13 +6509,10 @@
 <script type="text/javascript">
 //$( "#dialogDos-confirm" ).dialog();
 //$( "#dialogDos-confirm" ).dialog( "destroy" );
-
 $( "#dialogModosYGrados-confirm" ).dialog();
 $( "#dialogModosYGrados-confirm" ).dialog( "destroy" );
-
 $( "#dialogTres-confirm" ).dialog();
 $( "#dialogTres-confirm" ).dialog( "destroy" );
-
 $( "#dialogCriterios-confirm" ).dialog();
 $( "#dialogCriterios-confirm" ).dialog( "destroy" );
 $( "#dialogDictamen-confirm" ).dialog();
@@ -6562,24 +6526,18 @@ $('#btnTurnarInpugna').hide();
 $('#btnDocumentoCriterio').hide();
 $('#btnDocumentoDictamen').hide();
 function validaCriterios(){
-	
 	if($('#juridicoSi').is(':checked') &&$('#imputadoSi').is(':checked') &&$('#penaSi').is(':checked') ){
 		dialigoCriterios();
 	}else{
 		criterioOportinidadOp=0;
 	}
 }
-
 function abilitaDoc(){
 	$('#btnInformeCriterio').attr("disabled","");
 	$('#btnTurnarInpugna').attr("disabled","");
 	$('#btnDocumentoDictamen').attr("disabled","disabled");
-	
 }
-
-
 function ocultaElementosDelVisor(){
-	
 	//Resumen
 	//Hechos
 	$("#ingresarHechos").hide();
@@ -6616,7 +6574,6 @@ function ocultaElementosDelVisor(){
 	if(idRolActivo == '<%=Roles.DIRECTOR_GENERAL.getValorId()%>'){
 		 $("#btnAdjuntarDocumento").hide();
 	}
-
 	if(idRolActivo == '<%=Roles.POLICIAMINISTER.getValorId()%>'){
 	    $("#cbxAccionesTab").attr("disabled","");
 	}
@@ -6625,13 +6582,9 @@ function ocultaElementosDelVisor(){
 	$('#idInvestiga').hide();
 	//Tab cadena de custodia
 	$("#btnCadCusNuevaCadCus").hide();
-
 	//Notas (Todos los roles pueden consultar/escribir notas)
 }
-
-
 function dialigoCriterios(){
-
 	//generamos el Dialogo
 	$( "#dialogCriterios-confirm" ).dialog({
 		resizable: false,
@@ -6663,9 +6616,7 @@ function dialigoCriterios(){
 	});
 	$( ".ui-icon-closethick,.ui-dialog-titlebar-close" ).hide();
 }
-
 function dialigoDictamenOprtunidad(){
-
 	//generamos el Dialogo
 	$( "#dialogDictamen-confirm" ).dialog({
 		resizable: false,
@@ -6687,15 +6638,12 @@ function dialigoDictamenOprtunidad(){
 			"No": function() {
 				$( this ).dialog( "close" );
 				$( "#dialogDictamen:ui-dialog" ).dialog( "destroy" );
-				
 			}
 		}
 	});
 	$( ".ui-icon-closethick,.ui-dialog-titlebar-close" ).hide();
 }
-
 function dialigoImpugnacion(){
-
 	//generamos el Dialogo
 	$( "#dialogImpugnacion-confirm" ).dialog({
 		resizable: false,
@@ -6711,15 +6659,12 @@ function dialigoImpugnacion(){
 			"No": function() {
 				$( this ).dialog( "close" );
 				$( "#dialogImpugnacion:ui-dialog" ).dialog( "destroy" );
-				
 			}
 		}
 	});
 	$( ".ui-icon-closethick,.ui-dialog-titlebar-close" ).hide();
 }
-
 function dialigoImpugnacionArchivo(){
-
 	//generamos el Dialogo
 	$( "#dialogImpugnacionARchivo-confirm" ).dialog({
 		resizable: false,
@@ -6744,6 +6689,5 @@ function dialigoImpugnacionArchivo(){
 }
 //ocultamos las leyendas en la carga de la pagina
 $("#leyendaUnDelitoGrave,#leyendaNingunDelitoGrave").hide();
-
 </script>
 </html>

@@ -1,11 +1,8 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.institucion.Areas"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>    
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta http-equiv="Content-Type" content="text/html">
 	<%@ page import="mx.gob.segob.nsjp.comun.enums.calidad.Calidades" %>
 	
 	<%@ page import="mx.gob.segob.nsjp.comun.enums.expediente.EstatusExpediente"%>
@@ -1265,7 +1262,28 @@ function canalizarControversiaExisteDelitoGrave(actividad,estatusId,titulo, form
 			return 0;
 			else return 1;
 		}
-                
+
+/*
+		*Funcion para regresar el numero de relacionde delito-persona o delito-delito con 
+		*las que cuenta el expediente
+		*/
+		function consultaTotalRelacionesDelitoPorTodos()
+		{
+			var numeroRelaciones = 0;
+			//consultamos la forma para la notificacion de auditoria
+			$.ajax({
+				type: 'POST',
+				url: '<%= request.getContextPath()%>/ConsultarTamanoDelitosAsociadosPorTodos.do?idExpediente='+idExpedienteop+'',
+				data: '',
+				dataType: 'xml',
+				async: false,
+				success: function(xml){
+					numeroRelaciones=$(xml).find('relacionTodosLosDelitos').find('tamanoLista').text();
+                                }
+			});
+			return numeroRelaciones;
+		}
+
         function canalizarInvestigadoresNoExisteDelitoGrave(actividad,estatusId,titulo, formaID, numeroExpediente ){
 		//verificamos si se tienen relaciones de delito-persona o delito-delito
 		if(consultaTotalRelacionesDelitoPorTodos() <= 0)
