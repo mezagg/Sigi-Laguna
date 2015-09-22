@@ -73,8 +73,7 @@ public class CatalogoDelegateImpl implements CatalogoDelegate {
     @Autowired 
     private AdministrarSalaService administrarSalaService;
     @Autowired 
-    private AdministrarCatalogoService administrarCatalogoService;    
-    
+    private AdministrarCatalogoService administrarCatalogoService;
     
     /*
      * (non-Javadoc)

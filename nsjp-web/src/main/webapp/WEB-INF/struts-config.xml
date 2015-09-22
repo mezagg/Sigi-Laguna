@@ -10440,8 +10440,24 @@
 			parameter="consultarCatalogoAreasDeNegocio"
 			validate="false">				
 	</action>
-	
-	
+
+
+		<action path="/consultarCatalogoEntidadFederativa"
+				type="mx.gob.segob.nsjp.web.catalogo.action.ConsultarCatalogosAction"
+				name=""
+				scope="request"
+				parameter="consultarCatalogoEntidadFederativa"
+				validate="false">
+		</action>
+
+		<action path="/consultarCatalogoRegion"
+				type="mx.gob.segob.nsjp.web.catalogo.action.ConsultarCatalogosAction"
+				name=""
+				scope="request"
+				parameter="consultarCatalogoRegion"
+				validate="false">
+		</action>
+
 	<action path="/adjuntarDocumentoAExpediente"
 			type="mx.gob.segob.nsjp.web.documento.action.DocumentoAction"
 			name="AdjuntarDocumentoAsociadoAExpedienteForm"

@@ -1975,6 +1975,8 @@ Fin solicitar audiencia
 <bean name="/eliminarRegistroDeCatalogo" 		class="mx.gob.segob.nsjp.web.catalogo.action.AdministrarCatalogosAction"/>
 <bean name="/consultarParametro" class="mx.gob.segob.nsjp.web.catalogo.action.AdministrarCatalogosAction"/>
 <bean name="/consultarCatalogoAreasDeNegocio" class="mx.gob.segob.nsjp.web.catalogo.action.ConsultarCatalogosAction"/>
+	<bean name="/consultarCatalogoEntidadFederativa" class="mx.gob.segob.nsjp.web.catalogo.action.ConsultarCatalogosAction"/>
+	<bean name="/consultarCatalogoRegion" class="mx.gob.segob.nsjp.web.catalogo.action.ConsultarCatalogosAction"/>
 <bean name="/adjuntarDocumentoAExpediente" class="mx.gob.segob.nsjp.web.documento.action.DocumentoAction"/>
 
 <bean name="/consultarInstitucionActual" class="mx.gob.segob.nsjp.web.configuracion.action.ConfiguracionAction"/>

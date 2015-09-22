@@ -10,5 +10,5 @@ import java.util.List;
  */
 public interface EntidadFederativaService {
 
-    public List<EntidadFederativaDTO> consultarEndidadesFederativasTodas() throws NSJPNegocioException;
+    List<EntidadFederativaDTO> consultarEndidadesFederativasTodas() throws NSJPNegocioException;
 }

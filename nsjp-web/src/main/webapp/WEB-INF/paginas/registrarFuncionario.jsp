@@ -134,6 +134,8 @@
 			break;		
 		case 1:
 			cargaAreasNegocio();
+			cargaEntidadFederativa();
+			cargaRegiones();
 			cargaPuestos();
 			cargaTipoEspecialidad();
 			cargaFuncionarios();				
@@ -384,7 +386,40 @@
 		    //}
 		//}
 	}
-	
+
+	function cargaEntidadFederativa(){
+		$.ajax({
+			type: 'POST',
+			url: '<%= request.getContextPath()%>/consultarCatalogoEntidadFederativa.do',
+			data: '',
+			dataType: 'xml',
+			async: false,
+			success: function(xml){
+				var option;
+				$(xml).find('entidades').each(function(){
+					$('#comboEntidades').append('<option value="' + $(this).find('entidadFederativaId').text() + '">'+ $(this).find('nombreEntidad').text() + '</option>');
+
+				});
+			}
+		});
+	}
+
+	function cargaRegiones(){
+		$.ajax({
+			type: 'POST',
+			url: '<%= request.getContextPath()%>/consultarCatalogoRegion.do',
+			data: '',
+			dataType: 'xml',
+			async: false,
+			success: function(xml){
+				var option;
+				$(xml).find('regiones').each(function(){
+					$('#comboRegiones').append('<option value="' + $(this).find('regionId').text() + '">'+ $(this).find('nombre').text() + '</option>');
+				});
+			}
+		});
+	}
+
 
 
 /************************************************************FUNCIONES PARA UNIDAD ESPECIALIZADA****************************************************/
@@ -1020,16 +1055,14 @@
 
 
 				<tr>
-					<td id="idsp1">
+					<td >
 					</td>
 					<td align="center" id="idsp2">
 						<p>Entidad Federativa:</p>
 					</td>
 					<td align="center">
-						<select id="x1"  name="x1" style="width: 182px;" tabindex="15">
+						<select id="comboEntidades"  name="comboEntidades" style="width: 182px;" tabindex="15">
 							<option value="">- Seleccione -</option>
-							<option value="">Coahuila</option>
-							<option value="">DF</option>
 						</select>
 					</td>
 					<td></td>
@@ -1044,10 +1077,8 @@
 						<p>Region:</p>
 					</td>
 					<td align="center">
-						<select id="x2"  name="x2" style="width: 182px;" tabindex="16">
+						<select id="comboRegiones"  name="comboRegiones" style="width: 182px;" tabindex="16">
 							<option value="">- Seleccione -</option>
-							<option value="">Carbonifera</option>
-							<option value="">Region Norte</option>
 						</select>
 					</td>
 					<td></td>
