@@ -196,7 +196,6 @@ public class UnidadAtencionVictimasDelitoAction extends GenericAction{
 				}
 				//consultamos las solicitudes por atender
 				List<SolicitudDTO> listaSolicitudes = new ArrayList<SolicitudDTO> ();
-				
 				/**Si el usuario es corrdinador no se aplica el filtro de clave usuario**/
 				if(super.getUsuarioFirmado(request).getAreaActual().getAreaId().equals(Areas.COORDINACION_ATENCION_VICTIMAS.parseLong())){
 					 listaSolicitudes= solicitudDelegate.consultarSolicitudesParaAtender(idsEstatus,idsTipSols, super.getUsuarioFirmado(request).getAreaActual().getAreaId(), null,null);

@@ -69,7 +69,6 @@
 	%>
     
 	$(document).ready(function() {
-
 		agenciasPGJ();	
 		//Se asocia funcion al combo de funcionarios
 		$('#cbxFuncionario').change(consultaFuncionario);
