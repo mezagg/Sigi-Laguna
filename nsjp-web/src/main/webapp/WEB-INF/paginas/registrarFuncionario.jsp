@@ -104,6 +104,8 @@
 		switch(parseInt(administrador)){
 		case 0:
 			cargaAreasNegocio();
+			cargaEntidadFederativa();
+			cargaRegiones();
 			cargaPuestos();
 			cargaTipoEspecialidad();
 			cargaFuncionarios();				
@@ -178,6 +180,8 @@
 			
 		case 3:
 			cargaAreasNegocio();
+			cargaEntidadFederativa();
+			cargaRegiones();
 			cargaPuestos();
 			cargaTipoEspecialidad();
 			cargaFuncionarios();
@@ -516,6 +520,8 @@
 		$( "#datosGeneralesCmpTipoEspecialidad" ).attr('selectedIndex',0);
 		$( "#datosGeneralesCmpEspecialidad" ).attr('selectedIndex',0);
 		$( "#datosGeneralesCmpFuncionario" ).attr('selectedIndex',0);
+		$( "#comboEntidades" ).attr('selectedIndex',0);
+		$( "#comboRegiones" ).attr('selectedIndex',0);
 	}
 	
 	function recuperaDatosGenerales()
@@ -551,6 +557,9 @@
 		   lsDatosGenerales+="&especialidad="+$("#datosGeneralesCmpEspecialidad option:selected").val();
 		   lsDatosGenerales+="&funcionario="+$("#datosGeneralesCmpFuncionario option:selected").val();
 		   lsDatosGenerales+="&agenciaId="+$("#datosGeneralesCbxAgencia option:selected").val();
+
+		   lsDatosGenerales+="&entidadFederativaId="+$("#comboEntidades option:selected").val();
+		   lsDatosGenerales+="&regionId="+$("#comboRegiones option:selected").val();
 
 			if(validaSeleccionUIE()){
 				//Se agrega el parametro UIE
@@ -623,6 +632,16 @@
 			
 			var textoAlerta = "El campo "+texTipoDiscriminante+" es obligatorio."
 			alertDinamico(textoAlerta);
+			return false;
+		}
+
+		if ($("#comboEntidades").val() == "") {
+			alertDinamico("El campo Entidad Federativa es obligatorio.");
+			return false;
+		}
+
+		if ($("#comboRegiones").val() == "") {
+			alertDinamico("El campo Region es obligatorio.");
 			return false;
 		}
 
@@ -840,7 +859,15 @@
 			var agencia = $(xml).find('funcionario').find('discriminante').find('catDiscriminanteId').first().text();
 			$('#datosGeneralesCbxAgencia').find("option[value='"+agencia+"']").attr("selected","selected");
 
-			var uie=$(xml).find('unidadIEspecializada').find('catUIEId').first().text();
+
+		 var entidad = $(xml).find('funcionario').find('entidadFederativaId').first().text();
+		 $('#comboEntidades').find("option[value='"+entidad+"']").attr("selected","selected");
+
+		 var region = $(xml).find('funcionario').find('regionId').first().text();
+		 $('#comboRegiones').find("option[value='"+region+"']").attr("selected","selected");
+
+
+		 var uie=$(xml).find('unidadIEspecializada').find('catUIEId').first().text();
 			
 			if(validaSeleccionUIE()){
 				controlComboUIE();
@@ -1058,7 +1085,7 @@
 					<td >
 					</td>
 					<td align="center" id="idsp2">
-						<p>Entidad Federativa:</p>
+						<p>* Entidad Federativa:</p>
 					</td>
 					<td align="center">
 						<select id="comboEntidades"  name="comboEntidades" style="width: 182px;" tabindex="15">
@@ -1074,7 +1101,7 @@
 					<td id="idsp3">
 					</td>
 					<td align="center" id="idsp4">
-						<p>Region:</p>
+						<p>* Region:</p>
 					</td>
 					<td align="center">
 						<select id="comboRegiones"  name="comboRegiones" style="width: 182px;" tabindex="16">

@@ -113,7 +113,9 @@ public class AdministrarFuncionarioAction extends GenericAction{
 			funcionarioDTO.setSexo(forma.getSexo());
 			funcionarioDTO.setRfc(forma.getRfc());
 			funcionarioDTO.setCurp(forma.getCurp());
-			funcionarioDTO.setFechaNacimiento(DateUtils.obtener(forma.getFechaNacimiento()));			
+			funcionarioDTO.setFechaNacimiento(DateUtils.obtener(forma.getFechaNacimiento()));
+			funcionarioDTO.setEntidadFederativaId(forma.getEntidadFederativaId());
+			funcionarioDTO.setRegionId(forma.getRegionId());
 						
 			if(forma.getFechaIngreso()==null || forma.getFechaIngreso().equals("null") || forma.getFechaIngreso().equals("")){					
 				funcionarioDTO.setFechaIngreso(new Date());
