@@ -603,7 +603,7 @@ public class AdministrarNumeroExpedienteServiceImpl implements AdministrarNumero
 			casoDTO = casoService.asignarNumeroCaso(casoDTO, expedienteDTO
 					.getUsuario().getFuncionario());
 		}
-		
+
 		ExpedienteDTO expParam = new ExpedienteDTO();
         ExpedienteDTO expBD = null;
         expParam.setFechaApertura(new Date());

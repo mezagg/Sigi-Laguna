@@ -849,7 +849,7 @@ public class AsignarNumeroExpedienteServiceImpl
                 || turno.getUsuario().getIdUsuario() == null) {
             throw new NSJPNegocioException(CodigoError.PARAMETROS_INSUFICIENTES);
         }
-        // se crea el caso como paliativo, debe existir un boton que genere el caso
+
         final CasoDTO casoReq = new CasoDTO();
         casoReq.setFechaApertura(new Date());
         casoReq.setEstatus(EstatusCaso.INVESTIGACION);

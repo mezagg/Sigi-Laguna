@@ -23,6 +23,8 @@ import mx.gob.segob.nsjp.comun.enums.configuracion.Parametros;
 import mx.gob.segob.nsjp.dao.base.GenericDao;
 import mx.gob.segob.nsjp.model.Parametro;
 
+import java.util.List;
+
 /**
  * Contrato de metodos de acceso a datos para la entidad Parametros.
  * @version 1.0
@@ -32,5 +34,6 @@ import mx.gob.segob.nsjp.model.Parametro;
 public interface ParametroDAO extends GenericDao<Parametro, Long> {
 
     Parametro obtenerPorClave(Parametros clveParam);
+    List<Parametro> obtenerPorClaveBase(String claveBase);
     
 }
