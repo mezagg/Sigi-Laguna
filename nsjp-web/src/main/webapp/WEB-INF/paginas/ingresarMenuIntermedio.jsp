@@ -2230,17 +2230,17 @@
 			if(excede == "true"){
 				customConfirm ("La media aritmética de los delitos excede lo permitido. ¿Desea enviar a la unidad de controversias?", "Aviso", 
 						function(){
-							canalizarControversiaMediaAritmética(actividad,estatusId,titulo, formaID, numeroExpediente);
+							canalizarControversiaMediaAritmetica(actividad,estatusId,titulo, formaID, numeroExpediente);
 						},
 						recargarActuaciones()
 						);
 			}else if(excede == "false"){
-				canalizarControversiaMediaAritmética(actividad,estatusId,titulo, formaID, numeroExpediente);
+				canalizarControversiaMediaAritmetica(actividad,estatusId,titulo, formaID, numeroExpediente);
 			}
 		}			
 	}
 	
-	function canalizarControversiaMediaAritmética(actividad,estatusId,titulo, formaID, numeroExpediente){
+	function canalizarControversiaMediaAritmetica(actividad,estatusId,titulo, formaID, numeroExpediente){
 		idWindowPantallaActuaciones++;
 		if(actividad == '<%= Actividades.DIRIGIR_A_LA_UNIDAD_DE_SOLUCION_DE_CONTROVERSIAS.getValorId()%>' || 
 		   actividad=='<%=Actividades.DIRIGIR_A_LA_UNIDAD_DE_SOLUCION_DE_CONTROVERSIAS_SIN_SUSPENDER_EXPEDIENTE.getValorId()%>'){
