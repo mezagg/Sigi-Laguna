@@ -210,6 +210,9 @@ public class ActualizarExpedienteServiceImpl implements
 					Funcionario anterior = numeroExpediente.getFuncionario();
 					Funcionario actual = funcionarioDAO.read(actualDTO.getClaveFuncionario());
 					Funcionario asigna = funcionarioDAO.read(asignaDTO.getClaveFuncionario());
+                                        if(actual.getUnidadIEspecializada().getCatUIEId() != null) {
+                                            expediente.setCatUIEspecializada(actual.getUnidadIEspecializada());
+                                        }
 					expediente.setDiscriminante(actual.getDiscriminante());
 					numeroExpediente.setFuncionario(actual);
 					

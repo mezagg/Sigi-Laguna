@@ -89,7 +89,7 @@ public class AdjuntarArchivoDigitalAExpedienteServiceImpl implements
 		documento.setFechaCreacion(new Date());
 		documento.setTipoDocumento(new Valor(TipoDocumento.ARCHIVO_ADJUNTADO.getValorId()));
 		documento.setForma(formaDAO.consultarFormaPorId(Formas.PLANTILLA_EN_BLANCO.getValorId()));
-		documento.setEsGuardadoParcial(false);
+		documento.setEsGuardadoParcial(Boolean.FALSE);
 		Long idDocumento = documentoDAO.create(documento);
 		
 		Actividad actividadDB=new Actividad();

@@ -377,7 +377,6 @@
 		*Carga el grid de los imputados del expediente
 		*/
 		function gridImputados(){
-
 			var calidadId="<%=Calidades.PROBABLE_RESPONSABLE_PERSONA.getValorId()%>";
 				
 			if(firstGridImputados){
@@ -540,6 +539,7 @@
 		*Funcion para cargar todos los grids
 		*/
 		function cargarGridsInvolucradosRelDelitoPersonaPG(){
+                        cargaGridDelitosAgraviados();
 			gridImputados();
 			gridVictimas();
 			gridRelacionesDelitoPersona();
