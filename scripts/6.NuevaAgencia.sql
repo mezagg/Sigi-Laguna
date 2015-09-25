@@ -27,3 +27,8 @@ where cNombreFuncion like '%consultarCatalogoRegion%';
 
 /* Se agrega al Modulo 1*/
 insert into [ModuloFuncion] ( [Modulo_id], [Funcion_id]) values ( 1, X);
+
+
+/* Ejemplo de configuracion x agencia*/
+insert into [Parametro] ( [cDescripcion], [cValor], [cTipoValor], [cClave])
+values ( 'UNIDAD', '038,030', '1', 'NUC_AGENCIA');
