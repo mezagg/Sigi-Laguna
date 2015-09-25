@@ -40,15 +40,18 @@ import mx.gob.segob.nsjp.comun.enums.seguridad.Roles;
 import mx.gob.segob.nsjp.comun.util.DateUtils;
 import mx.gob.segob.nsjp.comun.util.tl.PaginacionThreadHolder;
 import mx.gob.segob.nsjp.delegate.actuaciones.ActuacionesDelegate;
+import mx.gob.segob.nsjp.delegate.almacen.EncargadoAlmacenDelegate;
 import mx.gob.segob.nsjp.delegate.audiencia.AudienciaDelegate;
 import mx.gob.segob.nsjp.delegate.catalogo.CatDiscriminanteDelegate;
 import mx.gob.segob.nsjp.delegate.catalogo.CatUIEspecializadaDelegate;
 import mx.gob.segob.nsjp.delegate.catalogo.CatalogoDelegate;
 import mx.gob.segob.nsjp.delegate.catalogo.DistritoDelegate;
 import mx.gob.segob.nsjp.delegate.configuracion.ConfiguracionDelegate;
+import mx.gob.segob.nsjp.delegate.entidadfederativa.EntidadFederativaDelegate;
 import mx.gob.segob.nsjp.delegate.eventocita.EventoCitaDelegate;
 import mx.gob.segob.nsjp.delegate.funcionario.FuncionarioDelegate;
 import mx.gob.segob.nsjp.delegate.modulo.ModuloDelegate;
+import mx.gob.segob.nsjp.delegate.region.RegionDelegate;
 import mx.gob.segob.nsjp.delegate.rol.RolDelegate;
 import mx.gob.segob.nsjp.delegate.solicitud.SolicitudPericialDelegate;
 import mx.gob.segob.nsjp.dto.ActuacionDTO;
@@ -61,6 +64,8 @@ import mx.gob.segob.nsjp.dto.catalogo.CatalogoDTO;
 import mx.gob.segob.nsjp.dto.catalogo.ValorDTO;
 import mx.gob.segob.nsjp.dto.configuracion.ConfInstitucionDTO;
 import mx.gob.segob.nsjp.dto.delito.CausaDTO;
+import mx.gob.segob.nsjp.dto.domicilio.EntidadFederativaDTO;
+import mx.gob.segob.nsjp.dto.domicilio.RegionDTO;
 import mx.gob.segob.nsjp.dto.funcionario.CriterioConsultaFuncionarioExternoDTO;
 import mx.gob.segob.nsjp.dto.funcionario.FuncionarioDTO;
 import mx.gob.segob.nsjp.dto.institucion.AreaDTO;
@@ -132,6 +137,12 @@ public class ConsultarCatalogosAction extends GenericAction{
 	
 	@Autowired
 	private ActuacionesDelegate actuacionDelegate;
+
+	@Autowired
+	private EntidadFederativaDelegate entidadFederativaDelegate;
+
+	@Autowired
+	private RegionDelegate regionDelegate;
 	
 	/**
 	 * M&eacute;todo utilizado para realizar la consulta de tipos de objetos
@@ -1731,8 +1742,8 @@ public class ConsultarCatalogosAction extends GenericAction{
 	
 			log.info("EJECUTANDO ACTION COLSULTAR CATALOGO TIPO AUDIENCIA CON VALIDACION:::::::::::::::::::::::::::");
 			
-			Long tipoAudienciaActual = NumberUtils.toLong(request.getParameter("tipoAudiencia"),0L);
-			log.info("TIPO AUDIENCIA ACTUAL:::::::::::::::::::::::::::"+tipoAudienciaActual);
+			Long tipoAudienciaActual = NumberUtils.toLong(request.getParameter("tipoAudiencia"), 0L);
+			log.info("TIPO AUDIENCIA ACTUAL:::::::::::::::::::::::::::" + tipoAudienciaActual);
 			
 			if( tipoAudienciaActual > 0){
 			 
@@ -2074,7 +2085,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			throws IOException {
 		try {
 			log.info("ejecutando Action consultar modo de participacion de delito");			
-			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogoDependiente(Catalogos.ESPECIALIDAD_FUNCIONARIO,TipoEspecialidad.PERICIAL.getValorId());
+			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogoDependiente(Catalogos.ESPECIALIDAD_FUNCIONARIO, TipoEspecialidad.PERICIAL.getValorId());
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catEspecialidadPericial", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -2869,7 +2880,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 	
 			log.info("EJECUTANDO ACTION CONSULTAR CAT DISCRIMINANTE");
 			String tipoDiscriminante = request.getParameter("tipoDiscriminante");
-			log.info("TIPO DISCRIMINANTE SOLICITADO="+tipoDiscriminante);
+			log.info("TIPO DISCRIMINANTE SOLICITADO=" + tipoDiscriminante);
 			
 			List<CatDiscriminanteDTO> listaCatalogo = new ArrayList<CatDiscriminanteDTO>();
 			
@@ -2919,7 +2930,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			List<CatDiscriminanteDTO> listaCatalogo = new ArrayList<CatDiscriminanteDTO>();
 			
 			if(distritoId > 0L){
-				listaCatalogo = catDiscriminanteDelegate.consultarTribunalesPorDistrito(distritoId,Instituciones.PJ);
+				listaCatalogo = catDiscriminanteDelegate.consultarTribunalesPorDistrito(distritoId, Instituciones.PJ);
 			}			
 			converter.alias("listaDiscriminantes", java.util.List.class);
 			converter.alias("catDiscriminante", CatDiscriminanteDTO.class);
@@ -3297,6 +3308,50 @@ public class ConsultarCatalogosAction extends GenericAction{
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("areas", CatAreasNegocioDTO.class);
 			String xml = converter.toXML(listaAreasNegocio);
+			response.setContentType("text/xml");
+			PrintWriter pw = response.getWriter();
+			pw.print(xml);
+			pw.flush();
+			pw.close();
+		} catch (Exception e) {
+			log.error(e.getMessage(), e);
+		}
+		return null;
+	}
+
+	public ActionForward consultarCatalogoEntidadFederativa(ActionMapping mapping, ActionForm form,
+														 HttpServletRequest request, HttpServletResponse response)
+			throws IOException {
+		try {
+
+			List<EntidadFederativaDTO> entidadFederativaDTOList = new ArrayList<EntidadFederativaDTO>();
+			entidadFederativaDTOList = entidadFederativaDelegate.consultarEndidadesFederativasTodas();
+
+			converter.alias("listaCatalogo", java.util.List.class);
+			converter.alias("entidades", EntidadFederativaDTO.class);
+			String xml = converter.toXML(entidadFederativaDTOList);
+			response.setContentType("text/xml");
+			PrintWriter pw = response.getWriter();
+			pw.print(xml);
+			pw.flush();
+			pw.close();
+		} catch (Exception e) {
+			log.error(e.getMessage(), e);
+		}
+		return null;
+	}
+
+	public ActionForward consultarCatalogoRegion(ActionMapping mapping, ActionForm form,
+															HttpServletRequest request, HttpServletResponse response)
+			throws IOException {
+		try {
+
+			List<RegionDTO> regionDTOList = new ArrayList<RegionDTO>();
+			regionDTOList = regionDelegate.consultarTodos();
+
+			converter.alias("listaCatalogo", java.util.List.class);
+			converter.alias("regiones", RegionDTO.class);
+			String xml = converter.toXML(regionDTOList);
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();
 			pw.print(xml);

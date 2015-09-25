@@ -120,6 +120,7 @@ public class AsignarNumeroCasoServiceImpl implements AsignarNumeroCasoService {
 		String distrito = "";
 		String claveRegion = "";
 		String unidad = "";
+        String agencia = "";
 		String consecutivoDelCaso = "";
 
 		//Fecha actual
@@ -152,6 +153,10 @@ public class AsignarNumeroCasoServiceImpl implements AsignarNumeroCasoService {
 			claveRegion = funcionarioDTO.getDiscriminante().getClaveRegion();
 		}
 
+        //Se obtiene la agencia
+        if (funcionarioDTO != null && funcionarioDTO.getDiscriminante() != null) {
+            agencia = funcionarioDTO.getDiscriminante().getClave();
+        }
 
 		List<Parametro> parametrosNUC = parametroDAO.obtenerPorClaveBase("NUC");
 		Boolean conEstado = false;
@@ -159,6 +164,7 @@ public class AsignarNumeroCasoServiceImpl implements AsignarNumeroCasoService {
 		Boolean conRegion = false;
 		Boolean conDistrito = false;
 		Boolean conUnidad = false;
+		Boolean conAgencia = false;
 
 		//Dsitribucion de contadores y llaves
 		Llave estadoLlave = new Llave();
@@ -166,6 +172,7 @@ public class AsignarNumeroCasoServiceImpl implements AsignarNumeroCasoService {
 		Llave regionLlave = new Llave();
 		Llave distritoLlave = new Llave();
 		Llave unidadLlave = new Llave();
+        Llave agengiaLlave = new Llave();
 
 
 		for (Parametro parametro : parametrosNUC) {
@@ -189,6 +196,10 @@ public class AsignarNumeroCasoServiceImpl implements AsignarNumeroCasoService {
 				conUnidad = true;
 				unidadLlave.init(parametro.getValor());
 			}
+            if (parametro.getClave().equalsIgnoreCase("NUC_AGENCIA") ) {
+                conAgencia = true;
+                agengiaLlave.init(parametro.getValor());
+            }
 		}
 
 		//Se genera el numero de Caso
@@ -235,6 +246,15 @@ public class AsignarNumeroCasoServiceImpl implements AsignarNumeroCasoService {
 				consecutivoDelCaso = consecutivoDelCaso + SEPARADOR + unidad;
 			}
 		}
+
+        if( conAgencia ) {
+            agencia = agengiaLlave.getLlave(agencia);
+            if (consecutivoDelCaso.length() == 0) {
+                consecutivoDelCaso = agencia;
+            } else {
+                consecutivoDelCaso = consecutivoDelCaso + SEPARADOR + agencia;
+            }
+        }
 
 		consecutivoDelCaso = consecutivoDelCaso +SEPARADOR + anio;
 

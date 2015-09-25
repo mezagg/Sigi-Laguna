@@ -62,6 +62,12 @@ GO
 ALTER TABLE [dbo].[Region] CHECK CONSTRAINT [FK_Region_EntidadFederativa]
 GO
 
+
+/*
+
+Se agrega la relacion de Funcionario con Entidad Federativa y Region
+ */
+
 ALTER TABLE [dbo].[Funcionario]
 ADD [entidadFederativa_id] [decimal](18, 0) NULL;
 GO

@@ -24,6 +24,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import mx.gob.segob.nsjp.comun.enums.catalogo.EntidadFederativa;
 import mx.gob.segob.nsjp.comun.enums.institucion.TipoJerarquia;
 import mx.gob.segob.nsjp.dto.catalogo.ValorDTO;
 import mx.gob.segob.nsjp.dto.funcionario.FuncionarioDTO;
@@ -36,12 +37,7 @@ import mx.gob.segob.nsjp.dto.involucrado.InvolucradoViewDTO;
 import mx.gob.segob.nsjp.dto.persona.CorreoElectronicoDTO;
 import mx.gob.segob.nsjp.dto.persona.MedioDeContactoDTO;
 import mx.gob.segob.nsjp.dto.persona.TelefonoDTO;
-import mx.gob.segob.nsjp.model.CorreoElectronico;
-import mx.gob.segob.nsjp.model.Funcionario;
-import mx.gob.segob.nsjp.model.JerarquiaOrganizacional;
-import mx.gob.segob.nsjp.model.MedioDeContacto;
-import mx.gob.segob.nsjp.model.Telefono;
-import mx.gob.segob.nsjp.model.Valor;
+import mx.gob.segob.nsjp.model.*;
 import mx.gob.segob.nsjp.service.archivo.impl.transform.ArchivoDigitalTransformer;
 import mx.gob.segob.nsjp.service.catalogo.impl.transform.CatAreaNegocioTransformer;
 import mx.gob.segob.nsjp.service.catalogo.impl.transform.CatDiscriminanteTransformer;
@@ -100,11 +96,11 @@ public class FuncionarioTransformer {
 
         if (funcionario.getPuesto() != null)
             funcionarioDto.setPuesto(new ValorDTO(funcionario.getPuesto()
-                    .getValorId(), funcionario.getPuesto().getValor()));
+					.getValorId(), funcionario.getPuesto().getValor()));
         if (funcionario.getEspecialidad() != null)
             funcionarioDto.setEspecialidad(new ValorDTO(funcionario
-                    .getEspecialidad().getValorId(), funcionario
-                    .getEspecialidad().getValor()));
+					.getEspecialidad().getValorId(), funcionario
+					.getEspecialidad().getValor()));
         if (funcionario.getTipoEspecialidad() != null)
             funcionarioDto.setTipoEspecialidad(new ValorDTO(funcionario
                     .getTipoEspecialidad().getValorId(), funcionario
@@ -205,6 +201,14 @@ public class FuncionarioTransformer {
         if(funcionario.getCatAreaNegocio() !=null){
         	funcionarioDto.setCatAreaNegocio(CatAreaNegocioTransformer.transformarCatAreasNegocio(funcionario.getCatAreaNegocio()));
         }
+
+		if( funcionario.getEntidadFederativa() != null){
+			funcionarioDto.setEntidadFederativaId(funcionario.getEntidadFederativa().getEntidadFederativaId());
+		}
+
+		if( funcionario.getRegion() != null){
+			funcionarioDto.setRegionId(funcionario.getRegion().getRegionId());
+		}
         
         return funcionarioDto;
     }
@@ -310,26 +314,26 @@ public class FuncionarioTransformer {
         	funcionarioDto.setFechaIngreso(funcionario.getFechaIngreso());
         if (funcionario.getPuesto() != null)
             funcionarioDto.setPuesto(new ValorDTO(funcionario.getPuesto()
-                    .getValorId(),funcionario.getPuesto()
-                    .getValor()));
+					.getValorId(), funcionario.getPuesto()
+					.getValor()));
         if (funcionario.getEspecialidad() != null)
             funcionarioDto.setEspecialidad(new ValorDTO(funcionario
-                    .getEspecialidad().getValorId(),funcionario
-                    .getEspecialidad().getValor()));
+					.getEspecialidad().getValorId(), funcionario
+					.getEspecialidad().getValor()));
         if (funcionario.getTipoEspecialidad() != null)
             funcionarioDto.setTipoEspecialidad(new ValorDTO(funcionario
-                    .getTipoEspecialidad().getValorId(),funcionario
-                    .getTipoEspecialidad().getValor()));
+					.getTipoEspecialidad().getValorId(), funcionario
+					.getTipoEspecialidad().getValor()));
         if (funcionario.getFuncionarioJefe() != null)
             funcionarioDto
                     .setFuncionarioJefe(transformarFuncionarioBasico(funcionario
-                            .getFuncionarioJefe()));
+							.getFuncionarioJefe()));
         if (funcionario.getArea() != null) {
             funcionarioDto
                     .setJerarquiaOrganizacional(new JerarquiaOrganizacionalDTO(
-                            funcionario.getArea()
-                                    .getJerarquiaOrganizacionalId(),
-                            funcionario.getArea().getNombre()));
+							funcionario.getArea()
+									.getJerarquiaOrganizacionalId(),
+							funcionario.getArea().getNombre()));
         }
 
         funcionarioDto.setCargaTrabajo(funcionario.getCargaTrabajo());
@@ -504,7 +508,19 @@ public class FuncionarioTransformer {
         if(funcionarioDTO.getBuscarPorJerarquiasHijas() != null){
         	loFuncionario.setBuscarPorJerarquiasHijas(funcionarioDTO.getBuscarPorJerarquiasHijas());
         }
-        
+
+		if( funcionarioDTO.getEntidadFederativaId() != null){
+			mx.gob.segob.nsjp.model.EntidadFederativa entidadFederativa = new mx.gob.segob.nsjp.model.EntidadFederativa();
+			entidadFederativa.setEntidadFederativaId(funcionarioDTO.getEntidadFederativaId());
+			loFuncionario.setEntidadFederativa(entidadFederativa);
+		}
+
+		if( funcionarioDTO.getRegionId() != null){
+			Region region = new Region();
+			region.setRegionId(funcionarioDTO.getRegionId());
+			loFuncionario.setRegion(region);
+		}
+
 		return loFuncionario;
 	}
 
@@ -667,6 +683,18 @@ public class FuncionarioTransformer {
         if(funcionarioDTO.getCatAreaNegocio() !=null){
         	loFuncionario.setCatAreaNegocio(CatAreaNegocioTransformer.transformarCatAreasNegocio(funcionarioDTO.getCatAreaNegocio()));
         }
+
+		if( funcionarioDTO.getEntidadFederativaId() != null){
+			mx.gob.segob.nsjp.model.EntidadFederativa entidadFederativa = new mx.gob.segob.nsjp.model.EntidadFederativa();
+			entidadFederativa.setEntidadFederativaId(funcionarioDTO.getEntidadFederativaId());
+			loFuncionario.setEntidadFederativa(entidadFederativa);
+		}
+
+		if( funcionarioDTO.getRegionId() != null){
+			Region region = new Region();
+			region.setRegionId(funcionarioDTO.getRegionId());
+			loFuncionario.setRegion(region);
+		}
         
         return loFuncionario;
     }

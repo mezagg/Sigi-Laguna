@@ -61,6 +61,9 @@ public class FuncionarioForm extends GenericForm{
 	private Long unidadInvEspId;
 	private Long idAreaDeNegocio;
 
+	private Long entidadFederativaId;
+	private Long regionId;
+
 	private FuncionarioDTO funcionarioDTO;
 	
 	public FuncionarioForm() {
@@ -375,8 +378,21 @@ public class FuncionarioForm extends GenericForm{
 	public void setFuncionarioDTO(FuncionarioDTO funcionarioDTO) {
 		this.funcionarioDTO = funcionarioDTO;
 	}
-	
-	
-	
-	
+
+
+	public Long getEntidadFederativaId() {
+		return entidadFederativaId;
+	}
+
+	public void setEntidadFederativaId(Long entidadFederativaId) {
+		this.entidadFederativaId = entidadFederativaId;
+	}
+
+	public Long getRegionId() {
+		return regionId;
+	}
+
+	public void setRegionId(Long regionId) {
+		this.regionId = regionId;
+	}
 }
