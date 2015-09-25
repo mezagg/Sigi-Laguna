@@ -126,4 +126,6 @@ public interface CasoDAO extends GenericDao<Caso, Long> {
      * @throws NSJPNegocioException
      */
 	public Long consultarIdXNumeroCaso(String numeroGeneralCaso);
+
+	String recuperarUltimoNumeroCasoXCadenaBase( String baseCaso);
 }

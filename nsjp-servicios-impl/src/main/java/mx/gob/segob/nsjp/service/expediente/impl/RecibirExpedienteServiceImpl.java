@@ -153,11 +153,12 @@ public class RecibirExpedienteServiceImpl implements
 		Long idUIE= UIE_POR_DEFAULT;
 		
 		//Se genera el caso para ser asociado al Expediente
+        /*
         CasoDTO casoDTO = new CasoDTO();
         casoDTO.setFechaApertura(new Date());
         casoDTO.setEstatus(EstatusCaso.INVESTIGACION);
         casoDTO = casoService.asignarNumeroCaso(casoDTO,obtenerFuncionario());
-
+                */
         //Verificar el expediente que se recibe
         ExpedienteDTO expParam = new ExpedienteDTO();
         expParam.setFechaApertura(new Date());
@@ -198,7 +199,7 @@ public class RecibirExpedienteServiceImpl implements
         expParam.setUsuario(usuario);
         
         expParam.setArea(new AreaDTO(Areas.UNIDAD_INVESTIGACION) );
-        expParam.setCasoDTO(casoDTO);
+        //expParam.setCasoDTO(casoDTO);
         
         expParam.setEstatus(new ValorDTO(EstatusExpediente.PENDIENTE_REVISION_COMO_IPH.getValorId()));
         //Se asocia el id de la agencia al expediente
@@ -209,7 +210,7 @@ public class RecibirExpedienteServiceImpl implements
         	
         // Es necesario para generar el Numero de Expediente
         ExpedienteDTO expNuevo = asignarNumeroExpedienteService.asignarNumeroExpediente(expParam);
-        expNuevo.setCasoDTO(casoDTO);
+        //expNuevo.setCasoDTO(casoDTO);
 		return expNuevo;
 	}
 
