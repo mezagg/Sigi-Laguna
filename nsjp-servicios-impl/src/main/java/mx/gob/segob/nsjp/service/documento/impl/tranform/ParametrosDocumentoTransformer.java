@@ -105,7 +105,9 @@ public class ParametrosDocumentoTransformer {
 		//llenar objetos
 		parametrosDocumento.setGrupoObjetosExpediente(new ArrayList<GrupoObjetosExpedienteDTO>());
 		llenarGruposDeObjetos(parametrosDocumento,expediente);
-			
+		
+                parametrosDocumento.setNuc(expediente.getCasoDTO().getNumeroGeneralCaso());
+                
 		return parametrosDocumento;
 	}
 	
