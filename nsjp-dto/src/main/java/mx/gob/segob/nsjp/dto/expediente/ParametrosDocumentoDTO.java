@@ -107,6 +107,8 @@ public class ParametrosDocumentoDTO extends GenericDTO {
     
     private FuncionarioDTO responsableTramite;
     
+    private String nuc;
+    
     
     /**
 	 * Método de acceso al campo ciudad.
@@ -650,6 +652,22 @@ public class ParametrosDocumentoDTO extends GenericDTO {
 	 */
 	public void setAudiencia(AudienciaDTO audiencia) {
 		this.audiencia = audiencia;
+	}
+        
+        /**
+	 * Método de acceso al campo nuc.
+	 * @return El valor del campo nuc
+	 */
+	public String getNuc() {
+		return nuc;
+	}
+
+	/**
+	 * Asigna el valor al campo nuc.
+	 * @param nuc el valor nuc a asignar
+	 */
+	public void setNuc(String nuc) {
+		this.nuc = nuc;
 	}
 	
 	public String getJuecesAudiencia(){
