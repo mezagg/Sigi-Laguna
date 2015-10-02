@@ -52,7 +52,7 @@
          	$("#btnGuardar").click(adjuntarDocumento);
          });
          
-         function adjuntarDocumento(){        	 
+         function adjuntarDocumento(){   
         	if(datosObligatoriosCorrectos()){
           		if(validaExtensionDeArchivo($('#fileAdjuntarArchivo').val().trim(),extensionesPermitidas))
         			adjuntarArchivoActuaciones();

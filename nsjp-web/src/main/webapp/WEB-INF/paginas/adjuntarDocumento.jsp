@@ -62,7 +62,6 @@
 				                    $('form')[0].submit();
 				                }
 				            });
-				                 
 				            uploader.start();
 				        } else {
 				        	alertDinamico('Se debe subir al menos un archivo');

@@ -1691,14 +1691,16 @@ public class GeneradorDocumentoAction extends ReporteBaseAction {
 				GuardadoDefinitivoDTO loGuardadoDefinitivoDTO = new GuardadoDefinitivoDTO();
 				loGuardadoDefinitivoDTO.setIdActividad(idActividad);
 				loGuardadoDefinitivoDTO.setIdClaveFuncionarioAsignado(idClaveFuncionarioAsignado);
-				
+				logger.info("FUNCIONARIO ASIGNADO " + idClaveFuncionarioAsignado);
 				UsuarioDTO usuarioDTO=super.getUsuarioFirmado(request);				
 				loGuardadoDefinitivoDTO.setFuncionarioDTO(usuarioDTO.getFuncionario());
+                                logger.info("FUNCIONARIO DTO " + usuarioDTO.getFuncionario());
 				
 				
 				
 				logger.info("SECCION ENCARGADA DE CONFIGURAR LOS DATOS PARA GUARDAR UN DOCUMENTO ASOCIADO AL EXPEDIENTE");
 				Long nuevaActividad = NumberUtils.toLong(request.getParameter("nuevaActividad"), 0L);
+                                logger.info("NUEVA ACTIVIDAD :) : " + nuevaActividad);
 				
 		    	String textoPdf = request.getParameter(PARAM_TEXTO_DOCUMENTO);
 		    	Long idDocumento = NumberUtils.toLong(request.getParameter(PARAM_IDENT_DOCUMENTO),0L);
@@ -1748,6 +1750,7 @@ public class GeneradorDocumentoAction extends ReporteBaseAction {
 		    	ArchivoDigitalDTO archivo = null;
 
 		    	UsuarioDTO usuarioFirmado = super.getUsuarioFirmado(request);
+                        logger.info("USUARIO FIRMADO: " + usuarioFirmado.getIdUsuario());
 		    	String numeroFolio = request.getParameter("iNumeroOficio");
 		    	ByteArrayOutputStream archivoPDF = null;
 		    	logger.debug("Numero Folio :: " + request.getParameter("iNumeroOficio"));
@@ -1771,6 +1774,7 @@ public class GeneradorDocumentoAction extends ReporteBaseAction {
 			    documento.setTipoDocumentoDTO(new ValorDTO(tipoDocumento));
 			    documento.setEsGuardadoParcial(esGuardadoParcial);
 			    documento.setResponsableDocumento(usuarioDTO.getFuncionario());
+                            logger.info("RESPONSABLE DEL DOCUMETNO: " + usuarioDTO.getFuncionario());
 			    documento.setJerarquiaOrganizacional(usuarioFirmado.getFuncionario().getJerarquiaOrganizacional().getJerarquiaOrganizacionalId());
 			    
 			    loGuardadoDefinitivoDTO.setIdNuevaActividad(nuevaActividad);
@@ -1794,6 +1798,7 @@ public class GeneradorDocumentoAction extends ReporteBaseAction {
 				    
 				    logger.info("SECCION ENCARGADA DE CONFIGURAR EL CAMBIO DE ESTATUS DE UN NUMERO DE EXPEDIENTE");
 				    if(usuarioFirmado != null && usuarioFirmado.getAreaActual() != null){
+                                        logger.info("USUARIO FIRMADO GET AREA: " + usuarioFirmado.getAreaActual());
 				    	loGuardadoDefinitivoDTO.getExpedienteDTO().setArea(usuarioFirmado.getAreaActual());
 				    }
 		        	

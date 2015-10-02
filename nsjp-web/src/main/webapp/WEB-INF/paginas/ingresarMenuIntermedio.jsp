@@ -913,7 +913,11 @@
 			}
 			
 			$("#cbxAccionesTab").dblclick(function(e){
-				seleccionaActuacion();
+                            cargarActuaciones("#cbxAccionesTab option:selected");
+			}); 
+                        
+                        $("#cbxOficiosTab").dblclick(function(e){
+                            cargarActuaciones("#cbxOficiosTab option:selected");
 			}); 
 			
 			//cargamos el combo para las actuaciones de policia ministerial
@@ -1353,6 +1357,7 @@
 				$("#rdbMenuInterRelDelXDelito").attr("disabled","");
 				$(":enabled").attr('disabled','disabled');
 				$("#cbxAccionesTab").attr('disabled','');
+                                $("#cbxOficiosTab").attr('disabled','');
 				$("#botonGuardarNotas").show();
 				$("#botonGuardarNotas").attr('disabled','');
 				$("#idRadiosBUt").hide();
@@ -1420,6 +1425,7 @@
 				$("#idTeoriaCaso").hide();
 				//Las actuaciones se bloquean
 				$("#cbxAccionesTab").attr('disabled','disabled');
+                                $("#cbxOficiosTab").attr('disabled','disabled');
 				//Las actuaciones de Policia ministerial se bloquean
 				$("#cbxAccionesTab9").attr('disabled','disabled');
 				//Transcripcion de audiencia
@@ -1463,8 +1469,49 @@
 				$("#conclusionTab").hide();	
 			
 			consultarConclusion();
-			
+                      
 		});
+                
+                (function ($) {
+  jQuery.expr[':'].Contains = function(a,i,m){
+      return (a.textContent || a.innerText || "").toUpperCase().indexOf(m[3].toUpperCase())>=0;
+  };
+ 
+  function filterList(header, list) { 
+      console.log("HEADER");
+      console.log(header);
+      console.log("LIST");
+      console.log(list);
+      return false;
+    var form = $("<form>").attr({"class":"filterform","action":"#"}),
+        input = $("<input>").attr({"class":"filterinput","type":"text"});
+    $(form).append(input).appendTo(header);
+ 
+    $(input)
+      .change( function () {
+        var filter = $(this).val();
+        if(filter) {
+ 	  
+		  $matches = $(list).find('a:Contains(' + filter + ')').parent();
+		  $('li', list).not($matches).slideUp();
+		  $matches.slideDown();
+		    
+        } else {
+          $(list).find("li").slideDown();
+        }
+        return false;
+      })
+    .keyup( function () {
+        $(this).change();
+    });
+  }
+ 
+  $(function () {
+//    filterList($("#form"), $("#cbxAccionesTab"));
+  });
+}(jQuery));
+                
+                
 		//Termina funcion on ready del documento
 		
 		/*
@@ -1770,8 +1817,10 @@
 	*/
 	function cargaActuaciones() {
 		$('#cbxAccionesTab').empty();
-    	$('#cbxAccionesTab').addClass("cargando");
-    	$('#tapActuaciones').addClass("cargando");
+                $('#cbxOficiosTab').empty();
+                $('#cbxAccionesTab').addClass("cargando");
+                $('#cbxOficiosTab').addClass("cargando");
+                $('#tapActuaciones').addClass("cargando");
     	
 		$.ajax({
 			type: 'POST',
@@ -1780,12 +1829,39 @@
 			dataType: 'xml',
 			async: false,
 			success: function(xml){
-				$(xml).find('catActuaciones').each(function(){
-					$('#cbxAccionesTab').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
-				});      
-        		$('#cbxAccionesTab').removeClass("cargando");
-            	$('#tapActuaciones').removeClass("cargando");
-			}
+                            var bOficios = 0;
+                            var bAcciones = 0;
+                            console.log("XML DE ACTUACIONES");
+                            console.log(xml);
+                            $(xml).find('entry').each(function(){
+                                var resp = $(this).find('respuesta').text();
+                                if(resp == "listaOficios"){
+                                    $(this).find('catActuaciones').each(function(){
+                                        bAcciones++;
+                                        $('#cbxAccionesTab').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
+                                    });
+                                }
+                                 if(resp == "listaActuaciones"){
+                                    $(this).find('catActuaciones').each(function(){
+                                        bOficios++;
+                                        $('#cbxOficiosTab').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
+                                    });
+                                }
+                                 
+                             });     
+                            $('#cbxAccionesTab').removeClass("cargando");
+                            $('#cbxOficiosTab').removeClass("cargando");
+                            $('#tapActuaciones').removeClass("cargando");
+                            if(bAcciones === 0){
+                                $( "#cbxAccionesTab" ).attr( "disabled", "disables" );
+                            }
+                            if(bOficios === 0){
+                                $( "#cbxOficiosTab" ).attr( "disabled", "disables" );
+                            }
+			},
+                        error:function(){
+                            alertDinamico("Error al obtener las actuaciones y oficios");
+                        }
 		});
 	}
 	
@@ -1887,9 +1963,15 @@
 			alertDinamico("Debe seleccionar un facilitador para realizar la asignación");	
 		}
 	}
-	
-	function seleccionaActuacion(){
-		var selected = $("#cbxAccionesTab option:selected");
+        
+        function cargarActuaciones(cbx){
+            seleccionaActuacion(cbx);
+        }
+                
+	function seleccionaActuacion(cbx){
+		var selected = $(cbx);
+                console.log("SELECTED: ");
+                console.log(selected);
 		var confActividadId=selected.val();
 		if(isEmpty(confActividadId)){
 			return;
@@ -2194,6 +2276,7 @@
 
 	function recargarActuaciones(){
 		$('#cbxAccionesTab').empty();
+                $('#cbxOficiosTab').empty();
 		cargaActuaciones();
 	} 
 	
@@ -3538,6 +3621,7 @@
 		}
 
 		function generarDocumentoSinCaso() {
+                console.log("GENERANDO DOCUMENTO SIN CASO");
 			idWindowPantallaActuaciones++;
 			$.newWindow({id:"iframewindowGenerarDocumento"+idWindowPantallaActuaciones, statusBar: true, posx:200,posy:50,width:1140,height:400,title:"Denuncia", type:"iframe", confirmarCierreVentana:confirmarCierreVentana});
 		    $.updateWindowContent("iframewindowGenerarDocumento"+idWindowPantallaActuaciones,'<iframe src="<%= request.getContextPath() %>/generarDocumentoSinCaso.do?idWindowPantallaActuaciones='+idWindowPantallaActuaciones+'" width="1140" height="400" />');
@@ -4079,11 +4163,6 @@
   			  //fin de la consulta de actividades que depende de los delitos almacenados
 		}
 		
-		
-		
-		
-		
-		
 		function validaGuardadoDefinitivo()
 		{
 			//revisamos que selecciono el tipo: Denuncia o Querella en generales
@@ -4100,6 +4179,7 @@
 					{
 						$("#btnAccDenuncia").show();
 						$("#tdCbxAccionesTab").show();
+                                                $("#tdCbxOficiosTab").show();
 						$("#btnAccQuerella").hide();
 						//revisamos si ya guardo el delito
 						if(isDelitoSaved)
@@ -4117,6 +4197,7 @@
 						$("#btnAccQuerella").show();
 						$("#btnAccDenuncia").hide();
 						$("#tdCbxAccionesTab").hide();
+                                                $("#tdCbxOficiosTab").hide();
 					}
 					banderaTipo=true;
 				}
@@ -4127,8 +4208,6 @@
 				return;
 			}
 		}
-		
-		
 		
 		function gridRelacionarDelitosTabDelito(){
 			cargaComboProbableResponsableRDPPV();
@@ -5273,6 +5352,7 @@
     	    //  var tipoSubConclusion=$(xml).find('conclusionHechoDTO').find('tipoSubConclusion').find('idCampo').text();
     	    //  $('#cbxTipoSubConclusion').find("option[value='"+tipoSubConclusion+"']").attr("selected","selected");
 		  }
+                   
 	</script>	
 </head>
 
@@ -5312,6 +5392,8 @@
 			<li class="tabTabsAmparos"><a href="#tabs-15" onclick="consultarAmparosPorExpediente()">Amparo</a></li>
 			<li class="tabTabsConclusion" id="conclusionTab"><a href="#tabsHechos-17">Conclusi&#243;n</a></li>
 		</ul>
+            
+         
 		
 		<!--COMIENZAN TABS INFERIORES DE INDIVIDUO-->
 		<div id="tabs-1" class="tabTabsInv">		
@@ -5954,8 +6036,20 @@
 						</td>
 					</tr>
 					<tr id="trActuaciones">
-						<td id="tdCbxAccionesTab1">Actuaciones:</td>
+						<td id="tdCbxAccionesTab1">
+                                                    <!--Actuaciones:--> 
+                                                    <div id="wrap">
+<div class="product-head"> 
+  <h1>Product Search</h1> 
+    <div id="form"></div>
+    <div class="clear"></div>
+</div>
+                                                </td>
 						<td id="tdCbxAccionesTab"><select size="20" id="cbxAccionesTab" style="width:470px">
+							 <!--<option value="-1">-Seleccione-</option>--> 
+						</select></td>
+                                                <td id="tdCbxOficiosTab1">Oficios:</td>
+						<td id="tdCbxOficiosTab"><select size="20" id="cbxOficiosTab" style="width:470px">
 							<!-- <option value="-1">-Seleccione-</option> -->
 						</select></td>
 						<td>
@@ -5967,7 +6061,7 @@
 									</tr>
 									<tr>
 										<td>
-												<button value="Adjuntar documento" id="btnAdjuntarDocumento" class="btn_Generico" onclick="abreVentanaAdjuntarDocumentoAExpediente()" style="width: 100%;">Adjuntar documento</button>
+												<!--<button value="Adjuntar documento" id="btnAdjuntarDocumento" class="btn_Generico" onclick="abreVentanaAdjuntarDocumentoAExpediente()" style="width: 100%;">Adjuntar documento</button>-->
 										</td>
 									</tr>
 									<tr>
@@ -6061,6 +6155,8 @@
 		</div>
 		<div id="tabs-11" class="tabTabsDocs">
 		<br>
+                <div><button value="Adjuntar documento" id="btnAdjuntarDocumento" class="btn_Generico" onclick="abreVentanaAdjuntarDocumentoAExpediente()" style="width: 10%;">Adjuntar documento</button></div>
+                <div style="height: 10px;"></div>					
 			<table id="gridDetalleFrmPrincipal"></table>
 			<div id="pager1Documentos"></div>
 			<form name="frmDoc" action="<%= request.getContextPath() %>/ConsultarContenidoArchivoDigital.do" method="post">
@@ -6070,6 +6166,7 @@
 					<input type="hidden" name="formaId" />
 					<input type="hidden" name="numeroUnicoExpediente" />
 				</form>
+                                        
 		</div>
 		<div id="tabs-12" class="tabTabsAudiencias">
 		<br>
@@ -6576,6 +6673,7 @@ function ocultaElementosDelVisor(){
 	}
 	if(idRolActivo == '<%=Roles.POLICIAMINISTER.getValorId()%>'){
 	    $("#cbxAccionesTab").attr("disabled","");
+            $("#cbxOficiosTab").attr("disabled","");
 	}
 	//Periciales
 	//Policia ministerial

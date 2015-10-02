@@ -269,7 +269,8 @@ public class GuardarDocumentoServiceImpl implements GuardarDocumentoService {
 				}
 			}	
 			
-			
+			LOGGER.info("DOCUMENTO QUE VOY A CREAR");
+                        LOGGER.info(docBD);
 			idDocumentoGen = documentoDAO.create(docBD);
 
 			actividadActual.setDocumento(docBD);
