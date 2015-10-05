@@ -79,7 +79,6 @@ public class RegistrarActividadServiceImpl implements RegistrarActividadService 
 		Actividad act=new Actividad();
 		act.setExpediente(new Expediente(expedienteDTO.getExpedienteId()));
 		act.setFuncionario(new Funcionario(funcionarioDTO.getClaveFuncionario()));
-                logger.info("FUNCIONARIO PARA REALIZAR LA ACTIVIDAD: " + funcionarioDTO.getClaveFuncionario());
 		act.setTipoActividad(new Valor(tipoActividad));
 		act.setFechaCreacion(new Date());
 		
