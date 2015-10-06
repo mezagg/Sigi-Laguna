@@ -202,6 +202,12 @@ public class ExpedienteDelegateImpl implements ExpedienteDelegate {
 			throws NSJPNegocioException {
 		return this.asignarNoService.asignarNumeroExpediente(turno);
 	}
+        
+        @Override
+	public ExpedienteDTO asignarNumeroExpedienteSinCaso(TurnoDTO turno)
+			throws NSJPNegocioException {
+		return this.asignarNoService.asignarNumeroExpedienteSinCaso(turno);
+	}
 
 	@Override
 	public ExpedienteDTO generarExpJusticaAltRest(ExpedienteDTO expedienteDTO)

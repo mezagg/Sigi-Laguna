@@ -93,6 +93,24 @@ public interface AsignarNumeroExpedienteService {
      */
     public ExpedienteDTO asignarNumeroExpediente(TurnoDTO turno)
             throws NSJPNegocioException;
+
+        /**
+     * Genera un nuevo número de expediente a partir de un turno.<br>
+     * Al generar el número guarda un expediente en la BD sin generar un caso.
+     * 
+     * @param TurnoDTO
+     *            Obligatorios <b>turnoId, usuario.idUsuario</b>.
+     * @return <ul>
+     *         <li>expedienteId</il>
+     *         <li>numeroExpediente</il>
+     *         <li>fechaApertura</il>
+     *         </ul>
+     * @throws NSJPNegocioException
+     *             En caso de ocurrir algún error.
+     */
+    public ExpedienteDTO asignarNumeroExpedienteSinCaso(TurnoDTO turno)
+            throws NSJPNegocioException;
+    
     /**
      * Asigna un numero de expediente a una solicitud
      * @param numeroExpedienteId Numero de expediente a asignar
