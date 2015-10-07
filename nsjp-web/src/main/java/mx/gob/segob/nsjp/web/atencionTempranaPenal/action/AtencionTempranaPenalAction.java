@@ -1565,6 +1565,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
                         if (confActividadDocumentoDTO.getConfActividadDocumentoId().compareTo(confActividadDocumentoDTO2.getConfActividadDocumentoId()) == 0) {
                             catalogo.setClave(confActividadDocumentoDTO.getConfActividadDocumentoId());
                             catalogo.setValor(confActividadDocumentoDTO.getNombreActividad());
+                            //El tipo documento con id 86 es de tipo oficio
                             if (confActividadDocumentoDTO.getTipoDocumentoId().toString().equals("89")) {
                                 listaOficio.add(catalogo);
                             } else {

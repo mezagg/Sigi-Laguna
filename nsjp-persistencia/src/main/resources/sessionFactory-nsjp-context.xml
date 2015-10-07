@@ -291,6 +291,8 @@
 				<value>mx.gob.segob.nsjp.model.Region</value>
 			<!-- Enable IT JC Otorgar Permisos en UAVD -->
 				<value>mx.gob.segob.nsjp.model.PermisoSolicitud</value>
+                                
+                                <value>mx.gob.segob.nsjp.model.CatUIEConfActDocumeto</value>
 			</list>
 		</property>
 	</bean>

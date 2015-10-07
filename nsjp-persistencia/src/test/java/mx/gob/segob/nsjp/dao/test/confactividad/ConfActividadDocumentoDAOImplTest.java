@@ -159,7 +159,7 @@ public class ConfActividadDocumentoDAOImplTest extends BaseTestPersistencia<Conf
 	Long jerarquiaOrganizacionalId = 10L;
 	
 	Long idCategoriaActidad = 2597L;
-	
+        
 	List<ConfActividadDocumento> listaConfActividadDocumento = daoServcice.consultarConfActividadDocumento(jerarquiaOrganizacionalId, numeroExpediente, idCategoriaActidad);
    	assertFalse("La lista debe de regresar almenos un valor", listaConfActividadDocumento.isEmpty());
    	logger.info(" #: "+ listaConfActividadDocumento.size());
