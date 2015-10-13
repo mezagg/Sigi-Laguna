@@ -225,6 +225,9 @@
 		var valorParametroNumExpAlterno = 0;
 		//Comienza funcion on ready del documento
 		$(document).ready(function() {
+                    
+                   
+                        
 			valorParametroNumExpAlterno = consultaParametroNumExpAlterno();
 			
 			//Permite abrir el visor de solo consulta
@@ -912,14 +915,28 @@
 				$('#tabschild-op').hide();
 			}
 			
-			$("#cbxAccionesTab").dblclick(function(e){
-                            cargarActuaciones("#cbxAccionesTab option:selected");
+			$("#cbxAccionesTab").click(function(e){
+//                        $("#cbxAccionesTab").dblclick(function(e){
+//                            cargarActuaciones("#cbxAccionesTab option:selected");
+                            seleccionaActuacion("#cbxAccionesTab lioption:selected");
 			}); 
                         
-                        $("#cbxOficiosTab").dblclick(function(e){
-                            cargarActuaciones("#cbxOficiosTab option:selected");
-			}); 
-			
+//                        $("#cbxOficiosTab").click(function(e){
+//                            console.log("E" );
+//                            console.log(e);
+//                            $( '#cbxOficiosTab li' ).each(function( index, elem ) {
+//                                console.log("index " + index + ": ");
+//                                console.log("element ");
+//                                console.log(elem);
+//                            });
+//                            seleccionaActuacion("#cbxOficiosTab option:selected");
+//			});
+
+                        $( '#cbxOficiosTab li' ).click(function() {
+                            $( this ).addClass( 'clicked' );
+                            console.log( 'di click' );
+                        });
+                                                
 			//cargamos el combo para las actuaciones de policia ministerial
 			$("#cbxAccionesTab9").dblclick(function(e){
 				seleccionaActuacionPolMin();
@@ -1470,47 +1487,7 @@
 			
 			consultarConclusion();
                       
-		});
-                
-                (function ($) {
-  jQuery.expr[':'].Contains = function(a,i,m){
-      return (a.textContent || a.innerText || "").toUpperCase().indexOf(m[3].toUpperCase())>=0;
-  };
- 
-  function filterList(header, list) { 
-      console.log("HEADER");
-      console.log(header);
-      console.log("LIST");
-      console.log(list);
-      return false;
-    var form = $("<form>").attr({"class":"filterform","action":"#"}),
-        input = $("<input>").attr({"class":"filterinput","type":"text"});
-    $(form).append(input).appendTo(header);
- 
-    $(input)
-      .change( function () {
-        var filter = $(this).val();
-        if(filter) {
- 	  
-		  $matches = $(list).find('a:Contains(' + filter + ')').parent();
-		  $('li', list).not($matches).slideUp();
-		  $matches.slideDown();
-		    
-        } else {
-          $(list).find("li").slideDown();
-        }
-        return false;
-      })
-    .keyup( function () {
-        $(this).change();
-    });
-  }
- 
-  $(function () {
-//    filterList($("#form"), $("#cbxAccionesTab"));
-  });
-}(jQuery));
-                
+		
                 
 		//Termina funcion on ready del documento
 		
@@ -1815,16 +1792,21 @@
 	/*
 	*Funcion que realiza la carga del combo de Actuaciones
 	*/
-	function cargaActuaciones() {
+	function cargaActuaciones(sinCatuie) {
 		$('#cbxAccionesTab').empty();
                 $('#cbxOficiosTab').empty();
                 $('#cbxAccionesTab').addClass("cargando");
                 $('#cbxOficiosTab').addClass("cargando");
                 $('#tapActuaciones').addClass("cargando");
-    	
+                var url = '';
+                if(sinCatuie){
+                    url =  '<%= request.getContextPath()%>/cargarActuaciones.do?numeroExpediente='+numeroExpediente+'&sinCatuie='+sinCatuie;
+                }else{
+                    url =  '<%= request.getContextPath()%>/cargarActuaciones.do?numeroExpediente='+numeroExpediente;
+                }
 		$.ajax({
 			type: 'POST',
-			url: '<%= request.getContextPath()%>/cargarActuaciones.do?numeroExpediente='+numeroExpediente,
+			url: url,
 			data: '',
 			dataType: 'xml',
 			async: false,
@@ -1838,13 +1820,16 @@
                                 if(resp == "listaOficios"){
                                     $(this).find('catActuaciones').each(function(){
                                         bAcciones++;
-                                        $('#cbxAccionesTab').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
+                                        $('#cbxAccionesTab').append('<li id="' + $(this).find('clave').text() + '"><img src="<%=request.getContextPath() %>/resources/images/play.png" width="30" height="30" align="absmiddle"/><a href="#">' + $(this).find('valor').text() + '</a></li>');
+//                                        $('#cbxAccionesTab').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
+                                   
                                     });
                                 }
                                  if(resp == "listaActuaciones"){
                                     $(this).find('catActuaciones').each(function(){
                                         bOficios++;
-                                        $('#cbxOficiosTab').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
+//                                        $('#cbxOficiosTab').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
+                                          $('#cbxOficiosTab').append('<li id="' + $(this).find('clave').text() + '"><img src="<%=request.getContextPath() %>/resources/images/oficio.jpg" width="30" height="30" align="absmiddle"/><a href="#">' + $(this).find('valor').text() + '</a></li>');
                                     });
                                 }
                                  
@@ -1864,6 +1849,13 @@
                         }
 		});
 	}
+        
+        $("input[name='rdActuaciones']").click(function(e) {
+                        console.log(e);
+                        console.log("ID: " + $(this).attr("id"));
+                        var sinCatuie = $(':radio[name=rdActuaciones]:checked').val();
+                        cargaActuaciones(sinCatuie);
+        });
 	
 	/*
 	*Funcion que realiza la carga del combo de Actuaciones de policia ministerial
@@ -1963,16 +1955,19 @@
 			alertDinamico("Debe seleccionar un facilitador para realizar la asignación");	
 		}
 	}
-        
-        function cargarActuaciones(cbx){
-            seleccionaActuacion(cbx);
-        }
                 
 	function seleccionaActuacion(cbx){
 		var selected = $(cbx);
                 console.log("SELECTED: ");
                 console.log(selected);
-		var confActividadId=selected.val();
+		var confActividadId = selected.attr("id");
+                console.log("1 ID DE LA ACTIVIDAD: " + selected.attr("id"));
+                console.log("2 ID DE LA ACTIVIDAD: " + selected.val());
+                console.log("3 ID DE LA ACTIVIDAD: " + selected.text());
+                console.log("id 1: ");
+                 console.log($('#cbxOficiosTab li').attr("id"));
+                console.log("id 2: ");
+                console.log($('#cbxOficiosTab li option:selected').attr("id"));
 		if(isEmpty(confActividadId)){
 			return;
 		}
@@ -2334,7 +2329,7 @@
 		    $.updateWindowContent("iframewindowGenerarDocumento"+idWindowPantallaActuaciones,'<iframe src="<%= request.getContextPath() %>/generarDocumentoSinCaso.do?formaId='+formaID+'&numeroUnicoExpediente='+numeroExpediente+'&actividadId='+actividad+'&idNumeroExpediente='+idNumeroExpedienteOp+'&esTransaccional='+true+'&idWindowPantallaActuaciones='+idWindowPantallaActuaciones+'" width="1140" height="400" />');
 		    recargarActuaciones();						
 		}
-    }
+        }
 	
 	function canalizarInvestigadoresNoExisteDelitoGrave(actividad,estatusId,titulo, formaID, numeroExpediente ){
 		//verificamos si se tienen relaciones de delito-persona o delito-delito
@@ -4905,7 +4900,41 @@
 			else
 				alertDinamico("No existen delito(s) registrado(s) en el expediente");
 		}
-		
+                
+                
+                (function ($) {
+  jQuery.expr[':'].Contains = function(a,i,m){
+      return (a.textContent || a.innerText || "").toUpperCase().indexOf(m[3].toUpperCase())>=0;
+  };
+ 
+  function filterList(header, list) { 
+    var form = $("<form>").attr({"class":"filterform","action":"#"}),
+        input = $("<input>").attr({"class":"filterinput","type":"text"});
+    $(form).append(input).appendTo(header);
+ 
+    $(input).change( function () {
+        var filter = $(this).val();
+        if(filter) {
+            $matches = $(list).find('a:Contains(' + filter + ')').parent();
+            $('li', list).not($matches).slideUp();
+            $matches.slideDown();
+        } else {
+            $(list).find("li").slideDown();
+        }
+        return false;
+    }).keyup( function () {
+        $(this).change();
+       });
+  }
+ 
+  $(function () {
+    filterList($("#formO"), $("#cbxOficiosTab"));
+    filterList($("#formA"), $("#cbxAccionesTab"));
+  });
+}(jQuery));
+                
+                
+	});
 
 	</script>
 	
@@ -5352,6 +5381,10 @@
     	    //  var tipoSubConclusion=$(xml).find('conclusionHechoDTO').find('tipoSubConclusion').find('idCampo').text();
     	    //  $('#cbxTipoSubConclusion').find("option[value='"+tipoSubConclusion+"']").attr("selected","selected");
 		  }
+                  
+                  
+
+ 
                    
 	</script>	
 </head>
@@ -6017,7 +6050,7 @@
 				</ul>				
 				<div id="tabschild7-1">					
 					
-				<table width="850" border="0" cellspacing="0" cellpadding="0" id="tablaAcuseNoPenal">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" id="tablaAcuseNoPenal">
 					<tr>
 						<td id="tdCbxAgentesCoorJAR1">Facilitadores:</td>
 						<td id="tdCbxAgentesCoorJAR"><select id="cbxAgentesCoorJAR" style="width:470px">
@@ -6036,22 +6069,49 @@
 						</td>
 					</tr>
 					<tr id="trActuaciones">
-						<td id="tdCbxAccionesTab1">
-                                                    <!--Actuaciones:--> 
-                                                    <div id="wrap">
-<div class="product-head"> 
-  <h1>Product Search</h1> 
-    <div id="form"></div>
-    <div class="clear"></div>
-</div>
+                                            <td>
+                                                <tr>
+                                                    <td>
+                                                        <span id="actuacionesUie">Mostrar Actuaciones:
+                                                            <span id="conUaei"> 
+                                                                <input type="radio" id="rdbConUaei" value="0" name="rdActuaciones"/>Todas
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                            </span>
+                                                            <span id="sinUaei">
+                                                                <input type="radio" id="rdbSinUaei" value="1" name="rdActuaciones" checked="checked" />Unidad Especializada 
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                            </span>				
+                                                        </span>
+                                                    </td>
+                                                 </tr>
+                                                 <tr></tr>
+                                                 <tr>
+                                                     <td id="tdCbxAccionesTab1" width="50%">
+                                                         <div id="wrapA">
+                                                            Actuaciones:
+                                                            <div id="formA"></div>
+                                                            <div class="clear"></div>
+                                                         </div>
+                                         
+                                                     </td>
+                                                     <td id="tdCbxOficiosTab1" width="100%">
+                                                        <div id="wrapO">
+                                                            Oficios:
+                                                            <div id="formO"></div>
+                                                            <div class="clear"></div>
+                                                        </div>
+                                                     </td>
+                                                 </tr>
+                                                 <tr>
+                                                     <td id="tdCbxAccionesTab" style="vertical-align:top">
+                                                        <ul id="cbxAccionesTab" style="list-style:none" ></ul>
+                                                    </td>
+                                                    <td id="tdCbxOficiosTab" style="vertical-align:top">
+                                                    <ul id="cbxOficiosTab" style="list-style:none" ></ul>
                                                 </td>
-						<td id="tdCbxAccionesTab"><select size="20" id="cbxAccionesTab" style="width:470px">
-							 <!--<option value="-1">-Seleccione-</option>--> 
-						</select></td>
-                                                <td id="tdCbxOficiosTab1">Oficios:</td>
-						<td id="tdCbxOficiosTab"><select size="20" id="cbxOficiosTab" style="width:470px">
-							<!-- <option value="-1">-Seleccione-</option> -->
-						</select></td>
+                                                 </tr>
+                                            </td>
+                                           
 						<td>
 								<table>
 									<tr>

@@ -151,6 +151,70 @@ public class ConsultarConfActividadDocumentoServiceImpl implements
         }
         return configuracionesDto;
     }
+    
+    @Override
+    public List<ConfActividadDocumentoDTO> consultarConfActividadDocumento(
+            UsuarioDTO usuarioDto, ExpedienteDTO expedienteDto, Long idCategoriaActividad, Boolean sinCatUie)
+            throws NSJPNegocioException {
+        if (usuarioDto == null || usuarioDto.getIdUsuario() == null || expedienteDto == null
+                || (expedienteDto.getNumeroExpediente() == null && expedienteDto.getNumeroExpedienteId() == null)) {
+            throw new NSJPNegocioException(CodigoError.PARAMETROS_INSUFICIENTES);
+        }
+        Long jerarquiaOrgId = null;
+        Long discriminante = null;
+        Long catUIE = null;
+        if (usuarioDto.getRolACtivo() != null
+                && usuarioDto.getRolACtivo().getRol() != null
+                && usuarioDto.getRolACtivo().getRol().getJerarquiaOrganizacionalDTO() != null
+                && usuarioDto.getRolACtivo().getRol().getJerarquiaOrganizacionalDTO().getJerarquiaOrganizacionalId() != null) {
+            jerarquiaOrgId = usuarioDto.getRolACtivo().getRol().getJerarquiaOrganizacionalDTO().getJerarquiaOrganizacionalId();
+        }
+        Usuario usuario = UsuarioTransformer.transformarDTO(usuarioDto);
+        List<ConfActividadDocumentoDTO> configuracionesDto = Collections.emptyList();
+        if (usuario.getFuncionario() == null
+                || usuario.getFuncionario().getArea() == null) {
+            usuario = usuarioDao.read(usuarioDto.getIdUsuario());
+        }
+        NumeroExpediente numeroExpediente;
+        if (expedienteDto.getNumeroExpedienteId() != null && expedienteDto.getNumeroExpedienteId() > 0) {
+            numeroExpediente = NumeroExpedienteDAO.read(expedienteDto.getNumeroExpedienteId());
+        } else {
+            numeroExpediente = NumeroExpedienteDAO.obtenerNumeroExpediente(expedienteDto.getNumeroExpediente(), null);
+        }
+
+        if (numeroExpediente == null) {
+            if (logger.isDebugEnabled()) {
+                logger.debug("No ex posible encontrar el expediente con numero = "
+                        + expedienteDto.getNumeroExpediente());
+            }
+            throw new NSJPNegocioException(CodigoError.PARAMETROS_INSUFICIENTES);
+        }
+        Funcionario funcionario = usuario.getFuncionario();
+        if (jerarquiaOrgId == null) {
+            jerarquiaOrgId = funcionario.getArea().getJerarquiaOrganizacionalId();
+        }
+        discriminante = funcionario.getDiscriminante().getCatDiscriminanteId();
+        if (discriminante != null) {
+            catUIE = confActividadDocumentoDao.consultarCatUieIdFuncionario(discriminante);
+            logger.info("EL CATUIE DEL USUARIO ES: " + catUIE);
+        }
+        List<ConfActividadDocumento> configuraciones = null;
+        if (catUIE != null && !sinCatUie) {
+            configuraciones = confActividadDocumentoDao.consultarConfActividadDocumentoCatUie(jerarquiaOrgId, numeroExpediente, idCategoriaActividad, catUIE);
+        } else {
+            configuraciones = confActividadDocumentoDao.consultarConfActividadDocumento(jerarquiaOrgId, numeroExpediente, idCategoriaActividad);
+        }
+        if (configuraciones != null & !configuraciones.isEmpty()) {
+            configuracionesDto = new LinkedList<ConfActividadDocumentoDTO>();
+            for (ConfActividadDocumento confActividadDocumento : configuraciones) {
+                ConfActividadDocumentoDTO configuracionDto
+                        = ConfActividadDocumentoTransformer.
+                        transformarConfActividadDocumento(confActividadDocumento);
+                configuracionesDto.add(configuracionDto);
+            }
+        }
+        return configuracionesDto;
+    }
 
     @Override
     public List<ConfActividadDocumentoDTO> consultarConfActividadDocumentoFiltro(
@@ -178,6 +242,7 @@ public class ConsultarConfActividadDocumentoServiceImpl implements
         return configuracionesDto;
     }
 
+    @Override
     public ConfActividadDocumentoDTO consultaConfActividadDocumentoPorId(Long idConfActividadDocumento) throws NSJPNegocioException {
         logger.info("Servicion consultaConfActividadDocumentoPorIdActividad");
         if (idConfActividadDocumento == null || idConfActividadDocumento < 0) {
@@ -194,7 +259,7 @@ public class ConsultarConfActividadDocumentoServiceImpl implements
 
         return confActividadDocumentoDTO;
     }
-
+    
     @Override
     public List<ValorDTO> consultarEstadosPorJerarquiaOrganizacional(Long idJerarquiaOrganizacional) throws NSJPNegocioException {
         if (idJerarquiaOrganizacional == null || idJerarquiaOrganizacional < 0L) {
@@ -299,5 +364,10 @@ public class ConsultarConfActividadDocumentoServiceImpl implements
         }
         ConfActividadDocumento conf = confActividadDocumentoDao.consultaConfActividadDocumentoPorIdActividad(filtro.getTipoActividadId());
         return ConfActividadDocumentoTransformer.transformarConfActividadDocumento(conf);
+    }
+
+    @Override
+    public ConfActividadDocumentoDTO consultaConfActividadDocumentoPorId(Long idConfActividadDocumento, Boolean sinCauie) throws NSJPNegocioException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

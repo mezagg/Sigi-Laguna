@@ -1734,6 +1734,7 @@ function muestraDivInformativoCanalizacion()
 					<li class="tabJuridica"><a href="#tabsconsultaprincipal-7">Atención Jurídica</a></li>
 					<li id="tabNotas"><a href="#tabsconsultaprincipal-5">Notas</a></li>
 					<li class="tabTabsDocs"><a href="#tabsconsultaprincipal-8" onclick="documentos()">Documentos</a></li>
+                                        <li class="tabTabsAcciones"><a href="#tabs-7" id="tapActuaciones">Actuaciones</a></li>
 			
 					
 				</ul>

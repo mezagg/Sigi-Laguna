@@ -70,6 +70,11 @@ public interface ConsultarConfActividadDocumentoService {
             UsuarioDTO usuario, ExpedienteDTO expedienteDto, Long idCategoriaActividad)
             throws NSJPNegocioException;
     
+    
+    List<ConfActividadDocumentoDTO> consultarConfActividadDocumento(
+            UsuarioDTO usuario, ExpedienteDTO expedienteDto, Long idCategoriaActividad, Boolean sinCatUie)
+            throws NSJPNegocioException;
+    
     /**
      * Consulta la Configuracion del la Actividad de Documento de acuerdo
      * al id
@@ -78,6 +83,8 @@ public interface ConsultarConfActividadDocumentoService {
      * @return
      */
     ConfActividadDocumentoDTO consultaConfActividadDocumentoPorId(Long idConfActividadDocumento) throws NSJPNegocioException;
+    
+    ConfActividadDocumentoDTO consultaConfActividadDocumentoPorId(Long idConfActividadDocumento, Boolean sinCauie) throws NSJPNegocioException;
 
     /**
      * Consulta los estatus asociados a una Jerarquia Organizacional dentro

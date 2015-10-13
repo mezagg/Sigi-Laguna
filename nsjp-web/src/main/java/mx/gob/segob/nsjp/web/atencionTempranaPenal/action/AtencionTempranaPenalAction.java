@@ -1512,6 +1512,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             log.debug("ID DE LA CATEGORIA=" + idCategoria);
 
             String numeroExpediente = request.getParameter("numeroExpediente");
+            String sinCatuie = request.getParameter("sinCatuie");
             Long numeroExpedienteId = NumberUtils.toLong(request.getParameter("numeroExpedienteId"), 0);
             log.debug("ejecutando MetodoAction cargarActuaciones numeroExpediente ###" + numeroExpediente);
             //Codigo que implementa la funcionalidad de sub rol y filtra sus actuaciones
@@ -1546,13 +1547,25 @@ public class AtencionTempranaPenalAction extends GenericAction {
             List<CatalogoDTO> listaOficio = new ArrayList<CatalogoDTO>();
 
             List<ConfActividadDocumentoDTO> listActividadDocumentoDTOs = new ArrayList<ConfActividadDocumentoDTO>();
-            if (idCategoria == null) {
-                log.debug("ENTRA A ID DE LA CATEGORIA NULA:::::::idCategoria=" + idCategoria);
-                listActividadDocumentoDTOs = confActividadDocumentoDelegate.consultarConfActividadDocumento(usuario, expedienteDto, null);
-            } else {
-                log.debug("ENTRA A ID DE LA CATEGORIA NO NULA::::idCategoria=" + idCategoria);
-                listActividadDocumentoDTOs = confActividadDocumentoDelegate.consultarConfActividadDocumento(usuario, expedienteDto, Long.parseLong(idCategoria));
+            log.info("ACA ESTA !sinCatuie" + sinCatuie);
+            if (sinCatuie == null || sinCatuie.equals("1")) {
+                if (idCategoria == null) {
+                    log.debug("ENTRA A ID DE LA CATEGORIA NULA:::::::idCategoria=" + idCategoria);
+                    listActividadDocumentoDTOs = confActividadDocumentoDelegate.consultarConfActividadDocumento(usuario, expedienteDto, null);
+                } else {
+                    log.debug("ENTRA A ID DE LA CATEGORIA NO NULA::::idCategoria=" + idCategoria);
+                    listActividadDocumentoDTOs = confActividadDocumentoDelegate.consultarConfActividadDocumento(usuario, expedienteDto, Long.parseLong(idCategoria));
+                }
+            }else{
+                if (idCategoria == null) {
+                    log.debug("ENTRA A ID DE LA CATEGORIA NULA:::::::idCategoria=" + idCategoria);
+                    listActividadDocumentoDTOs = confActividadDocumentoDelegate.consultarConfActividadDocumento(usuario, expedienteDto, null, Boolean.TRUE);
+                } else {
+                    log.debug("ENTRA A ID DE LA CATEGORIA NO NULA::::idCategoria=" + idCategoria);
+                    listActividadDocumentoDTOs = confActividadDocumentoDelegate.consultarConfActividadDocumento(usuario, expedienteDto, Long.parseLong(idCategoria), Boolean.TRUE);
+                }
             }
+
             log.debug("ejecutando MetodoAction cargarActuaciones lista respuesta tamano" + listActividadDocumentoDTOs.size());
             log.debug("ejecutando MetodoAction cargarActuaciones lista respuesta " + listActividadDocumentoDTOs);
             listaCatalogo = new ArrayList<CatalogoDTO>();
