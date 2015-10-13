@@ -914,29 +914,15 @@
 			}else{
 				$('#tabschild-op').hide();
 			}
-			
-			$("#cbxAccionesTab").click(function(e){
-//                        $("#cbxAccionesTab").dblclick(function(e){
-//                            cargarActuaciones("#cbxAccionesTab option:selected");
-                            seleccionaActuacion("#cbxAccionesTab lioption:selected");
-			}); 
-                        
-//                        $("#cbxOficiosTab").click(function(e){
-//                            console.log("E" );
-//                            console.log(e);
-//                            $( '#cbxOficiosTab li' ).each(function( index, elem ) {
-//                                console.log("index " + index + ": ");
-//                                console.log("element ");
-//                                console.log(elem);
-//                            });
-//                            seleccionaActuacion("#cbxOficiosTab option:selected");
-//			});
 
-                        $( '#cbxOficiosTab li' ).click(function() {
-                            $( this ).addClass( 'clicked' );
-                            console.log( 'di click' );
+                        $("#cbxAccionesTab").delegate('a','click',function(event) {
+                              seleccionaActuacion($(this).selectable());
                         });
-                                                
+                        
+                        $("#cbxOficiosTab").delegate('a','click',function(event) {
+                              seleccionaActuacion($(this).selectable());
+                        });
+                
 			//cargamos el combo para las actuaciones de policia ministerial
 			$("#cbxAccionesTab9").dblclick(function(e){
 				seleccionaActuacionPolMin();
@@ -1820,7 +1806,7 @@
                                 if(resp == "listaOficios"){
                                     $(this).find('catActuaciones').each(function(){
                                         bAcciones++;
-                                        $('#cbxAccionesTab').append('<li id="' + $(this).find('clave').text() + '"><img src="<%=request.getContextPath() %>/resources/images/play.png" width="30" height="30" align="absmiddle"/><a href="#">' + $(this).find('valor').text() + '</a></li>');
+                                        $('#cbxAccionesTab').append('<li data-value="' + $(this).find('clave').text() + '"><img src="<%=request.getContextPath() %>/resources/images/oficio.jpg" width="30" height="30" align="absmiddle"/><a href="#" class="actuaciones" idselected="'+$(this).find('clave').text()+'">' + $(this).find('valor').text() + '</a></li>');
 //                                        $('#cbxAccionesTab').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
                                    
                                     });
@@ -1829,7 +1815,7 @@
                                     $(this).find('catActuaciones').each(function(){
                                         bOficios++;
 //                                        $('#cbxOficiosTab').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
-                                          $('#cbxOficiosTab').append('<li id="' + $(this).find('clave').text() + '"><img src="<%=request.getContextPath() %>/resources/images/oficio.jpg" width="30" height="30" align="absmiddle"/><a href="#">' + $(this).find('valor').text() + '</a></li>');
+                                          $('#cbxOficiosTab').append('<li data-value="' + $(this).find('clave').text() + '"><img src="<%=request.getContextPath() %>/resources/images/play.png" width="30" height="30" align="absmiddle"/><a href="#" idselected="'+$(this).find('clave').text()+'">' + $(this).find('valor').text() + '</a></li>');
                                     });
                                 }
                                  
@@ -1956,18 +1942,9 @@
 		}
 	}
                 
-	function seleccionaActuacion(cbx){
-		var selected = $(cbx);
-                console.log("SELECTED: ");
-                console.log(selected);
-		var confActividadId = selected.attr("id");
-                console.log("1 ID DE LA ACTIVIDAD: " + selected.attr("id"));
-                console.log("2 ID DE LA ACTIVIDAD: " + selected.val());
-                console.log("3 ID DE LA ACTIVIDAD: " + selected.text());
-                console.log("id 1: ");
-                 console.log($('#cbxOficiosTab li').attr("id"));
-                console.log("id 2: ");
-                console.log($('#cbxOficiosTab li option:selected').attr("id"));
+	function seleccionaActuacion(a){
+		var selected = $(a);
+                var confActividadId = selected.attr('idselected');
 		if(isEmpty(confActividadId)){
 			return;
 		}
