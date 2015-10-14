@@ -142,7 +142,7 @@ public class AudienciaDAOImpl extends GenericDaoHibernateImpl<Audiencia, Long>
 				qryStr.append(DateUtils.formatearBD(fecIni));
 				if (!diaCompleto) {
 					final SimpleDateFormat sdf = new SimpleDateFormat(
-							"yyyy/dd/MM HH:mm:ss.SSS");
+							"yyyy/MM/dd HH:mm:ss.SSS");
 					qryStr.append(" AND a.fechaAudiencia >= ('");
 					qryStr.append(sdf.format(fecIni));
 					qryStr.append("')");
@@ -217,7 +217,7 @@ public class AudienciaDAOImpl extends GenericDaoHibernateImpl<Audiencia, Long>
 				qs.append(DateUtils.formatearBD(fecIni));
 				if (!diaCompleto) {
 					final SimpleDateFormat sdf = new SimpleDateFormat(
-							"yyyy/dd/MM HH:mm:ss.SSS");
+							"yyyy/MM/dd HH:mm:ss.SSS");
 					qs.append(" AND a.fechaAudiencia >= ('");
 					qs.append(sdf.format(fecIni));
 					qs.append("')");
@@ -544,7 +544,7 @@ public class AudienciaDAOImpl extends GenericDaoHibernateImpl<Audiencia, Long>
 		
 		if (fechaInicio != null && fechaFin != null){
 			
-			final SimpleDateFormat sdf = new SimpleDateFormat("yyyy/dd/MM HH:mm:ss");
+			final SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 			
 			queryString.append(" a.fechaAudiencia BETWEEN ('");
 			queryString.append(sdf.format(fechaInicio));
