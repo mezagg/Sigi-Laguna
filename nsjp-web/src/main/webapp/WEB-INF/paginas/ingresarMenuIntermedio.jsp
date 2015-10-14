@@ -4886,7 +4886,7 @@
  
   function filterList(header, list) { 
     var form = $("<form>").attr({"class":"filterform","action":"#"}),
-        input = $("<input>").attr({"class":"filterinput","type":"text"});
+        input = $("<input>").attr({"class":"filterinput","type":"text","size":"80"});
     $(form).append(input).appendTo(header);
  
     $(input).change( function () {
@@ -6081,10 +6081,10 @@
                                                  </tr>
                                                  <tr>
                                                      <td id="tdCbxAccionesTab" style="vertical-align:top">
-                                                        <ul id="cbxAccionesTab" style="list-style:none" ></ul>
+                                                        <ul id="cbxAccionesTab" style="list-style:none; width: 600px; height: 400px; overflow: auto;" ></ul>
                                                     </td>
                                                     <td id="tdCbxOficiosTab" style="vertical-align:top">
-                                                    <ul id="cbxOficiosTab" style="list-style:none" ></ul>
+                                                    <ul id="cbxOficiosTab" style="list-style:none; width: 600px; height: 400px; overflow: auto;" ></ul>
                                                 </td>
                                                  </tr>
                                             </td>
