@@ -447,7 +447,7 @@ public class MedidasCautelaresAction extends GenericAction{
 		if(medidaCautelarDTO!= null && medidaCautelarDTO.getConfInstitucion()!=null){
 			Instituciones institucionDestino = null;
 			//Replicar a las instituciones de PGJ
-			institucionDestino =Instituciones.PGJ;
+			institucionDestino =Instituciones.SSP;
 			log.info("Institucion:"+ institucionDestino);
 			Boolean actualizacionExitosa  = medidasCautelaresDelegate.actualizarEstatusMedidaCautelarInstitucion(medidaCautelarId, institucionDestino);
 			log.info("actualizacionExitosa"+actualizacionExitosa);
@@ -601,7 +601,7 @@ public class MedidasCautelaresAction extends GenericAction{
 					actividadDTO.setActividadId(ConfActividadDocumento.GENERAR_DOCUMENTO_DE_CAMBIO_DE_ESTATUS_DE_MEDIDA_CAUTELAR.getValorId());
 					documento.setActividadDTO(actividadDTO);
 					lstDocumentoDTO.add(documento);
-					documentoDelegate.enviarDocumentoAInstitucion(lstDocumentoDTO, numeroGeneralCaso, Instituciones.PGJ);
+					documentoDelegate.enviarDocumentoAInstitucion(lstDocumentoDTO, numeroGeneralCaso, Instituciones.SSP);
 				}
 			
 			}
