@@ -1,3 +1,6 @@
+select * from [CatDiscriminante]
+
+[CatDiscriminante]
 insert into [dbo].[CatDiscriminante] ( [bOpUIE], [cClaveDiscriminante], [catDistrito_id], [iTipo], [cNombre], [region_id])
 values ( '0', '038', '4', '1', 'COORDINACION DE ADOLESCENTES', '1');
 
@@ -16,7 +19,7 @@ select * from funcion
 where cNombreFuncion like '%consultarCatalogoEntidadFederativa%';
 
 /* Se agrega al Modulo 1*/
-insert into [ModuloFuncion] ( [Modulo_id], [Funcion_id]) values ( 1, X);
+insert into [ModuloFuncion] ( [Modulo_id], [Funcion_id]) values ( 1, 1756);
 
 
 insert into [Funcion] ( [cDescripcionFuncion], [cNombreFuncion] )
@@ -26,7 +29,7 @@ select * from funcion
 where cNombreFuncion like '%consultarCatalogoRegion%';
 
 /* Se agrega al Modulo 1*/
-insert into [ModuloFuncion] ( [Modulo_id], [Funcion_id]) values ( 1, X);
+insert into [ModuloFuncion] ( [Modulo_id], [Funcion_id]) values ( 1, 1757);
 
 
 /* Ejemplo de configuracion x agencia*/
