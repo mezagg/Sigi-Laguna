@@ -1785,11 +1785,11 @@
                 $('#cbxOficiosTab').addClass("cargando");
                 $('#tapActuaciones').addClass("cargando");
                 var url = '';
-                if(sinCatuie){
+//                if(sinCatuie){
                     url =  '<%= request.getContextPath()%>/cargarActuaciones.do?numeroExpediente='+numeroExpediente+'&sinCatuie='+sinCatuie;
-                }else{
-                    url =  '<%= request.getContextPath()%>/cargarActuaciones.do?numeroExpediente='+numeroExpediente;
-                }
+//                }else{
+//                    url =  '<%= request.getContextPath()%>/cargarActuaciones.do?numeroExpediente='+numeroExpediente;
+//                }
 		$.ajax({
 			type: 'POST',
 			url: url,

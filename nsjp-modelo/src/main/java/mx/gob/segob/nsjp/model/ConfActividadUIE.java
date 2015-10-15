@@ -16,35 +16,35 @@ import javax.persistence.Table;
  * @author Pamela Lopez
  */
 @Entity
-@Table(name = "CatUIEConfActDocumeto")
-public class CatUIEConfActDocumeto implements Serializable {
+@Table(name = "ConfActividadUIE")
+public class ConfActividadUIE implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    private CatUIEConfActDocumetoId id;
+    private ConfActividadUIEId id;
     private CatUIEspecializada catUIEspecializada;
-    private ConfActividadDocumento confActividadDocumento;
+    private Valor valor;
 
-    public CatUIEConfActDocumeto() {
+    public ConfActividadUIE() {
     }
 
-    public CatUIEConfActDocumeto(CatUIEConfActDocumetoId id, CatUIEspecializada catUIEspecializada, ConfActividadDocumento confActividadDocumento) {
+    public ConfActividadUIE(ConfActividadUIEId id, CatUIEspecializada catUIEspecializada, Valor valor) {
         this.id = id;
         this.catUIEspecializada = catUIEspecializada;
-        this.confActividadDocumento = confActividadDocumento;
+        this.valor = valor;
     }
 
     @EmbeddedId
     @AttributeOverrides({
         @AttributeOverride(name = "catUIEId", column = @Column(name = "catUIE_id", nullable = false, precision = 18, scale = 0)),
-        @AttributeOverride(name = "confActividadDocumentoId", column = @Column(name = "confActividadDocumento_id", nullable = false, precision = 18, scale = 0))})
-    public CatUIEConfActDocumetoId getId() {
+        @AttributeOverride(name = "tipoActividadValor", column = @Column(name = "Valor_id", nullable = false, precision = 18, scale = 0))})
+    public ConfActividadUIEId getId() {
         return id;
     }
 
-    public void setId(CatUIEConfActDocumetoId id) {
+    public void setId(ConfActividadUIEId id) {
         this.id = id;
     }
-    
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "catUIE_id", nullable = false, insertable = false, updatable = false)
     public CatUIEspecializada getCatUIEspecializada() {
@@ -54,15 +54,15 @@ public class CatUIEConfActDocumeto implements Serializable {
     public void setCatUIEspecializada(CatUIEspecializada catUIEspecializada) {
         this.catUIEspecializada = catUIEspecializada;
     }
-    
+
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "confActividadDocumento_id", nullable = false, insertable = false, updatable = false)
-    public ConfActividadDocumento getConfActividadDocumento() {
-        return confActividadDocumento;
+    @JoinColumn(name = "Valor_id", nullable = false, insertable = false, updatable = false)
+    public Valor getValor() {
+        return valor;
     }
 
-    public void setConfActividadDocumento(ConfActividadDocumento confActividadDocumento) {
-        this.confActividadDocumento = confActividadDocumento;
+    public void setValor(Valor valor) {
+        this.valor = valor;
     }
 
 }

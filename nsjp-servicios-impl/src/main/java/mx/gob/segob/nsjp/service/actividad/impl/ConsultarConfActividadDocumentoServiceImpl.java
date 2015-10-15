@@ -151,7 +151,7 @@ public class ConsultarConfActividadDocumentoServiceImpl implements
         }
         return configuracionesDto;
     }
-    
+
     @Override
     public List<ConfActividadDocumentoDTO> consultarConfActividadDocumento(
             UsuarioDTO usuarioDto, ExpedienteDTO expedienteDto, Long idCategoriaActividad, Boolean sinCatUie)
@@ -217,6 +217,47 @@ public class ConsultarConfActividadDocumentoServiceImpl implements
     }
 
     @Override
+    public List<ConfActividadDocumentoDTO> consultarConfActividadDocumento(UsuarioDTO usuarioDto, Long idRol, Boolean sinCatUie)
+            throws NSJPNegocioException {
+        Long discriminante = null;
+        Long catUIE = null;
+
+        if (usuarioDto == null || usuarioDto.getIdUsuario() == null) {
+            throw new NSJPNegocioException(CodigoError.PARAMETROS_INSUFICIENTES);
+        }
+
+        Usuario usuario = UsuarioTransformer.transformarDTO(usuarioDto);
+        List<ConfActividadDocumentoDTO> configuracionesDto = Collections.emptyList();
+        if (usuario.getFuncionario() == null || usuario.getFuncionario().getArea() == null) {
+            usuario = usuarioDao.read(usuarioDto.getIdUsuario());
+        }
+        Funcionario funcionario = usuario.getFuncionario();
+        discriminante = funcionario.getDiscriminante().getCatDiscriminanteId();
+        if (discriminante != null) {
+            catUIE = confActividadDocumentoDao.consultarCatUieIdFuncionario(discriminante);
+            logger.info("EL CATUIE DEL USUARIO ES: " + catUIE);
+        }
+        List<ConfActividadDocumento> configuraciones = null;
+        if (catUIE != null && !sinCatUie) {
+            configuraciones = confActividadDocumentoDao.consultarActividadCatUie( idRol, catUIE);
+//            configuraciones = confActividadDocumentoDao.consultarConfActividadDocumentoCatUie(jerarquiaOrgId, numeroExpediente, idCategoriaActividad, catUIE);
+        } else {
+            configuraciones = confActividadDocumentoDao.consultarActividadRol(idRol);
+//            configuraciones = confActividadDocumentoDao.consultarConfActividadDocumento(jerarquiaOrgId, numeroExpediente, idCategoriaActividad);
+        }
+        if (configuraciones != null & !configuraciones.isEmpty()) {
+            configuracionesDto = new LinkedList<ConfActividadDocumentoDTO>();
+            for (ConfActividadDocumento confActividadDocumento : configuraciones) {
+                ConfActividadDocumentoDTO configuracionDto
+                        = ConfActividadDocumentoTransformer.
+                        transformarConfActividadDocumento(confActividadDocumento);
+                configuracionesDto.add(configuracionDto);
+            }
+        }
+        return configuracionesDto;
+    }
+
+    @Override
     public List<ConfActividadDocumentoDTO> consultarConfActividadDocumentoFiltro(
             ConfActividadDocumentoDTO filtroConfActividadDocumentoDTO)
             throws NSJPNegocioException {
@@ -259,7 +300,7 @@ public class ConsultarConfActividadDocumentoServiceImpl implements
 
         return confActividadDocumentoDTO;
     }
-    
+
     @Override
     public List<ValorDTO> consultarEstadosPorJerarquiaOrganizacional(Long idJerarquiaOrganizacional) throws NSJPNegocioException {
         if (idJerarquiaOrganizacional == null || idJerarquiaOrganizacional < 0L) {

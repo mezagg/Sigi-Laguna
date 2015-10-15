@@ -50,6 +50,7 @@
 	    		success: function(xml){
 	    			var option;
 	    			idExpediente=$(xml).find('expedienteDTO').find('expedienteId').text();
+                                console.log('EXPEDIENTE:' + idExpediente);
 	    			numeroExpediente=$(xml).find('expedienteDTO').find('numeroExpediente').text();
 	    			numeroExpedienteId=$(xml).find('expedienteDTO').find('numeroExpedienteId').text();
 	    			numeroCasoNuevo=$(xml).find('expedienteDTO').find('casoDTO').find('numeroGeneralCaso').text();

@@ -39,6 +39,9 @@ public interface ConfActividadDocumentoDAO extends
     List<ConfActividadDocumento> consultarConfActividadDocumento(
             Long jerarquiaOrganizacionalId, NumeroExpediente numeroExpediente, Long idCategoriaActidad);
 
+    List<ConfActividadDocumento> consultarActividadRol(Long idRol);
+    
+    List<ConfActividadDocumento> consultarActividadCatUie( Long idRol, Long catUIE);
     /**
      * Consulta la Configuracion del la Actividad de Documento de acuerdo a Tipo
      * Actividad

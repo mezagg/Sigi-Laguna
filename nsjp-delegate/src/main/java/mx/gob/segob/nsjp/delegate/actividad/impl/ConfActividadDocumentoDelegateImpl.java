@@ -40,6 +40,12 @@ public class ConfActividadDocumentoDelegateImpl implements
     private ConsultarConfActividadDocumentoService consultarConfActividadDocumentoService;
 
     @Override
+    public List<ConfActividadDocumentoDTO> consultarConfActividadDocumento(UsuarioDTO usuario, Long idRol, Boolean sinCatUie)
+            throws NSJPNegocioException {
+        return consultarConfActividadDocumentoService.consultarConfActividadDocumento(usuario, idRol, sinCatUie);
+    }
+
+    @Override
     public List<ConfActividadDocumentoDTO> consultarConfActividadDocumento(
             UsuarioDTO usuario, ExpedienteDTO expedienteDto, Long idCategoriaActividad)
             throws NSJPNegocioException {

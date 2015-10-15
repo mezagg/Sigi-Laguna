@@ -46,6 +46,8 @@ public class ConfActividadDocumentoDAOImpl
         }
         // Buscamos los registros que tengan grupoActividad = estatus
         StringBuilder sb = new StringBuilder();
+        
+        
         sb.append("SELECT conf FROM ConfActividadDocumento conf ").
                 append("WHERE conf.grupoActividad = ").append(estatus.getValorId()).append(" ").
                 append("AND conf.jerarquiaOrganizacional.jerarquiaOrganizacionalId = ").append(jerarquiaOrganizacionalId).
@@ -55,6 +57,36 @@ public class ConfActividadDocumentoDAOImpl
         
         sb.append(" order by ");
         sb.append("conf.tipoActividad.valor");
+
+        Query query = super.getSession().createQuery(sb.toString());
+        return query.list();
+    }
+    
+    @Override
+    public List<ConfActividadDocumento> consultarActividadRol(Long idRol) {
+        
+        StringBuilder sb = new StringBuilder();
+        
+        sb.append("SELECT conf FROM ConfActividadDocumentoRol conf").
+                append(" WHERE conf.rol.rolId = ").append(idRol).
+                append(" AND conf.bActivo = 1").
+                append(" order by conf.tipoActividad.valor");
+
+        Query query = super.getSession().createQuery(sb.toString());
+        return query.list();
+    }
+    
+    @Override
+    public List<ConfActividadDocumento> consultarActividadCatUie(Long idRol, Long catUIE) {
+        
+        StringBuilder sb = new StringBuilder();
+        
+        sb.append("SELECT cRol FROM ConfActividadDocumentoRol cRol, ConfActividadUIE cUie").
+                append(" WHERE cRol.rol.rolId = ").append(idRol).
+                append(" AND cRol.bActivo = 1").
+                append(" AND cUie.catUIEspecializada.catUIEId = ").append(catUIE).
+                append(" AND cRol.tipoActividad.valorId = cUie.valor.valorId").
+                append(" order by cRol.tipoActividad.valor ");
 
         Query query = super.getSession().createQuery(sb.toString());
         return query.list();

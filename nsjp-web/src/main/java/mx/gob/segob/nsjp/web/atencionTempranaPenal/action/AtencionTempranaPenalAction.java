@@ -1517,11 +1517,15 @@ public class AtencionTempranaPenalAction extends GenericAction {
             log.debug("ejecutando MetodoAction cargarActuaciones numeroExpediente ###" + numeroExpediente);
             //Codigo que implementa la funcionalidad de sub rol y filtra sus actuaciones
             UsuarioDTO usuarioDTO = super.getUsuarioFirmado(request);
+            log.info("ACA ESTA EL USUARIO");
+            log.info(usuarioDTO);
             RolDTO rolDTO = null;
             List<ConfActividadDocumentoDTO> listConfActividadDocumentoDTOs = new ArrayList<ConfActividadDocumentoDTO>();
             if (usuarioDTO.getRolACtivo() != null && usuarioDTO.getRolACtivo().getRol() != null && usuarioDTO.getRolACtivo().getRol().getRolPadre() != null) {
                 rolDTO = usuarioDTO.getRolACtivo().getRol();
                 rolDTO = rolDelegate.consultarRol(rolDTO);
+                log.info("ROL DEL ROLDTO");
+                 log.info(rolDTO);
                 if (rolDTO.getConfActividadDocumentoDTO() != null && rolDTO.getConfActividadDocumentoDTO().size() > 0) {
                     listConfActividadDocumentoDTOs = rolDTO.getConfActividadDocumentoDTO();
                 }
@@ -1548,22 +1552,35 @@ public class AtencionTempranaPenalAction extends GenericAction {
 
             List<ConfActividadDocumentoDTO> listActividadDocumentoDTOs = new ArrayList<ConfActividadDocumentoDTO>();
             log.info("ACA ESTA !sinCatuie" + sinCatuie);
+            log.info("USUARIO ");
+            log.info(usuario);
+            log.info("USUARIO rol: " + usuario.getRolACtivo().getRol().getRolId());
             if (sinCatuie == null || sinCatuie.equals("1")) {
-                if (idCategoria == null) {
-                    log.debug("ENTRA A ID DE LA CATEGORIA NULA:::::::idCategoria=" + idCategoria);
-                    listActividadDocumentoDTOs = confActividadDocumentoDelegate.consultarConfActividadDocumento(usuario, expedienteDto, null);
-                } else {
-                    log.debug("ENTRA A ID DE LA CATEGORIA NO NULA::::idCategoria=" + idCategoria);
-                    listActividadDocumentoDTOs = confActividadDocumentoDelegate.consultarConfActividadDocumento(usuario, expedienteDto, Long.parseLong(idCategoria));
+                if(usuario.getRolACtivo().getRol().getRolId() != null){
+                    listActividadDocumentoDTOs = confActividadDocumentoDelegate.consultarConfActividadDocumento(usuario, usuario.getRolACtivo().getRol().getRolId(), Boolean.FALSE);
+                }else{
+                    log.info("no ROL1: ");
                 }
+//                if (idCategoria == null) {
+//                    log.debug("ENTRA A ID DE LA CATEGORIA NULA:::::::idCategoria=" + idCategoria);
+//                    listActividadDocumentoDTOs = confActividadDocumentoDelegate.consultarConfActividadDocumento(usuario, expedienteDto, null);
+//                } else {
+//                    log.debug("ENTRA A ID DE LA CATEGORIA NO NULA::::idCategoria=" + idCategoria);
+//                    listActividadDocumentoDTOs = confActividadDocumentoDelegate.consultarConfActividadDocumento(usuario, expedienteDto, Long.parseLong(idCategoria));
+//                }
             }else{
-                if (idCategoria == null) {
-                    log.debug("ENTRA A ID DE LA CATEGORIA NULA:::::::idCategoria=" + idCategoria);
-                    listActividadDocumentoDTOs = confActividadDocumentoDelegate.consultarConfActividadDocumento(usuario, expedienteDto, null, Boolean.TRUE);
-                } else {
-                    log.debug("ENTRA A ID DE LA CATEGORIA NO NULA::::idCategoria=" + idCategoria);
-                    listActividadDocumentoDTOs = confActividadDocumentoDelegate.consultarConfActividadDocumento(usuario, expedienteDto, Long.parseLong(idCategoria), Boolean.TRUE);
+                if(usuario.getRolACtivo().getRol().getRolId() != null){
+                    listActividadDocumentoDTOs = confActividadDocumentoDelegate.consultarConfActividadDocumento(usuario, usuario.getRolACtivo().getRol().getRolId(), Boolean.TRUE);
+                }else{
+                    log.info("no ROL2: ");
                 }
+//                if (idCategoria == null) {
+//                    log.debug("ENTRA A ID DE LA CATEGORIA NULA:::::::idCategoria=" + idCategoria);
+//                    listActividadDocumentoDTOs = confActividadDocumentoDelegate.consultarConfActividadDocumento(usuario, expedienteDto, null, Boolean.TRUE);
+//                } else {
+//                    log.debug("ENTRA A ID DE LA CATEGORIA NO NULA::::idCategoria=" + idCategoria);
+//                    listActividadDocumentoDTOs = confActividadDocumentoDelegate.consultarConfActividadDocumento(usuario, expedienteDto, Long.parseLong(idCategoria), Boolean.TRUE);
+//                }
             }
 
             log.debug("ejecutando MetodoAction cargarActuaciones lista respuesta tamano" + listActividadDocumentoDTOs.size());
