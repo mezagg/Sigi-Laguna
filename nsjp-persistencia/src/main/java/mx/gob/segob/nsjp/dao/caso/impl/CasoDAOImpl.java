@@ -100,7 +100,23 @@ public class CasoDAOImpl extends GenericDaoHibernateImpl<Caso, Long> implements
 //		}
 		return valorRegreso;
 	}
-	
+
+	public String recuperarUltimoNumeroCasoXCadenaBase( String baseCaso){
+		final StringBuffer queryStr = new StringBuffer();
+		queryStr.append("SELECT c.numeroGeneralCaso ");
+		queryStr.append("FROM Caso c where c.casoId = ( ");
+		queryStr.append(" SELECT MAX(obj.casoId) FROM Caso obj ");
+		if( baseCaso!=null && !baseCaso.trim().isEmpty()){
+			queryStr.append(" WHERE obj.numeroGeneralCaso LIKE '").
+					append(baseCaso).
+					append("%'");
+		}
+		queryStr.append(" )");
+
+		Query qry = super.getSession().createQuery(queryStr.toString());
+		String valorRegreso  =  (String) qry.uniqueResult();
+		return valorRegreso;
+	}
 
 	@SuppressWarnings("unchecked")
 	public List<Caso> consultarCasosPorNumero(String numeroCaso) {

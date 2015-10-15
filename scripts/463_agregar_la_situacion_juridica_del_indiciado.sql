@@ -10,7 +10,7 @@ select * from funcion
 where cNombreFuncion like '%ConsultarCatalogoSituacionJuridicaDetenido%';
 
 /* Se agrega al Modulo 2*/
-insert into [ModuloFuncion] ( [Modulo_id], [Funcion_id]) values ( 2, X);
+insert into [ModuloFuncion] ( [Modulo_id], [Funcion_id]) values ( 2, 1755);
 
 
 /* Actualizacion de catalogo*/
@@ -28,3 +28,4 @@ values ( 'Libertad', '225', '2', '99321');
 
 insert into [valor] ( [cValor], [CampoCatalogo_id], [Registro_id], [Valor_id])
 values ( 'Judicializado', '225', '3', '99322');
+

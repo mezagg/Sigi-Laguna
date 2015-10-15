@@ -93,6 +93,9 @@ public class FuncionarioDTO extends GenericDTO
     //atributo que indica si es una busqueda desde el coordinador genral de ui esto para evitar el discriminante
     private Long esCoordinadoGenaral;
 
+    private Long entidadFederativaId;
+    private Long regionId;
+
     /**
      * Para la notificaciòn de eventos el funcionario tiene un conjunto de
      * notificaciones
@@ -692,5 +695,20 @@ public class FuncionarioDTO extends GenericDTO
 	public void setEsCoordinadoGenaral(Long esCoordinadoGenaral) {
 		this.esCoordinadoGenaral = esCoordinadoGenaral;
 	}
-	
+
+    public Long getEntidadFederativaId() {
+        return entidadFederativaId;
+    }
+
+    public void setEntidadFederativaId(Long entidadFederativaId) {
+        this.entidadFederativaId = entidadFederativaId;
+    }
+
+    public Long getRegionId() {
+        return regionId;
+    }
+
+    public void setRegionId(Long regionId) {
+        this.regionId = regionId;
+    }
 }

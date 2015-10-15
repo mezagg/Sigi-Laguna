@@ -103,7 +103,9 @@ public class Funcionario implements java.io.Serializable {
 	
 	//Permite cargar activar/desactivar la lista de rolesUsuario
 	private Boolean esConsultarRolesDelUsuario = true;
-	
+
+	private EntidadFederativa entidadFederativa;
+	private Region region;
 	
 	// Constructors
 
@@ -822,9 +824,25 @@ public class Funcionario implements java.io.Serializable {
 	public void setEsConsultarRolesDelUsuario(Boolean esConsultarRolesDelUsuario) {
 		this.esConsultarRolesDelUsuario = esConsultarRolesDelUsuario;
 	}
-	
-	
-	
-	
-	
+
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "entidadFederativa_id")
+	public EntidadFederativa getEntidadFederativa() {
+		return entidadFederativa;
+	}
+
+	public void setEntidadFederativa(EntidadFederativa entidadFederativa) {
+		this.entidadFederativa = entidadFederativa;
+	}
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "region_id")
+	public Region getRegion() {
+		return region;
+	}
+
+	public void setRegion(Region region) {
+		this.region = region;
+	}
 }

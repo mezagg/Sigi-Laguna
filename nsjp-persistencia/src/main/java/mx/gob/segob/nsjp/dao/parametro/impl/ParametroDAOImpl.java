@@ -27,6 +27,8 @@ import mx.gob.segob.nsjp.model.Parametro;
 import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * Implementacion de metodos de acceso a datos para la entidad Parametros.
  * 
@@ -47,6 +49,14 @@ public class ParametroDAOImpl extends GenericDaoHibernateImpl<Parametro, Long>
         final Query qry = super.getSession().createQuery(cq.toString())
                 .setParameter("cve", clveParam.name());
         return (Parametro) qry.uniqueResult();
+    }
+
+    public List<Parametro> obtenerPorClaveBase(String claveBase) {
+        logger.debug("Recuperando " + claveBase);
+        final StringBuffer cq = new StringBuffer();
+        cq.append(" from Parametro where clave like '"+claveBase+"%'");
+        final Query qry = super.getSession().createQuery(cq.toString());
+        return qry.list();
     }
 
 }

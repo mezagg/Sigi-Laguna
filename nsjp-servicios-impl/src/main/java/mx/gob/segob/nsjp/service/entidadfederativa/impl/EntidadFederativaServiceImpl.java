@@ -33,8 +33,13 @@ public class EntidadFederativaServiceImpl implements EntidadFederativaService{
 
         List<EntidadFederativaDTO> entidadFederativaDTOs = new ArrayList<EntidadFederativaDTO>();
         for (EntidadFederativa entidadFederativa: entidadFederativas){
+            EntidadFederativaDTO entidadFederativaDTO = new EntidadFederativaDTO();
+            entidadFederativaDTO.setAbreviacion(entidadFederativa.getAbreviacion());
+            entidadFederativaDTO.setEntidadFederativaId(entidadFederativa.getEntidadFederativaId());
+            entidadFederativaDTO.setNombreEntidad(entidadFederativa.getNombre());
 
+            entidadFederativaDTOs.add(entidadFederativaDTO);
         }
-        return null;
+        return entidadFederativaDTOs;
     }
 }
