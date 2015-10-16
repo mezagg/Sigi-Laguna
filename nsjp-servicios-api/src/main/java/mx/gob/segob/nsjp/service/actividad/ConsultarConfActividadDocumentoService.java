@@ -15,6 +15,7 @@ import java.util.List;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
 import mx.gob.segob.nsjp.dto.ActividadDTO;
 import mx.gob.segob.nsjp.dto.ConfActividadDocumentoDTO;
+import mx.gob.segob.nsjp.dto.ConfActividadDocumentoRolDTO;
 import mx.gob.segob.nsjp.dto.actividad.ConfTipoActividadOrigenDestinoDTO;
 import mx.gob.segob.nsjp.dto.catalogo.ValorDTO;
 import mx.gob.segob.nsjp.dto.expediente.ExpedienteDTO;
@@ -66,7 +67,7 @@ public interface ConsultarConfActividadDocumentoService {
             UsuarioDTO usuario, ExpedienteDTO expedienteDto, Long idCategoriaActividad, Boolean sinCatUie)
             throws NSJPNegocioException;
 
-    List<ConfActividadDocumentoDTO> consultarConfActividadDocumento(UsuarioDTO usuarioDto, Long idRol, Boolean sinCatUie) throws NSJPNegocioException;
+    List<ConfActividadDocumentoRolDTO> consultarConfActividadDocumento(UsuarioDTO usuarioDto, Long idRol, Boolean sinCatUie) throws NSJPNegocioException;
 
     /**
      * Consulta la Configuracion del la Actividad de Documento de acuerdo al id

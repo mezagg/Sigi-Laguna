@@ -14,6 +14,7 @@ import java.util.List;
 
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
 import mx.gob.segob.nsjp.dto.ConfActividadDocumentoDTO;
+import mx.gob.segob.nsjp.dto.ConfActividadDocumentoRolDTO;
 import mx.gob.segob.nsjp.dto.actividad.ConfTipoActividadOrigenDestinoDTO;
 import mx.gob.segob.nsjp.dto.catalogo.ValorDTO;
 import mx.gob.segob.nsjp.dto.expediente.ExpedienteDTO;
@@ -58,7 +59,7 @@ public interface ConfActividadDocumentoDelegate {
      * datos.
      * </ol>
      */
-    List<ConfActividadDocumentoDTO> consultarConfActividadDocumento(UsuarioDTO usuario, Long idRol, Boolean sinCatUie) throws NSJPNegocioException;
+    List<ConfActividadDocumentoRolDTO> consultarConfActividadDocumento(UsuarioDTO usuario, Long idRol, Boolean sinCatUie) throws NSJPNegocioException;
 
     List<ConfActividadDocumentoDTO> consultarConfActividadDocumento(
             UsuarioDTO usuario, ExpedienteDTO expedienteDto, Long idCategoriaActividad)

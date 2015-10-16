@@ -16,6 +16,7 @@ import mx.gob.segob.nsjp.dao.actividad.ConfActividadDocumentoDAO;
 import mx.gob.segob.nsjp.dao.base.impl.GenericDaoHibernateImpl;
 import mx.gob.segob.nsjp.dto.base.PaginacionDTO;
 import mx.gob.segob.nsjp.model.ConfActividadDocumento;
+import mx.gob.segob.nsjp.model.ConfActividadDocumentoRol;
 import mx.gob.segob.nsjp.model.NumeroExpediente;
 import mx.gob.segob.nsjp.model.Rol;
 import mx.gob.segob.nsjp.model.Valor;
@@ -63,13 +64,13 @@ public class ConfActividadDocumentoDAOImpl
     }
     
     @Override
-    public List<ConfActividadDocumento> consultarActividadRol(Long idRol) {
+    public List<ConfActividadDocumentoRol> consultarActividadRol(Long idRol) {
         
         StringBuilder sb = new StringBuilder();
         
         sb.append("SELECT conf FROM ConfActividadDocumentoRol conf").
                 append(" WHERE conf.rol.rolId = ").append(idRol).
-                append(" AND conf.bActivo = 1").
+                append(" AND conf.activo = 1").
                 append(" order by conf.tipoActividad.valor");
 
         Query query = super.getSession().createQuery(sb.toString());
@@ -77,13 +78,13 @@ public class ConfActividadDocumentoDAOImpl
     }
     
     @Override
-    public List<ConfActividadDocumento> consultarActividadCatUie(Long idRol, Long catUIE) {
+    public List<ConfActividadDocumentoRol> consultarActividadCatUie(Long idRol, Long catUIE) {
         
         StringBuilder sb = new StringBuilder();
         
         sb.append("SELECT cRol FROM ConfActividadDocumentoRol cRol, ConfActividadUIE cUie").
                 append(" WHERE cRol.rol.rolId = ").append(idRol).
-                append(" AND cRol.bActivo = 1").
+                append(" AND cRol.activo = 1").
                 append(" AND cUie.catUIEspecializada.catUIEId = ").append(catUIE).
                 append(" AND cRol.tipoActividad.valorId = cUie.valor.valorId").
                 append(" order by cRol.tipoActividad.valor ");

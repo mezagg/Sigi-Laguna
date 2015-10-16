@@ -16,7 +16,7 @@ import javax.persistence.Table;
  * @author pamela
  */
 @Entity
-@Table(name = "ConfActividadDocumentoRol ")
+@Table(name = "ConfActividadDocumentoRol")
 public class ConfActividadDocumentoRol implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -28,7 +28,7 @@ public class ConfActividadDocumentoRol implements Serializable {
     private Forma forma;
     private Boolean usaEditor;
     private Rol rol;
-    private Boolean bActivo;
+    private Boolean activo;
 
     public ConfActividadDocumentoRol() {
 
@@ -117,11 +117,11 @@ public class ConfActividadDocumentoRol implements Serializable {
     }
 
     @Column(name = "bActivo", precision = 1, scale = 0)
-    public Boolean getBActivo() {
-        return bActivo;
+    public Boolean getActivo() {
+        return activo;
     }
 
-    public void setBActivo(Boolean bActivo) {
-        this.bActivo = bActivo;
+    public void setActivo(Boolean bActivo) {
+        this.activo = bActivo;
     }
 }
