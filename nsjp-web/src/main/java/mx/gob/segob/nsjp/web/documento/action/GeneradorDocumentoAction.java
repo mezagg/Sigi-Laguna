@@ -1691,7 +1691,6 @@ public class GeneradorDocumentoAction extends ReporteBaseAction {
 				GuardadoDefinitivoDTO loGuardadoDefinitivoDTO = new GuardadoDefinitivoDTO();
 				loGuardadoDefinitivoDTO.setIdActividad(idActividad);
 				loGuardadoDefinitivoDTO.setIdClaveFuncionarioAsignado(idClaveFuncionarioAsignado);
-				
 				UsuarioDTO usuarioDTO=super.getUsuarioFirmado(request);				
 				loGuardadoDefinitivoDTO.setFuncionarioDTO(usuarioDTO.getFuncionario());
 				

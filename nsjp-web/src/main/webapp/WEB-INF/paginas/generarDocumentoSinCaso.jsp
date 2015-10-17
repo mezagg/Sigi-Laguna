@@ -118,6 +118,7 @@
 	var esTransaccional = '<%=request.getParameter("esTransaccional")!=null?request.getParameter("esTransaccional"):""%>';
 	var actividadId = '<%=request.getParameter("actividadId")!=null?request.getParameter("actividadId"):""%>';
 	var idFuncionario = '<%=request.getParameter("idFuncionario")!=null?request.getParameter("idFuncionario"):""%>';
+        console.log("FUNCIONARIO REQUEST:" + idFuncionario);
 	var idWindowPantallaActuaciones = '<%=request.getParameter("idWindowPantallaActuaciones")!=null?request.getParameter("idWindowPantallaActuaciones"):""%>';
 	
 	/**
@@ -721,12 +722,14 @@
 		*
 		*/
 		function guardarDefinitivamente(){
+                    console.log("AQUI GUARDAMOS");
 			console.info("NEW ** GUARDADO DEFINITIVO DE FORMA TRANSACCIONAL **"); 
 			var idDocumento = 0;
 			
 			var params = 'idNumeroExpediente=' + idNumeroExpediente;
 			params += '&actuacion=' + actividadId;
 			params += '&cveFuncionarioAsignado=' + idFuncionario;
+                        console.log("EL FUNCIONARIO ASIGNADO ES: " + idFuncionario);
 			params += '&seleccionTamanioPapel=' + seleccionTamPapel;			
 			params += '&formaId=' + '<%=request.getParameter("formaId")!=null?request.getParameter("formaId"):"" %>';
 			params += '&documentoId=' + documentoId;
@@ -748,6 +751,8 @@
 			//parametro para documento de cambio de estatus de mandamiento judicial
 			params += '&mandamientoId=' + mandamientoId;
 			
+                        console.log("LOS PARAMETROS QUE VOY A MANDAR: ");
+                        console.log(params);
 			//Se eliminan eventos de los botones de guardado u envio
 			deshabilitarBotonesGuardado();
 			
@@ -1212,7 +1217,7 @@
 			<td><input type="text" title="Estado" size="30" id="iEstado" disabled="disabled" style=" border:0; background-color:#EEEEEE;"/></td>			
 		</tr>
 		<tr>
-			<td width="20%"><span id="labelNumeroOficio">N&uacute;mero de Oficio:</span></td>
+			<td width="20%"><span id="labelNumeroOficio">PamN&uacute;mero de Oficio:</span></td>
 			<td width=""><input type="text" title="Numero de Oficio" size="40" id="iNumeroOficio" onkeypress="return letrasNumero(event);" maxlength="20"/></td>
 		</tr>
 		<tr id="trDistritos">

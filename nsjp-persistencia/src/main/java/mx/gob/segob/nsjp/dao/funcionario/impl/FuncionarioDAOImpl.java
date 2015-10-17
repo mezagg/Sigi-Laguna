@@ -218,7 +218,7 @@ public class FuncionarioDAOImpl extends
 
         final PaginacionDTO pag = PaginacionThreadHolder.get();
         StringBuffer queryString = new StringBuffer();
-
+        log.info("TODO EL FILTRO: " + filtro);
         if (filtro.getBuscarPorJerarquiasHijas() != null && filtro.getBuscarPorJerarquiasHijas()) {
             queryString.append(" SELECT new Funcionario( F, UR.rol ) FROM Funcionario F ");
         } else {
@@ -228,7 +228,7 @@ public class FuncionarioDAOImpl extends
         queryString.append(" WHERE 1 = 1 ");
 
         if (idRol != null && idRol > 0) {
-            queryString.append(" AND UR.rol.rolId = ").append(idRol);
+            queryString.append("  AND UR.rol.rolId = ").append(idRol);
         }
 
         // Permite filtrar por el nombre

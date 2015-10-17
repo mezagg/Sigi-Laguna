@@ -105,13 +105,14 @@ var resRad;
 		$("#tabschild6" ).tabs();
 		$("#tabsconsultaprincipal-2").tabs();
                 $( "#tabschild17" ).tabs();
+                $( "#tabschild7" ).tabs();
 		$("#btnAgregarNotaEvaluacion").click(guardaNotaEvaluacion);
                 $("#ingresarHechos").click(ingresarHechos);
 		$("#cbxAccionesTabTS").change(seleccionaActuacionTrabajoSocial);
 		$("#cbxAccionesTabJ").change(seleccionaActuacionJuridico);
-
+                
 		//Para escuchar los eventos de psicologico
-		$("#cbxAccionesTab").change(seleccionaActuacionPsicologico);
+//		$("#cbxAccionesTab").change(seleccionaActuacionPsicologico);
 		 
 		var pantalla='<%= request.getAttribute("pantalla")%>';
 		var asignado='<%= request.getAttribute("asignado")%>';
@@ -139,6 +140,22 @@ var resRad;
 			//consultamos las actividades dependiendo de los delitos del expediente
 		   	muestraActividadesSugeridasEnConsultaExpediente();
         		$('#tapDelitoYRelaciones').removeClass("cargando");
+		});
+                
+                $("#tapActuaciones").one("click", function() {
+                    $('#tdCbxAgentesCoorJAR').hide();
+                    $('#tdCbxAgentesCoorJAR1').hide();
+                    $('#tdCbxAgentesCoorUI1').hide();
+                    $('#tdCbxAgentesCoorUI').hide();
+                    cargaActuaciones();
+		});
+                
+                $("#tapActuaciones").click(function() {
+                    cargarRelacionesRegistradas();
+                    $('#cbxCategoriaRelacion').attr('selectedIndex', 0);
+                    $('#cbxTipoRelacion').attr('selectedIndex', 0);
+                    $('#cbxPrimerElemento').attr('selectedIndex', 0);
+                    $('#cbxSegundoElemento').attr('selectedIndex', 0);
 		});
                 
                 //seteamos los listener de los radios para la relacion de Delitos por Person o por Delito
@@ -221,24 +238,26 @@ var resRad;
 		}
 		
 		if(pantalla==2){
-			ocultaFuncionarios();
-			ocultaMuestraTabVisor('tabPsicologica',0);
-			ocultaMuestraTabVisor('tabSocial',1);
-			ocultaMuestraTabVisor('tabJuridica',0);
+//			ocultaFuncionarios();
+//			ocultaMuestraTabVisor('tabPsicologica',0);
+//			ocultaMuestraTabVisor('tabSocial',1);
+//			ocultaMuestraTabVisor('tabJuridica',0);
 			$( "#btnSolicitarAyuda" ).hide();
-			cargaActuacionesTs();
+                        cargaActuaciones();
+//			cargaActuacionesTs();
 		}else if(pantalla==3){
-			ocultaFuncionarios();
-			ocultaMuestraTabVisor('tabPsicologica',0);
-			ocultaMuestraTabVisor('tabSocial',0);
-			ocultaMuestraTabVisor('tabJuridica',1);
+//			ocultaFuncionarios();
+//			ocultaMuestraTabVisor('tabPsicologica',0);
+//			ocultaMuestraTabVisor('tabSocial',0);
+//			ocultaMuestraTabVisor('tabJuridica',1);
 			$( "#btnSolicitarAyuda" ).hide();
-			cargaActuacionesJ();
+                        cargaActuaciones();
+//			cargaActuacionesJ();
 		}else if(pantalla==1){
-			ocultaFuncionarios();
-			ocultaMuestraTabVisor('tabPsicologica',1);
-			ocultaMuestraTabVisor('tabSocial',0);
-			ocultaMuestraTabVisor('tabJuridica',0);
+//			ocultaFuncionarios();
+//			ocultaMuestraTabVisor('tabPsicologica',1);
+//			ocultaMuestraTabVisor('tabSocial',0);
+//			ocultaMuestraTabVisor('tabJuridica',0);
 			$( "#btnSolicitarAyuda" ).hide();
 			cargaActuaciones();
 		}else{
@@ -572,23 +591,94 @@ function popopAsistencia(rowid){
 	/*
 	*Funcion que realiza la carga del combo de Actuaciones
 	*/
-	function cargaActuaciones() {
-		var id=0;
+       function cargaActuaciones(sinCatuie) {
 		$('#cbxAccionesTab').empty();
-		$('#cbxAccionesTab').append('<option value="-1">-Seleccione-</option>');
+                $('#cbxOficiosTab').empty();
+                $('#cbxAccionesTab').addClass("cargando");
+                $('#cbxOficiosTab').addClass("cargando");
+                $('#tapActuaciones').addClass("cargando");
+                var url = '';
+                if(sinCatuie){
+                    url =  '<%= request.getContextPath()%>/cargarActuaciones.do?numeroExpediente='+numeroExpediente+'&sinCatuie='+sinCatuie;
+                }else{
+                    url =  '<%= request.getContextPath()%>/cargarActuaciones.do?numeroExpediente='+numeroExpediente;
+                }
 		$.ajax({
 			type: 'POST',
-			url: '<%= request.getContextPath()%>/cargarActuaciones.do?id='+id+'&numeroExpediente='+numeroExpediente,
+			url: url,
 			data: '',
 			dataType: 'xml',
 			async: false,
 			success: function(xml){
-				$(xml).find('catActuaciones').each(function(){
-					$('#cbxAccionesTab').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
-					});         
-			}
+                            var bOficios = 0;
+                            var bAcciones = 0;
+                            console.log("XML DE ACTUACIONES");
+                            console.log(xml);
+                            $(xml).find('entry').each(function(){
+                                var resp = $(this).find('respuesta').text();
+                                if(resp == "listaOficios"){
+                                    $(this).find('catActuaciones').each(function(){
+                                        bAcciones++;
+                                        $('#cbxAccionesTab').append('<li data-value="' + $(this).find('clave').text() + '"><img src="<%=request.getContextPath() %>/resources/images/oficio.jpg" width="30" height="30" align="absmiddle"/><a href="#" class="actuaciones" idselected="'+$(this).find('clave').text()+'">' + $(this).find('valor').text() + '</a></li>');
+//                                        $('#cbxAccionesTab').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
+                                   
+                                    });
+                                }
+                                 if(resp == "listaActuaciones"){
+                                    $(this).find('catActuaciones').each(function(){
+                                        bOficios++;
+//                                        $('#cbxOficiosTab').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
+                                          $('#cbxOficiosTab').append('<li data-value="' + $(this).find('clave').text() + '"><img src="<%=request.getContextPath() %>/resources/images/play.png" width="30" height="30" align="absmiddle"/><a href="#" idselected="'+$(this).find('clave').text()+'">' + $(this).find('valor').text() + '</a></li>');
+                                    });
+                                }
+                                 
+                             });     
+                            $('#cbxAccionesTab').removeClass("cargando");
+                            $('#cbxOficiosTab').removeClass("cargando");
+                            $('#tapActuaciones').removeClass("cargando");
+                            if(bAcciones === 0){
+                                $( "#cbxAccionesTab" ).attr( "disabled", "disables" );
+                            }
+                            if(bOficios === 0){
+                                $( "#cbxOficiosTab" ).attr( "disabled", "disables" );
+                            }
+			},
+                        error:function(){
+                            alertDinamico("Error al obtener las actuaciones y oficios");
+                        }
 		});
 	}
+        
+        $("input[name='rdActuaciones']").click(function(e) {
+                        console.log(e);
+                        console.log("ID: " + $(this).attr("id"));
+                        var sinCatuie = $(':radio[name=rdActuaciones]:checked').val();
+                        cargaActuaciones(sinCatuie);
+        });
+        
+        function recargarActuaciones(){
+		$('#cbxAccionesTab').empty();
+                $('#cbxOficiosTab').empty();
+		cargaActuaciones();
+	} 
+       
+//	function cargaActuaciones() {
+//		var id=0;
+//		$('#cbxAccionesTab').empty();
+//		$('#cbxAccionesTab').append('<option value="-1">-Seleccione-</option>');
+//		$.ajax({
+//			type: 'POST',
+//			url: '<%= request.getContextPath()%>/cargarActuaciones.do?id='+id+'&numeroExpediente='+numeroExpediente,
+//			data: '',
+//			dataType: 'xml',
+//			async: false,
+//			success: function(xml){
+//				$(xml).find('catActuaciones').each(function(){
+//					$('#cbxAccionesTab').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
+//					});         
+//			}
+//		});
+//	}
 	/*
 	*Funcion que realiza la carga del combo de Actuaciones
 	*/
@@ -1729,14 +1819,151 @@ function muestraDivInformativoCanalizacion()
 					<li><a href="#tabsconsultaprincipal-2">Involucrado</a></li>
                                         <li class="tabTabsHechos"><a href="#tabs-3" id="tapHechos">Hechos</a></li>
                                         <li class="tabTabsRelacionesDelitosPersonas"><a href="#tabs-17" id="tapDelitoYRelaciones" onclick="cargarGridsInvolucradosRelDelitoPersonaPG()">Delito y Relaciones Delito-Persona</a></li>
-					<li class="tabPsicologica"><a href="#tabsconsultaprincipal-4">Atención Psicológica</a></li>
+<!--					<li class="tabPsicologica"><a href="#tabsconsultaprincipal-4">Atención Psicológica</a></li>
 					<li class="tabSocial"><a href="#tabsconsultaprincipal-6">Trabajo Social</a></li>
-					<li class="tabJuridica"><a href="#tabsconsultaprincipal-7">Atención Jurídica</a></li>
+					<li class="tabJuridica"><a href="#tabsconsultaprincipal-7">Atención Jurídica</a></li>-->
 					<li id="tabNotas"><a href="#tabsconsultaprincipal-5">Notas</a></li>
 					<li class="tabTabsDocs"><a href="#tabsconsultaprincipal-8" onclick="documentos()">Documentos</a></li>
+                                        <li class="tabTabsAcciones"><a href="#tabs-7" id="tapActuaciones">Actuaciones</a></li>
 			
 					
 				</ul>
+    
+    <!--COMIENZAN TABS INFERIORES DE ACTUACIONES-->
+		<div id="tabs-7" class="tabTabsAcciones">		
+			<div id="tabschild7" class="tabs-bottom">
+				<ul>
+					<li class="tabTabsAccionesHijo"><a href="#tabschild7-1">Actuaciones</a></li>
+					<li><a href="#tabschild7-2" id="tapRelacionarInfoDeExp">Relacionar Información del expediente</a></li>					
+				</ul>				
+				<div id="tabschild7-1">					
+					
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" id="tablaAcuseNoPenal">
+					<tr>
+						<td id="tdCbxAgentesCoorJAR1">Facilitadores:</td>
+						<td id="tdCbxAgentesCoorJAR"><select id="cbxAgentesCoorJAR" style="width:470px">
+							<option value="-1">-Seleccione-</option>
+							
+						</select></td>
+						<td id="tdCbxAgentesCoorUI1">Agentes:</td>
+						<td id="tdCbxAgentesCoorUI"><select id="cbxAgentesCoorUI" style="width:470px">
+							<option value="-1">-Seleccione-</option>
+							
+						</select></td>
+						<td>
+						<button value="Asignar a Agente MP" id="idAsignarAgenteMp" class="btn_Generico" onclick="asignarAgenteMP()">Asignar a Agente MP</button>
+						<button value="Asignar a Facilitador" id="idAsignarFacilitador" class="btn_Generico" onclick="asignarFacilitador()">Asignar a Facilitador</button>
+						<button value="Reasignar a Facilitador" id="idReasignarFacilitador" class="btn_Generico" onclick="asignarFacilitador()">Reasignar a Facilitador</button>						
+						</td>
+					</tr>
+					<tr id="trActuaciones">
+                                            <td>
+                                                <tr>
+                                                    <td>
+                                                        <span id="actuacionesUie">Mostrar Actuaciones:
+                                                            <span id="conUaei"> 
+                                                                <input type="radio" id="rdbConUaei" value="0" name="rdActuaciones"/>Todas
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                            </span>
+                                                            <span id="sinUaei">
+                                                                <input type="radio" id="rdbSinUaei" value="1" name="rdActuaciones" checked="checked" />Unidad Especializada 
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                            </span>				
+                                                        </span>
+                                                    </td>
+                                                 </tr>
+                                                 <tr></tr>
+                                                 <tr>
+                                                     <td id="tdCbxAccionesTab1" width="50%">
+                                                         <div id="wrapA">
+                                                            Actuaciones:
+                                                            <div id="formA"></div>
+                                                            <div class="clear"></div>
+                                                         </div>
+                                         
+                                                     </td>
+                                                     <td id="tdCbxOficiosTab1" width="100%">
+                                                        <div id="wrapO">
+                                                            Oficios:
+                                                            <div id="formO"></div>
+                                                            <div class="clear"></div>
+                                                        </div>
+                                                     </td>
+                                                 </tr>
+                                                 <tr>
+                                                     <td id="tdCbxAccionesTab" style="vertical-align:top">
+                                                        <ul id="cbxAccionesTab" style="list-style:none; width: 600px; height: 400px; overflow: auto;" ></ul>
+                                                    </td>
+                                                    <td id="tdCbxOficiosTab" style="vertical-align:top">
+                                                    <ul id="cbxOficiosTab" style="list-style:none; width: 600px; height: 400px; overflow: auto;" ></ul>
+                                                </td>
+                                                 </tr>
+                                            </td>
+                                           
+						<td>
+								<table>
+									<tr>
+										<td>
+												<button value="Adjuntar documento" id="btnReasignarUIEExpediente" class="btn_Generico" onclick="abreVentanaReasignarUIEExpediente()" style="display: none">Reasignar Unidad de Investigaci&oacute;n</button>
+										</td>
+									</tr>
+									<tr>
+										<td>
+												<!--<button value="Adjuntar documento" id="btnAdjuntarDocumento" class="btn_Generico" onclick="abreVentanaAdjuntarDocumentoAExpediente()" style="width: 100%;">Adjuntar documento</button>-->
+										</td>
+									</tr>
+									<tr>
+										<td>
+												<!--  <button value="Elaborar teoria del caso" id="idTeoriaCaso" class="btn_Generico" onclick="abreTeoria()" style="width: 100%; ">Elaborar teoría del caso</button>-->
+										</td>
+									</tr>
+									<!-- <tr id="idbotoncarpeta" style="display: none;">
+										<td>
+											<button value="Enviar de Investigacion" class="btn_Generico" onclick="lanzaCarpetaInvestigacionDefensoria()">Enviar carpeta de investigación</button>
+										</td>
+									</tr> -->
+								</table>
+						</td>
+						<td>
+							<div id="idRadiosBUt" style="display: none;">
+							<table>
+								<tr>
+								<td>
+								Mediación
+								</td>
+								<td>
+								<input type="radio" name="rbConci" id="raio1" checked="checked" />
+								</td>
+								</tr>
+								<tr>
+								<td>
+								Conciliación
+								</td>
+								<td>
+								<input type="radio" name="rbConci" id="raio2" />
+								</td>
+								</tr>
+								
+							</table>
+							</div>
+						</td>
+					</tr>
+				</table>
+				</div>
+				<div id="tabschild7-2">					
+					<table width="80%" cellpadding="0" cellspacing="0">
+						<tr>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="idRelacionarElementos">
+								<jsp:include page="relacionarElementosView.jsp"></jsp:include>
+							</a></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+					
+		</div>
+<!--TERMINAN TABS INFERIORES DE ACTUACIONES-->
+    
     
                 <!--COMIENZAN TAB HECHOS-->
 		<div id="tabs-3" class="tabTabsHechos">
