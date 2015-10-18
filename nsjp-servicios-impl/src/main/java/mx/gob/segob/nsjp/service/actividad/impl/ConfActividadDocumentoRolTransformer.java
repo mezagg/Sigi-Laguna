@@ -30,19 +30,17 @@ public class ConfActividadDocumentoRolTransformer {
         confActividadDocumentoRolDTO.setRolId(confActividadDocumentoRol.getRol().getRolId());
         if (confActividadDocumentoRol.getTipoDocumento() != null) {
             confActividadDocumentoRolDTO.setTipoDocumentoId(confActividadDocumentoRol.getTipoDocumento().getValorId());
+            confActividadDocumentoRolDTO.setNombreDocumento(confActividadDocumentoRol.getTipoDocumento().getValor());
+        }
+         if (confActividadDocumentoRol.getTipoActividad() != null) {
+            confActividadDocumentoRolDTO.setTipoActividadId(confActividadDocumentoRol.getTipoActividad().getValorId());
+            confActividadDocumentoRolDTO.setNombreActividad(confActividadDocumentoRol.getTipoActividad().getValor());
         }
         confActividadDocumentoRolDTO.setUsaEditor(confActividadDocumentoRol.getUsaEditor());
         confActividadDocumentoRolDTO.setActivo(confActividadDocumentoRol.getActivo());
-        if (confActividadDocumentoRol.getTipoDocumento() != null) {
-            confActividadDocumentoRolDTO.setTipoActividadId(confActividadDocumentoRol.getTipoDocumento().getValorId());
-            confActividadDocumentoRolDTO.setNombreDocumento(confActividadDocumentoRol.getTipoDocumento().getValor());
-        }
         if (confActividadDocumentoRol.getForma() != null) {
             confActividadDocumentoRolDTO.setForma((FormaTransformer.transformarForma(confActividadDocumentoRol.getForma())));
         }
-        confActividadDocumentoRolDTO.setNombreActividad(confActividadDocumentoRol.getTipoActividad().getValor());
-        
-
         return confActividadDocumentoRolDTO;
     }
 

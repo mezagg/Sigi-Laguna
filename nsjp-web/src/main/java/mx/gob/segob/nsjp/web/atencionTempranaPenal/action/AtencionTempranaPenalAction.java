@@ -130,6 +130,7 @@ import mx.gob.segob.nsjp.service.actividad.ConsultarConfActividadDocumentoServic
 import mx.gob.segob.nsjp.web.base.action.GenericAction;
 import mx.gob.segob.nsjp.web.caso.form.IngresarIndividuoForm;
 import mx.gob.segob.nsjp.web.expediente.form.NotaForm;
+import org.apache.commons.chain.web.MapEntry;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.math.NumberUtils;
@@ -1530,11 +1531,11 @@ public class AtencionTempranaPenalAction extends GenericAction {
             log.info("ACA ESTA !sinCatuie" + sinCatuie);
             log.info("USUARIO ");
             log.info(usuario);
-            log.info("USUARIO rol: " + usuario.getRolACtivo().getRol().getRolId()); 
-             if (usuario.getRolACtivo().getRol().getRolId() != null)
-                listActividadDocumentoDTOs = confActividadDocumentoDelegate.consultarConfActividadDocumento(usuario, usuario.getRolACtivo().getRol().getRolId(), "1".equals(sinCatuie));
-               
-             
+            log.info("USUARIO rol: " + usuario.getRolACtivo().getRol().getRolId());
+
+            if (usuario.getRolACtivo().getRol().getRolId() != null) {
+                listActividadDocumentoDTOs = confActividadDocumentoDelegate.consultarConfActividadDocumento(usuario, usuario.getRolACtivo().getRol().getRolId(), "0".equals(sinCatuie));
+            }
 
             log.debug("ejecutando MetodoAction cargarActuaciones lista respuesta tamano" + listActividadDocumentoDTOs.size());
             log.debug("ejecutando MetodoAction cargarActuaciones lista respuesta " + listActividadDocumentoDTOs);
@@ -1544,19 +1545,18 @@ public class AtencionTempranaPenalAction extends GenericAction {
 
             for (ConfActividadDocumentoRolDTO confActividadDocumentoRolDTO : listActividadDocumentoDTOs) {
                 CatalogoDTO catalogo = new CatalogoDTO();
-                
-                log.info("CLAVE: " + confActividadDocumentoRolDTO.getConfActividadDocumentoRolId());
-                log.info("VALOR: " + confActividadDocumentoRolDTO.getNombreActividad());
-                log.info("TODO confActividadDocumentoRolDTO");
-                log.info(confActividadDocumentoRolDTO);
+
                 catalogo.setClave(confActividadDocumentoRolDTO.getConfActividadDocumentoRolId());
                 catalogo.setValor(confActividadDocumentoRolDTO.getNombreActividad());
                 //El tipo documento con id 86 es de tipo oficio
-                if (confActividadDocumentoRolDTO.getTipoDocumentoId().toString().equals("89")) {
-                    listaOficio.add(catalogo);
-                } else {
-                    listaCatalogo.add(catalogo);
+                if (confActividadDocumentoRolDTO.getTipoDocumentoId() != null) {
+                    if (confActividadDocumentoRolDTO.getTipoDocumentoId().toString().equals("89")) {
+                        listaOficio.add(catalogo);
+                    } else {
+                        listaCatalogo.add(catalogo);
+                    }
                 }
+
                 log.debug("ejecutando MetodoAction cargarActuaciones actuaciones de BD:" + confActividadDocumentoRolDTO.getNombreActividad());
 
             }
@@ -1567,7 +1567,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
 //            converter.alias("listaCatalogo", java.util.List.class);
             converter.alias("listas", java.util.List.class);
             converter.alias("catActuaciones", CatalogoDTO.class);
-//            String xml = converter.toXML(listaCatalogo);
+//            String xml = converter.toXML(listaOficio);
             String xml = converter.toXML(listas);
             log.info("ESTE ES EL XML:");
             log.info(xml);

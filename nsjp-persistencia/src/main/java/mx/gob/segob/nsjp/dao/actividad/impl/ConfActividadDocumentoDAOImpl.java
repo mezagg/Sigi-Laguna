@@ -72,8 +72,9 @@ public class ConfActividadDocumentoDAOImpl
                 append(" WHERE conf.rol.rolId = ").append(idRol).
                 append(" AND conf.activo = 1").
                 append(" order by conf.tipoActividad.valor");
-
+         logger.info("QUERY PARA consultarActividadRol: " + sb);
         Query query = super.getSession().createQuery(sb.toString());
+        
         return query.list();
     }
     
@@ -86,9 +87,9 @@ public class ConfActividadDocumentoDAOImpl
                 append(" WHERE cRol.rol.rolId = ").append(idRol).
                 append(" AND cRol.activo = 1").
                 append(" AND cUie.catUIEspecializada.catUIEId = ").append(catUIE).
-                append(" AND cRol.tipoActividad.valorId = cUie.valor.valorId").
+                append(" AND cRol.tipoActividad.valorId = cUie.tipoActividad.valorId").
                 append(" order by cRol.tipoActividad.valor ");
-
+        logger.info("QUERY PARA consultarActividadCatUie: " + sb);
         Query query = super.getSession().createQuery(sb.toString());
         return query.list();
     }
