@@ -22,21 +22,19 @@ public class ConfActividadUIE implements Serializable {
     private static final long serialVersionUID = 1L;
     private ConfActividadUIEId id;
     private CatUIEspecializada catUIEspecializada;
-    private Valor valor;
+    private Valor tipoActividad;
 
     public ConfActividadUIE() {
     }
 
-    public ConfActividadUIE(ConfActividadUIEId id, CatUIEspecializada catUIEspecializada, Valor valor) {
+    public ConfActividadUIE(ConfActividadUIEId id) {
         this.id = id;
-        this.catUIEspecializada = catUIEspecializada;
-        this.valor = valor;
     }
 
     @EmbeddedId
     @AttributeOverrides({
         @AttributeOverride(name = "catUIEId", column = @Column(name = "catUIE_id", nullable = false, precision = 18, scale = 0)),
-        @AttributeOverride(name = "tipoActividadValor", column = @Column(name = "Valor_id", nullable = false, precision = 18, scale = 0))})
+        @AttributeOverride(name = "tipoActividadValor", column = @Column(name = "TipoActividad_val", nullable = false, precision = 18, scale = 0))})
     public ConfActividadUIEId getId() {
         return id;
     }
@@ -56,13 +54,13 @@ public class ConfActividadUIE implements Serializable {
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Valor_id", nullable = false, insertable = false, updatable = false)
-    public Valor getValor() {
-        return valor;
+    @JoinColumn(name = "TipoActividad_val", nullable = false, insertable = false, updatable = false)
+    public Valor getTipoActividad() {
+        return tipoActividad;
     }
 
-    public void setValor(Valor valor) {
-        this.valor = valor;
+    public void setTipoActividad(Valor tipoActividad) {
+        this.tipoActividad = tipoActividad;
     }
 
 }

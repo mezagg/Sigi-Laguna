@@ -28,7 +28,7 @@ public class ConfActividadUIEId implements Serializable {
         this.catUIEId = catUIEId;
     }
 
-    @Column(name = "Valor_id", nullable = false, precision = 18, scale = 0)
+    @Column(name = "TipoActividad_val", nullable = false, precision = 18, scale = 0)
     public Long getTipoActividadValor() {
         return tipoActividadValor;
     }

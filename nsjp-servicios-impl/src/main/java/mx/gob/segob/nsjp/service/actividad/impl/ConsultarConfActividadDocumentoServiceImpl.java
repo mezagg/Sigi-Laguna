@@ -229,7 +229,6 @@ public class ConsultarConfActividadDocumentoServiceImpl implements
         }
         
         Usuario usuario = UsuarioTransformer.transformarDTO(usuarioDto);
-        List<ConfActividadDocumentoRolDTO> configuracionesDto = Collections.emptyList();
         if (usuario.getFuncionario() == null || usuario.getFuncionario().getArea() == null) {
             usuario = usuarioDao.read(usuarioDto.getIdUsuario());
         }
@@ -247,10 +246,12 @@ public class ConsultarConfActividadDocumentoServiceImpl implements
             configuraciones = confActividadDocumentoDao.consultarActividadRol(idRol);
 //            configuraciones = confActividadDocumentoDao.consultarConfActividadDocumento(jerarquiaOrgId, numeroExpediente, idCategoriaActividad);
         }
+        
+        List<ConfActividadDocumentoRolDTO> configuracionesDto = Collections.emptyList();
+        logger.info("TAMAÑO DE configuraciones " + configuraciones.size());
         if (configuraciones != null & !configuraciones.isEmpty()) {
             configuracionesDto = new LinkedList<ConfActividadDocumentoRolDTO>();
             for (ConfActividadDocumentoRol confActividadDocumentoRol : configuraciones) {
-                
                 ConfActividadDocumentoRolDTO configuracionDto = ConfActividadDocumentoRolTransformer.
                         transformarConfActividadDocumento(confActividadDocumentoRol);
                 
