@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -58,7 +59,7 @@ public class ConfActividadDocumentoRol implements Serializable {
         this.descripcion = descripcion;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "TipoActividad_val", nullable = false)
     public Valor getTipoActividad() {
         return tipoActividad;
@@ -68,7 +69,7 @@ public class ConfActividadDocumentoRol implements Serializable {
         this.tipoActividad = tipoActividad;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "TipoDocumento_val", nullable = true)
     public Valor getTipoDocumento() {
         return tipoDocumento;

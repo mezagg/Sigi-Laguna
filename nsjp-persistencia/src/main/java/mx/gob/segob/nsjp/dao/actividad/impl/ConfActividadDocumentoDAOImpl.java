@@ -67,15 +67,27 @@ public class ConfActividadDocumentoDAOImpl
     public List<ConfActividadDocumentoRol> consultarActividadRol(Long idRol) {
         
         StringBuilder sb = new StringBuilder();
-        
-        sb.append("SELECT conf FROM ConfActividadDocumentoRol conf").
-                append(" WHERE conf.rol.rolId = ").append(idRol).
-                append(" AND conf.activo = 1").
-                append(" order by conf.tipoActividad.valor");
+         /*  private Long confActividadDocumentoRolId;
+        private String descripcion;
+        private Valor tipoActividad;
+        private Valor tipoDocumento;
+        private Boolean muestraEnCombo;
+        private Forma forma;
+        private Boolean usaEditor;
+        private Rol rol;
+        private Boolean activo;
+    
+        sb.append("SELECT cRol.*, cRol.tipoActividad.valor, cRol.tipoActividad.valorId "
+                + ", cRol.tipoDocumento.valor, cRol.tipoDocumento.valorId "
+                + "FROM ConfActividadDocumentoRol cRol").
+                append(" WHERE cRol.rol.rolId = ").append(idRol).
+                append(" AND cRol.activo = 1").
+                append(" order by cRol.tipoActividad.valor");
          logger.info("QUERY PARA consultarActividadRol: " + sb);
         Query query = super.getSession().createQuery(sb.toString());
         
-        return query.list();
+        return query.list();*/
+        return consultarActividadCatUie(idRol,  null);
     }
     
     @Override
@@ -83,12 +95,19 @@ public class ConfActividadDocumentoDAOImpl
         
         StringBuilder sb = new StringBuilder();
         
-        sb.append("SELECT cRol FROM ConfActividadDocumentoRol cRol, ConfActividadUIE cUie").
-                append(" WHERE cRol.rol.rolId = ").append(idRol).
-                append(" AND cRol.activo = 1").
-                append(" AND cUie.catUIEspecializada.catUIEId = ").append(catUIE).
-                append(" AND cRol.tipoActividad.valorId = cUie.tipoActividad.valorId").
-                append(" order by cRol.tipoActividad.valor ");
+       // sb.append("SELECT cRol.*, cRol.tipoDocumento.valorId, cRol.tipoDocumento.valor , ").
+       //    append(" cRol.tipoActividad.valorId, cRol.tipoActividad.valor  FROM").
+        sb.append("SELECT cRol from ConfActividadDocumentoRol cRol").
+           append(catUIE!=null?" , ConfActividadUIE cUie ":"").
+           append(" WHERE cRol.rol.rolId = ").append(idRol).
+           append(" AND cRol.activo = 1");
+        if(catUIE!=null){
+            sb.append(" AND cUie.catUIEspecializada.catUIEId = ").append(catUIE).
+               append(" AND cRol.tipoActividad.valorId = cUie.tipoActividad.valorId");
+        }
+       
+        sb.append(" order by cRol.tipoActividad.valor ");
+        
         logger.info("QUERY PARA consultarActividadCatUie: " + sb);
         Query query = super.getSession().createQuery(sb.toString());
         return query.list();

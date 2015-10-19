@@ -1513,10 +1513,10 @@ public class AtencionTempranaPenalAction extends GenericAction {
             String idCategoria = request.getParameter("idCategoria");
             log.debug("ID DE LA CATEGORIA=" + idCategoria);
 
-            String numeroExpediente = request.getParameter("numeroExpediente");
+            //String numeroExpediente = request.getParameter("numeroExpediente");
             String sinCatuie = request.getParameter("sinCatuie");
-            Long numeroExpedienteId = NumberUtils.toLong(request.getParameter("numeroExpedienteId"), 0);
-            log.debug("ejecutando MetodoAction cargarActuaciones numeroExpediente ###" + numeroExpediente);
+            //Long numeroExpedienteId = NumberUtils.toLong(request.getParameter("numeroExpedienteId"), 0);
+           // log.debug("ejecutando MetodoAction cargarActuaciones numeroExpediente ###" + numeroExpediente);
             //Codigo que implementa la funcionalidad de sub rol y filtra sus actuaciones
             UsuarioDTO usuarioDTO = super.getUsuarioFirmado(request);
             log.info("ACA ESTA EL USUARIO");
