@@ -6,7 +6,10 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
 import javax.persistence.Table;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
  * Valor entity. @author MyEclipse Persistence Tools
@@ -14,6 +17,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Valor")
+@Cache(usage=CacheConcurrencyStrategy.READ_ONLY, region="valor")
 public class Valor implements java.io.Serializable {
 
     /**

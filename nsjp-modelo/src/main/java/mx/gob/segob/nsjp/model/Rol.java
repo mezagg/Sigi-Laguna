@@ -19,6 +19,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 
 
@@ -27,6 +29,7 @@ import javax.persistence.UniqueConstraint;
  */
 @Entity
 @Table(name = "Rol", uniqueConstraints = @UniqueConstraint(columnNames = "cNombreRol"))
+@Cache(usage=CacheConcurrencyStrategy.READ_ONLY, region="valor")
 public class Rol implements java.io.Serializable {
 
 	// Fields

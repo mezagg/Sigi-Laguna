@@ -14,12 +14,16 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
  * Funcion entity. @author MyEclipse Persistence Tools
  */
 @Entity
 @Table(name = "Funcion", uniqueConstraints = @UniqueConstraint(columnNames = "cNombreFuncion"))
+@Cache(usage=CacheConcurrencyStrategy.READ_ONLY, region="valor")
+
 public class Funcion implements java.io.Serializable {
 
     // Fields

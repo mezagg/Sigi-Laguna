@@ -14,12 +14,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
  * JerarquiaOrganizacional entity. @author MyEclipse Persistence Tools
  */
 @Entity
 @Table(name = "JerarquiaOrganizacional")
+@Cache(usage=CacheConcurrencyStrategy.READ_ONLY, region="valor")
 public class JerarquiaOrganizacional implements java.io.Serializable {
 
     // Fields

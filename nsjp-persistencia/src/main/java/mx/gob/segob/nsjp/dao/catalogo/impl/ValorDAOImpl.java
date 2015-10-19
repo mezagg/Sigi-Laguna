@@ -41,6 +41,7 @@ public class ValorDAOImpl extends GenericDaoHibernateImpl<Valor, Long>
 	private final static Long COMPLEJIDAD = 122L;
 	private final static Long ABREVIATURA_MANDAMIENTO = 197L;
 
+        
 	@Override
 	public Valor consultarComplejidadTipoAudiencia(Valor tipo) {
 		StringBuffer queryString = new StringBuffer();
