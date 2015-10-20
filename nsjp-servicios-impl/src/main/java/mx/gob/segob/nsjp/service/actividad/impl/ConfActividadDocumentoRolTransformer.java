@@ -9,6 +9,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import mx.gob.segob.nsjp.dto.ConfActividadDocumentoRolDTO;
+import mx.gob.segob.nsjp.dto.forma.FormaDTO;
 import mx.gob.segob.nsjp.model.ConfActividadDocumentoRol;
 import mx.gob.segob.nsjp.model.Forma;
 import mx.gob.segob.nsjp.model.Rol;
@@ -39,7 +40,9 @@ public class ConfActividadDocumentoRolTransformer {
         confActividadDocumentoRolDTO.setUsaEditor(confActividadDocumentoRol.getUsaEditor());
         confActividadDocumentoRolDTO.setActivo(confActividadDocumentoRol.getActivo());
         if (confActividadDocumentoRol.getForma() != null) {
-            confActividadDocumentoRolDTO.setForma((FormaTransformer.transformarForma(confActividadDocumentoRol.getForma())));
+            //confActividadDocumentoRolDTO.setForma((FormaTransformer.transformarForma(confActividadDocumentoRol.getForma())));
+            confActividadDocumentoRolDTO.setForma(new FormaDTO(confActividadDocumentoRol.getForma().getFormaId()) );
+        
         }
         return confActividadDocumentoRolDTO;
     }

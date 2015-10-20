@@ -21,6 +21,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 
 
@@ -30,6 +32,7 @@ import javax.persistence.UniqueConstraint;
  */
 @Entity
 @Table(name = "ElementoMenu", uniqueConstraints = { @UniqueConstraint(columnNames = "ElementoMenu_id") })
+@Cache(usage=CacheConcurrencyStrategy.READ_ONLY, region="valor")
 public class ElementoMenu implements java.io.Serializable {
 
 	/**

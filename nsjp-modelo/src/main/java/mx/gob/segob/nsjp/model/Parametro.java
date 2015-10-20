@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
  * Parametros entity. @author MyEclipse Persistence Tools
@@ -14,6 +16,7 @@ import javax.persistence.Transient;
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "Parametro")
+@Cache(usage=CacheConcurrencyStrategy.READ_ONLY, region="valor")
 public class Parametro implements java.io.Serializable {
 
     // Fields

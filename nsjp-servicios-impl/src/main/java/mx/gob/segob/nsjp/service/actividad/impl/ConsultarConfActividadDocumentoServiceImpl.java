@@ -243,7 +243,7 @@ public class ConsultarConfActividadDocumentoServiceImpl implements
             configuraciones = confActividadDocumentoDao.consultarActividadCatUie(idRol, catUIE);
 //            configuraciones = confActividadDocumentoDao.consultarConfActividadDocumentoCatUie(jerarquiaOrgId, numeroExpediente, idCategoriaActividad, catUIE);
         } else {
-            configuraciones = confActividadDocumentoDao.consultarActividadRol(idRol);
+            configuraciones = confActividadDocumentoDao.consultarActividadCatUie(idRol, null);
 //            configuraciones = confActividadDocumentoDao.consultarConfActividadDocumento(jerarquiaOrgId, numeroExpediente, idCategoriaActividad);
         }
         
