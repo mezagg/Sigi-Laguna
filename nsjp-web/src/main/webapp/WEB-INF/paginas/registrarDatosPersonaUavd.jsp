@@ -644,7 +644,7 @@ function popopAsistencia(rowid){
                 $('#cbxOficiosTab').addClass("cargando");
                 $('#tapActuaciones').addClass("cargando");
                 
-                var url =  '<%= request.getContextPath()%>/cargarActuaciones.do?numeroExpediente='+numeroExpediente+'&sinCatuie='+sinCatuie;
+                var url =  '<%= request.getContextPath()%>/cargarActuaciones.do?sinCatuie='+sinCatuie;
 		$.ajax({
 			type: 'POST',
 			url: url,
@@ -654,8 +654,7 @@ function popopAsistencia(rowid){
 			success: function(xml){
                             var bOficios = 0;
                             var bAcciones = 0;
-                            console.log("XML DE ACTUACIONES");
-                            console.log(xml);
+
                             $(xml).find('entry').each(function(){
                                 var resp = $(this).find(':first-child').get( 0 );
                                 if($(resp).text() === "listaOficios"){
