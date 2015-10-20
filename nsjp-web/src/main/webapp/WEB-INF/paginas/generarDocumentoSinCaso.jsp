@@ -1217,7 +1217,7 @@
 			<td><input type="text" title="Estado" size="30" id="iEstado" disabled="disabled" style=" border:0; background-color:#EEEEEE;"/></td>			
 		</tr>
 		<tr>
-			<td width="20%"><span id="labelNumeroOficio">PamN&uacute;mero de Oficio:</span></td>
+			<td width="20%"><span id="labelNumeroOficio">N&uacute;mero de Oficio:</span></td>
 			<td width=""><input type="text" title="Numero de Oficio" size="40" id="iNumeroOficio" onkeypress="return letrasNumero(event);" maxlength="20"/></td>
 		</tr>
 		<tr id="trDistritos">

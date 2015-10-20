@@ -1784,12 +1784,8 @@
                 $('#cbxAccionesTab').addClass("cargando");
                 $('#cbxOficiosTab').addClass("cargando");
                 $('#tapActuaciones').addClass("cargando");
-                var url = '';
-//                if(sinCatuie){
-                    url =  '<%= request.getContextPath()%>/cargarActuaciones.do?numeroExpediente='+numeroExpediente+'&sinCatuie='+sinCatuie;
-//                }else{
-//                    url =  '<%= request.getContextPath()%>/cargarActuaciones.do?numeroExpediente='+numeroExpediente;
-//                }
+                
+                var url =  '<%= request.getContextPath()%>/cargarActuaciones.do?numeroExpediente='+numeroExpediente+'&sinCatuie='+sinCatuie;
 		$.ajax({
 			type: 'POST',
 			url: url,
@@ -1802,20 +1798,18 @@
                             console.log("XML DE ACTUACIONES");
                             console.log(xml);
                             $(xml).find('entry').each(function(){
-                                var resp = $(this).find('respuesta').text();
-                                if(resp == "listaOficios"){
-                                    $(this).find('catActuaciones').each(function(){
-                                        bAcciones++;
-                                        $('#cbxAccionesTab').append('<li data-value="' + $(this).find('clave').text() + '"><img src="<%=request.getContextPath() %>/resources/images/oficio.jpg" width="30" height="30" align="absmiddle"/><a href="#" class="actuaciones" idselected="'+$(this).find('clave').text()+'">' + $(this).find('valor').text() + '</a></li>');
-//                                        $('#cbxAccionesTab').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
-                                   
-                                    });
-                                }
-                                 if(resp == "listaActuaciones"){
+                                var resp = $(this).find(':first-child').get( 0 );
+                                if($(resp).text() === "listaOficios"){
                                     $(this).find('catActuaciones').each(function(){
                                         bOficios++;
-//                                        $('#cbxOficiosTab').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
-                                          $('#cbxOficiosTab').append('<li data-value="' + $(this).find('clave').text() + '"><img src="<%=request.getContextPath() %>/resources/images/play.png" width="30" height="30" align="absmiddle"/><a href="#" idselected="'+$(this).find('clave').text()+'">' + $(this).find('valor').text() + '</a></li>');
+                                        $('#cbxOficiosTab').append('<li data-value="' + $(this).find('clave').text() + '"><img src="<%=request.getContextPath() %>/resources/images/oficio.jpg" width="30" height="30" align="absmiddle"/><a href="#" class="actuaciones" idselected="'+$(this).find('clave').text()+'">' + $(this).find('valor').text() + '</a></li>');
+
+                                    });
+                                }
+                                if($(resp).text() == "listaActuaciones"){
+                                    $(this).find('catActuaciones').each(function(){
+                                        bAcciones++;
+                                        $('#cbxAccionesTab').append('<li data-value="' + $(this).find('clave').text() + '"><img src="<%=request.getContextPath() %>/resources/images/play.png" width="30" height="30" align="absmiddle"/><a href="#" idselected="'+$(this).find('clave').text()+'">' + $(this).find('valor').text() + '</a></li>');
                                     });
                                 }
                                  
@@ -1832,6 +1826,9 @@
 			},
                         error:function(){
                             alertDinamico("Error al obtener las actuaciones y oficios");
+                            $('#cbxAccionesTab').removeClass("cargando");
+                            $('#cbxOficiosTab').removeClass("cargando");
+                            $('#tapActuaciones').removeClass("cargando");
                         }
 		});
 	}
@@ -4879,12 +4876,13 @@
 		}
                 
                 
-                (function ($) {
+ (function ($) {
   jQuery.expr[':'].Contains = function(a,i,m){
       return (a.textContent || a.innerText || "").toUpperCase().indexOf(m[3].toUpperCase())>=0;
   };
- 
+
   function filterList(header, list) { 
+       console.log("si paso por filterList");
     var form = $("<form>").attr({"class":"filterform","action":"#"}),
         input = $("<input>").attr({"class":"filterinput","type":"text","size":"80"});
     $(form).append(input).appendTo(header);
@@ -4911,7 +4909,7 @@
 }(jQuery));
                 
                 
-	});
+});
 
 	</script>
 	
