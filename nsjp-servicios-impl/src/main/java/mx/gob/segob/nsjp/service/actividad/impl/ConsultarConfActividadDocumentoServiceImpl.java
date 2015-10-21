@@ -21,6 +21,7 @@ import mx.gob.segob.nsjp.comun.enums.excepciones.CodigoError;
 import mx.gob.segob.nsjp.comun.enums.institucion.TipoJerarquia;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
 import mx.gob.segob.nsjp.dao.actividad.ConfActividadDocumentoDAO;
+import mx.gob.segob.nsjp.dao.actividad.ConfActividadDocumentoRolDAO;
 import mx.gob.segob.nsjp.dao.actividad.ConfTipoActividadOrigenDestinoDAO;
 import mx.gob.segob.nsjp.dao.expediente.ActividadDAO;
 import mx.gob.segob.nsjp.dao.expediente.NumeroExpedienteDAO;
@@ -74,6 +75,9 @@ public class ConsultarConfActividadDocumentoServiceImpl implements
     
     @Autowired
     private ConfActividadDocumentoDAO confActividadDocumentoDao;
+    
+    @Autowired
+    private ConfActividadDocumentoRolDAO confActividadDocumentoRolDao;
     
     @Autowired
     private NumeroExpedienteDAO NumeroExpedienteDAO;
@@ -305,6 +309,27 @@ public class ConsultarConfActividadDocumentoServiceImpl implements
         return confActividadDocumentoDTO;
     }
     
+    
+    
+    @Override
+    public ConfActividadDocumentoRolDTO consultaConfActividadDocumentoRolPorId(Long idConfActividadDocumentoRol) throws NSJPNegocioException {
+        logger.info("Servicion consultaConfActividadDocumentoPorIdActividad");
+        if (idConfActividadDocumentoRol == null || idConfActividadDocumentoRol < 0) {
+            throw new NSJPNegocioException(CodigoError.PARAMETROS_INSUFICIENTES);
+        }
+        
+        ConfActividadDocumentoRolDTO confActividadDocumentoRolDTO = new ConfActividadDocumentoRolDTO();
+        
+        ConfActividadDocumentoRol confActividadDocumentoRol = confActividadDocumentoRolDao.consultaConfActividadDocumentoRolPorIdActividad(idConfActividadDocumentoRol);
+                       
+        if (confActividadDocumentoRol != null) {
+            confActividadDocumentoRolDTO = ConfActividadDocumentoRolTransformer.transformarConfActividadDocumento(confActividadDocumentoRol);
+        }
+        
+        return confActividadDocumentoRolDTO;
+    }
+    
+    
     @Override
     public List<ValorDTO> consultarEstadosPorJerarquiaOrganizacional(Long idJerarquiaOrganizacional) throws NSJPNegocioException {
         if (idJerarquiaOrganizacional == null || idJerarquiaOrganizacional < 0L) {
@@ -412,7 +437,32 @@ public class ConsultarConfActividadDocumentoServiceImpl implements
     }
     
     @Override
+    public ConfActividadDocumentoRolDTO consultaConfActividadDocumentoRolPorIdActividad(
+            ConfActividadDocumentoRolDTO filtro) throws NSJPNegocioException {
+        if (filtro == null
+                || filtro.getTipoActividadId() == null
+                || filtro.getTipoActividadId() < 1L) {
+            throw new NSJPNegocioException(CodigoError.PARAMETROS_INSUFICIENTES);
+        }
+        ConfActividadDocumentoRol conf = confActividadDocumentoRolDao.consultaConfActividadDocumentoRolPorIdActividad(filtro.getTipoActividadId());
+        return ConfActividadDocumentoRolTransformer.transformarConfActividadDocumento(conf);
+    }
+
+    @Override
     public ConfActividadDocumentoDTO consultaConfActividadDocumentoPorId(Long idConfActividadDocumento, Boolean sinCauie) throws NSJPNegocioException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        logger.info("Servicion consultaConfActividadDocumentoPorIdActividad");
+        if (idConfActividadDocumento == null || idConfActividadDocumento < 0) {
+            throw new NSJPNegocioException(CodigoError.PARAMETROS_INSUFICIENTES);
+        }
+        
+        ConfActividadDocumentoDTO confActividadDocumentoDTO = new ConfActividadDocumentoDTO();
+        
+        ConfActividadDocumento confActividadDocumento = confActividadDocumentoDao.read(idConfActividadDocumento);
+        
+        if (confActividadDocumento != null) {
+            confActividadDocumentoDTO = ConfActividadDocumentoTransformer.transformarConfActividadDocumento(confActividadDocumento);
+        }
+        
+        return confActividadDocumentoDTO;
     }
 }

@@ -633,6 +633,7 @@
 <bean name="/consultarTeoriasDelCasoExpediente" class="mx.gob.segob.nsjp.web.atencionTempranaPenal.action.AtencionTempranaPenalAction"/>
 <bean name="/enviarReplicaCaso" class="mx.gob.segob.nsjp.web.atencionTempranaPenal.action.AtencionTempranaPenalAction"/>
 <bean name="/obtenerConfActividadDocumento" class="mx.gob.segob.nsjp.web.atencionTempranaPenal.action.AtencionTempranaPenalAction"/>
+<bean name="/obtenerConfActividadRolDocumento" class="mx.gob.segob.nsjp.web.atencionTempranaPenal.action.AtencionTempranaPenalAction"/>
 <bean name="/consultaBitacoraMovObjetosAlmacen" class="mx.gob.segob.nsjp.web.atencionTempranaPenal.action.AtencionTempranaPenalAction"/>
 <bean name="/consultarEslabonesEvidencia" class="mx.gob.segob.nsjp.web.atencionTempranaPenal.action.AtencionTempranaPenalAction"/>
 <bean name="/consultarCatalogoElemento" class="mx.gob.segob.nsjp.web.atencionTempranaPenal.action.AtencionTempranaPenalAction"/>

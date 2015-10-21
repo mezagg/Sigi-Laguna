@@ -652,21 +652,29 @@ function popopAsistencia(rowid){
 			dataType: 'xml',
 			async: false,
 			success: function(xml){
-                            var bOficios = 0;
-                            var bAcciones = 0;
-
+                            var ofic = 0;
+                            var act = 0;
+                            console.log("XML DE ACTUACIONES");
+                            console.log(xml);
                             $(xml).find('entry').each(function(){
                                 var resp = $(this).find(':first-child').get( 0 );
+                               
                                 if($(resp).text() === "listaOficios"){
+                                    ofic = $(this).find('catActuaciones').size();
+                                    $('#ofic').empty();
+                                    $('#ofic').append(" (" + ofic +"):");
                                     $(this).find('catActuaciones').each(function(){
-                                        bOficios++;
+                                        
                                         $('#cbxOficiosTab').append('<li data-value="' + $(this).find('clave').text() + '"><img src="<%=request.getContextPath() %>/resources/images/oficio.jpg" width="30" height="30" align="absmiddle"/><a href="#" class="actuaciones" idselected="'+$(this).find('clave').text()+'">' + $(this).find('valor').text() + '</a></li>');
 
                                     });
                                 }
                                 if($(resp).text() == "listaActuaciones"){
+                                    act = $(this).find('catActuaciones').size();
+                                    $('#act').empty();
+                                    $('#act').append(" (" + act +")");
                                     $(this).find('catActuaciones').each(function(){
-                                        bAcciones++;
+                                        
                                         $('#cbxAccionesTab').append('<li data-value="' + $(this).find('clave').text() + '"><img src="<%=request.getContextPath() %>/resources/images/play.png" width="30" height="30" align="absmiddle"/><a href="#" idselected="'+$(this).find('clave').text()+'">' + $(this).find('valor').text() + '</a></li>');
                                     });
                                 }
@@ -675,10 +683,10 @@ function popopAsistencia(rowid){
                             $('#cbxAccionesTab').removeClass("cargando");
                             $('#cbxOficiosTab').removeClass("cargando");
                             $('#tapActuaciones').removeClass("cargando");
-                            if(bAcciones === 0){
+                            if(act === 0){
                                 $( "#cbxAccionesTab" ).attr( "disabled", "disables" );
                             }
-                            if(bOficios === 0){
+                            if(ofic === 0){
                                 $( "#cbxOficiosTab" ).attr( "disabled", "disables" );
                             }
 			},
@@ -2320,7 +2328,7 @@ function muestraDivInformativoCanalizacion()
                                                  <tr>
                                                      <td id="tdCbxAccionesTab1" width="50%">
                                                          <div id="wrapA">
-                                                            Actuaciones:
+                                                            Actuaciones <span id='act'></span>
                                                             <div id="formA"></div>
                                                             <div class="clear"></div>
                                                          </div>
@@ -2328,7 +2336,7 @@ function muestraDivInformativoCanalizacion()
                                                      </td>
                                                      <td id="tdCbxOficiosTab1" width="100%">
                                                         <div id="wrapO">
-                                                            Oficios:
+                                                            Oficios <span id='ofic'></span>
                                                             <div id="formO"></div>
                                                             <div class="clear"></div>
                                                         </div>
