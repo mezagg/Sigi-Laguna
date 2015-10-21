@@ -1593,17 +1593,17 @@ function canalizarControversiaExisteDelitoGrave(actividad,estatusId,titulo, form
 			if(excede == "true"){
 				customConfirm ("La media aritm&eacute;tica de los delitos excede lo permitido. &iquest;Desea enviar a la unidad de controversias?", "Aviso", 
 						function(){
-							canalizarControversiaMediaAritm&eacute;tica(actividad,estatusId,titulo, formaID, numeroExpediente);
+							canalizarControversiaMediaArimetica(actividad,estatusId,titulo, formaID, numeroExpediente);
 						},
 						recargarActuaciones()
 						);
 			}else if(excede == "false"){
-				canalizarControversiaMediaAritm&eacute;tica(actividad,estatusId,titulo, formaID, numeroExpediente);
+				canalizarControversiaMediaArimetica(actividad,estatusId,titulo, formaID, numeroExpediente);
 			}
 		}			
 	}
 
-        function canalizarControversiaMediaAritm&eacute;tica(actividad,estatusId,titulo, formaID, numeroExpediente){
+        function canalizarControversiaMediaArimetica(actividad,estatusId,titulo, formaID, numeroExpediente){
 		idWindowPantallaActuaciones++;
 		if(actividad == '<%= Actividades.DIRIGIR_A_LA_UNIDAD_DE_SOLUCION_DE_CONTROVERSIAS.getValorId()%>' || 
 		   actividad=='<%=Actividades.DIRIGIR_A_LA_UNIDAD_DE_SOLUCION_DE_CONTROVERSIAS_SIN_SUSPENDER_EXPEDIENTE.getValorId()%>'){
