@@ -2,8 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        <title>Lineas de Investigación</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Lineas de Investigaci&oacute;n</title>
         
         
         <!--		Hojas de estilos asociadas-->
@@ -43,7 +43,7 @@
 	   			$("#btnGuardarLineaDeInv").click(guardarLineaDeInvestigacion);
 	   			$("#btnGuardarComentario").click(registrarComentario);
             	cargarDatosExpediente();
-            	//Se ajusta el tamaño del editor de la hipotesis
+            	//Se ajusta el tama&ntilde;o del editor de la hipotesis
             	$('#tblHipotesis').hide();
             	$('#tblLineaInvestigacion').hide();
             	
@@ -158,7 +158,7 @@
 						$('.jquery_ckeditor').val($(xml).find('SeguimientoLIDTO').find('hipotesis').first().text());
 						idHipotesis = parseInt($(xml).find('SeguimientoLIDTO').find('seguimientoLIId').first().text());
 						//Se cambia leyenda del boton Hipotesis por Consultar hipotesis
-						$('#btnHipotesis').val("Actualizar Hipótesis");						
+						$('#btnHipotesis').val("Actualizar Hip&oacute;tesis");						
 					  }
 				}
 			});
@@ -182,18 +182,18 @@
 						
 						 if(parseInt($(xml).find('SeguimientoLIDTO').find('seguimientoLIId').text())> 0){
 							 if(idHipotesis == 0){
-								 customAlert("La hipótesis se guard\u00F3 correctamente");
+								 customAlert("La hip&oacute;tesis se guard\u00F3 correctamente");
 								 idHipotesis = parseInt($(xml).find('SeguimientoLIDTO').find('seguimientoLIId').text());
-								$('#btnHipotesis').val("Actualizar Hipótesis");
+								$('#btnHipotesis').val("Actualizar Hip&oacute;tesis");
 							 }
 							 else
-								 customAlert("La hipótesis se actualiz\u00F3 correctamente")
+								 customAlert("La hip&oacute;tesis se actualiz\u00F3 correctamente")
 							$('#seccionDeBotones').show();
 		            		$('#seccionDeDetalle').hide();
 		            		$('#tblHipotesis').hide();
 							 
 						  }else
-							  customAlert('Error al intentar guardar la hipótesis, inténtelo más tarde');
+							  customAlert('Error al intentar guardar la hip&oacute;tesis, int&eacute;ntelo m&aacute;s tarde');
 						
 					}
 				});
@@ -234,7 +234,7 @@
 									 customAlert("La l\u00EDnea de investigaci\u00F3n se actualiz\u00F3 correctamente")
 								 
 							  }else
-								  customAlert('Error al intentar guardar la La l\u00EDnea de investigaci\u00F3n, inténtelo mas tarde');
+								  customAlert('Error al intentar guardar la La l\u00EDnea de investigaci\u00F3n, int&eacute;ntelo mas tarde');
 							
 						}
 					});
@@ -274,7 +274,7 @@
 								 customAlert("El comentario se actualiz\u00F3 correctamente")
 							 
 						  }else
-							  customAlert('Error al intentar guardar el comentario, inténtelo más tarde');
+							  customAlert('Error al intentar guardar el comentario, int&eacute;ntelo m&aacute;s tarde');
 						
 					}
 				});
@@ -313,7 +313,7 @@
    		
    		/**
    		* Funcionar que permite actualizar el identificador que se muestra en la leyenda
-   		* Comentario asociado a la línea de investigación X: al momento de 'Ingresar un comentario'
+   		* Comentario asociado a la l&iacute;nea de investigaci&oacute;n X: al momento de 'Ingresar un comentario'
    		*/
    		function actualizaEtiqueta(idLineaInvestigacion){
    			idLineaInvestigacionOrdinal = idLineaInvestigacion;
@@ -338,14 +338,14 @@
 		*    los botones de Imprimir, Cerrrar e Ingresar documento.
 		*/
    		function cerrarLinea(idLineaInvestigacion){
-   			if(confirm("¿Desea cerrar la línea de investigación?")){				
+   			if(confirm("&iquest;Desea cerrar la l&iacute;nea de investigaci&oacute;n?")){				
    				document.frmDoc.lineaInvestigacionId.value = idLineaInvestigacion;
    				document.frmDoc.esGuardado.value = 1;
    				document.frmDoc.numeroUnicoExpediente.value = numeroUnicoExpediente;
 				document.frmDoc.submit();			
 				$('#trBotonesLinea_'+ idLineaInvestigacion).hide();
 			}
-			else customAlert("No se ha cerrado la línea de investigación");
+			else customAlert("No se ha cerrado la l&iacute;nea de investigaci&oacute;n");
    		}
 		
    		/*
@@ -366,7 +366,7 @@
 			});				
 		}
    		
-   		//Funcion que carga el combo de Título de la línea de investigación
+   		//Funcion que carga el combo de T&iacute;tulo de la l&iacute;nea de investigaci&oacute;n
 		function cargaTitulos() {
 		  $.ajax({
 	    	  type: 'POST',

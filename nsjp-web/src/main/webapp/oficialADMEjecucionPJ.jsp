@@ -2,8 +2,8 @@
 <%@page import="java.util.Date"%>
 <%@page import="mx.gob.segob.nsjp.web.login.action.LoginAction"%>
 <%@page import="mx.gob.segob.nsjp.dto.configuracion.ConfiguracionDTO"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@page import="mx.gob.segob.nsjp.dto.usuario.RolDTO"%>
 <%@page import="mx.gob.segob.nsjp.dto.usuario.UsuarioDTO"%>
 <% 
@@ -159,7 +159,7 @@
 		jQuery("#gridDetalleResolutivaAudiencia").jqGrid({ 
 			url:'<%=request.getContextPath()%>/SolicitudesBeneficiosPreliberacion.do', 
 			datatype: "xml", 
-			colNames:['Número de Causa','Solicitante','Institución Solicitante','Sentenciado' ], 
+			colNames:['N&uacute;mero de Causa','Solicitante','Instituci&oacute;n Solicitante','Sentenciado' ], 
 			colModel:[ 	{name:'NCausa',index:'nCausa', width:25},
 			           	{name:'Solicitante',index:'solicitante', width:15},
 			           	{name:'Institucion',index:'institucion', width:15},
@@ -470,22 +470,22 @@
 	<div class="header">&nbsp;</div>
 		<div class="content">
 			<div id="accordionmenuprincipal">
-				<h3><a id="preliberacionPJ" href="#"><img src="<%=request.getContextPath()%>/resources/images/icn_carpprincipal.png" id="botpenal" width="15" height="15">&nbsp;Solicitudes de Preliberación</a></h3>
+				<h3><a id="preliberacionPJ" href="#"><img src="<%=request.getContextPath()%>/resources/images/icn_carpprincipal.png" id="botpenal" width="15" height="15">&nbsp;Solicitudes de Preliberaci&oacute;n</a></h3>
 					<div><!--			
 					<ul id="seccion1treePJENC" class="filetree">
-						<li><span class="file"><a id="audienciaDelDia" style="cursor: pointer;" onclick="cargaGridDiaPJENC();">Audiencia de Ejecución</a></span></li>
-						<li><span class="file" id="porFecha" style="cursor: pointer;" onclick="modalFecha()">Carpeta de Ejecución</span></li>
+						<li><span class="file"><a id="audienciaDelDia" style="cursor: pointer;" onclick="cargaGridDiaPJENC();">Audiencia de Ejecuci&oacute;n</a></span></li>
+						<li><span class="file" id="porFecha" style="cursor: pointer;" onclick="modalFecha()">Carpeta de Ejecuci&oacute;n</span></li>
 						<li><span class="file" id="porFecha" style="cursor: pointer;" onclick="modalFecha()">Hist&oacute;rico</span></li>
 					</ul>		
 				--></div>
-				<!--<h3 ><a id="evento" href="#" >Audiencia de Ejecución</a></h3>
+				<!--<h3 ><a id="evento" href="#" >Audiencia de Ejecuci&oacute;n</a></h3>
 				<div>			
 					<ul id="seccion2treePJENC" class="filetree">
 						<li><span class="file"><a id="recurso" style="cursor: pointer;" onclick="cargaGridRecursoPJENC();">Recurso</a></span></li>
 						<li><span class="file"><a id="recurso" style="cursor: pointer;" onclick="cargaGridTranscripcionAudienciaPJENC();">Transcripci&oacute;n <br></br>de Audiencia</a></span></li>
 					</ul>		
 				</div>
-				<h3 ><a id="eventos" href="#" >Carpeta de Ejecución</a></h3>
+				<h3 ><a id="eventos" href="#" >Carpeta de Ejecuci&oacute;n</a></h3>
 				<div>			
 					<ul id="seccion3treePJENC" class="filetree">
 						<li class="closed" id="casosPJENC"><span class="folder">Casos</span>
@@ -712,7 +712,7 @@
 	
 	<div id="dialog-logout" title="Cerrar Sesi&oacute;n">
 		<p align="center">
-			<span id="logout">¿Desea cerrar su sesi&oacute;n?</span>
+			<span id="logout">&iquest;Desea cerrar su sesi&oacute;n?</span>
 		</p>
 	</div>
 		<!-- dialogos para Bloqueo de pantalla-->
@@ -720,11 +720,11 @@
 		<p align="center">
 			<table border="0">
 				<tr>
-					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contraseña para desbloquear.</td>
+					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contrase&ntilde;a para desbloquear.</td>
 					
 				</tr>
 				<tr>
-					<td align="right"><label style="color:#4A5C68">Contraseña:</label></td>
+					<td align="right"><label style="color:#4A5C68">Contrase&ntilde;a:</label></td>
 					<td><input type="password" name="password" id="password" value="" maxlength="15" size="20"></td>
 				</tr>
 				<tr id="captchaJPG" >
@@ -753,7 +753,7 @@
 				La sesi&oacute;n se cerrar&aacute; en <span id="dialog-countdown" style="font-weight:bold"></span> segundos.
 			</p>
 
-			<p>¿Desea continuar con la sesi&oacute;n?</p>
+			<p>&iquest;Desea continuar con la sesi&oacute;n?</p>
 	</div>
 </body>
 </html>

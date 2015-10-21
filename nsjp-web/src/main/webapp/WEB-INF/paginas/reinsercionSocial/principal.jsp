@@ -1,5 +1,5 @@
 <%@ page contentType="text/html"%>
-<%@ page pageEncoding="ISO-8859-1"%>
+<%@ page pageEncoding="UTF-8"%>
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
@@ -35,7 +35,7 @@
 									autowidth : true,
 									height : 360,
 									sortname : 'detalle',
-									caption : "Resultados de la Búsqueda",
+									caption : "Resultados de la B&uacute;squeda",
 									viewrecords : true,
 									onSelectRow : function(id) {
 									},
@@ -230,7 +230,7 @@ function buscar(){
 			NUC : "PXNDX1",
 			Nombre : "Eduardo",
 			'Apellido Paterno' : "Alvarado",
-			'Apellido Materno' : "Díaz",
+			'Apellido Materno' : "D&iacute;az",
 			CERESO : "CERESO 1"
 		} ];
 		for ( var i = 0; i <= mydataCERESO.length; i++) {
@@ -252,7 +252,7 @@ function consultarCasos(id){
 	}
     $("#accordionDetalles").accordion('destroy').accordion();
 
-	$("#detalles").html("NUC: PXDX1 - Eduardo Alvarado Díaz<br /> CERESO 1");
+	$("#detalles").html("NUC: PXDX1 - Eduardo Alvarado D&iacute;az<br /> CERESO 1");
 }
 
 </script>
@@ -287,7 +287,7 @@ function consultarCasos(id){
 	
 <div id="mainContent">
 	<div class="ui-layout-center">
-		<!-- div class="header">Resultado de la Búsqueda</div-->
+		<!-- div class="header">Resultado de la B&uacute;squeda</div-->
 		<div class="ui-layout-content">
 			<div class="ui-layout-north">
 				<div id="divGridRS">

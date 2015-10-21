@@ -8,7 +8,7 @@ function consultaDelitoPersonaPorImputadosAudiencia(){
 	jQuery("#gridRelacionesPersonaPJ").jqGrid({ 
 		url:'<%= request.getContextPath()%>/consultarRelacionesDelitoPersonaPorAudiencia.do?idAudiencia='+idAudiencia +'&idExpediente='+idExpediente+'', 
 		datatype: "xml",
-		colNames:['<bean:message key="probableResponsable"/>','Delito','Víctima'],
+		colNames:['<bean:message key="probableResponsable"/>','Delito','V&iacute;ctima'],
 		colModel:[ 	{name:'probableResponsable',index:'probableResponsable', width:250,sortable:false},
 					{name:'Delito',index:'delito', width:250,sortable:false},
 					{name:'Victima',index:'victima',width:250,sortable:false},

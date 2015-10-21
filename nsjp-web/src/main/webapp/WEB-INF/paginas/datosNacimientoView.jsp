@@ -63,7 +63,7 @@ function seleccionaMexicoEnDatosNac(){
 
 /**
 * Si existe un cambio en el combo de paises se realiza la consulta de 
-* entidades federativas, y si la consulta es NO vacía se leventa la 
+* entidades federativas, y si la consulta es NO vac&iacute;a se leventa la 
 * bandera para mostrar los combo box. Esto para el nacimiento
 */ 	
 function onSelectChangePaisNacimiento() {
@@ -78,7 +78,7 @@ function onSelectChangePaisNacimiento() {
 			async: false,									// la accion cargar estados y llena el combo con la consulta
 			type: 'POST',
 			url: '<%= request.getContextPath()%>/cargarEntFederativas.do',
-			data: 'glCatPaisId=' + selected.val(),	//Parametro para hacer la consulta de Entidades por Id del País
+			data: 'glCatPaisId=' + selected.val(),	//Parametro para hacer la consulta de Entidades por Id del Pa&iacute;s
 			dataType: 'xml',
 			success: function(xml){
 				$(xml).find('catEntidadesFed').each(function(){
@@ -177,21 +177,21 @@ function obtenerParametrosDatosNacimiento(){
 		if (isNaN(dia))
 		   return false		
 	
-		//si el año de la fecha que recibo solo tiene 2 cifras hay que cambiarlo a 4
+		//si el a&ntilde;o de la fecha que recibo solo tiene 2 cifras hay que cambiarlo a 4
 		if (ano<=99)
 		   ano +=1900
 	
-		//resto los años de las dos fechas
-		edad=hoy.getFullYear()- ano - 1; //-1 porque no se si ha cumplido años ya este año
+		//resto los a&ntilde;os de las dos fechas
+		edad=hoy.getFullYear()- ano - 1; //-1 porque no se si ha cumplido a&ntilde;os ya este a&ntilde;o
 	
-		//si resto los meses y me da menor que 0 entonces no ha cumplido años. Si da mayor si ha cumplido
+		//si resto los meses y me da menor que 0 entonces no ha cumplido a&ntilde;os. Si da mayor si ha cumplido
 		if (hoy.getMonth() + 1 - mes < 0) //+ 1 porque los meses empiezan en 0
 		   return edad
 		if (hoy.getMonth() + 1 - mes > 0)
 		   return edad+1
 	
 		//entonces es que eran iguales. miro los dias
-		//si resto los dias y me da menor que 0 entonces no ha cumplido años. Si da mayor o igual si ha cumplido
+		//si resto los dias y me da menor que 0 entonces no ha cumplido a&ntilde;os. Si da mayor o igual si ha cumplido
 		if (hoy.getUTCDate() - dia >= 0)
 		   return edad + 1
 	
@@ -215,7 +215,7 @@ function obtenerParametrosDatosNacimiento(){
 			onblur="validaSoloNumeros(this);" name="datosNacimientoCmpEdadAproximada" style="width: 180px;"/></td>
 	</tr>
 	<tr>
-		<td align="right">País de Nacimiento:</td>
+		<td align="right">Pa&iacute;s de Nacimiento:</td>
 		<td>
 			<select id="cbxPaisNacimiento" name="cbxPaisNacimiento"  style="width: 180px;">
 				<option value="-1">-Seleccione-</option>

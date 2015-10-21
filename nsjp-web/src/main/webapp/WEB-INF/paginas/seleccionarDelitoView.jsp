@@ -1,4 +1,4 @@
-<%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="mx.gob.segob.nsjp.dto.usuario.UsuarioDTO"%>
 <%@page import="mx.gob.segob.nsjp.dto.configuracion.ConfiguracionDTO"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.seguridad.Roles"%>
@@ -77,7 +77,7 @@
 				ajaxGridOptions : {
 	                   async:false
 	            },
-				colNames:['Clave','Clave','Delito', '¿Es grave?','¿Es grave?','Delito Principal','Tipo','DelitoId'], 
+				colNames:['Clave','Clave','Delito', '&iquest;Es grave?','&iquest;Es grave?','Delito Principal','Tipo','DelitoId'], 
 				colModel:[ 	{name:'Clave',index:'clave', width:50,hidden:true}, 
 				           	{name:'ClaveBD',index:'claveDB', width:50},
 				           	{name:'Delito',index:'delito', width:170}, 
@@ -160,7 +160,7 @@
     	            	  async:false
         	    },
 				datatype: "xml",
-				colNames:['Clave','Clave','Delito', '¿Es grave?','¿Es grave?','Delito Principal','Tipo','DelitoId'], 
+				colNames:['Clave','Clave','Delito', '&iquest;Es grave?','&iquest;Es grave?','Delito Principal','Tipo','DelitoId'], 
 				colModel:[ 	{name:'Clave',index:'1', width:20,hidden:true}, 
 				        	{name:'ClaveBD',index:'claveDB', width:50},
 							{name:'Delito',index:'2', width:45}, 
@@ -198,7 +198,7 @@
 				jQuery("#gridDelitosAgraviados").jqGrid('addRowData',ret.DelitoId,ret);
 				jQuery("#gridCatDelitos").jqGrid('delRowData',ret.DelitoId); 
 				
-			} else { alertDinamico("Por favor seleccione un renglón");}
+			} else { alertDinamico("Por favor seleccione un rengl&oacute;n");}
 			idsDelitos=obtenerDelitosDenunciados();
 		} 
 
@@ -215,9 +215,9 @@
 					jQuery("#gridDelitosAgraviados").jqGrid(idsDelitos=obtenerDelitosDenunciados(),cargaGridDelitos());
 				}else{
 					var probableResponsableProp = '<bean:message key="msjProbableResponsable"/>';
-					alertDinamico("Para eliminar este delito del expediente, es necesario eliminar la relación con el "+probableResponsableProp);
+					alertDinamico("Para eliminar este delito del expediente, es necesario eliminar la relaci&oacute;n con el "+probableResponsableProp);
 				}
-			} else { alertDinamico("Por favor seleccione un renglón");}
+			} else { alertDinamico("Por favor seleccione un rengl&oacute;n");}
 			idsDelitos=obtenerDelitosDenunciados();
 		} 
 
@@ -255,7 +255,7 @@
 					 document.getElementById('graveDelitoPrincipal').value=retd.Gravedad;				
 			}	
 			else { 
-				alertDinamico("Por favor seleccione un renglón");
+				alertDinamico("Por favor seleccione un rengl&oacute;n");
 			} 
 		}
 

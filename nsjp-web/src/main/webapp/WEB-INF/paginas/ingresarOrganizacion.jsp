@@ -264,7 +264,7 @@
 	{
 		$("#btnIngOrgFormalDatosRep").hide();
 	}
-	//Función que permite la carga y moficacion de un representante legal
+	//Funci&oacute;n que permite la carga y moficacion de un representante legal
 	function cargaRepLegal(nombre,id){
 		//alert(nombre+" --- "+id);
 		var row=$('#'+id);		
@@ -338,19 +338,19 @@
                     <td width="72%" height="130" align="left" valign="top" >
                       <table   width="80%" align="center" height="100" border="0" cellpadding="0"  cellspacing="0" >
                         <tr>
-                          <td width="36%"  height="35">Tipo de Organización: </td>
+                          <td width="36%"  height="35">Tipo de Organizaci&oacute;n: </td>
                           <td height="14%">
                             <select id="cbxIngOrgTiposOrganizacion">
                             </select>
                           </td>
                           <td width="36%" height="28">Nombre corto:</td>
-                          <td width="14%" height="28"><input id="txtIngOrgNombreCortoOrg" title="Escribir nombre corto organización" type="text" size="40" maxlength="30"/></td>
+                          <td width="14%" height="28"><input id="txtIngOrgNombreCortoOrg" title="Escribir nombre corto organizaci&oacute;n" type="text" size="40" maxlength="30"/></td>
                         </tr>
                         <tr>
-                          <td width="36%" height="30">Nombre de la Organización: </td>
+                          <td width="36%" height="30">Nombre de la Organizaci&oacute;n: </td>
                           <td width="14%"><input id="txtIngOrgNombreOrg" title="Escribir nombre" type="text" size="40" maxlength="60"/></td>
-                          <td width="36%"  height="35">Dirección de Internet: </td>
-                          <td height="14%"><input id="txtIngOrgDirInternet" title="Escribir dirección de internet" type="text" size="40" maxlength="150"/></td>
+                          <td width="36%"  height="35">Direcci&oacute;n de Internet: </td>
+                          <td height="14%"><input id="txtIngOrgDirInternet" title="Escribir direcci&oacute;n de internet" type="text" size="40" maxlength="150"/></td>
                         </tr>
                       </table>
                     </td>

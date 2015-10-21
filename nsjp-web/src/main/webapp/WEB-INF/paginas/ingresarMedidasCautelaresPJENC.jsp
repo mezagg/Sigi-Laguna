@@ -8,12 +8,12 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.documento.EstatusMedida"%>
 
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Ingresar Medidas Cautelares</title>
 
 		<link rel="stylesheet" type="text/css"  href="<%= request.getContextPath()%>/resources/css/jquery-ui.css"/>
@@ -144,7 +144,7 @@
 		});
 
 		/*
-		* Función que carga el catálogo de periodicidad en el combo-box correspondiente cbxPeriodicidad
+		* Funci&oacute;n que carga el cat&aacute;logo de periodicidad en el combo-box correspondiente cbxPeriodicidad
 		*
 		*/
 		function obtenerCatalogoPeriodicidad(){
@@ -281,13 +281,13 @@
 			    	  dataType: 'xml',
 			    	  async: false,
 			    	  success: function(xml){
-			    		  //Si no tenía medida cautelar
+			    		  //Si no ten&iacute;a medida cautelar
 			    		  
 			    		  window.parent.cargaGridInvolucradosCausaPJENC(numeroExpediente);
 			    		  	
 	    				  idWindowPantallaActuaciones++;
 			    		  if(rowid.split(",")[1] == ""){
-			    				customAlert("Se guardó con éxito la medida cautelar");
+			    				customAlert("Se guard&oacute; con &eacute;xito la medida cautelar");
 			    				
 			    				medidaCautelarId=$(xml).find('medidaCautelarForm').find('medidaCautelarId').text();
 								$.newWindow({id:"iframewindowGenerarDocumento"+idWindowPantallaActuaciones, statusBar: true, posx:5,posy:5,width:1140,height:400,title:"Generar Medida Cautelar", type:"iframe", confirmarCierreVentana:true});
@@ -411,7 +411,7 @@
 		}
 
 	/**
-	* Función que es invocada cuando se termina la creación del archivo digital de la medida
+	* Funci&oacute;n que es invocada cuando se termina la creaci&oacute;n del archivo digital de la medida
 	*/
 	function replicarMedidaCautelarAPGR(pantalla){
 		var contextoPagina = "${pageContext.request.contextPath}";

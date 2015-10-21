@@ -183,7 +183,7 @@
 				},
 				selectedList: 1 
 			});
-			//llenamos los combos de UI e IE de la pestaña de Acciones
+			//llenamos los combos de UI e IE de la pesta&ntilde;a de Acciones
 			cargaInstitucionesExternas();
 			cargaUnidadesInvestigacion();
 			mostraDivGenerarOficioCanalizacion(0);
@@ -356,7 +356,7 @@
 			$.updateWindowContent("iframewindowConsultarProbResponsable" + idWindowConsultarProbResponsable,'<iframe src="<%= request.getContextPath() %>/ConsultarIndividuo.do?idInvolucrado=' +idInvolucrado +'&idCalidad=PROBABLE_RESPONSABLE" width="1050" height="620" />');
 		}
 
-		//Abre una nueva ventana para consultar una víctima		
+		//Abre una nueva ventana para consultar una v&iacute;ctima		
 		function consultarVictima(idInvolucrado){
 			idWindowIngresarSentenciadoReinsertar++;
 			$.newWindow({id:"iframewindowIngresarSentenciadoReinsertar" + idWindowIngresarSentenciadoReinsertar, statusBar: true, posx:200,posy:50,width:1050,height:600,title:"Consultar Victima", type:"iframe"});
@@ -395,13 +395,13 @@
 		function consultarContactoDeUnaOrganizacion() {
 			
 			idWindowConsultarContactoDeUnaOrganizacion++;
-			$.newWindow({id:"iframewindowConsultarContactoDeUnaOrganizacion" + idWindowConsultarContactoDeUnaOrganizacion, statusBar: true, posx:250,posy:150,width:1050,height:620,title:"Consultar contacto de una organización", type:"iframe"});
+			$.newWindow({id:"iframewindowConsultarContactoDeUnaOrganizacion" + idWindowConsultarContactoDeUnaOrganizacion, statusBar: true, posx:250,posy:150,width:1050,height:620,title:"Consultar contacto de una organizaci&oacute;n", type:"iframe"});
 			$.updateWindowContent("iframewindowConsultarContactoDeUnaOrganizacion" + idWindowConsultarContactoDeUnaOrganizacion,'<iframe src="<%= request.getContextPath() %>/ConsultarIndividuo.do?idInvolucrado=1001&idCalidad=CONTACTO_ORGANIZACION" width="1050" height="620" />');		
 		}
 
 		//No existe la pantalla para consulta de quien detuvo
 		function consultarQuienDetuvo(idInvolucrado){
-			customAlert('Aún no hay pantalla para el involucrado QUIEN DETUVO ');
+			customAlert('A&uacute;n no hay pantalla para el involucrado QUIEN DETUVO ');
 		}
 
 		//Abre una nueva ventana de crear una nuev victima
@@ -437,7 +437,7 @@
 		function creaNuevoContactoDeUnaOrganizacion() {
 			
 			idWindowIngresarContactoDeUnaOrganizacion++;
-			$.newWindow({id:"iframewindowIngresarContactoDeUnaOrganizacion" + idWindowIngresarContactoDeUnaOrganizacion, statusBar: true, posx:250,posy:150,width:1050,height:620,title:"Ingresar contacto de una organización", type:"iframe"});
+			$.newWindow({id:"iframewindowIngresarContactoDeUnaOrganizacion" + idWindowIngresarContactoDeUnaOrganizacion, statusBar: true, posx:250,posy:150,width:1050,height:620,title:"Ingresar contacto de una organizaci&oacute;n", type:"iframe"});
 			$.updateWindowContent("iframewindowIngresarContactoDeUnaOrganizacion" + idWindowIngresarContactoDeUnaOrganizacion,'<iframe src="<%= request.getContextPath() %>/IngresarContactoDeUnaOrganizacion.do" width="1050" height="620" />');		
 		}
 

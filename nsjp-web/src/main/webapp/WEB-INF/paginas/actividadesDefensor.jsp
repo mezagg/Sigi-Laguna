@@ -1,11 +1,11 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.solicitud.TiposSolicitudes"%>
 <%@page import="java.util.Calendar"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Actividades</title>
 		
 	
@@ -400,7 +400,7 @@
 				var horaInicio=idRow.substring(horaInicioPos1+1,horaInicioPos2);
 				
 
-				//tamaño en medias hrs. del espacio disponible
+				//tama&ntilde;o en medias hrs. del espacio disponible
 				var espacioPos1=idRow.indexOf("/",0);
 				var espacioPos2=idRow.indexOf("*",espacioPos2);
 				var espacioDisponible=idRow.substring(espacioPos1+1,espacioPos2);
@@ -428,12 +428,12 @@
 						deshabilitarHabilitarComponentes("horarioSala");
 					}
 					else{
-						alertDinamico(("La duración estimada es mayor que el tiempo disponible para esta sala.\rIntente con otra sala");	
+						alertDinamico(("La duraci&oacute;n estimada es mayor que el tiempo disponible para esta sala.\rIntente con otra sala");	
 					}	
 				}
 				else{
 					
-					alertDinamico("Seleccione una duración estimada para la audiencia");
+					alertDinamico("Seleccione una duraci&oacute;n estimada para la audiencia");
 				}
 					
 			}
@@ -465,7 +465,7 @@
 			duracionEstimadaAudiencia = $("#duracionEstimadaProgramarAudiencia option:selected").val();
 			juezSustituto =  $("#juezSustituto").val();
 			if(duracionEstimadaAudiencia == "" || duracionEstimadaAudiencia <= 0){
-				alertDinamico("Seleccione una duración estimada para la audiencia");
+				alertDinamico("Seleccione una duraci&oacute;n estimada para la audiencia");
 				return false;
 			}
 					
@@ -644,7 +644,7 @@
 				controlSalas(fechaReal);
 				}
 			else{
-				alertDinamico("Seleccione un día hábil");
+				alertDinamico("Seleccione un d&iacute;a h&aacute;bil");
 			}
 		}
 
@@ -707,7 +707,7 @@
 				    </select></td>
 				</tr>
 				<tr>
-					<td align="right" valign="bottom"><strong>Duración
+					<td align="right" valign="bottom"><strong>Duraci&oacute;n
 					  estimada :</strong></td>
 					<td align="left" valign="bottom"><select
 						id="duracionEstimadaProgramarAudiencia" style="width: 170px;">

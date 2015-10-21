@@ -18,7 +18,7 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html" %>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic" %>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean" %>
-<%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%> 
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -345,7 +345,7 @@
 		jQuery("#gridObjsVehiculo").jqGrid({ 
 			url:'<%= request.getContextPath()%>/ConsultaObjetosGridVisorXTipo.do?numeroExpediente='+numeroExpediente+'&tipoObjeto=<%= Objetos.VEHICULO.getValorId() %>', 
 			datatype: "xml", 
-			colNames:['Vehículo','Folio de cadena de custodia', 'No. de casos asociados'], 
+			colNames:['Veh&iacute;culo','Folio de cadena de custodia', 'No. de casos asociados'], 
 			colModel:[ 	{name:'Vehiculo',index:'vehiculo', width:100}, 
 						{name:'FolioCadCus',index:'folioCadCus', width:150}, 
 						{name:'NoExpedientes',index:'noExpedientes', width:200,hidden:false}, 
@@ -354,7 +354,7 @@
 			rowNum:10,
 			rowList:[10,20,30,40,50,60],
 			width:600,
-			caption:"VEHÍCULOS",
+			caption:"VEH&Iacute;CULOS",
 			sortname: 'Clave',
 			viewrecords: true,
 			id: 'gridObjsVehiculo',
@@ -392,7 +392,7 @@
 		jQuery("#gridObjsEquipoComputo").jqGrid({ 
 			url:'local', 
 			datatype: "xml", 
-			colNames:['Equipo de Cómputo','Folio de cadena de custodia', 'No. de casos asociados'], 
+			colNames:['Equipo de C&oacute;mputo','Folio de cadena de custodia', 'No. de casos asociados'], 
 			colModel:[ 	{name:'EquipoComputo',index:'equipoComputon', width:150}, 
 						{name:'FolioCadCus',index:'folioCadCus', width:150}, 
 						{name:'NoExpedientes',index:'noExpedientes', width:200,hidden:true}, 
@@ -976,7 +976,7 @@
 
 
 	
-	//Inicia sección para consultar objetos
+	//Inicia secci&oacute;n para consultar objetos
 	
 			
 		function consultarVehiculo(idVehiculo){
@@ -1067,7 +1067,7 @@
 		    $("#" +"iframewindowObraDeArte"+idWindowIngresarObraDeArte+ " .window-maximizeButton").click();
 
 		}
-	//Finaliza sección para consultar objetos
+	//Finaliza secci&oacute;n para consultar objetos
 	
 	function cargaVehiculo(id,tipo,placas){
 		consultaGridVehiculosVisor();
@@ -1468,7 +1468,7 @@
 		jQuery("#gridBitacora").jqGrid({
 					url : '<%= request.getContextPath()%>/consultarBitacoraPorExpediente.do?numeroExpedienteId='+<%=numeroExpedienteIdOK%>+'', 
 					datatype: "xml", 						
-					colNames:['Fecha','Hora','Movimiento','Descripción'], 
+					colNames:['Fecha','Hora','Movimiento','Descripci&oacute;n'], 
 					colModel:[{name:'Fecha',	 	index:'1',  width:200, align:"center"},
 					          {name:'Hora',	        index:'4', 	width:200, align:"center"},
 					          {name:'Movimiento',	index:'2', 	width:200, align:"center"},
@@ -1599,7 +1599,7 @@
 		jQuery("#gridDetalleFrmPrincipal").jqGrid({ 
 			url:'<%=request.getContextPath()%>/consultarDocumentosDefensoria.do?tipo=3&idExpedienteop='+<%=numeroExpedienteIdOK%>, 
 			datatype: "xml", 
-			colNames:['Tipo de documento','Fecha','Nombre de Documento','Nombre de la actividad','Fecha de la actividad','Área del responsable','Documento Parcial'], 
+			colNames:['Tipo de documento','Fecha','Nombre de Documento','Nombre de la actividad','Fecha de la actividad','&Aacute;rea del responsable','Documento Parcial'], 
 			colModel:[ 	{name:'Tipo',index:'tipo', width:155, align:"center"}, 
 			           	{name:'Fecha',index:'fecha', width:90, align:"center"},
 						{name:'Nombre',index:'nombre', width:255, align:"center"},
@@ -1852,7 +1852,7 @@
     </script>
     
     
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Menu Defensor</title>			
 </head>
 <body>
@@ -1862,7 +1862,7 @@
 	<ul>
 		<li id="tabResumenExped"><a href="#tabsconsultaprincipal-1" onclick="datosGenerales()" >Resumen</a></li>
 		<li id="tabDatosInteres"><a href="#tabsconsultaprincipal-2" >Interesado</a></li>
-		<li id="tabMotivoAsesor"><a href="#tabsconsultaprincipal-3" >Motivo Asesoría</a></li>
+		<li id="tabMotivoAsesor"><a href="#tabsconsultaprincipal-3" >Motivo Asesor&iacute;a</a></li>
 		<li id="tabInvolucrados"><a href="#tabsconsultaprincipal-4" onclick="cargarTabInvolucradosOnClick()">Involucrados</a></li>
 		<li id="tabTabsDelito"><a href="#tabsconsultaprincipal-14" onclick="cargaComboProbableResponsableRDPPVDelito()">Delito</a></li>
 		<li id="tabObjetsyEvids"><a href="#tabsconsultaprincipal-5" >Objetos y evidencias</a></li>
@@ -1873,7 +1873,7 @@
 		<li id="tab_Actuaciones"><a href="#tabsconsultaprincipal-10">Actuaciones</a></li>
 		<li id="tab_Notas_Exped"><a href="#tabsconsultaprincipal-11" onclick="consultarNotas()">Notas</a></li>
 		<li id="tabDocumentosEx"><a href="#tabsconsultaprincipal-12"  onclick="documentos()">Documentos</a></li>
-		<li id="tab_BitacoraExp"><a href="#tabsconsultaprincipal-13" onclick="cargaGridBitacora()">Bitácora</a></li>
+		<li id="tab_BitacoraExp"><a href="#tabsconsultaprincipal-13" onclick="cargaGridBitacora()">Bit&aacute;cora</a></li>
 	</ul>
 	
 	<div id="tabsconsultaprincipal-1" style="height: 600px !important;">			
@@ -1886,7 +1886,7 @@
 				<logic:notEqual name="expediente" property="etapa.idCampo" value="2533">
 				<tr id = "trCaso">
 					<td align="right" width="50%">
-						<strong>Número de caso:</strong>
+						<strong>N&uacute;mero de caso:</strong>
 					</td>
 					<td width="50%">
 					<logic:present name="expediente" property="casoDTO">
@@ -1900,7 +1900,7 @@
 				</logic:notEqual>
 				<tr id = "trExpediente">
 					<td align="right" width="50%">
-						<strong>Número de expediente:</strong>
+						<strong>N&uacute;mero de expediente:</strong>
 					</td>
 					<td width="50%">
 					<logic:present name="expediente" property="numeroExpediente">
@@ -2004,7 +2004,7 @@
 <!--				</tr>-->
 <!--				<tr id = "trFechaDesignacion">-->
 <!--					<td align="right">-->
-<!--						<strong>Fecha Designación:</strong>-->
+<!--						<strong>Fecha Designaci&oacute;n:</strong>-->
 <!--					</td>-->
 <!--					<td>-->
 <!--						<input class="texto" type="text" readonly="readonly" id="fechaDesignacion"/>-->
@@ -2012,7 +2012,7 @@
 <!--				</tr>-->
 <!--				<tr id = "trHoraDesignacion">-->
 <!--					<td align="right">-->
-<!--						<strong>Hora Designación:</strong>-->
+<!--						<strong>Hora Designaci&oacute;n:</strong>-->
 <!--					</td>-->
 <!--					<td>-->
 <!--						<input class="texto" type="text" readonly="readonly" id="horaDesignacion"/>-->
@@ -2093,7 +2093,7 @@
 						</tr>  -->
 						<tr id = "trFechaDetencion">
 							<td align="right">
-								<strong>Fecha de Detención:</strong>
+								<strong>Fecha de Detenci&oacute;n:</strong>
 							</td>
 							<td>
 								<input class="texto" type="text" readonly="readonly" id="fechaDetencion"/>
@@ -2101,7 +2101,7 @@
 						</tr>
 						<tr id = "trHoraDetencion">
 							<td align="right">
-								<strong>Hora de Detención:</strong>
+								<strong>Hora de Detenci&oacute;n:</strong>
 							</td>
 							<td>
 								<input class="texto" type="text" readonly="readonly" id="horaDetencion"/>
@@ -2131,7 +2131,7 @@
 	</div>
 		<!--Termina Resumen Expediente -->
 	
-		<!-- Inicia Resumen Expediente con Carpeta de Investigación -->
+		<!-- Inicia Resumen Expediente con Carpeta de Investigaci&oacute;n -->
 		<div id="resumen2" style="display: none">
 			<table width="1042px"  height="565px" border="0" cellspacing="0" cellpadding="0" class="back_generales">
 			<tr>
@@ -2160,15 +2160,15 @@
 				<td rowspan="16" align="right" style="background-color:" valign="top">
 					<table border="0" cellpadding="0" cellspacing="0"  style="background-color: #DCDDDE">
 				  	<tr>
-						<td nowrap align="right" style="background-color:">Vehículos:</td>
+						<td nowrap align="right" style="background-color:">Veh&iacute;culos:</td>
 						<td id="Vehiculos">&nbsp;</td>
 				    </tr>
 				    <tr>
-						<td align="right" style="background-color:">Equipos de cómputo:</td>
+						<td align="right" style="background-color:">Equipos de c&oacute;mputo:</td>
 						<td id="EquiposDeComputo">&nbsp;</td>
 					</tr>
 					<tr>
-						<td align="right" style="background-color:">Equipos Telefónicos:</td>
+						<td align="right" style="background-color:">Equipos Telef&oacute;nicos:</td>
 						<td id="EquiposTelefonicos">&nbsp;</td>
 					</tr>
 					<tr>
@@ -2192,7 +2192,7 @@
 						<td id="Aeronaves">&nbsp;</td>
 					</tr>
 					<tr>
-						<td align="right" style="background-color:">Embarcación:</td>
+						<td align="right" style="background-color:">Embarcaci&oacute;n:</td>
 						<td id="Embarcacion">&nbsp;</td>
 					</tr>
 					<tr>
@@ -2229,7 +2229,7 @@
 						<td id="Denunciantes">&nbsp;</td>
 					</tr>
 					<tr>
-						<td align="right" style="background-color:">Víctimas:</td>
+						<td align="right" style="background-color:">V&iacute;ctimas:</td>
 						<td id="Victimas">&nbsp;</td>
 					</tr>
 					<tr>
@@ -2241,11 +2241,11 @@
 						<td id="Testigos">&nbsp;</td>
 					</tr>
 					<tr>
-						<td align="right" style="background-color:">Traductores/Intérpretes:</td>
+						<td align="right" style="background-color:">Traductores/Int&eacute;rpretes:</td>
 						<td id="Traductores">&nbsp;</td>
 					</tr>
 					<tr>
-						<td align="right" style="background-color:">Quién detuvo:</td>
+						<td align="right" style="background-color:">Qui&eacute;n detuvo:</td>
 						<td id="QuienDetuvo">&nbsp;</td>
 					</tr>
 					</table>
@@ -2304,7 +2304,7 @@
 			  <td>&nbsp;</td>
 			</tr>
 			<tr>
-			  <td align="right"><span id="spanGralUI">Unidad de Investigación: </span><span id="spanInfoGralUI"></span></td>
+			  <td align="right"><span id="spanGralUI">Unidad de Investigaci&oacute;n: </span><span id="spanInfoGralUI"></span></td>
 			  <td>&nbsp;</td>
 			  <td align="right">&nbsp;</td>
 			  <td>&nbsp;</td>
@@ -2331,7 +2331,7 @@
 			</tr>
 			</table>
 		</div>
-		<!--Termina Resumen Expediente con Carpeta de Investigación -->
+		<!--Termina Resumen Expediente con Carpeta de Investigaci&oacute;n -->
 	</div>
 	<div id="tabsconsultaprincipal-2" style="height: 600px !important;">
 		<table width="100%" >
@@ -2369,7 +2369,7 @@
 		<jsp:include page="involucra2.jsp"></jsp:include>
 	</div>
 	<div id="tabsconsultaprincipal-5" style="height: 600px !important;">
-		<!--Inicia Pestaña de hijos de objetos -->
+		<!--Inicia Pesta&ntilde;a de hijos de objetos -->
 		<div id="tabschild4" class="tabs-bottom">
 			<ul>
 				<li><a onclick="consultaGridVehiculosVisor()" href="#tabschild4-7">Veh&iacute;culo</a></li>
@@ -2557,7 +2557,7 @@
 				<div id="pagerGridObjsObraDeArte"></div>
 			</div>
 		</div>
-		<!--Cierra pestaña de hijos de objetos-->
+		<!--Cierra pesta&ntilde;a de hijos de objetos-->
 	</div>
 	<div id="tabsconsultaprincipal-6" style="height: 600px !important;">
 		 <input type="button" class="btn_grande" id="btnCadCusConsultaCadCus" style="width: 250px;" value="Consultar cadena de custodia"/><br/><br/>    

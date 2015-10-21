@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="mx.gob.segob.nsjp.comun.constants.ConstantesGenerales"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Elaborar Solicitud</title>
 	<%@ page import="mx.gob.segob.nsjp.comun.enums.solicitud.TiposSolicitudes"%>
 	<!--iframe que crea una nueva peticion para imprimir un PDF-->
@@ -291,7 +291,7 @@
 						 customAlert("La solicitud se actualiz\u00F3 correctamente");
 					 $('#idSolicitud').val(parseInt($(xml).find('SolicitudDTO').find('documentoId').text()));
 				  }else
-					  customAlert('Error al intentar guardar la solictud, inténtelo mas tarde');
+					  customAlert('Error al intentar guardar la solictud, int&eacute;ntelo mas tarde');
 			},
 			error: function(xml){
 				//Guardado Definitivo
@@ -444,7 +444,7 @@
 						<!-- <li id="guardadoParcialNarrativa" class="first">Guardado Parcial</li> -->
 						<li id="imprimirNarraTiva"><span></span>Enviar</li>
 						<li id="vistaPreliminar"><span></span>Vista Preliminar</li>
-						<li id="seccionCbxTamanioPapel"><span></span>Tamaño de Papel
+						<li id="seccionCbxTamanioPapel"><span></span>Tama&ntilde;o de Papel
 							<select name="cbxTamanioPapel" id="cbxTamanioPapel" onchange="recuperarTamanioPapel()" style=" border:0; background-color:#EEEEEE;">
 		    				</select>
 		    			</li>						

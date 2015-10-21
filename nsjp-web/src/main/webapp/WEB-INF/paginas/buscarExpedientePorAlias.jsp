@@ -115,10 +115,10 @@
 	  <td align="center">&nbsp;</td>
 	</tr>
 	<tr>
-	  <td align="center">* Se aceptan letras, números y caracteres especiales </td>
+	  <td align="center">* Se aceptan letras, n&uacute;meros y caracteres especiales </td>
 	</tr>
 	<tr>
-	  <td align="center">(No distingue entre mayúsculas y minúsculas)</td>
+	  <td align="center">(No distingue entre may&uacute;sculas y min&uacute;sculas)</td>
 	</tr>
 	<tr>
 	  <td align="center">&nbsp;</td>

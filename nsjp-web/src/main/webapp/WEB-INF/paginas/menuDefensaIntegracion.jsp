@@ -7,7 +7,7 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.calidad.Calidades"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.expediente.EstatusExpediente"%>
 
-<%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%> 
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -156,7 +156,7 @@
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/comun.js?n=1"></script>
 		
 	
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Menu Defensor</title>
 	
 	<script type="text/javascript">
@@ -302,15 +302,15 @@
 		//tabs principales
 		$("#tabsprincipalconsulta" ).tabs();
 		$('#tabsprincipalconsulta').tabs('selected', 1) ;
-		//tabs hijos para pestaña de hechos
+		//tabs hijos para pesta&ntilde;a de hechos
 		$("#tabsHechos").tabs();
 		//tabs hijos de cedula de identificacion
 		$("#tabsconsulta7").tabs();
-		//tabs hijos de la pestaña involucrados
+		//tabs hijos de la pesta&ntilde;a involucrados
 		$("#tabschild").tabs();
-		//tabs hijos de la pestaña delito
+		//tabs hijos de la pesta&ntilde;a delito
 		$("#tabschild2").tabs();	
-		//tabs hijos de la pestaña objetos y evidencias
+		//tabs hijos de la pesta&ntilde;a objetos y evidencias
 		$("#tabschild4").tabs();
 		//asocia la funcionalidad al combo de acciones
 		$("#cbxAcciones").change(accionesExpediente);
@@ -434,7 +434,7 @@
 		});	
 	}
 		
-	function manejoDePestañasPorEtapa(etapa,estatus){
+	function manejoDePesta&ntilde;asPorEtapa(etapa,estatus){
 		
 		switch(parseInt(etapa)){
 		case <%=EtapasExpediente.INTEGRACION.getValorId()%>:
@@ -848,7 +848,7 @@
 			 data: parametros,
 			 dataType: 'xml',
 			 success: function(xml){
-				 customAlert("Se guardó con éxito");
+				 customAlert("Se guard&oacute; con &eacute;xito");
 				//idInvolucrado=$(xml).find('involucrado').find('elementoId').text();
 				idInvolucrado = $(xml).find("long").text();
 				guardarDelitosAgraviadosExp();
@@ -1011,7 +1011,7 @@
 		if(validaDatosIngresoHecho())
 		{
 			//guardare el hecho
-			var parametrosHechos=extraeDatosIngresarHechos();//obtengo la información a almacenar
+			var parametrosHechos=extraeDatosIngresarHechos();//obtengo la informaci&oacute;n a almacenar
 			//llamamos al action que guardara el nuevo Hecho
 			$.ajax({
 				async: false,
@@ -1027,11 +1027,11 @@
 						{
 							$("#btnGuardarHechos").attr("disabled","disabled");
 							window.parent.cargaIngresoHecho("Hecho",''+$(xml).find('hechoId').text());
-							customAlert("Se guardó exitosamente el hecho");
+							customAlert("Se guard&oacute; exitosamente el hecho");
 						}
 						else
 						{
-							customAlert("Ocurrió un error al guardar el hecho");
+							customAlert("Ocurri&oacute; un error al guardar el hecho");
 						}
 					}
 					else
@@ -1044,7 +1044,7 @@
 		}
 		else
 		{
-			customAlert("Existe un dato inválido");
+			customAlert("Existe un dato inv&aacute;lido");
 		}
 	}
 			
@@ -1144,7 +1144,7 @@
 		  	height: 250,
 		  	maxWidth: 1000,
 		  	buttons:{"Cambiar":function() {
-			  		confirmar=confirm("Se cambiará la etapa actual del expediente, ¿está seguro?");
+			  		confirmar=confirm("Se cambiar&aacute; la etapa actual del expediente, &iquest;est&aacute; seguro?");
 			  		if (confirmar){
 				  		var nuevaEtapa =  $('#cbxEtapaExpediente').val();
 				   		$.ajax({
@@ -1161,7 +1161,7 @@
 				  	}
 				},
 		  		"Cancelar":function() {
-			  		confirmar=confirm("¿Realmente desea salir?");
+			  		confirmar=confirm("&iquest;Realmente desea salir?");
 			  		if (confirmar){
 				  		  		$(this).dialog("close");
 				  	}else{}
@@ -1202,7 +1202,7 @@
 		jQuery("#gridBitacora").jqGrid({
 					url : '<%= request.getContextPath()%>/consultarBitacoraPorExpediente.do?numeroExpedienteId='+numeroExpediente+'', 
 					datatype: "xml", 						
-					colNames:['Fecha','Hora','Movimiento','Descripción'], 
+					colNames:['Fecha','Hora','Movimiento','Descripci&oacute;n'], 
 					colModel:[{name:'Fecha',	 	index:'1',  width:200, align:"center"},
 					          {name:'Hora',	        index:'4', 	width:200, align:"center"},
 					          {name:'Movimiento',	index:'2', 	width:200, align:"center"},
@@ -1311,7 +1311,7 @@
 		params +="&nombreSolicitante="+nombreFuncionario;
 		params +="&apaterSolicitante="+apaterFuncionario;
 		params +="&amaterSolicitante="+amaterFuncionario;
-		$.newWindow({id:"iframewindowSolicitudTranscripcion", statusBar: true, posx:253,posy:113,width:812,height:454,title:"Solicitud de Transcripción", type:"iframe"});
+		$.newWindow({id:"iframewindowSolicitudTranscripcion", statusBar: true, posx:253,posy:113,width:812,height:454,title:"Solicitud de Transcripci&oacute;n", type:"iframe"});
 		$.updateWindowContent("iframewindowSolicitudTranscripcion",'<iframe src="<%=request.getContextPath()%>/solicitarTranscripcionEnPG.do'+params+'" width="812" height="454" />');
 	}
 	
@@ -1374,7 +1374,7 @@
 	}
 	
 	function solicitarCarpetaInvestigacion(){
-		var cofirmacion = confirm("¿Confirma la solicitud de carpeta de investigación para el expediente ?");
+		var cofirmacion = confirm("&iquest;Confirma la solicitud de carpeta de investigaci&oacute;n para el expediente ?");
 		if(cofirmacion){
 			parametros = "numeroExpedienteId="+numeroExpediente;
 			$.ajax({
@@ -1385,14 +1385,14 @@
 					var folio = $(xml).find("body").find("solicitud").find("folioSolicitud").text();
 		    		var msg = $(xml).find("body").find("string").text();
 		    		if(docum != undefined && docum != null && docum != ""){
-		    			cofirmacion = confirm("Se envió la solicitud de carpeta de investigación con folio "+folio+"\n ¿Desea mostrar el documento?");
+		    			cofirmacion = confirm("Se envi&oacute; la solicitud de carpeta de investigaci&oacute;n con folio "+folio+"\n &iquest;Desea mostrar el documento?");
 						if(confirmacion){		    			
 		    				var forma = "<%= Formas.SOLICITUD.getValorId() %>" ;
 		    				var tipoD = "<%= TipoDocumento.SOLICITUD.getValorId() %>" ;
 		    				generarDocumentoDirecto(forma, docum, tipoD);
 		    			}
 		    		}else{if(msg == "Error"){
-    					customAlert("Se produjó un error en el envío, favor de contactar a su administrador...");
+    					customAlert("Se produj&oacute; un error en el env&iacute;o, favor de contactar a su administrador...");
     				}else{
 	    				customAlert(msg);
     					}
@@ -1530,7 +1530,7 @@
 		etapa = $(expediente).find('etapa').first();
 		var idEtapa = $(etapa).find('idCampo').text();
 		var estatus = $(expediente).find('estatus').find('idCampo').first().text();
-		manejoDePestañasPorEtapa(idEtapa ,estatus);
+		manejoDePesta&ntilde;asPorEtapa(idEtapa ,estatus);
 		
 		if(existe($(etapa).find('valor'))){
 			$("#etapaExpediente").val($(etapa).find('valor').text());
@@ -1731,7 +1731,7 @@
 	    	  data: parametros,				
 	    	  dataType: 'xml',
 	    	  success: function(xml){
-	    			 customAlert("Se guardó con éxito");						 
+	    			 customAlert("Se guard&oacute; con &eacute;xito");						 
 	 				//idIndividuo = $(xml).find("long").text();
 	    	  }
 	    	});
@@ -1743,7 +1743,7 @@
 		jQuery("#gridDetalleFrmPrincipal").jqGrid({ 
 			url:'<%=request.getContextPath()%>/consultarDocumentosDefensoria.do?tipo=3&idExpedienteop='+numeroExpediente, 
 			datatype: "xml", 
-			colNames:['Tipo de documento','Fecha','Nombre de Documento','Nombre de la actividad','Fecha de la actividad','Área del responsable','Documento Parcial'], 
+			colNames:['Tipo de documento','Fecha','Nombre de Documento','Nombre de la actividad','Fecha de la actividad','&Aacute;rea del responsable','Documento Parcial'], 
 			colModel:[ 	{name:'Tipo',index:'tipo', width:155, align:"center"}, 
 			           	{name:'Fecha',index:'fecha', width:90, align:"center"},
 						{name:'Nombre',index:'nombre', width:255, align:"center"},
@@ -1943,7 +1943,7 @@
     		  else
     		  {
     			  isDelitoSaved=false;
-    			  customAlert("Ocurrió un error al tratar de guardar los delitos agraviados");
+    			  customAlert("Ocurri&oacute; un error al tratar de guardar los delitos agraviados");
     		  }
     		   //$(xml).find('delitoDTO').each(function(){
 				//});    			    		
@@ -2013,7 +2013,7 @@
 	}
 
 	/*
-	*Funcion que realiza el cambio de lengua o dialecta en cedula de identificacion en la pestaña de datos generales
+	*Funcion que realiza el cambio de lengua o dialecta en cedula de identificacion en la pesta&ntilde;a de datos generales
 	*/	
 	
 	function cambiaLenguaDialecto(){
@@ -2054,7 +2054,7 @@
 	}
 	
 
-	/*Comienzan funciones para crear ventanas de la pestaña Objetos*/
+	/*Comienzan funciones para crear ventanas de la pesta&ntilde;a Objetos*/
 	
 	function relacionarExpedienteACaso(){
 	 	$.newWindow({id:"iframeRelacionarExpedienteACaso", statusBar: true, posx:200,posy:50,width:500,height:350,title:"Relacionar expediente "+numeroExpedienteCadena+"a caso", type:"iframe"});
@@ -2252,14 +2252,14 @@
 	    $("#" +"iframewindowObraDeArte"+idWindowIngresarObraDeArte+ " .window-maximizeButton").click();
 	}
 
-	/*Comienzan funciones para crear ventanas de la pestaña Involucrado*/
+	/*Comienzan funciones para crear ventanas de la pesta&ntilde;a Involucrado*/
 
 	/*  inicia ingresar consultar y modificar victima*/
 	
 	//Abre una nueva ventana de crear una nueva victima
 	function creaNuevaVictima() {
 		idWindowIngresarVictima++;
-		$.newWindow({id:"iframewindowIngresarVictima" + idWindowIngresarVictima, statusBar: true, posx:200,posy:50,width:1050,height:600,title:"Ingresar Víctima", type:"iframe"});
+		$.newWindow({id:"iframewindowIngresarVictima" + idWindowIngresarVictima, statusBar: true, posx:200,posy:50,width:1050,height:600,title:"Ingresar V&iacute;ctima", type:"iframe"});
 	    $.updateWindowContent("iframewindowIngresarVictima" + idWindowIngresarVictima,'<iframe src="<%= request.getContextPath() %>/IngresarVictima.do?numeroExpediente='+numeroExpedienteCadena +'" width="1050" height="600" />');		
 	}
 	//carga al denunciante para su consulta
@@ -2286,7 +2286,7 @@
 	//Abre una nueva ventana de crear una nueva victima
 	function modificarVictima(id) {
 		idWindowIngresarVictima++;
-		$.newWindow({id:"iframewindowIngresarVictima" + idWindowIngresarVictima, statusBar: true, posx:200,posy:50,width:1050,height:600,title:"Ingresar Víctima", type:"iframe"});
+		$.newWindow({id:"iframewindowIngresarVictima" + idWindowIngresarVictima, statusBar: true, posx:200,posy:50,width:1050,height:600,title:"Ingresar V&iacute;ctima", type:"iframe"});
 	    $.updateWindowContent("iframewindowIngresarVictima" + idWindowIngresarVictima,'<iframe src="<%= request.getContextPath() %>/IngresarVictima.do?idVictima='+id +'&numeroExpediente='+numeroExpedienteCadena +'" width="1050" height="600" />');		
 	}
 
@@ -2325,7 +2325,7 @@
 	//Abre una nueva ventana de ingresar quien detuvo
 	function creaQuienDetuvo() {
 		idWindowIngresarQuienDetuvo++;
-	$.newWindow({id:"iframewindowQuienDetuvo" + idWindowIngresarQuienDetuvo, statusBar: true, posx:200,posy:50,width:1050,height:600,title:"Ingresar Quién detuvo", type:"iframe"});
+	$.newWindow({id:"iframewindowQuienDetuvo" + idWindowIngresarQuienDetuvo, statusBar: true, posx:200,posy:50,width:1050,height:600,title:"Ingresar Qui&eacute;n detuvo", type:"iframe"});
     $.updateWindowContent("iframewindowQuienDetuvo" + idWindowIngresarQuienDetuvo,'<iframe src="<%= request.getContextPath() %>/IngresarQuienDetuvo.do?elemento='+0+'&numeroExpediente='+numeroExpedienteCadena+'" width="1050" height="600" />');
 	}	
 
@@ -2426,7 +2426,7 @@
 	function creaNuevoContactoDeUnaOrganizacion() {
 		
 		idWindowIngresarContactoDeUnaOrganizacion++;
-		$.newWindow({id:"iframewindowIngresarContactoDeUnaOrganizacion" + idWindowIngresarContactoDeUnaOrganizacion, statusBar: true, posx:250,posy:150,width:1050,height:620,title:"Contacto de una organización", type:"iframe"});
+		$.newWindow({id:"iframewindowIngresarContactoDeUnaOrganizacion" + idWindowIngresarContactoDeUnaOrganizacion, statusBar: true, posx:250,posy:150,width:1050,height:620,title:"Contacto de una organizaci&oacute;n", type:"iframe"});
 		$.updateWindowContent("iframewindowIngresarContactoDeUnaOrganizacion" + idWindowIngresarContactoDeUnaOrganizacion,'<iframe src="<%= request.getContextPath() %>/IngresarContactoDeUnaOrganizacion.do" width="1050" height="620" />');		
 	}
 	//Crea una ventata de un nuevo sentenciado a reinsertar
@@ -2481,7 +2481,7 @@
     	    	  switch(calidad){
     	    	  	case <%= Calidades.DENUNCIANTE.getValorId() %>:
     	    	  		var victima = $(this).find('esVictima').text();
-	    	    	  	$('#tblDenunciante').append(generaLigaInvolucrado($(this), 'modificaDenunciante', 'Anónimo'));
+	    	    	  	$('#tblDenunciante').append(generaLigaInvolucrado($(this), 'modificaDenunciante', 'An&oacute;nimo'));
     	    	  		$('#crearDenunciante').css('display','none'); 
     	    	  		if(victima == 'true'){
     	    	  			$('#tblVictima').append(generaLigaInvolucrado($(this), 'modificaDenunciante', 'Desconocido'));
@@ -2489,7 +2489,7 @@
 	    	    	  	$('#crearDenunciante').css('display','none');
     	    	  		break;
     	    	  	case <%= Calidades.DENUNCIANTE_ORGANIZACION.getValorId() %>:
-	    	    	  	$('#tblDenunciante').append(generaLigaInvolucrado($(this), 'modificaDenunciante', 'Anónimo'));
+	    	    	  	$('#tblDenunciante').append(generaLigaInvolucrado($(this), 'modificaDenunciante', 'An&oacute;nimo'));
 	    	    	  	$('#crearDenunciante').css('display','none');
 	    	    	  	break;
     	    	  	case <%= Calidades.VICTIMA_PERSONA.getValorId() %>:
@@ -2575,7 +2575,7 @@
     		  else
     		  {
     			  isDelitoSaved=false;
-    			  customAlert("Ocurrió un error al tratar de guardar los delitos agraviados");
+    			  customAlert("Ocurri&oacute; un error al tratar de guardar los delitos agraviados");
     		  }   			    		
 		  }
     	});
@@ -2711,7 +2711,7 @@
 	<ul>
 		<li id="tabResumen" style="display: none"><a href="#tabsconsultaprincipal-1" onclick="datosGenerales()">Resumen</a></li>
 		<li id="tabDatosInteresado" style="display: none"><a href="#tabsconsultaprincipal-21">Datos del interesado</a></li>
-		<li id="tabMotivoAsesoria"  style="display: none"><a href="#tabsconsultaprincipal-20">Motivo de asesoría</a></li>
+		<li id="tabMotivoAsesoria"  style="display: none"><a href="#tabsconsultaprincipal-20">Motivo de asesor&iacute;a</a></li>
 		<li id="tabInvolucrados" style="display: none"><a href="#tabsconsultaprincipal-13">Involucrados</a></li>
 		<li id="tabObjetosEvidencias" style="display: none"><a href="#tabsconsultaprincipal-15">Objetos y evidencias</a></li>		
 		<li id="tabCadenaCustodia" style="display: none"><a href="#tabsconsultaprincipal-16">Cadena de Custodia</a></li>	
@@ -2721,10 +2721,10 @@
 		<li id="tabActuaciones" style="display: none"><a href="#tabsconsultaprincipal-9">Actuaciones</a></li> 
 		<li id="tabNotas" style="display: none"><a href="#tabsconsultaprincipal-10">Notas</a></li>
 		<li id="tabDocumentos" style="display: none"><a href="#tabsconsultaprincipal-11" onclick="documentos()">Documentos</a></li>
-		<li id="tabBitacora" style="display: none"><a href="#tabsconsultaprincipal-4" onclick="cargaGridBitacora()">Bitácora</a></li>
+		<li id="tabBitacora" style="display: none"><a href="#tabsconsultaprincipal-4" onclick="cargaGridBitacora()">Bit&aacute;cora</a></li>
 	</ul>
 	
-	<!--Inicia Pestaña de Resumen del Expediente-->
+	<!--Inicia Pesta&ntilde;a de Resumen del Expediente-->
 	<div id="tabsconsultaprincipal-1" style="display: none;">
 		<!--Inicia Resumen Expediente -->
 		<div id="resumen1">
@@ -2734,7 +2734,7 @@
 					<table width="100%" border="0" align="center" cellpadding="0"cellspacing="5">
 					<tr id = "trCaso">
 						<td align="right" width="50%">
-							<strong>Número de caso:</strong>
+							<strong>N&uacute;mero de caso:</strong>
 						</td>
 						<td width="50%">
 							<input class="texto" type="text" readonly="readonly" id="caso"/>
@@ -2742,7 +2742,7 @@
 					</tr>
 					<tr id = "trExpediente">
 						<td align="right" width="50%">
-							<strong>Número de expediente:</strong>
+							<strong>N&uacute;mero de expediente:</strong>
 						</td>
 						<td width="50%">
 							<input class="texto" type="text" readonly="readonly" id="expediente"/>
@@ -2798,7 +2798,7 @@
 					</tr>
 					<tr id = "trFechaDesignacion">
 						<td align="right">
-							<strong>Fecha Designación:</strong>
+							<strong>Fecha Designaci&oacute;n:</strong>
 						</td>
 						<td>
 							<input class="texto" type="text" readonly="readonly" id="fechaDesignacion"/>
@@ -2806,7 +2806,7 @@
 					</tr>
 					<tr id = "trHoraDesignacion">
 						<td align="right">
-							<strong>Hora Designación:</strong>
+							<strong>Hora Designaci&oacute;n:</strong>
 						</td>
 						<td>
 							<input class="texto" type="text" readonly="readonly" id="horaDesignacion"/>
@@ -2866,7 +2866,7 @@
 					</tr>
 					<tr id = "trFechaDetencion">
 						<td align="right">
-							<strong>Fecha de Detención:</strong>
+							<strong>Fecha de Detenci&oacute;n:</strong>
 						</td>
 						<td>
 							<input class="texto" type="text" readonly="readonly" id="fechaDetencion"/>
@@ -2874,7 +2874,7 @@
 					</tr>
 					<tr id = "trHoraDetencion">
 						<td align="right">
-							<strong>Hora de Detención:</strong>
+							<strong>Hora de Detenci&oacute;n:</strong>
 						</td>
 						<td>
 							<input class="texto" type="text" readonly="readonly" id="horaDetencion"/>
@@ -2882,7 +2882,7 @@
 					</tr>
 					<tr id = "trFechaMensaje">
 						<td align="right">
-							<strong>Fecha envío del aviso:</strong>
+							<strong>Fecha env&iacute;o del aviso:</strong>
 						</td>
 						<td>
 							<input class="texto" type="text" readonly="readonly" id="fechaMensaje"/>
@@ -2890,7 +2890,7 @@
 					</tr>
 					<tr id = "trHoraMensaje">
 						<td align="right">
-							<strong>Hora envío del aviso:</strong>
+							<strong>Hora env&iacute;o del aviso:</strong>
 						</td>
 						<td>
 							<input class="texto" type="text" readonly="readonly" id="horaMensaje"/>
@@ -2935,7 +2935,7 @@
 		</div>
 		<!--Termina Resumen Expediente -->
 				
-		<!-- Inicia Resumen Expediente con Carpeta de Investigación -->
+		<!-- Inicia Resumen Expediente con Carpeta de Investigaci&oacute;n -->
 		<div id="resumen2" style="display: none">
 			<table width="1142px"  height="612px" border="0" cellspacing="0" cellpadding="0" class="back_generales">
 				<tr>
@@ -2964,15 +2964,15 @@
 				    <td rowspan="16" align="right" style="background-color:" valign="top">
 						<table border="0" cellpadding="0" cellspacing="0"  style="background-color: #DCDDDE">
      					     <tr>
-					            <td nowrap align="right" style="background-color:">Vehículos:</td>
+					            <td nowrap align="right" style="background-color:">Veh&iacute;culos:</td>
 					            <td id="Vehiculos">&nbsp;</td>
          					 </tr>
          					 <tr>
-					            <td align="right" style="background-color:">Equipos de cómputo:</td>
+					            <td align="right" style="background-color:">Equipos de c&oacute;mputo:</td>
 					            <td id="EquiposDeComputo">&nbsp;</td>
 					          </tr>
 					          <tr>
-					            <td align="right" style="background-color:">Equipos Telefónicos:</td>
+					            <td align="right" style="background-color:">Equipos Telef&oacute;nicos:</td>
 					            <td id="EquiposTelefonicos">&nbsp;</td>
 					          </tr>
 					          <tr>
@@ -2996,7 +2996,7 @@
 					            <td id="Aeronaves">&nbsp;</td>
 					          </tr>
 					          <tr>
-					            <td align="right" style="background-color:">Embarcación:</td>
+					            <td align="right" style="background-color:">Embarcaci&oacute;n:</td>
 					            <td id="Embarcacion">&nbsp;</td>
 					          </tr>
 					          <tr>
@@ -3046,11 +3046,11 @@
 						    <td id="Testigos">&nbsp;</td>
 						  </tr>
 						  <tr>
-						    <td align="right" style="background-color:">Traductores/Intérpretes:</td>
+						    <td align="right" style="background-color:">Traductores/Int&eacute;rpretes:</td>
 						    <td id="Traductores">&nbsp;</td>
 						  </tr>
 						  <tr>
-						    <td align="right" style="background-color:">Quién detuvo:</td>
+						    <td align="right" style="background-color:">Qui&eacute;n detuvo:</td>
 						    <td id="QuienDetuvo">&nbsp;</td>
 						  </tr>
 						</table>
@@ -3114,7 +3114,7 @@
 				    <td>&nbsp;</td>
 				  </tr>
 				  <tr>
-				    <td align="right"><span id="spanGralUI">Unidad de Investigación: </span><span id="spanInfoGralUI"></span></td>
+				    <td align="right"><span id="spanGralUI">Unidad de Investigaci&oacute;n: </span><span id="spanInfoGralUI"></span></td>
 				    <td>&nbsp;</td>
 				    <td align="right">&nbsp;</td>
 				    <td>&nbsp;</td>
@@ -3150,12 +3150,12 @@
 				</tr>
 			</table>
 		</div>
-		<!--Termina Resumen Expediente con Carpeta de Investigación -->
+		<!--Termina Resumen Expediente con Carpeta de Investigaci&oacute;n -->
 		
 	</div>
-	<!--Termina Pestaña de Resumen del Expediente-->
+	<!--Termina Pesta&ntilde;a de Resumen del Expediente-->
 		
-		<!--Inicia Pestaña de Cedula de identificacion -->
+		<!--Inicia Pesta&ntilde;a de Cedula de identificacion -->
 		<div id="tabsconsultaprincipal-2" style="display: none;" align="center">		
 		     <% Long idEtapa =  Long.parseLong(request.getParameter("etapa")); %>
 		     <% if(idEtapa.longValue() == EtapasExpediente.INTEGRACION.getValorId().longValue()){ %>
@@ -3238,7 +3238,7 @@
 			                       <dd>
 			                         <jsp:include page="ingresarMediosContactoView.jsp"/>
 			                       </dd>
-			                    <dt id="cejaMediaFiliacion">Media Filiación</dt>
+			                    <dt id="cejaMediaFiliacion">Media Filiaci&oacute;n</dt>
 			                       <dd>
 			                       	<jsp:include page="mediaFiliacionDefensoria.jsp"></jsp:include>
 								  </dd>
@@ -3248,19 +3248,19 @@
 			                      </dd>
 			                    <dt id="cejaDetenido">Hechos</dt>
 			                      <dd>
-			                      <!--Inicia pestañas de hechos dentro de acordeon hechos -->
+			                      <!--Inicia pesta&ntilde;as de hechos dentro de acordeon hechos -->
 									<div id="tabsHechos" class="tabEstilo"> 
 									    <ul>
 									        <li id="hechosIngHechosTab"><a href="#tabsHechos-1">Hechos</a></li>
 									        <li id="fechaHoraTab"><a href="#tabsHechos-3">Fecha y hora de los hechos</a></li>
 									    </ul>
-									    	<!--Inicia pestaña Hechos -->
+									    	<!--Inicia pesta&ntilde;a Hechos -->
 								   			 <div id="tabsHechos-1">
 								    		   	<textarea class="jquery_ckeditor" cols="150" id="editor1" name="editor1" rows="10"></textarea>
 								    		</div>
-								    		<!--Termina pestaña Hechos -->
+								    		<!--Termina pesta&ntilde;a Hechos -->
 								    		
-								    		<!--Inicia pestaña Fecha y hora de los hechos -->
+								    		<!--Inicia pesta&ntilde;a Fecha y hora de los hechos -->
 								    		<div id="tabsHechos-3">
 								    			<table id="datosDetenido" width="400" height="150" border="0" cellspacing="0" cellpadding="10">
 					                    		    <tr>
@@ -3295,18 +3295,18 @@
 					                        		</tr>
 					                      		</table>
 								    		</div>
-								    		<!--Termina pestaña Fecha y hora de los hechos -->
+								    		<!--Termina pesta&ntilde;a Fecha y hora de los hechos -->
 								    	</div>
-								    	 <!--Termina pestañas de hechos dentro de acordeon hechos -->
+								    	 <!--Termina pesta&ntilde;as de hechos dentro de acordeon hechos -->
 						             </dd>
 				                  </dl>
 				        		</div>
 				        		 <!--Termina Acordeon de Cedula de identificacion -->
 			        	  <%} %>
 			        	 </div>
-			        	<!--Termina Pestaña de Cedula de identificacion -->
+			        	<!--Termina Pesta&ntilde;a de Cedula de identificacion -->
         			
-        	<!--Inicia Pestaña de Bitacora -->
+        	<!--Inicia Pesta&ntilde;a de Bitacora -->
 			<div id="tabsconsultaprincipal-4">			
 				<table width="100%" border="0" cellspacing="0" cellpadding="0">
 			        <tr>
@@ -3322,9 +3322,9 @@
 			        </tr>
 			    </table>	
 			</div>
-			<!--Termina Pestaña de Bitacora -->
+			<!--Termina Pesta&ntilde;a de Bitacora -->
 			
-			<!--Inicia Pestaña de Actuaciones -->
+			<!--Inicia Pesta&ntilde;a de Actuaciones -->
 			<div id="tabsconsultaprincipal-9">
 					
 				 	 <table width="100%" cellspacing="0" cellpadding="0">
@@ -3346,7 +3346,7 @@
 				    <td>&nbsp;</td>
 				    <td>&nbsp;</td>
 				    <td>&nbsp;</td>
-				    <td><input type="button" value="Teoría del caso/Escritos de prueba" id="teoriaDelCaso" onClick="abreTeoria();" class="btn_Generico"/></td>
+				    <td><input type="button" value="Teor&iacute;a del caso/Escritos de prueba" id="teoriaDelCaso" onClick="abreTeoria();" class="btn_Generico"/></td>
 				  </tr>
 				  <tr id="btnRelacionExpedienteCaso">
 				    <td>&nbsp;</td>
@@ -3363,9 +3363,9 @@
 				</table>  
 			
 			</div> 
-			<!--Termina Pestaña de Actuaciones -->			
+			<!--Termina Pesta&ntilde;a de Actuaciones -->			
 			
-			<!--Inicia Pestaña de Notas -->
+			<!--Inicia Pesta&ntilde;a de Notas -->
 			<div id="tabsconsultaprincipal-10">
 				<table width="25%" cellpadding="0" cellspacing="0" id="tablaNotasExpediente">
 						<tr>
@@ -3373,9 +3373,9 @@
 						</tr>
 				</table>
 			</div>
-			<!--Inicia Pestaña de Notas -->
+			<!--Inicia Pesta&ntilde;a de Notas -->
 			
-			<!--Inicia Pestaña de Documentos -->
+			<!--Inicia Pesta&ntilde;a de Documentos -->
 			<div id="tabsconsultaprincipal-11">
 				<table id="gridDetalleFrmPrincipal"></table>
 					<div id="pager1"></div>
@@ -3393,9 +3393,9 @@
 					</tr>
 				</table>
 			</div>
-			<!--Termina Pestaña de Documentos -->
+			<!--Termina Pesta&ntilde;a de Documentos -->
 			
-			<!--Inicia Pestaña de audiencia -->
+			<!--Inicia Pesta&ntilde;a de audiencia -->
 				<div id="tabsconsultaprincipal-12" align="center">
 						
 							<table width="100%" id="gridAudiencia" onmouseup="camposSeleccionados()"></table>
@@ -3407,7 +3407,7 @@
 									Audio y Video 
 									</td>
 									<td>
-									Transcripción 
+									Transcripci&oacute;n 
 									</td>
 								</tr>
 								<tr>
@@ -3421,17 +3421,17 @@
 							</table>
 						<input type="button" disabled="disabled" value="Elaborar Solicitud" id="botonGeneraSolicitud" class="btn_Generico"/>  -->
 				</div>
-				<!--Termina Pestaña de audiencia -->
+				<!--Termina Pesta&ntilde;a de audiencia -->
 				
-				<!--Inicia Pestaña de Delito -->
+				<!--Inicia Pesta&ntilde;a de Delito -->
 				<div id="tabsconsultaprincipal-14">
-						<!--Inicia Pestaña de hijos de Delito -->
+						<!--Inicia Pesta&ntilde;a de hijos de Delito -->
 					<div id="tabschild2" class="tabs-bottom">
 						<ul>
 							<li><a href="#tabschild2-1">Seleccionar delitos</a></li>
 							<li><a href="#tabschild2-2" onclick="gridRelacionarDelitosTabDelito()">Establecer Delito Persona</a></li>					
 						</ul>
-								<!--Inicia Pestaña de Seleccionar Delito -->
+								<!--Inicia Pesta&ntilde;a de Seleccionar Delito -->
 								<div id="tabschild2-1">
 									<table width="25%" cellpadding="0" cellspacing="0">
 										<tr>
@@ -3441,9 +3441,9 @@
 										</tr>
 									</table>
 								</div>
-								<!--Termina Pestaña de Seleccionar Delito -->
+								<!--Termina Pesta&ntilde;a de Seleccionar Delito -->
 								
-								<!--Inicia Pestaña de Establecer Delito -->
+								<!--Inicia Pesta&ntilde;a de Establecer Delito -->
 								<div id="tabschild2-2">
 									<table>
 										<tr>
@@ -3470,15 +3470,15 @@
 										</tr>
 									</table>
 								</div>
-								<!--Termina Pestaña de Establecer Delito -->
+								<!--Termina Pesta&ntilde;a de Establecer Delito -->
 						</div>
-				<!--Termina Pestaña de hijos de Delito -->
+				<!--Termina Pesta&ntilde;a de hijos de Delito -->
 				</div>
-			<!--Termina Pestaña de Delito -->
+			<!--Termina Pesta&ntilde;a de Delito -->
 			
-			<!--Inicia Pestaña de Objetos -->
+			<!--Inicia Pesta&ntilde;a de Objetos -->
 			<div id="tabsconsultaprincipal-15">
-					<!--Inicia Pestaña de hijos de objetos -->
+					<!--Inicia Pesta&ntilde;a de hijos de objetos -->
 					<div id="tabschild4" class="tabs-bottom">
 						<ul>
 							<li><a href="#tabschild4-7">Veh&iacute;culo</a></li>
@@ -3698,15 +3698,15 @@
 							</div>
 							<!--CIERRA OBRA DE ARTE-->
 					</div>
-					<!--Cierra pestaña de hijos de objetos-->
+					<!--Cierra pesta&ntilde;a de hijos de objetos-->
 				</div>
-				<!--Termina Pestaña de Objetos -->
+				<!--Termina Pesta&ntilde;a de Objetos -->
 			
-				<!--Inicia Pestaña de Cadena de custodia -->
+				<!--Inicia Pesta&ntilde;a de Cadena de custodia -->
 				<div id="tabsconsultaprincipal-16">
 					
 				</div>
-				<!--Termina Pestaña de Cadena de custodia -->
+				<!--Termina Pesta&ntilde;a de Cadena de custodia -->
 				  <% if(idEtapa.longValue() == EtapasExpediente.ASESORIA.getValorId().longValue()){ %>
 				<!--Comienza Div Principal 20-->
 				<div id="tabsconsultaprincipal-20" >
@@ -3746,7 +3746,7 @@
 				<!--Termina Div Principal 21-->
 						<%} %>
 						
-					<!--Inicia Pestaña de Perciales -->
+					<!--Inicia Pesta&ntilde;a de Perciales -->
 					<div id="tabsconsultaprincipal-22">	
 						<!-- <center>
 							<table id="gridDetalleFrmPrincipalDos" align="center"></table>
@@ -3756,22 +3756,22 @@
 						<jsp:include page="solicitudesTabPericialesView.jsp"></jsp:include>
 					
 					</div>
-				<!--Inicia Pestaña de Involucrados -->
+				<!--Inicia Pesta&ntilde;a de Involucrados -->
 				<div id="tabsconsultaprincipal-13">
-						<!--Inicia Pestaña de hijos Involucrados -->
+						<!--Inicia Pesta&ntilde;a de hijos Involucrados -->
 					<div id="tabschild" class="tabs-bottom">
 						<ul>
 							<li id="tabInvitado"><a href="#tabschild-7">Invitado</a></li>
 							<li id="tabSolicitante"><a href="#tabschild-8">Solicitante Justicia Restaurativa</a></li>
 							<li id="tabDenunciante"><a href="#tabschild-1">Denunciante</a></li>
-							<li id="tabVictima"><a href="#tabschild-2">Víctima</a></li>
+							<li id="tabVictima"><a href="#tabschild-2">V&iacute;ctima</a></li>
 							<li id="tabProbableResponsable"><a href="#tabschild-3">Probables Responsable</a></li>
 							<li id="tabTestigo"><a href="#tabschild-4">Testigo</a></li>
-							<li id="tabTraductor"><a href="#tabschild-5">Traductor-Intérprete</a></li>
-							<li id="tabQuienDetuvo"><a href="#tabschild-6">Quién Detuvo</a></li>
-							<li id="tabCedulaIdentificacion" ><a href="#tabschild-9">Cedula de Identificación</a></li>
+							<li id="tabTraductor"><a href="#tabschild-5">Traductor-Int&eacute;rprete</a></li>
+							<li id="tabQuienDetuvo"><a href="#tabschild-6">Qui&eacute;n Detuvo</a></li>
+							<li id="tabCedulaIdentificacion" ><a href="#tabschild-9">Cedula de Identificaci&oacute;n</a></li>
 						</ul>
-							<!--Inicia Pestaña de Denunciante -->
+							<!--Inicia Pesta&ntilde;a de Denunciante -->
 							<div id="tabschild-1">
 							 <% if(idEtapa.longValue() == EtapasExpediente.TECNICA.getValorId().longValue()){ %>
 								<table width="25%" cellpadding="0" cellspacing="0" id="tblDenunciante">
@@ -3781,19 +3781,19 @@
 								</table>
 								<%} %>
 							</div>
-							<!--Termina Pestaña de Denunciante -->
+							<!--Termina Pesta&ntilde;a de Denunciante -->
 					
-							<!--Inicia Pestaña de Victima -->
+							<!--Inicia Pesta&ntilde;a de Victima -->
 							<div id="tabschild-2">
 								<table width="25%" cellpadding="0" cellspacing="0" id="tblVictima">
 									<tr>
-										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevaVictima"><input type="button" value="Ingresar Víctima" class="btn_Generico"/></a></td>
+										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevaVictima"><input type="button" value="Ingresar V&iacute;ctima" class="btn_Generico"/></a></td>
 									</tr>
 								</table>
 							</div>
-							<!--Termina Pestaña de Victima -->
+							<!--Termina Pesta&ntilde;a de Victima -->
 						
-							<!--Inicia Pestaña de Probable Responsable -->
+							<!--Inicia Pesta&ntilde;a de Probable Responsable -->
 							<div id="tabschild-3">
 								<table width="25%" cellpadding="0" cellspacing="0" id="tblProbableResponsable">
 									<tr>
@@ -3801,9 +3801,9 @@
 									</tr>
 								</table>
 							</div>
-							<!--Termina Pestaña de Probable Responsable -->
+							<!--Termina Pesta&ntilde;a de Probable Responsable -->
 						
-							<!--Inicia Pestaña de Testigo -->
+							<!--Inicia Pesta&ntilde;a de Testigo -->
 							<div id="tabschild-4">
 								<table width="25%" cellpadding="0" cellspacing="0" id="tblTestigo">
 									<tr>
@@ -3811,9 +3811,9 @@
 									</tr>
 								</table>
 							</div>
-							<!--Termina Pestaña de Testigo -->
+							<!--Termina Pesta&ntilde;a de Testigo -->
 						
-							<!--Inicia Pestaña de  Traductor -->
+							<!--Inicia Pesta&ntilde;a de  Traductor -->
 							<div id="tabschild-5">
 								<table width="25%" cellpadding="0" cellspacing="0" id="tblTraductor">
 									<tr>
@@ -3821,9 +3821,9 @@
 									</tr>
 								</table>
 							</div>
-							<!--Termina Pestaña de  Traductor -->
+							<!--Termina Pesta&ntilde;a de  Traductor -->
 					
-							<!--Inicia Pestaña de  Quien detuvo -->
+							<!--Inicia Pesta&ntilde;a de  Quien detuvo -->
 							<div id="tabschild-6">
 								<table width="25%" cellpadding="0" cellspacing="0" id="tblQuienDetuvo">
 									<tr>
@@ -3831,8 +3831,8 @@
 									</tr>
 								</table>
 							</div>
-							<!--Termina Pestaña de  Quien detuvo -->
-							<!--Inicia Pestaña de  Invitado -->
+							<!--Termina Pesta&ntilde;a de  Quien detuvo -->
+							<!--Inicia Pesta&ntilde;a de  Invitado -->
 							<div id="tabschild-7" align="center">		
 							 <% if(idEtapa.longValue() == EtapasExpediente.CONCILIACION_Y_MEDIACION.getValorId().longValue()){ %>
 									<TABLE  align="center" width="1025px" height="176" border=0 class="back_denuncia">
@@ -3919,9 +3919,9 @@
 						               <% } %>
 						                 <!--Termina Div de acordeon invitado -->					
 									</div>
-							<!--Termina Pestaña de  Invitado -->
+							<!--Termina Pesta&ntilde;a de  Invitado -->
 								
-							<!--Inicia Pestaña de  Solicitante de Justicia -->							
+							<!--Inicia Pesta&ntilde;a de  Solicitante de Justicia -->							
 							<div id="tabschild-8" >		
 							 <% if(idEtapa.longValue() == EtapasExpediente.CONCILIACION_Y_MEDIACION.getValorId().longValue()){ %>	
 								<table width="25%" cellpadding="0" cellspacing="0" id="tblDenunciante">
@@ -3931,13 +3931,13 @@
 								</table>	
 							<% } %>	
 							<div>	
-								<!--Termina Pestaña de  Solicitante de Justicia -->	
+								<!--Termina Pesta&ntilde;a de  Solicitante de Justicia -->	
 					
 				</div>
-				<!--Termina Pestaña de Involucrados -->
+				<!--Termina Pesta&ntilde;a de Involucrados -->
 				
 				</div>
-		<!--Termina Pestaña de hijos Involucrados -->
+		<!--Termina Pesta&ntilde;a de hijos Involucrados -->
 		
 		</div>
 		<!-- Termina Tabs Principal del menu -->

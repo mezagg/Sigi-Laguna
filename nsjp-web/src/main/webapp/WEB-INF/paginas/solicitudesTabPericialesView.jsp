@@ -3,7 +3,7 @@
 <%@ page import="mx.gob.segob.nsjp.dto.usuario.UsuarioDTO"%>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.configuracion.Parametros"%>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.seguridad.Roles" %>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -52,7 +52,7 @@
 			jQuery("#gridSolicitudesPeri1").jqGrid({ 
 				url:'<%= request.getContextPath()%>/consultarSolicitudesPericialesPorExpediente.do?numeroExpedienteId='+idNumeroExpedienteOp+'&estatus='+abierta+'', 
 				datatype: "xml", 
-				colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creación','Fecha Limite','Institución','Destinatario'], 
+				colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creaci&oacute;n','Fecha Limite','Instituci&oacute;n','Destinatario'], 
 				colModel:[ 	{name:'caso',index:'caso', width:200},
 				           	{name:'expediente',index:'expediente', width:180}, 
 							{name:'folio',index:'folio', width:100}, 
@@ -84,7 +84,7 @@
 			jQuery("#gridSolicitudesPeri2").jqGrid({ 
 				url:'<%= request.getContextPath()%>/consultarSolicitudesPericialesPorExpediente.do?numeroExpedienteId='+idNumeroExpedienteOp+'&estatus='+concluida+'', 
 				datatype: "xml", 
-				colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creación','Fecha Limite','Institución','Remitente'], 
+				colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creaci&oacute;n','Fecha Limite','Instituci&oacute;n','Remitente'], 
 				colModel:[ 	{name:'caso',index:'caso', width:200},
 				           	{name:'expediente',index:'expediente', width:180}, 
 							{name:'folio',index:'folio', width:100}, 
@@ -119,7 +119,7 @@
 			jQuery("#gridSolicitudesPeri3").jqGrid({ 
 				url:'<%= request.getContextPath()%>/consultarSolicitudesPericialesPorExpediente.do?numeroExpedienteId='+idNumeroExpedienteOp+'&estatus='+concluida+'', 
 				datatype: "xml", 
-				colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creación','Fecha Limite','Institución','Remitente'], 
+				colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creaci&oacute;n','Fecha Limite','Instituci&oacute;n','Remitente'], 
 				colModel:[ 	{name:'caso',index:'caso', width:150},
 				           	{name:'expediente',index:'expediente', width:130}, 
 							{name:'folio',index:'folio', width:125}, 

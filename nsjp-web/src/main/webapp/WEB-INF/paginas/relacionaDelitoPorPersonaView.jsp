@@ -210,7 +210,7 @@
 						    		{
 										$(xml).find('Asociacion').each(function(){
 											var probableResponsableProp = '<bean:message key="msjProbableResponsable"/>';
-											alertDinamico("Se asoció correctamente el delito al "+probableResponsableProp);
+											alertDinamico("Se asoci&oacute; correctamente el delito al "+probableResponsableProp);
 											//$('#cbxDelitosExpRDPPV').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
 											
 										});
@@ -221,7 +221,7 @@
 							});	
 			    		 /* }
 						else {
-							alertDinamico("Ya existe esta relación. Favor de verificar.");
+							alertDinamico("Ya existe esta relaci&oacute;n. Favor de verificar.");
 						 }
 					}
 				});
@@ -398,14 +398,14 @@
 							nombreCompleto+=$(this).find('apellidoMaterno').text()+" ";
 						}
 						if(nombreCompleto==null || nombreCompleto=="null" || nombreCompleto=="" || nombreCompleto=="   "){
-							nombreCompleto="Anónimo";
+							nombreCompleto="An&oacute;nimo";
 						}
 						$('#cbxVictimasExpRDPPV').append('<option value="' + $(this).find('elementoId').first().text() + '">' + nombreCompleto+ '</option>');
 						contaProbResps++;
 					});
 					if(contaProbResps==0)
 					{
-						alertDinamico("Necesita una víctima para poder relacionar un delito.");
+						alertDinamico("Necesita una v&iacute;ctima para poder relacionar un delito.");
 						banderaVictimas = true;
 					}
 				}
@@ -526,7 +526,7 @@
 	        	jQuery("#gridCatDelitosRDPPV").jqGrid({ 
 					url:'<%= request.getContextPath()%>/CargarDelitoAsociadosInvolucrado.do?idPR='+idPRval +'&idExpediente='+idExpedienteop+'', 
 					datatype: "xml",
-					colNames:['Delito','Forma de Participación','Víctima'], 
+					colNames:['Delito','Forma de Participaci&oacute;n','V&iacute;ctima'], 
 					colModel:[ 	{name:'Delito',index:'delito', width:250}, 
 								{name:'FormaParticipacion',index:'formaParticipacion',width:550},
 								{name:'Victima',index:'victima',width:250},							
@@ -673,12 +673,12 @@
 					async: false,
 					success: function(xml){
 						if(parseInt($(xml).find('code').text())==0 && parseInt($(xml).find('bandera').text())==1){
-							alertDinamico("Se anularon con éxito la(s) relaci\u00F3n(es)");
+							alertDinamico("Se anularon con &eacute;xito la(s) relaci\u00F3n(es)");
 							consultaDelitosPRRDPPV();
 							consultaDelitosPRRDPD();
 						}				    		
 			    		else
-			    			alertDinamico("No se logró anular la(s) relaci\u00F3n(es)");
+			    			alertDinamico("No se logr&oacute; anular la(s) relaci\u00F3n(es)");
 					}
 				});
 			}
@@ -786,7 +786,7 @@
 				<input type="button" value="Relacionar" id="btnRelacionarRDPPV" onclick="abrePopupRelacionarDelitosPRRDPPV();" class="btn_modificar"/>
 			</td>
 			<td align="left" valign="top">
-				<input type="button" id="btnAnulaRelacionDelPer" value="Anular relación Delito - Persona" onclick="anularRelacionDelitoPersonaPersona();" class="btn_grande"/>
+				<input type="button" id="btnAnulaRelacionDelPer" value="Anular relaci&oacute;n Delito - Persona" onclick="anularRelacionDelitoPersonaPersona();" class="btn_grande"/>
 			</td>
 			<td>&nbsp;</td>
 			<td id="muestraDatosDetencion2" align="center" >

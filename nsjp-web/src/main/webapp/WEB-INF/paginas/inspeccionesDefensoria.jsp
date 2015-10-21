@@ -65,7 +65,7 @@
 		jQuery("#gridInspecciones").jqGrid({
 					url : '<%= request.getContextPath()%>/consultarInspeccionesPorExpediente.do?defensorId='+defensorId+'&numeroExpedienteId='+numeroExpedienteId+'', 
 					datatype: "xml", 						
-					colNames:['Folio','Motivo Inspección','Inspección registrada por:','Fecha - Hora Registro','Descripción de la Inspección','Multa Asociada','Estatus'], 
+					colNames:['Folio','Motivo Inspecci&oacute;n','Inspecci&oacute;n registrada por:','Fecha - Hora Registro','Descripci&oacute;n de la Inspecci&oacute;n','Multa Asociada','Estatus'], 
 					colModel:[{name:'folio',	index:'1',  width:150, align:"center"},
 					          {name:'motivo',	index:'2', 	width:250, align:"center"},
 					          {name:'registradaPor',	index:'3', 	width:300, align:"center"},
@@ -106,10 +106,10 @@
 	    	  success: function(xml){
 	    		var respuestaMulta=  $(xml).find('long').text();
 	    		if(respuestaMulta!=""){
-					customAlert("Inspección registrada de manera correcta");
+					customAlert("Inspecci&oacute;n registrada de manera correcta");
 					window.parent.cerrarVentanaInspeccion();
 		    		}else{
-		    			customAlert("No se logró registrar la inspección");
+		    			customAlert("No se logr&oacute; registrar la inspecci&oacute;n");
 		    		}
 			  }
 	    });
@@ -127,7 +127,7 @@
 				"Asociar": function() {
 					 var multa = jQuery("#gridMultas").jqGrid('getGridParam','selrow');
 					 if(multa != undefined && multa!= null){
-						 customAlert("Se asocia la multa a la inspección");
+						 customAlert("Se asocia la multa a la inspecci&oacute;n");
 						 multaAsociadaId = multa;
 						$( this ).dialog( "close" );
 						$( "#dialog:ui-dialog" ).dialog( "destroy" );
@@ -149,7 +149,7 @@
 		jQuery("#gridMultas").jqGrid({
 					url : '<%= request.getContextPath()%>/consultarMultasPorDefensor.do?defensorId='+defensorId+'', 
 					datatype: "xml", 						
-					colNames:['Folio de la Multa/Sanción','Motivo de la Multa/Sanción','Fecha - Hora Registro'], 
+					colNames:['Folio de la Multa/Sanci&oacute;n','Motivo de la Multa/Sanci&oacute;n','Fecha - Hora Registro'], 
 					colModel:[{name:'folio',	index:'1',  width:100, align:"center"},
 					          {name:'motivo',	index:'2', 	width:200, align:"center"},
 					          {name:'fecha',	index:'3', 	width:100, align:"center"}
@@ -196,7 +196,7 @@
 	    	  dataType: 'xml',
 	    	  async: false,
 	    	  success: function(xml){
-				customAlert("Inspección concluida correctamente");
+				customAlert("Inspecci&oacute;n concluida correctamente");
 	    	  }
 	    });
     }   
@@ -206,7 +206,7 @@
 <body>
 	<table border="0" cellspacing="0" cellpadding="0" align="center">
 	<tr>
-		<td align="right""><input class="back_button" type="button" id="botonCerrar" onclick="cerrarInspeccion()" value="Concluir Inspección">
+		<td align="right""><input class="back_button" type="button" id="botonCerrar" onclick="cerrarInspeccion()" value="Concluir Inspecci&oacute;n">
 							<input class="back_button" type="button" onclick="guardaInspeccion()" value="Guardar"> 
 		</td>
 	</tr>

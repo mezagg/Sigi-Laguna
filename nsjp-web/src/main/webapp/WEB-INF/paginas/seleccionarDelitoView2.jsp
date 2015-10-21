@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -36,7 +36,7 @@
 			jQuery("#gridCatDelitos2").jqGrid({ 
 				url:'<%= request.getContextPath()%>/CargarDelito.do', 
 				datatype: "xml", 
-				colNames:['Clave','Delito', '¿Es grave?','¿Es grave?','Delito Principal','Tipo'], 
+				colNames:['Clave','Delito', '&iquest;Es grave?','&iquest;Es grave?','Delito Principal','Tipo'], 
 				colModel:[ 	{name:'Clave',index:'clave', width:40}, 
 							{name:'Delito',index:'delito', width:150}, 
 							//{name:'Gravedad',index:'gravedad', width:100}
@@ -63,7 +63,7 @@
 			jQuery("#gridDelitosAgraviados2").jqGrid({ 
 				url:'<%= request.getContextPath()%>/ConsultaDelitoPorExpedienteGrid.do?idNumeroExpediente='+idExpediente2+'&numeroExpedienteId='+numeroExpedienteId2+'',
 				datatype: "xml",
-				colNames:['Clave','Delito', '¿Es grave?','¿Es grave?','Delito Principal','Tipo'], 
+				colNames:['Clave','Delito', '&iquest;Es grave?','&iquest;Es grave?','Delito Principal','Tipo'], 
 				colModel:[ 	{name:'Clave',index:'clave', width:40}, 
 							{name:'Delito',index:'delito', width:130}, 
 							{name:'Gravedad',index:'gravedad',width:45,align:'center',formatter:'checkbox',hidden:true},

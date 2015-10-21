@@ -93,7 +93,7 @@
                 items: arrT
             });
             $("#Savebtn").click(function() {
-                 if (confirm("¿Estas seguro de guardar este evento?")) {                     
+                 if (confirm("&iquest;Estas seguro de guardar este evento?")) {                     
 
                 	 var param = "";
                 	 if(!isEmpty(document.getElementById("asunto").value) 
@@ -128,17 +128,17 @@
 	        					
 	        					if(parseInt(errorCode)==0){
 	        						if($(xml).find('mensaje').text() == "success"){
-	        							alert("El evento fue guardado con éxito");
+	        							alert("El evento fue guardado con &eacute;xito");
 	        							parent.recargarCalendario(true);
 	        							
 	        						}else if($(xml).find('mensaje').text() == "fail"){
 		        						alert("Imposible agendar el evento \n existe un evento en esa fecha y hora");
 	        						}else if($(xml).find('mensaje').text() == "fatalFail"){
-	        							alert("Ocurrió un error, por favor \n intente mas tarde");
+	        							alert("Ocurri&oacute; un error, por favor \n intente mas tarde");
 		        					}
 	        					}
 	        					else{
-	        						alert("Ocurrió un error");
+	        						alert("Ocurri&oacute; un error");
 	        					}
 
 	                     	}
@@ -153,7 +153,7 @@
             $("#Closebtn").click(function() { CloseModelWindow(); });
             
             $("#Deletebtn").click(function() {
-                 if (confirm("¿Estas seguro de eliminar este evento?")) {  
+                 if (confirm("&iquest;Estas seguro de eliminar este evento?")) {  
                 	 var param = "";
                      param += "idEvento=" + document.getElementById("idEvento").value;
                      
@@ -167,11 +167,11 @@
 	                     	var errorCode;
         					errorCode=$(xml).find('response').find('code').text();
         					if(parseInt(errorCode)==0){
-        						alert("Se eliminó el evento con éxito");
+        						alert("Se elimin&oacute; el evento con &eacute;xito");
 								parent.recargarCalendario(true);
         					}
         					else{
-        						alert("Ocurrió un error");
+        						alert("Ocurri&oacute; un error");
         					}
                      	}
                      });
@@ -283,7 +283,7 @@
           <label>                    
             <span>*Tipo Actividad:</span>
             <html:select property="tipoTarea" name="AgendaForm" styleId="tipoTarea" styleClass="required safe" style="width:97%;">                
-            	<option value="">Selecccione una opción</option>
+            	<option value="">Selecccione una opci&oacute;n</option>
             </html:select>            
           </label>     
           <label>                                        

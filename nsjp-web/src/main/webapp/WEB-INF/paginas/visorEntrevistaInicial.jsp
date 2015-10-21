@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Entrevista Inicial</title>
 <link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/multiselect/jquery.multiselect.css" />
 <link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/multiselect/style.css" />
@@ -125,13 +125,13 @@ $(document).ready(function() {
 		 dataType: 'xml',
 		 async: false,
 		 success: function(xml){
-			 alert("La Entrevista se guardó exitosamente");
+			 alert("La Entrevista se guard&oacute; exitosamente");
 		  }
 	});
 		 window.parent.cerrarVentana("iframewindowVisorEntrevistaInicial");
  }
 	 else{
-		 alert("El campo Motivo de la Atención debe ser ingresado");
+		 alert("El campo Motivo de la Atenci&oacute;n debe ser ingresado");
 	}
 
  }
@@ -147,7 +147,7 @@ $(document).ready(function() {
    </td>
     <td width="13%">Fecha de Sesi&oacute;n:</td>
     <td width="16%"><input type="text" name="FechaEI" id="FechaEI" disabled="disabled"/></td>
-    <td width="10%">Número Expediente:</td>
+    <td width="10%">N&uacute;mero Expediente:</td>
     <td width="19%">
     	<input type="text" name="nExpedienteEI" id="nExpedienteEI" disabled="disabled" style="width:200px"/>
     </td>
@@ -155,7 +155,7 @@ $(document).ready(function() {
     <td width="9%" align="right"><input name="btnGuardaEntrvistaInicial" type="button" value="Guardar" class="btn_guardar" id="btnGuardaEntrvistaInicial" /></td>
   </tr>
    <tr align="center">
-    <td colspan="5">Tipo de Víctima&nbsp;&nbsp;&nbsp;&nbsp; Directa: 
+    <td colspan="5">Tipo de V&iacute;ctima&nbsp;&nbsp;&nbsp;&nbsp; Directa: 
       <input type="radio" name="radioTipoVictimaEI" id="radio" value="0" /> 
       Indirecta: <input type="radio" name="radioTipoVictimaEI" id="radio2" value="1" /></td>
     

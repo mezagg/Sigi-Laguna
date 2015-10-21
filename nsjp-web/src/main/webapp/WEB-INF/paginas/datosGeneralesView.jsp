@@ -1,5 +1,6 @@
 <%@page import="mx.gob.segob.nsjp.comun.constants.ConstantesGenerales"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/multiselect/jquery.multiselect.css" />
 <link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/multiselect/style.css" />
 <link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/multiselect/prettify.css" />
@@ -92,8 +93,8 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 		  var rfc = $("#datosGeneralesCmpRfc").val();
 		  
 		  // Permite validar la CURP
-		  var expCurp = /^[A-Z —]{4}\d{2}(1|0)\d(0|1|2|3)\d(H|M)[A-Z —]{5}\d{2}$/;
-		  var expCurpSinDigitosVerificadores = /^[A-Z —]{4}\d{2}(1|0)\d(0|1|2|3)\d(H|M)[A-Z —]{5}$/;
+		  var expCurp = /^[A-Z √ë]{4}\d{2}(1|0)\d(0|1|2|3)\d(H|M)[A-Z √ë]{5}\d{2}$/;
+		  var expCurpSinDigitosVerificadores = /^[A-Z √ë]{4}\d{2}(1|0)\d(0|1|2|3)\d(H|M)[A-Z √ë]{5}$/;
 
 		  //propuesta para cambiar la expresion regular
 		  var expCurp2 = /^[A-Z]{4}\d{6}[A-Z]{6}(\d{2})?$/i;
@@ -104,7 +105,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 		  }	
 			
 		  // Permite validar la RFC
-		  var expRFC = /^[A-Z —]{4}\d{2}(1|0)\d(0|1|2|3)\d(\w{3})?$/;
+		  var expRFC = /^[A-Z √ë]{4}\d{2}(1|0)\d(0|1|2|3)\d(\w{3})?$/;
 		  if(rfc != "" && !expRFC.test(rfc)){
 				camposInvalidos += "\n\t - RFC";
 				datosCorrectos = 2; 
@@ -135,7 +136,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
     	});
     }
 		
-	// FunciÛn invocada desde la ventana de ingresar involucrado
+	// Funci√≥n invocada desde la ventana de ingresar involucrado
 	function bloqueaAgregaAlias(){
 		$("#add").hide();	
 	}
@@ -163,7 +164,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
     function cargaIdioma(){
     	$('#datosGeneralesCmpIdioma').addClass("cargando");
 
-		//variables para seleccionar el idioma EspaÒol
+		//variables para seleccionar el idioma Espa√±ol
 		var indexEsp, idioma=0;
     	$.ajax({
     		type: 'POST',
@@ -176,7 +177,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
     			$(xml).find('catIdioma').each(function(){
     				$('#datosGeneralesCmpIdioma').append('<option value="' + $(this).find('clave').text() + '">'+ $(this).find('valor').text() + '</option>');
     				idioma++;
-    				if($(this).find('valor').text() == "EspaÒol" || $(this).find('valor').text() == "ESPA—OL" || $(this).find('valor').text() == "Espanol"){ indexEsp = idioma; }
+    				if($(this).find('valor').text() == "Espa√±ol" || $(this).find('valor').text() == "ESPA√ëOL" || $(this).find('valor').text() == "Espanol"){ indexEsp = idioma; }
     			});
        			$('#datosGeneralesCmpIdioma').removeClass("cargando");
     		}
@@ -279,7 +280,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 	}
 
 	/**
-	 *Limpia todos los campos de esta p·gina
+	 *Limpia todos los campos de esta p√°gina
 	 */
 	function cleanDatosGenerales(){
 
@@ -462,7 +463,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 				 cambiarModoConsultaMultiselect(true);
 			}
 
-			// FunciÛn invocada desde la ventana de ingresar involucrado
+			// Funci√≥n invocada desde la ventana de ingresar involucrado
 			function habilitaDatosEspecificos(){
 				 $('#datosGeneralesCmpOcupacion').attr("disabled","");
 				 $('#datosGeneralesCmpNacionalidad').attr("disabled","");
@@ -633,7 +634,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 		   * @param esConsulta parametro que determina si es modo consulta o edici&oacute;n
 		   */
 		   function cambiarModoConsultaMultiselect(esConsulta){
-			   //VersiÛn anterior de habilitar  ver avilitarDatosGenerales()
+			   //Versi√≥n anterior de habilitar  ver avilitarDatosGenerales()
 			   /* var $widget = $("#datosGeneralesCmpAlias,#datosGeneralesCmpOcupacion,#datosGeneralesCmpNacionalidad").multiselect(),state = true;
 			   state = !state;
 			   $widget.multiselect( ? 'disable' : 'enable'); */
@@ -850,7 +851,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 			2. Primer vocal despues de la primer letra de tu apellido PATERNO
 			3. Primer letra de tu apellido (materno)
 			4. Primer letra de tu nombre
-			5. AÒo de nacimiento (ultimas 2 cifras)
+			5. A√±o de nacimiento (ultimas 2 cifras)
 			6. Mes de nacimiento (2 cifras)
 			7. Dia de nacimiento (2 cifras)...
 			Hasta aqui el RFC... 
@@ -877,7 +878,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 					var paternoStr = valorCampoApPat;
 					str = paternoStr.toLowerCase().replace(/de\s|la\s|del\s|'|-/gi, '');
 					var consonateAPaterno = str;
-					paternoStr = (str.charAt(0) === 'Ò' ? 'X' : str.charAt(0)) + (str.charAt(1) ? obtieneVocal(str) : 'X');
+					paternoStr = (str.charAt(0) === '√±' ? 'X' : str.charAt(0)) + (str.charAt(1) ? obtieneVocal(str) : 'X');
 					consonateAPaterno=obtenConsonante(consonateAPaterno);
 						
 					if(consonateAPaterno.trim()=="" || consonateAPaterno.trim().length==0)
@@ -891,7 +892,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 					{
 						str = maternoStr.toLowerCase().replace(/de\s|la\s|del\s|'|-/gi, '');
 						consonateAMaterno = str;
-						maternoStr = str.charAt(0) === 'Ò' ? 'X' : str.charAt(0);		
+						maternoStr = str.charAt(0) === '√±' ? 'X' : str.charAt(0);		
 						//consonateAMaterno=consonateAMaterno.substring(1);					
 						consonateAMaterno=obtenConsonante(consonateAMaterno);
 						if(consonateAMaterno.trim()=="" || consonateAMaterno.trim().length==0)
@@ -951,7 +952,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 		   
 		   
 			function obtenConsonante(cadena){
-				var consonantes = /^[bcdfghjklmnÒpqrstvwxyz]/i;				
+				var consonantes = /^[bcdfghjklmn√±pqrstvwxyz]/i;				
 				var i = 0;
 				var x= true;
 				var s1 = '';
@@ -967,8 +968,8 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 				 }
 				*/
 				
-				var pattCnsnts=new RegExp("bcdfghjklmnÒpqrstvwxyz","i");
-				var cadenaConsonantes="bcdfghjklmnÒpqrstvwxyz";
+				var pattCnsnts=new RegExp("bcdfghjklmn√±pqrstvwxyz","i");
+				var cadenaConsonantes="bcdfghjklmn√±pqrstvwxyz";
 				var cadenaCnsnnts="";
 				var cadenaVcls="";
 				for(i=0;i<cadenaOrg.length;i++)
@@ -1041,7 +1042,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 				var letraNombre = '';
 				nombreStr = nombreStr.trim();
 				nombreStr = nombreStr.toLowerCase().replace(/de\s|la\s|del\s|'|-/gi, '');
-				var letraBase = nombreStr.charAt(0).toLowerCase() === 'Ò' ? 'X' : nombreStr.charAt(0);
+				var letraBase = nombreStr.charAt(0).toLowerCase() === '√±' ? 'X' : nombreStr.charAt(0);
 				if (nombreStr.split(' ').length >= 2) {
 					var jose = quitaAcentos(nombreStr).toLowerCase().search('jose');
 					var maria = quitaAcentos(nombreStr).toLowerCase().search('maria');
@@ -1064,7 +1065,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 					nombreStr = nombreStr.trim();
 					nombreStr = nombreStr.toLowerCase().replace(/de\s|la\s|del\s|'|-/gi, '');
 					var nombreStrOrg=nombreStr;
-					var letraBase = nombreStr.charAt(0).toLowerCase() === 'Ò' ? 'X' : nombreStr.charAt(0);
+					var letraBase = nombreStr.charAt(0).toLowerCase() === '√±' ? 'X' : nombreStr.charAt(0);
 					if (nombreStrOrg.split(' ').length >= 2) {
 						var nombreStrJose = quitaAcentos(nombreStr).toLowerCase();
 						var nombreStrMaria= quitaAcentos(nombreStr).toLowerCase();
@@ -1093,17 +1094,17 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 			
 			
 	 		/**
-			 * FunciÛn que limpia una cadena de acentos y dieresis
+			 * Funci√≥n que limpia una cadena de acentos y dieresis
 			 * @param {String} cadena Cadena a limpiar
 			 * @return {String} cadena Cadena sin acentos y dieresis
 			 */
 			function quitaAcentos(cadena){
-				return cadena != "" ? cadena.replace(/·|È|Ì|Û|˙|‰|Î|Ô|ˆ|¸|¡|…|Õ|”|⁄|ƒ|À|œ|÷|‹/ig,function (str) {
-					var str =str=="·"?"a":str=="È"?"e":str=="Ì"?"i":str=="Û"?"o":str=="˙"?"u":str;
-					   str =str=="¡"?"A":str=="…"?"E":str=="Õ"?"I":str=="”"?"O":str=="⁄"?"U":str;
-					   str =str=="¡"?"A":str=="…"?"E":str=="Õ"?"I":str=="”"?"O":str=="⁄"?"U":str;
-					   str =str=="‰"?"a":str=="Î"?"e":str=="Ô"?"i":str=="ˆ"?"o":str=="¸"?"u":str;
-					   str =str=="ƒ"?"A":str=="À"?"E":str=="œ"?"I":str=="÷"?"O":str=="‹"?"U":str;
+				return cadena != "" ? cadena.replace(/√°|√©|√≠|√≥|√∫|√§|√´|√Ø|√∂|√º|√Å|√â|√ç|√ì|√ö|√Ñ|√ã|√è|√ñ|√ú/ig,function (str) {
+					var str =str=="√°"?"a":str=="√©"?"e":str=="√≠"?"i":str=="√≥"?"o":str=="√∫"?"u":str;
+					   str =str=="√Å"?"A":str=="√â"?"E":str=="√ç"?"I":str=="√ì"?"O":str=="√ö"?"U":str;
+					   str =str=="√Å"?"A":str=="√â"?"E":str=="√ç"?"I":str=="√ì"?"O":str=="√ö"?"U":str;
+					   str =str=="√§"?"a":str=="√´"?"e":str=="√Ø"?"i":str=="√∂"?"o":str=="√º"?"u":str;
+					   str =str=="√Ñ"?"A":str=="√ã"?"E":str=="√è"?"I":str=="√ñ"?"O":str=="√ú"?"U":str;
 					return (str);
 				}) : cadena;
 			}
@@ -1115,7 +1116,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 			 * @return {String} vocalStr Primera vocal en la cadena
 			 */
 			function obtieneVocal(str){
-				var vocales = ['a','e','i','o','u','·','È','Ì','Û','˙'];
+				var vocales = ['a','e','i','o','u','√°','√©','√≠','√≥','√∫'];
 				var strArray = str.toLowerCase().substr(1);
 				var vocalStr = '';
 				for (var i = 1; i < str.length; i++) {				

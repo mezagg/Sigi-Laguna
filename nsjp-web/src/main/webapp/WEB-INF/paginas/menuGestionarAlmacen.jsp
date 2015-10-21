@@ -3,8 +3,8 @@
 <%@ page import="mx.gob.segob.nsjp.comun.enums.evidencia.TiposEslabon" %>
 <%@ page import=" mx.gob.segob.nsjp.comun.enums.objeto.Objetos"%>
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -43,8 +43,8 @@
 	<script type="text/javascript" 	src="<%=request.getContextPath()%>/js/comun.js?n=1"></script>
 	
 	
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Gestión de Almacén</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Gesti&oacute;n de Almac&eacute;n</title>
 	
 	<script type="text/javascript">
       
@@ -144,7 +144,7 @@
 				jQuery("#tablaInventarioDeEvidenciasPorCaso").jqGrid({
 					url:'<%=request.getContextPath()%>/generaInventarioDeAlmacen.do?numeroGeneralCaso='+numeroGeneralCaso+'&idAlmacen='+idAlmacen, 
 					datatype: "xml",  							
-					colNames:['No. Caso','Cadena de custodia','Evidencia','Nombre','Codigo','Cantidad','Estatus','Fecha de devolución'], 
+					colNames:['No. Caso','Cadena de custodia','Evidencia','Nombre','Codigo','Cantidad','Estatus','Fecha de devoluci&oacute;n'], 
 					colModel:[  {name:'Caso',index:'1', sortable:true, width:230},
 					            {name:'Cadena',index:'3', sortable:true, width:180},
 								{name:'Evidencia',index:'6', sortable:true, width:80,align:'center'},
@@ -180,7 +180,7 @@
 	  	  jQuery("#gridDocumentos").jqGrid({
 						url:'<%=request.getContextPath()%>/consultarDocumentosXIdEslabon.do?idEslabon='+idEslabonDetalleSolicitud, 
 						datatype: "xml", 						
-						colNames:['Área del responsable','Fecha de la actividad','Nombre de la actividad','Tipo de documento','Nombre de Documento','Fecha del documento'],
+						colNames:['&Aacute;rea del responsable','Fecha de la actividad','Nombre de la actividad','Tipo de documento','Nombre de Documento','Fecha del documento'],
 						colModel:[ 	{name:'area',index:'area', width:200, hidden:true},
 									{name:'FechaActividad',index:'fechaActividad', width:170, hidden:true},							
 									{name:'NombreActividad',index:'nombreActividad', width:400, hidden:true},
@@ -327,7 +327,7 @@
 						else
 						{
 							cadenaCustodia="";
-							customAlert("Ocurrió un error al actualizar el estatus de la evidencia");
+							customAlert("Ocurri&oacute; un error al actualizar el estatus de la evidencia");
 						}
 				}
 			});
@@ -476,7 +476,7 @@
  			jQuery("#gridDocumentosEnPestaniaEslabones").jqGrid({
 							url:'<%=request.getContextPath()%>/consultarDocumentosXIdEslabon.do?idEslabon='+idEslabon, 
 							datatype: "xml", 						
-							colNames:['Área del responsable','Fecha de la actividad','Nombre de la actividad','Tipo de documento','Nombre de Documento','Fecha del documento'],
+							colNames:['&Aacute;rea del responsable','Fecha de la actividad','Nombre de la actividad','Tipo de documento','Nombre de Documento','Fecha del documento'],
 							colModel:[ 	{name:'area',index:'area', width:200, hidden:true},
 										{name:'FechaActividad',index:'fechaActividad', width:170, hidden:true},							
 										{name:'NombreActividad',index:'nombreActividad', width:400, hidden:true},
@@ -611,7 +611,7 @@
                         <td><input type="text" name="txtNombreEvi" id="txtNombreEvi" size="30" disabled="disabled"/></td>
                       </tr>
                       <tr style="display:none">
-                        <td>Código:</td>
+                        <td>C&oacute;digo:</td>
                         <td><input type="text" name="txtCodigo" id="txtCodigo" size="30" disabled="disabled"/></td>
                       </tr>	
                       <tr>

@@ -3,8 +3,8 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.expediente.EstatusExpediente"%>
 <%@page import="mx.gob.segob.nsjp.web.login.action.LoginAction"%>
 <%@page import="mx.gob.segob.nsjp.dto.configuracion.ConfiguracionDTO"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@page import="mx.gob.segob.nsjp.dto.usuario.RolDTO"%>
 <%@page import="mx.gob.segob.nsjp.dto.usuario.UsuarioDTO"%>
 <% 
@@ -515,7 +515,7 @@
 	jQuery("#gridAudienciasPJENC").jqGrid({ 
 							url:'<%= request.getContextPath()%>/consultarAudienciasByTipoYEstatus.do',
 							datatype: "xml", 
-							colNames:['Número de Causa','Carpeta de Ejecución','Nombre Sentenciado',' Fecha de Audiencia','Sala'], 
+							colNames:['N&uacute;mero de Causa','Carpeta de Ejecuci&oacute;n','Nombre Sentenciado',' Fecha de Audiencia','Sala'], 
 							colModel:[ 	{name:'Causa',index:'expediente', width:228}, 
 										{name:'Ejecucion',index:'Ejecucion', width:228}, 
 										{name:'Sentenciado',index:'Sentenciado', width:228}, 
@@ -571,10 +571,10 @@
 				//fechaInicio: function()  {return fechaInicio;},
 			      //     fechaFin: function()		{return fechaFin;}																										
 			},
-			colNames:['N&uacute;mero Caso','N&uacute;mero Causa','Carpeta Ejecución','Sentenciado','Fecha Creaci&oacute;n'], 
+			colNames:['N&uacute;mero Caso','N&uacute;mero Causa','Carpeta Ejecuci&oacute;n','Sentenciado','Fecha Creaci&oacute;n'], 
 			colModel:[ {name:'Caso',index:'index1', width:380},
 			           {name:'Causa',index:'index2', width:380},
-			           {name:'Ejecución',index:'index3', width:380},
+			           {name:'Ejecuci&oacute;n',index:'index3', width:380},
 			           {name:'Sentenciado',index:'index4', width:380},
 			           {name:'Fecha',index:'index5', width:380}
 	            																											
@@ -858,7 +858,7 @@
 		jQuery("#gridDetalleResolutivaAudiencia").jqGrid({ 
 			url:'<%= request.getContextPath()%>/CargaTranscripcionResolutivos.do', 
 			datatype: "xml", 
-			colNames:['Identificador de la Audiencia','Fecha - Hora del Fin de la Audiencia','Número de Causa','Número de Toca' ], 
+			colNames:['Identificador de la Audiencia','Fecha - Hora del Fin de la Audiencia','N&uacute;mero de Causa','N&uacute;mero de Toca' ], 
 			colModel:[ 	{name:'Audiencia',index:'audiencia', width:25},
 			           	{name:'FinAudiencia',index:'finAudiencia', width:15},
 			           	{name:'nCausa',index:'nCausa', width:20},
@@ -931,10 +931,10 @@ function visorACE() {
 		$('#divGridSentenciasEnProcesoPJENC').hide();
 		
 		
-	//Número de causa
-	//- Número de carpeta de ejecución
+	//N&uacute;mero de causa
+	//- N&uacute;mero de carpeta de ejecuci&oacute;n
 	//- Solicitante
-	//- Institución solicitante
+	//- Instituci&oacute;n solicitante
 	//- Sentenciado
 	//- Fecha - hora de solicitud (Nota 1)
 	
@@ -942,7 +942,7 @@ function visorACE() {
 		
 		url:'<%= request.getContextPath()%>/consultarSolicitudesPorTipoYEstatus.do',
 		datatype: "xml", 
-		colNames:['Número de Causa','Carpeta de Ejecución','Solicitante','Institución Solicitante','Sentenciado','Fecha - Hora de Solicitud'], 
+		colNames:['N&uacute;mero de Causa','Carpeta de Ejecuci&oacute;n','Solicitante','Instituci&oacute;n Solicitante','Sentenciado','Fecha - Hora de Solicitud'], 
 		colModel:[ 	{name:'expediente',index:'expediente', width:190}, 
 					{name:'caracter',index:'caracter', width:190}, 
 					{name:'tipoAudiencia',index:'tipoAudiencia', width:190}, 
@@ -1011,7 +1011,7 @@ function generaVisorGraficaView() {
 					url:'<%= request.getContextPath()%>/consultarSentenciasPorEstatus.do?estadoSentencia='+estados+'',
 					data:'',
 					datatype: "xml",
-					colNames:['Imputado','Número de Caso','Número de Causa','Carpeta de Ejecución','Fecha Creación'], 
+					colNames:['Imputado','N&uacute;mero de Caso','N&uacute;mero de Causa','Carpeta de Ejecuci&oacute;n','Fecha Creaci&oacute;n'], 
 					colModel:[ 	{name:'imputado',index:'imputado',width:250, align:'center'},
 								{name:'numeroCaso',index:'numeroCaso',width:150, align:'center'}, 
 								{name:'numeroCausa',index:'numeroCausa', width:150, align:'center'}, 
@@ -1080,7 +1080,7 @@ function ocultarGrids(){
 		$("#divCausa").dialog("open");
 	  	$("#divCausa").dialog({ autoOpen: true, 
 			modal: true, 
-		  	title: 'Administrar medidas alternativas por n&uacute;mero de carpeta de ejecución', 
+		  	title: 'Administrar medidas alternativas por n&uacute;mero de carpeta de ejecuci&oacute;n', 
 		  	dialogClass: 'alert',
 		  	position: [500,220],
 		  	width: 350,
@@ -1109,7 +1109,7 @@ function ocultarGrids(){
 		idWindowVisorMedidasAlternativasPJADE++;
 		
 		idVentana="iframewindowVisorMedidasAlternativas"+idWindowVisorMedidasAlternativasPJADE;
-		$.newWindow({id:"iframewindowVisorMedidasAlternativas"+idWindowVisorMedidasAlternativasPJADE, statusBar: true, posx:255,posy:111,width:970,height:365,title:"Medidas Alternativas de la Carpeta de Ejecución:"+numeroCausa, type:"iframe"});
+		$.newWindow({id:"iframewindowVisorMedidasAlternativas"+idWindowVisorMedidasAlternativasPJADE, statusBar: true, posx:255,posy:111,width:970,height:365,title:"Medidas Alternativas de la Carpeta de Ejecuci&oacute;n:"+numeroCausa, type:"iframe"});
     	$.updateWindowContent("iframewindowVisorMedidasAlternativas"+idWindowVisorMedidasAlternativasPJADE,'<iframe src="<%=request.getContextPath()%>/visorMedidasAlternativasPJADE.do?numeroCausa=' + numeroCausa +'&idVentana='+idVentana+'" width="970" height="365" />'); 
 	}
 
@@ -1289,15 +1289,15 @@ function ocultarGrids(){
 					</ul>		
 				</div>
 				
-				<h3 ><a id="evento" href="#" onclick="cargaCarpetadePreliberacion()"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png" id="botpenal" width="15" height="15">&nbsp;Beneficios de Preliberación</a></h3>
+				<h3 ><a id="evento" href="#" onclick="cargaCarpetadePreliberacion()"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png" id="botpenal" width="15" height="15">&nbsp;Beneficios de Preliberaci&oacute;n</a></h3>
 				<div>			
 					<!-- <ul id="seccion1treePJENC" class="filetree">
-						<li><span class="file"><a id="audienciaDelDia" style="cursor: pointer;" onclick="cargaGridDiaPJENC();">Audiencia de Ejecución</a></span></li>
-						<li><span class="file" id="porFecha" style="cursor: pointer;" onclick="modalFecha()">Carpeta de Ejecución</span></li>
+						<li><span class="file"><a id="audienciaDelDia" style="cursor: pointer;" onclick="cargaGridDiaPJENC();">Audiencia de Ejecuci&oacute;n</a></span></li>
+						<li><span class="file" id="porFecha" style="cursor: pointer;" onclick="modalFecha()">Carpeta de Ejecuci&oacute;n</span></li>
 						<li><span class="file" id="porFecha" style="cursor: pointer;" onclick="modalFecha()">Hist&oacute;rico</span></li>
 					</ul>	-->	
 				</div>
-				<h3 ><a id="evento" href="#"  onclick="cargaGridDiaPJENC();"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png" id="botpenal" width="15" height="15">&nbsp;Audiencia de Ejecución</a></h3>
+				<h3 ><a id="evento" href="#"  onclick="cargaGridDiaPJENC();"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png" id="botpenal" width="15" height="15">&nbsp;Audiencia de Ejecuci&oacute;n</a></h3>
 				<div>			
 				<!--	<ul id="seccion2treePJENC" class="filetree">
 						<li><span class="file"><a id="recurso" style="cursor: pointer;" onclick="cargaGridRecursoPJENC();">Recurso</a></span></li>
@@ -1315,7 +1315,7 @@ function ocultarGrids(){
 						</li>
 					</ul>	-->	
 				</div>
-<!--  			<h3 ><a id="" href="#" onclick="generaVisorGraficaView()"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png"  width="15" height="15">Gráficas y Reportes</a></h3>
+<!--  			<h3 ><a id="" href="#" onclick="generaVisorGraficaView()"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png"  width="15" height="15">Gr&aacute;ficas y Reportes</a></h3>
 				<div>		
 					<input type="button" value="Ver Grafica" id="imageViewer" name="imageViewer"/>	
 					<ul id="seccion3treePJENC" class="filetree">
@@ -1567,7 +1567,7 @@ function ocultarGrids(){
 		</table>
 	<div id="dialog-logout" title="Cerrar Sesi&oacute;n">
 		<p align="center">
-			<span id="logout">¿Desea cerrar su sesi&oacute;n?</span>
+			<span id="logout">&iquest;Desea cerrar su sesi&oacute;n?</span>
 		</p>
 	</div>
 
@@ -1615,11 +1615,11 @@ function ocultarGrids(){
 		<p align="center">
 			<table border="0">
 				<tr>
-					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contraseña para desbloquear.</td>
+					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contrase&ntilde;a para desbloquear.</td>
 					
 				</tr>
 				<tr>
-					<td align="right"><label style="color:#4A5C68">Contraseña:</label></td>
+					<td align="right"><label style="color:#4A5C68">Contrase&ntilde;a:</label></td>
 					<td><input type="password" name="password" id="password" value="" maxlength="15" size="20"></td>
 				</tr>
 				<tr id="captchaJPG" >
@@ -1648,7 +1648,7 @@ function ocultarGrids(){
 				La sesi&oacute;n se cerrar&aacute; en <span id="dialog-countdown" style="font-weight:bold"></span> segundos.
 			</p>
 
-			<p>¿Desea continuar con la sesi&oacute;n?</p>
+			<p>&iquest;Desea continuar con la sesi&oacute;n?</p>
 	</div>
 	<div id="dialog-alarmPos" title="Alarma ">
 		<p align="center">

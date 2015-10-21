@@ -3,14 +3,14 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.institucion.Instituciones"%>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.actividad.Actividades" %>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.forma.Formas" %>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"></meta>
-<title>Mostrar Generar Detención</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+<title>Mostrar Generar Detenci&oacute;n</title>
 
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/jquery.windows-engine.css" />
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/layout_complex.css"/>
@@ -224,7 +224,7 @@
 // 		//Se registra actividad asociada al expediente
 <%-- 		registrarActividadExpediente(<%= Actividades.SOLICITAR_DEFENSOR.getValorId() %>,"",0); --%>
 		
-// 		var tituloVentanaGenerarAvisoDetencion = "Generar aviso de detención";
+// 		var tituloVentanaGenerarAvisoDetencion = "Generar aviso de detenci&oacute;n";
 <%-- 		var formaID = <%= Formas.SOLICITUD_DEFENSOR.getValorId() %>;		 --%>
 		
 // 		$.newWindow({id:"iframewindowGenerarDocumento", statusBar: true, posx:20,posy:20,width:1140,height:400,title:""+tituloVentanaGenerarAvisoDetencion, type:"iframe", confirmarCierreVentana:true});
@@ -342,7 +342,7 @@
 <!-- 					</tr>					 -->
 <!-- 					<tr> -->
 <!-- 						<td align="center" colspan="3"> -->
-<!-- 							<input type=button class="back_button" id="btnRegistroDetencion" value="Generar aviso de detención"> -->
+<!-- 							<input type=button class="back_button" id="btnRegistroDetencion" value="Generar aviso de detenci&oacute;n"> -->
 <!-- 						</td> -->
 <!-- 					</tr> -->
 <!-- 				</table> -->

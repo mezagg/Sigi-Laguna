@@ -2,8 +2,8 @@
 <%@page import="mx.gob.segob.nsjp.dto.configuracion.ConfInstitucionDTO"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.actividad.ActividadesRS"%>
 <%@page import="mx.gob.segob.nsjp.dto.usuario.UsuarioDTO"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <% 
    	UsuarioDTO usuario = (UsuarioDTO) request.getSession().getAttribute("KEY_SESSION_USUARIO_FIRMADO"); 
     UsuarioRolDTO rolActivo = usuario.getRolACtivo();

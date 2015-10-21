@@ -273,7 +273,7 @@ function cargaSituacionJuridica(valorSituacion){
 			<label>Fecha Inicio:</label>
 		</td>
 		<td id="lbTextInicioDet">
-			<label>Fecha Detención:</label>
+			<label>Fecha Detenci&oacute;n:</label>
 		</td>
 		<td><div id="idFechaDateDivLapso">
 		<input type="text" id="idFechaDateLapso" onchange="revisaLongitudFechas()" size="10" style="width: 70px;" readonly="readonly">
@@ -281,7 +281,7 @@ function cargaSituacionJuridica(valorSituacion){
 	</tr>
 	<tr>
 		<td id="horaTextInicio">Hora Inicio:</td>
-		<td id="horaTextInicioDet">Hora Detención:</td>
+		<td id="horaTextInicioDet">Hora Detenci&oacute;n:</td>
 		<td><div id="idHoraLapso">
 		<input size="10" class="timeRange" type="text" id="idHoraDateLapsoInicio" value="7:00" onblur="cuandoCambien(this.id);"/>
 		</div></td>
@@ -301,7 +301,7 @@ function cargaSituacionJuridica(valorSituacion){
 		</div></td>
 	</tr>
 	<tr>
-		<td align="right">Situación Juridica:</td>
+		<td align="right">Situaci&oacute;n Juridica:</td>
 		<td><select id="situacionJuridicaCombo"
 					name="situacionJuridicaCombo" style="width: 180px;" >
 			<option value="">- Selecciona -</option>

@@ -2,8 +2,8 @@
 <%@page import="mx.gob.segob.nsjp.web.base.action.GenericAction"%>
 <%@page import="mx.gob.segob.nsjp.web.login.action.LoginAction"%>
 <%@page import="mx.gob.segob.nsjp.dto.configuracion.ConfiguracionDTO"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@page import="mx.gob.segob.nsjp.dto.usuario.RolDTO"%>
 <%@page import="mx.gob.segob.nsjp.dto.usuario.UsuarioDTO"%>
 <% 
@@ -381,7 +381,7 @@
 		jQuery("#gridOtrosPJENSI").jqGrid({
 			url:'<%=request.getContextPath()%>/consultaSolicitudesRecursoHistorico.do?numeroExpedienteId='+ numeroExpedienteId +'', 
 			datatype : "xml",
-			colNames : ['Número de Causa','Número de TOCA','Fecha - Hora de Solicitud del Recurso', 'Institución Solicitante', 'Nombre del Solicitante','Fecha-Hora  de Atención de Solicitud','Estado de Recurso'],
+			colNames : ['N&uacute;mero de Causa','N&uacute;mero de TOCA','Fecha - Hora de Solicitud del Recurso', 'Instituci&oacute;n Solicitante', 'Nombre del Solicitante','Fecha-Hora  de Atenci&oacute;n de Solicitud','Estado de Recurso'],
 			colModel : [ {name : 'noCausa',index : 'noCausa',width : 30},
 						 {name : 'noTOCA',index : 'noTOCA',width : 40},
 						 {name : 'fechaHoraSolicitud',index : 'fechaHoraSolicitud',width : 50},
@@ -417,7 +417,7 @@
 		jQuery("#gridSolicitudesRecursoPJENSI").jqGrid({
 					url:'<%=request.getContextPath()%>/consultaSolicitudesRecursos.do',
 					datatype : "xml",
-					colNames : ['Número de Causa','Nombre del Solicitante','Fecha-Hora de la Solicitud'],
+					colNames : ['N&uacute;mero de Causa','Nombre del Solicitante','Fecha-Hora de la Solicitud'],
 					colModel : [ {name : 'noCausa',index : 'noCausa',width : 40, align:"center"},
 								 {name : 'nombre',index : 'nombre',width : 60, align:"center"},
 								 {name : 'fechaHora',index : 'fechaHora',width : 50, align:"center"}
@@ -493,7 +493,7 @@
 					</ul>		
 				</div>
 				
-<!-- 			<h3 ><a id="" href="#" onclick="generaVisorGraficaView()"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png"  width="15" height="15">Gráficas y Reportes</a></h3>
+<!-- 			<h3 ><a id="" href="#" onclick="generaVisorGraficaView()"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png"  width="15" height="15">Gr&aacute;ficas y Reportes</a></h3>
 				<div>		
 					<input type="button" value="Ver Grafica" id="imageViewer" name="imageViewer"/>	
 					<ul id="seccion3treePJENC" class="filetree">
@@ -672,7 +672,7 @@
 	</div>
 	<div id="dialog-logout" title="Cerrar Sesi&oacute;n">
 		<p align="center">
-			<span id="logout">¿Desea cerrar su sesi&oacute;n?</span>
+			<span id="logout">&iquest;Desea cerrar su sesi&oacute;n?</span>
 		</p>
 	</div>
 	<!--Termina main content-->	
@@ -682,11 +682,11 @@
 		<p align="center">
 			<table border="0">
 				<tr>
-					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contraseña para desbloquear.</td>
+					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contrase&ntilde;a para desbloquear.</td>
 					
 				</tr>
 				<tr>
-					<td align="right"><label style="color:#4A5C68">Contraseña:</label></td>
+					<td align="right"><label style="color:#4A5C68">Contrase&ntilde;a:</label></td>
 					<td><input type="password" name="password" id="password" value="" maxlength="15" size="20"></td>
 				</tr>
 				<tr id="captchaJPG" >
@@ -715,7 +715,7 @@
 				La sesi&oacute;n se cerrar&aacute; en <span id="dialog-countdown" style="font-weight:bold"></span> segundos.
 			</p>
 
-			<p>¿Desea continuar con la sesi&oacute;n?</p>
+			<p>&iquest;Desea continuar con la sesi&oacute;n?</p>
 	</div>
 	
 	<!-- div para el alert dinamico -->

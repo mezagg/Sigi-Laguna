@@ -1,7 +1,7 @@
 <%@page
 	import="mx.gob.segob.nsjp.comun.enums.funcionario.TipoDefensoria"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -45,7 +45,7 @@
 }
 </style>
 
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <script type="text/javascript">
 
@@ -91,12 +91,12 @@ function tipoEslabon(){
 	  	width: 237,
 	  	height: 241,
 	  	maxWidth: 500,
-	  	buttons:{"Registrar Movimiento en Almacén":function() {	
+	  	buttons:{"Registrar Movimiento en Almac&eacute;n":function() {	
 
 	  					  					 
 	  			$(this).dialog("close");
 	  		},
-	  		"Relación de Evidencias con Movimiento":function() {
+	  		"Relaci&oacute;n de Evidencias con Movimiento":function() {
 	  			$(this).dialog("close");
 	  		}
 	  	}
@@ -196,7 +196,7 @@ function grid(){
 
 	
 	function lanzaRegistrarEntradasAlmacen() {
-		$.newWindow({id:"iframewindowGenerarDocumento", statusBar: true, posx:200,posy:50,width:650,height:400,title:"Conciliacion Mediación", type:"iframe"});
+		$.newWindow({id:"iframewindowGenerarDocumento", statusBar: true, posx:200,posy:50,width:650,height:400,title:"Conciliacion Mediaci&oacute;n", type:"iframe"});
 	    $.updateWindowContent("iframewindowGenerarDocumento",'<iframe src="<%=request.getContextPath()%>/registrarEntradaAlmacen.do" width="650" height="400" />');
 	    		
 	}	

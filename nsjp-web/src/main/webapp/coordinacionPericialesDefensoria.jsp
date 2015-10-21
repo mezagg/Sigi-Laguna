@@ -286,7 +286,7 @@
 	//Funcion que muestra el visor de solicitud de evidencia
 	function asignarEvidencia(rowid){
 		idWindowAsignarEvidencia++;
-		$.newWindow({id:"iframewindowAsignacionEvidencia"+idWindowAsignarEvidencia, statusBar: true, posx:200,posy:50,width:700,height:350,title:"Asignación de Evidencia", type:"iframe"});
+		$.newWindow({id:"iframewindowAsignacionEvidencia"+idWindowAsignarEvidencia, statusBar: true, posx:200,posy:50,width:700,height:350,title:"Asignaci&oacute;n de Evidencia", type:"iframe"});
 	    $.updateWindowContent("iframewindowAsignacionEvidencia"+idWindowAsignarEvidencia,'<iframe src="<%=request.getContextPath()%>/asignacionDeEvidencia.do" width="700" height="350" />');
 	}
 
@@ -297,7 +297,7 @@
 
 	//Funcion que muestra el visor de designacion de perito
 	function dblClickRowBandejaSolicitudes(rowID){
-		$.newWindow({id:"iframewindowCoordPeriDefensoriaBandjSolicitudes", statusBar: true, posx:200,posy:50,width:840,height:450,title:"Designación de Perito", type:"iframe"});
+		$.newWindow({id:"iframewindowCoordPeriDefensoriaBandjSolicitudes", statusBar: true, posx:200,posy:50,width:840,height:450,title:"Designaci&oacute;n de Perito", type:"iframe"});
 	    $.updateWindowContent("iframewindowCoordPeriDefensoriaBandjSolicitudes",'<iframe src="<%=request.getContextPath()%>/visorCoorPeriDefensoriaBandSolicitudes.do" width="840" height="450" />'); 
 	}
 	
@@ -443,7 +443,7 @@
 			jQuery("#gridSolicitudesDeDictamenNoAtendidas").jqGrid({ 
 				url:'<%= request.getContextPath()%>/consultarSolicitudesPericialesNoAtendidasCoordinadorPerDef.do?tipoSolicitud=<%=TiposSolicitudes.DICTAMEN.getValorId()%>&area=2', 
 				datatype: "xml", 
-				colNames:['Número de Folio','Número de Caso','Número de Expediente','Nombre del Solicitante','Especialidad de Perito','Fecha Límite' ], 
+				colNames:['N&uacute;mero de Folio','N&uacute;mero de Caso','N&uacute;mero de Expediente','Nombre del Solicitante','Especialidad de Perito','Fecha L&iacute;mite' ], 
 				colModel:[ 	{name:'NumeroFolio',index:'1', width:127},
 				           	{name:'NumeroCaso',index:'2', width:127},
 							{name:'NumeroExpediente',index:'3', width:127},
@@ -488,7 +488,7 @@
 			jQuery("#gridSolicitudesDeDictamenEnProceso").jqGrid({ 
 				url:'<%= request.getContextPath()%>/consultarSolicitudesPericialesEnProcesoCoordinadorPerDef.do?tipoSolicitud=<%=TiposSolicitudes.DICTAMEN.getValorId()%>&area=2', 
 				datatype: "xml", 
-				colNames:['Número de Folio','Número de Caso','Número de Expediente','Nombre del Solicitante','Especialidad de Perito','Fecha Límite','Fecha Última Modificación' ], 
+				colNames:['N&uacute;mero de Folio','N&uacute;mero de Caso','N&uacute;mero de Expediente','Nombre del Solicitante','Especialidad de Perito','Fecha L&iacute;mite','Fecha &Uacute;ltima Modificaci&oacute;n' ], 
 				colModel:[ 	{name:'NumeroFolio',index:'1', width:109},
 							{name:'NumeroCaso',index:'2', width:109},
 				           	{name:'NumeroExpediente',index:'3', width:109},
@@ -535,7 +535,7 @@
 			jQuery("#gridSolicitudesDeDictamenTerminadas").jqGrid({ 
 				url:'<%= request.getContextPath()%>/consultarSolicitudesPericialesTerminadasCoordinadorPerDef.do?tipoSolicitud=<%=TiposSolicitudes.DICTAMEN.getValorId()%>&area=2', 
 				datatype: "xml", 
-				colNames:['Número de Folio','Número de Caso','Número de Expediente','Nombre del Solicitante','Especialidad de Perito','Fecha Límite','Fecha de Cierre' ], 
+				colNames:['N&uacute;mero de Folio','N&uacute;mero de Caso','N&uacute;mero de Expediente','Nombre del Solicitante','Especialidad de Perito','Fecha L&iacute;mite','Fecha de Cierre' ], 
 				colModel:[ 	{name:'NumeroFolio',index:'1', width:109},
 				           	{name:'NumeroCaso',index:'2', width:109},
 				           	{name:'NumeroExpediente',index:'3', width:109},				           	
@@ -578,7 +578,7 @@
 			jQuery("#gridSolicitudesDeAsesoriaNoAtendidas").jqGrid({ 
 				url:'<%= request.getContextPath()%>/solicitudAsesoriasPorEstatus.do?estatus=1', 
 				datatype: "xml", 
-				colNames:['Número de Folio','Número de Caso','Número de Expediente','Nombre del Solicitante','Especialidad del Asesor','Fecha Límite' ], 
+				colNames:['N&uacute;mero de Folio','N&uacute;mero de Caso','N&uacute;mero de Expediente','Nombre del Solicitante','Especialidad del Asesor','Fecha L&iacute;mite' ], 
 				colModel:[ 	{name:'NumeroFolio',index:'1', width:125},
 				           	{name:'NumeroCaso',index:'2', width:125},
 				           	{name:'NumeroExpediente',index:'3', width:125},
@@ -623,7 +623,7 @@
 			jQuery("#gridSolicitudesDeAsesoriaEnProceso").jqGrid({ 
 				url:'<%= request.getContextPath()%>/solicitudAsesoriasPorEstatus.do?estatus=2', 
 				datatype: "xml", 
-				colNames:['Número de folio','Número de caso','Número de expediente','Nombre del solicitante','Especialidad del asesor','Fecha límite','Fecha ultima de modificación' ], 
+				colNames:['N&uacute;mero de folio','N&uacute;mero de caso','N&uacute;mero de expediente','Nombre del solicitante','Especialidad del asesor','Fecha l&iacute;mite','Fecha ultima de modificaci&oacute;n' ], 
 				colModel:[ 	{name:'NumeroFolio',index:'1', width:109},				           	
 				           	{name:'NumeroCaso',index:'2', width:109},
 				           	{name:'NumeroExpediente',index:'3', width:109},
@@ -670,7 +670,7 @@
 			jQuery("#gridSolicitudesDeAsesoriaTerminadas").jqGrid({ 
 				url:'<%= request.getContextPath()%>/solicitudAsesoriasPorEstatus.do?estatus=3', 
 				datatype: "xml", 
-				colNames:['Número de Folio','Número de Caso','Número de Expediente','Nombre del Solicitante','Perito Designado','Especialidad','Fecha Límite','Fecha Cierre' ], 
+				colNames:['N&uacute;mero de Folio','N&uacute;mero de Caso','N&uacute;mero de Expediente','Nombre del Solicitante','Perito Designado','Especialidad','Fecha L&iacute;mite','Fecha Cierre' ], 
 				colModel:[ 	{name:'NumeroFolio',index:'1', width:95},
 				           	{name:'NumeroCaso',index:'2', width:95},
 				           	{name:'NumeroExpediente',index:'3', width:95},
@@ -1021,7 +1021,7 @@ function visorLeyesCodigos() {
 			<h3><a id="tabEvidencias" href="#"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png" id="botpenal" width="15" height="15">&nbsp;Evidencias</a></h3>
 				<div></div>
 				
-<!--			<h3 ><a id="" href="#" onclick="generaVisorGraficaView()"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png"  width="15" height="15">Gráficas y Reportes</a></h3>
+<!--			<h3 ><a id="" href="#" onclick="generaVisorGraficaView()"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png"  width="15" height="15">Gr&aacute;ficas y Reportes</a></h3>
 				<div>		
 					<input type="button" value="Ver Grafica" id="imageViewer" name="imageViewer"/>	
 					<ul id="seccion3treePJENC" class="filetree">
@@ -1310,7 +1310,7 @@ function visorLeyesCodigos() {
 <!--	Termina mainContent-->
 	<div id="dialog-logout" title="Cerrar Sesi&oacute;n">
 		<p align="center">
-			<span id="logout">¿Desea cerrar su sesi&oacute;n?</span>
+			<span id="logout">&iquest;Desea cerrar su sesi&oacute;n?</span>
 		</p>
 	</div>
 
@@ -1326,11 +1326,11 @@ function visorLeyesCodigos() {
 		<p align="center">
 			<table border="0">
 				<tr>
-					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contraseña para desbloquear.</td>
+					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contrase&ntilde;a para desbloquear.</td>
 					
 				</tr>
 				<tr>
-					<td align="right"><label style="color:#4A5C68">Contraseña:</label></td>
+					<td align="right"><label style="color:#4A5C68">Contrase&ntilde;a:</label></td>
 					<td><input type="password" name="password" id="password" value="" maxlength="15" size="20"></td>
 				</tr>
 				<tr id="captchaJPG" >
@@ -1359,7 +1359,7 @@ function visorLeyesCodigos() {
 				La sesi&oacute;n se cerrar&aacute; en <span id="dialog-countdown" style="font-weight:bold"></span> segundos.
 			</p>
 
-			<p>¿Desea continuar con la sesi&oacute;n?</p>
+			<p>&iquest;Desea continuar con la sesi&oacute;n?</p>
 	</div>
 	<div id="dialog-alarmPos" title="Alarma ">
 		<p align="center">

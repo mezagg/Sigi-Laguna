@@ -94,7 +94,7 @@
 
 		jQuery("#gridDocumentos").jqGrid({ 
 			datatype: "xml", 
-			colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creación','Fecha Limite','Institución','Remitente', 'TipoActividad', 
+			colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creaci&oacute;n','Fecha Limite','Instituci&oacute;n','Remitente', 'TipoActividad', 
 			          'Nombre Del Documento','Instituci&oacute;n remitente', 'Remitente Externo', 'Documento Adjunto', 'Id Doc Adjunto'], 
 			colModel:[ 	{name:'caso',index:'caso', width:150,hidden:true},
 			           	{name:'expediente',index:'expediente', width:180,align:'center'}, 

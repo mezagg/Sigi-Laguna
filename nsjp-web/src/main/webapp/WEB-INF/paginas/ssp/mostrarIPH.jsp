@@ -1,6 +1,6 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.objeto.Objetos"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -8,7 +8,7 @@
 	 <%@ page import="mx.gob.segob.nsjp.comun.enums.calidad.Calidades" %>
 	 <%@ page import="mx.gob.segob.nsjp.comun.enums.actividad.Actividades" %>
 
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Mostrar IPH</title>
 
 	<!--Hoja de estilos de Layout-->
@@ -79,7 +79,7 @@
 
 	//variable en donde se almacena el id del funcionario para poder registrar el usuario
     //var idFuncionario;
-	//variable global para manipular la pestaña de dar de alta un usuario segun de donde se mande a llamar
+	//variable global para manipular la pesta&ntilde;a de dar de alta un usuario segun de donde se mande a llamar
     //var administrador= '<%=request.getParameter("administrador")!=null?request.getParameter("administrador"):""%>';
     
 	var numeroExpediente;
@@ -223,7 +223,7 @@
 	}
 
 	/**
-	** Obtiene a partir de un xml los valores a mostrar en las pestañas de Datos Generales y Observaciones Generales
+	** Obtiene a partir de un xml los valores a mostrar en las pesta&ntilde;as de Datos Generales y Observaciones Generales
 	**/
 	function mostrarDatosGenerales(xml){
 		$("#datosGeneralesCmpNumeroTransporteOf").val($(xml).find('numEcoTransporte').text());
@@ -303,7 +303,7 @@
 	}
 
 	/**
-	** Muestra los involucrados en las pestañas correspondientes según su tipo.
+	** Muestra los involucrados en las pesta&ntilde;as correspondientes seg&uacute;n su tipo.
 	**/
 	function mostrarInvolucrados(xml){
 		$(xml).find('InformePolicialHomologadoDTO').find('involucradosDTO').find('InvolucradoDTO').each(function(){
@@ -311,7 +311,7 @@
 	      	if($(this).find('valorIdCalidad').find('idCampo').first().text() == '<%= Calidades.DENUNCIANTE.getValorId() %>') {
 		      	var idInvolucrado = $(this).find('elementoId').first().text(); 
 	      		var nombreDenunciante = $(this).find('nombre').first().text() + ' ' + $(this).find('apellidoPaterno').first().text() + ' ' + $(this).find('apellidoMaterno').first().text();
-	      		nombreDenunciante = nombreDenunciante == "" ? 'Anónimo' : nombreDenunciante;
+	      		nombreDenunciante = nombreDenunciante == "" ? 'An&oacute;nimo' : nombreDenunciante;
 				$('#tblDenunciante').append('<tr id="' + idInvolucrado + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificarDenuncianteDatos('+idInvolucrado+');">'+ nombreDenunciante + '</a></td></tr>');
 				if($(this).find('condicion').first().text() == 1){
 					$('#tblVictima').append('<tr id="v' + idInvolucrado + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificarDenuncianteDatos('+idInvolucrado+');">'+ nombreDenunciante + '</a></td></tr>');
@@ -322,7 +322,7 @@
 	      	if($(this).find('valorIdCalidad').find('idCampo').first().text() == '<%= Calidades.DENUNCIANTE_ORGANIZACION.getValorId() %>'){
 	      		var idInvolucrado = $(this).find('elementoId').first().text();
 	      		var nombreDenunciante = $(this).find('nombreOrganizacion').first().text();
-	      		nombreDenunciante = nombreDenunciante == "" ? 'Anónimo' : nombreDenunciante;
+	      		nombreDenunciante = nombreDenunciante == "" ? 'An&oacute;nimo' : nombreDenunciante;
 				$('#tblDenunciante').append('<tr id="' + idInvolucrado + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificarDenuncianteDatos('+idInvolucrado+');">'+ nombreDenunciante + '</a></td></tr>');
 				if($(this).find('condicion').first().text() == 1){
 					$('#tblVictima').append('<tr id="' + idInvolucrado + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificarVictima('+idInvolucrado+');">'+ nombreDenunciante + '</a></td></tr>');
@@ -358,7 +358,7 @@
 	}
 
 	/**
-	** Muestra los medios de transporte en las pestañas correspondientes según su tipo.
+	** Muestra los medios de transporte en las pesta&ntilde;as correspondientes seg&uacute;n su tipo.
 	**/
 	function mostrarMediosDeTransporte(xml){
 		
@@ -387,7 +387,7 @@
 // 		});		
 	}
 	/**
-	** Muestra los estupefacientes en las pestañas correspondientes según su tipo.
+	** Muestra los estupefacientes en las pesta&ntilde;as correspondientes seg&uacute;n su tipo.
 	**/
 	function mostrarSustancias(xml){
 
@@ -400,7 +400,7 @@
 // 		});
 	}
 	/**
-	** Muestra las armas en las pestañas correspondientes según su tipo.
+	** Muestra las armas en las pesta&ntilde;as correspondientes seg&uacute;n su tipo.
 	**/
 	function mostrarArmas(xml){
 		
@@ -576,7 +576,7 @@
 			});
 		}
 		else if(regreso == "fail"){
-			customAlert("Ocurrió un problema durante el guardado, intente de nuevo");	
+			customAlert("Ocurri&oacute; un problema durante el guardado, intente de nuevo");	
 		}else if(iphReplica=="true"){
 			customAlert("El IPH  ya ha sido enviado");	
 		}
@@ -649,12 +649,12 @@
 					   var claveFuncionario =  $(xml).find('funcionarioDTO').find('claveFuncionario').first().text();
 					   obtenerSuperior(claveFuncionario);
 				   }else{
-						alert('No existe Funcionario con ese Número de Empleado');
+						alert('No existe Funcionario con ese N&uacute;mero de Empleado');
 				   }
 	    		}
 			});
 		}else{
-			alert("Debe ingresar un número de Empleado");
+			alert("Debe ingresar un n&uacute;mero de Empleado");
 		}
 	}
 
@@ -743,7 +743,7 @@
 	//Abre una nueva ventana de crear una nueva victima
 	function creaNuevaVictima() {
 		idWindowIngresarVictima++;
-		$.newWindow({id:"iframewindowIngresarVictima" + idWindowIngresarVictima, statusBar: true, posx:200,posy:50,width:1050,height:600,title:"Ingresar Víctima", type:"iframe"});
+		$.newWindow({id:"iframewindowIngresarVictima" + idWindowIngresarVictima, statusBar: true, posx:200,posy:50,width:1050,height:600,title:"Ingresar V&iacute;ctima", type:"iframe"});
 	    $.updateWindowContent("iframewindowIngresarVictima" + idWindowIngresarVictima,'<iframe src="<%= request.getContextPath() %>/IngresarVictima.do?numeroExpediente='+numeroExpediente+'" width="1050" height="600" />');		
 	}
 	function cargaVictima(nombre,id){
@@ -761,7 +761,7 @@
 	//Abre una nueva ventana para modificar una victima
 	function modificarVictima(id) {	
 		idWindowIngresarVictima++;
-		$.newWindow({id:"iframewindowIngresarVictima" + idWindowIngresarVictima, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Modificar Víctima", type:"iframe"});
+		$.newWindow({id:"iframewindowIngresarVictima" + idWindowIngresarVictima, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Modificar V&iacute;ctima", type:"iframe"});
 	    $.updateWindowContent("iframewindowIngresarVictima" + idWindowIngresarVictima,'<iframe src="<%= request.getContextPath() %>/IngresarVictima.do?idVictima='+id +'&numeroExpediente='+numeroExpediente +'" width="1100" height="530" />');		
 	}
 	
@@ -899,7 +899,7 @@
 	function eliminaTraductorDeMenuIntermedio(id){
 		var row =$('#tblTraductor tr:#'+id);
 		$(row).remove();
-		alertDinamico("Se anuló exitosamente el traductor");
+		alertDinamico("Se anul&oacute; exitosamente el traductor");
 	}
 	
 	function cargaTraductor(nombre,id){
@@ -1003,7 +1003,7 @@
 	}
 	function consultarEmbarcacion(idEmbarcacion){
 		idWindowIngresarEmbarcacion++;
-		$.newWindow({id:"iframewindowIngresarEmbarcacion" + idWindowIngresarEmbarcacion, statusBar: true, posx:200,posy:10,width:600, height:530,title:"Consultar embarcación", type:"iframe"});
+		$.newWindow({id:"iframewindowIngresarEmbarcacion" + idWindowIngresarEmbarcacion, statusBar: true, posx:200,posy:10,width:600, height:530,title:"Consultar embarcaci&oacute;n", type:"iframe"});
 	    $.updateWindowContent("iframewindowIngresarEmbarcacion" + idWindowIngresarEmbarcacion,'<iframe src="<%= request.getContextPath() %>/IngresarEmbarcacion.do?numeroExpediente='+numeroExpediente +'&idEmbarcacion='+idEmbarcacion+'&tipoObjeto=EMBARCACION " width="600" height="530" />');
 	    $("#" +"iframewindowIngresarEmbarcacion"+idWindowIngresarEmbarcacion+ " .window-maximizeButton").click();
 
@@ -1186,7 +1186,7 @@
 					$('#Armas').html($(xml).find('totalArmas').text()+': '+$(xml).find('armas').text());
 					$('#Explosivos').html($(xml).find('totalExplosivos').text()+': '+$(xml).find('explosivos').text());
 					$('#Numerario').html($(xml).find('totalNumerarios').text()+': '+$(xml).find('numerarios').text());
-					$('#Denunciantes').html($(xml).find('totalDenunciantes').text() == "" ? 'Anónimo' : $(xml).find('totalDenunciantes').text()+': '+$(xml).find('denunciantes').text());
+					$('#Denunciantes').html($(xml).find('totalDenunciantes').text() == "" ? 'An&oacute;nimo' : $(xml).find('totalDenunciantes').text()+': '+$(xml).find('denunciantes').text());
 					$('#Victimas').html($(xml).find('totalVictimas').text()+': '+$(xml).find('victimas').text());
 					$('#ProbablesResponsables').html($(xml).find('totalProbablesResposables').text()+': '+$(xml).find('probablesResposables').text());
 					$('#Testigos').html($(xml).find('totalTestigos').text()+': '+$(xml).find('testigos').text());
@@ -1319,7 +1319,7 @@
 				jQuery("#gridPertenencias").jqGrid({ 
 					url:'<%= request.getContextPath()%>/consultarPertenenciasPorExpedienteId.do?expedienteId='+expedienteId+'&numeroExpediente='+numeroExpediente+'', 
 					datatype: "xml", 
-					colNames:[probableResponsableProp,'Cantidad','Tipo','Condición Física','Descripción' ], 
+					colNames:[probableResponsableProp,'Cantidad','Tipo','Condici&oacute;n F&iacute;sica','Descripci&oacute;n' ], 
 					colModel:[ 	{name:'ProbableResponsable',index:'4',sortable:false,  width:200},
 					           	{name:'Cantidad',index:'2', sortable:true ,  width:60, align:"center"},
 					           	{name:'Tipo', index:'1', sortable:true, width:150},
@@ -1352,7 +1352,7 @@
 			jQuery("#gridProbableResponsable").jqGrid({ 
 				url:'<%= request.getContextPath()%>/consultarProbableResponsablePorNumeroExpediente.do?expedienteId='+expedienteId+'&numeroExpediente='+numeroExpediente+'',
 				datatype: "xml", 
-				colNames:['Nombre','Apellido Paterno','Apellido Materno','¿Detenido?','Fecha de Detención','¿Menor de Edad?','ID Tipo Evento','Tipo Evento','ID Subtipo Evento','Subtipo de Evento'], 
+				colNames:['Nombre','Apellido Paterno','Apellido Materno','&iquest;Detenido?','Fecha de Detenci&oacute;n','&iquest;Menor de Edad?','ID Tipo Evento','Tipo Evento','ID Subtipo Evento','Subtipo de Evento'], 
 				colModel:[ 	{name:'Nombre',index:'4', sortable:false, width:160},
 				           	{name:'ApellidoPaterno',index:'2', sortable:false, width:140},
 				           	{name:'ApellidoMaterno',index:'3', sortable:false, width:140},
@@ -1506,7 +1506,7 @@
 			    	<td rowspan="16" align="center" width="507" style="background-color:" valign="top">
 			    		<table border="0" cellpadding="0" cellspacing="0" width="99%">
 		          			<tr>
-		            			<td width="145" align="right" nowrap style="background-color:">Vehículos:</td>
+		            			<td width="145" align="right" nowrap style="background-color:">Veh&iacute;culos:</td>
 					            <td width="332" id="Vehiculos">&nbsp;</td>
 					            <td id="imgVehiculo" width="25"><img title="Contiene mas registros" width="10px" src='<%= request.getContextPath() %>/resources/images/add.png'></td>			            
 				         	</tr>
@@ -1516,7 +1516,7 @@
 				            	<td id="imgAeronaves" width="25"><img title="Contiene mas registros" width="10px" src='<%= request.getContextPath() %>/resources/images/add.png'></td>
 				          	</tr>
 		          			<tr>
-		            			<td align="right" style="background-color:">Embarcación:</td>
+		            			<td align="right" style="background-color:">Embarcaci&oacute;n:</td>
 		            			<td id="Embarcacion">&nbsp;</td>
 		            			<td id="imgEmbarcacion" width="25"><img title="Contiene mas registros" width="10px" src='<%= request.getContextPath() %>/resources/images/add.png'></td>
 		          			</tr>				         	
@@ -1639,7 +1639,7 @@
 			    	<td>&nbsp;</td>
 			  	</tr>
 			  	<tr>
-			    	<td align="right"><span id="spanGralUI">Unidad de Investigación: </span><span id="spanInfoGralUI"></span></td>
+			    	<td align="right"><span id="spanGralUI">Unidad de Investigaci&oacute;n: </span><span id="spanInfoGralUI"></span></td>
 			    	<td>&nbsp;</td>
 			    	<td align="right">&nbsp;</td>
 			    	<td>&nbsp;</td>
@@ -1862,7 +1862,7 @@
 			<div id="tabschild2" class="tabs-bottom">
 				<ul>
 					<li><a href="#tabschild2-1">Denunciante</a></li>
-					<li><a href="#tabschild2-2">Víctima</a></li>
+					<li><a href="#tabschild2-2">V&iacute;ctima</a></li>
 					<li><a href="#tabschild2-3"><bean:message key="probableResponsableTitulo"/></a></li>
 					<li><a href="#tabschild2-4">Testigo</a></li>
 				</ul>
@@ -1897,7 +1897,7 @@
 										</td>
 									</tr>
 									<tr>
-										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevaVictima"><input type="button" value="Ingresar Víctima" class="back_button"/></a></td>
+										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevaVictima"><input type="button" value="Ingresar V&iacute;ctima" class="back_button"/></a></td>
 									</tr>
 								</table>
 							</td>
@@ -1976,7 +1976,7 @@
 									</tr>
 									<tr>
 									<td width="50px">&nbsp;</td>
-										<td><a id="nuevoVehiculo"><input type="button" value="Ingresar Vehículo" class="back_button"/></a></td>
+										<td><a id="nuevoVehiculo"><input type="button" value="Ingresar Veh&iacute;culo" class="back_button"/></a></td>
 									</tr>
 									<tr>
 										<td width="50px">&nbsp;</td>
@@ -2251,7 +2251,7 @@
 				 <input type="button" class="btn_grande" id="btnCadCusConsultaCadCus" style="width: 250px;" value="Consultar cadena de custodia"/><br/><br/>    
   				 <input type="button" class="btn_grande" id="btnCadCusRegEslabones" style="width: 250px;" value="Registrar eslabones"/> <br/><br/>
   				 <input type="button" class="btn_grande" id="btnCadCusRepEvidencias" style="width: 250px;" style="width: 250px;" value="Reporte de evidencias"/> <br/><br/>
-  				 <input type="button" class="btn_grande" id="btnCadCusElabOficio" style="width: 250px;" value="Elaborar oficio para fijación y preservación"/><br/><br/>  
+  				 <input type="button" class="btn_grande" id="btnCadCusElabOficio" style="width: 250px;" value="Elaborar oficio para fijaci&oacute;n y preservaci&oacute;n"/><br/><br/>  
    				 <input type="button" class="btn_grande" id="btnCadCusAdmDestino" style="width: 250px;" value="Administrar destino legal de evidencia"/>
 		</div>	
 		<!--TERMINAN TABS INFERIORES DE CADENAS DE CUSTODIA-->
@@ -2259,7 +2259,7 @@
 	</div>
 	<!--<div id="dialog-detenido-informe" title="Aviso">
 		<p align="center">
-			<span id="logout">¿Existe alg&uacuten detenido en el informe?</span>
+			<span id="logout">&iquest;Existe alg&uacuten detenido en el informe?</span>
 		</p>
 	</div>-->
 

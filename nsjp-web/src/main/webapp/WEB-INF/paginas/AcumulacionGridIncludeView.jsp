@@ -55,8 +55,8 @@
 			url:'<%= request.getContextPath()%>/consultaAcumulacionCausas.do?'+params,
 			datatype: "xml", 
 			colNames:[
-						'Número Principal',
-						'Número Acumulado',
+						'N&uacute;mero Principal',
+						'N&uacute;mero Acumulado',
 						'Fecha',
 						'Funcionario'
 					], 
@@ -67,10 +67,10 @@
 					],
 			pager: jQuery('#pager2'),
 			rowNum:10,
-			caption:"Acumulación de causas",
+			caption:"Acumulaci&oacute;n de causas",
 			rowList:[10,20,30],
 			autowidth: false,
-			sortname: 'Acumulación',
+			sortname: 'Acumulaci&oacute;n',
 			
 			viewrecords: true,
 			sortorder: "desc"
@@ -209,12 +209,12 @@
 			        <td>&nbsp;</td>
 			    </tr>
 			    <tr id="trAcumulacion">
-			        <td colspan="2" align="center"> Número de Causa
+			        <td colspan="2" align="center"> N&uacute;mero de Causa
 						<input type="text" id="txtNoCausa" style="width: 200px; border: 0; background: #DDD;">
 					</td>
 			        
 			        <td align="center">
-			        Número de Caso
+			        N&uacute;mero de Caso
 						<input type="text" id="txtNoCaso" style="width: 200px; border: 0; background: #DDD;" readonly="readonly">
 						<input type="hidden" id="idExpediente" name="idExpediente" />
 						<input type="hidden" id="idNumExpediente" name="idNumExpediente"/>

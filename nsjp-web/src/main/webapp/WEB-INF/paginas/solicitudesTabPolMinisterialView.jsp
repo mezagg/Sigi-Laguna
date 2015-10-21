@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -41,7 +41,7 @@
 			jQuery("#gridSolicitudesPolMin1").jqGrid({ 
 				url:'<%= request.getContextPath()%>/BandejaSolicitudesPolMinUno.xml', 
 				datatype: "xml", 
-				colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creación','Fecha Limite','Institución','Destinatario'], 
+				colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creaci&oacute;n','Fecha Limite','Instituci&oacute;n','Destinatario'], 
 				colModel:[ 	{name:'caso',index:'caso', width:150},
 				           	{name:'expediente',index:'expediente', width:130}, 
 							{name:'folio',index:'folio', width:100}, 
@@ -69,7 +69,7 @@
 			jQuery("#gridSolicitudesPolMin2").jqGrid({ 
 				url:'<%= request.getContextPath()%>/BandejaSolicitudesPolMinDos.xml', 
 				datatype: "xml", 
-				colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creación','Fecha Limite','Institución','Remitente'], 
+				colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creaci&oacute;n','Fecha Limite','Instituci&oacute;n','Remitente'], 
 				colModel:[ 	{name:'caso',index:'caso', width:150},
 				           	{name:'expediente',index:'expediente', width:130}, 
 							{name:'folio',index:'folio', width:100}, 

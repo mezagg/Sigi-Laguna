@@ -13,7 +13,7 @@
 <%@ page import="mx.gob.segob.nsjp.comun.enums.institucion.Instituciones" %>
 
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 <%@page import="mx.gob.segob.nsjp.dto.usuario.RolDTO"%>
 <%@page import="mx.gob.segob.nsjp.dto.usuario.UsuarioDTO"%>
@@ -270,7 +270,7 @@ body,td,th {
 		$("#seccion7treePJENC").treeview();
 		//crea el arbol de bitacora de descargas
 		$("#seccion8treePJENC").treeview();		
-		//crea el arbol de años para sentencia
+		//crea el arbol de a&ntilde;os para sentencia
 		$("#seccion6treePJENC,#seccion34treePJEA").treeview();
 		$("#seccionAccPenaltreePJENC").treeview();
 		
@@ -513,7 +513,7 @@ body,td,th {
 			jQuery("#gridAudienciasPJENC").jqGrid({
 				url:'<%= request.getContextPath()%>/consultarAudienciasBandejaInicialEncargadoCausa.do?estadoSolicitud='+estados,
 				datatype: "xml", 
-				colNames:['N&uacute;mero de Caso','N&uacute;mero de Causa','Carácter','Tipo de Audiencia','Fecha de Audiencia','Hora de Audiencia','Sala'], 
+				colNames:['N&uacute;mero de Caso','N&uacute;mero de Causa','Car&aacute;cter','Tipo de Audiencia','Fecha de Audiencia','Hora de Audiencia','Sala'], 
 				colModel:[ 	{name:'numeroCaso',index:'numeroCaso', width:130, align:'center'},
 							{name:'expediente',index:'expediente', width:110, align:'center'}, 
 							{name:'caracter',index:'caracter', width:50, align:'center'}, 
@@ -559,7 +559,7 @@ body,td,th {
     }
 
 	/*
-	* Función que abre el visor de medidas cautelares 
+	* Funci&oacute;n que abre el visor de medidas cautelares 
 	*/
 	function mostrarVentanaInvolucradosMedida(numeroCausa){
 		idWindowVisorMedidasCautelares++;
@@ -568,7 +568,7 @@ body,td,th {
 	}
 	
 	/*
-	* Función que abre el visor de mandamientos judiciales 
+	* Funci&oacute;n que abre el visor de mandamientos judiciales 
 	*/
 	function mostrarVentanaInvolucradosMandamiento(numeroCausa){
 		idWindowVisorMandamientosJud++;
@@ -577,7 +577,7 @@ body,td,th {
 	}
 
 	/**
-	*Funcion que abre la ventana modal para introducir el número de audiencia
+	*Funcion que abre la ventana modal para introducir el n&uacute;mero de audiencia
 	*/
 	function popUpTipoBusquedaModalBitacoraAudiencia(){
 		
@@ -585,13 +585,13 @@ body,td,th {
 		$("#divAudiencia").dialog("open");
 	  	$("#divAudiencia").dialog({ autoOpen: true, 
 			modal: true, 
-		  	title: 'Consulta de bitácora de descargas por audiencia', 
+		  	title: 'Consulta de bit&aacute;cora de descargas por audiencia', 
 		  	dialogClass: 'alert',
 		  	position: [500,220],
 		  	width: 350,
 		  	height: 200,
 		  	maxWidth: 350,
-		  	buttons:{"Realizar búsqueda":function() {
+		  	buttons:{"Realizar b&uacute;squeda":function() {
 		  		var numeroAudiencia = $("#datoAudiencia").val();
 		  		gridBitacoraPorAudiencia(numeroAudiencia);
 		  		$(this).dialog("close");
@@ -621,7 +621,7 @@ body,td,th {
 		  	width: 350,
 		  	height: 260,
 		  	maxWidth: 350,
-		  	buttons:{"Realizar búsqueda":function() {
+		  	buttons:{"Realizar b&uacute;squeda":function() {
 		  		var numeroCausa = $("#datoCausaExpediente").val();
 		  		cargaGridEstadoExpediente(numeroCausa);
 		  		
@@ -646,7 +646,7 @@ body,td,th {
 								
 					datatype: "xml",
 
-					colNames:['Nombre Probable Responsable','Nombre Víctima','Delito','Calidad Actual','Nueva Calidad'], 
+					colNames:['Nombre Probable Responsable','Nombre V&iacute;ctima','Delito','Calidad Actual','Nueva Calidad'], 
 						colModel:[ 	{name:'nombreProbResp',index:'nombreProbResp',width:250, align:'center'},
 									{name:'victima',index:'victima', width:250, align:'center'}, 
 									{name:'delito',index:'delito',width:150, align:'center'},								
@@ -746,7 +746,7 @@ body,td,th {
 					url:'<%= request.getContextPath()%>/consultarSentenciasPorEstatus.do?estadoSentencia='+estados+'',
 					data:'',
 					datatype: "xml",
-					colNames:['Imputado','Número de Caso','Número de Causa','Carpeta de Ejecución','Fecha Creación'], 
+					colNames:['Imputado','N&uacute;mero de Caso','N&uacute;mero de Causa','Carpeta de Ejecuci&oacute;n','Fecha Creaci&oacute;n'], 
 					colModel:[ 	{name:'imputado',index:'imputado',width:250, align:'center'},
 								{name:'numeroCaso',index:'numeroCaso',width:150, align:'center'}, 
 								{name:'numeroCausa',index:'numeroCausa', width:150, align:'center'}, 
@@ -1062,7 +1062,7 @@ function consultarDatosGenerales(id){
 		});	
 	}
 
-	// Búsqueda de permisos de audiencia por condición y filtrado de fechas
+	// B&uacute;squeda de permisos de audiencia por condici&oacute;n y filtrado de fechas
 	function popUpTipoBusquedaModal(estatus){
 		
 		var titulo="";
@@ -1094,7 +1094,7 @@ function consultarDatosGenerales(id){
 		});	
 	}
 		
-	// Búsqueda de bitácora de audiencias por fecha
+	// B&uacute;squeda de bit&aacute;cora de audiencias por fecha
 	function popUpTipoBusquedaModalBitacoraFecha(){
 		
 		var titulo="";
@@ -1131,7 +1131,7 @@ function consultarDatosGenerales(id){
 	*/		
 	function dblClickRowvisorDocumentosExpediente(idRow){
 		var tabMedCautelar="true";
-		// Este servicio tiene como parámetro de acción en ingresarMedidasCautelaresPJENC.jsp
+		// Este servicio tiene como par&aacute;metro de acci&oacute;n en ingresarMedidasCautelaresPJENC.jsp
 		// a flujoMedCautelar
 		var flujoMedCautelar = "dePJaSSPyPGJ";
 		$.newWindow({id:"iframewindowVisorEncargadoAdmonAudiencias", statusBar: true, posx:50,posy:111,width:1200,height:700,title:"Numero de Causa:"+numCausa+" "+"Numero de Caso:"+numCaso, type:"iframe"});
@@ -1144,7 +1144,7 @@ function consultarDatosGenerales(id){
 
 	//TODO Se tiene que agregar este visor para que se abra cuando se de click como el grid 
 	/*
-	* Función que genera un Mandamiento y después abre la pantalla de mandamiento judicial
+	* Funci&oacute;n que genera un Mandamiento y despu&eacute;s abre la pantalla de mandamiento judicial
 	*
 	*/
 	function generarMandamiento(){
@@ -1350,7 +1350,7 @@ function consultarDatosGenerales(id){
 	 */
 	
 	
-	// Función que realiza el llenado del grid de permisos audiencias referente al desarrollo JAVS
+	// Funci&oacute;n que realiza el llenado del grid de permisos audiencias referente al desarrollo JAVS
 	function gridPermisosAudiencias(){
 				
 		var fechaIni = $('#buscaporfechaIni').val();
@@ -1360,7 +1360,7 @@ function consultarDatosGenerales(id){
 			jQuery("#gridPermisosAudiencias").jqGrid({ 
 				url:'<%=request.getContextPath()%>/filtradoPermisosAudiencias.do?estado='+estadoGlobal+'&inicio='+fechaIni+'&fin='+fechaFin+'', 
 				datatype: "xml", 
-				colNames:['Institucion','Audiencia','Puesto', 'Nombre completo del funcionario', 'Fecha de solicitud','Fecha de asignación','Usuario Asignador'], 
+				colNames:['Institucion','Audiencia','Puesto', 'Nombre completo del funcionario', 'Fecha de solicitud','Fecha de asignaci&oacute;n','Usuario Asignador'], 
 				colModel:[ 	{name:'Institucion',		index:'1', width:140}, 
 				           	{name:'Audiencia',			index:'2', width:65},
 							{name:'Puesto',				index:'3', width:140}, 
@@ -1396,7 +1396,7 @@ function consultarDatosGenerales(id){
 
 	}
 	
-	// Función que realiza el llenado del grid de bitácora de descargas referente al desarrollo JAVS
+	// Funci&oacute;n que realiza el llenado del grid de bit&aacute;cora de descargas referente al desarrollo JAVS
 	function gridBitacoraPermisos(){
 		
 		var fechaIni = $('#buscaporfechaIni').val();
@@ -1434,7 +1434,7 @@ function consultarDatosGenerales(id){
 		ajustarGridAlCentro($("#gridBitacoraPermisosAudiencias"));
 	}
 
-	// Llenado del grid de bitácora de descargas, a petición de la audiencia -- desarrollo referente a JAVS --
+	// Llenado del grid de bit&aacute;cora de descargas, a petici&oacute;n de la audiencia -- desarrollo referente a JAVS --
 	function gridBitacoraPorAudiencia(numeroAudiencia){
 		
 		if(recargaBitacoraAudiencias==0){				
@@ -1533,7 +1533,7 @@ function consultarDatosGenerales(id){
 					</ul>		
 				</div>
 				
-				<!--  Ojo: las funciones ligadas a mandamientos judiciales, están en el js funcionesComunMandJudYMedCautelares -->
+				<!--  Ojo: las funciones ligadas a mandamientos judiciales, est&aacute;n en el js funcionesComunMandJudYMedCautelares -->
 				<h3><a href="#"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png" id="botpenal" width="15" height="15">&nbsp;Mandamientos judiciales</a></h3>
 				<div>
 					<ul id="seccion2treePJENC" class="filetree">
@@ -1567,7 +1567,7 @@ function consultarDatosGenerales(id){
 					
 				</div>
 
-				<!--  Ojo: las funciones ligadas a medidas cautelares, están en el js funcionesComunMandJudYMedCautelares -->
+				<!--  Ojo: las funciones ligadas a medidas cautelares, est&aacute;n en el js funcionesComunMandJudYMedCautelares -->
 				<h3>
 					<a href="#"><img src="<%=request.getContextPath()%>/resources/images/icn_carpprincipal.png" id="botpenal" width="15" height="15">&nbsp;Medidas cautelares</a>
 				</h3>
@@ -1685,7 +1685,7 @@ function consultarDatosGenerales(id){
 						<li><span class="file"><a id="accPenalPrivadaAtendida" style="cursor: pointer;" onclick="cargaGirdSolicitudesAccPenalPrivadaPJENC('<%=EstatusTurno.ATENDIDO.getValorId()%>');">Atendidas</a></span></li>
 					</ul>		
 				</div>
-<!-- 			<h3 ><a id="" href="#" onclick="generaVisorGraficaView()"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png"  width="15" height="15">Gráficas y reportes</a></h3>
+<!-- 			<h3 ><a id="" href="#" onclick="generaVisorGraficaView()"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png"  width="15" height="15">Gr&aacute;ficas y reportes</a></h3>
 				<div></div> -->
 			</div>
 		</div>
@@ -1934,7 +1934,7 @@ function consultarDatosGenerales(id){
 			</tr>
 			<tr>
 				<td>&nbsp;</td>
-				<!--  numeroExpediente equals numeroCaso, se dejo así, porque se factorizaron funciones comúnes a agentemp y
+				<!--  numeroExpediente equals numeroCaso, se dejo as&iacute;, porque se factorizaron funciones com&uacute;nes a agentemp y
 					  encargadoCausa en funcionesComunMandJudYMedCautelares.js -->
 				<td align="center"><input type="text" class="" size="30" maxlength="30" id="numeroExpediente" /></td>
 				<td>&nbsp;</td>
@@ -1973,7 +1973,7 @@ function consultarDatosGenerales(id){
 		</table>
 	</div>
 
-	<!--Comienza div para mostrar la ventana para ingresar el número de audiencia-->
+	<!--Comienza div para mostrar la ventana para ingresar el n&uacute;mero de audiencia-->
 	<div id="divAudiencia" style="display: none">
 		<table width="300" cellspacing="0" cellpadding="0">
 			<tr>
@@ -2075,7 +2075,7 @@ function consultarDatosGenerales(id){
 	<!--Termina div para mostrar la ventana para ingresar el numero de causa-->
 	<div id="dialog-logout" title="Cerrar Sesi&oacute;n">
 		<p align="center">
-			<span id="logout">¿Desea cerrar su sesi&oacute;n?</span>
+			<span id="logout">&iquest;Desea cerrar su sesi&oacute;n?</span>
 		</p>
 	</div>
 	
@@ -2228,11 +2228,11 @@ function consultarDatosGenerales(id){
 		<p align="center">
 			<table border="0">
 				<tr>
-					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contraseña para desbloquear.</td>
+					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contrase&ntilde;a para desbloquear.</td>
 					
 				</tr>
 				<tr>
-					<td align="right"><label style="color:#4A5C68">Contraseña:</label></td>
+					<td align="right"><label style="color:#4A5C68">Contrase&ntilde;a:</label></td>
 					<td><input type="password" name="password" id="password" value="" maxlength="15" size="20"></td>
 				</tr>
 				<tr id="captchaJPG" >
@@ -2261,7 +2261,7 @@ function consultarDatosGenerales(id){
 				La sesi&oacute;n se cerrar&aacute; en <span id="dialog-countdown" style="font-weight:bold"></span> segundos.
 			</p>
 
-			<p>¿Desea continuar con la sesi&oacute;n?</p>
+			<p>&iquest;Desea continuar con la sesi&oacute;n?</p>
 	</div>
 	<!-- FIN dialogos para las alarmas -->
 	

@@ -353,7 +353,7 @@ body,td,th {
 		});
 
 		function verExpediente(idExpediente, numeroExpediente) {
-			$.newWindow({id:"iframewindowExp" + idExpediente, statusBar: true, posx:200,posy:50,width:1140,height:400,title:NúmeroExpediente, type:"iframe"});
+			$.newWindow({id:"iframewindowExp" + idExpediente, statusBar: true, posx:200,posy:50,width:1140,height:400,title:N&uacute;meroExpediente, type:"iframe"});
 		    $.updateWindowContent("iframewindowExp" + idExpediente,'<iframe src="<%=request.getContextPath()%>/IngresarMenuIntermedio.do" width="1140" height="400" />');			
 		}
 				
@@ -936,7 +936,7 @@ body,td,th {
 			  <LI id=tbarBtnHeaderZise class=first><SPAN></SPAN></LI>
 			  <LI id=buscarCaso><SPAN></SPAN>Buscar Caso</LI>
 			  <LI id=buscarExpediente><SPAN></SPAN>Buscar Expediente</LI>
-			  <LI id=tbarBtnImpresoras><SPAN></SPAN>Información del Caso</LI></DIV>
+			  <LI id=tbarBtnImpresoras><SPAN></SPAN>Informaci&oacute;n del Caso</LI></DIV>
 			  <DIV style="DISPLAY: none" id=menu_config> --><!-- <li id="buscarCaso"><a href="#">Buscar Caso</a></li>
 							<li id="buscarExpediente"><a href="#">Buscar Expediente</a></li> -->
 							<!-- 
@@ -985,7 +985,7 @@ body,td,th {
 
 	<div id="dialog-logout" title="Cerrar Sesi&oacute;n">
 		<p align="center">
-			<span id="logout">¿Desea cerrar su sesi&oacute;n?</span>
+			<span id="logout">&iquest;Desea cerrar su sesi&oacute;n?</span>
 		</p>
 	</div>
 	
@@ -1000,11 +1000,11 @@ body,td,th {
 		<p align="center">
 			<table border="0">
 				<tr>
-					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contraseña para desbloquear.</td>
+					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contrase&ntilde;a para desbloquear.</td>
 					
 				</tr>
 				<tr>
-					<td align="right"><label style="color:#4A5C68">Contraseña:</label></td>
+					<td align="right"><label style="color:#4A5C68">Contrase&ntilde;a:</label></td>
 					<td><input type="password" name="password" id="password" value="" maxlength="15" size="20"></td>
 				</tr>
 				<tr id="captchaJPG" >
@@ -1033,7 +1033,7 @@ body,td,th {
 				La sesi&oacute;n se cerrar&aacute; en <span id="dialog-countdown" style="font-weight:bold"></span> segundos.
 			</p>
 
-			<p>¿Desea continuar con la sesi&oacute;n?</p>
+			<p>&iquest;Desea continuar con la sesi&oacute;n?</p>
 	</div>
 	
 	

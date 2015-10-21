@@ -8,7 +8,7 @@ Funcionalidad para:
  -->
 <%@ page import="mx.gob.segob.nsjp.comun.enums.forma.Formas"%>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.funcionario.Puestos"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.solicitud.TiposSolicitudes" %>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.actividad.Actividades"%>
 <%@ page import="mx.gob.segob.nsjp.dto.configuracion.ConfiguracionDTO"%>
@@ -17,8 +17,8 @@ Funcionalidad para:
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Atención a solicitudes periciales</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Atenci&oacute;n a solicitudes periciales</title>
 	
 	<!--Se importan las css necesarias-->
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css" />
@@ -177,7 +177,7 @@ Funcionalidad para:
 			url:'<%= request.getContextPath()%>/consultarEvidenciasSolicitud.do?solicitudId='+solicitudId+'',
 			data:'',
 			datatype: "xml", 
-			colNames:['Número de Evidencia','Cadena de Custodia','Objeto'/*,'Código de Barras'*/], 
+			colNames:['N&uacute;mero de Evidencia','Cadena de Custodia','Objeto'/*,'C&oacute;digo de Barras'*/], 
 			colModel:[ 	{name:'NumeroEvidencia',index:'numeroEvidencia', width:150},
 			           	{name:'CadenaCustodia',index:'cadenaCustodia', width:150},
 			           	{name:'Objeto',index:'objeto', width:150}/*,
@@ -226,7 +226,7 @@ Funcionalidad para:
 			jQuery("#gridDocumentosDigitales").jqGrid({
 				url:'<%=request.getContextPath()%>/consultarDocumentosPropiosAsociadosASolicitudPericial.do?solicitudId='+solicitudId+'&esPdf=true',
 				datatype: "xml", 
-				colNames:['Área del responsable','Fecha de la actividad','Nombre de la actividad','Tipo de documento','Nombre de Documento','Fecha del documento'],
+				colNames:['&Aacute;rea del responsable','Fecha de la actividad','Nombre de la actividad','Tipo de documento','Nombre de Documento','Fecha del documento'],
 				colModel:[ 	{name:'area',index:'area', width:200,hidden:true},
 							{name:'FechaActividad',index:'fechaActividad', width:170,hidden:true},							
 							{name:'NombreActividad',index:'nombreActividad', width:400,hidden:true},
@@ -271,7 +271,7 @@ Funcionalidad para:
 			jQuery("#gridDocumentosDigitalesNoPdfs").jqGrid({
 				url:'<%=request.getContextPath()%>/consultarDocumentosPropiosAsociadosASolicitudPericial.do?solicitudId='+solicitudId+'',
 				datatype: "xml", 
-				colNames:['Área del responsable','Fecha de la actividad','Nombre de la actividad','Tipo de documento','Otros Documentos','Fecha del documento','Tipo de documento'],
+				colNames:['&Aacute;rea del responsable','Fecha de la actividad','Nombre de la actividad','Tipo de documento','Otros Documentos','Fecha del documento','Tipo de documento'],
 				colModel:[ 	{name:'area',index:'area', width:200,hidden:true},
 							{name:'FechaActividad',index:'fechaActividad', width:170,hidden:true},							
 							{name:'NombreActividad',index:'nombreActividad', width:400,hidden:true},
@@ -523,8 +523,8 @@ Funcionalidad para:
 	    $.updateWindowContent("iframewindowGenerarDocumento"+idWindowPantallaActuaciones,"<iframe src='<%= request.getContextPath() %>/generarDocumentoSinCaso.do?documentoId="+documentoId+"&numeroUnicoExpediente="+exp+"&solicitudId="+solicitudId+"&nuevaActividad="+actividad+"&mandaFormaEnConsulta="+mandaFormaEnConsulta+"&formaId="+formaID+"&idWindowPantallaActuaciones="+idWindowPantallaActuaciones+"&esTransaccional="+true+"&actividadId="+actividad+"' width='1140' height='400' />");
 	}
 	/**
-	* Función que es llamada por el generador de documentos guando se realiza un guardado definitivo del documento
-	* Esta función actualiza el estado de la solicitud pericial y adjunta el archivo digital recién generado a las solicitudes padre
+	* Funci&oacute;n que es llamada por el generador de documentos guando se realiza un guardado definitivo del documento
+	* Esta funci&oacute;n actualiza el estado de la solicitud pericial y adjunta el archivo digital reci&eacute;n generado a las solicitudes padre
 	*/
 	function documentoGenerado(){
 		
@@ -575,7 +575,7 @@ Funcionalidad para:
 			jQuery("#gridDocumentosDigitalesPropios").jqGrid({
 				url:'<%=request.getContextPath()%>/consultarDocumentos.do?idExpedienteop='+numidExpedienteDoc+'',
 				datatype: "xml", 
-				colNames:['Área del responsable','Fecha de la actividad','Nombre de la actividad','Tipo de documento','Nombre de Documento','Fecha del documento', 'Documento', 'Es Parcial'],
+				colNames:['&Aacute;rea del responsable','Fecha de la actividad','Nombre de la actividad','Tipo de documento','Nombre de Documento','Fecha del documento', 'Documento', 'Es Parcial'],
 				colModel:[ 	{name:'area',index:'area', width:200},
 							{name:'FechaActividad',index:'fechaActividad', width:170},							
 							{name:'NombreActividad',index:'nombreActividad', width:400},
@@ -637,7 +637,7 @@ Funcionalidad para:
 		jQuery("#gridDetalleFrmPrincipal").jqGrid({ 
 			url:'<%=request.getContextPath()%>/consultarDocumentos.do?idExpedienteop='+idExpedienteDoc, 
 			datatype: "xml",
-			colNames:['Área del responsable','Fecha de la actividad','Nombre de la actividad','Tipo de documento','Nombre de Documento','Fecha del documento'],
+			colNames:['&Aacute;rea del responsable','Fecha de la actividad','Nombre de la actividad','Tipo de documento','Nombre de Documento','Fecha del documento'],
 			colModel:[ 	{name:'area',index:'area', width:200},
 						{name:'FechaActividad',index:'fechaActividad', width:170},							
 						{name:'NombreActividad',index:'nombreActividad', width:400},
@@ -976,7 +976,7 @@ Funcionalidad para:
 					 <input type="button" class="btn_Generico" id="btnCadCusConsultaCadCus" style="width: 250px;" value="Consultar cadena de custodia"/><br/><br/>    
 	  				 <!--  <input type="button" class="btn_Generico" id="btnCadCusRegEslabones" style="width: 250px;" value="Registrar eslabones"/> <br/><br/>
 	  				 <input type="button" class="btn_Generico" id="btnCadCusRepEvidencias" style="width: 250px;" style="width: 250px;" value="Reporte de evidencias"/> <br/><br/>
-	  				 <input type="button" class="btn_Generico" id="btnCadCusElabOficio" style="width: 250px;" value="Elaborar oficio para fijación y preservación"/><br/><br/>  
+	  				 <input type="button" class="btn_Generico" id="btnCadCusElabOficio" style="width: 250px;" value="Elaborar oficio para fijaci&oacute;n y preservaci&oacute;n"/><br/><br/>  
 	   				 <input type="button" class="btn_Generico" id="btnCadCusAdmDestino" style="width: 250px;" value="Administrar destino legal de evidencia"/>
 	   				 -->
 				</div>		

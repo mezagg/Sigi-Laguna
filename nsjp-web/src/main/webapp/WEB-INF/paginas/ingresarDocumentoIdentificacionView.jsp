@@ -94,8 +94,8 @@
 <table border="0" width="100%" class="fondoClaroAp">
 	<tr>
 		<td>&nbsp;</td>
-		<td>Tipo de documento de identificación</td>
-		<td>Folio de documento de identificación</td>
+		<td>Tipo de documento de identificaci&oacute;n</td>
+		<td>Folio de documento de identificaci&oacute;n</td>
 	</tr>
 	<tr>
 		<td>Documento</td>

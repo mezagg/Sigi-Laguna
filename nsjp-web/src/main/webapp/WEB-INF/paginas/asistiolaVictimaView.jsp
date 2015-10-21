@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Entrevista Inicial</title>
 <link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/multiselect/jquery.multiselect.css" />
 <link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/multiselect/style.css" />
@@ -135,7 +135,7 @@ $(document).ready(function() {
  		 dataType: 'xml',
  		 async: false,
  		 success: function(xml){
-	 			 customAlert("La nota de evaluación se guardó correctamente");
+	 			 customAlert("La nota de evaluaci&oacute;n se guard&oacute; correctamente");
  		  }
  	});
 		 window.parent.cerrarVentana("iframewindowVisorNotasEjecucion");
@@ -166,23 +166,23 @@ $(document).ready(function() {
 	  		customAlert("El campo objetivo debe ser ingresado");
 	  		return false;
 	  	}
-	    //validacion de Análisis de Sesión y Estrategias Empleadas
+	    //validacion de An&aacute;lisis de Sesi&oacute;n y Estrategias Empleadas
 	  	if(trim($("#textareaAnalisis").val()).length==0)
 	  	{
-	  		customAlert("El campo análisis de sesión y estrategias empleadas debe ser ingresado");
+	  		customAlert("El campo an&aacute;lisis de sesi&oacute;n y estrategias empleadas debe ser ingresado");
 	  		return false;
 	  	}
-	    //validacion de Plan Terapéutico
+	    //validacion de Plan Terap&eacute;utico
 	  	if(trim($("#planTerap").val()).length==0)
 	  	{
-	  		customAlert("El campo plan terapéutico debe ser ingresado");
+	  		customAlert("El campo plan terap&eacute;utico debe ser ingresado");
 	  		return false;
 	  	}
 	}else{
 		//validacion de observaciones
 	  	if(trim($("#planTerap").val()).length==0)
 	  	{
-	  		customAlert("El campo observaciones de la falta de interés debe ser ingresado");
+	  		customAlert("El campo observaciones de la falta de inter&eacute;s debe ser ingresado");
 	  		return false;
 	  	}
 	}
@@ -209,19 +209,19 @@ $(document).ready(function() {
    </td>
     <td width="11%">Fecha de Sesi&oacute;n:</td>
     <td width="15%"><input type="text" name="FechaEI" id="FechaEI" disabled="disabled"/></td>
-    <td width="13%">Número Expediente:</td>
+    <td width="13%">N&uacute;mero Expediente:</td>
     <td width="15%">
     	<input type="text" name="nExpedienteEI" id="nExpedienteEI" disabled="disabled" style="width:200px"/>
     </td>
     <td width="1%">&nbsp;</td>
-    <td width="17%" align="right"><input name="" type="button" value="Agendar Siguiente Sesión" class="btn_guardar" id="GuardarAgenda" /></td>
+    <td width="17%" align="right"><input name="" type="button" value="Agendar Siguiente Sesi&oacute;n" class="btn_guardar" id="GuardarAgenda" /></td>
   </tr>
    <tr>
     <td width="13%"><span id="tipoVictimaSegimiento">Seguimiento:</span></td> 
     <td width="15%">
       <input type="text" name="nSesionEI" id="seguimientoText"  />
    </td>
-    <td colspan="4" align="right">Nombre de la Víctima:
+    <td colspan="4" align="right">Nombre de la V&iacute;ctima:
       <input type="text" name="FechaEI" id="nombreVictima" disabled="disabled" style="width:200px"/></td>
     <td>&nbsp;</td>
     <td width="17%" align="right"><input name="" type="button" value="Guardar" class="btn_guardar" id="dtnGuardarNotaEvaluacion"/></td>
@@ -231,13 +231,13 @@ $(document).ready(function() {
   <tr>
     <td width="8%"><span id="tipoVictimaObjeto">Objetivo:</span> </td>
     <td width="35%"><textarea name="textarea" id="objetotextarea" cols="45" rows="5"></textarea></td>
-    <td width="28%"><span id="tipoVictimaAnalisis">Análisis de Sesión y Estrategias Empleadas: </span></td>
+    <td width="28%"><span id="tipoVictimaAnalisis">An&aacute;lisis de Sesi&oacute;n y Estrategias Empleadas: </span></td>
     <td width="29%"><textarea name="textarea2" id="textareaAnalisis" cols="45" rows="5"></textarea></td>
   </tr>
 </table></td>
   </tr>
   <tr>
-    <td colspan="3"><span id="tipoVictimaPlan">Plan Terapéutico u Observaciones para Siguiente  Sesión: </span> <span id="observacionFaltaInteres">Observaciones de la Falta de Interés: </span></td>
+    <td colspan="3"><span id="tipoVictimaPlan">Plan Terap&eacute;utico u Observaciones para Siguiente  Sesi&oacute;n: </span> <span id="observacionFaltaInteres">Observaciones de la Falta de Inter&eacute;s: </span></td>
     
     <td>&nbsp;</td>
     <td>&nbsp;</td>

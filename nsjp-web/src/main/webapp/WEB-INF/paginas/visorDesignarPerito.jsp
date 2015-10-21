@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Designar Perito</title>
 
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css" />
@@ -86,7 +86,7 @@
 			setTimeout('verificaSeleccion()',3000);
 
 			if(area == 2){
-				$('#cbxTipoDeConsulta').append('<option value="externo">Servicios Periciales Procuraduría</option>');
+				$('#cbxTipoDeConsulta').append('<option value="externo">Servicios Periciales Procuradur&iacute;a</option>');
 			}
 			
 			//if (solicitudHijaMayor > 0){
@@ -388,7 +388,7 @@
 			jQuery("#gridPerito").jqGrid({ 
 				url:'<%= request.getContextPath()%>/consultarPeritosADesignar.do?nombre='+nombre+'&apellidoPaterno='+apPat+'&apellidoMaterno='+apMat+'&institucion='+institucion+'&especialidad='+especialidad+'+&area='+area+'+&isExterno='+isExterno+'', 
 				datatype: "xml", 
-				colNames:['Nombre','Especialidad','Institución','Asignaciones' ], 
+				colNames:['Nombre','Especialidad','Instituci&oacute;n','Asignaciones' ], 
 				colModel:[ 	{name:'Nombre',index:'nombre', width:200},
 				           	{name:'Especialidad',index:'especialidad', width:200},
 				           	{name:'Institucion',index:'instituciozn', width:200},
@@ -465,7 +465,7 @@ function pintaDatosSolicitud(xml){
 
 }
 
-//Envia la solicitud basándose en solicitudId y el id del perito seleccionado	
+//Envia la solicitud bas&aacute;ndose en solicitudId y el id del perito seleccionado	
 function enviarSolicitudDesignarPerito(){
 	//Obtenemos el id del perito seleccionado. 
 	var row = jQuery("#gridPerito").jqGrid('getGridParam','selrow');
@@ -479,7 +479,7 @@ function enviarSolicitudDesignarPerito(){
 			async: false,
 			success: function(xml){
 				parent.cargaGridSolicitudesDeDictamenNoAtendidas();
-				customAlert("Asignación enviada con éxito","", function(){
+				customAlert("Asignaci&oacute;n enviada con &eacute;xito","", function(){
 					parent.cerrarVisorDesignarPerito();		
 						
 				});
@@ -496,7 +496,7 @@ function cargaGridEvidencias(solicitudId){
 		url:'<%= request.getContextPath()%>/consultarEvidenciasSolicitud.do?solicitudId='+solicitudId+'',
 		data:'',
 		datatype: "xml", 
-		colNames:['Número de Evidencia','Cadena de Custodia','Objeto'/*,'Código de Barras'*/], 
+		colNames:['N&uacute;mero de Evidencia','Cadena de Custodia','Objeto'/*,'C&oacute;digo de Barras'*/], 
 		colModel:[ 	{name:'NumeroEvidencia',index:'numeroEvidencia', width:150},
 		           	{name:'CadenaCustodia',index:'cadenaCustodia', width:150},
 		           	{name:'Objeto',index:'objeto', width:150}/*,
@@ -531,7 +531,7 @@ function cargaGridDocumentosDigitales(){
 		jQuery("#gridDocumentosDigitales").jqGrid({
 			url:'<%=request.getContextPath()%>/consultarDocumentosPropiosAsociadosASolicitudPericial.do?solicitudId='+solicitudPericialId+'&esPdf=true',
 			datatype: "xml", 
-			colNames:['Área del responsable','Fecha de la actividad','Nombre de la actividad','Tipo de documento','Nombre de Documento','Fecha del documento'],
+			colNames:['&Aacute;rea del responsable','Fecha de la actividad','Nombre de la actividad','Tipo de documento','Nombre de Documento','Fecha del documento'],
 			colModel:[ 	{name:'area',index:'area', width:200,hidden:true},
 						{name:'FechaActividad',index:'fechaActividad', width:170,hidden:true},							
 						{name:'NombreActividad',index:'nombreActividad', width:400,hidden:true},
@@ -576,7 +576,7 @@ function cargaGridDocumentosDigitalesNoPdfs(){
 		jQuery("#gridDocumentosDigitalesNoPdfs").jqGrid({
 			url:'<%=request.getContextPath()%>/consultarDocumentosPropiosAsociadosASolicitudPericial.do?solicitudId='+solicitudPericialId+'',
 			datatype: "xml", 
-			colNames:['Área del responsable','Fecha de la actividad','Nombre de la actividad','Tipo de documento','Otros Documentos','Fecha del documento','Tipo de documento'],
+			colNames:['&Aacute;rea del responsable','Fecha de la actividad','Nombre de la actividad','Tipo de documento','Otros Documentos','Fecha del documento','Tipo de documento'],
 			colModel:[ 	{name:'area',index:'area', width:200,hidden:true},
 						{name:'FechaActividad',index:'fechaActividad', width:170,hidden:true},							
 						{name:'NombreActividad',index:'nombreActividad', width:400,hidden:true},
@@ -673,7 +673,7 @@ function cargaGridDocumentosDigitalesAmbos(){
 			    <td width="450">&nbsp;</td>
 			  </tr>-->
 			  <tr>
-			    <td align="right"><strong>Nombre del Servidor Público:</strong></td>
+			    <td align="right"><strong>Nombre del Servidor P&uacute;blico:</strong></td>
 			    <td align="left"><input type="text" id="nombreFuncionarioDesignarPerito" style="width:250px; border: 0; background:#DDD;" disabled="disabled"/></td>
 			    <td>&nbsp;</td>
 			  </tr>
@@ -683,7 +683,7 @@ function cargaGridDocumentosDigitalesAmbos(){
 			    <td>&nbsp;</td>
 			  </tr>
 			  <tr>
-			    <td align="right"><strong>Área Administrativa:</strong></td>
+			    <td align="right"><strong>&Aacute;rea Administrativa:</strong></td>
 			    <td align="left"><input type="text" id="areaFuncionarioDesignarPerito" style="width:250px; border: 0; background:#DDD;" disabled="disabled"/></td>
 			    <td>&nbsp;</td>
 			  </tr>
@@ -787,7 +787,7 @@ function cargaGridDocumentosDigitalesAmbos(){
 		        <tr>
 		            <td align="right">
 		            	<div id="divNombrePeritoTag"><strong>Nombre:</strong></div>
-		            	<div id="divInstitucionPeritoTag"><strong>Institución:</strong></div>
+		            	<div id="divInstitucionPeritoTag"><strong>Instituci&oacute;n:</strong></div>
 		            	<div id="divEspecialidadPeritoTag"><strong>Especialidad:</strong></div>
 		            </td>
 		            <td align="left" valign="middle">
@@ -836,7 +836,7 @@ function cargaGridDocumentosDigitalesAmbos(){
 		            <td align="left">&nbsp;</td>
 		            <td align="left">&nbsp;</td>
 		            <td align="right">            
-		            	<input type="button" id="guardarListaPeritos" value="Enviar Asignación" class="btn_Generico" onclick="enviarSolicitudDesignarPerito();" />
+		            	<input type="button" id="guardarListaPeritos" value="Enviar Asignaci&oacute;n" class="btn_Generico" onclick="enviarSolicitudDesignarPerito();" />
 		            	<!--   <input type="button" id="btnGenerarOficio" value="Generar Oficio" class="btn_Generico" /> -->	            
 					</td>
 		        </tr>

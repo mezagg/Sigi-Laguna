@@ -85,7 +85,7 @@
 	var solAsesoria =      "solAsesorias";
 	var solPJ =            "solicitudPoderJudicial";
 	var avisoDetencionId =   1; // SOLICITUD DE AVISO DE PERSONA DETENIDA
-	var solAtTempranaId =    2; // SOLICITUD DE DEFENSOR ATENCIÓN TEMPRANA
+	var solAtTempranaId =    2; // SOLICITUD DE DEFENSOR ATENCI&Oacute;N TEMPRANA
 	var avisoDesignacionId = 3; // AVISO DESIGNACION
 	var solPJId =            4; // SOLICITUD DE DEFENSOR PODER JUDICIAL
 	var solAsesoriaId =      5; // SOLICITUD DE ASESORIA LEGAL
@@ -105,9 +105,9 @@
 		ocultaMuestraGrids('6');
 		//asocia funcion al boton de queja ciudadana
 		$("#tbarBtnQuejaCiudadana").click(muestraQuejaCiudadana);
-		//ajusta el tamaño de el acordeon izquierdo	
+		//ajusta el tama&ntilde;o de el acordeon izquierdo	
 		$("#accordionmenuprincipal").accordion({  fillSpace: true });
-		//ajusta el tamaño de el acordeon izquierdo				
+		//ajusta el tama&ntilde;o de el acordeon izquierdo				
 		$("#accordionmenuderprincipal").accordion({ fillSpace: true});
 		$("#accordionmenuderprincipal").accordion( "option", "icons", null );
 		//vista de arbol para las solicitudes
@@ -211,7 +211,7 @@
 	 
 	//abre la ventana para registrar una asesoria legal
 	function detalleEnvioAsesoriaLegal(idSolicitud) {
-		$.newWindow({id:"iframewindowAsesoriaLegal", statusBar: true, posx:50,posy:110,width:1090,height:570,title:"Detalle Solicitud Asesoría Legal", type:"iframe"});
+		$.newWindow({id:"iframewindowAsesoriaLegal", statusBar: true, posx:50,posy:110,width:1090,height:570,title:"Detalle Solicitud Asesor&iacute;a Legal", type:"iframe"});
     	$.updateWindowContent("iframewindowAsesoriaLegal",'<iframe src="<%=request.getContextPath()%>/registrarAsesoriaLegal.do?solicitudId='+idSolicitud+'" width="1090" height="570" />');		
 	} 
 
@@ -246,7 +246,7 @@
 					titulo="Solicitud de Defensor ";
 					break;
 				case solAsesoriaId:
-					titulo="Asesoría: " + numExpediente;
+					titulo="Asesor&iacute;a: " + numExpediente;
 					break;
 			}
 			
@@ -441,7 +441,7 @@
 			jQuery("#gridAvisosDeDetencion").jqGrid({
 						url : '<%= request.getContextPath()%>/SolicitudesNoAtendidas.do', 
 						datatype: "xml", 
-						colNames:['Folio','Caso','Imputado:','Delito(s)','<bean:message key="agencia"/>','Fecha-Hora de detención','Fecha-Hora de aviso' ], 
+						colNames:['Folio','Caso','Imputado:','Delito(s)','<bean:message key="agencia"/>','Fecha-Hora de detenci&oacute;n','Fecha-Hora de aviso' ], 
 						colModel:[ 	{name:'folio',index:'2008', width:150},
 						           	{name:'caso',index:'2002', width:180},
 						           	{name:'imputado',index:'2009', width:150},
@@ -473,7 +473,7 @@
 			jQuery("#gridSolicitudAtencionTemprana").jqGrid({ 
 				url:'<%= request.getContextPath()%>/SolicitudesNoAtendidasAtencionTemprana.do', 
 				datatype: "xml", 
-				colNames:['Folio de Solicitud','Caso','Expediente','Para Quien se Sólicita: ','Detenido','Fecha y Hora de Solicitud','Numero Expediente Id'], 
+				colNames:['Folio de Solicitud','Caso','Expediente','Para Quien se S&oacute;licita: ','Detenido','Fecha y Hora de Solicitud','Numero Expediente Id'], 
 				colModel:[ 	{name:'Folio de Solicitud',index:'2013', width:185,align:"center"},
 				           	{name:'Caso',index:'2002', width:165,align:"center"},
 				           	{name:'Expediente',index:'2003', width:185,align:"center"},
@@ -1293,7 +1293,7 @@
 						</ul>
 					</div>
 						
-<!-- 			<h3 ><a id="" href="#" onclick="generaVisorGraficaView()"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png"  width="15" height="15">Gráficas y Reportes</a></h3>
+<!-- 			<h3 ><a id="" href="#" onclick="generaVisorGraficaView()"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png"  width="15" height="15">Gr&aacute;ficas y Reportes</a></h3>
 				<div>		
 					<input type="button" value="Ver Grafica" id="imageViewer" name="imageViewer"/>	
 					<ul id="seccion3treePJENC" class="filetree">
@@ -1571,7 +1571,7 @@
     
     <div id="dialog-logout" title="Cerrar Sesi&oacute;n">
 		<p align="center">
-			<span id="logout">¿Desea cerrar su sesi&oacute;n?</span>
+			<span id="logout">&iquest;Desea cerrar su sesi&oacute;n?</span>
 		</p>
 	</div>
     
@@ -1587,11 +1587,11 @@
 		<p align="center">
 			<table border="0">
 				<tr>
-					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contraseña para desbloquear.</td>
+					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contrase&ntilde;a para desbloquear.</td>
 					
 				</tr>
 				<tr>
-					<td align="right"><label style="color:#4A5C68">Contraseña:</label></td>
+					<td align="right"><label style="color:#4A5C68">Contrase&ntilde;a:</label></td>
 					<td><input type="password" name="password" id="password" value="" maxlength="15" size="20"></td>
 				</tr>
 				<tr id="captchaJPG" >
@@ -1620,7 +1620,7 @@
 				La sesi&oacute;n se cerrar&aacute; en <span id="dialog-countdown" style="font-weight:bold"></span> segundos.
 			</p>
 
-			<p>¿Desea continuar con la sesi&oacute;n?</p>
+			<p>&iquest;Desea continuar con la sesi&oacute;n?</p>
 	</div>
 	
 	<div id="dialog-alarmPos" title="Alarma ">

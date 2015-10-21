@@ -1,14 +1,14 @@
 <%@ page import="mx.gob.segob.nsjp.comun.enums.seguridad.Roles" %>
 <%@ page import="mx.gob.segob.nsjp.comun.constants.ConstantesGenerales"%>
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Canalización a la Unidad de Fiscales Investigadores Especializados</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Canalizaci&oacute;n a la Unidad de Fiscales Investigadores Especializados</title>
 	
 	<!--iframe que crea una nueva peticion para imprimir un PDF-->
 	<iframe id="framePdf" src="" width="0" height="0"></iframe>
@@ -129,7 +129,7 @@
 			    		//Se configura el id del distrito y la agencia del usuario firmado en sesion
 			    		idDistritoUsuario = $(xml).find('expedienteResumenDTO').find('usuario').find("funcionario").find("discriminante").find("distrito").find("catDistritoId").first().text();
 			    		idAgenciaUsuario  = $(xml).find('expedienteResumenDTO').find('usuario').find("funcionario").find("discriminante").find("catDiscriminanteId").first().text();
-			    		//Muestra información del delito principal y de la UIE
+			    		//Muestra informaci&oacute;n del delito principal y de la UIE
 			    		if($(xml).find('expedienteResumenDTO').find('delitoPrincipal').find("catDelitoDTO").find("unidadIEspecializada") != null){
 			    			$.ajax({
 						    	type: 'POST',
@@ -384,7 +384,7 @@
 				return false;
 			}else{
 				var totalDestinartario = 0;
-				//buscar si existen Coordinadores en el área seleccionada
+				//buscar si existen Coordinadores en el &aacute;rea seleccionada
 				var params = 'catDiscriminanteId=' + catDiscriminanteId;
 				params += '&idUIE=' + idUIE;
 				params += '&idRol=' + idRolAMP;
@@ -500,7 +500,7 @@
 <!--						<li id="guardadoParcialNarrativa" class="first"><span></span>Guardado Parcial</li>-->
 						<li id="imprimirNarraTiva"><span></span>Enviar</li>
 						<li id="vistaPreliminar"><span></span>Vista Preliminar</li>
-						<li id="seccionCbxTamanioPapel"><span></span>Tamaño de Papel
+						<li id="seccionCbxTamanioPapel"><span></span>Tama&ntilde;o de Papel
 							<select name="cbxTamanioPapel" id="cbxTamanioPapel" onchange="recuperarTamanioPapel()" style=" border:0; background-color:#EEEEEE;">
 		    				</select>
 		    			</li>
@@ -514,11 +514,11 @@
 			<td width="">Hora de Elaboraci&oacute;n:</td>
 			<td width=""><input type="text" id="idHoraDate" disabled="disabled" size="30" style=" border:0; background-color:#EEEEEE;"/></td>
 		</tr>
-		<!--agregados para la canalización-->
+		<!--agregados para la canalizaci&oacute;n-->
 		<tr>
 			<td width="20%">Nombre del Delito Principal:</td>
 			<td width=""><input type="text" title="Nombre" size="30" id="nombreDelito" disabled="disabled" style=" border:0; background-color:#EEEEEE;"/></td>
-			<td>Unidad de Investigación Especializada:</td>
+			<td>Unidad de Investigaci&oacute;n Especializada:</td>
 			<td>
 			<select id="unidadInvEsp" onchange="actualizaUnidadInvEsp()" style=" max-width:40ex;"><option  value="-1" selected="selected">-Seleccione-</option></select>
 			</td>

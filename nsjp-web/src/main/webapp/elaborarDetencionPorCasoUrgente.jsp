@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Elaborar Detención Por Caso Urgente</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Elaborar Detenci&oacute;n Por Caso Urgente</title>
 
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/jquery-ui.css" />
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/estilos.css" media="screen" />
@@ -163,7 +163,7 @@
     <td>&nbsp;</td>
     <td align="right"><strong>Apellido Materno:</strong></td>
     <td><input type="text" id="aMaterno" onkeyup="habilitaBoton()" onkeypress="return soloLetrasNPunto(event,this.id);" onblur="validaSoloLetras(this);"/></td>
-    <td align="right"><strong>Motivo de la detención:</strong></td>
+    <td align="right"><strong>Motivo de la detenci&oacute;n:</strong></td>
     <td><input type="text" id="motivoDetencion" onkeyup="habilitaBoton()"/></td>
     <td>&nbsp;</td>
   </tr>
@@ -188,7 +188,7 @@
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td colspan="4" align="center"><strong>Cargo de quien Autoriza la detención:
+    <td colspan="4" align="center"><strong>Cargo de quien Autoriza la detenci&oacute;n:
       
       </strong><strong>
       <input type="text" id="puestoQuienAutoriza" size="30" onkeyup="habilitaBoton()" />
@@ -222,7 +222,7 @@
   </tr>
   <tr>
     <td rowspan="5">&nbsp;</td>
-    <td colspan="4" align="center"><input type="button" value="Enviar Orden de Detención" id="elaborarOrdenDetencion" disabled="disabled" class="btn_Generico"/></td>
+    <td colspan="4" align="center"><input type="button" value="Enviar Orden de Detenci&oacute;n" id="elaborarOrdenDetencion" disabled="disabled" class="btn_Generico"/></td>
     <td rowspan="5">&nbsp;</td>
   </tr>
   <tr>

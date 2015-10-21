@@ -5,8 +5,8 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.audiencia.TipoAudiencia"%>
 <%@page import="mx.gob.segob.nsjp.comun.constants.ConstantesGenerales"%>
 <%@page import="java.util.Calendar"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
     
 <%
@@ -36,8 +36,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Atención a Sollicitudes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Atenci&oacute;n a Sollicitudes</title>
 
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/jquery-ui.css" />
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/estilos.css" media="screen" />
@@ -253,7 +253,7 @@
 		jQuery("#gridTrasladoPJA").jqGrid({
 		    url:'<%=request.getContextPath()%>/consultarDetalleSolicitudDeAudiencia.do?tipoDeRespuesta=2&idAudiencia='+idAudiencia+'', 
 			datatype: "xml", 
-			colNames:['Centro de Detención','Imputado','Delito'], 
+			colNames:['Centro de Detenci&oacute;n','Imputado','Delito'], 
 			colModel:[ 	{name:'centroDetencion',index:'centroDetencion', width:200,align:'center'},
 			           	{name:'imputado',index:'imputado', width:200,align:'center'}, 
 						{name:'Delito',index:'delito', width:100,align:'center'}
@@ -327,7 +327,7 @@
 			controlSalas(fechaReal);
 		}
 		else{
-			alertDinamico("Seleccione un día hábil");
+			alertDinamico("Seleccione un d&iacute;a h&aacute;bil");
 		}
 	}
 
@@ -608,7 +608,7 @@
 			var horaInicio=idRow.substring(horaInicioPos1+1,horaInicioPos2);
 			
 
-			//tamaño en medias hrs. del espacio disponible
+			//tama&ntilde;o en medias hrs. del espacio disponible
 			var espacioPos1=idRow.indexOf("/",0);
 			var espacioPos2=idRow.indexOf("*",espacioPos2);
 			var espacioDisponible=idRow.substring(espacioPos1+1,espacioPos2);
@@ -637,7 +637,7 @@
 						deshabilitarHabilitarComponentes("horarioSala");
 					}
 					else{
-						alertDinamico("La duración estimada es mayor que el tiempo disponible para esta sala.\rIntente con otra sala");	
+						alertDinamico("La duraci&oacute;n estimada es mayor que el tiempo disponible para esta sala.\rIntente con otra sala");	
 					}
 				}
 				else{
@@ -646,7 +646,7 @@
 			}
 			else{
 				
-				alertDinamico("Seleccione una duración estimada para la audiencia");
+				alertDinamico("Seleccione una duraci&oacute;n estimada para la audiencia");
 			}
 				
 		}
@@ -685,7 +685,7 @@
 		}														
 		
 		if(duracionEstimadaAudiencia == "" || duracionEstimadaAudiencia <= 0){
-			alertDinamico("Seleccione una duración estimada para la audiencia");
+			alertDinamico("Seleccione una duraci&oacute;n estimada para la audiencia");
 		}
 		else{	
 			if(primeraConsultaJueces==true){	 	
@@ -832,7 +832,7 @@
 		//deshabilitamos el combo de tipo de audiencia
 		$("#tipoAudienciaProgramarAudiencia").attr('disabled',true);
 	
-		//Si pulso automáticamente
+		//Si pulso autom&aacute;ticamente
 		if(automatico == true){
 			$("#gridSolicitudDeAudienciaJuecesPJENA").unbind('click');
 			$("#divPagerGridSolicitudDeAudienciaJuecesPJENA").hide();
@@ -860,7 +860,7 @@
 ///////////////////////////////////////CONTROLA LOS EVENTOS HABILITA O INHABILITA COMPONENETES//////////////////////////////////////////////////////////
 	/**
 	*Funcion para deshabilitar los botones de designar 
-	*Juez manualmente y automáticamente, Guardar y Designar Sala Temporal
+	*Juez manualmente y autom&aacute;ticamente, Guardar y Designar Sala Temporal
 	*/
 	function deshabilitarHabilitarComponentes(accion){
 
@@ -1337,9 +1337,9 @@
 					var mensaje = $(xml).find('body').find('fechaActual').text();
 					
 					if(mensaje == "fail"){
-						alertDinamico("La audiencia ya fue programada anteriormente por algún otro usuario");
+						alertDinamico("La audiencia ya fue programada anteriormente por alg&uacute;n otro usuario");
 						/*
-						*recargamos el grid de audiencias para que la solicitud de audiencia que se abrío ya no 
+						*recargamos el grid de audiencias para que la solicitud de audiencia que se abr&iacute;o ya no 
 						*aparesca en la bandeja
 						*/
 						parent.recargarGridAudienciaPJENA();
@@ -1347,14 +1347,14 @@
 					} else if(mensaje == "failNoObs"){
 						alertDinamico("Error al intentar agendar la audiencia");							
 					} else if(mensaje == "salaOcupada") {
-						alertDinamico("Algún otro usuario acaba de programar una audiencia en esta sala y horario");
+						alertDinamico("Alg&uacute;n otro usuario acaba de programar una audiencia en esta sala y horario");
 						try{
 							parent.recargarGridAudienciaPJENA();
 							setTimeout("recargaVisor()",3000);
 						}catch(e){}
 					} else {
 						/*
-						*Guardamos la programación de la audiencia en las agendas de los Jueces
+						*Guardamos la programaci&oacute;n de la audiencia en las agendas de los Jueces
 						*/
 						guardarEventoAudiencia();
 						/*
@@ -1383,8 +1383,8 @@
 						
 						//if(idEvento=="<%=ConstantesGenerales.NO_ES_JAVS%>"){
 						//	customAlert(
-						//			"La programación de la audiencia se realizó de manera correcta", 
-						//			"Programación de Audiencias", 
+						//			"La programaci&oacute;n de la audiencia se realiz&oacute; de manera correcta", 
+						//			"Programaci&oacute;n de Audiencias", 
 						//			cancelarSolicitudesRepetidas									
 						//	);
 						// Con agendar audiencia en JAVS							
@@ -1400,7 +1400,7 @@
 						//}
 						//********TERMINA FUNCIONALIDAD DE JAVS********/
 						
-						customAlert("La programación de la audiencia se realizó de manera correcta");
+						customAlert("La programaci&oacute;n de la audiencia se realiz&oacute; de manera correcta");
 					}
 					//Desbloquear pantalla
 					desbloquearPantalla();	
@@ -1419,11 +1419,11 @@
 
 	}		
 
-	//Función para alertDinamicoCerrar
+	//Funci&oacute;n para alertDinamicoCerrar
 	function alertDinamicoCerrar(textoAlert, accion){			
 		if(accion==2){
-			//textoAlert="Error al agendar audiencia en servidor JAVS, no hay conexión con el WS.</br>No se agendó en el Sistema.";
-			textoAlert="Ocurrió un error al agendar audiencia.</br>No se agendó en el Sistema.";
+			//textoAlert="Error al agendar audiencia en servidor JAVS, no hay conexi&oacute;n con el WS.</br>No se agend&oacute; en el Sistema.";
+			textoAlert="Ocurri&oacute; un error al agendar audiencia.</br>No se agend&oacute; en el Sistema.";
 		}
 		$("#divAlertTextoCerrar").html(textoAlert);
 	    $( "#dialog-AlertCerrar" ).dialog({
@@ -1457,23 +1457,23 @@
                 break;
             case "<%=ConstantesGenerales.EXITO_AGENDAR_JAVS_SIN_ARCH_OUT%>":
             	S_Mensaje = "Audiencia agendada correctamente en el Sistema y el Servidor JAVS";
-                //S_Mensaje = "Audiencia agendada correctamente en servidor JAVS, error al crear archivo de recepción";
+                //S_Mensaje = "Audiencia agendada correctamente en servidor JAVS, error al crear archivo de recepci&oacute;n";
                 break;
             case "<%=ConstantesGenerales.EXITO_AGENDAR_JAVS_SIN_ARCH_INOUT%>":
             	S_Mensaje = "Audiencia agendada correctamente en el Sistema y el Servidor JAVS";
-                //S_Mensaje = "Audiencia agendada correctamente en servidor JAVS, error al crear archivos de verificación";
+                //S_Mensaje = "Audiencia agendada correctamente en servidor JAVS, error al crear archivos de verificaci&oacute;n";
                 break;
             case "<%=ConstantesGenerales.ERROR_PARAMETROS_CONEXION%>":
-                S_Mensaje = "Error al agendar audiencia en servidor JAVS, parámetros de conexión incorrectos.</br>No se agendó en el Sistema.";
+                S_Mensaje = "Error al agendar audiencia en servidor JAVS, par&aacute;metros de conexi&oacute;n incorrectos.</br>No se agend&oacute; en el Sistema.";
                 break;
             case "<%=ConstantesGenerales.ERROR_ELEMENTOS_INSUFICIENTES%>":
-                S_Mensaje = "Error al agendar audiencia en servidor JAVS, no hay elementos suficientes en la audiencia.</br>No se agendó en el Sistema.";
+                S_Mensaje = "Error al agendar audiencia en servidor JAVS, no hay elementos suficientes en la audiencia.</br>No se agend&oacute; en el Sistema.";
                 break;
             case "<%=ConstantesGenerales.ERROR_CREDENCIALES%>":
-                S_Mensaje = "Error al agendar audiencia en servidor JAVS, credenciales de conexión incorrectas.</br>No se agendó en el Sistema.";
+                S_Mensaje = "Error al agendar audiencia en servidor JAVS, credenciales de conexi&oacute;n incorrectas.</br>No se agend&oacute; en el Sistema.";
                 break;
             case "<%=ConstantesGenerales.FALLO_CONEXION_WEB_SERVICE_JAVS%>":
-                S_Mensaje = "Error al agendar audiencia en servidor JAVS, no hay conexión con el WS.</br>No se agendó en el Sistema.";
+                S_Mensaje = "Error al agendar audiencia en servidor JAVS, no hay conexi&oacute;n con el WS.</br>No se agend&oacute; en el Sistema.";
                 break;
         }		
         return S_Mensaje;
@@ -1484,7 +1484,7 @@
 							
 			var mensaje =  " El caso <strong>" + jQuery("#numCasoSolicitudAudienciaDetalle").val() + "</strong> <br /> ";
 				mensaje += " tiene <strong>" + solRepetidas + "</strong> solicitudes de audiencias del tipo <strong>" + jQuery("#tipoAudienciaProgramarAudiencia").val() + "</strong><br />"; 
-				mensaje += " ¿Desea cancelarlas?";
+				mensaje += " &iquest;Desea cancelarlas?";
 				customConfirm(
 					mensaje, 
 					"Solicitudes De Audiencia Repetidas",
@@ -1502,13 +1502,13 @@
 								var mensaje = $(xml).find('body').find('fechaActual').text();
 								
 								if(mensaje == "fail") {
-									customAlert("No se ha podido cancencelar las solicitudes<br /> por favor intente más tarde", "Error");
+									customAlert("No se ha podido cancencelar las solicitudes<br /> por favor intente m&aacute;s tarde", "Error");
 								} else {
 								
 									parent.recargarGridAudienciaPJENA();
 									customAlert(
 											"Se han cancelado las solicitudes.", 
-											"Programación de Audiencias"
+											"Programaci&oacute;n de Audiencias"
 									);
 								}	
 							}
@@ -1619,7 +1619,7 @@
 				var mensaje = $(xml).find('body').find('fechaActual').text();
 				
 				if(mensaje == "fallo"){
-					alertDinamico("No se logró guardar el evento en la agenda del juez");
+					alertDinamico("No se logr&oacute; guardar el evento en la agenda del juez");
 				}	
 			}
 		});	
@@ -1668,7 +1668,7 @@
 					<td colspan="4">&nbsp;</td>
 				</tr>
 				<tr> 
-					<td width="16%" align="right"><strong>Número de Caso:</strong>
+					<td width="16%" align="right"><strong>N&uacute;mero de Caso:</strong>
 					</td>
 					<td width="24%"><input type="text"
 						id="numCasoSolicitudAudienciaDetalle"
@@ -1703,7 +1703,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td align="right"><strong>Carácter: </strong>
+					<td align="right"><strong>Car&aacute;cter: </strong>
 					</td>
 					<td><input type="text" id="caracterSolicitudAudienciaDetalle"
 						style="width: 180px; border: 0; background: #DDD;"
@@ -1727,7 +1727,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td align="right"><strong>Institución Solicitante:</strong>
+					<td align="right"><strong>Instituci&oacute;n Solicitante:</strong>
 					</td>
 					<td><input type="text" id="institucionSolicitudAudienciaDetalle"
 						style="width: 180px; border: 0; background: #DDD;"
@@ -1811,14 +1811,14 @@
 			    </td>
 			  </tr>
 			  <tr>
-			    <td align="right" valign="bottom"><strong>Número de caso:</strong></td>
+			    <td align="right" valign="bottom"><strong>N&uacute;mero de caso:</strong></td>
 			    <td align="left" valign="bottom"><input type="text"
 			                        id="numCasoProgramarAudiencia"
 			                        style="width: 200px; border: 0; background: #DDD;"
 			                        readonly="readonly" /></td>
 			  </tr>
 			  <tr>
-			    <td align="right" valign="bottom"><strong>Número de
+			    <td align="right" valign="bottom"><strong>N&uacute;mero de
 			    Causa:</strong></td>
 			    <td align="left" valign="bottom"><input type="text"
 			                        id="numExpedienteProgramarAudiencia"
@@ -1840,7 +1840,7 @@
 			                        readonly="readonly" /></td>
 			  </tr>
 			  <tr>
-			    <td align="right" valign="bottom"><strong>Duración estimada de audiencia:</strong></td>
+			    <td align="right" valign="bottom"><strong>Duraci&oacute;n estimada de audiencia:</strong></td>
 			    <td align="left" valign="bottom">
 			     <select id="duracionEstimadaProgramarAudiencia" style="width:200px;">
                 	<option value="0" >-Seleccione-</option>
@@ -1889,7 +1889,7 @@
 			   		</strong>No Disponible
 			    </td>
 			    <td width="85">
-			    	<input type="text" size="4" style="width: 20px; border: 0; background: #CCCCCC;" readonly />Inhábil </td>
+			    	<input type="text" size="4" style="width: 20px; border: 0; background: #CCCCCC;" readonly />Inh&aacute;bil </td>
 			    <td colspan="3">&nbsp;</td>
 			  </tr>
 			  <tr>
@@ -1930,14 +1930,14 @@
 					<td colspan="4" align="center">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="25%" align="right"><strong>Número de Caso:</strong>
+					<td width="25%" align="right"><strong>N&uacute;mero de Caso:</strong>
 					</td>
 					<td width="27%"><input type="text"
 						id="numCasoTestigos"
 						style="width: 200px; border: 0; background: #DDD;"
 						readonly="readonly" />
 					</td>
-					<td width="30%" align="right"><strong>Número de
+					<td width="30%" align="right"><strong>N&uacute;mero de
 							Causa:</strong>
 					</td>
 					<td width="25%"><input type="text"
@@ -1975,14 +1975,14 @@
 					<td colspan="4" align="center">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="18%" align="right"><strong>Número de Caso:</strong>
+					<td width="18%" align="right"><strong>N&uacute;mero de Caso:</strong>
 					</td>
 					<td width="27%"><input type="text"
 						id="numCasoTraslados"
 						style="width: 200px; border: 0; background: #DDD;"
 						readonly="readonly" />
 					</td>
-					<td width="30%" align="right"><strong>Número de
+					<td width="30%" align="right"><strong>N&uacute;mero de
 							Causa:</strong>
 					</td>
 					<td width="25%"><input type="text"

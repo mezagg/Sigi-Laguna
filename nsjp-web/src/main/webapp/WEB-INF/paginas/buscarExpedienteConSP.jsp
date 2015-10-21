@@ -7,8 +7,8 @@
 <%@ page
 	import="mx.gob.segob.nsjp.comun.enums.institucion.Instituciones"%>
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%
 	UsuarioDTO usuario = (UsuarioDTO) request.getSession()
 			.getAttribute("KEY_SESSION_USUARIO_FIRMADO");
@@ -30,7 +30,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Buscar Expediente</title>
 <style>
 input.error {
@@ -375,7 +375,7 @@ input.error {
 		//Funcion que valida si los campos estan llenos al enviar 
 		function validaCamposCaso(){
 			if (trim($('#noCaso').val())==''){
-					customAlert("Favor de ingresar un número de caso");
+					customAlert("Favor de ingresar un n&uacute;mero de caso");
 					datosCorrectos=false;
 			}else {
 				datosCorrectos=true;
@@ -651,7 +651,7 @@ input.error {
 		
 		
 		/**
-		* Permite consultar un expediente de atención temprana administrativa
+		* Permite consultar un expediente de atenci&oacute;n temprana administrativa
 		**/
 		function consultaExpedienteDeAtencionTemAdm(numeroExpediente, idNumeroExpediente) {
 			$.newWindow({id:"iframewindowRegistraDatosPersona", statusBar: true, posx:200,posy:50,width:1140,height:450,title:"Expediente:  "+numeroExpediente, type:"iframe"});
@@ -841,7 +841,7 @@ input.error {
 							 				if(esConsulta == "1"){
 												abrirVisorExpediente(idNumeroExpediente,idExpediente, numeroExpediente, parseInt(idArea));
 											}else{//No tiene permisos para visualizar el expediente
-												customAlert("Usted no es el dueño del expediente,<br> y no cuenta con permisos para consultarlo.","");
+												customAlert("Usted no es el due&ntilde;o del expediente,<br> y no cuenta con permisos para consultarlo.","");
 											}	 
 							 			 }    											
 									},								
@@ -852,7 +852,7 @@ input.error {
 				configurarColumnasGridBuscarExpedientes(tipoBusqueda);	
 		}
 		
-		//Función que genera un nuevo número de expediente para la UI en el mismo expediente
+		//Funci&oacute;n que genera un nuevo n&uacute;mero de expediente para la UI en el mismo expediente
 		function nuevoNumeroExpediente(id,idArea){
 				
 			var idExpediente="0";
@@ -938,7 +938,7 @@ input.error {
 										if(esConsulta=="1"){
 											ventanaAudiencias(idNumeroExpediente,numeroExpediente);
 										}else{
-											customAlert("Usted no es el dueño del expediente,<br> y no cuenta con permisos para consultarlo.","");
+											customAlert("Usted no es el due&ntilde;o del expediente,<br> y no cuenta con permisos para consultarlo.","");
 										}
 																														
 									},

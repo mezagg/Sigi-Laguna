@@ -1,11 +1,11 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.solicitud.TiposSolicitudes"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.funcionario.Puestos"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Solicitar Evidencia</title>
 	
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css" />
@@ -130,7 +130,7 @@
 			url:'<%= request.getContextPath()%>/consultarEvidenciasSolicitud.do?solicitudId='+solicitudId+'',
 			data:'',
 			datatype: "xml", 
-			colNames:['Número de Evidencia','Cadena de Custodia','Objeto','Código de Barras'], 
+			colNames:['N&uacute;mero de Evidencia','Cadena de Custodia','Objeto','C&oacute;digo de Barras'], 
 			colModel:[ 	{name:'NumeroEvidencia',index:'numeroEvidencia', width:150},
 			           	{name:'CadenaCustodia',index:'cadenaCustodia', width:150},
 			           	{name:'Objeto',index:'objeto', width:150},
@@ -152,7 +152,7 @@
 			url:'local', 
 			data:'',
 			datatype: "xml", 
-			colNames:['Número de Evidencia','Cadena de Custodia','Objeto','Código de Barras'],
+			colNames:['N&uacute;mero de Evidencia','Cadena de Custodia','Objeto','C&oacute;digo de Barras'],
 			colModel:[ {name:'NumeroEvidencia',index:'numeroEvidencia', width:150},
 						{name:'CadenaCustodia',index:'cadenaCustodia', width:150},
 						{name:'Objeto',index:'objeto', width:150},
@@ -238,7 +238,7 @@
 	    	    dataType: 'xml',
 	    	    async: false,
 	    	    success: function(xml){
-	    	    	alert('La solicitud se envió correctamente');
+	    	    	alert('La solicitud se envi&oacute; correctamente');
 	        	    parent.cerrarVentanaEvidencia();
 	    		}
 			});
@@ -246,7 +246,7 @@
 	}
 	
 	/**
-	* Carga el funcionario a mostrar en la tab de Avisar a Funcionario según puesto del destinatario
+	* Carga el funcionario a mostrar en la tab de Avisar a Funcionario seg&uacute;n puesto del destinatario
 	*/
 	function consultaFuncionario(){
 
@@ -292,7 +292,7 @@
 					<table width="100%" border="0">
 						<tr>
 							<td>
-								Nombre Servidor Público:
+								Nombre Servidor P&uacute;blico:
 							</td>
 							<td>
 								<input type="text" class="" size="50" maxlength="50" id="solDePericialNombre" disabled="disabled" onkeypress="return soloLetrasNPunto(event,this.id);" onblur="validaSoloLetras(this);"/>
@@ -308,7 +308,7 @@
 						</tr>
 						<tr>
 							<td>
-								Área Administrativa:
+								&Aacute;rea Administrativa:
 							</td>
 							<td>
 								<input type="text" size="50" maxlength="50" id="solDePericialAreaAdmin" disabled="disabled"/>
@@ -316,7 +316,7 @@
 						</tr>
 						<tr>
 							<td>
-								Fecha Elaboración:
+								Fecha Elaboraci&oacute;n:
 							</td>
 							<td>
 								<input type="text" size="50" maxlength="13"	id="solDePericialFecha" disabled="disabled"/>

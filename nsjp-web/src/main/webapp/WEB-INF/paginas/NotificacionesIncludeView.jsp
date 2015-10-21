@@ -365,7 +365,7 @@
 		  			}else{
 		  				$(this).dialog("close");
 			  			generarNotificacion(invoId,esFuncionario,esFuncionarioExt,esInvolucrado,institucionId);
-			  			//volver a subir el objeto a sesión
+			  			//volver a subir el objeto a sesi&oacute;n
 			  			consultaDetalleEventoNotif(idEvento);
 			  			//Recarga el grid
 			  			$("#gridDetalleNotificaciones").trigger("reloadGrid");
@@ -526,7 +526,7 @@
 					//Se comentan temporalmene
 					//$("#direccionFisicaDetallePersona").val(calle+" No.Ext: "+numExt+" No.Int: "+numInt+" Col. "+colonia+" CP. "+codPostal+"  "+municipio+". "+pais+" ,"+entFed);
 					
-					//Direccion Electrónica
+					//Direccion Electr&oacute;nica
     				//$("#direccionElectronicaDetallePersona").val($(xml).find('correosDTO').find('direccionElectronica').first().text());
 				}
 			}
@@ -594,7 +594,7 @@
 	//Funcion para guardar la fecha y hora de la recepcion de la notificacion
 	function confirmarFechaHoraRecepcion(idNotificacion){
 
-		if(confirm("¿La fecha y hora son correctas?")){
+		if(confirm("&iquest;La fecha y hora son correctas?")){
 			
 			var horaRecepcion = $('#horaRecepcion_'+idNotificacion).val();
 			var fechaRecepcion = $('#fechaRecepcion_'+idNotificacion).val();
@@ -620,7 +620,7 @@
 	//con observaciones
 	function confirmarNoAplica(idNotificacion){
 
-		if(confirm("¿Esta seguro que no se ha recibido la notificacion?")){
+		if(confirm("&iquest;Esta seguro que no se ha recibido la notificacion?")){
 			
 			if(idNotificacion){
 
@@ -668,7 +668,7 @@
 	*Refresca los grid y los datos del objeto
 	*/
 	function refrescaGridsActualizaObjetoEvento(){
-		//volver a subir el objeto a sesión
+		//volver a subir el objeto a sesi&oacute;n
 		consultaDetalleEventoNotif(idEvento);
 		//Recarga el grid
 		$("#gridDetalleNotificaciones").trigger("reloadGrid");
@@ -767,7 +767,7 @@
 						</tr>
 						<tr>
 							<td align="right">
-								<span id="etiInstitucion"><strong>Institución:</strong></span>
+								<span id="etiInstitucion"><strong>Instituci&oacute;n:</strong></span>
 							</td>
 							<td colspan="2">
 								<input type="text" size="80" id="institucionDetallePersona" style="border: 0; background:#DDD;" readonly="readonly"/>
@@ -775,7 +775,7 @@
 						</tr>
 						<tr id="trDirecionFisica">
 							<td align="right">
-								<!--<strong>Dirección F&iacute;sica:</strong>-->
+								<!--<strong>Direcci&oacute;n F&iacute;sica:</strong>-->
 							</td>
 							<td colspan="2">
 								<!--<input type="text" size="80" id="direccionFisicaDetallePersona" style="border: 0; background:#DDD;" readonly="readonly"/>-->
@@ -835,7 +835,7 @@
 							<tr>
 								<td width="20%">
 									<div align="right">
-										<strong>Forma de Notificación:</strong>
+										<strong>Forma de Notificaci&oacute;n:</strong>
 						        	</div>
 							  	</td>
 								  <td width="80%">

@@ -26,7 +26,7 @@ function recuperaIdSiguienteAudiencia(){
 
 /**
 *Funcion para deshabilitar los botones de designar 
-*Juez manualmente y automáticamente, Guardar y Designar Sala Temporal
+*Juez manualmente y autom&aacute;ticamente, Guardar y Designar Sala Temporal
 */
 function deshabilitarHabilitarComponentes(accion){
 
@@ -231,7 +231,7 @@ function recorridoMeses(movimiento){
 */
 function verificarTipoAudiencia(automatico){
 
-	//Si pulso automáticamente
+	//Si pulso autom&aacute;ticamente
 	if(automatico == true){
 		//jQuery("#gridSolicitudDeAudienciaJuecesPJENA").setGridParam({multiselect:false}).hideCol('cb');
 		$("#gridSolicitudDeAudienciaJuecesPJENA").unbind('click');
@@ -277,7 +277,7 @@ function seleccionCelda(idRow,dia,fecha){
 		//$("#gridAgendaPJENA").jqGrid('setCell',"1","lunes","",{'font-weight': 'bold',color: 'white','text-align':'center','background-color':'red'});			
 	}
 	else{
-		alert("Seleccione un dia hábil");
+		alert("Seleccione un dia h&aacute;bil");
 	}
 }
 
@@ -538,7 +538,7 @@ function programaHorarioSala(idRow,fechaReal){
 		var horaInicio=idRow.substring(horaInicioPos1+1,horaInicioPos2);
 		
 
-		//tamaño en medias hrs. del espacio disponible
+		//tama&ntilde;o en medias hrs. del espacio disponible
 		var espacioPos1=idRow.indexOf("/",0);
 		var espacioPos2=idRow.indexOf("*",espacioPos2);
 		var espacioDisponible=idRow.substring(espacioPos1+1,espacioPos2);
@@ -566,12 +566,12 @@ function programaHorarioSala(idRow,fechaReal){
 				deshabilitarHabilitarComponentes("horarioSala");
 			}
 			else{
-				alert("La duración estimada es mayor que el tiempo disponible para esta sala.\rIntente con otra sala");	
+				alert("La duraci&oacute;n estimada es mayor que el tiempo disponible para esta sala.\rIntente con otra sala");	
 			}	
 		}
 		else{
 			
-			alert("Seleccione una duración estimada para la audiencia");
+			alert("Seleccione una duraci&oacute;n estimada para la audiencia");
 		}
 			
 	}
@@ -603,7 +603,7 @@ function controlJueces(automatico){
 	duracionEstimadaAudiencia = $("#duracionEstimadaProgramarAudiencia option:selected").val();
 	juezSustituto =  $("#juezSustituto").val();
 	if(duracionEstimadaAudiencia == "" || duracionEstimadaAudiencia <= 0){
-		alert("Seleccione una duración estimada para la audiencia");
+		alert("Seleccione una duraci&oacute;n estimada para la audiencia");
 		return false;
 	}
 			
@@ -734,7 +734,7 @@ function guardarAudiencia(){
 				async:false,
 				dataType:'xml',
 				success:function(xml){					
-						alert("La programación de la audiencia se realizó de manera correcta");
+						alert("La programaci&oacute;n de la audiencia se realiz&oacute; de manera correcta");
 						/*
 						*recargamos el grid de audiencias para que la audiencia que se acaba de
 						*programar, no se muestre mas 
@@ -752,10 +752,10 @@ function guardarAudiencia(){
 		}
 		else{
 			if(multiselect==1){
-				alert('Seleccione únicamente un juez del listado');
+				alert('Seleccione &uacute;nicamente un juez del listado');
 			}
 			else{
-				alert('Seleccione únicamente '+multiselect+' jueces del listado');
+				alert('Seleccione &uacute;nicamente '+multiselect+' jueces del listado');
 			}
 		}
 	}
@@ -788,13 +788,13 @@ function guardarAudiencia(){
 						<td><input type="radio" name="radioProgramarAudienciaPJENS"
 							id="tipoAudienciaImputacionPJENS"
 							value="<%= TipoAudiencia.IMPUTACION.getValorId() %>" /></td>
-						<td>Imputación</td>
+						<td>Imputaci&oacute;n</td>
 					</tr>
 					<tr>
 						<td><input type="radio" name="radioProgramarAudienciaPJENS"
 							id="tipoAudienciaVinculacionPJENS"
 							value="<%= TipoAudiencia.VINCULACION.getValorId()%>" /></td>
-						<td>Vinculación</td>
+						<td>Vinculaci&oacute;n</td>
 					</tr>
 					<tr>
 						<td colspan="2">
@@ -823,7 +823,7 @@ function guardarAudiencia(){
 							id="tipoAudienciaControlPJENS"
 							value="<%= TipoAudiencia.INDIVIDUALIZACION_DE_SANCION.getValorId()%>" />
 						</td>
-						<td>Individualización de Sanción</td>
+						<td>Individualizaci&oacute;n de Sanci&oacute;n</td>
 					</tr>
 					<tr>
 						<td colspan="2">
@@ -846,7 +846,7 @@ function guardarAudiencia(){
 						<td><input type="radio" name="radioProgramarAudienciaPJENS"
 							id="tipoAudienciaControlPJENS"
 							value="<%= TipoAudiencia.VERIFICACION_SSP.getValorId()%>" /></td>
-						<td>Verificación SSP</td>
+						<td>Verificaci&oacute;n SSP</td>
 					</tr>
 					<tr>
 						<td><input type="radio" name="radioProgramarAudienciaPJENS"
@@ -858,7 +858,7 @@ function guardarAudiencia(){
 						<td><input type="radio" name="radioProgramarAudienciaPJENS"
 							id="tipoAudienciaControlPJENS"
 							value="<%= TipoAudiencia.VERIFICACION_MASC.getValorId()%>" /></td>
-						<td>Verificación MASC</td>
+						<td>Verificaci&oacute;n MASC</td>
 					</tr>
 					<tr>
 						<td colspan="2">
@@ -869,7 +869,7 @@ function guardarAudiencia(){
 						<td><input type="radio" name="radioProgramarAudienciaPJENS"
 							id="tipoAudienciaControlPJENS"
 							value="<%= TipoAudiencia.EJECUCION.getValorId()%>" /></td>
-						<td>Ejecución</td>
+						<td>Ejecuci&oacute;n</td>
 					</tr>
 					<tr>
 						<td colspan="2">
@@ -886,7 +886,7 @@ function guardarAudiencia(){
 						<td><input type="radio" name="radioProgramarAudienciaPJENS"
 							id="tipoAudienciaControlPJENS"
 							value="<%= TipoAudiencia.APREHENSION.getValorId()%>" /></td>
-						<td>Aprehensión</td>
+						<td>Aprehensi&oacute;n</td>
 					</tr>
 					<tr>
 						<td colspan="2">
@@ -993,7 +993,7 @@ function guardarAudiencia(){
 						<td>
 						<table width="100%">
 							<tr align="center">
-								<td align="right" valign="bottom"><strong>Duración:</strong>
+								<td align="right" valign="bottom"><strong>Duraci&oacute;n:</strong>
 								</td>
 								<td align="left" valign="bottom"><select
 									id="duracionEstimadaProgramarAudiencia" style="width: 170px;">

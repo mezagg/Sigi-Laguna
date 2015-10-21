@@ -41,10 +41,10 @@
 	}
 	
    </script>   	
-	<table border="0" summary="Consulta información de amparos">
+	<table border="0" summary="Consulta informaci&oacute;n de amparos">
 	  <tr>
 	    <td>
-			Asigncación de Permisos para la Audiencia #
+			Asigncaci&oacute;n de Permisos para la Audiencia #
 	    </td>
 	  </tr>
 	  <tr>

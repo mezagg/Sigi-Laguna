@@ -1,8 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Asignar Evidencia</title>
 	
 		<!--CSS DE LA PAGINA-->
@@ -115,7 +115,7 @@
 				
 				url:'<%= request.getContextPath()%>/consultarEvidenciasDeCadenaDeCustodia.do?folioCadenaCustodia='+folioCadenaCustodia+'&solicitudPericialId='+solicitudPericialId+'', 
 				datatype: "xml", 
-				colNames:['N&uacute;mero de Evidencia','Tipo de Objeto','Objeto','Descripci&oacute;n','Código de Barras','Nombre del Perito' ], 
+				colNames:['N&uacute;mero de Evidencia','Tipo de Objeto','Objeto','Descripci&oacute;n','C&oacute;digo de Barras','Nombre del Perito' ], 
 				colModel:[ 	
 							{name:'NumeroDeEvidencia',index:'numeroDeEvidencia', width:130},
 							{name:'TipoObjeto',index:'tipoObjeto', width:130},
@@ -208,7 +208,7 @@
 			jQuery("#gridPeritoAsignarEvidencias").jqGrid({ 
 				url:'<%= request.getContextPath()%>/consultarPeritosLibresDeEvidencia.do?folioCadenaCustodia='+idCadenaDeCustodia+'&solicitudPericialId='+solicitudPericialId+'', 
 				datatype: "xml", 
-				colNames:['Nombre','Especialidad','Institución' ], 
+				colNames:['Nombre','Especialidad','Instituci&oacute;n' ], 
 				colModel:[ 	{name:'Nombre',index:'nombre', width:250},
 				           	{name:'Especialidad',index:'especialidad', width:150},
 				           	{name:'Institucion',index:'institucion', width:150},
@@ -306,7 +306,7 @@
 	
 	<ul>
 		<li><a href="#tabsAsignarEvidencia-0">Solicitante</a></li>
-		<li><a href="#tabsAsignarEvidencia-1">Asignación de Evidencia</a></li>
+		<li><a href="#tabsAsignarEvidencia-1">Asignaci&oacute;n de Evidencia</a></li>
 		<li><a href="#tabsAsignarEvidencia-2">Dar Aviso A</a></li>
 	</ul>
 	
@@ -320,7 +320,7 @@
 		    <td width="50">&nbsp;</td>
 		  </tr>
 		  <tr>
-		    <td align="right"><strong>Nombre del Servidor Público:</strong></td>
+		    <td align="right"><strong>Nombre del Servidor P&uacute;blico:</strong></td>
 		    <td align="left"><input type="text" id="nombreUsuarioAsignarEvidencia" style="width:250px; border: 0; background:#DDD;" readonly="readonly"/></td>
 		    <td>&nbsp;</td>
 		  </tr>
@@ -330,12 +330,12 @@
 		    <td>&nbsp;</td>
 		  </tr>
 		  <tr>
-		    <td align="right"><strong>Área Administrativa:</strong></td>
+		    <td align="right"><strong>&Aacute;rea Administrativa:</strong></td>
 		    <td align="left"><input type="text" id="areaAdminAsignarEvidencia" style="width:250px; border: 0; background:#DDD;" readonly="readonly"/></td>
 		    <td>&nbsp;</td>
 		  </tr>
 		  <tr>
-		    <td align="right"><strong>Fecha Elaboración:</strong></td>
+		    <td align="right"><strong>Fecha Elaboraci&oacute;n:</strong></td>
 		    <td align="left"><input type="text" id="fechaElaboracionAsignarEvidencia" style="width:250px; border: 0; background:#DDD;" readonly="readonly"/></td>
 		    <td>&nbsp;</td>
 		  </tr>

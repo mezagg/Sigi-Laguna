@@ -4,13 +4,13 @@
 <%@page import="mx.gob.segob.nsjp.comun.constants.ConstantesGenerales"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.actividad.ActividadesRS"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.solicitud.TiposSolicitudes"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Elaborar Solicitud</title>
 	
 	<!--		Hojas de estilos asociadas-->
@@ -246,7 +246,7 @@
 		*para que se imprima con formato PDF
 		*/
 		function crearPdf(){
-			customConfirm("¿Est\u00E1 seguro que quiere guardarlo definitivamente?", "Aviso", aceptarGuardar); 
+			customConfirm("&iquest;Est\u00E1 seguro que quiere guardarlo definitivamente?", "Aviso", aceptarGuardar); 
 		}
 		
 		function aceptarGuardar(){
@@ -256,7 +256,7 @@
 			}
 	
 			if(validadDatosSolicitud() == 1){
-				//mostramos los divs en el padre de la pestaña de Acciones.
+				//mostramos los divs en el padre de la pesta&ntilde;a de Acciones.
 				//try{window.parent.muestraDIVSCanalizacion();}catch(e){}
 			}
 		}
@@ -455,7 +455,7 @@
 		    	async: false,
 		    	dataType: 'xml',
 		    	success: function(xml){
-					//INICIA: FIX PARA QUE SOLO MUESTRE LA INSTITUCIÓN DEL USUARIO
+					//INICIA: FIX PARA QUE SOLO MUESTRE LA INSTITUCI&Oacute;N DEL USUARIO
 					if(esExterno) {
 						$('#instituciones').append( '<option value="-1">-Seleccione-</option>');
 					}
@@ -477,7 +477,7 @@
 						<% } %>
 					});
 					enSeleccionInstitucion();
-					//TERMINA: FIX PARA QUE SOLO MUESTRE LA INSTITUCIÓN DEL USUARIO
+					//TERMINA: FIX PARA QUE SOLO MUESTRE LA INSTITUCI&Oacute;N DEL USUARIO
 				
 		    	  }
 		    });
@@ -616,7 +616,7 @@
 			jQuery("#gridUsuariosExt").jqGrid({
 				datatype: "local",
 				height: 110,
-				colNames:['ID','Nombre','Puesto', 'Correo','Principal','Copia','Dirección'],
+				colNames:['ID','Nombre','Puesto', 'Correo','Principal','Copia','Direcci&oacute;n'],
 				colModel:[	
 						  {name:'id',index:'id', width:60, sorttype:"int",hidden:true},
 				          {name:'nombre',index:'nombre', width:200},
@@ -1035,7 +1035,7 @@
 						<li id="guardadoParcialNarrativa" class="first">Guardado Parcial</li>
 						<li id="imprimirNarraTiva"><span></span>Guardado Definitivo</li>
 						<li id="vistaPreliminar"><span></span>Vista Preliminar</li>
-						<li id="seccionCbxTamanioPapel"><span></span>Tamaño de Papel
+						<li id="seccionCbxTamanioPapel"><span></span>Tama&ntilde;o de Papel
 							<select name="cbxTamanioPapel" id="cbxTamanioPapel" onchange="recuperarTamanioPapel()" style=" border:0; background-color:#EEEEEE;">
 		    				</select>
 		    			</li>
@@ -1190,7 +1190,7 @@
 	        <td><input type="text" size="20px" id="correo"/></td>
           </tr>
             <tr>
-	        <td width="133">Dirección:</td>
+	        <td width="133">Direcci&oacute;n:</td>
 	        <td width="314"><textarea id="direccion" COLS=45 ROWS=2></textarea></td>
           </tr>
 

@@ -107,7 +107,7 @@
 	var solAsesoria =      "solAsesorias";
 	var solPJ =            "solicitudPoderJudicial";
 	var avisoDetencionId =   1; // AVISO DE PERSONA DETENIDA
-	var solAtTempranaId =    2; // SOLICITUD DEFENSOR ATENCIÓN TEMPRANA
+	var solAtTempranaId =    2; // SOLICITUD DEFENSOR ATENCI&Oacute;N TEMPRANA
 	var solAsesoriaId =      5; // ASESORIA LEGAL
 	var solPJId =            4; // SOLICITUD DE DEFENSOR PODER JUDICIAL
 	var avisoDesignacionId = 3; // AVISO DESIGNACION
@@ -195,7 +195,7 @@
 		$("#adesignaciones").click(gridRecibirDesignaciones);
 		//se agrega la funcionalidad para cargar grid de Avisos de personas detenidas
 		//$("#avisosDetencion").click(gridSolAvisosDetencion);
-		//click dinamico a pestaña
+		//click dinamico a pesta&ntilde;a
 		//$("#avisosDetencion").click();
 		//Consulta audiencias programadas
 		$("#ligAudiencia").click(gridAudiencias);
@@ -605,7 +605,7 @@
 	 function reasignarDefensor(){
 		 var selrow = jQuery("#gridExpedientesSubordinados").jqGrid('getGridParam','selrow');
 		 if(selrow != undefined && selrow != null){
-			 var confir = confirm("¿Desea reasignar defensor?");
+			 var confir = confirm("&iquest;Desea reasignar defensor?");
 			 var param = "idExpediente="+selrow;	
 			 if(confir){
 			   	$.ajax({
@@ -801,7 +801,7 @@
 			jQuery("#gridSolicitudesPericialesNoAtendidas").jqGrid({ 
 				url:'<%= request.getContextPath()%>/consultarSolicitudesPericialesNoAtendidas.do?tipoSolicitud=<%=TiposSolicitudes.DICTAMEN.getValorId()%>&area=2', 
 				datatype: "xml", 
-				colNames:['Folio','Número de Caso','Número de Expediente','Nombre del Solicitante','Especialidad de Perito','Fecha Límite','Fecha Solicitud' ], 
+				colNames:['Folio','N&uacute;mero de Caso','N&uacute;mero de Expediente','Nombre del Solicitante','Especialidad de Perito','Fecha L&iacute;mite','Fecha Solicitud' ], 
 				colModel:[ 	{name:'Folio',index:'1', width:130},
 							{name:'NumeroCaso',index:'2', width:200},
 				           	{name:'NumeroExpediente',index:'3', width:200},
@@ -846,7 +846,7 @@
 			jQuery("#gridEvidenciasNuevas").jqGrid({ 
 				url:'<%= request.getContextPath()%>/solicitudEvidenciasPorEstatus.do?estatus=1&areaSolicitante=1', 
 				datatype: "xml", 
-				colNames:['Folio','Número de caso','Número de expediente','Cadena de custodia','Número de evidencia','Nombre del solicitante','Fecha límite','Perito responsable','Acuse' ], 
+				colNames:['Folio','N&uacute;mero de caso','N&uacute;mero de expediente','Cadena de custodia','N&uacute;mero de evidencia','Nombre del solicitante','Fecha l&iacute;mite','Perito responsable','Acuse' ], 
 				colModel:[ 	{name:'Folio',index:'1', width:130},
 							{name:'NumeroCaso',index:'2', width:150},
 				           	{name:'NumeroExpediente',index:'3', width:150},
@@ -892,7 +892,7 @@
 			jQuery("#gridEvidenciasPendientes").jqGrid({ 
 				url:'<%= request.getContextPath()%>/solicitudEvidenciasPorEstatus.do?estatus=2&areaSolicitante=1', 
 				datatype: "xml", 
-				colNames:['Folio','Número de caso','Número de expediente','Cadena de custodia','Número de evidencia','Nombre del solicitante','Fecha límite','Fecha ultima de modificación' ], 
+				colNames:['Folio','N&uacute;mero de caso','N&uacute;mero de expediente','Cadena de custodia','N&uacute;mero de evidencia','Nombre del solicitante','Fecha l&iacute;mite','Fecha ultima de modificaci&oacute;n' ], 
 				colModel:[ 	{name:'Folio',index:'1', width:130},
 							{name:'NumeroCaso',index:'2', width:150},
 				           	{name:'NumeroExpediente',index:'3', width:150},
@@ -937,7 +937,7 @@
 			jQuery("#gridEvidenciasConcluidas").jqGrid({ 
 				url:'<%= request.getContextPath()%>/solicitudEvidenciasPorEstatus.do?estatus=3&areaSolicitante=1', 
 				datatype: "xml", 
-				colNames:['Folio','Número de caso','Número de expediente','Cadena de custodia','Número de evidencia','Nombre del solicitante','Perito responsable','Fecha inicio de préstamo','Fecha fin de préstamo','Fecha de cierre' ], 
+				colNames:['Folio','N&uacute;mero de caso','N&uacute;mero de expediente','Cadena de custodia','N&uacute;mero de evidencia','Nombre del solicitante','Perito responsable','Fecha inicio de pr&eacute;stamo','Fecha fin de pr&eacute;stamo','Fecha de cierre' ], 
 				colModel:[ 	{name:'Folio',index:'1', width:130},
 							{name:'NumeroCaso',index:'2', width:150},
 				           	{name:'NumeroExpediente',index:'3', width:150},
@@ -983,7 +983,7 @@
 			jQuery("#gridSolicitudesPericialesEnProceso").jqGrid({ 
 				url:'<%= request.getContextPath()%>/consultarSolicitudesPericialesEnProceso.do?tipoSolicitud=<%=TiposSolicitudes.DICTAMEN.getValorId()%>&area=2', 
 				datatype: "xml", 
-				colNames:['Folio','Número de Caso','Número de Expediente','Nombre del Solicitante','Especialidad de Perito','Fecha Límite','Fecha Última Modificación','Fecha Solicitud' ], 
+				colNames:['Folio','N&uacute;mero de Caso','N&uacute;mero de Expediente','Nombre del Solicitante','Especialidad de Perito','Fecha L&iacute;mite','Fecha &Uacute;ltima Modificaci&oacute;n','Fecha Solicitud' ], 
 				colModel:[ 	{name:'Folio',index:'1', width:130},
 							{name:'NumeroCaso',index:'2', width:200},
 				           	{name:'NumeroExpediente',index:'3', width:200},
@@ -1031,7 +1031,7 @@
 			jQuery("#gridSolicitudesPericialesTerminadas").jqGrid({ 
 				url:'<%= request.getContextPath()%>/consultarSolicitudesPericialesTerminadas.do?tipoSolicitud=<%=TiposSolicitudes.DICTAMEN.getValorId()%>&area=2', 
 				datatype: "xml", 
-				colNames:['Folio','Número de Caso','Número de Expediente','Nombre del Solicitante','Especialidad de Perito','Fecha Límite','Fecha Cierre','Fecha Solicitud' ], 
+				colNames:['Folio','N&uacute;mero de Caso','N&uacute;mero de Expediente','Nombre del Solicitante','Especialidad de Perito','Fecha L&iacute;mite','Fecha Cierre','Fecha Solicitud' ], 
 				colModel:[ 	{name:'Folio',index:'1', width:130},
 							{name:'NumeroCaso',index:'2', width:200},
 				           	{name:'NumeroExpediente',index:'3', width:200},
@@ -1254,7 +1254,7 @@
 			jQuery("#gridDetalleSolAvisosDetencion").jqGrid({ 
 				url:'<%= request.getContextPath()%>/SolicitudesNoAtendidas.do', 
 				datatype: "xml", 
-				colNames:['Folio','Caso','Imputado:','Delito(s)','<bean:message key="agencia"/>','Fecha-Hora de detención','Fecha-Hora de aviso'], 
+				colNames:['Folio','Caso','Imputado:','Delito(s)','<bean:message key="agencia"/>','Fecha-Hora de detenci&oacute;n','Fecha-Hora de aviso'], 
 				colModel:[ 	{name:'folio',index:'2008', width:150, align:"center"},
 				           	{name:'caso',index:'2002', width:180, align:"center"},
 				           	{name:'imputado',index:'2009', width:150},
@@ -1279,7 +1279,7 @@
 					//cargaIdSolicitud(rowid);
 					//varIdNumExp=ret.numeroExpedienteId;
 					numeroCaso=ret.caso;
-					alertDinamicoDosBotones("¿Desea dar seguimiento al aviso de detención?", avisoDetencion);	
+					alertDinamicoDosBotones("&iquest;Desea dar seguimiento al aviso de detenci&oacute;n?", avisoDetencion);	
 					//activaConfirm(avisoDetencion);
 				}
 				
@@ -1464,7 +1464,7 @@
 			var titulo="Exp: ";
 			
 			if(tipo==8){
-				titulo="Asesoría: ";
+				titulo="Asesor&iacute;a: ";
 				}
 			$.newWindow({id:"iframewindowAsignaAtencionAbogado", statusBar: true, posx:50,posy:50,width:1000,height:400,title:titulo+exp, type:"iframe"});
 		    $.updateWindowContent("iframewindowAsignaAtencionAbogado",'<iframe src="<%= request.getContextPath() %>/asignaAtencionAbogado.do'+params+'" width="1000" height="400" />');
@@ -1473,7 +1473,7 @@
 		
 	function mostrarDetalleAsignacion(tipoSolicitud, numeroCaso, numeroExpedienteSt, idDocumento, idNumeroExpediente, asignarDefensor, prefijoVentana, solicitudDefensorId) {
 		// Checar xq siempre le asigna el tipo de solicitud = 3, 
-		// se uniformó los tipos de solicitud, pero al invocar el visor no muestra
+		// se uniform&oacute; los tipos de solicitud, pero al invocar el visor no muestra
 		// el detalle en algunos casos, si se cambia el tipo de solicitud
 		tipoSolicitud=avisoDesignacionId;
 		var params = "?tipoSolicitud="+tipoSolicitud;
@@ -1531,7 +1531,7 @@
 			ondblClickRow: function(rowid) {
 				cargaIdSolicitud(rowid.split("-")[0]);
 				cargaExpediente(rowid.split("-")[1]);
-				alertDinamicoDosBotones("¿Desea dar seguimiento a la solicitud de asesoría?", solAsesoria);	
+				alertDinamicoDosBotones("&iquest;Desea dar seguimiento a la solicitud de asesor&iacute;a?", solAsesoria);	
 				//activaConfirm(solAsesoria);				
 			}			
 		}).navGrid('#pagGridAsesorias',{edit:false,add:false,del:false});
@@ -1544,7 +1544,7 @@
 			jQuery("#divGridSolicitudAtencionTempranaGrid").jqGrid({ 
 				url:'<%= request.getContextPath()%>/SolicitudesNoAtendidasAtencionTemprana.do', 
 				datatype: "xml", 
-				colNames:['Folio de Solicitud','Caso','Expediente','Para Quien se Sólicita: ','Detenido','Fecha y Hora de Solicitud'], 
+				colNames:['Folio de Solicitud','Caso','Expediente','Para Quien se S&oacute;licita: ','Detenido','Fecha y Hora de Solicitud'], 
 				colModel:[ 	{name:'Folio de Solicitud',index:'2013', width:185,align:"center"},
 				           	{name:'Caso',index:'2002', width:165,align:"center"},
 				           	{name:'Expediente',index:'2003', width:185,align:"center"},
@@ -1566,7 +1566,7 @@
 					cargaExpediente(rowid.split("-")[1]);
 					var ret = $("#divGridSolicitudAtencionTempranaGrid").jqGrid('getRowData',rowid);
 					numeroCaso = ret.Caso;
-					alertDinamicoDosBotones("¿Desea dar seguimiento a la solicitud de Atención Temprana?", solAtTemprana);	
+					alertDinamicoDosBotones("&iquest;Desea dar seguimiento a la solicitud de Atenci&oacute;n Temprana?", solAtTemprana);	
 					//activaConfirm(solAtTemprana);
 				}
 				
@@ -1606,7 +1606,7 @@
 					//cargaExpediente(rowid.split("-")[1]);
 					var ret = $("#gridSolicitudPoderJudicial").jqGrid('getRowData',rowid);
 					numeroCaso = ret.caso;
-					alertDinamicoDosBotones("¿Desea dar seguimiento a la solicitud de Poder Judicial?", solPJ);	
+					alertDinamicoDosBotones("&iquest;Desea dar seguimiento a la solicitud de Poder Judicial?", solPJ);	
 					//activaConfirm(solPJ);
 				}
 				
@@ -1909,7 +1909,7 @@
 							&& $(respuesta).find('body').text() != ""){
 					//1)
 					if($(respuesta).find('body').text() == CONFIRMAR_SEGUIMIENTO){
-						customConfirm("¿Desea dar seguimiento a la solicitud?","Seguimiento a solicitudes",function(){
+						customConfirm("&iquest;Desea dar seguimiento a la solicitud?","Seguimiento a solicitudes",function(){
 							//Aceptar
 							atenderSolicitudDefensor(solicitudDefensorId,idInstitucion,estatusSolicitud);
 						},function(){
@@ -1956,7 +1956,7 @@
 						cargaGridSolicitudesDefensor(idInstitucion,estatusSolicitud);
 					}else{
 						//La solicitud ya cuenta con un defensor asignado
-						customConfirm("¿Desea ver el detalle?",$(respuesta).find('body').text(),function(){
+						customConfirm("&iquest;Desea ver el detalle?",$(respuesta).find('body').text(),function(){
 								//Aceptar
 								abrirVisorDefensoria(solicitudDefensorId,idInstitucion,estatusSolicitud,null,null,null);
 							},function(){
@@ -2097,7 +2097,7 @@
 		 
 		 if(numeroExpedienteId != undefined && numeroExpedienteId != null){
 			//La solicitud ya cuenta con un defensor asignado
-				customConfirm("¿Desea reasignar defensor?","",function(){
+				customConfirm("&iquest;Desea reasignar defensor?","",function(){
 						//Aceptar
 						abrirVisorDefensoria(null,null,null,numeroExpedienteId,true,idDefensorActual);
 					},function(){
@@ -2200,7 +2200,7 @@
 							<!--<ul id="atTemprana">-->
 							<!--</ul>-->
 							<!--</li>	-->
-							<!--<li class="closed" ><span id="asesorias" class="folder" >Asesorías</span>-->
+							<!--<li class="closed" ><span id="asesorias" class="folder" >Asesor&iacute;as</span>-->
 								<!--<ul>-->
 								<!--</ul>-->
 							<!--</li>-->
@@ -2291,7 +2291,7 @@
 					</div>
 					
 			<!--Tab de reportes y graficas-->
-<!-- 			<h3 ><a id="" href="#" onclick="generaVisorGraficaView()"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png"  width="15" height="15">Gráficas y Reportes</a></h3>
+<!-- 			<h3 ><a id="" href="#" onclick="generaVisorGraficaView()"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png"  width="15" height="15">Gr&aacute;ficas y Reportes</a></h3>
 				<div>		
 					<input type="button" value="Ver Grafica" id="imageViewer" name="imageViewer"/>	
 					<ul id="seccion3treePJENC" class="filetree">
@@ -2351,7 +2351,7 @@
 					</ul>-->	
 				</div>
 			
-			<!--Tab Consultar leyes y códigos-->
+			<!--Tab Consultar leyes y c&oacute;digos-->
 			<h6><a href="#" id="" onclick="visorLeyesCodigos()">Consultar Leyes y C&oacute;digos</a></h6>
 				<div>
 					<!--  <table width="100%" border="0" bordercolor="#FFFFFF" cellspacing="0" cellpadding="0" bgcolor="#EEEEEE" bordercolorlight="#FFFFFF" style="cursor:pointer">
@@ -2638,7 +2638,7 @@
 	
 	<div id="dialog-logout" title="Cerrar Sesi&oacute;n">
 		<p align="center">
-			<span id="logout">¿Desea cerrar su sesi&oacute;n?</span>
+			<span id="logout">&iquest;Desea cerrar su sesi&oacute;n?</span>
 		</p>
 	</div>
 	
@@ -2654,11 +2654,11 @@
 		<p align="center">
 			<table border="0">
 				<tr>
-					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contraseña para desbloquear.</td>
+					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contrase&ntilde;a para desbloquear.</td>
 					
 				</tr>
 				<tr>
-					<td align="right"><label style="color:#4A5C68">Contraseña:</label></td>
+					<td align="right"><label style="color:#4A5C68">Contrase&ntilde;a:</label></td>
 					<td><input type="password" name="password" id="password" value="" maxlength="15" size="20"></td>
 				</tr>
 				<tr id="captchaJPG" >
@@ -2687,7 +2687,7 @@
 				La sesi&oacute;n se cerrar&aacute; en <span id="dialog-countdown" style="font-weight:bold"></span> segundos.
 			</p>
 
-			<p>¿Desea continuar con la sesi&oacute;n?</p>
+			<p>&iquest;Desea continuar con la sesi&oacute;n?</p>
 	</div>
 	
 	<div id="dialog-alarmPos" title="Alarma ">

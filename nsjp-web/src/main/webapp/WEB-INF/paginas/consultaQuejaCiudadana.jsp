@@ -2,12 +2,12 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.actividad.Actividades"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.forma.Formas"%>
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Queja Ciudadana</title>
 
 <link rel="stylesheet" type="text/css" media="screen"
@@ -151,7 +151,7 @@
 	function validaExpediente(numExpediente){
 		if(numExpediente.length < 7){
 			$("#cQNumExpedienteComparaBoton").attr("disabled",true);	
-			$("#cQNumExpedienteExiste").val("Información insuficiente para validar");
+			$("#cQNumExpedienteExiste").val("Informaci&oacute;n insuficiente para validar");
 		}
 	}
 
@@ -250,7 +250,7 @@
 		});
 	}
 
-	//Función para alertDinamicoCerrar
+	//Funci&oacute;n para alertDinamicoCerrar
 	function alertDinamicoCerrar(textoAlert){						
 		$("#divAlertTextoCerrar").html(textoAlert);
 	    $( "#dialog-AlertCerrar" ).dialog({
@@ -287,7 +287,7 @@
 		 if(formaId == <%=Formas.RESPUESTA_CIUDADANA.getValorId()%>){
 			 titulo = "Generar Respuesta al Ciudadano";
 		 }else if(formaId == <%=Formas.OFICIO_SANCION_ADMINISTRATIVA.getValorId()%>){
-			 titulo = "Sansión Administrativa";
+			 titulo = "Sansi&oacute;n Administrativa";
 		 }
 		 var numExpediente="";
 		 $.newWindow({id:"iframewindowGenerarDocumento", statusBar: true, posx:200,posy:50,width:1140,height:400,title:titulo, type:"iframe", confirmarCierreVentana:true});
@@ -322,7 +322,7 @@
 		<div id="tabsPrincipal">
 		<ul>
 			<li><a href="#tabsconsultaprincipal-1">Datos de la Queja</a></li>
-			<li><a href="#tabsconsultaprincipal-3">Confirmación de Datos</a></li>
+			<li><a href="#tabsconsultaprincipal-3">Confirmaci&oacute;n de Datos</a></li>
 			<li><a href="#tabsconsultaprincipal-4">Actuaciones</a></li>
 		</ul>
 		<div id="tabsconsultaprincipal-1">
@@ -373,7 +373,7 @@
 				<td><input type="text" id="cQNomInvolucradoExiste" size="30"/></td>
 			</tr>
 			<tr align="right">
-				<td>Número de Expediente:</td>
+				<td>N&uacute;mero de Expediente:</td>
 				<td><input type="text" id="cQNumExpedienteCompara" /></td>
 				<td><input type="button"
 					id="cQNumExpedienteComparaBoton" value="Validar Expediente"

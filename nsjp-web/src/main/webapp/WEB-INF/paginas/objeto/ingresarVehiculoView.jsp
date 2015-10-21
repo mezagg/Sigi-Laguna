@@ -1,5 +1,5 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.elemento.TipoElemento"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="mx.gob.segob.nsjp.dto.usuario.UsuarioDTO"%>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.configuracion.Parametros"%>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.seguridad.Roles" %>
@@ -11,7 +11,7 @@
 <html>
 <head>
 
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	
 	<title>Ingresar veh&iacute;culo</title>
 
@@ -586,8 +586,8 @@
 			}
 		});
 		
-		// 4710 - Corresponde al campo Tipo que tiene el valor "Otro", este no cambia en las BDs, se maneja así,
-		// ya que no hay un enum pero dicho catálogo.
+		// 4710 - Corresponde al campo Tipo que tiene el valor "Otro", este no cambia en las BDs, se maneja as&iacute;,
+		// ya que no hay un enum pero dicho cat&aacute;logo.
 		if($("#cbxTipoVehiculo option:selected").val()=="4710"){
 			$('#cbxMarcaVehiculo').find("option[value='"+'-1'+"']").attr("selected","selected");
 			$('#cbxSubMarcaVehiculo').find("option[value='"+'-1'+"']").attr("selected","selected");
@@ -873,18 +873,18 @@
 				  //Se ha agregado nuevo elemento
 				  if(idVehiculo==0 && id==0)
 				  {
-					  window.parent.customAlert("Favor de revisar la información capturada");
+					  window.parent.customAlert("Favor de revisar la informaci&oacute;n capturada");
 				  }
 				  else if(idVehiculo==0 && id>0)
 				  {
 					  					  
 					  //Desde asentarRegCadenaCustodiaView.jsp 
 					  if(parseInt( ocultaAnularObjetoCadCus ) == 1){
-						  customAlert("Se guardó correctamente la información");
+						  customAlert("Se guard&oacute; correctamente la informaci&oacute;n");
 						  regresarControlCadenaCustodia();
 					  }else //Desde el ingresarMenuIntermedio.jsp
 					  {
-						  window.parent.customAlert('Se guardó correctamente la información', '',regresarControl(id,tipoVehiculo,placas) );
+						  window.parent.customAlert('Se guard&oacute; correctamente la informaci&oacute;n', '',regresarControl(id,tipoVehiculo,placas) );
 					  }
 				  }
 				  else  //Actualizacion del elemento - solo desde el ingresarMenuIntermedio.jsp 
@@ -892,10 +892,10 @@
 					  //Desde asentarRegCadenaCustodiaView.jsp 
 					  if(parseInt( ocultaAnularObjetoCadCus ) == 1){
 						  regresarControlCadenaCustodiaActualizacion();
-						  customAlert("La información se actualizó correctamente");
+						  customAlert("La informaci&oacute;n se actualiz&oacute; correctamente");
 					  }else //Desde el ingresarMenuIntermedio.jsp
 					  {
-						  window.parent.customAlert('La información se actualizó correctamente', '',regresarControl(id,tipoVehiculo,placas) );
+						  window.parent.customAlert('La informaci&oacute;n se actualiz&oacute; correctamente', '',regresarControl(id,tipoVehiculo,placas) );
 					  }
 				  }
 				  
@@ -1016,7 +1016,7 @@
 		if(idVehiculo!=null && idVehiculo!=0)
 		{
 			//procederemos a tratar de eliminar la evidencia
-			customConfirm ("¿Está seguro que desea anular el objeto?", "", validarObjEvdncNoEslbns);
+			customConfirm ("&iquest;Est&aacute; seguro que desea anular el objeto?", "", validarObjEvdncNoEslbns);
 		}
 	}
 	
@@ -1038,7 +1038,7 @@
 				if(parseInt($(xml).find('bandera').text())==1)
 				{
 					//debemos mostrar un confirm
-					customConfirm ("El objeto es ya una evidencia en alguna cadena de custodia <br/> ¿Está seguro que desea anular el objeto?", "", anularObjeto);
+					customConfirm ("El objeto es ya una evidencia en alguna cadena de custodia <br/> &iquest;Est&aacute; seguro que desea anular el objeto?", "", anularObjeto);
 				}
 				else if(parseInt($(xml).find('bandera').text())==2)
 				{
@@ -1125,7 +1125,7 @@
       							<option value="-1">-Seleccione-</option>
     						</select>
     		</td>
-    		<td width="40%" rowspan="6" align="right">Descripción:<br>
+    		<td width="40%" rowspan="6" align="right">Descripci&oacute;n:<br>
   <textarea name="txtBoxDescVehiculo" cols="25" rows="9" id="txtBoxDescVehiculo" maxlength="199" ></textarea></td>
 	    </tr> 
   		<tr height="6.25%">

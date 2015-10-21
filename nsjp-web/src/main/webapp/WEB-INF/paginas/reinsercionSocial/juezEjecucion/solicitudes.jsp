@@ -2,7 +2,7 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.solicitud.TiposSolicitudes"%>
 <%@page import="mx.gob.segob.nsjp.web.reinsercionsocial.action.DatosGeneralesReinsercionAction"%>
 <%@ page contentType="text/html"%>
-<%@ page pageEncoding="ISO-8859-1"%>
+<%@ page pageEncoding="UTF-8"%>
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
@@ -33,7 +33,7 @@ var estatusConsulta = "";
 
 $(document).ready(
 	function() {
-			// SE oculta la pestaña de actuaciones
+			// SE oculta la pesta&ntilde;a de actuaciones
 // 			$('#liActuacionesRS').hide();
 			
 			$("#menuSolicitudes").jstree({ 
@@ -68,7 +68,7 @@ function cargaGridSolsXAtndr(tipoSolicitud, estatus) {
 				tipoConsulta: "<%=SolicitudDTO.POR_ATENDER%>"
 			},
 			datatype: "xml", 
-			colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creación','Fecha Limite','Institución Destinatario','Destinatario', 'IdExpediente', 'Nombre Del Documento','Instituci&oacute;n', 'Remitente', 'Tipo de Documento'], 
+			colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creaci&oacute;n','Fecha Limite','Instituci&oacute;n Destinatario','Destinatario', 'IdExpediente', 'Nombre Del Documento','Instituci&oacute;n', 'Remitente', 'Tipo de Documento'], 
 			colModel:[ 	{name:'caso',index:'caso', width:150, hidden:true},
 			           	{name:'expediente',index:'expediente', width:180,align:'center', hidden:true}, 
 						{name:'folio',index:'folio', width:110,align:'center'}, 

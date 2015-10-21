@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@page import="mx.gob.segob.nsjp.dto.usuario.UsuarioDTO"%>
 <%@page import="mx.gob.segob.nsjp.dto.funcionario.FuncionarioDTO"%>
-
+<%@page pageEncoding="UTF-8"%>
 <html>
 
 <head>
@@ -42,8 +42,8 @@ body {
 	
 	//valida campos para hacer el registro del usuario del sistema
 	
-	// Se renombra función por conflictos al realizar el include, ya existe
-	// una método con este nombre, truena al hacer referencia en el include,
+	// Se renombra funci&oacute;n por conflictos al realizar el include, ya existe
+	// una m&eacute;todo con este nombre, truena al hacer referencia en el include,
 	//favor de checar darDeAltaUsuarioEnSistema
 	function validaCamposUpdatePwd()
 	{
@@ -54,19 +54,19 @@ body {
 		{
 			if($("#newPassword").val()!= $("#reNewPassword").val()) 
 			{
-				customAlert("La contraseña debe ser igual en los dos campos, favor de verificar");  
+				customAlert("La contrase&ntilde;a debe ser igual en los dos campos, favor de verificar");  
 		    }
 			else
 			{
 				if($("#newPassword").val().length < 5) 
 				{  
-				   customAlert("La contraseña debe tener como mínimo 5 caracteres");  
+				   customAlert("La contrase&ntilde;a debe tener como m&iacute;nimo 5 caracteres");  
 			    }
 				else
 				{
 					if($("#newPassword").val()!= $("#reNewPassword").val()) 
 					{  
-				  	   customAlert("La contraseña debe ser igual");  
+				  	   customAlert("La contrase&ntilde;a debe ser igual");  
 			        }
 					else
 					{
@@ -91,16 +91,16 @@ body {
 									{
 										if(parseInt(exito)==1)
 										{
-											customAlert("Se modificó correctamente la contraseña","",cancelarUpdatePwd);
+											customAlert("Se modific&oacute; correctamente la contrase&ntilde;a","",cancelarUpdatePwd);
 										}
 										else{
-											customAlert("La contraseña original es incorrecta, favor de verificar");
+											customAlert("La contrase&ntilde;a original es incorrecta, favor de verificar");
 										}
 											
 									}else{
 										if(parseInt(error)==1)
 										{
-			 								customAlert("Ocurrió un error al modificar la contraseña");
+			 								customAlert("Ocurri&oacute; un error al modificar la contrase&ntilde;a");
 			 							}else{
 			 								customAlert("Favor de registrar todos los campos solicitados, gracias");
 			 							}
@@ -116,14 +116,14 @@ body {
 		 }
 	}
 	
-//funcion validadora de contraseña. Regresa verdadero si cumple con requisitos o falso si no cumple
+//funcion validadora de contrase&ntilde;a. Regresa verdadero si cumple con requisitos o falso si no cumple
 function isContraseniaUpdate(theElement){
 	var s = theElement;
 	var resp = false;
 	var mPsw1=/^[A-Za-z0-9!@#$%^&*()_]{5,20}$/;
 	//Valida que tenga letras
 	var mPsw2=/[A-Za-z]/;
-	//Valida que tenga números
+	//Valida que tenga n&uacute;meros
 	var mPsw3=/[0-9]/;
 	
 	if (mPsw1.test(s))
@@ -136,17 +136,17 @@ function isContraseniaUpdate(theElement){
 			}
 			else
 			{
-				customAlert("La contraseña debe tener al menos un número, favor de verificar");
+				customAlert("La contrase&ntilde;a debe tener al menos un n&uacute;mero, favor de verificar");
 			}
 		}
 		else
 		{
-			customAlert("La contraseña debe tener al menos una letra, favor de verificar");
+			customAlert("La contrase&ntilde;a debe tener al menos una letra, favor de verificar");
 		}
 	}
 	else
 	{
-		customAlert("La contraseña debe tener como mínimo 5 y máximo 20 caracteres, favor de verificar");
+		customAlert("La contrase&ntilde;a debe tener como m&iacute;nimo 5 y m&aacute;ximo 20 caracteres, favor de verificar");
 	}
 	
 	return resp;
@@ -176,7 +176,7 @@ function isContraseniaUpdate(theElement){
 		//return bandera;
 		bandera=true;
 		if (bandera==false){
-			customAlert('Contraseña incorrecta, favor de verificar');
+			customAlert('Contrase&ntilde;a incorrecta, favor de verificar');
 		}
 		return bandera;
 	}
@@ -224,17 +224,17 @@ function isContraseniaUpdate(theElement){
 			readonly="readonly" /></td>
 	</tr>
 	<tr>
-		<td align="center" width="50%">Contraseña anterior :</td>
+		<td align="center" width="50%">Contrase&ntilde;a anterior :</td>
 		<td align="center" width="50%"><input type="password"
 			name="oldPassword" width="90%" maxlength="20" id="oldPassword" /></td>
 	</tr>
 	<tr>
-		<td align="center" width="50%">Nueva contraseña :</td>
+		<td align="center" width="50%">Nueva contrase&ntilde;a :</td>
 		<td align="center" width="50%"><input type="password"
 			name="newPassword" width="90%" maxlength="20" id="newPassword" /></td>
 	</tr>
 	<tr>
-		<td align="center" width="50%">Repetir contraseña :</td>
+		<td align="center" width="50%">Repetir contrase&ntilde;a :</td>
 		<td align="center" width="50%"><input type="password"
 			name="reNewPassword" width="90%" maxlength="20" id="reNewPassword" /></td>
 	</tr>

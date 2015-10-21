@@ -1,4 +1,4 @@
-<%@page language="java" contentType="text/html; charset=ISO-8859-1"	pageEncoding="ISO-8859-1"%>
+<%@page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@page import="mx.gob.segob.nsjp.dto.usuario.UsuarioDTO"%>
 <%@page import="mx.gob.segob.nsjp.dto.configuracion.ConfiguracionDTO"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.seguridad.Roles"%>
@@ -63,7 +63,7 @@
 			numeroExpediente='<%= request.getSession().getAttribute("numExpConsul")%>';
 		}
 
-		//Se comentan para optimizar el codigo y solo se llamaran cuando de click en la pestania "Relacionar Información del Expediente" del menu intermedio
+		//Se comentan para optimizar el codigo y solo se llamaran cuando de click en la pestania "Relacionar Informaci&oacute;n del Expediente" del menu intermedio
 		//cargaCatalogosDeCategoriasDeRelacion();
 		//cargarRelacionesRegistradas();
 		
@@ -87,7 +87,7 @@
 			jQuery("#tablaRelacionesDeElemento").jqGrid({
 				url:'<%=request.getContextPath()%>/consultarRelacionesXExpediente.do?numeroExpediente='+ numeroExpediente + '', 
 				datatype: "xml",  							
-				colNames:['Categoría de relación','Tipo relación','Elemento 1','Elemento 2'], 
+				colNames:['Categor&iacute;a de relaci&oacute;n','Tipo relaci&oacute;n','Elemento 1','Elemento 2'], 
 				colModel:[  {name:'catRel',index:'catRel', width:250},
 							{name:'tipoRel',index:'tipoRel', width:150},
 							{name:'elem1',index:'elem1', width:200}, 
@@ -273,7 +273,7 @@
 				}
 				else
 				{
-					alertDinamico("No hay los suficientes elementos para crear la relación");
+					alertDinamico("No hay los suficientes elementos para crear la relaci&oacute;n");
 				}
 			}
 			
@@ -288,7 +288,7 @@
 						success: function(xml){
 							cargarRelacionesRegistradas();
 							if(parseInt($(xml).find('code').text())==0){
-								alertDinamico("Se registr\u00F3 con éxito la relaci\u00F3n");
+								alertDinamico("Se registr\u00F3 con &eacute;xito la relaci\u00F3n");
 							}				    		
 				    		else{
 				    			alertDinamico("No se registr\u00F3 la relaci\u00F3n")
@@ -310,10 +310,10 @@
 						success: function(xml){
 							cargarRelacionesRegistradas();
 							if(parseInt($(xml).find('code').text())==0){
-								alertDinamico("Se anularon con éxito la(s) relaci\u00F3n(es)");							
+								alertDinamico("Se anularon con &eacute;xito la(s) relaci\u00F3n(es)");							
 							}				    		
 				    		else{
-				    			alertDinamico("No se anularon con éxito la(s) relaci\u00F3n(es)")
+				    			alertDinamico("No se anularon con &eacute;xito la(s) relaci\u00F3n(es)")
 				    		}							
 						}
 					});	
@@ -344,7 +344,7 @@
     	</td>
   	</tr>
   	<tr>
-    	<td align="right">Tipo de relación:</td>
+    	<td align="right">Tipo de relaci&oacute;n:</td>
     	<td>
     		<select name="cbxTipoRelacion" id="cbxTipoRelacion" onChange="cargaPrimerElemento();cargaSegundoElemento()">
       			<option value="-1" selected="selected">-Seleccione-</option>

@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
@@ -204,7 +204,7 @@
 
 
 	/**
-	 *Limpia todos los campos de esta página
+	 *Limpia todos los campos de esta p&aacute;gina
 	 */
 	function cleanDatosGenerales(){
 
@@ -383,7 +383,7 @@
 		<li><a href="#tabsconsultaprincipal-1">Ingresar C&eacute;dula de Investigaci&oacute;n </a></li>
 		<li><a href="#tabsconsultaprincipal-2">Asentar en Bit&aacute;cora</a></li>
 		<li><a href="#tabsconsultaprincipal-3">Generar Acuerdos de Defensa</a></li>
-		<!-- <li><a href="#tabsconsultaprincipal-4">Enviar Notificación</a></li> -->
+		<!-- <li><a href="#tabsconsultaprincipal-4">Enviar Notificaci&oacute;n</a></li> -->
 	</ul>
 	<div id="tabsconsultaprincipal-1">
 							

@@ -1,6 +1,6 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.solicitud.TiposSolicitudes"%>
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
   <head>
@@ -8,7 +8,7 @@
   	 <%@page import="mx.gob.segob.nsjp.dto.usuario.UsuarioDTO"%>
 	 <%@ page import="mx.gob.segob.nsjp.comun.enums.seguridad.Roles" %>
   
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Detalle solicitudes por atender UI</title>
 
     <!--	Hoja de estilo para los gadgets-->

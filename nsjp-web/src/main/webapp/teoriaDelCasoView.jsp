@@ -1,7 +1,7 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.documento.TipoOficioEstructurado"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.funcionario.TipoDefensoria"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -545,9 +545,9 @@ if(location.hostname.toLowerCase().indexOf('dhtmlgoodies') >=0) {
 	    		
 	    		/**
 	    		* valorRetorno = idDocumento + "," + cuerpoOficioEstructuradoId
-	    		* cuerpoOficioEstructuradoId reemplazará el segundo elemento del id del <li>
+	    		* cuerpoOficioEstructuradoId reemplazar&aacute; el segundo elemento del id del <li>
 	    		* del combobox box1 en caso de que ese elemento = -1
-	    		* indiceTexto != 0 cuando se ha seleccionado un índice teoría del caso
+	    		* indiceTexto != 0 cuando se ha seleccionado un &iacute;ndice teor&iacute;a del caso
 	    		**/
 	    		if(!(indiceTexto==0)){
 
@@ -561,8 +561,8 @@ if(location.hostname.toLowerCase().indexOf('dhtmlgoodies') >=0) {
 
 	  		  		/**
 	  		  		* indiceTexto apunta al id del <li> de consulta. El siguiente ciclo, 
-	  		  		* se utiliza para saber en que posición de box1 se encuentra
-	  		  		* k = posición de box1
+	  		  		* se utiliza para saber en que posici&oacute;n de box1 se encuentra
+	  		  		* k = posici&oacute;n de box1
 	  		  		**/
 	  		  	
 	  		  		var k=0;
@@ -571,10 +571,10 @@ if(location.hostname.toLowerCase().indexOf('dhtmlgoodies') >=0) {
 	    			}
 	    		
 	    			/**
-	    			* Sólo se remplaza el id que se asigno al elemento i del combobox
-	    			* si esté, en su conformación del segundo elemento tiene como valor
+	    			* S&oacute;lo se remplaza el id que se asigno al elemento i del combobox
+	    			* si est&eacute;, en su conformaci&oacute;n del segundo elemento tiene como valor
 	    			* asignado = -1 y el id del cuerpo del oficio estructurado != 0
-	    			* lis[k].id = el íesimo id del combobox box1
+	    			* lis[k].id = el &iacute;esimo id del combobox box1
 	    			* id = indiceEstructuradoIdHijo#cuerpoOficioEstructuradoId
 	    			**/
 	    		
@@ -591,7 +591,7 @@ if(location.hostname.toLowerCase().indexOf('dhtmlgoodies') >=0) {
 	    			}
 	    		}
 	    		
-	    		customAlert("Teoría del caso guardada");
+	    		customAlert("Teor&iacute;a del caso guardada");
 	    		
 	    	}
 		});		
@@ -738,14 +738,14 @@ if(location.hostname.toLowerCase().indexOf('dhtmlgoodies') >=0) {
 		</div>	
 		<div id="dhtmlgoodies_listOfItems">
 			<div>
-				<p>Índice Estructurado</p>
+				<p>&Iacute;ndice Estructurado</p>
 					<ul id="allItems"></ul>
 			</div>
 		</div>
 		<div id="dhtmlgoodies_mainContainer">
 			<!-- ONE <UL> for each "room" -->
 			<div>
-				<p>Índice teoría del caso</p>
+				<p>&Iacute;ndice teor&iacute;a del caso</p>
 				<ul id="box1"></ul>
 			</div>
 		</div>

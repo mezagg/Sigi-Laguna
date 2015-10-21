@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Tablero de Control</title>
 	
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css" />
@@ -111,7 +111,7 @@
         		default:
     				ejecutaDODinamico='<%= request.getContextPath()%>/graficaParaIndicador.do?tipoGraficaIndicador='+selectTipoGrafica+'&tiempoI='+tiempoInicial+'&tiempoF='+tiempoFinal+'&etiquetaAgencia='+etiquetaAgencia;
     		}
-    		//abrirGraficaView("Gráfica",ejecutaDODinamico);
+    		//abrirGraficaView("Gr&aacute;fica",ejecutaDODinamico);
         	$("#imagenGrafica").attr("src",ejecutaDODinamico);
     	}else{
         	customAlert("Selecciona un rango de fechas");
@@ -126,7 +126,7 @@
     	//TODO Revisar el resto de las graficas para hacer su respectivo Indicador
     	/* $('#selectTipoGrafica').append('<option value="1100">Gr&aacute;fica Avance de Investigaciones</option>');
     	$('#selectTipoGrafica').append('<option value="100">Gr&aacute;fica Denuncias VS Tipo Delito</option>');
-    	$('#selectTipoGrafica').append('<option value="200">Gr&aacute;fica Determinación VS Denuncia</option>');
+    	$('#selectTipoGrafica').append('<option value="200">Gr&aacute;fica Determinaci&oacute;n VS Denuncia</option>');
     	$('#selectTipoGrafica').append('<option value="300">Gr&aacute;fica Denuncias VS <bean:message key="plProbalbeResponsableTitulo"/> Detenidos</option>');
     	$('#selectTipoGrafica').append('<option value="400">Gr&aacute;fica Principales Delitos</option>');
     	$('#selectTipoGrafica').append('<option value="500">Gr&aacute;fica Denuncias Tiempo</option>');

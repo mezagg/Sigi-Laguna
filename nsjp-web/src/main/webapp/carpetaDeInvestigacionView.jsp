@@ -211,7 +211,7 @@
 			url:'local', 
 			datatype: "xml", 
 			autowidth: true,
-			colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creación','Fecha Limite','Institución','Remitente'], 
+			colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creaci&oacute;n','Fecha Limite','Instituci&oacute;n','Remitente'], 
 			colModel:[ 	{name:'caso',index:'caso', width:180,hidden:true},
 			           	{name:'expediente',index:'expediente', width:180}, 
 						{name:'folio',index:'folio', width:100}, 
@@ -237,7 +237,7 @@
 			url:'local', 
 			datatype: "xml", 
 			autowidth: true,
-			colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creación','Fecha Limite','Institución','Destinatario'], 
+			colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creaci&oacute;n','Fecha Limite','Instituci&oacute;n','Destinatario'], 
 			colModel:[ 	{name:'caso',index:'caso', width:180,hidden:true},
 			           	{name:'expediente',index:'expediente', width:180}, 
 						{name:'folio',index:'folio', width:100}, 
@@ -535,7 +535,7 @@
 		var pantallaSolicitada=3;
 		idWindowNuevaDenuncia++;
 		 var ingresoDenuncia = true;
-		$.newWindow({id:"iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia, statusBar: true, posx:0,posy:0,width:1430,height:670,title:"Carpeta de investigación: ", type:"iframe"});
+		$.newWindow({id:"iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia, statusBar: true, posx:0,posy:0,width:1430,height:670,title:"Carpeta de investigaci&oacute;n: ", type:"iframe"});
 		$.updateWindowContent("iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia,'<iframe src="<%= request.getContextPath() %>/BusquedaExpediente.do?abreenPenal=abrPenal&ingresoDenuncia='+ingresoDenuncia +'&idNumeroExpediente='+numeroExpedienteId+'&pantallaSolicitada='+pantallaSolicitada+'" width="1430" height="670" />');
 		$("#" +"iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia + " .window-maximizeButton").click();
 	}
@@ -623,7 +623,7 @@
     	var pantallaSolicitada=3;
 		idWindowNuevaDenuncia++;
 		 var ingresoDenuncia = true;
-		$.newWindow({id:"iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia, statusBar: true, posx:0,posy:0,width:1430,height:670,title:"Carpeta de investigación: ", type:"iframe"});
+		$.newWindow({id:"iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia, statusBar: true, posx:0,posy:0,width:1430,height:670,title:"Carpeta de investigaci&oacute;n: ", type:"iframe"});
 		$.updateWindowContent("iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia,'<iframe src="<%= request.getContextPath() %>/BusquedaExpediente.do?abreenPenal=abrPenal&ingresoDenuncia='+ingresoDenuncia +'&idNumeroExpediente='+id+'&pantallaSolicitada='+pantallaSolicitada+'" width="1430" height="670" />');
 		$("#" +"iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia + " .window-maximizeButton").click();
 	}
@@ -647,7 +647,7 @@
     }
 
     function tituloVentana(num){
-		$("#iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia+" div.window-titleBar-content").html("Carpeta de investigación: "+num);
+		$("#iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia+" div.window-titleBar-content").html("Carpeta de investigaci&oacute;n: "+num);
 	}
 
     function buscarExpediente() {
@@ -999,7 +999,7 @@ function visorLeyesCodigos() {
 		 gridAudiencias();
 		 ocultaMuestraGrids('gridAudiencias');
 	 }
-	//$("#" +"iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia + " .window-maximizeButton").click();		ajusta al tamaño de la pantalla 
+	//$("#" +"iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia + " .window-maximizeButton").click();		ajusta al tama&ntilde;o de la pantalla 
 	
 	
 	/******************************************************FUNCIONES PARA REMISIONES DE IPH***********************************************************************************/
@@ -1193,7 +1193,7 @@ function visorLeyesCodigos() {
 
 	<div class="content">
 		<div id="accordionmenuprincipal">
-		<h3><a href="#" onclick="regresaGrid()"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png" id="botpenal" width="15" height="15">&nbsp;Expedientes del Área</a></h3>
+		<h3><a href="#" onclick="regresaGrid()"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png" id="botpenal" width="15" height="15">&nbsp;Expedientes del &Aacute;rea</a></h3>
 			<div>
 				<ul id="seccion1tree" class="filetree">
 
@@ -1207,7 +1207,7 @@ function visorLeyesCodigos() {
 						
 						</ul>
 					</li>
-					<li class="closed" ><span id="casos_at_penal" class="folder" onclick="activaUno()">Por Atención Temprana Penal</span>
+					<li class="closed" ><span id="casos_at_penal" class="folder" onclick="activaUno()">Por Atenci&oacute;n Temprana Penal</span>
 						<ul>
 						
 						</ul>
@@ -1256,7 +1256,7 @@ function visorLeyesCodigos() {
 							</li>
 						</ul>
 					</li>
-					<li class="closed" id="funcionarios-area"><span class="folder">Del Área</span>
+					<li class="closed" id="funcionarios-area"><span class="folder">Del &Aacute;rea</span>
 						<ul>
 							<li class="closed" id="funcionarios"><span class="folder">Funcionarios</span>
 								<ul>
@@ -1363,7 +1363,7 @@ function visorLeyesCodigos() {
 			</div>	
 			
 <!--		<h3 >
-				<a id="" href="#" onclick="generaVisorGraficaView()"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png"  width="15" height="15">Gráficas y Reportes</a>
+				<a id="" href="#" onclick="generaVisorGraficaView()"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png"  width="15" height="15">Gr&aacute;ficas y Reportes</a>
 			</h3>
 			<div>		
 				<input type="button" value="Ver Grafica" id="imageViewer" name="imageViewer"/>	
@@ -1395,7 +1395,7 @@ function visorLeyesCodigos() {
 						   <td width="100%" id="transcripcion-audiencia"><img src="<%=request.getContextPath()%>/resources/css/check.png" width="16" height="16" />Transcripci&oacute;n de Audiencia</td>
 						</tr>
 						<tr>
-						   <td width="100%" id="atencion-victimas"><img src="<%=request.getContextPath()%>/resources/css/check.png" width="16" height="16" />Atenci&oacute;n a Víctimas del Delito</td>
+						   <td width="100%" id="atencion-victimas"><img src="<%=request.getContextPath()%>/resources/css/check.png" width="16" height="16" />Atenci&oacute;n a V&iacute;ctimas del Delito</td>
 						</tr>
 						<tr>
 						   <td width="100%" id="solicitud-dictamen-pericial"><img src="<%=request.getContextPath()%>/resources/css/check.png" width="16" height="16" />Solicitar Dictamen Pericial</td>
@@ -1420,7 +1420,7 @@ function visorLeyesCodigos() {
 						   <td width="100%" id="evidencia-cadena">&nbsp;&nbsp;<img src="<%=request.getContextPath()%>/resources/css/flecha.png" width="16" height="16" />Ingresar Evidencia de Cadena</td>
 						</tr>
 						<tr>
-						   <td width="100%" id="eslabon-cadena">&nbsp;&nbsp;<img src="<%=request.getContextPath()%>/resources/css/flecha.png" width="16" height="16" />Registrar Eslabón de Cadena</td>
+						   <td width="100%" id="eslabon-cadena">&nbsp;&nbsp;<img src="<%=request.getContextPath()%>/resources/css/flecha.png" width="16" height="16" />Registrar Eslab&oacute;n de Cadena</td>
 						</tr>
 						<tr>
 						   <td width="100%" id="reporte-evidencia">&nbsp;&nbsp;<img src="<%=request.getContextPath()%>/resources/css/flecha.png" width="16" height="16" />Reporte de Evidencia</td>
@@ -1688,7 +1688,7 @@ function visorLeyesCodigos() {
 
 <div id="dialog-logout" title="Cerrar Sesi&oacute;n">
 	<p align="center">
-		<span id="logout">¿Desea cerrar su sesi&oacute;n?</span>
+		<span id="logout">&iquest;Desea cerrar su sesi&oacute;n?</span>
 	</p>
 </div>
 <!--Comienza div para mostrar la ventana para ingresar el numero de causa-->	
@@ -1731,11 +1731,11 @@ function visorLeyesCodigos() {
 		<p align="center">
 			<table border="0">
 				<tr>
-					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contraseña para desbloquear.</td>
+					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contrase&ntilde;a para desbloquear.</td>
 					
 				</tr>
 				<tr>
-					<td align="right"><label style="color:#4A5C68">Contraseña:</label></td>
+					<td align="right"><label style="color:#4A5C68">Contrase&ntilde;a:</label></td>
 					<td><input type="password" name="password" id="password" value="" maxlength="15" size="20"></td>
 				</tr>
 				<tr id="captchaJPG" >
@@ -1764,7 +1764,7 @@ function visorLeyesCodigos() {
 				La sesi&oacute;n se cerrar&aacute; en <span id="dialog-countdown" style="font-weight:bold"></span> segundos.
 			</p>
 
-			<p>¿Desea continuar con la sesi&oacute;n?</p>
+			<p>&iquest;Desea continuar con la sesi&oacute;n?</p>
 	</div>
 	<div id="dialog-alarmPos" title="Alarma ">
 		<p align="center">

@@ -4,13 +4,13 @@
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 	<script type="text/javascript">
 	jQuery().ready(function () {
-		var strDuracionPena = $('#aniosPena').val()+' Año(s), '+$('#mesesPena').val()+' Mes(es), '+$('#diasPena').val()+' Día(s)';
+		var strDuracionPena = $('#aniosPena').val()+' A&ntilde;o(s), '+$('#mesesPena').val()+' Mes(es), '+$('#diasPena').val()+' D&iacute;a(s)';
 		$('#duracionPena').val(strDuracionPena);
 		
-		var strComputoRemision = $('#aniosComputoRemision').val()+' Año(s), '+$('#mesesComputoRemision').val()+' Mes(es), '+$('#diasComputoRemision').val()+' Día(s)';
+		var strComputoRemision = $('#aniosComputoRemision').val()+' A&ntilde;o(s), '+$('#mesesComputoRemision').val()+' Mes(es), '+$('#diasComputoRemision').val()+' D&iacute;a(s)';
 		$('#computoRemision').val(strComputoRemision);
 		
-		var strComputoActual = $('#aniosComputoActual').val()+' Año(s), '+$('#mesesComputoActual').val()+' Mes(es), '+$('#diasComputoActual').val()+' Día(s)';
+		var strComputoActual = $('#aniosComputoActual').val()+' A&ntilde;o(s), '+$('#mesesComputoActual').val()+' Mes(es), '+$('#diasComputoActual').val()+' D&iacute;a(s)';
 		$('#computoActual').val(strComputoActual);
 	});
 	</script>
@@ -88,15 +88,15 @@
 								</td>
 							</tr>
 <!-- 							<tr> -->
-<!-- 								<td align="right">Edad biológica:</td> -->
+<!-- 								<td align="right">Edad biol&oacute;gica:</td> -->
 <!-- 								<td align="left"> -->
 <%-- 									<html:text name="DatosGeneralesReinsercionForm" property="edad" readonly="true" size="10" /> --%>
 <!-- 								</td> -->
 <!-- 							</tr> -->
 <!-- 							<tr> -->
-<!-- 								<td align="right">¿Presentó lesiones?</td> -->
+<!-- 								<td align="right">&iquest;Present&oacute; lesiones?</td> -->
 <!-- 								<td align="left"> -->
-<%-- 									Sí <html:radio name="DatosGeneralesReinsercionForm" property="lesionado" title="Sí" value="1" disabled="true" />  --%>
+<%-- 									S&iacute; <html:radio name="DatosGeneralesReinsercionForm" property="lesionado" title="S&iacute;" value="1" disabled="true" />  --%>
 <%-- 									No <html:radio name="DatosGeneralesReinsercionForm" property="lesionado" title="No" value="0" disabled="true" /> --%>
 <!-- 								</td> -->
 <!-- 							</tr> -->
@@ -157,9 +157,9 @@
 									</td>
 								</tr>
 <!-- 								<tr> -->
-<!-- 									<td align="right">¿Se encuentra físicamente en el CERESO?</td> -->
+<!-- 									<td align="right">&iquest;Se encuentra f&iacute;sicamente en el CERESO?</td> -->
 <!-- 									<td align="left"> -->
-<%-- 										Sí <html:radio name="DatosGeneralesReinsercionForm" property="encarcelado" title="Sí" value="true" disabled="true" />  --%>
+<%-- 										S&iacute; <html:radio name="DatosGeneralesReinsercionForm" property="encarcelado" title="S&iacute;" value="true" disabled="true" />  --%>
 <%-- 										No <html:radio name="DatosGeneralesReinsercionForm" property="encarcelado" title="No" value="false" disabled="true" /> --%>
 <!-- 									</td> -->
 <!-- 								</tr> -->
@@ -182,7 +182,7 @@
 											<tr>
 												<td align="right">Aplica Multa:</td>
 												<td align="left" style="width:100px" >
-													S&iacute; <html:radio name="DatosGeneralesReinsercionForm" property="aplicaMulta" title="Sí" value="true" disabled="true" /> 
+													S&iacute; <html:radio name="DatosGeneralesReinsercionForm" property="aplicaMulta" title="S&iacute;" value="true" disabled="true" /> 
 													No <html:radio name="DatosGeneralesReinsercionForm" property="aplicaMulta" title="No" value="false" disabled="true" />
 												</td>
 											</tr>
@@ -195,7 +195,7 @@
 											<tr>
 												<td align="right">Cumplida:</td>
 												<td align="left" style="width:100px" >
-													S&iacute; <html:radio name="DatosGeneralesReinsercionForm" property="multaPagada" title="Sí" value="true" disabled="true" /> 
+													S&iacute; <html:radio name="DatosGeneralesReinsercionForm" property="multaPagada" title="S&iacute;" value="true" disabled="true" /> 
 													No <html:radio name="DatosGeneralesReinsercionForm" property="multaPagada" title="No" value="false" disabled="true" />
 												</td>
 											</tr>
@@ -204,9 +204,9 @@
 									<td colspan="2">
 										<table>
 											<tr>
-												<td align="right">Aplica reparaci&oacute;n del daño: </td>
+												<td align="right">Aplica reparaci&oacute;n del da&ntilde;o: </td>
 												<td align="left" style="width:100px" >
-													Sí <html:radio name="DatosGeneralesReinsercionForm" property="reparacionDanio" title="Sí" value="true" disabled="true" /> 
+													S&iacute; <html:radio name="DatosGeneralesReinsercionForm" property="reparacionDanio" title="S&iacute;" value="true" disabled="true" /> 
 													No <html:radio name="DatosGeneralesReinsercionForm" property="reparacionDanio" title="No" value="false" disabled="true" />
 												</td>
 											</tr>
@@ -219,7 +219,7 @@
 											<tr>
 												<td align="right">Cumplida:</td>
 												<td align="left" style="width:100px" >
-													S&iacute; <html:radio name="DatosGeneralesReinsercionForm" property="reparacionPagada" title="Sí" value="true" disabled="true" /> 
+													S&iacute; <html:radio name="DatosGeneralesReinsercionForm" property="reparacionPagada" title="S&iacute;" value="true" disabled="true" /> 
 													No <html:radio name="DatosGeneralesReinsercionForm" property="reparacionPagada" title="No" value="false" disabled="true" />
 												</td>
 											</tr>
@@ -244,9 +244,9 @@
 									<td colspan=2>
 										<table>
 											<tr>
-												<td align="right">Remisión parcial de la pena :</td>
+												<td align="right">Remisi&oacute;n parcial de la pena :</td>
 												<td align="left">
-													S&iacute; <html:radio name="DatosGeneralesReinsercionForm" property="remisionParcial" title="Sí" value="true" disabled="true" /> 
+													S&iacute; <html:radio name="DatosGeneralesReinsercionForm" property="remisionParcial" title="S&iacute;" value="true" disabled="true" /> 
 													No <html:radio name="DatosGeneralesReinsercionForm" property="remisionParcial" title="No" value="false" disabled="true" />
 												</td>
 											</tr>
@@ -269,7 +269,7 @@
 											<tr>
 												<td align="right">Libertad Condicional :</td>
 												<td align="left">
-													S&iacute; <html:radio name="DatosGeneralesReinsercionForm" property="libertadCondicional" title="Sí" value="true" disabled="true" /> 
+													S&iacute; <html:radio name="DatosGeneralesReinsercionForm" property="libertadCondicional" title="S&iacute;" value="true" disabled="true" /> 
 													No <html:radio name="DatosGeneralesReinsercionForm" property="libertadCondicional" title="No" value="false" disabled="true" />
 												</td>
 											</tr>
@@ -287,7 +287,7 @@
 											<tr>
 												<td align="right">Libertad condicional con remisi&oacute;n :</td>
 												<td align="left">
-													S&iacute; <html:radio name="DatosGeneralesReinsercionForm" property="libertadCondicionalRemision" title="Sí" value="true" disabled="true" /> 
+													S&iacute; <html:radio name="DatosGeneralesReinsercionForm" property="libertadCondicionalRemision" title="S&iacute;" value="true" disabled="true" /> 
 													No <html:radio name="DatosGeneralesReinsercionForm" property="libertadCondicionalRemision" title="No" value="false" disabled="true" />
 												</td>
 											</tr>
@@ -350,22 +350,22 @@
 <!-- 					</td> -->
 <!-- 					<td colspan="2"> -->
 <!-- 						<fieldset style="height: 100%; min-height: 173px;"> -->
-<!-- 							<legend> Cómputo de pena: </legend> -->
+<!-- 							<legend> C&oacute;mputo de pena: </legend> -->
 <!-- 							<table border="0"> -->
 <!-- 								<tr> -->
 <!-- 									<td align="right">Candidato a beneficio:</td> -->
 <!-- 									<td align="left"> -->
-<%-- 										Sí <html:radio name="DatosGeneralesReinsercionForm" property="candidatoBeneficio" title="Sí" value="1" disabled="true" />  --%>
+<%-- 										S&iacute; <html:radio name="DatosGeneralesReinsercionForm" property="candidatoBeneficio" title="S&iacute;" value="1" disabled="true" />  --%>
 <%-- 										No <html:radio name="DatosGeneralesReinsercionForm" property="candidatoBeneficio" title="No" value="0" disabled="true" /> --%>
 <!-- 									</td> -->
 <!-- 								</tr> -->
 <!-- 								<tr> -->
 <!-- 									<td align="right">Beneficio:</td> -->
 <!-- 									<td align="left"> -->
-<%-- 										Liberación con condicional <html:radio name="DatosGeneralesReinsercionForm" property="beneficio"  --%>
-<!-- 													title="Liberación con condicional" value="1" disabled="true" /><br/> -->
-<%-- 										Liberación con definitiva  <html:radio name="DatosGeneralesReinsercionForm" property="beneficio"  --%>
-<!-- 													title="Liberación con definitiva" value="2>" disabled="true" /> -->
+<%-- 										Liberaci&oacute;n con condicional <html:radio name="DatosGeneralesReinsercionForm" property="beneficio"  --%>
+<!-- 													title="Liberaci&oacute;n con condicional" value="1" disabled="true" /><br/> -->
+<%-- 										Liberaci&oacute;n con definitiva  <html:radio name="DatosGeneralesReinsercionForm" property="beneficio"  --%>
+<!-- 													title="Liberaci&oacute;n con definitiva" value="2>" disabled="true" /> -->
 <!-- 									</td> -->
 <!-- 								</tr> -->
 <!-- 							</table> -->

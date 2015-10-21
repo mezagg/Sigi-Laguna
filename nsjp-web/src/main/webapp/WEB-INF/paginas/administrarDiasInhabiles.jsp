@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Administrar días inhábiles</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Administrar d&iacute;as inh&aacute;biles</title>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/jquery-ui.css" />
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/estilos.css" media="screen" />
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/ui-lightness/jquery-ui-1.8.11.custom.css" />
@@ -50,7 +50,7 @@
 			jQuery("#gridDiasInhabiles").jqGrid({ 
 					url: '<%= request.getContextPath()%>/consultarCatalogoDiasInhabiles.do',
 					datatype: "xml", 
-					colNames:['Día Inhábil','Descripción'], 
+					colNames:['D&iacute;a Inh&aacute;bil','Descripci&oacute;n'], 
 					colModel:[ {name:'diaInhabil',index:'diaInhabil', width:100,editable:true, align:"center"},
 							   {name:'descripcion',index:'descripcion', width:200, align:"right",editable:true,align:"center"}						    
 							     
@@ -65,7 +65,7 @@
 					 //		},
 				     viewrecords: true,
 				     gridview: true, 
-				     caption: "Administracion de días inhábiles", 
+				     caption: "Administracion de d&iacute;as inh&aacute;biles", 
 				     sortorder: "desc", 
 				     editurl: "http://localhost:8080/nsjp-web/administrarDiasInhabiles.jsp"
 				    
@@ -81,7 +81,7 @@
 			$("#divAgregarDiaInhabil").dialog("open");
 			$("#divAgregarDiaInhabil").dialog({ autoOpen: true, 
 				modal: true, 
-			  	title: 'Agregar Día Inhábil', 
+			  	title: 'Agregar D&iacute;a Inh&aacute;bil', 
 			  	dialogClass: 'alert',
 			  	position: [312,40],
 			  	width: 440,
@@ -119,7 +119,7 @@
 
 		$("#divEliminarDiaInhabil").dialog({ autoOpen: true, 
 			modal: true, 
-		  	title: 'Eliminar Día Inhábil', 
+		  	title: 'Eliminar D&iacute;a Inh&aacute;bil', 
 		  	dialogClass: 'alert',
 		  	position: [312,40],
 		  	width: 440,
@@ -137,7 +137,7 @@
 			  			}
 					});							
 					jQuery("#gridDiasInhabiles").jqGrid('delRowData',id);
-					alertDinamico("El día inhábil seleccionado ha sido eliminado correctamente");				  			  	
+					alertDinamico("El d&iacute;a inh&aacute;bil seleccionado ha sido eliminado correctamente");				  			  	
   					$(this).dialog("close");
   					recargarGridDiasInhabiles();
 				},
@@ -147,7 +147,7 @@
 			}
 		});		
 		}else {
-			alertDinamico("Por favor seleccione un día a eliminar"); 
+			alertDinamico("Por favor seleccione un d&iacute;a a eliminar"); 
 		} 
 	}
 	
@@ -256,7 +256,7 @@
 	<table width="300" cellspacing="0" cellpadding="0" align="center">
   		<tr>
   			</br></br></br></br>
-  		    <td align="center"><b>¿Está seguro que desea eliminar el día inhábil?</b></td>	
+  		    <td align="center"><b>&iquest;Est&aacute; seguro que desea eliminar el d&iacute;a inh&aacute;bil?</b></td>	
   		</tr>
   	</table>
 </div>

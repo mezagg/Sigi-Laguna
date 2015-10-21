@@ -8,12 +8,12 @@
 <%@page import="mx.gob.segob.nsjp.dto.involucrado.AliasInvolucradoDTO"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.Date"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//Dtd HTML 4.01 transitional//EN" "http://www.w3.org/tr/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 	<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/estilos.css"/>	
 	<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/layout_complex.css"/>
@@ -66,10 +66,10 @@
 				  slideInterval: 3000
 			});
 
-			//tabs hijos para pestaña de hechos
+			//tabs hijos para pesta&ntilde;a de hechos
 			$("#tabs").tabs();
 			
-			//tabs hijos para pestaña de hechos
+			//tabs hijos para pesta&ntilde;a de hechos
 			$("#tabsHechos").tabs();
 			
 			var $widget = $("#ocupacion,#alias,#nacionalidad").multiselect(),state = true;
@@ -550,7 +550,7 @@
 	   		<dd>
 				<jsp:include page="../ingresarMediosContactoView.jsp"/>
 			</dd>
-			<dt id="cejaMediaFiliacion">Media Filiación</dt>
+			<dt id="cejaMediaFiliacion">Media Filiaci&oacute;n</dt>
 			<dd>
 				<jsp:include page="../mediaFiliacionDefensoria.jsp"></jsp:include>
 			</dd>
@@ -560,19 +560,19 @@
 			</dd>
 			<dt id="cejaDetenido">Hechos</dt>
 			<dd>
-			<!--Inicia pestañas de hechos dentro de acordeon hechos -->
+			<!--Inicia pesta&ntilde;as de hechos dentro de acordeon hechos -->
 				<div id="tabsHechos" class="tabEstilo"> 
 					<ul>
 						<li id="hechosIngHechosTab"><a href="#tabsHechos-1">Hechos</a></li>
 						<li id="fechaHoraTab"><a href="#tabsHechos-3">Fecha y hora de los hechos</a></li>
 					</ul>
-		    	<!--Inicia pestaña Hechos -->
+		    	<!--Inicia pesta&ntilde;a Hechos -->
 		 			<div id="tabsHechos-1">
 		   				<textarea class="jquery_ckeditor" cols="150" id="editor1" name="editor1" rows="10"></textarea>
 					</div>
-				<!--Termina pestaña Hechos -->
+				<!--Termina pesta&ntilde;a Hechos -->
 		
-				<!--Inicia pestaña Fecha y hora de los hechos -->
+				<!--Inicia pesta&ntilde;a Fecha y hora de los hechos -->
 					<div id="tabsHechos-3">
 						<table id="datosDetenido" width="400" height="150" border="0" cellspacing="0" cellpadding="10">
 		           		<tr>
@@ -607,9 +607,9 @@
 		               	</tr>
 		             	</table>
 					</div>
-				<!--Termina pestaña Fecha y hora de los hechos -->
+				<!--Termina pesta&ntilde;a Fecha y hora de los hechos -->
 				</div>
-	 	<!--Termina pestañas de hechos dentro de acordeon hechos -->
+	 	<!--Termina pesta&ntilde;as de hechos dentro de acordeon hechos -->
 			</dd>
 		</dl>
 	</div>

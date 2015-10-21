@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Seleccionar almacen de expedientes</title>
 </head>
 <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/jquery.windows-engine.css"/>
@@ -36,7 +36,7 @@ function cargaGrid(){
 	jQuery("#gridAlmacenes").jqGrid({ 
 		url:'<%= request.getContextPath()%>/buscarAlmacenes.do', 
 		datatype: "xml", 
-		colNames:['Nombre','Domicilio','Descripción'], 
+		colNames:['Nombre','Domicilio','Descripci&oacute;n'], 
 		colModel:[ 	{name:'NombreAlmacen',index:'nombreAlmacen', width:100},
 		           	{name:'Domicilio',index:'domicilio', width:150},
 		           	{name:'Descripcion',index:'descripcion', width:150}
@@ -76,7 +76,7 @@ function asignar(){
 }
 
 function almacenTemporal(){
-	alert("CU Registrar almacén de expedientes");
+	alert("CU Registrar almac&eacute;n de expedientes");
 }
 </script>
 
@@ -84,7 +84,7 @@ function almacenTemporal(){
 	<tr>
     	<td height="25" colspan="2" align="left">
     		<input type="button" name="btnAsignar" value="Asignar" id="btnAsignar" onclick="asignar()" class="btn_Generico"/>
-    		<input type="button" name="btnAlmacenTemporal" value="Almacén Temporal" id="btnAlmacenTemporal" onclick="almacenTemporal()" class="btn_Generico"/>
+    		<input type="button" name="btnAlmacenTemporal" value="Almac&eacute;n Temporal" id="btnAlmacenTemporal" onclick="almacenTemporal()" class="btn_Generico"/>
     	</td>
     </tr>
 </table>

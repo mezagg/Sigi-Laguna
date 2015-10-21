@@ -330,8 +330,8 @@ body,td,th {
 			if(numeroCaso != null && numeroCaso != ""){
 				titulo += "Caso: "+numeroCaso+" ";
 			}			
-			if(valorEtapa=="Asesoría"){
-				titulo += "Asesoría: ";
+			if(valorEtapa=="Asesor&iacute;a"){
+				titulo += "Asesor&iacute;a: ";
 			}else{
 				titulo += "Expediente: ";
 			}
@@ -580,7 +580,7 @@ body,td,th {
 			jQuery("#gridAvisosAsignacion").jqGrid({
 				url : '<%= request.getContextPath()%>/consultarSolicitudesDefensorAsignadas.do', 
 				datatype: "xml", 
-				colNames:['Folio','Caso','Expediente','Imputado', 'Etapa', 'Audiencia','Detenido','Fecha Asignación','idNumeroExpediente'], 
+				colNames:['Folio','Caso','Expediente','Imputado', 'Etapa', 'Audiencia','Detenido','Fecha Asignaci&oacute;n','idNumeroExpediente'], 
 				colModel:[ 	{name:'folio',		index:'2041', align:'center', width:85},
 							{name:'caso',		index:'2002', align:'center', width:180},
 				           	{name:'expediente', index:'2003', align:'center', width:145},
@@ -610,7 +610,7 @@ body,td,th {
 		 
 		
 		function activaConfirm(funcionalidad, rowid) {
-			var confir = confirm("¿Dar seguimiento a la solicitud?");
+			var confir = confirm("&iquest;Dar seguimiento a la solicitud?");
 			if (confir == true && funcionalidad == "avisosAsignacion") {
 				var fila = jQuery("#gridAvisosAsignacion").jqGrid('getRowData',rowid); 
 				numExpediente = fila.idNumeroExpediente;
@@ -619,25 +619,25 @@ body,td,th {
 				idExpediente=fila.idNumeroExpediente;
 				switch (numEtapa) {
 
-				case "Integración":
+				case "Integraci&oacute;n":
 					numEtapa=<%=EtapasExpediente.INTEGRACION.getValorId()%>;
-					valorEtapa="Integración";
+					valorEtapa="Integraci&oacute;n";
 					break;
-				case "Conciliación y Mediación":
+				case "Conciliaci&oacute;n y Mediaci&oacute;n":
 					numEtapa=<%=EtapasExpediente.CONCILIACION_Y_MEDIACION.getValorId()%>;
-					valorEtapa="Conciliación y Mediación";
+					valorEtapa="Conciliaci&oacute;n y Mediaci&oacute;n";
 					break;
-				case "Técnica":
+				case "T&eacute;cnica":
 					numEtapa=<%=EtapasExpediente.TECNICA.getValorId()%>;
-					valorEtapa="Técnica";
+					valorEtapa="T&eacute;cnica";
 					break;
 				case "Ejecucion":
 					numEtapa=<%=EtapasExpediente.EJECUCION.getValorId()%>;
-					valorEtapa="Ejecución";
+					valorEtapa="Ejecuci&oacute;n";
 					break;
-				case "Asesoría":
+				case "Asesor&iacute;a":
 					numEtapa=<%=EtapasExpediente.ASESORIA.getValorId()%>;
-					valorEtapa="Asesoría";
+					valorEtapa="Asesor&iacute;a";
 					break;
 				}
 				actualizaEstatusAvisoDesignacion(rowid);
@@ -681,7 +681,7 @@ body,td,th {
 					numExpediente=rowid;
 					idExpediente=rowid;
 					numEtapa=<%=EtapasExpediente.ASESORIA.getValorId()%>;
-					valorEtapa="Asesoría";
+					valorEtapa="Asesor&iacute;a";
 					var ret = jQuery("#gridAsesorias").jqGrid('getRowData',rowid);
 					numeroExpediente=ret.expediente;
 					defensaIntegracion();			
@@ -696,7 +696,7 @@ body,td,th {
 			jQuery("#gridDefensaRestaurativa").jqGrid({
 				url : '<%= request.getContextPath()%>/consultarExpedientesEtapa.do?etapa=<%=EtapasExpediente.CONCILIACION_Y_MEDIACION.getValorId()%>', 
 				datatype: "xml", 
-				colNames:['Caso','Expediente','Para quien se solicita:', 'Detenido' , 'Fecha-Hora limite de atención','Fecha-Hora de designación'], 
+				colNames:['Caso','Expediente','Para quien se solicita:', 'Detenido' , 'Fecha-Hora limite de atenci&oacute;n','Fecha-Hora de designaci&oacute;n'], 
 				colModel:[ 	{name:'caso',index:'2002', width:15},
 							{name:'expediente',index:'2003', width:15},
 							{name:'imputado',index:'2009', width:30}, 								 
@@ -717,7 +717,7 @@ body,td,th {
 					numExpediente=rowid;
 					idExpediente=rowid;
 					numEtapa=<%=EtapasExpediente.CONCILIACION_Y_MEDIACION.getValorId()%>;
-					valorEtapa="Conciliación y Mediación";
+					valorEtapa="Conciliaci&oacute;n y Mediaci&oacute;n";
 					var ret = jQuery("#gridDefensaRestaurativa").jqGrid('getRowData',rowid);
 					numeroExpediente=ret.expediente;
 					numeroCaso=ret.caso;
@@ -733,7 +733,7 @@ body,td,th {
 			jQuery("#gridDetalleFrmPrincipalTres").jqGrid({
 				url : '<%= request.getContextPath()%>/consultarExpedientesEtapa.do?etapa=<%=EtapasExpediente.INTEGRACION.getValorId()%>', 
 				datatype: "xml", 
-				colNames:['Caso','Expediente','Imputado', 'Institución Origen', 'Fecha de Detención', 'Fecha de Designación'], 
+				colNames:['Caso','Expediente','Imputado', 'Instituci&oacute;n Origen', 'Fecha de Detenci&oacute;n', 'Fecha de Designaci&oacute;n'], 
 				colModel:[ 	{name:'caso',index:'2002', width:15},
 							{name:'expediente',index:'2003', width:15},
 							{name:'imputado',index:'2009', width:30}, 								
@@ -749,7 +749,7 @@ body,td,th {
 					idExpediente=rowid;
 					numExpediente=rowid;
 					numEtapa=<%=EtapasExpediente.INTEGRACION.getValorId()%>;
-					valorEtapa="Integración";
+					valorEtapa="Integraci&oacute;n";
 					var ret = jQuery("#gridDetalleFrmPrincipalTres").jqGrid('getRowData',rowid);
 					numeroExpediente=ret.expediente;
 					numeroCaso=ret.caso;
@@ -780,7 +780,7 @@ body,td,th {
 				ondblClickRow: function(rowid) {
 					numExpediente=rowid;
 					numEtapa=<%=EtapasExpediente.TECNICA.getValorId()%>;
-					valorEtapa="Técnica";
+					valorEtapa="T&eacute;cnica";
 					var ret = jQuery("#gridDefensaTecnica").jqGrid('getRowData',rowid);
 					numeroExpediente=ret.expediente;
 					numeroCaso=ret.caso;
@@ -826,7 +826,7 @@ body,td,th {
 		jQuery("#gridCarpetaInvestigacion").jqGrid({ 
 			url:'<%= request.getContextPath()%>'+"/consultarSolicitudesPorAtender.do?"+params, 
 			datatype: "xml", 
-			colNames:['Caso','Expediente','Folio','Estatus','Fecha Creación', 'Fecha Límite', 'Institucion','Destinatario'], 
+			colNames:['Caso','Expediente','Folio','Estatus','Fecha Creaci&oacute;n', 'Fecha L&iacute;mite', 'Institucion','Destinatario'], 
 					colModel:[ 	{name:'caso',			index:'caso', width:40},
 					           	{name:'expediente',		index:'expediente', width:40},
 					           	{name:'folio',			index:'folio', width:40},
@@ -855,7 +855,7 @@ body,td,th {
 			jQuery("#gridDetalleAsesoriasPericiales").jqGrid({ 
 				url:'<%= request.getContextPath()%>'+"/consultarSolicitudesPorAtender.do?"+params, 
 				datatype: "xml", 
-				colNames:['Caso','Expediente','Folio','Estatus','Fecha Creación', 'Fecha Límite', 'Institucion','Destinatario'], 
+				colNames:['Caso','Expediente','Folio','Estatus','Fecha Creaci&oacute;n', 'Fecha L&iacute;mite', 'Institucion','Destinatario'], 
 				colModel:[ 	{name:'caso',			index:'caso', width:40},
 				           	{name:'expediente',		index:'expediente', width:40},
 				           	{name:'folio',			index:'folio', width:40},
@@ -887,7 +887,7 @@ body,td,th {
 			jQuery("#gridDetalleDictamenPericial").jqGrid({ 
 				url:'<%= request.getContextPath()%>'+"/consultarSolicitudesPorAtender.do?"+params,
 				datatype: "xml", 
-				colNames:['Caso','Expediente','Folio','Estatus','Fecha Creación', 'Fecha Límite', 'Institucion','Destinatario'], 
+				colNames:['Caso','Expediente','Folio','Estatus','Fecha Creaci&oacute;n', 'Fecha L&iacute;mite', 'Institucion','Destinatario'], 
 				colModel:[ 	{name:'caso',index:'caso', width:40},
 				           	{name:'expediente',index:'expediente', width:40},
 				           	{name:'folio',index:'folio', width:40},
@@ -919,7 +919,7 @@ body,td,th {
 		jQuery("#gridAudioVideo").jqGrid({ 
 			url:'<%= request.getContextPath()%>'+"/consultarSolicitudesPorAtender.do?"+params, 
 			datatype: "xml", 
-			colNames:['Caso','Expediente','Folio','Estatus','Fecha Creación', 'Fecha Límite', 'Institucion','Destinatario'], 
+			colNames:['Caso','Expediente','Folio','Estatus','Fecha Creaci&oacute;n', 'Fecha L&iacute;mite', 'Institucion','Destinatario'], 
 			colModel:[ 	{name:'caso',index:'caso', width:40},
 			           	{name:'expediente',index:'expediente', width:40},
 			           	{name:'folio',index:'folio', width:40},
@@ -948,7 +948,7 @@ body,td,th {
 		jQuery("#gridTranscripcion").jqGrid({ 
 			url:'<%= request.getContextPath()%>'+"/consultarSolicitudesPorAtender.do?"+params, 
 			datatype: "xml", 
-			colNames:['Caso','Expediente','Folio','Estatus','Fecha Creación', 'Fecha Límite', 'Institucion','Destinatario'], 
+			colNames:['Caso','Expediente','Folio','Estatus','Fecha Creaci&oacute;n', 'Fecha L&iacute;mite', 'Institucion','Destinatario'], 
 			colModel:[ 	{name:'caso',index:'caso', width:40},
 			           	{name:'expediente',index:'expediente', width:40},
 			           	{name:'folio',index:'folio', width:40},
@@ -1180,7 +1180,7 @@ body,td,th {
 			jQuery("#gridAudienciasGeneradas").jqGrid({ 
 				url:'<%= request.getContextPath()%>'+"/consultarSolicitudesPorAtender.do?"+params, 
 				datatype: "xml", 
-				colNames:['Caso','Expediente','Folio','Estatus','Fecha creación','Fecha limite','Institucion','Destinatario'], 
+				colNames:['Caso','Expediente','Folio','Estatus','Fecha creaci&oacute;n','Fecha limite','Institucion','Destinatario'], 
 				colModel:[{name:'caso',	 		index:'2002', 	width:130},
 				          {name:'expediente',	index:'2003',	width:130},
 				          {name:'folio',	 	index:'2003',	width:130},
@@ -1460,19 +1460,19 @@ body,td,th {
 			<h3><a href="#"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png" id="botpenal" width="15" height="15">&nbsp;Expedientes </a></h3>
 			<div>
 				<ul id="seccion1tree" class="filetree">
-					<li class="closed"  id="menuDefRestaurativa" onmousedown="ocultaMuestraGridsAlertas('2');" ><span class="folder"  >Conciliación y mediación</span>
+					<li class="closed"  id="menuDefRestaurativa" onmousedown="ocultaMuestraGridsAlertas('2');" ><span class="folder"  >Conciliaci&oacute;n y mediaci&oacute;n</span>
 						<ul></ul>
 					</li>	
-					<li class="closed"  id="menuDefIntegracion" onmousedown="ocultaMuestraGridsAlertas('3');" ><span class="folder"  >Defensa en integración</span>
+					<li class="closed"  id="menuDefIntegracion" onmousedown="ocultaMuestraGridsAlertas('3');" ><span class="folder"  >Defensa en integraci&oacute;n</span>
 						<ul></ul>
 					</li>
-					<li class="closed" id="menuDefTecnica" onmousedown="ocultaMuestraGridsAlertas('5')" ><span class="folder"  >Defensa técnica</span>
+					<li class="closed" id="menuDefTecnica" onmousedown="ocultaMuestraGridsAlertas('5')" ><span class="folder"  >Defensa t&eacute;cnica</span>
 						<ul></ul>
 					</li>	
-					<li class="closed" id="menuDefEjecucion" onmousedown="ocultaMuestraGridsAlertas('7')"><span class="folder"  >Defensa en ejecución</span>
+					<li class="closed" id="menuDefEjecucion" onmousedown="ocultaMuestraGridsAlertas('7')"><span class="folder"  >Defensa en ejecuci&oacute;n</span>
 						<ul></ul>
 					</li>	
-					<li class="closed" id="menuDefAsesoria" onmousedown="ocultaMuestraGridsAlertas('13')"><span class="folder"  >Asesoría legal</span>
+					<li class="closed" id="menuDefAsesoria" onmousedown="ocultaMuestraGridsAlertas('13')"><span class="folder"  >Asesor&iacute;a legal</span>
 						<ul></ul>
 					</li>	
 					 	
@@ -1494,7 +1494,7 @@ body,td,th {
 			<h3><a href="#"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png" id="botpenal" width="15" height="15">&nbsp;Solicitudes generadas</a></h3>
 			<div>
 				<ul id="seccion2tree" class="filetree">
-					<li class="closed" id="carpetaInvestigacion"><span class="folder" id="PA2" onmousedown="ocultaMuestraGridsAlertas('9')">Carpeta de investigación</span>
+					<li class="closed" id="carpetaInvestigacion"><span class="folder" id="PA2" onmousedown="ocultaMuestraGridsAlertas('9')">Carpeta de investigaci&oacute;n</span>
 						<ul></ul>
 					</li>
 					<!-- li class="closed"><span class="folder" id="ligServiciosPericiales" onmousedown="ocultaMuestraGridsAlertas('4');">Servicios periciales</span>
@@ -1521,7 +1521,7 @@ body,td,th {
 				</ul>				
 			</div>
 	<!-- 
-			<h3><a href="#"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png" id="botpenal" width="15" height="15">&nbsp;Histórico de expedientes </a></h3>
+			<h3><a href="#"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png" id="botpenal" width="15" height="15">&nbsp;Hist&oacute;rico de expedientes </a></h3>
 			<div>
 				<ul id="seccion1tree" class="filetree">
 					<li class="closed" id="fechas"><span class="folder"  onclick="">Hist&oacute;rico</span>
@@ -1536,7 +1536,7 @@ body,td,th {
 					</li>
 				</ul>
 			</div-->
-<!-- 			<h3 ><a id="" href="#" onclick="generaVisorGraficaView()"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png"  width="15" height="15">Gráficas y Reportes</a></h3>
+<!-- 			<h3 ><a id="" href="#" onclick="generaVisorGraficaView()"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png"  width="15" height="15">Gr&aacute;ficas y Reportes</a></h3>
 				<div>		
 					<input type="button" value="Ver Grafica" id="imageViewer" name="imageViewer"/>	
 					<ul id="seccion3treePJENC" class="filetree">
@@ -1847,7 +1847,7 @@ body,td,th {
     
     <div id="dialog-logout" title="Cerrar Sesi&oacute;n">
 		<p align="center">
-			<span id="logout">¿Desea cerrar su sesi&oacute;n?</span>
+			<span id="logout">&iquest;Desea cerrar su sesi&oacute;n?</span>
 		</p>
 	</div>
     
@@ -1863,11 +1863,11 @@ body,td,th {
 		<p align="center">
 			<table border="0">
 				<tr>
-					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contraseña para desbloquear.</td>
+					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contrase&ntilde;a para desbloquear.</td>
 					
 				</tr>
 				<tr>
-					<td align="right"><label style="color:#4A5C68">Contraseña:</label></td>
+					<td align="right"><label style="color:#4A5C68">Contrase&ntilde;a:</label></td>
 					<td><input type="password" name="password" id="password" value="" maxlength="15" size="20"></td>
 				</tr>
 				<tr id="captchaJPG" >
@@ -1896,7 +1896,7 @@ body,td,th {
 				La sesi&oacute;n se cerrar&aacute; en <span id="dialog-countdown" style="font-weight:bold"></span> segundos.
 			</p>
 
-			<p>¿Desea continuar con la sesi&oacute;n?</p>
+			<p>&iquest;Desea continuar con la sesi&oacute;n?</p>
 	</div>
 	
 	<div id="dialog-alarmPos" title="Alarma ">

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -157,10 +157,10 @@
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td colspan="2"><div id="constitucionPolitica" style="display: none;"><table align="center"><tr><td>Constitución Política</td></tr></table></div>
+    <td colspan="2"><div id="constitucionPolitica" style="display: none;"><table align="center"><tr><td>Constituci&oacute;n Pol&iacute;tica</td></tr></table></div>
     	<div id="leyesGenerales" style="display: none;"><table align="center"><tr><td>Leyes Generales</td></tr></table></div>
     	<div id="tratadosInternacionales" style="display: none;"><table align="center"><tr><td>Tratados Internacionales</td></tr></table></div>
-    	<div id="codigos" style="display: none;"><table align="center"><tr><td>Códigos</td></tr></table></div>
+    	<div id="codigos" style="display: none;"><table align="center"><tr><td>C&oacute;digos</td></tr></table></div>
     	<div id="acuerdos" style="display: none;"><table align="center"><tr><td>Acuerdos</td></tr></table></div>
     	<div id="circulares" style="display: none;"><table align="center"><tr><td>Circulares</td></tr></table></div>
     	<div id="manuales" style="display: none;"><table align="center"><tr><td>Manuales</td></tr></table></div>

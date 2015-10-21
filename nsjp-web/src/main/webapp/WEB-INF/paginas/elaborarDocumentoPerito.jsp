@@ -3,19 +3,19 @@ CASO DE USO
 Elaborar Documento - Pericial
 
 El sistema muestra las solicitudes de pericial asignadas al perito
-que estén en proceso para elaborar un documento o un informe y poder cerrar 
+que est&eacute;n en proceso para elaborar un documento o un informe y poder cerrar 
 la solicitud
 
  -->
 
 <%@page import="mx.gob.segob.nsjp.comun.enums.forma.Formas"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.solicitud.TiposSolicitudes" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Documentos Elaborados</title>
 	
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css" />
@@ -52,7 +52,7 @@ la solicitud
 	$(document).ready(function() {
 		$("#tabsPrincipal").tabs();
 		if(tipo == 'Dictamen'){
-			window.title = 'Dictámenes Elaborados';
+			window.title = 'Dict&aacute;menes Elaborados';
 			
 		}else if(tipo == 'Informe'){
 			window.title = 'Informes Elaborados';
@@ -64,7 +64,7 @@ la solicitud
 
 			url:'<%=request.getContextPath()%>/consultarSolicitudesPericialesPeritoEnProceso.do', 
 			datatype: "xml", 
-			colNames:['Número Expediente','Número de Caso','Fecha Límite','Fecha Última Modificación','Documento creado'], 
+			colNames:['N&uacute;mero Expediente','N&uacute;mero de Caso','Fecha L&iacute;mite','Fecha &Uacute;ltima Modificaci&oacute;n','Documento creado'], 
 			colModel:[ 	{name:'numeroExpediente',index:'numeroExpediente', width:18,align:'center'}, 
 			           	{name:'numeroCaso',index:'numeroCaso', width:18,align:'center'}, 
 						{name:'fechaLimite',index:'fechaLimite', width:10,align:'center'},

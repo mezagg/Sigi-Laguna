@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -83,7 +83,7 @@
 				    		
 	</script>
 
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 
@@ -101,7 +101,7 @@
                 </select></td>
                 <td width="68%" height="53" align="center" valign="top"><table width="89%" border="0" cellspacing="0" cellpadding="0" class="celda2">
                         <tr align="center">
-                                <td height="29" colspan="10" class="seccion">Condición:</td> 
+                                <td height="29" colspan="10" class="seccion">Condici&oacute;n:</td> 
                             </tr>
                             <tr>
                                 <td width="8%" align="left">Vivo</td>

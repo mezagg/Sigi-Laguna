@@ -1,6 +1,6 @@
 <!-- 
  Nombre del Programa 	: consultarIndividuo.jsp                                   
- Autor               	: Alejandro Galavíz                                           
+ Autor               	: Alejandro Galav&iacute;z                                           
  Compania            	: Ultrasist                                                
 
  Proyecto            	: NSJP                    Fecha: 07/03/2011 
@@ -121,7 +121,7 @@
 		  }
 
 	  function PageInit() { 
-		  $dialogo = $("#dialog").dialog({autoOpen: false,title: 'Consultar Víctima',
+		  $dialogo = $("#dialog").dialog({autoOpen: false,title: 'Consultar V&iacute;ctima',
 			  width: 700,
 			  minWidth: 650,
 			  maxWidth: 700,
@@ -135,7 +135,7 @@
 
 	  function cargaInicialPagina()
 		{
-		    /*Inician llamados para creación de tabs de consultar victima*/
+		    /*Inician llamados para creaci&oacute;n de tabs de consultar victima*/
 		    creaTab('ConsultaVictima','ConsultaVictima');
 		}
 	  function pintarDatos(idIndividuo,idNombreDemografico)

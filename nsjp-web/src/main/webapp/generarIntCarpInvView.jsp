@@ -1,10 +1,10 @@
 <%@page import="org.omg.CORBA.Request"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Generar integración de carpeta de investigación</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Generar integraci&oacute;n de carpeta de investigaci&oacute;n</title>
     
 	<!--	Hojas de estilo -->
     <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css"/>
@@ -63,7 +63,7 @@
       <table border="0">
 	      <tr valign="top">
 		      <td>
-		      	  <b>Crear Carpeta de unidad especializada de investigación</b>
+		      	  <b>Crear Carpeta de unidad especializada de investigaci&oacute;n</b>
 		      </td>
 	      </tr>
       </table>
@@ -75,7 +75,7 @@
 	          			  <td>
 	            			  <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	                   			  <tr>
-								      <td>Existe algún detenido: </td>
+								      <td>Existe alg&uacute;n detenido: </td>
 								      <td>
 								          <input type="checkbox" name="chbIntCarpetaDetenido" id="chbIntCarpetaDetenido"/>
 							      	  </td>
@@ -105,7 +105,7 @@
               <!--  ACORDEON CU PROBABLE RESPONSABLE-INGRESAR ORGANIZACION  -->
                 <div id="iProbResponsablePane">
                   <dl>
-                    <dt id="cejaDatosGenerales">Denuncias De Atención Temprana</dt>
+                    <dt id="cejaDatosGenerales">Denuncias De Atenci&oacute;n Temprana</dt>
                       <dd>	
                         <table>
                         	<tr>
@@ -135,7 +135,7 @@
                           <ul>
                             <li><a href="#tabsIntCarpetaInv1">Buscar carpetas</a></li>
                             <li><a href="#tabsIntCarpetaInv2">Asign. criterio de oportunidad</a></li>
-                            <li><a href="#tabsIntCarpetaInv3">Sol. entradas y salidas almacén</a></li>
+                            <li><a href="#tabsIntCarpetaInv3">Sol. entradas y salidas almac&eacute;n</a></li>
                             <li><a href="#">Salir</a></li>
                           </ul>
                           <div id="tabsIntCarpetaInv1">
@@ -176,7 +176,7 @@
                           <ul>
                             <li><a href="#tabsSolInvMin1">Designar Archivo temporal</a></li>
                             <li><a href="#tabsSolInvMin2">Realiza inv. periciales</a></li>
-                            <li><a href="#tabsSolInvMin3">Realizar valoración de hecho</a></li>
+                            <li><a href="#tabsSolInvMin3">Realizar valoraci&oacute;n de hecho</a></li>
                             <li><a href="#">Salir</a></li>
                           </ul>
                           <div id="tabsSolInvMin1">

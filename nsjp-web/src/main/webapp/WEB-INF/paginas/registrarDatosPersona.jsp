@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Registrar Datos Persona</title>
 
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css" />
@@ -142,7 +142,7 @@
 					</td>
 			  </tr>
 				<tr>
-					 <td   valign="top" align="left" colspan="6">Motivo de la solicitud de atención
+					 <td   valign="top" align="left" colspan="6">Motivo de la solicitud de atenci&oacute;n
 					</td>
 				</tr>
 				<tr>
@@ -366,7 +366,7 @@ function cargaNacionalidad(){
 }
 
 /**
- *Limpia todos los campos de esta página
+ *Limpia todos los campos de esta p&aacute;gina
  */
 function cleanDatosGenerales(){
 
@@ -430,7 +430,7 @@ function recuperaDatosDatosGenerales(idCalidad)
 
 	 /**
 	  * Muestra u oculta los combo box's o cajas de texto dependiendo
-	  * de el país seleccionado tiene o no, entidades federativas.
+	  * de el pa&iacute;s seleccionado tiene o no, entidades federativas.
 	  * Esto para el domicilio.
 	  */	
 	  function hideControls(existenEntidades) {
@@ -593,7 +593,7 @@ function recuperaDatosDatosGenerales(idCalidad)
 
 	/**
 	* Si existe un cambio en el combo de paises se realiza la consulta de 
-	* entidades federativas, y si la consulta es NO vacía se leventa la 
+	* entidades federativas, y si la consulta es NO vac&iacute;a se leventa la 
 	* bandera para mostrar los combo box. Esto para el domicilio
 	*/ 	
 	function onSelectChangePais() {
@@ -608,7 +608,7 @@ function recuperaDatosDatosGenerales(idCalidad)
 			async: false,									// la accion cargar estados y llena el combo con la consulta
 			type: 'POST',
 			url: '<%= request.getContextPath()%>/cargarEntFederativas.do',
-			data: 'glCatPaisId=' + selected.val(),	//Parametro para hacer la consulta de Entidades por Id del País
+			data: 'glCatPaisId=' + selected.val(),	//Parametro para hacer la consulta de Entidades por Id del Pa&iacute;s
 			dataType: 'xml',
 			success: function(xml){
 				$(xml).find('catEntidadesFed').each(function(){
@@ -772,7 +772,7 @@ function recuperaDatosDatosGenerales(idCalidad)
 	  
 	  /*
 	   *Funcion que realiza la consulta de los datos
-	   *por código postal
+	   *por c&oacute;digo postal
 	   *(SIN FUNCIONALIDAD POR EL MOMENTO)
 	   */
 	  function cosultaPorCodigoPostal(){
@@ -952,7 +952,7 @@ function generarDocumentoSinCaso() {
 
 
 	/**
-	* Función que guarda los datos de la pantalla Registrar datos ciudadano
+	* Funci&oacute;n que guarda los datos de la pantalla Registrar datos ciudadano
 	*/
 	function guardarDatosCiudadano(){
 		var params = '';
@@ -1046,7 +1046,7 @@ function generarDocumentoSinCaso() {
 				onSelectChangeCiudadMunicipioTipoAsentamiento();}
 		});
 
-		$("#codigoPostalButton").bind("click",cosultaPorCodigoPostal);					//Escuchador para consultar pos código postal
+		$("#codigoPostalButton").bind("click",cosultaPorCodigoPostal);					//Escuchador para consultar pos c&oacute;digo postal
 		$("#limpiarButton").bind("click",limpiarFormulario);							//Funcion para limpiar el formulario
 
 	 	hideControls("no");			//Funciones para esconder los controles 

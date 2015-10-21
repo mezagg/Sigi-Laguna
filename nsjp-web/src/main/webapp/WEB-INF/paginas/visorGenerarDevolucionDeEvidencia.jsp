@@ -1,10 +1,10 @@
 <%@page import="java.util.Calendar"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Generar Devoluci&oacute;n De Evidencia</title>
 
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css" />
@@ -179,7 +179,7 @@
 				
 				url:'<%= request.getContextPath()%>/consultarEvidenciasADevolver.do?folioCadenaCustodia='+folioCadenaCustodia+'', 
 				datatype: "xml", 
-				colNames:['Numero de Evidencia','Tipo de Objeto','Objeto','Descripci&oacute;n','Código de Barras' ], 
+				colNames:['Numero de Evidencia','Tipo de Objeto','Objeto','Descripci&oacute;n','C&oacute;digo de Barras' ], 
 				colModel:[ 	
 							{name:'NumeroDeEvidencia',index:'numeroDeEvidencia', width:250},
 							{name:'TipoObjeto',index:'tipoObjeto', width:250},
@@ -338,7 +338,7 @@
 			    <td width="450"><input type="button" value="Enviar Notificacion" onclick="enviarNotificacionDevolucionEvidencia();" class="btn_Generico"/></td>
 			  </tr>
 			  <tr>
-			    <td align="right"><strong>Nombre del Servidor Público:</strong></td>
+			    <td align="right"><strong>Nombre del Servidor P&uacute;blico:</strong></td>
 			    <td align="left"><input type="text" id="nombreFuncionarioGenerarDevolucion" style="width:250px; border: 0; background:#DDD;" readonly="readonly"/></td>
 			    <td></td>
 			  </tr>
@@ -348,7 +348,7 @@
 			    <td>&nbsp;</td>
 			  </tr>
 			  <tr>
-			    <td align="right"><strong>Área Administrativa:</strong></td>
+			    <td align="right"><strong>&Aacute;rea Administrativa:</strong></td>
 			    <td align="left"><input type="text" id="areaFuncionarioGenerarDevolucion" style="width:250px; border: 0; background:#DDD;" readonly="readonly"/></td>
 			    <td>&nbsp;</td>
 			  </tr>

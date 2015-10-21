@@ -54,21 +54,21 @@
 		<td colspan="2">
 			<table>
 				<tr>
-					<td align="right">Número Único de Sentenciado (NUS):</td>
+					<td align="right">N&uacute;mero &Uacute;nico de Sentenciado (NUS):</td>
 					<td align="left">
 						<html:text name="DatosGeneralesReinsercionForm" property="nus" readonly="true" styleId="carpeta" styleClass="texto"/>
 					</td>
 				</tr>
 				<tr>
-					<td align="right">Edad biológica:</td>
+					<td align="right">Edad biol&oacute;gica:</td>
 					<td align="left">
 						<html:text name="DatosGeneralesReinsercionForm" property="edad" readonly="true" size="10" />
 					</td>
 				</tr>
 				<tr>
-					<td align="right">¿Presentó lesiones?</td>
+					<td align="right">&iquest;Present&oacute; lesiones?</td>
 					<td align="left">
-						Sí <html:radio name="DatosGeneralesReinsercionForm" property="lesionado" title="Sí" value="1" disabled="true" /> 
+						S&iacute; <html:radio name="DatosGeneralesReinsercionForm" property="lesionado" title="S&iacute;" value="1" disabled="true" /> 
 						No <html:radio name="DatosGeneralesReinsercionForm" property="lesionado" title="No" value="0" disabled="true" />
 					</td>
 				</tr>
@@ -104,9 +104,9 @@
 						</td>
 					</tr>
 					<tr>
-						<td align="right">¿Se encuentra físicamente en el CERESO?</td>
+						<td align="right">&iquest;Se encuentra f&iacute;sicamente en el CERESO?</td>
 						<td align="left">
-							Sí <html:radio name="DatosGeneralesReinsercionForm" property="encarcelado" title="Sí" value="1" disabled="true" /> 
+							S&iacute; <html:radio name="DatosGeneralesReinsercionForm" property="encarcelado" title="S&iacute;" value="1" disabled="true" /> 
 							No <html:radio name="DatosGeneralesReinsercionForm" property="encarcelado" title="No" value="0" disabled="true" />
 						</td>
 					</tr>

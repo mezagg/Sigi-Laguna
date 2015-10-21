@@ -1,11 +1,11 @@
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Detalle de la designación</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Detalle de la designaci&oacute;n</title>
 
 	
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css" />
@@ -133,7 +133,7 @@
 
 <div id="tabsprincipalconsulta">
 <ul>
-	<li id="detalleAudiencias"><a href="#tabsconsultaprincipal-1">Detalle de designación</a></li>
+	<li id="detalleAudiencias"><a href="#tabsconsultaprincipal-1">Detalle de designaci&oacute;n</a></li>
 
 </ul>
 
@@ -148,7 +148,7 @@
 			<td>&nbsp;</td>
 		  </tr>
 		<tr>
-		  <td width="22%" align="right"><strong>Número de Caso:</strong></td>
+		  <td width="22%" align="right"><strong>N&uacute;mero de Caso:</strong></td>
 		  <td width="17%"><input type="text"
 				id="numCasoPJENS"
 				style="width: 150px; border: 0; background: #DDD;"
@@ -159,7 +159,7 @@
 				readonly="readonly" /></td>
 		  </tr>
 		<tr>
-		  <td align="right"><strong>Número de Causa:</strong></td>
+		  <td align="right"><strong>N&uacute;mero de Causa:</strong></td>
 		  <td><input type="text" id="numExpPJENS"
 				style="width: 150px; border: 0; background: #DDD;"
 				readonly="readonly"  /></td>

@@ -1,4 +1,4 @@
-<%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="java.util.Date"%>
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
@@ -75,7 +75,7 @@
 					PADDING-RIGHT: 0px;
 					HEIGHT: 380px;
 					PADDING-TOP: 10px;
-					background-image: url(/nsjp-web/resources/images/back_datos_gral.png);
+					background-image: url(/<%=request.getContextPath()%>/resources/images/back_datos_gral.png);
 					background-repeat: no-repeat;
 					border: 0px solid #000;
 				}
@@ -97,12 +97,12 @@
 					COLOR: #f5f5f5;
 					FONT-SIZE: 12px;
 					FONT-WEIGHT: normal;	
-					background-image: url(/nsjp-web/resources/images/barra_ver_act.png);
+					background-image: url(/<%=request.getContextPath()%>/resources/images/barra_ver_act.png);
 					background-repeat: no-repeat;
 					background-position: 28px;
 				}
 				#cedulaIdentificacion DT.active {
-					BACKGROUND: url(/nsjp-web/resources/images/barra_ver_inact.png);
+					BACKGROUND: url(/<%=request.getContextPath()%>/resources/images/barra_ver_inact.png);
 					background-repeat: no-repeat; 
 					COLOR: #f5f5f5; 
 					CURSOR: pointer;
@@ -120,7 +120,7 @@
 					PADDING-BOTTOM: 1px; 
 					PADDING-LEFT: 1px; 
 					PADDING-RIGHT: 1px; 
-					/*BACKGROUND: url(/nsjp-web/images/jquery/plugins/easyaccordion/slide.jpg) repeat-x left bottom;*/ 
+					/*BACKGROUND: url(/<%=request.getContextPath()%>/images/jquery/plugins/easyaccordion/slide.jpg) repeat-x left bottom;*/ 
 					BORDER-TOP: #dbe9ea 0px solid; 
 					MARGIN-RIGHT: 1px; 
 					BORDER-RIGHT: #dbe9ea 0px solid; 
@@ -159,7 +159,7 @@
 			.tabEstilo  { height: 350px; overflow: auto; }
 			
 		</style>    
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title><tiles:getAsString name="title" /></title>	
 	</head>
 	<body>

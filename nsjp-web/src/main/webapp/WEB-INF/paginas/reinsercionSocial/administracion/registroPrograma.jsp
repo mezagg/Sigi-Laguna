@@ -1,6 +1,6 @@
 <%@page import="java.util.Date"%>
 <%@ page contentType="text/html"%>
-<%@ page pageEncoding="ISO-8859-1"%>
+<%@ page pageEncoding="UTF-8"%>
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@ taglib uri="http://java.sun.com/jstl/core" prefix="c"%>
@@ -50,7 +50,7 @@
 						datatype: "local", 
 						height: 110,
 						width: 600,
-						colNames:['Nombre', 'Categoría', 'Puntos'], 
+						colNames:['Nombre', 'Categor&iacute;a', 'Puntos'], 
 						colModel:[ 	 
 									{name:'nombre',		index:'nombre', 	editable: false}, 
 									{name:'categoria',	index:'categoria', 	editable: false}, 
@@ -76,7 +76,7 @@
 			
 					jQuery("#jqGridCursos").jqGrid('setCaption',"Cursos Asociados Al Programa");
 					jQuery("#jqGridTrabajos").jqGrid('setCaption',"Trabajos Asociados Al Programa");
-					jQuery("#jqGridCeresos").jqGrid('setCaption',"Centros De Detención Asociados Al Programa");
+					jQuery("#jqGridCeresos").jqGrid('setCaption',"Centros De Detenci&oacute;n Asociados Al Programa");
 					
 					jQuery("#dialog:ui-dialog" ).dialog( "destroy" );
 					
@@ -183,7 +183,7 @@
 									}
 								});
 							}else{
-								jQuery( "#confirmText" ).html("Los elementos seleccionados serán eliminados del programa,<br /> ¿Desea continuar?");
+								jQuery( "#confirmText" ).html("Los elementos seleccionados ser&aacute;n eliminados del programa,<br /> &iquest;Desea continuar?");
 								jQuery( "#dialog-confirm" ).dialog({ 
 									title: "Eliminar Curso",
 									buttons: {
@@ -278,7 +278,7 @@
 									}
 								});
 							}else{
-								jQuery( "#confirmText" ).html("Los elementos seleccionados serán eliminados del programa,<br /> ¿Desea continuar?");
+								jQuery( "#confirmText" ).html("Los elementos seleccionados ser&aacute;n eliminados del programa,<br /> &iquest;Desea continuar?");
 								jQuery( "#dialog-confirm" ).dialog({ 
 									title: "Eliminar Trabajo",
 									buttons: {
@@ -327,7 +327,7 @@
 						function() {
 							var grid = jQuery("#jqGridCeresos");
 							jQuery("#dialog-ceresos").dialog({ 
-								title: "Asociar Centro De Detención",
+								title: "Asociar Centro De Detenci&oacute;n",
 								buttons: {
 									"Asociar": function() {
 										agregarDatoAGrid(grid, datosCC);
@@ -358,9 +358,9 @@
 							var idSeleccionados = grid.jqGrid().getGridParam("selarrrow");
 							var len = idSeleccionados.length;
 							if(len<=0){
-								jQuery( "#confirmText" ).html("Para poder eliminar, al menos se debe seleccionar un centro de detención");
+								jQuery( "#confirmText" ).html("Para poder eliminar, al menos se debe seleccionar un centro de detenci&oacute;n");
 								jQuery( "#dialog-confirm" ).dialog({ 
-									title: "Eliminar Centro De Detención",
+									title: "Eliminar Centro De Detenci&oacute;n",
 									buttons: {
 										"Aceptar": function() {
 											$( this ).dialog( "close" );
@@ -372,9 +372,9 @@
 									}
 								});
 							}else{
-								jQuery( "#confirmText" ).html("Los elementos seleccionados serán eliminados del programa,<br /> ¿Desea continuar?");
+								jQuery( "#confirmText" ).html("Los elementos seleccionados ser&aacute;n eliminados del programa,<br /> &iquest;Desea continuar?");
 								jQuery( "#dialog-confirm" ).dialog({ 
-									title: "Eliminar Centro De Detención",
+									title: "Eliminar Centro De Detenci&oacute;n",
 									buttons: {
 										"Eliminar": function() {
 											for(var i=len-1; i>=0; i--){
@@ -454,7 +454,7 @@
 						autowidth:true,
             			shrinkToFit:true,
 						url:'<%=request.getContextPath()%>/llenarGrid.do?gridID=apTabs-1',
-						colNames:['Nombre','Tipo', 'Descripción', 'No. Puntos','Fecha Inicio', 'Fecha Termino'], 
+						colNames:['Nombre','Tipo', 'Descripci&oacute;n', 'No. Puntos','Fecha Inicio', 'Fecha Termino'], 
 						colModel:[ 	{name:'Nombre',index:'1' }, 
 									{name:'Tipo',index:'2'}, 
 									{name:'Descripcion',index:'3'}, 
@@ -484,7 +484,7 @@
 						autowidth:true,
             			shrinkToFit:true,
 						url:'<%=request.getContextPath()%>/llenarGrid.do?gridID=apTabs-2',
-						colNames:['Nombre','Descripción', 'Tipo', 'Categoría','Tipo De Nivel Académico', 'No. Puntos', 'Duración'], 
+						colNames:['Nombre','Descripci&oacute;n', 'Tipo', 'Categor&iacute;a','Tipo De Nivel Acad&eacute;mico', 'No. Puntos', 'Duraci&oacute;n'], 
 						colModel:[ 	{name:'Nombre',index:'1'}, 
 									{name:'Descripcion',index:'2'}, 
 									{name:'Tipo',index:'3'}, 
@@ -515,7 +515,7 @@
 						autowidth:true,
             			shrinkToFit:true,
 						url:'<%=request.getContextPath()%>/llenarGrid.do?gridID=apTabs-3',
-						colNames:['Nombre','Descripción', 'Tipo De Trabajo', 'Tipo De Trabajo Externo','No. Convenio', 'No. Puntos'], 
+						colNames:['Nombre','Descripci&oacute;n', 'Tipo De Trabajo', 'Tipo De Trabajo Externo','No. Convenio', 'No. Puntos'], 
 						colModel:[ 	{name:'Nombre',index:'1'}, 
 									{name:'Descripcion',index:'2'}, 
 									{name:'TipoDeTrabajo',index:'3'}, 
@@ -551,30 +551,30 @@
 						
 						<%	if (reg.equals("apTabs-1")) {
 								if (accion == "Actualizado"){
-									mensaje = "El <strong>Programa</strong> se ha actualizado con éxito.";
+									mensaje = "El <strong>Programa</strong> se ha actualizado con &eacute;xito.";
 								} else if (accion == "Eliminado"){ 
-									mensaje = "El <strong>Programa</strong> se ha eliminado con éxito.";
+									mensaje = "El <strong>Programa</strong> se ha eliminado con &eacute;xito.";
 								} else {
-									mensaje = "El <strong>Programa</strong> se ha guardado con éxito.";
+									mensaje = "El <strong>Programa</strong> se ha guardado con &eacute;xito.";
 								} 
 						  	} else if (reg.equals("apTabs-2")) {
 								if (accion == "Actualizado"){
-									mensaje = "El <strong>Curso</strong> se ha actualizado con éxito.";
+									mensaje = "El <strong>Curso</strong> se ha actualizado con &eacute;xito.";
 								} else if (accion == "Eliminado"){ 
-									mensaje = "El <strong>Curso</strong> se ha eliminado con éxito.";
+									mensaje = "El <strong>Curso</strong> se ha eliminado con &eacute;xito.";
 								} else {
-									mensaje = "El <strong>Curso</strong> se ha guardado con éxito.";
+									mensaje = "El <strong>Curso</strong> se ha guardado con &eacute;xito.";
 								} 
 						} else if (reg.equals("apTabs-3")) {
 							if (accion == "Actualizado"){
-								mensaje = "El <strong>Trabajo</strong> se ha actualizado con éxito.";
+								mensaje = "El <strong>Trabajo</strong> se ha actualizado con &eacute;xito.";
 							} else if (accion == "Eliminado"){ 
-								mensaje = "El <strong>Trabajo</strong> se ha eliminado con éxito.";
+								mensaje = "El <strong>Trabajo</strong> se ha eliminado con &eacute;xito.";
 							} else {
-								mensaje = "El <strong>Trabajo</strong> se ha guardado con éxito.";
+								mensaje = "El <strong>Trabajo</strong> se ha guardado con &eacute;xito.";
 							}
 						} else if (reg.equals("false")) {
-							mensaje = "El <strong>Programa</strong> se ha eliminado con éxito.";		
+							mensaje = "El <strong>Programa</strong> se ha eliminado con &eacute;xito.";		
 						}
 						%>
 						jQuery( "#confirmText" ).html("<%=mensaje%>");
@@ -647,7 +647,7 @@
 					return false;
  				}   				
 //				if(dp.length<=0){
-//					customAlert("El campo <strong>Descripción</strong> es requerido", "Error");
+//					customAlert("El campo <strong>Descripci&oacute;n</strong> es requerido", "Error");
 //					return false;
 //				}				
 					
@@ -677,7 +677,7 @@
 				}
 				
 				if(!validarCheckBoxes("checkboxesCeresos")){
-					customAlert("Se debe asociar, al menos, un <strong>Centro De Detención</strong> al <strong>Programa</strong>", "Error");
+					customAlert("Se debe asociar, al menos, un <strong>Centro De Detenci&oacute;n</strong> al <strong>Programa</strong>", "Error");
 					return false;										
 				}
   				break;
@@ -705,15 +705,15 @@
 					return false;
 				}
 //				if(dct.length<=0){
-//					customAlert("El campo <strong>Descripción</strong> es requerido", "Error");
+//					customAlert("El campo <strong>Descripci&oacute;n</strong> es requerido", "Error");
 //					return false;
 //				}
 				if(pct.length<=0){
-					customAlert("El campo <strong>Número de Puntos</strong> es requerido", "Error");
+					customAlert("El campo <strong>N&uacute;mero de Puntos</strong> es requerido", "Error");
 					return false;
 				}
 				if(isNaN(pct)){
-					customAlert("El campo <strong>Número de Puntos</strong> debe ser un número entero", "Error");
+					customAlert("El campo <strong>N&uacute;mero de Puntos</strong> debe ser un n&uacute;mero entero", "Error");
 					return false;
 				}				
 				
@@ -725,7 +725,7 @@
 						return false;
 	 				} 
 					if(ncct.length<=0){
-						customAlert("El campo <strong>Número de Convenio</strong> es requerido", "Error");
+						customAlert("El campo <strong>N&uacute;mero de Convenio</strong> es requerido", "Error");
 						return false;
 					}	 				
 				}
@@ -785,7 +785,7 @@
 	function preguntarEliminar(action, tipo){
 		var resp = false;
 		
-		jQuery( "#confirmText" ).html("¿Está seguro de que desea eliminar el <strong>" + tipo + "</strong>?");
+		jQuery( "#confirmText" ).html("&iquest;Est&aacute; seguro de que desea eliminar el <strong>" + tipo + "</strong>?");
 		jQuery( "#dialog-confirm" ).dialog({ 
 			title: "Eliminar "+ tipo,
 			buttons: {
@@ -1680,7 +1680,7 @@
 			<table>
 				<tr>
 					<td align="right"><strong>Selecionar Centro De
-							Detención: </strong>
+							Detenci&oacute;n: </strong>
 					</td>
 					<td align="left"><select name="lstCereso" id="lstCereso"
 						class="texto">

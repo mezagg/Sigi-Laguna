@@ -1,7 +1,7 @@
 <%@page
     import="mx.gob.segob.nsjp.comun.enums.funcionario.TipoDefensoria"%>
-    <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-             pageEncoding="ISO-8859-1"%>
+    <%@ page language="java" contentType="text/html; charset=UTF-8"
+             pageEncoding="UTF-8"%>
     <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
     <html>
         <head>
@@ -36,11 +36,11 @@
             <script type="text/javascript" src="<%=request.getContextPath()%>/js/bloqueaTecla.js?n=1"></script>
 		
 
-            <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
             <script type="text/javascript">
 
-                var CONTEXT_ROOT = '<%= request.getContextPath()%>'; //nsjp-web
+                var CONTEXT_ROOT = '/<%= request.getContextPath()%>'; //nsjp-web
                 var idExpediente ="";
 
                 var reloadGrid=false;
@@ -53,16 +53,16 @@
                             datatype: "xml",
                             /**
                              * id
-                             * número de la evidencia,
-                             * información de la evidencia, ¿descripcion?
+                             * n&uacute;mero de la evidencia,
+                             * informaci&oacute;n de la evidencia, &iquest;descripcion?
                              * origen de la evidencia,
-                             * último eslabón asociado, ¿eslabonId?
-                             * número de eslabón,
-                             * tipo de eslabón,
-                             * almacén donde se encuentra la evidencia,
+                             * &uacute;ltimo eslab&oacute;n asociado, &iquest;eslabonId?
+                             * n&uacute;mero de eslab&oacute;n,
+                             * tipo de eslab&oacute;n,
+                             * almac&eacute;n donde se encuentra la evidencia,
                              * estado de la evidencia.
                              */
-                            colNames:['id','Número','Información', 'Origen', 'Último eslabón asociado', 'Número de eslabón', 'Tipo de eslabón', 'Almacén', 'Estado de la evidencia'],
+                            colNames:['id','N&uacute;mero','Informaci&oacute;n', 'Origen', '&Uacute;ltimo eslab&oacute;n asociado', 'N&uacute;mero de eslab&oacute;n', 'Tipo de eslab&oacute;n', 'Almac&eacute;n', 'Estado de la evidencia'],
                             colModel:[
                                     {name:'id',index:'id', width:75, viewable:false, key:true, hidden:true},
                                     {name:'numero',index:'numero', sorteable:false, align:"center"},
@@ -126,7 +126,7 @@
                 }
 
                 function lanzaRegistrarSalidaAlmacen(){
-                    abreNuevoFrame("iframeRegistrarSalidaAlmacen", "/registrarSalidaAlmacen.do?", 0, 0, 800, 300, "Registrar Salida de Almacén");
+                    abreNuevoFrame("iframeRegistrarSalidaAlmacen", "/registrarSalidaAlmacen.do?", 0, 0, 800, 300, "Registrar Salida de Almac&eacute;n");
                 }
             </script>
         </head>
@@ -151,7 +151,7 @@
                 </tr>
                 <tr>
                     <td align="left">
-                        Número de folio de la cadena de custodia:
+                        N&uacute;mero de folio de la cadena de custodia:
                         <input type="text" id="numCarpetaPJ">
                     </td>
                     <td align="right">
@@ -163,7 +163,7 @@
             <div id="nabtabgrid" >
                 <input type="button" value="Dar de baja indicio o evidencia"
                        onclick="lanzaDarDeBajaIndicioOEvidencia();" class="btn_Generico"/>
-                <input type="button" value="Registrar salida de almacén"
+                <input type="button" value="Registrar salida de almac&eacute;n"
                        onclick="lanzaRegistrarSalidaAlmacen();" class="btn_Generico"/>
                 <div id="wrapGriEvidencias" style="display:none">
                     <table id="gridEvidencias" align="center"></table>

@@ -25,7 +25,7 @@
 		var error='<%= request.getAttribute("error")%>'
 		var captcha='<%= request.getAttribute("captcha")%>'
 		if(error==0){
-			customAlert("Usuario y/o Contraseña Inválidos,<br/> favor de verificar.", 
+			customAlert("Usuario y/o Contrase&ntilde;a Inv&aacute;lidos,<br/> favor de verificar.", 
 						"Error", 
 						function() { $("#username").focus(); }
 			);
@@ -38,7 +38,7 @@
 			);
 			$('#errorLogin').val('Credenciales Invalidas');
 		}else if(error==3){
-			customAlert("Código Captcha erróneo,<br/>  favor de verificar.", 
+			customAlert("C&oacute;digo Captcha err&oacute;neo,<br/>  favor de verificar.", 
 						"Error",
 						function() { $("#password").focus(); } 
 			);
@@ -53,21 +53,21 @@
 		}else{
 			switch (captcha) {
 				case "1" : 
-					customAlert("Existe una sesión iniciada en sistema,<br/> favor de volver a ingresar su información de usuario.",
+					customAlert("Existe una sesi&oacute;n iniciada en sistema,<br/> favor de volver a ingresar su informaci&oacute;n de usuario.",
 								"Error", 
 								function() { $("#password").focus(); }
 					);
-					$('#errorLogin').val('Sesión Duplicada');
+					$('#errorLogin').val('Sesi&oacute;n Duplicada');
 					$("#captchaJPG").show();
 					$("#captchaTXT").show();
 					break;
 				
 				case "2" :
-					customAlert("Código Captcha erróneo,<br/> favor de verificar.",
+					customAlert("C&oacute;digo Captcha err&oacute;neo,<br/> favor de verificar.",
 								"Error",
 								function() { $("#password").focus(); }
 					);
-					$('#errorLogin').val('Código Captcha Erróneo');
+					$('#errorLogin').val('C&oacute;digo Captcha Err&oacute;neo');
 					$("#captchaJPG").show();
 					$("#captchaTXT").show();
 					break;
@@ -93,12 +93,12 @@
 					sinError = false;
         		}
 				if( $("#password").val().length === 0 ) {
-					error += "El campo <b>Contraseña</b> es requerido<br/>";
+					error += "El campo <b>Contrase&ntilde;a</b> es requerido<br/>";
 					sinError = false;
         		}
         		if(!sinError){
         			error+="Por favor, verifique que los campos esten completos.";
-        			customAlert(error, "Validación De Datos");
+        			customAlert(error, "Validaci&oacute;n De Datos");
         		}
         		return sinError;
 			}
@@ -187,7 +187,7 @@
 	        <table width="537" height="228" border="0" cellspacing="0" cellpadding="0" background="<%=((ConfiguracionDTO)session.getAttribute(LoginAction.KEY_SESSION_CONFIGURACION_GLOBAL)).getUrlServidorImag()%>/sistema/back_login.png" align="center" >
 	                <tr>
 	                    <td align="center" style="border-left:#FFFFFF; border-top:#FFFFFF;">
-	                    	<label style="color:#4A5C68">Escriba su usuario y contraseña para iniciar.</label>	
+	                    	<label style="color:#4A5C68">Escriba su usuario y contrase&ntilde;a para iniciar.</label>	
 	                    </td>
 	                </tr>
 	                <tr>
@@ -204,7 +204,7 @@
 	                                <td align="right"><label style="color:#4A5C68">Usuario:</label></td><td><input type="text" name="username" id="username" value="" maxlength="30" size="20"></td>
 	                            </tr>
 	                            <tr>
-	                                <td align="right"><label style="color:#4A5C68">Contraseña:</label></td><td><input type="password" name="password" id="password" value="" maxlength="20" size="20"></td>
+	                                <td align="right"><label style="color:#4A5C68">Contrase&ntilde;a:</label></td><td><input type="password" name="password" id="password" value="" maxlength="20" size="20"></td>
 	                            </tr>
 	                            <tr id="captchaJPG" style="display:none;">
 	                                <td align="right">

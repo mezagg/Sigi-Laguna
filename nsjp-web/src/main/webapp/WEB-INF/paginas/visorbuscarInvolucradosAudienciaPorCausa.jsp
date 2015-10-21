@@ -1,11 +1,11 @@
 <%@ page	import="mx.gob.segob.nsjp.comun.enums.solicitud.TiposSolicitudes"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Atencion a Sollicitudes</title>
 
 
@@ -247,7 +247,7 @@
 			jQuery("#gridSolTranscripcionAudienciaPJENC").jqGrid({
 				url:'<%=request.getContextPath()%>/consultarSolicitudesTransAudioVideoPorEstatus.do?idAudiencia='+idAudiencia+'&enumTipoSolicitud='+enumTipoSolicitud+'',
 				datatype: "xml", 
-				colNames:['Nombre','Institución','Ordenado','Atendido'], 
+				colNames:['Nombre','Instituci&oacute;n','Ordenado','Atendido'], 
 				colModel:[  {name:'NombreSol',index:'nombreSol', width:200, align:'center'},						
 				           	{name:'Institucion',index:'institucion', width:150, align:'center'}, 
 				           	{name:'Ordenado',index:'ordenado', width:70,align:'center'}, 
@@ -322,7 +322,7 @@
 		jQuery("#gridProbResponsablePJENC").jqGrid({ 
 			url:'<%=request.getContextPath()%>/consultarProbablesResponsablesPorVictimaYDelito.do?audienciaId='+idAudiencia+'',
 			datatype: "xml", 
-			colNames:[probableResponsableProp,'Nombre Víctima(s)','Delito(s)','Calidad Actual','Nueva Calidad'], 
+			colNames:[probableResponsableProp,'Nombre V&iacute;ctima(s)','Delito(s)','Calidad Actual','Nueva Calidad'], 
 			colModel:[  {name:'NombreImputado',index:'nombreImputado', width:200, align:'center'},						
 			           	{name:'NombreVictima',index:'nombreVictima', width:200, align:'center', cellattr: function (rowId, tv, rawObject, cm, rdata) { return 'style="white-space: normal;"';} }, 
 			           	{name:'Delito',index:'delito', width:120,align:'center', cellattr: function (rowId, tv, rawObject, cm, rdata) { return 'style="white-space: normal;"';} }, 
@@ -376,7 +376,7 @@
 			viewrecords: true,
 			caption:"Resolutivos de Audiencia",
 			sortorder: "desc",
-			editurl: "http://localhost:8080/nsjp-web/encargadoCausas.jsp",
+			editurl: "/<%=request.getContextPath()%>/encargadoCausas.jsp",
 			loadComplete: function(){				
 				var registros =jQuery("#gridAudienciasResolutivosPJENC").jqGrid('getDataIDs'); 
 				var total = registros.length;
@@ -414,7 +414,7 @@
 		});
 	}
 	/*
-	* Función que genera un Mandamiento y después abre la pantalla de mandamiento judicial
+	* Funci&oacute;n que genera un Mandamiento y despu&eacute;s abre la pantalla de mandamiento judicial
 	*
 	*/
 	
@@ -456,7 +456,7 @@
 		
 	}
 	/*
-	* Complementa la función de creación de un nuevo mandamiento judicial
+	* Complementa la funci&oacute;n de creaci&oacute;n de un nuevo mandamiento judicial
 	*/
 	function enviarMandamiento(tipo){
 		resolutivo = jQuery("#gridAudienciasResolutivosPJENC").jqGrid('getGridParam','selrow');
@@ -470,13 +470,13 @@
 					
 					if($(xml).find("archivoDigitalId").first().text()!=""){
 						
-						//el documento ya está generado, consultarlo
+						//el documento ya est&aacute; generado, consultarlo
 						document.verMandamientoForm.documentoId.value=$(xml).find("documentoId").first().text();
 						document.verMandamientoForm.submit();
 					}else{
 						documentoId = $(xml).find("documentoId").first().text();
 						numExp = $(xml).find("numeroExpediente").first().text();
-						//mandamiento recién creado, mostrar el editor
+						//mandamiento reci&eacute;n creado, mostrar el editor
 						$.newWindow({id:"iframewindowGenerarMandamientoJudicial", 
 							statusBar: true, posx:200,posy:50,width:1140,height:400,title:"Generar Mandamiento", 
 							type:"iframe", confirmarCierreVentana:true});
@@ -494,7 +494,7 @@
 	
 	
 	/**
-	* Funcion que realiza la carga del catálogo de tipos de mandamiento
+	* Funcion que realiza la carga del cat&aacute;logo de tipos de mandamiento
 	*/
 	function cargaTipoMandamiento() {
 		

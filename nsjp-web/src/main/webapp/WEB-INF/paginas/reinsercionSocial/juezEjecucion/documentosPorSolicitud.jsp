@@ -36,7 +36,7 @@
 				tipoConsulta	: "<%=SolicitudDTO.ADJUNTOS%>"
 			},
 			datatype: "xml", 
-			colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creación','Fecha Limite','Institución','Remitente', 'TipoActividad', 'Nombre Del Documento','confActividadDocumentoId','confActividadNombre'], 
+			colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creaci&oacute;n','Fecha Limite','Instituci&oacute;n','Remitente', 'TipoActividad', 'Nombre Del Documento','confActividadDocumentoId','confActividadNombre'], 
 			colModel:[ 	{name:'caso',index:'caso', width:150,hidden:true},
 			           	{name:'expediente',index:'expediente', width:180,align:'center'}, 
 						{name:'folio',index:'folio', width:100,align:'center'}, 

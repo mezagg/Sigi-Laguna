@@ -92,7 +92,7 @@
     			<select id="cbxTipoLugar" style="width:200px;">
               		<option value="-1">-Seleccione-</option>
               		<option value="1">-Domicilio-</option>
-              		<option value="2">-Imediación del Lugar-</option>
+              		<option value="2">-Imediaci&oacute;n del Lugar-</option>
             	</select>
             </td>
     	</tr>

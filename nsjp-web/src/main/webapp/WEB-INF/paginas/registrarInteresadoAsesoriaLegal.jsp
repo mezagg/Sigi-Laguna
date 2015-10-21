@@ -1,8 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<%@ page import="mx.gob.segob.nsjp.comun.enums.calidad.Calidades"%>
 	<%@ page import="mx.gob.segob.nsjp.comun.enums.excepciones.CodigoError"%>
 	<%@ page import="mx.gob.segob.nsjp.comun.enums.solicitud.EstatusSolicitud"%>
@@ -453,7 +453,7 @@
 		*	Funcion que se encarga de guardar los datos de la solicitud 
 		**/
 		function confirmGuardado(){
-			customConfirm("¿Desea guardar la informaci&oacute;n capturada?", "Aviso",
+			customConfirm("&iquest;Desea guardar la informaci&oacute;n capturada?", "Aviso",
 				function(){	guardaSolicitante();}
 			);
 		}
@@ -499,7 +499,7 @@
 		
 			//@deprecated
 			//if(tipoAsesoria.val()==-1){
-			//	customAlert("Por favor selecciona un tipo de asesoría");
+			//	customAlert("Por favor selecciona un tipo de asesor&iacute;a");
 			//}else{
 				$.ajax({
 			    	  type: 'POST',
@@ -547,7 +547,7 @@
 			jQuery("#gridDetalleFrmPrincipal").jqGrid({ 
 				url:'<%=request.getContextPath()%>/consultarDocumentosDefensoria.do?tipo=1&idExpedienteop='+numeroExpedienteId, 
 				datatype: "xml", 
-				colNames:['Tipo de documento','Fecha','Nombre de Documento','Nombre de la actividad','Fecha de la actividad','Área del responsable','Documentos', 'Documento Parcial'], 
+				colNames:['Tipo de documento','Fecha','Nombre de Documento','Nombre de la actividad','Fecha de la actividad','&Aacute;rea del responsable','Documentos', 'Documento Parcial'], 
 				colModel:[ 	{name:'Tipo',index:'tipo', width:155, align:"center"}, 
 				           	{name:'Fecha',index:'fecha', width:90, align:"center"},
 							{name:'Nombre',index:'nombre', width:255, align:"center"},
@@ -615,7 +615,7 @@
 				success: function(xml){
 				}
 			});
-			customAlert("La solicitud de asesoría se actualizó correctamente");
+			customAlert("La solicitud de asesor&iacute;a se actualiz&oacute; correctamente");
 		} --%>
 		
 		function imprimeDatosPadre(nombre,apellidoP,apellidoM){}
@@ -781,13 +781,13 @@
 
 							//Si errorCode=0 entonces continuamos con el flujo
 			    			if(parseInt(errorCode)==0){
-								customAlert("Se asignó de forma correcta al defensor");
+								customAlert("Se asign&oacute; de forma correcta al defensor");
 								estatusSolicitudId = $(respuesta).find('avisoDesignacionDTO').find('solicitudDefensor').find('estatus').find('idCampo').text();
 
 								recargaComponentes(true, true, true);
 							}
 							else{
-								customAlert("Ocurrió un error al asignar el defensor");
+								customAlert("Ocurri&oacute; un error al asignar el defensor");
 							}
 						} , param);		
 					}
@@ -863,7 +863,7 @@
 		<tr align="right">
 <!--		@deprecated
  			<td>
-				Tipo de Asesoría:<select id="tipoAsesoria"><option></option></select>
+				Tipo de Asesor&iacute;a:<select id="tipoAsesoria"><option></option></select>
 			</td>
  -->			<td>
  <!-- 				 @deprecated -->
@@ -877,7 +877,7 @@
 		<ul>
 			<li class="tabDatosInteresado"><a href="#tabsconsultaprincipal-1">Datos del Solicitante</a></li>
 			<!-- deprecated
-			<li id="liMotivoAsesoria"><a href="#tabsconsultaprincipal-2">Motivo de la asesoría</a> </li> -->
+			<li id="liMotivoAsesoria"><a href="#tabsconsultaprincipal-2">Motivo de la asesor&iacute;a</a> </li> -->
 			<li class="tabAsignarDefensor"><a href="#tabsVisorDefensoria-2" onclick="cargarGridDefensores()">Asignar Defensor</a></li>
 			<li class="tabDocumentos"><a href="#tabsconsultaprincipal-3" onclick="documentos()">Documentos</a></li>
 			<li class="tabActuaciones"><a href="#tabsconsultaprincipal-4">Actuaciones</a></li>

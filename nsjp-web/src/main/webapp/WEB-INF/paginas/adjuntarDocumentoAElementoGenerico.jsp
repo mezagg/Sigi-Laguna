@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Adjuntar imagen a elemento generico</title>
         <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css" />
         <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/estilos.css" media="screen" />
@@ -27,11 +27,11 @@
          	//Permite mandar un mensaje despues de registrar un amparo dado que el action redirige de nuevo a este mismo jsp
          	
          	if(extensionesPermitidas != null)
-         		$('#tiposArchivos').html(extensionesPermitidas.replace(/,/g," ó "))
+         		$('#tiposArchivos').html(extensionesPermitidas.replace(/,/g," &oacute; "))
          	
          	if(success != "null"){
          		if(parseInt(success) == 1){
-         			customAlert("La imagen se adjuntó de forma correcta")
+         			customAlert("La imagen se adjunt&oacute; de forma correcta")
          			try{
          				window.parent.cargaGridArchivosDigitalesXElemento();
          			}catch(e){};
@@ -74,7 +74,7 @@
  			} 
  			
  			if (!esExtensionPermitida) {
-	 			customAlert("Usted sólo puede subir archivos con extensiones (" + extensionesPermitidas.replace(/,/g," ó ")+ ")");
+	 			customAlert("Usted s&oacute;lo puede subir archivos con extensiones (" + extensionesPermitidas.replace(/,/g," &oacute; ")+ ")");
  			}
  			return esExtensionPermitida;
  	   }

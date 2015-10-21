@@ -7,7 +7,7 @@
 <%@page import="org.springframework.web.bind.annotation.SessionAttributes"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.seguridad.Roles"%>
 <%@page import="org.apache.cxf.common.security.UsernameToken"%>
-<%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="java.util.*" session="false" %>
 
 <%@page import="mx.gob.segob.nsjp.dto.configuracion.ConfiguracionDTO"%>
@@ -363,13 +363,13 @@
              */
 	
             function lanzaMenuSalidasAlmacen() {
-                abreNuevoFrame("iframewindowGenerarDocumento", "/salidaAlmacen.do", 255, 130, 454, 219, "Salida de Almacén");
+                abreNuevoFrame("iframewindowGenerarDocumento", "/salidaAlmacen.do", 255, 130, 454, 219, "Salida de Almac&eacute;n");
             }
 
             function lanzaMenuEntradasAlmacen() {
                 var idAlmacenSeleccionado = jQuery('#gridAlmacen').jqGrid('getGridParam','selrow');
                 if (!idAlmacenSeleccionado) {
-                    alert("Seleccione un almacén para registrar entradas");
+                    alert("Seleccione un almac&eacute;n para registrar entradas");
                 }else{
                     $.newWindow({id:"iframewindowEntradasAlmacen", statusBar: true, posx:255,posy:133,width:803,height:445,title:"Entrada de Almacen", type:"iframe"});
                     $.updateWindowContent("iframewindowEntradasAlmacen",'<iframe src="<%=request.getContextPath()%>/entradasAlmacen.do?identificadorAlmacen="' + idAlmacenSeleccionado + ' width="650" height="600" />');
@@ -414,7 +414,7 @@
 
            /**
             * Permite consultar Evidencias asociadas al Almacen del cual es responsable 
-            * el usuario firmado en seción. Permite consultar evidencias en base al
+            * el usuario firmado en seci&oacute;n. Permite consultar evidencias en base al
             * estatus de la evidencia.
             **/
  		   function gridEvidenciaAlmacen(estatusEvidencia, tieneSolicitudPorAtender){
@@ -653,7 +653,7 @@
 	               jQuery("#gridAlmacen").jqGrid({
 	                    url:'<%=request.getContextPath()%>'+'/consultarAlmacenesPorTipo.do',
 	                    datatype: "xml",
-	                    colNames:['Identificador','Tipo de Almacén','Nombre del Almacén','Dirección','Descripción' ],
+	                    colNames:['Identificador','Tipo de Almac&eacute;n','Nombre del Almac&eacute;n','Direcci&oacute;n','Descripci&oacute;n' ],
 	                    colModel:[
 							{name:'identificador',index:'4',  sortable:true, width:40,align:'center'},
 	                        {name:'tipoDeAlmacen',index:'1',  sortable:true, widih:40},
@@ -941,7 +941,7 @@
         
         <div id="dialog-logout" title="Cerrar Sesi&oacute;n">
 		<p align="center">
-			<span id="logout">¿Desea cerrar su sesi&oacute;n?</span>
+			<span id="logout">&iquest;Desea cerrar su sesi&oacute;n?</span>
 		</p>
 	</div>
 	
@@ -976,11 +976,11 @@
 		<p align="center">
 			<table border="0">
 				<tr>
-					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contraseña para desbloquear.</td>
+					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contrase&ntilde;a para desbloquear.</td>
 					
 				</tr>
 				<tr>
-					<td align="right"><label style="color:#4A5C68">Contraseña:</label></td>
+					<td align="right"><label style="color:#4A5C68">Contrase&ntilde;a:</label></td>
 					<td><input type="password" name="password" id="password" value="" maxlength="15" size="20"></td>
 				</tr>
 				<tr id="captchaJPG" >
@@ -1009,7 +1009,7 @@
 				La sesi&oacute;n se cerrar&aacute; en <span id="dialog-countdown" style="font-weight:bold"></span> segundos.
 			</p>
 
-			<p>¿Desea continuar con la sesi&oacute;n?</p>
+			<p>&iquest;Desea continuar con la sesi&oacute;n?</p>
 	</div>
 	
 	<div id="dialog-alarmPos" title="Alarma ">

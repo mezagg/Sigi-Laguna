@@ -1,13 +1,13 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.documento.TipoForma"%>
 <%@page import="java.text.Normalizer.Form"%>
 <%@page import="mx.gob.segob.nsjp.model.Forma"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>Solicitar Permisos</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/jquery.windows-engine.css"/>
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/estilos.css" media="screen" />
 	<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/multiselect/jquery.multiselect.css" />
@@ -60,7 +60,7 @@
 	  jQuery("#gridConsultaPagos").jqGrid({ 
 			url:'<%= request.getContextPath() %>/consultarConvenios.do?numeroExpediente='+numeroExpediente,			 				
 			datatype: "xml",
-			colNames:['#Convenio','Fecha Inicio','Fecha Termino','Cantidad Total a Pagar','Cantidad último Pago','Fecha último Cumplimiento','Convenio'], 
+			colNames:['#Convenio','Fecha Inicio','Fecha Termino','Cantidad Total a Pagar','Cantidad &uacute;ltimo Pago','Fecha &uacute;ltimo Cumplimiento','Convenio'], 
 			colModel:[ 	{name:'nombreProbResp',index:'nombreProbResp',width:150, align:'center'},
 						{name:'delito',index:'delito',width:150, align:'center'},
 						{name:'victima',index:'victima', width:150, align:'center'},

@@ -1,10 +1,10 @@
 <%@page import="java.util.Calendar"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Administrar carpeta de ejecuci&oacute;n</title>
 
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css" />
@@ -222,7 +222,7 @@
 		jQuery("#gridSentenciasPJOAE").jqGrid({ 
 			url:'local', 
 			datatype: "xml", 
-			colNames:['Tipo de Sentencia','Duración','Fecha-Hora de la Sentencia'], 
+			colNames:['Tipo de Sentencia','Duraci&oacute;n','Fecha-Hora de la Sentencia'], 
 			colModel:[  {name:'tipoSentencia',index:'tipoSentencia', width:80, align:'center'},						
 			           	{name:'duracion',index:'duracion', width:80, align:'center'}, 
 			           	{name:'fechHoraSentencia',index:'fechHoraSentencia', width:120, align:'center'},
@@ -476,7 +476,7 @@
 			//$("#gridAgendaPJENA").jqGrid('setCell',"1","lunes","",{'font-weight': 'bold',color: 'white','text-align':'center','background-color':'red'});			
 		}
 		else{
-			alert("Seleccione un día hábil");
+			alert("Seleccione un d&iacute;a h&aacute;bil");
 		}
 	}
 
@@ -726,7 +726,7 @@
 			var horaInicio=idRow.substring(horaInicioPos1+1,horaInicioPos2);
 			
 
-			//tamaño en medias hrs. del espacio disponible
+			//tama&ntilde;o en medias hrs. del espacio disponible
 			var espacioPos1=idRow.indexOf("/",0);
 			var espacioPos2=idRow.indexOf("*",espacioPos2);
 			var espacioDisponible=idRow.substring(espacioPos1+1,espacioPos2);
@@ -754,12 +754,12 @@
 					deshabilitarHabilitarComponentes("horarioSala");
 				}
 				else{
-					alert("La duración estimada es mayor que el tiempo disponible para esta sala.\rIntente con otra sala");	
+					alert("La duraci&oacute;n estimada es mayor que el tiempo disponible para esta sala.\rIntente con otra sala");	
 				}	
 			}
 			else{
 				
-				alert("Seleccione una duración estimada para la audiencia");
+				alert("Seleccione una duraci&oacute;n estimada para la audiencia");
 			}
 				
 		}
@@ -791,7 +791,7 @@
 		duracionEstimadaAudiencia = $("#duracionEstimadaProgramarAudiencia option:selected").val();
 		juezSustituto =  $("#juezSustituto").val();
 		if(duracionEstimadaAudiencia == "" || duracionEstimadaAudiencia <= 0){
-			alert("Seleccione una duración estimada para la audiencia");
+			alert("Seleccione una duraci&oacute;n estimada para la audiencia");
 			return false;
 		}
 				
@@ -838,7 +838,7 @@
 
 	function verificarTipoAudiencia(automatico){
 
-			//Si pulso automáticamente
+			//Si pulso autom&aacute;ticamente
 			if(automatico == true){
 				//jQuery("#gridSolicitudDeAudienciaJuecesPJENA").setGridParam({multiselect:false}).hideCol('cb');
 				$("#gridSolicitudDeAudienciaJuecesPJENA").unbind('click');
@@ -865,7 +865,7 @@
 ///////////////////////////////////////CONTROLA LOS EVENTOS HABILITA O INHABILITA COMPONENETES//////////////////////////////////////////////////////////
 	/**
 	*Funcion para deshabilitar los botones de designar 
-	*Juez manualmente y automáticamente, Guardar y Designar Sala Temporal
+	*Juez manualmente y autom&aacute;ticamente, Guardar y Designar Sala Temporal
 	*/
 	function deshabilitarHabilitarComponentes(accion){
 
@@ -1070,11 +1070,11 @@
 						var mensaje = $(xml).find('body').find('fechaActual').text();					
 
 						if(mensaje == "fail"){
-							alertDinamico("La audiencia ya fue programada anteriormente por algún usuario");						
+							alertDinamico("La audiencia ya fue programada anteriormente por alg&uacute;n usuario");						
 						} else if(mensaje == "salaOcupada"){
 							alertDinamico("Otro usuario acaba de programar una audiencia en esta sala y horario");
 						} else {
-							alertDinamico("La programación de la audiencia se realizó de manera correcta");
+							alertDinamico("La programaci&oacute;n de la audiencia se realiz&oacute; de manera correcta");
 							/*
 							*recargamos el grid de audiencias para que la audiencia que se acaba de
 							*programar, no se muestre mas 
@@ -1089,10 +1089,10 @@
 				});			
 			}else{
 				if(multiselect==1){
-					alert('Seleccione únicamente un juez del listado');
+					alert('Seleccione &uacute;nicamente un juez del listado');
 				}
 				else{
-					alert('Seleccione únicamente '+multiselect+' jueces del listado');
+					alert('Seleccione &uacute;nicamente '+multiselect+' jueces del listado');
 				}
 			}
 		}
@@ -1127,7 +1127,7 @@ function cargaGridObjetos(){
 	jQuery("#gridSolObjetos").jqGrid({ 
 		url:'<%=request.getContextPath()%>/gridConsultaObjetos.do?audienciaId='+idAudiencia,
 		datatype: "xml", 
-		colNames:['Otorgante','No. Prueba', 'Cadena de Custodia', 'Descripción Objeto', 'Aceptado'], 
+		colNames:['Otorgante','No. Prueba', 'Cadena de Custodia', 'Descripci&oacute;n Objeto', 'Aceptado'], 
 		colModel:[ 					
 		           	{name:'Otorgante',index:'Otorgante', width:100, align:'center'}, 
 		           	{name:'Prueba',index:'Prueba', width:80, align:'center'},
@@ -1207,7 +1207,7 @@ function cargaCondicion() {
 			</li>
 			<li><a href="#tabsconsultaprincipal-5" onclick="cargaGridMedidasAlternativas()">Medidas Alternativas</a>
 			</li>
-			<li><a href="#tabsconsultaprincipal-6" onclick="cargaGridSolicitudesDeBeneficios()">Solicitudes Beneficios de Preliberación</a>
+			<li><a href="#tabsconsultaprincipal-6" onclick="cargaGridSolicitudesDeBeneficios()">Solicitudes Beneficios de Preliberaci&oacute;n</a>
 			</li>
 			<li><a href="#tabsconsultaprincipal-2" onclick="cargaGridSolicitudesDeBeneficios2()">Actuaciones</a>
 			</li>			
@@ -1229,7 +1229,7 @@ function cargaCondicion() {
 					<td colspan="4">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="26%" align="right" ><strong>Número de causa:</strong>
+					<td width="26%" align="right" ><strong>N&uacute;mero de causa:</strong>
 					</td>
 					<td width="24%"><input type="text"
 						id="numCausaCarpetaEjecucionPJOAE"
@@ -1292,7 +1292,7 @@ function cargaCondicion() {
 			</table>-->
             <table width="60%" border="0">
               <tr>
-                <td width="25%" height="25" align="right" ><strong>Número de Causa:</strong></td>
+                <td width="25%" height="25" align="right" ><strong>N&uacute;mero de Causa:</strong></td>
                 <td width="26%"><input type="text"
 						id="numCausaCarpetaEjecucionPJOAE2"
 						style="width: 170px; border: 0; background: #DDD;"
@@ -1303,7 +1303,7 @@ function cargaCondicion() {
 						readonly="readonly" /></td>
               </tr>
               <tr>
-                <td align="right" ><strong>Número de Caso:</strong></td>
+                <td align="right" ><strong>N&uacute;mero de Caso:</strong></td>
                 <td><input type="text"
 						id="numCausaCarpetaEjecucionPJOAE2"
 						style="width:  170px; border: 0; background: #DDD;"
@@ -1476,7 +1476,7 @@ function cargaCondicion() {
 			  </tr>
 			  <tr>
 			    <td align="right" valign="bottom"><strong>Tipo de Audiencia</strong></td>
-			    <td align="left" valign="bottom">Ejecución</td>
+			    <td align="left" valign="bottom">Ejecuci&oacute;n</td>
 			  </tr>
 			  <tr>
 			    <td align="right" valign="bottom"><strong>Fecha l&iacute;mite de audiencia:</strong></td>
@@ -1493,7 +1493,7 @@ function cargaCondicion() {
 			                        readonly="readonly" /></td>
 			  </tr>
 			  <tr>
-			    <td align="right" valign="bottom"><strong>Duración estimada de
+			    <td align="right" valign="bottom"><strong>Duraci&oacute;n estimada de
 			    audiencia:</strong></td>
 			    <td align="left" valign="bottom">
 			     <select id="duracionEstimadaProgramarAudiencia" style="width:170px;">

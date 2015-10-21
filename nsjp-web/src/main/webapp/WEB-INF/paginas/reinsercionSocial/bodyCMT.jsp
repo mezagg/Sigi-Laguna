@@ -4,7 +4,7 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.solicitud.EstatusSolicitud"%>
 
 <%@ page contentType="text/html"%>
-<%@ page pageEncoding="ISO-8859-1"%>
+<%@ page pageEncoding="UTF-8"%>
 
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
@@ -64,7 +64,7 @@
 					estatusExpediente: estatusEjecucion
 				},
 	    		mtype: "POST",
-				colNames:['Número De Caso','Número De Causa', 'Procedimiento de ejecuci&oacute;n', 'Nombre Sentenciado', 'Delito(s)', 'Fecha De Creación', 'NumExpId'], 
+				colNames:['N&uacute;mero De Caso','N&uacute;mero De Causa', 'Procedimiento de ejecuci&oacute;n', 'Nombre Sentenciado', 'Delito(s)', 'Fecha De Creaci&oacute;n', 'NumExpId'], 
 				colModel:[ 	{name:'noCaso',index:'1', width:140}, 
 							{name:'noCausa',index:'2', width:70}, 
 							{name:'carpeta',index:'3', width:140}, 
@@ -123,7 +123,7 @@
 					ignorarArea	: true
 				},
 				datatype: "xml",
-				colNames:['No. Caso','Expediente', 'Folio','Estatus','Fecha Creación','Fecha Limite','Institución','Remitente'], 
+				colNames:['No. Caso','Expediente', 'Folio','Estatus','Fecha Creaci&oacute;n','Fecha Limite','Instituci&oacute;n','Remitente'], 
 				colModel:[ 	{name:'caso',index:'caso', width:150,hidden:true},
 				           	{name:'expediente',index:'expediente', width:180,align:'center'}, 
 							{name:'folio',index:'folio', width:90,align:'center'}, 

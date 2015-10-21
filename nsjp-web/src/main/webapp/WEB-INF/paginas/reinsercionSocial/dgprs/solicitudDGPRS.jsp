@@ -1,7 +1,7 @@
 <%@ page import="org.apache.commons.lang.math.NumberUtils"%>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.solicitud.EstatusSolicitud"%>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.actividad.Actividades"%>
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>

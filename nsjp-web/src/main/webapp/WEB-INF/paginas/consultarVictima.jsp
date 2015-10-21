@@ -3,7 +3,7 @@
 <table>
 	<tbody>
 		<tr>
-			<td>Condición: </td>
+			<td>Condici&oacute;n: </td>
 			<td id='tdVictimaCondicion'></td>
 		</tr>
 		<tr>
@@ -33,7 +33,7 @@
 					<li><a id="tabDatosGConsultaVictima" href="#datosGConsultaVictima" >Datos generales</a></li>
 					<li><a id="tabDomicilioConsultaVictima" href="#domicilioConsultaVictima" >Domicilio</a></li>
 					<li><a id="tabMContactoConsultaVictima" href="#mContactoConsultaVictima" >Medios de contacto</a></li>
-					<li><a id="tabTipoDocConsultaVictima" href="#tipoDocConsultaVictima">Tipo de documento de identificación</a></li>
+					<li><a id="tabTipoDocConsultaVictima" href="#tipoDocConsultaVictima">Tipo de documento de identificaci&oacute;n</a></li>
 				</ul>
 				<div id="datosGConsultaVictima">
 					<h2>Datos Generales</h2>
@@ -45,7 +45,7 @@
 					<h2>Medios de contacto</h2>
 				</div>
 				<div id="tipoDocConsultaVictima">
-					<h2>Tipo de documento de identificación</h2>
+					<h2>Tipo de documento de identificaci&oacute;n</h2>
 				</div>
 			</div>
 	<br/>

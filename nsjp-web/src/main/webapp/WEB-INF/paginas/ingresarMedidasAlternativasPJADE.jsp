@@ -1,10 +1,10 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.forma.Formas"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Ingresar Medidas Alternativas</title>
 
 
@@ -105,7 +105,7 @@
 		});
 
 		/*
-		* Función que carga el catálogo de periodicidad en el combo-box correspondiente cbxPeriodicidad
+		* Funci&oacute;n que carga el cat&aacute;logo de periodicidad en el combo-box correspondiente cbxPeriodicidad
 		*
 		*/
 		function obtenerCatalogoPeriodicidad(){
@@ -254,7 +254,7 @@
 			    		  //Recarga el grid de las medidas alternativas
 			    		  window.parent.cargaGridInvolucradosCausaPJENC(numeroUnicoExpediente);
 
-			    		  //Si no tenía medida cautelar	
+			    		  //Si no ten&iacute;a medida cautelar	
 			    		  if(rowid.split(",")[1] == ""){
 			    			 
 			    			  medidaAlternaId=$(xml).find('medidaCautelarForm').find('medidaCautelarId').text();
@@ -304,7 +304,7 @@
 				return false;
 			}
 			if($('#descripcionMedidaAlterna').val() == ""){
-				alertDinamico("Ingrese una descripción");
+				alertDinamico("Ingrese una descripci&oacute;n");
 				return false;
 			}
 			if( $('#cbxPeriodicidad option:selected').val() == "-1"){
@@ -433,7 +433,7 @@
 
 		
 		/**
-		* Función que es invocada cuando se termina la creación del archivo digital de la medida
+		* Funci&oacute;n que es invocada cuando se termina la creaci&oacute;n del archivo digital de la medida
 		*/
 		function documentoGeneradoSincrono(documentoGeneradoId){
 			

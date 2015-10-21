@@ -18,7 +18,7 @@
 	jQuery().ready(function () {
 		var error='null';
 		if(error==0){
-			customAlert("Usuario y/o contraseña inválidos, favor de verificar");
+			customAlert("Usuario y/o contrase&ntilde;a inv&aacute;lidos, favor de verificar");
 			$('#errorLogin').val('Credenciales Invalidas');
 			//errorlog(error);					
 		}else if(error==2){
@@ -117,7 +117,7 @@
 								</tr>
 								<tr>
 	                                <td align="center" colspan="1">
-										<label style="color:#4A5C68">Algo pasó</label>
+										<label style="color:#4A5C68">Algo pas&oacute;</label>
 									</td>
 	                            </tr>
 	                            <tr>

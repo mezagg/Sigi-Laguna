@@ -1,14 +1,14 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.involucrado.TipoEvento"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.forma.Formas"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.actividad.Actividades"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Mostrar Registro de Detención</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Mostrar Registro de Detenci&oacute;n</title>
 
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/jquery.windows-engine.css" />
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/layout_complex.css"/>
@@ -154,7 +154,7 @@
 	});
 
 	/**
-	** Llena de manera dinámica los subtipos de eventos asociados al tipo de evento seleccionado.
+	** Llena de manera din&aacute;mica los subtipos de eventos asociados al tipo de evento seleccionado.
 	**/
 	function buscaSubTipoEvento(){
 		var selected = $('#detencionCbxTipoEvento option:selected').val();
@@ -191,7 +191,7 @@
 			jQuery("#gridProbableResponsable").jqGrid({ 
 				url:'<%= request.getContextPath()%>/consultarProbableResponsablePorNumeroExpediente.do?expedienteId='+expedienteId+'&numeroExpediente='+numeroExpediente+'',
 				datatype: "xml", 
-				colNames:['Nombre','Apellido Paterno','Apellido Materno','¿Detenido?','Fecha de Detención','¿Menor de Edad?','ID Tipo Evento','Tipo Evento','ID Subtipo Evento','Subtipo de Evento'], 
+				colNames:['Nombre','Apellido Paterno','Apellido Materno','&iquest;Detenido?','Fecha de Detenci&oacute;n','&iquest;Menor de Edad?','ID Tipo Evento','Tipo Evento','ID Subtipo Evento','Subtipo de Evento'], 
 				colModel:[ 	{name:'Nombre',index:'4', sortable:false, width:160},
 				           	{name:'ApellidoPaterno',index:'2', sortable:false, width:140},
 				           	{name:'ApellidoMaterno',index:'3', sortable:false, width:140},
@@ -216,7 +216,7 @@
 				
 				ondblClickRow: function(rowid) {
 					var probableResSeleccionado = jQuery("#gridProbableResponsable").jqGrid('getRowData',rowid);					
-					//Solo en el caso de que el probable participe este detenido se invoca la pantalla de "Generar Detención"
+					//Solo en el caso de que el probable participe este detenido se invoca la pantalla de "Generar Detenci&oacute;n"
 					if(probableResSeleccionado.Detencion == 'Si'){
 						if(probableResSeleccionado.TipoEvento == '<%=TipoEvento.FALTA_ADMINISTRATIVA.getDescripcion()%>'){
 							generarDetencion(rowid,true);
@@ -249,7 +249,7 @@
     	var subtipoDeEvento = probableResSeleccionado.idSubTipoEvento;
     	
 	   		idWindowGenerarDetencion++;
-	   		$.newWindow({id:"iframewindowGenerarDetencion" + idWindowGenerarDetencion, statusBar: true, posx:30,posy:10,width:950,height:500,title:"Generar Detención", type:"iframe"});
+	   		$.newWindow({id:"iframewindowGenerarDetencion" + idWindowGenerarDetencion, statusBar: true, posx:30,posy:10,width:950,height:500,title:"Generar Detenci&oacute;n", type:"iframe"});
 	   		$.updateWindowContent("iframewindowGenerarDetencion" + idWindowGenerarDetencion,'<iframe src="<%= request.getContextPath() %>/mostrarGenerarDetencion.do?expedienteId='+expedienteId+'&numeroExpediente='+numeroExpediente+'&idProbableParticipe='+idProbableParticipe+'&tipoEvento='+tipoEvento+'&subtipoDeEvento='+subtipoDeEvento+'&noAviso='+noAviso+'" width="950" height="500" />');
 	
     }
@@ -265,7 +265,7 @@
 				jQuery("#gridPertenencias").jqGrid({ 
 					url:'<%= request.getContextPath()%>/consultarPertenenciasPorDetencionId.do?expedienteId='+expedienteId+'&numeroExpediente='+numeroExpediente+'&idInvolucrado='+idInvolucrado+'', 
 					datatype: "xml", 
-					colNames:[probableResponsableProp,'Cantidad','Tipo','Condición Física','Descripción' ], 
+					colNames:[probableResponsableProp,'Cantidad','Tipo','Condici&oacute;n F&iacute;sica','Descripci&oacute;n' ], 
 					colModel:[ 	{name:'ProbableResponsable',index:'4',sortable:false,  width:200,hidden:true},
 					           	{name:'Cantidad',index:'2', sortable:true ,  width:60, align:"center"},
 					           	{name:'Tipo', index:'1', sortable:true, width:150},
@@ -364,7 +364,7 @@
 					dataType: 'xml',
 					success: function(xml){
 						 var probableResponsableProp = '<bean:message key="msjProbableResponsable"/>';
-						alertDinamico('El '+probableResponsableProp+' se agregó de manera correcta.');
+						alertDinamico('El '+probableResponsableProp+' se agreg&oacute; de manera correcta.');
 						//jQuery("#gridProbableResponsable").jqGrid('setGridParam', {url:'<%= request.getContextPath()%>/consultarProbableResponsablePorExpedienteId.do?expedienteId='+expedienteId+'&numeroExpediente='+numeroExpediente+'',datatype: "xml" });
 						//$("#gridProbableResponsable").trigger("reloadGrid");
 						armaComboProbableResponsable();
@@ -388,7 +388,7 @@
 				dataType: 'xml',
 				success: function(xml){
 					var probableResponsableProp = '<bean:message key="msjProbableResponsable"/>';
-					alertDinamico('El '+probableResponsableProp+' se eliminó de manera correcta.');
+					alertDinamico('El '+probableResponsableProp+' se elimin&oacute; de manera correcta.');
 					//jQuery("#gridProbableResponsable").jqGrid('setGridParam', {url:'<%= request.getContextPath()%>/consultarProbableResponsable.do?',datatype: "xml" });
 					//$("#gridProbableResponsable").trigger("reloadGrid");
 					cargaGridProbableResponsable();
@@ -431,7 +431,7 @@
 				|| $('#detencionCbxCondicionFisica option:selected').val() == -1
 				|| $('#detencionTxtCantidad').val() == ''
 				|| $('#detencionTxtDescripcion').val() == ''){
-				alertDinamico('Debe seleccionar todos los parámetros de pertenencia.');
+				alertDinamico('Debe seleccionar todos los par&aacute;metros de pertenencia.');
 		}else{
 		  	  //var arrayIds = jQuery("#gridPertenencias").getDataIDs();
 			  //var id = arrayIds.length + 1;
@@ -461,7 +461,7 @@
 					data: params,
 					dataType: 'xml',
 					success: function(xml){
-						alertDinamico('La pertenencia se agregó de manera correcta');
+						alertDinamico('La pertenencia se agreg&oacute; de manera correcta');
 						//jQuery("#gridPertenencia").jqGrid('setGridParam', {url:'<%= request.getContextPath()%>/consultarPertenencia.do?',datatype: "xml" });
 						//$("#gridPertenencia").trigger("reloadGrid");
 						cargaGridPertenencias();
@@ -483,7 +483,7 @@
  				url: '<%= request.getContextPath()%>/eliminarPertenencia.do?expedienteId='+expedienteId+'&numeroExpediente='+numeroExpediente+'&pertenenciaId='+rowid+'',
  				dataType: 'xml',
  				success: function(xml){
- 					alertDinamico('La pertenencia se eliminó de manera correcta.');
+ 					alertDinamico('La pertenencia se elimin&oacute; de manera correcta.');
  					//jQuery("#gridProbableResponsable").jqGrid('setGridParam', {url:'<%= request.getContextPath()%>/consultarProbableResponsable.do?',datatype: "xml" });
  					//$("#gridProbableResponsable").trigger("reloadGrid");
  					cargaGridPertenencias();
@@ -511,7 +511,7 @@
 		});
 	}
 	
-	/**Funcion que consulta el catalogo de condición física del objeto*/
+	/**Funcion que consulta el catalogo de condici&oacute;n f&iacute;sica del objeto*/
 	function consultarCatalogoCondicionFisica(){
 		$.ajax({
 			type: 'POST',
@@ -867,7 +867,7 @@
 		//Se registra actividad asociada al expediente
 		registrarActividadExpediente(<%= Actividades.SOLICITAR_DEFENSOR.getValorId()%>,"",0);
 		
-		var tituloVentanaGenerarAvisoDetencion = "Generar aviso de detención";
+		var tituloVentanaGenerarAvisoDetencion = "Generar aviso de detenci&oacute;n";
 		var formaID = <%=Formas.SOLICITUD_DEFENSOR.getValorId()%>;		
 		
 		$.newWindow({id:"iframewindowGenerarDocumento", statusBar: true, posx:20,posy:20,width:1140,height:400,title:""+tituloVentanaGenerarAvisoDetencion, type:"iframe", confirmarCierreVentana:true});
@@ -931,7 +931,7 @@
 		<ul>
 			<li id="tabDetencion"><a href="#tabsconsultaprincipal-2">Detenci&oacute;n</a></li>
 			<li id="tabRegistroPertenencias"><a href="#tabsconsultaprincipal-1">Registro de Pertenencias</a></li>
-			<li id="tabHechos"><a href="#tabsconsultaprincipal-3">Descripción del Hecho</a></li>
+			<li id="tabHechos"><a href="#tabsconsultaprincipal-3">Descripci&oacute;n del Hecho</a></li>
 			<li id="tabActuaciones"><a href="#tabsconsultaprincipal-4">Actuaciones</a></li>
 			<li id="tabDocumentos"><a href="#tabsconsultaprincipal-5" onclick="documentos()">Documentos</a></li>
 		</ul>
@@ -1021,9 +1021,9 @@
 					<tr>
 						<td align="right">Nombre(s):</td>
 						<td><input type="text" style="width: 120px;" maxlength="30" id="nombre" tabindex="3" onkeypress="return soloLetrasNPunto(event,this.id);" onblur="validaSoloLetras(this);"/></td>
-						<td align="right">¿Es detenido?:</td>
+						<td align="right">&iquest;Es detenido?:</td>
 						<td><input type="checkbox" id="estaDetenido" tabindex="6"/></td>
-						<td align="right">¿Es menor de edad?:</td>
+						<td align="right">&iquest;Es menor de edad?:</td>
 						<td><input type="checkbox" id="esMenorDeEdad" tabindex="9"/></td>						
 					</tr>
 					<tr>
@@ -1031,7 +1031,7 @@
 						<td><input type="text" style="width: 120px;" maxlength="30" id="apellidoPaterno" tabindex="4" onkeypress="return soloLetrasNPunto(event,this.id);" onblur="validaSoloLetras(this);"/></td>					
 						<td align="right">Fecha de detenci&oacute;n:</td>
 						<td><input type="text" style="width: 70px;" maxlength="8" id="fechaInicioLapso" class="dateRange" disabled="disabled" tabindex="7"/></td>
-						<td align="right">¿No proporcion&oacute; nombre?:</td>
+						<td align="right">&iquest;No proporcion&oacute; nombre?:</td>
 						<td><input type="checkbox" id="esDesconocido" tabindex="10" onclick="cambiaNombreDesconocido();"/></td>						
 					</tr>
 					<tr>

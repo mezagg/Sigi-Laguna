@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <title>Visor Dato Prueba</title>
 
 	<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css"/>
@@ -137,7 +137,7 @@
 			
 			url:'<%=request.getContextPath()%>/consultarMediosPruebaAsociadosXDatoPrueba.do?idDatoPrueba='+idDatoPrueba+'&numeroExpediente='+numeroExpediente+'',
 			datatype: "xml", 
-			colNames:['Nombre del Medio','No. Identificación','Aceptado','Desechado'], 
+			colNames:['Nombre del Medio','No. Identificaci&oacute;n','Aceptado','Desechado'], 
 			colModel:[ 					
 			           	{name:'nombreMedio',index:'nombreMedio', width:230, align:'left'}, 
 			           	{name:'numIdentificacion',index:'numIdentificacion', width:200, align:'left'},
@@ -195,7 +195,7 @@
     		dataType: 'xml',
     		async: false,
     		success: function(xml){
-    			customAlert("La relación ha sido aceptada");	
+    			customAlert("La relaci&oacute;n ha sido aceptada");	
     			mediosPruebaAsociados();
     			window.parent.cargaGridPrueba();
     		}
@@ -217,7 +217,7 @@
     		dataType: 'xml',
     		async: false,
     		success: function(xml){
-    			customAlert("La relación ha sido desechada");	
+    			customAlert("La relaci&oacute;n ha sido desechada");	
     			mediosPruebaAsociados();
     			window.parent.cargaGridPrueba();
     		}
@@ -302,11 +302,11 @@
 					</td>
 				</tr>
 				<tr>
-					<td align="right"><strong>Número identificación:</strong></td>
+					<td align="right"><strong>N&uacute;mero identificaci&oacute;n:</strong></td>
 					<td><input type="text" id="numeroIdDatoPruebaDetallePJENS"
 						style="width: 200px; border: 0; background: #DDD;"
 						readonly="readonly" /></td>
-					<td align="right"><strong>Número de identificación:</strong></td>
+					<td align="right"><strong>N&uacute;mero de identificaci&oacute;n:</strong></td>
 					<td><input type="text" id="numeroMedioPruebaDetallePJENS"
 						style="width: 200px; border: 0; background: #DDD;"
 						readonly="readonly" /></td>
@@ -316,7 +316,7 @@
 					<td><input type="text" id="rccDatoPruebaDetallePJENS"
 						style="width: 200px; border: 0; background: #DDD;"
 						readonly="readonly" /></td>
-					<td align="right"><strong>Ref. a ubicación física:</strong></td>
+					<td align="right"><strong>Ref. a ubicaci&oacute;n f&iacute;sica:</strong></td>
 					<td><input type="text" id="refUbicacionMedioPruebaDetallePJENS"
 						style="width: 200px; border: 0; background: #DDD;"
 						readonly="readonly" /></td>
@@ -335,7 +335,7 @@
 				</tr>
 				<tr>
 					<td align="right">
-						<!--<strong>Fecha Cancelación:</strong>-->
+						<!--<strong>Fecha Cancelaci&oacute;n:</strong>-->
 					</td>
 					<td>
 						<!--<input type="text" id="fechaCancelacionDatoPruebaDetallePJENS2"	style="width: 200px; border: 0; background: #DDD;" readonly="readonly" />-->
@@ -353,9 +353,9 @@
 					<td>&nbsp;</td>
 				</tr>
 				<tr>
-					<td align="right"><strong>Descripción:</strong></td>
+					<td align="right"><strong>Descripci&oacute;n:</strong></td>
 					<td>&nbsp;</td>
-					<td align="right"><strong>Descripción:</strong></td>
+					<td align="right"><strong>Descripci&oacute;n:</strong></td>
 					<td>&nbsp;</td>
 				</tr>
 				<tr>

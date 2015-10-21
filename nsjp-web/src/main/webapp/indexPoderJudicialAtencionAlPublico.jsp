@@ -9,8 +9,8 @@
 <%@page import="mx.gob.segob.nsjp.dto.configuracion.ConfiguracionDTO"%>
 <%@page import="java.util.Calendar"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@page import="mx.gob.segob.nsjp.dto.usuario.RolDTO"%>
 <% 
 	UsuarioDTO usuario = (UsuarioDTO) request.getSession().getAttribute("KEY_SESSION_USUARIO_FIRMADO");
@@ -378,12 +378,12 @@ body,td,th {
 		};
 
 		/*
-		*Funcion que obtiene el numero de causa del grid seleccionado si está visible
+		*Funcion que obtiene el numero de causa del grid seleccionado si est&aacute; visible
 		*/	
 		function obtenerNumeroDeCausaDeGrids(){
 
 			var numeroDeCausa="";
-			//Si el grid audiencias del día esta visible
+			//Si el grid audiencias del d&iacute;a esta visible
 			if( $('#gridAudienciaDelDiaPJATP').is(':visible') ){
 				var row = jQuery("#gridAudienciaDelDiaPJATP").jqGrid('getGridParam','selrow');
 
@@ -434,7 +434,7 @@ body,td,th {
 			$("#divModalSolAccPenalPrivada").dialog("open");
 			$("#divModalSolAccPenalPrivada").dialog({ autoOpen: true, 
 		  		modal: true, 
-		  		title: 'Solicitar Acción Penal Privada', 
+		  		title: 'Solicitar Acci&oacute;n Penal Privada', 
 		  		dialogClass: 'alert',
 		  		position: [500,140],
 		  		width: 380,
@@ -673,7 +673,7 @@ body,td,th {
 					jQuery("#gridSolicitudesPJATP").jqGrid({ 
 					url:'<%=request.getContextPath()%>/consultaEventosPorExpedientePJATP.do?numeroExpedienteId='+numeroExpedienteId +'', 
 					datatype: "xml", 
-					colNames:['N&uacute;mero de Causa', 'Solicitud','Fecha Solicitud','Hora Solicitud','Institución Solicitante','Solicitante','Estado'], 
+					colNames:['N&uacute;mero de Causa', 'Solicitud','Fecha Solicitud','Hora Solicitud','Instituci&oacute;n Solicitante','Solicitante','Estado'], 
 					colModel:[ 	{name:'expediente',index:'expediente', width:45, align:"center"}, 
 								{name:'solicitud',index:'solicitud', width:35, align:"center"}, 
 								{name:'fechaSolicitud',index:'fechaSolicitud', width:30, align:"center"},
@@ -959,7 +959,7 @@ body,td,th {
 	 */
 	
 	
-	// Función para cargar las solicitudes que ya fueron atendidas por el Trasnciptor
+	// Funci&oacute;n para cargar las solicitudes que ya fueron atendidas por el Trasnciptor
 	
 		var primeraVezGridTranscripciones =true;
 		var idWindowVisorTranscriptor = 0, 
@@ -982,7 +982,7 @@ body,td,th {
 				jQuery("#gridTranscripciones").jqGrid({ 
 					url:'<%=request.getContextPath()%>/consultarSolcicitudesTranscripcionAudioVideo.do?estatus='+estatus+'&tipoSolicitud='+tipoSolicitud+'&isDia='+solicitudesDia+'&porFuncionario=true', 
 					datatype: "xml", 
-					colNames:['Número de Caso','Número de Causa','Fecha/Hora Solicitud','Solicitante','Institución'], 
+					colNames:['N&uacute;mero de Caso','N&uacute;mero de Causa','Fecha/Hora Solicitud','Solicitante','Instituci&oacute;n'], 
 					colModel:[ 	{name:'numCaso',index:'numCaso', width:200, align:'center'}, 
 								{name:'numCausa',index:'numCausa', width:180, align:'center'},
 								{name:'fechHoraSol',index:'fechHoraSol', width:140, align:'center'},
@@ -1374,7 +1374,7 @@ body,td,th {
 	<!--Termina div fechas-->
 	<div id="dialog-logout" title="Cerrar Sesi&oacute;n">
 		<p align="center">
-			<span id="logout">¿Desea cerrar su sesi&oacute;n?</span>
+			<span id="logout">&iquest;Desea cerrar su sesi&oacute;n?</span>
 		</p>
 	</div>
 
@@ -1383,11 +1383,11 @@ body,td,th {
 		<p align="center">
 			<table border="0">
 				<tr>
-					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contraseña para desbloquear.</td>
+					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contrase&ntilde;a para desbloquear.</td>
 					
 				</tr>
 				<tr>
-					<td align="right"><label style="color:#4A5C68">Contraseña:</label></td>
+					<td align="right"><label style="color:#4A5C68">Contrase&ntilde;a:</label></td>
 					<td><input type="password" name="password" id="password" value="" maxlength="15" size="20"></td>
 				</tr>
 				<tr id="captchaJPG" >
@@ -1416,7 +1416,7 @@ body,td,th {
 				La sesi&oacute;n se cerrar&aacute; en <span id="dialog-countdown" style="font-weight:bold"></span> segundos.
 			</p>
 
-			<p>¿Desea continuar con la sesi&oacute;n?</p>
+			<p>&iquest;Desea continuar con la sesi&oacute;n?</p>
 	</div>
 	<!-- FIN dialogos para las alarmas -->
 

@@ -129,7 +129,7 @@ function cerrarVentanaQueja(){
         			<td height="277" align="center" valign="top">
         				<table width="490" border="0" cellspacing="0" cellpadding="0">
           					<tr>
-								<td height="31" align="center" valign="bottom" class="txt_cuad_bienvenido">Bienvenido a atención temprana.</td> 
+								<td height="31" align="center" valign="bottom" class="txt_cuad_bienvenido">Bienvenido a atenci&oacute;n temprana.</td> 
           					</tr>
         				</table>
           				<TABLE width=490 border=0 align=center>
@@ -140,7 +140,7 @@ function cerrarVentanaQueja(){
             					<TR align=middle>
 				    				<td width="245" align="left" >
 				    					<input type="radio" name="kevinTipoTurno" value="1" id="checadmin"  onclick="turno()"/>
-				    					<span id="atencionNoPenal" class="txt_cuad_bienvenido">Atención no Penal</span>
+				    					<span id="atencionNoPenal" class="txt_cuad_bienvenido">Atenci&oacute;n no Penal</span>
 				    				</td>
 				    				<TD width=235 rowSpan=2 align="left" valign="top">
 				    					<span class="txt_cuad_bienvenido">N&uacute;mero de turno:</span>
@@ -150,7 +150,7 @@ function cerrarVentanaQueja(){
 			 					<TR align=middle>
               						<TD align="left">
 				      					<input type="radio" name="kevinTipoTurno" value="0" id="checpenal" checked="checked" onClick="turno()"/> 
-				      					<span id="atencionPenal" class="txt_cuad_bienvenido">Unidad  de Atención Integral</span>
+				      					<span id="atencionPenal" class="txt_cuad_bienvenido">Unidad  de Atenci&oacute;n Integral</span>
 				      					<dir>
 					  						<input id="checemer" name="checemer" type="checkbox"   />&nbsp;
 					  						<span id="textemer" class="txt_cuad_bienvenido" style="display:;" >Urgente</span> 

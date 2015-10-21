@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@page import="mx.gob.segob.nsjp.web.base.action.GenericAction"%>
 <%@page import="mx.gob.segob.nsjp.dto.configuracion.ConfiguracionDTO"%>
 <%@page import="mx.gob.segob.nsjp.web.login.action.LoginAction"%>
@@ -304,7 +304,7 @@ var sesionActiva = '<%= (request.getSession().getAttribute(LoginAction.KEY_SESSI
 			jQuery("#gridSolicitudesUAVDNoAtendidas").jqGrid({ 
 				url:'<%= request.getContextPath()%>/consultarSolicitudesUAVDNoAtendidas.do?tipoSolicitud=<%=TiposSolicitudes.ATENCION_A_VICTIMAS_DEL_DELITO.getValorId()%>', 
 				datatype: "xml", 
-				colNames:['Fecha/hora','Tipo Solicitud','Número de Caso','Nombre Víctima','Delito(s)'], 
+				colNames:['Fecha/hora','Tipo Solicitud','N&uacute;mero de Caso','Nombre V&iacute;ctima','Delito(s)'], 
 				colModel:[ 	{name:'FechaHoraSolicitud',index:'FechaHoraSolicitud', width:120},
 				           	{name:'TipoSolicitud',index:'TipoSolicitud', width:150},
 				           	{name:'NumCaso',index:'NumCaso', width:180},
@@ -355,7 +355,7 @@ var sesionActiva = '<%= (request.getSession().getAttribute(LoginAction.KEY_SESSI
 			jQuery("#gridSolicitudesUAVDEnProceso").jqGrid({ 
 				url:'<%= request.getContextPath()%>/consultarSolicitudesUAVDEnProceso.do?tipoSolicitud=<%=TiposSolicitudes.ATENCION_A_VICTIMAS_DEL_DELITO.getValorId()%>', 
 				datatype: "xml", 
-				colNames:['Fecha y hora','Tipo Solicitud','Número de Caso','Nombre Víctima','Delito(s)'], 
+				colNames:['Fecha y hora','Tipo Solicitud','N&uacute;mero de Caso','Nombre V&iacute;ctima','Delito(s)'], 
 				colModel:[ 	{name:'FechaHoraSolicitud',index:'FechaHoraSolicitud', width:120},
 				           	{name:'TipoSolicitud',index:'TipoSolicitud', width:150},
 				           	{name:'NumCaso',index:'NumCaso', width:190},
@@ -391,7 +391,7 @@ var sesionActiva = '<%= (request.getSession().getAttribute(LoginAction.KEY_SESSI
 
 	
 	function activaConfirm(id) {
-		var confir = confirm("¿Desea dar seguimiento a la solicitud?");
+		var confir = confirm("&iquest;Desea dar seguimiento a la solicitud?");
 		if(confir==true){
 			actualizaEstatusSolicitud(id);
 			asignaNumeroExpediente();
@@ -426,7 +426,7 @@ var sesionActiva = '<%= (request.getSession().getAttribute(LoginAction.KEY_SESSI
 	  		dataType: 'xml',
 	  		async: false,
 	  		success: function(xml){
-	  			//alert('Se actualizó el estatus de la solicitud con exito')
+	  			//alert('Se actualiz&oacute; el estatus de la solicitud con exito')
 	  		}
 	  		
 	  	});  
@@ -558,7 +558,7 @@ var sesionActiva = '<%= (request.getSession().getAttribute(LoginAction.KEY_SESSI
 	background="<%=request.getContextPath()%>/resources/images/title/title13.png">
 	<tr>
 		<!--		          	<td width="250" >-->
-		<!--		          		<img src="<%=request.getContextPath()%>/resources/images/title/poderJudicialYucatan.jpg" width="450" height="90" alt="Logo procuraduría" />-->
+		<!--		          		<img src="<%=request.getContextPath()%>/resources/images/title/poderJudicialYucatan.jpg" width="450" height="90" alt="Logo procuradur&iacute;a" />-->
 		<!--		          	</td>-->
 		<td width="150" align="center"><img
 			src="<%=request.getContextPath()%>/resources/images/title/sistemaDeJusticiaPenal.png"
@@ -577,15 +577,15 @@ var sesionActiva = '<%= (request.getSession().getAttribute(LoginAction.KEY_SESSI
 					<tr>
 						<td><a href="#"><img
 							src="<%=request.getContextPath()%>/resources/images/btn_head_buscar.png"
-							width="35" height="35" alt="Botón Buscar General" title="Buscar" /></a>
+							width="35" height="35" alt="Bot&oacute;n Buscar General" title="Buscar" /></a>
 						</td>
 						<td><a href="#"><img
 							src="<%=request.getContextPath()%>/resources/images/btn_head_cerrarSesion.png"
-							width="35" height="35" alt="Botón cerrar sesión"
-							title="Cerrar Sesión" /></a></td>
+							width="35" height="35" alt="Bot&oacute;n cerrar sesi&oacute;n"
+							title="Cerrar Sesi&oacute;n" /></a></td>
 						<td><a href="#"><img
 							src="<%=request.getContextPath()%>/resources/images/btn_head_ayuda.png"
-							width="35" height="35" alt="Botón ayuda" title="Ayuda" /></a></td>
+							width="35" height="35" alt="Bot&oacute;n ayuda" title="Ayuda" /></a></td>
 					</tr>
 				</table>
 				</td>

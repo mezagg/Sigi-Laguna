@@ -1,8 +1,8 @@
 <%@page import="mx.gob.segob.nsjp.web.base.action.GenericAction"%>
 <%@page import="mx.gob.segob.nsjp.dto.configuracion.ConfiguracionDTO"%>
 <%@page import="mx.gob.segob.nsjp.web.login.action.LoginAction"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -295,7 +295,7 @@
 		  jQuery("#gridAuditarExpedientes").jqGrid({ 
 				url:'<%=request.getContextPath()%>', 
 				datatype: "xml", 
-				colNames:['Número de Caso','Número de Expediente','Nombre Completo Imputado','Delito(s)' ], 
+				colNames:['N&uacute;mero de Caso','N&uacute;mero de Expediente','Nombre Completo Imputado','Delito(s)' ], 
 				colModel:[ 	{name:'Caso',index:'Caso', width:25},
 				           	{name:'Expediente',index:'Expediente', width:15},
 				           	{name:'Imputado',index:'Imputado', width:15},
@@ -334,7 +334,7 @@
 		  jQuery("#gridExpedientesFuncionario").jqGrid({ 
 				url:'<%=request.getContextPath()%>', 
 				datatype: "xml", 
-				colNames:['Número de Caso','Número de Expediente','Nombre Completo Imputado','Delito(s)' ], 
+				colNames:['N&uacute;mero de Caso','N&uacute;mero de Expediente','Nombre Completo Imputado','Delito(s)' ], 
 				colModel:[ 	{name:'Caso',index:'Caso', width:25},
 				           	{name:'Expediente',index:'Expediente', width:15},
 				           	{name:'Imputado',index:'Imputado', width:15},
@@ -360,7 +360,7 @@ function paraGridGenerarReporte() {
 	jQuery("#grid").jqGrid({ 
 		url:'<%=request.getContextPath()%>', 
 		datatype: "xml", 
-		colNames:['Tipo de Almacén','Numero de Almacén','Dirección','Descripcion' ], 
+		colNames:['Tipo de Almac&eacute;n','Numero de Almac&eacute;n','Direcci&oacute;n','Descripcion' ], 
 		colModel:[ 	{name:'Fecha/HoraSolicitud',index:'Fecha/HoraSolicitud', width:25},
 		           	{name:'TipoSolicitud',index:'TipoSolicitud', width:15},
 		           	{name:'NumCaso',index:'NumCaso', width:15},
@@ -483,7 +483,7 @@ function funcionMuestraGrids(){
 	background="<%=request.getContextPath()%>/resources/images/title/title13.png">
 	<tr>
 		<!--		          	<td width="250" >-->
-		<!--		          		<img src="<%=request.getContextPath()%>/resources/images/title/poderJudicialYucatan.jpg" width="450" height="90" alt="Logo procuraduría" />-->
+		<!--		          		<img src="<%=request.getContextPath()%>/resources/images/title/poderJudicialYucatan.jpg" width="450" height="90" alt="Logo procuradur&iacute;a" />-->
 		<!--		          	</td>-->
 		<td width="150" align="center"><img
 			src="<%=request.getContextPath()%>/resources/images/title/sistemaDeJusticiaPenal.png"
@@ -502,15 +502,15 @@ function funcionMuestraGrids(){
 					<tr>
 						<td><a href="#"><img
 							src="<%=request.getContextPath()%>/resources/images/btn_head_buscar.png"
-							width="35" height="35" alt="Botón Buscar General" title="Buscar" /></a>
+							width="35" height="35" alt="Bot&oacute;n Buscar General" title="Buscar" /></a>
 						</td>
 						<td><a href="#"><img
 							src="<%=request.getContextPath()%>/resources/images/btn_head_cerrarSesion.png"
-							width="35" height="35" alt="Botón cerrar sesión"
-							title="Cerrar Sesión" /></a></td>
+							width="35" height="35" alt="Bot&oacute;n cerrar sesi&oacute;n"
+							title="Cerrar Sesi&oacute;n" /></a></td>
 						<td><a href="#"><img
 							src="<%=request.getContextPath()%>/resources/images/btn_head_ayuda.png"
-							width="35" height="35" alt="Botón ayuda" title="Ayuda" /></a></td>
+							width="35" height="35" alt="Bot&oacute;n ayuda" title="Ayuda" /></a></td>
 					</tr>
 				</table>
 				</td>
