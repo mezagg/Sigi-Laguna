@@ -4303,23 +4303,19 @@ public class AtencionTempranaPenalAction extends GenericAction {
             ActionForm form, HttpServletRequest request,
             HttpServletResponse response) throws IOException {
         try {
-
-            log.info("ejecutando Action AtencionTempranaPenalAction en metodo obtenerConfActividadDocumento");
-            String idConf = request.getParameter("idConf");
-            String idAct = request.getParameter(PARAM_ID_ACTIVIDAD);
-            log.info("numExpedienteid====" + idConf);
-            ConfActividadDocumentoDTO confActividadDocumentoDTO = null;
-            if (idConf != null && !idConf.equals("")) {
-                confActividadDocumentoDTO = confActividadDocumentoDelegate.consultaConfActividadDocumentoPorId(Long.parseLong(idConf));
-            } else if (idAct != null && !idAct.trim().isEmpty()) {
-                ConfActividadDocumentoDTO filtro = new ConfActividadDocumentoDTO();
+            
+              String idAct = request.getParameter("idActividad");
+            
+            ConfActividadDocumentoRolDTO confActividadDocumentoRolDTO = null;
+            if (idAct != null && !idAct.equals("")) {
+                ConfActividadDocumentoRolDTO filtro = new ConfActividadDocumentoRolDTO();
                 filtro.setTipoActividadId(Long.parseLong(idAct));
-                confActividadDocumentoDTO = confActividadDocumentoDelegate.consultaConfActividadDocumentoPorIdActividad(filtro);
-            }
+                confActividadDocumentoRolDTO = confActividadDocumentoService.consultaConfActividadDocumentoRolPorIdActividad(filtro);
+            } 
             String xml = null;
             PrintWriter pw = null;
-            converter.alias("confActividadDocumentoDTO", ConfActividadDocumentoDTO.class);
-            xml = converter.toXML(confActividadDocumentoDTO);
+            converter.alias("confActividadDocumentoRolDTO", ConfActividadDocumentoRolDTO.class);
+            xml = converter.toXML(confActividadDocumentoRolDTO);
             response.setContentType("text/xml");
             pw = response.getWriter();
             pw.print(xml);
@@ -4329,6 +4325,33 @@ public class AtencionTempranaPenalAction extends GenericAction {
             log.error(e.getMessage(), e);
         }
         return null;
+            
+            
+//            log.info("ejecutando Action AtencionTempranaPenalAction en metodo obtenerConfActividadDocumento");
+//            String idConf = request.getParameter("idConf");
+//            String idAct = request.getParameter(PARAM_ID_ACTIVIDAD);
+//            log.info("numExpedienteid====" + idConf);
+//            ConfActividadDocumentoDTO confActividadDocumentoDTO = null;
+//            if (idConf != null && !idConf.equals("")) {
+//                confActividadDocumentoDTO = confActividadDocumentoDelegate.consultaConfActividadDocumentoPorId(Long.parseLong(idConf));
+//            } else if (idAct != null && !idAct.trim().isEmpty()) {
+//                ConfActividadDocumentoDTO filtro = new ConfActividadDocumentoDTO();
+//                filtro.setTipoActividadId(Long.parseLong(idAct));
+//                confActividadDocumentoDTO = confActividadDocumentoDelegate.consultaConfActividadDocumentoPorIdActividad(filtro);
+//            }
+//            String xml = null;
+//            PrintWriter pw = null;
+//            converter.alias("confActividadDocumentoDTO", ConfActividadDocumentoDTO.class);
+//            xml = converter.toXML(confActividadDocumentoDTO);
+//            response.setContentType("text/xml");
+//            pw = response.getWriter();
+//            pw.print(xml);
+//            pw.flush();
+//            pw.close();
+//        } catch (Exception e) {
+//            log.error(e.getMessage(), e);
+//        }
+//        return null;
     }
     
     public ActionForward obtenerConfActividadDocumentoRol(ActionMapping mapping,

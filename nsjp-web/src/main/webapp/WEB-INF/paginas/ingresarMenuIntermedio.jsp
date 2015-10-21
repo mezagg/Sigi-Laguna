@@ -1953,8 +1953,7 @@
 //                var confActividadId = selected.attr('idselected');
                 var actividadId = selected.attr('idselected');
                 console.log("ID " + actividadId);
-                console.log(
-                        selected);
+                
 		if(isEmpty(actividadId)){
 			return;
 		}
@@ -1972,7 +1971,7 @@
 		
 		var idParametro = '<%=Parametros.MUESTRA_ALERTS_ACTUACIONES.ordinal()%>';
 //		var url = '<%= request.getContextPath()%>/obtenerConfActividadDocumento.do?idConf='+confActividadId;
-                var url = '<%= request.getContextPath()%>/obtenerConfActividadDocumentoRol.do?idActividad='+actividadId;
+                var url = '<%= request.getContextPath()%>/obtenerConfActividadDocumento.do?idActividad='+actividadId;
 		$.ajax({
 			type: 'POST',
 			url: url,
@@ -1980,12 +1979,12 @@
 			dataType: 'xml',
 			async: false,
 			success: function(xml){
-				actividad=$(xml).find('confActividadDocumentoDTO').find('tipoActividadId').text();
-				formaID=$(xml).find('confActividadDocumentoDTO').find('formaId').text();
-				titulo=$(xml).find('confActividadDocumentoDTO').find('nombreDocumento').text();
-				usaeditor=$(xml).find('confActividadDocumentoDTO').find('usaEditor').text();
-				estatusId=$(xml).find('confActividadDocumentoDTO').find('estadoCambioExpediente').find('idCampo').text();
-				nombreActividad=$(xml).find('confActividadDocumentoDTO').find('nombreActividad').text();
+				actividad=$(xml).find('confActividadDocumentoRolDTO').find('tipoActividadId').text();
+				formaID=$(xml).find('confActividadDocumentoRolDTO').find('formaId').text();
+				titulo=$(xml).find('confActividadDocumentoRolDTO').find('nombreDocumento').text();
+				usaeditor=$(xml).find('confActividadDocumentoRolDTO').find('usaEditor').text();
+				estatusId=$(xml).find('confActividadDocumentoRolDTO').find('estadoCambioExpediente').find('idCampo').text();
+				nombreActividad=$(xml).find('confActividadDocumentoRolDTO').find('nombreActividad').text();
 			}
 		});
 		
@@ -2028,7 +2027,7 @@
 			despliegaMensaje(0, textoUno, textoDos, textoTres, tituloConfirm, selected, confActividadId, actividad, formaID, 
 			titulo, usaeditor, estatusId, habilitarTurno, validaDelitoGrave);
 		}else{
-			ejecutaActuacion(selected, confActividadId, actividad, formaID, titulo, usaeditor, estatusId, habilitarTurno, validaDelitoGrave);
+			ejecutaActuacion(selected, actividadId, actividad, formaID, titulo, usaeditor, estatusId, habilitarTurno, validaDelitoGrave);
 		}
 	}
 	
@@ -2087,6 +2086,7 @@
 				if(confInstitucionId == '<%=Instituciones.PJ.getValorId()%>'){
 					nuevaSolicitudPJATP();
 				}else{
+                                    console.log("acaa");
 					//codigo para cambiar el estatus del expediente
 					registrarActividadExpediente(actividad,estatusId,0);
 	                $.newWindow({id:"iframewindowSolicitarAudiencia", statusBar: true, posx:20,posy:20,width:1030,height:570,title:"Solicitar Audiencia", type:"iframe"});
