@@ -12,7 +12,7 @@
 
 	<properties>
 		<nsjp.version.codigo>v 1.63</nsjp.version.codigo>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
 	</properties>
 
 

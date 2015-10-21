@@ -16,7 +16,7 @@
 * Proyecto                 :N/A                                 Fecha: N/A
 * Modificacion           :N/A
 *------------------------------------------------------------------------------
-*/
+*/ 
 package mx.gob.segob.nsjp.web.indicador.action;
 
 import static mx.gob.segob.nsjp.comun.constants.ConstantesGenerales.CONTENT_TYPE_XLS;
@@ -241,7 +241,7 @@ public class ReporteIndicadorAction extends GenericAction {
         Row periodoRow = sheet.createRow(renglones++);
         periodoRow.setHeightInPoints(20);
         Cell periodoCell = periodoRow.createCell(0);
-        periodoCell.setCellValue("Período");
+        periodoCell.setCellValue("Perï¿½odo");
         periodoCell.setCellStyle(styles.get("negritas"));
         periodoCell = periodoRow.createCell(1);
         periodoCell.setCellValue(fechaInicio + " al " + fechaFin);

@@ -16,7 +16,7 @@
 * Proyecto                 	: N/A                                 Fecha: N/A
 * Modificacion           	: N/A
 *------------------------------------------------------------------------------
-*/
+*/ 
 package mx.gob.segob.nsjp.web.hecho.form;
 
 import mx.gob.segob.nsjp.web.base.form.GenericForm;
@@ -262,7 +262,7 @@ public class HechoForm extends GenericForm{
 	}
 	
 	/**
-	 * Método de acceso al campo numExpediente
+	 * Mï¿½todo de acceso al campo numExpediente
 	 * @return El valor del campo numExpediente
 	 */
 	public String getNumExpediente() {
@@ -270,7 +270,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo numExpediente
+	 * Mï¿½todo de acceso al campo numExpediente
 	 * @param numExpediente  el valor numExpediente a asignar
 	 */
 	public void setNumExpediente(String numExpediente) {
@@ -278,7 +278,7 @@ public class HechoForm extends GenericForm{
 	}
 	
 	/**
-	 * Método de acceso al campo idUsuario
+	 * Mï¿½todo de acceso al campo idUsuario
 	 * @return El valor del campo idUsuario
 	 */
 	public String getIdUsuario() {
@@ -286,7 +286,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo idUsuario
+	 * Mï¿½todo de acceso al campo idUsuario
 	 * @param idUsuario  el valor idUsuario a asignar
 	 */
 	public void setIdUsuario(String idUsuario) {
@@ -294,7 +294,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo serialVersionUID
+	 * Mï¿½todo de acceso al campo serialVersionUID
 	 * @return El valor del campo serialVersionUID
 	 */
 	public static long getSerialversionuid() {
@@ -303,7 +303,7 @@ public class HechoForm extends GenericForm{
 	
 	/*****************************************  GET SET  DATO GENERAL HECHO ************************************************/
 	/**
-	 * Método de acceso al campo gcDescripcionHecho
+	 * Mï¿½todo de acceso al campo gcDescripcionHecho
 	 * @return El valor del campo gcDescripcionHecho
 	 */
 	public String getGcDescripcionHecho() {
@@ -311,7 +311,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo gcDescripcionHecho
+	 * Mï¿½todo de acceso al campo gcDescripcionHecho
 	 * @param gcDescripcionHecho  el valor gcDescripcionHecho a asignar
 	 */
 	public void setGcDescripcionHecho(String gcDescripcionHecho) {
@@ -321,7 +321,7 @@ public class HechoForm extends GenericForm{
 
 	/*******************************************  GET SET  LUGAR     *******************************************/
 	/**
-	 * Método de acceso al campo tipoLugar
+	 * Mï¿½todo de acceso al campo tipoLugar
 	 * @return El valor del campo tipoLugar
 	 */
 	public String getTipoLugar() {
@@ -329,7 +329,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo tipoLugar
+	 * Mï¿½todo de acceso al campo tipoLugar
 	 * @param tipoLugar  el valor tipoLugar a asignar
 	 */
 	public void setTipoLugar(String tipoLugar) {
@@ -337,7 +337,7 @@ public class HechoForm extends GenericForm{
 	}
 	
 	/**
-	 * Método de acceso al campo pais
+	 * Mï¿½todo de acceso al campo pais
 	 * @return El valor del campo pais
 	 */
 	public String getPais() {
@@ -345,7 +345,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo pais
+	 * Mï¿½todo de acceso al campo pais
 	 * @param pais  el valor pais a asignar
 	 */
 	public void setPais(String pais) {
@@ -353,7 +353,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo codigoPostal
+	 * Mï¿½todo de acceso al campo codigoPostal
 	 * @return El valor del campo codigoPostal
 	 */
 	public String getCodigoPostal() {
@@ -361,7 +361,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo codigoPostal
+	 * Mï¿½todo de acceso al campo codigoPostal
 	 * @param idUsuario  el valor codigoPostal a asignar
 	 */
 	public void setCodigoPostal(String codigoPostal) {
@@ -369,7 +369,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo entidadFederativa
+	 * Mï¿½todo de acceso al campo entidadFederativa
 	 * @return El valor del campo entidadFederativa
 	 */
 	public String getEntidadFederativa() {
@@ -377,7 +377,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo entidadFederativa
+	 * Mï¿½todo de acceso al campo entidadFederativa
 	 * @param entidadFederativa  el valor entidadFederativa a asignar
 	 */
 	public void setEntidadFederativa(String entidadFederativa) {
@@ -385,7 +385,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo ciudad
+	 * Mï¿½todo de acceso al campo ciudad
 	 * @return El valor del campo ciudad
 	 */
 	public String getCiudad() {
@@ -393,7 +393,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo ciudad
+	 * Mï¿½todo de acceso al campo ciudad
 	 * @param ciudad  el valor ciudad a asignar
 	 */
 	public void setCiudad(String ciudad) {
@@ -401,7 +401,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo delegacionMunicipio
+	 * Mï¿½todo de acceso al campo delegacionMunicipio
 	 * @return El valor del campo delegacionMunicipio
 	 */
 	public String getDelegacionMunicipio() {
@@ -409,7 +409,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo delegacionMunicipio
+	 * Mï¿½todo de acceso al campo delegacionMunicipio
 	 * @param delegacionMunicipio  el valor delegacionMunicipio a asignar
 	 */
 	public void setDelegacionMunicipio(String delegacionMunicipio) {
@@ -417,7 +417,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo asentamientoColonia
+	 * Mï¿½todo de acceso al campo asentamientoColonia
 	 * @return El valor del campo asentamientoColonia
 	 */
 	public String getAsentamientoColonia() {
@@ -425,7 +425,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo asentamientoColonia
+	 * Mï¿½todo de acceso al campo asentamientoColonia
 	 * @param asentamientoColonia  el valor asentamientoColonia a asignar
 	 */
 	public void setAsentamientoColonia(String asentamientoColonia) {
@@ -433,7 +433,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo tipoAsentamiento
+	 * Mï¿½todo de acceso al campo tipoAsentamiento
 	 * @return El valor del campo tipoAsentamiento
 	 */
 	public String getTipoAsentamiento() {
@@ -441,7 +441,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo tipoAsentamiento
+	 * Mï¿½todo de acceso al campo tipoAsentamiento
 	 * @param tipoAsentamiento  el valor tipoAsentamiento a asignar
 	 */
 	public void setTipoAsentamiento(String tipoAsentamiento) {
@@ -449,7 +449,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo tipoCalle
+	 * Mï¿½todo de acceso al campo tipoCalle
 	 * @return El valor del campo tipoCalle
 	 */
 	public String getTipoCalle() {
@@ -457,7 +457,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo tipoCalle
+	 * Mï¿½todo de acceso al campo tipoCalle
 	 * @param tipoCalle  el valor tipoCalle a asignar
 	 */
 	public void setTipoCalle(String tipoCalle) {
@@ -465,7 +465,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo calle
+	 * Mï¿½todo de acceso al campo calle
 	 * @return El valor del campo calle
 	 */
 	public String getCalle() {
@@ -473,7 +473,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo calle
+	 * Mï¿½todo de acceso al campo calle
 	 * @param calle  el valor calle a asignar
 	 */
 	public void setCalle(String calle) {
@@ -481,7 +481,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo numExterior
+	 * Mï¿½todo de acceso al campo numExterior
 	 * @return El valor del campo numExterior
 	 */
 	public String getNumExterior() {
@@ -489,7 +489,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo numExterior
+	 * Mï¿½todo de acceso al campo numExterior
 	 * @param numExterior  el valor numExterior a asignar
 	 */
 	public void setNumExterior(String numExterior) {
@@ -497,7 +497,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo numInterior
+	 * Mï¿½todo de acceso al campo numInterior
 	 * @return El valor del campo numInterior
 	 */
 	public String getNumInterior() {
@@ -505,7 +505,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo numInterior
+	 * Mï¿½todo de acceso al campo numInterior
 	 * @param numInterior  el valor numInterior a asignar
 	 */
 	public void setNumInterior(String numInterior) {
@@ -513,7 +513,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo referencias
+	 * Mï¿½todo de acceso al campo referencias
 	 * @return El valor del campo referencias
 	 */
 	public String getReferencias() {
@@ -521,7 +521,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo referencias
+	 * Mï¿½todo de acceso al campo referencias
 	 * @param referencias  el valor referencias a asignar
 	 */
 	public void setReferencias(String referencias) {
@@ -529,7 +529,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo entreCalle
+	 * Mï¿½todo de acceso al campo entreCalle
 	 * @return El valor del campo entreCalle
 	 */
 	public String getEntreCalle() {
@@ -537,7 +537,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo entreCalle
+	 * Mï¿½todo de acceso al campo entreCalle
 	 * @param entreCalle  el valor entreCalle a asignar
 	 */
 	public void setEntreCalle(String entreCalle) {
@@ -545,7 +545,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo ycalle
+	 * Mï¿½todo de acceso al campo ycalle
 	 * @return El valor del campo ycalle
 	 */
 	public String getYcalle() {
@@ -553,7 +553,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo ycalle
+	 * Mï¿½todo de acceso al campo ycalle
 	 * @param ycalle  el valor ycalle a asignar
 	 */
 	public void setYcalle(String ycalle) {
@@ -561,7 +561,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo aliasDomicilio
+	 * Mï¿½todo de acceso al campo aliasDomicilio
 	 * @return El valor del campo aliasDomicilio
 	 */
 	public String getAliasDomicilio() {
@@ -569,7 +569,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo aliasDomicilio
+	 * Mï¿½todo de acceso al campo aliasDomicilio
 	 * @param aliasDomicilio  el valor aliasDomicilio a asignar
 	 */
 	public void setAliasDomicilio(String aliasDomicilio) {
@@ -577,7 +577,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo edificio
+	 * Mï¿½todo de acceso al campo edificio
 	 * @return El valor del campo edificio
 	 */
 	public String getEdificio() {
@@ -585,7 +585,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo edificio
+	 * Mï¿½todo de acceso al campo edificio
 	 * @param edificio  el valor edificio a asignar
 	 */
 	public void setEdificio(String edificio) {
@@ -593,7 +593,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo longitud
+	 * Mï¿½todo de acceso al campo longitud
 	 * @return El valor del campo longitud
 	 */
 	public String getLongitud() {
@@ -601,7 +601,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo longitud
+	 * Mï¿½todo de acceso al campo longitud
 	 * @param longitud  el valor longitud a asignar
 	 */
 	public void setLongitud(String longitud) {
@@ -609,7 +609,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo latitud
+	 * Mï¿½todo de acceso al campo latitud
 	 * @return El valor del campo latitud
 	 */
 	public String getLatitud() {
@@ -617,7 +617,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo latitud
+	 * Mï¿½todo de acceso al campo latitud
 	 * @param latitud  el valor latitud a asignar
 	 */
 	public void setLatitud(String latitud) {
@@ -627,7 +627,7 @@ public class HechoForm extends GenericForm{
 	
 	/*******************************************  GET SET  TIEMPO    *******************************************/
 	/**
-	 * Método de acceso al campo tipoTiempoHecho
+	 * Mï¿½todo de acceso al campo tipoTiempoHecho
 	 * @return El valor del campo tipoTiempoHecho
 	 */
 	public String getTipoTiempoHecho() {
@@ -635,7 +635,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo tipoTiempoHecho
+	 * Mï¿½todo de acceso al campo tipoTiempoHecho
 	 * @param tipoTiempoHecho  el valor tipoTiempoHecho a asignar
 	 */
 	public void setTipoTiempoHecho(String tipoTiempoHecho) {
@@ -643,7 +643,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo fecha
+	 * Mï¿½todo de acceso al campo fecha
 	 * @return El valor del campo fecha
 	 */
 	public String getFecha() {
@@ -651,7 +651,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo fecha
+	 * Mï¿½todo de acceso al campo fecha
 	 * @param fecha  el valor fecha a asignar
 	 */
 	public void setFecha(String fecha) {
@@ -659,7 +659,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo hora
+	 * Mï¿½todo de acceso al campo hora
 	 * @return El valor del campo hora
 	 */
 	public String getHora() {
@@ -667,7 +667,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo hora
+	 * Mï¿½todo de acceso al campo hora
 	 * @param hora  el valor hora a asignar
 	 */
 	public void setHora(String hora) {
@@ -675,7 +675,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo fechaInicioLapso
+	 * Mï¿½todo de acceso al campo fechaInicioLapso
 	 * @return El valor del campo fechaInicioLapso
 	 */
 	public String getFechaInicioLapso() {
@@ -683,7 +683,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo fechaInicioLapso
+	 * Mï¿½todo de acceso al campo fechaInicioLapso
 	 * @param fechaInicioLapso  el valor fechaInicioLapso a asignar
 	 */
 	public void setFechaInicioLapso(String fechaInicioLapso) {
@@ -691,7 +691,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo horaInicioLapso
+	 * Mï¿½todo de acceso al campo horaInicioLapso
 	 * @return El valor del campo horaInicioLapso
 	 */
 	public String getHoraInicioLapso() {
@@ -699,7 +699,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo horaInicioLapso
+	 * Mï¿½todo de acceso al campo horaInicioLapso
 	 * @param horaInicioLapso  el valor horaInicioLapso a asignar
 	 */
 	public void setHoraInicioLapso(String horaInicioLapso) {
@@ -707,7 +707,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo fechaFinLapso
+	 * Mï¿½todo de acceso al campo fechaFinLapso
 	 * @return El valor del campo fechaFinLapso
 	 */
 	public String getFechaFinLapso() {
@@ -715,7 +715,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo fechaFinLapso
+	 * Mï¿½todo de acceso al campo fechaFinLapso
 	 * @param fechaFinLapso  el valor fechaFinLapso a asignar
 	 */
 	public void setFechaFinLapso(String fechaFinLapso) {
@@ -723,7 +723,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo horaFinLapso
+	 * Mï¿½todo de acceso al campo horaFinLapso
 	 * @return El valor del campo horaFinLapso
 	 */
 	public String getHoraFinLapso() {
@@ -731,7 +731,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo horaFinLapso
+	 * Mï¿½todo de acceso al campo horaFinLapso
 	 * @param horaFinLapso  el valor horaFinLapso a asignar
 	 */
 	public void setHoraFinLapso(String horaFinLapso) {
@@ -739,7 +739,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo gsNarrativa
+	 * Mï¿½todo de acceso al campo gsNarrativa
 	 * @return El valor del campo gsNarrativa
 	 */
 	public String getGsNarrativa() {
@@ -747,7 +747,7 @@ public class HechoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo gsNarrativa
+	 * Mï¿½todo de acceso al campo gsNarrativa
 	 * @param gsNarrativa  el valor gsNarrativa a asignar
 	 */
 	public void setGsNarrativa(String gsNarrativa) {

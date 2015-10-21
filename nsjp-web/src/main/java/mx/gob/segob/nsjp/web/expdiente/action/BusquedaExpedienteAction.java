@@ -7,7 +7,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+ 
 import mx.gob.segob.nsjp.comun.enums.expediente.TipoExpediente;
 import mx.gob.segob.nsjp.comun.enums.institucion.Areas;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
@@ -151,10 +151,10 @@ public class BusquedaExpedienteAction extends GenericAction{
 					writer.print("<cell> <![CDATA[<div style='background-color: #f2f2f2; color:#393939;'>" + casoDTO.getNumeroGeneralCaso()+ " </div]]></cell>");
 					writer.print("<cell> <![CDATA[<div style='background-color: #f2f2f2; color:#393939;'>" + "13/05/2011"+ " </div]]></cell>");
 //					writer.print("<cell> <![CDATA[<div style='background-color: #f2f2f2; color:#393939;'>" + casoDTO.getFechaApertura()+ " </div]]></cell>");
-					writer.print("<cell> <![CDATA[<div style='background-color: #f2f2f2; color:#393939;'>" + "Arturo León Galicia"+ " </div]]></cell>");
+					writer.print("<cell> <![CDATA[<div style='background-color: #f2f2f2; color:#393939;'>" + "Arturo Leï¿½n Galicia"+ " </div]]></cell>");
 //					writer.print("<cell> <![CDATA[<div style='background-color: #f2f2f2; color:#393939;'>" + casoDTO.getImputado()+ " </div]]></cell>");
 //					writer.print("<cell> <![CDATA[<div style='background-color: #f2f2f2; color:#393939;'>" + casoDTO.getDelito()+ " </div]]></cell>");
-					writer.print("<cell> <![CDATA[<div style='background-color: #f2f2f2; color:#393939;'>" + "Violación"+ " </div]]></cell>");
+					writer.print("<cell> <![CDATA[<div style='background-color: #f2f2f2; color:#393939;'>" + "Violaciï¿½n"+ " </div]]></cell>");
 					writer.print("</row>");						
 				}
 			
@@ -170,7 +170,7 @@ public class BusquedaExpedienteAction extends GenericAction{
 		return null;
 	}
 	/**
-	 * Llena el árbol de cusas del módulo de Poder Judicial 
+	 * Llena el ï¿½rbol de cusas del mï¿½dulo de Poder Judicial 
 	 * @param mapping
 	 * @param form
 	 * @param request
@@ -181,7 +181,7 @@ public class BusquedaExpedienteAction extends GenericAction{
 	public ActionForward busquedaInicialCausasPJ(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
-		//Definir la fecha de inicio: 1 año atrás
+		//Definir la fecha de inicio: 1 aï¿½o atrï¿½s
 		//TODO revisar criterios
 		Calendar cal = Calendar.getInstance();
 		cal.add(Calendar.DATE,-365);
@@ -203,7 +203,7 @@ public class BusquedaExpedienteAction extends GenericAction{
 	
 	
 	/**
-	 * Llena las sub-ramas del árbol de causas en base a un numero de causa (expediente padre)
+	 * Llena las sub-ramas del ï¿½rbol de causas en base a un numero de causa (expediente padre)
 	 * @param mapping
 	 * @param form
 	 * @param request
@@ -215,7 +215,7 @@ public class BusquedaExpedienteAction extends GenericAction{
 			HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
 		Calendar cal = Calendar.getInstance();
-		//TODO revisar criterio de fecha hacia atrás
+		//TODO revisar criterio de fecha hacia atrï¿½s
 		cal.add(Calendar.DATE,-365);
 		Long numeroExpedienteId = NumberUtils.toLong(request.getParameter("numeroExpedienteId"));
 		try {

@@ -37,7 +37,7 @@ import mx.gob.segob.nsjp.delegate.almacen.EncargadoAlmacenDelegate;
 import mx.gob.segob.nsjp.delegate.eslabon.EslabonDelegate;
 import mx.gob.segob.nsjp.delegate.evidencia.EvidenciaDelegate;
 import mx.gob.segob.nsjp.delegate.solicitud.SolicitudPericialDelegate;
-import mx.gob.segob.nsjp.dto.almacen.AlmacenDTO;
+import mx.gob.segob.nsjp.dto.almacen.AlmacenDTO; 
 import mx.gob.segob.nsjp.dto.base.PaginacionDTO;
 import mx.gob.segob.nsjp.dto.caso.CasoDTO;
 import mx.gob.segob.nsjp.dto.catalogo.ValorDTO;
@@ -478,11 +478,11 @@ public class AdministrarAlmacenAction extends GenericAction {
 				asentamientoDTO.setTipoAsentamientoDTO(tipoAsentamientoDTO);
 			}
 			if (!(forma.getLatitudN()== null) && !forma.getLatitudN().equals("")) {
-				String lat= forma.getLatitudN()+forma.getLatitudGrados()+"°"+forma.getLatitudMinutos()+"'"+forma.getLatitudSegundos()+"\"";
+				String lat= forma.getLatitudN()+forma.getLatitudGrados()+"ï¿½"+forma.getLatitudMinutos()+"'"+forma.getLatitudSegundos()+"\"";
 				domicilioDTO.setLatitud(lat);
 			}
 			if (!(forma.getLongitudE()== null) && !forma.getLongitudE().equals("")) {
-				String longitud= forma.getLongitudE()+forma.getLongitudGrados()+"°"+forma.getLongitudMinutos()+"'"+forma.getLongitudSegundos()+"\"";
+				String longitud= forma.getLongitudE()+forma.getLongitudGrados()+"ï¿½"+forma.getLongitudMinutos()+"'"+forma.getLongitudSegundos()+"\"";
 				domicilioDTO.setLongitud(longitud);
 			}
 			
@@ -987,7 +987,7 @@ public class AdministrarAlmacenAction extends GenericAction {
 				List<EvidenciaDTO> evidenciasDTO = new ArrayList<EvidenciaDTO>();
 				
 				if(idsEvidencias != null && !idsEvidencias.equals("")){
-					//Permite recuperar los id´s de las evidencias
+					//Permite recuperar los idï¿½s de las evidencias
 					String[] listaIdsEvidencias= idsEvidencias.split(",");
 					
 					for (String idEvidencia : listaIdsEvidencias) {

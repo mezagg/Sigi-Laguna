@@ -24,7 +24,7 @@ import mx.gob.segob.nsjp.web.base.form.GenericForm;
 /**
  * Forma usada para ingresar vegetal jsp.
  * @version 1.0
- * @author AlejandroGA
+ * @author AlejandroGA 
  *
  */
 public class VegetalForm extends GenericForm{
@@ -139,7 +139,7 @@ public class VegetalForm extends GenericForm{
 
 	
 	/**
-	 * Método de acceso al campo gsCantidadVegetalId.
+	 * Mï¿½todo de acceso al campo gsCantidadVegetalId.
 	 * @return El valor del campo gsCantidadVegetalId
 	 */
 	public Long getGsCantidadVegetal() {
@@ -155,7 +155,7 @@ public class VegetalForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo glTipoVegetalId.
+	 * Mï¿½todo de acceso al campo glTipoVegetalId.
 	 * @return El valor del campo glTipoVegetalId
 	 */
 	public Long getGlTipoVegetalId() {
@@ -171,7 +171,7 @@ public class VegetalForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo glUMedidaVegetalId.
+	 * Mï¿½todo de acceso al campo glUMedidaVegetalId.
 	 * @return El valor del campo glUMedidaVegetalId
 	 */
 	public Long getGlUMedidaVegetalId() {
@@ -187,7 +187,7 @@ public class VegetalForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo glCondicionFisica.
+	 * Mï¿½todo de acceso al campo glCondicionFisica.
 	 * @return El valor del campo glCondicionFisica
 	 */
 	public Long getGlCondicionFisica() {
@@ -203,7 +203,7 @@ public class VegetalForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo gcDescripcion.
+	 * Mï¿½todo de acceso al campo gcDescripcion.
 	 * @return El valor del campo gcDescripcion
 	 */
 	public String getGcDescripcion() {
@@ -219,7 +219,7 @@ public class VegetalForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo serialversionuid.
+	 * Mï¿½todo de acceso al campo serialversionuid.
 	 * @return El valor del campo serialversionuid
 	 */
 	public static long getSerialversionuid() {

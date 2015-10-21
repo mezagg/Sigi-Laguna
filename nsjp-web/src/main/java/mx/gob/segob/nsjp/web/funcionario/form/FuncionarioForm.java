@@ -17,7 +17,7 @@
 * Modificacion           :N/A
 *------------------------------------------------------------------------------
 */
-package mx.gob.segob.nsjp.web.funcionario.form;
+package mx.gob.segob.nsjp.web.funcionario.form; 
 
 import mx.gob.segob.nsjp.dto.catalogo.CatDiscriminanteDTO;
 import mx.gob.segob.nsjp.dto.funcionario.FuncionarioDTO;
@@ -75,7 +75,7 @@ public class FuncionarioForm extends GenericForm{
 	/** archivo adjunto */
 	private FormFile archivo;	
 	/**
-	 * Método de acceso al campo idFuncionario.
+	 * Mï¿½todo de acceso al campo idFuncionario.
 	 * @return El valor del campo idFuncionario
 	 */
 	public Long getIdFuncionario() {
@@ -89,7 +89,7 @@ public class FuncionarioForm extends GenericForm{
 		this.idFuncionario = idFuncionario;
 	}
 	/**
-	 * Método de acceso al campo numeroEmpleado.
+	 * Mï¿½todo de acceso al campo numeroEmpleado.
 	 * @return El valor del campo numeroEmpleado
 	 */
 	public String getNumeroEmpleado() {
@@ -103,7 +103,7 @@ public class FuncionarioForm extends GenericForm{
 		this.numeroEmpleado = numeroEmpleado;
 	}
 	/**
-	 * Método de acceso al campo nombre.
+	 * Mï¿½todo de acceso al campo nombre.
 	 * @return El valor del campo nombre
 	 */
 	public String getNombre() {
@@ -117,7 +117,7 @@ public class FuncionarioForm extends GenericForm{
 		this.nombre = nombre;
 	}
 	/**
-	 * Método de acceso al campo apellidoPaterno.
+	 * Mï¿½todo de acceso al campo apellidoPaterno.
 	 * @return El valor del campo apellidoPaterno
 	 */
 	public String getApellidoPaterno() {
@@ -131,7 +131,7 @@ public class FuncionarioForm extends GenericForm{
 		this.apellidoPaterno = apellidoPaterno;
 	}
 	/**
-	 * Método de acceso al campo apellidoMaterno.
+	 * Mï¿½todo de acceso al campo apellidoMaterno.
 	 * @return El valor del campo apellidoMaterno
 	 */
 	public String getApellidoMaterno() {
@@ -145,7 +145,7 @@ public class FuncionarioForm extends GenericForm{
 		this.apellidoMaterno = apellidoMaterno;
 	}
 	/**
-	 * Método de acceso al campo curp.
+	 * Mï¿½todo de acceso al campo curp.
 	 * @return El valor del campo curp
 	 */
 	public String getCurp() {
@@ -159,7 +159,7 @@ public class FuncionarioForm extends GenericForm{
 		this.curp = curp;
 	}
 	/**
-	 * Método de acceso al campo rfc.
+	 * Mï¿½todo de acceso al campo rfc.
 	 * @return El valor del campo rfc
 	 */
 	public String getRfc() {
@@ -173,7 +173,7 @@ public class FuncionarioForm extends GenericForm{
 		this.rfc = rfc;
 	}
 	/**
-	 * Método de acceso al campo sexo.
+	 * Mï¿½todo de acceso al campo sexo.
 	 * @return El valor del campo sexo
 	 */
 	public String getSexo() {
@@ -187,7 +187,7 @@ public class FuncionarioForm extends GenericForm{
 		this.sexo = sexo;
 	}
 	/**
-	 * Método de acceso al campo fechaNacimiento.
+	 * Mï¿½todo de acceso al campo fechaNacimiento.
 	 * @return El valor del campo fechaNacimiento
 	 */
 	public String getFechaNacimiento() {
@@ -201,7 +201,7 @@ public class FuncionarioForm extends GenericForm{
 		this.fechaIngreso = fechaIngreso;
 	}
 	/**
-	 * Método de acceso al campo fechaNacimiento.
+	 * Mï¿½todo de acceso al campo fechaNacimiento.
 	 * @return El valor del campo fechaNacimiento
 	 */
 	public String getFechaIngreso() {
@@ -215,7 +215,7 @@ public class FuncionarioForm extends GenericForm{
 		this.fechaNacimiento = fechaNacimiento;
 	}
 	/**
-	 * Método de acceso al campo area.
+	 * Mï¿½todo de acceso al campo area.
 	 * @return El valor del campo area
 	 */
 	public String getArea() {
@@ -229,7 +229,7 @@ public class FuncionarioForm extends GenericForm{
 		this.area = area;
 	}
 	/**
-	 * Método de acceso al campo puesto.
+	 * Mï¿½todo de acceso al campo puesto.
 	 * @return El valor del campo puesto
 	 */
 	public String getPuesto() {
@@ -243,7 +243,7 @@ public class FuncionarioForm extends GenericForm{
 		this.puesto = puesto;
 	}
 	/**
-	 * Método de acceso al campo tipoEspecialidad.
+	 * Mï¿½todo de acceso al campo tipoEspecialidad.
 	 * @return El valor del campo tipoEspecialidad
 	 */
 	public String getTipoEspecialidad() {
@@ -257,7 +257,7 @@ public class FuncionarioForm extends GenericForm{
 		this.tipoEspecialidad = tipoEspecialidad;
 	}
 	/**
-	 * Método de acceso al campo especialidad.
+	 * Mï¿½todo de acceso al campo especialidad.
 	 * @return El valor del campo especialidad
 	 */
 	public String getEspecialidad() {
@@ -271,7 +271,7 @@ public class FuncionarioForm extends GenericForm{
 		this.especialidad = especialidad;
 	}
 	/**
-	 * Método de acceso al campo funcionario.
+	 * Mï¿½todo de acceso al campo funcionario.
 	 * @return El valor del campo funcionario
 	 */
 	public String getFuncionario() {
@@ -285,7 +285,7 @@ public class FuncionarioForm extends GenericForm{
 		this.funcionario = funcionario;
 	}
 	/**
-	 * Método de acceso al campo medioContactoTelefono.
+	 * Mï¿½todo de acceso al campo medioContactoTelefono.
 	 * @return El valor del campo medioContactoTelefono
 	 */
 	public String getMedioContactoTelefono() {
@@ -299,7 +299,7 @@ public class FuncionarioForm extends GenericForm{
 		this.medioContactoTelefono = medioContactoTelefono;
 	}
 	/**
-	 * Método de acceso al campo medioContactoCorreo.
+	 * Mï¿½todo de acceso al campo medioContactoCorreo.
 	 * @return El valor del campo medioContactoCorreo
 	 */
 	public String getMedioContactoCorreo() {
@@ -313,7 +313,7 @@ public class FuncionarioForm extends GenericForm{
 		this.medioContactoCorreo = medioContactoCorreo;
 	}
 	/**
-	 * Método de acceso al campo edad.
+	 * Mï¿½todo de acceso al campo edad.
 	 * @return El valor del campo edad
 	 */
 	public String getEdad() {
@@ -328,7 +328,7 @@ public class FuncionarioForm extends GenericForm{
 	}
 	
 	/**
-	 * Método de acceso al campo Agencia relacionado al funcionario.
+	 * Mï¿½todo de acceso al campo Agencia relacionado al funcionario.
 	 * @return El valor del campo agenciaId
 	 */
 	public Long getAgenciaId() {

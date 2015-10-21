@@ -5,8 +5,8 @@ import org.apache.struts.upload.FormFile;
 import mx.gob.segob.nsjp.web.base.form.GenericForm;
 
 /**
- * Clase que implementa la forma para registrar una solicitud en la ventanilla de atención 
- * al público de poder judicial
+ * Clase que implementa la forma para registrar una solicitud en la ventanilla de atenciï¿½n 
+ * al pï¿½blico de poder judicial
  * 
  * @version 1.0 
  * @author ArmandoCT
@@ -17,7 +17,7 @@ public class AdjuntarDocumentoAsociadoAExpedienteForm extends GenericForm {
 	
 	/** archivo adjunto */
 	private FormFile archivoAdjunto;
-		
+		 
 	/** numero expediente id */
 	private Long expedienteId;
 	

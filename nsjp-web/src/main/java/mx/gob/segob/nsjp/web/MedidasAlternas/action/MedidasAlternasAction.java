@@ -15,7 +15,7 @@ import mx.gob.segob.nsjp.delegate.agenda.AgendaDelegate;
 import mx.gob.segob.nsjp.delegate.medidasalternas.MedidasAlternasDelegate;
 import mx.gob.segob.nsjp.delegate.medidascautelares.MedidasCautelaresDelegate;
 import mx.gob.segob.nsjp.dto.base.PaginacionDTO;
-import mx.gob.segob.nsjp.dto.medida.MedidaAlternaDTO;
+import mx.gob.segob.nsjp.dto.medida.MedidaAlternaDTO; 
 import mx.gob.segob.nsjp.web.base.action.GenericAction;
 
 import org.apache.log4j.Logger;
@@ -39,7 +39,7 @@ public class MedidasAlternasAction extends GenericAction{
 	AgendaDelegate agendaDelegate;
 	
 	/**
-	 * Método para obtener las Medidas Alternas
+	 * Mï¿½todo para obtener las Medidas Alternas
 	 * @param mapping
 	 * @param form
 	 * @param request
@@ -111,7 +111,7 @@ public class MedidasAlternasAction extends GenericAction{
 	}
 
 	/**
-	 * Método para cambiar el estatus de las Medidas Alternas
+	 * Mï¿½todo para cambiar el estatus de las Medidas Alternas
 	 * @param mapping
 	 * @param form
 	 * @param request
@@ -121,7 +121,7 @@ public class MedidasAlternasAction extends GenericAction{
 	public void cambiarEstatusMedida(Long id, Long estatus)
 			throws IOException {
 		
-		log.info("Método para cambiar estatus de Medida Alterna:::::");
+		log.info("Mï¿½todo para cambiar estatus de Medida Alterna:::::");
 
 		try {
 			medidasCautelaresDelegate.cambiarEstatusMedida(id, estatus);			
@@ -132,7 +132,7 @@ public class MedidasAlternasAction extends GenericAction{
 	}
 
 	/**
-	 * Método para consultar una Medida Alterna por Id
+	 * Mï¿½todo para consultar una Medida Alterna por Id
 	 * @param mapping
 	 * @param form
 	 * @param request

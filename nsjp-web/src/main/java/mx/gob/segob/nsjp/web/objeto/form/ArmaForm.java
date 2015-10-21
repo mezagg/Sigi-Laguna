@@ -130,7 +130,7 @@ public class ArmaForm extends GenericForm{
 	private String gcDescripcionArma;
 
 	/**
-	 * Método de acceso al campo gcMatriculaArma.
+	 * Metodo de acceso al campo gcMatriculaArma.
 	 * @return El valor del campo gcMatriculaArma
 	 */
 	public String getGcMatriculaArma() {
@@ -146,7 +146,7 @@ public class ArmaForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo gcCalibreArma.
+	 * Metodo de acceso al campo gcCalibreArma.
 	 * @return El valor del campo gcCalibreArma
 	 */
 	public String getGcCalibreArma() {
@@ -162,7 +162,7 @@ public class ArmaForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo glMarcaArmaId.
+	 * Metodo de acceso al campo glMarcaArmaId.
 	 * @return El valor del campo glMarcaArmaId
 	 */
 	public Long getGlMarcaArmaId() {
@@ -178,7 +178,7 @@ public class ArmaForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo glTipoArmaId.
+	 * Metodo de acceso al campo glTipoArmaId.
 	 * @return El valor del campo glTipoArmaId
 	 */
 	public Long getGlTipoArmaId() {
@@ -194,7 +194,7 @@ public class ArmaForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo gcModeloArma.
+	 * Metodo de acceso al campo gcModeloArma.
 	 * @return El valor del campo gcModeloArma
 	 */
 	public String getGcModeloArma() {
@@ -210,7 +210,7 @@ public class ArmaForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo glCondicionFisicaArmaId.
+	 * Metodo de acceso al campo glCondicionFisicaArmaId.
 	 * @return El valor del campo glCondicionFisicaArmaId
 	 */
 	public Long getGlCondicionFisicaArmaId() {
@@ -226,7 +226,7 @@ public class ArmaForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo gcDescripcionArma.
+	 * Metodo de acceso al campo gcDescripcionArma.
 	 * @return El valor del campo gcDescripcionArma
 	 */
 	public String getGcDescripcionArma() {
@@ -242,7 +242,7 @@ public class ArmaForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo serialversionuid.
+	 * Mï¿½todo de acceso al campo serialversionuid.
 	 * @return El valor del campo serialversionuid
 	 */
 	public static long getSerialversionuid() {

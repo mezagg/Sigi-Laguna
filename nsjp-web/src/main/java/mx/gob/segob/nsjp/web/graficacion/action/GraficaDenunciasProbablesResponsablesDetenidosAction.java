@@ -18,7 +18,7 @@
 *------------------------------------------------------------------------------
 */
 package mx.gob.segob.nsjp.web.graficacion.action;
-
+ 
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Date;
@@ -107,7 +107,7 @@ public class GraficaDenunciasProbablesResponsablesDetenidosAction extends
 				dataset.addValue((Number)objects[1], "Sin Detenido", objects[0].toString());
 			}
 			
-			JFreeChart chart = ChartFactory.createLineChart("Denuncias-Probables Partícipe-Detenidos", "MESES", "DENUNCIAS", 
+			JFreeChart chart = ChartFactory.createLineChart("Denuncias-Probables Partï¿½cipe-Detenidos", "MESES", "DENUNCIAS", 
 															dataset, PlotOrientation.VERTICAL, true, true, true);			
 			
 			OutputStream out = response.getOutputStream();

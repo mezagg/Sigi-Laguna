@@ -181,7 +181,7 @@ public class SolicitudDefensorAction extends GenericAction {
 	
 	/**
 	 * Metodo que consulta la solicitud por ID, con la opci&oacute;n de
-	 * recortar la información de la solicitud para que sea una 
+	 * recortar la informaciï¿½n de la solicitud para que sea una 
 	 * consulta b&aacute;sica
 	 * 
 	 * @param mapping
@@ -1499,7 +1499,7 @@ public class SolicitudDefensorAction extends GenericAction {
 				if (!(solDefensorForm.getLatitudN() == null)
 						&& !solDefensorForm.getLatitudN().equals("")) {
 					String lat = solDefensorForm.getLatitudN()
-							+ solDefensorForm.getLatitudGrados() + "°"
+							+ solDefensorForm.getLatitudGrados() + "Â°"
 							+ solDefensorForm.getLatitudMinutos() + "'"
 							+ solDefensorForm.getLatitudSegundos() + "\"";
 					domicilioDTO.setLatitud(lat);
@@ -1507,7 +1507,7 @@ public class SolicitudDefensorAction extends GenericAction {
 				if (!(solDefensorForm.getLongitudE() == null)
 						&& !solDefensorForm.getLongitudE().equals("")) {
 					String longitud = solDefensorForm.getLongitudE()
-							+ solDefensorForm.getLongitudGrados() + "°"
+							+ solDefensorForm.getLongitudGrados() + "Â°"
 							+ solDefensorForm.getLongitudMinutos() + "'"
 							+ solDefensorForm.getLongitudSegundos() + "\"";
 					domicilioDTO.setLongitud(longitud);

@@ -1,6 +1,6 @@
 /**
 * Nombre del Programa 	: BuscarExpedienteGeneralAction.java                                    
-* Autor               	: Emigdio HErnández                                           
+* Autor               	: Emigdio HErnï¿½ndez                                           
 * Compania            	: Ultrasist                                                
 * Proyecto            	: NSJP              			Fecha:09/03/2011 
 * Marca de cambio     	: N/A                                                     
@@ -16,7 +16,7 @@
 * Proyecto              :N/A                                   Fecha: N/A       
 * Modificacion          :N/A                                                           
 *------------------------------------------------------------------------------      
-*/
+*/ 
 package mx.gob.segob.nsjp.web.expdiente.action;
 
 import java.io.IOException;
@@ -53,7 +53,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * Action general para realizar busquedas de expediente por filtro
  * @version 1.0
- * @author Emigdio Hernández
+ * @author Emigdio Hernï¿½ndez
  */
 
 public class BuscarExpedienteGeneralAction extends GenericAction{
@@ -356,7 +356,7 @@ public class BuscarExpedienteGeneralAction extends GenericAction{
 	
 	
 	/**
-	 * Metodo utilizado para la búsqueda general de expedietes por numero de caso
+	 * Metodo utilizado para la bï¿½squeda general de expedietes por numero de caso
 	 * 
 	 * @param mapping
 	 * @param form

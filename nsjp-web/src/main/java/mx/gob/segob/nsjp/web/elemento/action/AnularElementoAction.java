@@ -62,7 +62,7 @@ public class AnularElementoAction extends GenericAction {
 		}
 		catch (Exception e) {
 			escribirRespuesta(response, "<banderaOp>-1</banderaOp>");
-			log.info("Ocurrió una excepcion al tratar de anular el elemento");
+			log.info("Ocurriï¿½ una excepcion al tratar de anular el elemento");
 			log.info(e.getMessage());
 		}
 		
@@ -93,27 +93,27 @@ public class AnularElementoAction extends GenericAction {
 				//validamos que el objeto no sea una evidencia y este en un eslabon
 				if(!eslabonDelegate.tieneEslabonPorEvidenciaYObjeto(idElementoAnular)){
 					if(elementoDelegate.anularElemento(idElementoAnular)){
-						escribirRespuesta(response, "<bandera>1</bandera><mensajeOp>Se anuló el objeto de manera exitosa</mensajeOp>");
+						escribirRespuesta(response, "<bandera>1</bandera><mensajeOp>Se anulï¿½ el objeto de manera exitosa</mensajeOp>");
 						log.info("::::::::::: Se anulo el objeto exitosamente :::::::::::");
 					}
 					else{
 						escribirRespuesta(response, "<bandera>0</bandera><mensajeOp>No se pudo anular el elemento anular el elemento</mensajeOp>");
 						log.info("NO se pudo ANULAR el objeto probablemente por relaciones en la tablas.");
 					}
-				}
+				} 
 				else{
-					escribirRespuesta(response, "<bandera>0</bandera><mensajeOp>No se pudo anular el objeto <br/> dado ques una evidencia y forma parte de un eslabón</mensajeOp>");
+					escribirRespuesta(response, "<bandera>0</bandera><mensajeOp>No se pudo anular el objeto <br/> dado ques una evidencia y forma parte de un eslabï¿½n</mensajeOp>");
 					log.info("NO se pudo ANULAR el objeto porque es una evidencia y esta en un eslabon de cadena de custodia.");
 				}
 			}
 			else{
-				escribirRespuesta(response, "<bandera>0</bandera><mensajeOp>No se pudo anular el objeto, intente más tarde</mensajeOp>");
+				escribirRespuesta(response, "<bandera>0</bandera><mensajeOp>No se pudo anular el objeto, intente mï¿½s tarde</mensajeOp>");
 				log.info("NO se pudo ANULAR el objeto dado que el ID del objeto no llego al Action: AnularElementoAction - anularObjeto");
 			}
 			log.info("::::::::::: FIN AnularElementoAction - anularObjeto :::::::::::");
 		}
 		catch (Exception e) {
-			escribirRespuesta(response, "<bandera>0</bandera><mensajeOp>Ocurrió un error al tratar de anular el objeto, favor de contactar a su administrador</mensajeOp>");
+			escribirRespuesta(response, "<bandera>0</bandera><mensajeOp>Ocurriï¿½ un error al tratar de anular el objeto, favor de contactar a su administrador</mensajeOp>");
 			log.info(e.getMessage());
 		}
 		return null;		
