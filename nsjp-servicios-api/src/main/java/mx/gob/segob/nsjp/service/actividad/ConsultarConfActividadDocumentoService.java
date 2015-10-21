@@ -78,7 +78,8 @@ public interface ConsultarConfActividadDocumentoService {
     ConfActividadDocumentoDTO consultaConfActividadDocumentoPorId(Long idConfActividadDocumento) throws NSJPNegocioException;
 
     ConfActividadDocumentoDTO consultaConfActividadDocumentoPorId(Long idConfActividadDocumento, Boolean sinCauie) throws NSJPNegocioException;
-
+    
+    ConfActividadDocumentoRolDTO consultaConfActividadDocumentoRolPorId(Long idConfActividadDocumentoRol) throws NSJPNegocioException;
     /**
      * Consulta los estatus asociados a una Jerarquia Organizacional dentro de
      * la tabla de Configuracion de Actividades
@@ -135,6 +136,9 @@ public interface ConsultarConfActividadDocumentoService {
      */
     public ConfActividadDocumentoDTO consultaConfActividadDocumentoPorIdActividad(
             ConfActividadDocumentoDTO filtro) throws NSJPNegocioException;
+    
+    public ConfActividadDocumentoRolDTO consultaConfActividadDocumentoRolPorIdActividad(
+            ConfActividadDocumentoRolDTO filtro) throws NSJPNegocioException;
 
     /**
      * Consulta la configuraci&oacute;n de las actuaciones de acuerdo a los

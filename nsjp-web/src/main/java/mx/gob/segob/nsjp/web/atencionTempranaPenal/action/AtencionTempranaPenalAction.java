@@ -187,6 +187,9 @@ public class AtencionTempranaPenalAction extends GenericAction {
 
     @Autowired
     public ConfActividadDocumentoDelegate confActividadDocumentoDelegate;
+    
+    @Autowired
+    private ConsultarConfActividadDocumentoService consultarConfActividadDocumentoService;
 
     @Autowired
     private CasoDelegate casoDelegate;
@@ -1546,7 +1549,8 @@ public class AtencionTempranaPenalAction extends GenericAction {
             for (ConfActividadDocumentoRolDTO confActividadDocumentoRolDTO : listActividadDocumentoDTOs) {
                 CatalogoDTO catalogo = new CatalogoDTO();
 
-                catalogo.setClave(confActividadDocumentoRolDTO.getConfActividadDocumentoRolId());
+//                catalogo.setClave(confActividadDocumentoRolDTO.getConfActividadDocumentoRolId());
+                catalogo.setClave(confActividadDocumentoRolDTO.getTipoActividadId());
                 catalogo.setValor(confActividadDocumentoRolDTO.getNombreActividad());
                 //El tipo documento con id 86 es de tipo oficio
                 if (confActividadDocumentoRolDTO.getTipoDocumentoId() != null) {
@@ -4316,6 +4320,34 @@ public class AtencionTempranaPenalAction extends GenericAction {
             PrintWriter pw = null;
             converter.alias("confActividadDocumentoDTO", ConfActividadDocumentoDTO.class);
             xml = converter.toXML(confActividadDocumentoDTO);
+            response.setContentType("text/xml");
+            pw = response.getWriter();
+            pw.print(xml);
+            pw.flush();
+            pw.close();
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
+        }
+        return null;
+    }
+    
+    public ActionForward obtenerConfActividadDocumentoRol(ActionMapping mapping,
+            ActionForm form, HttpServletRequest request,
+            HttpServletResponse response) throws IOException {
+        try {
+
+            String idAct = request.getParameter("idActividad");
+            
+            ConfActividadDocumentoRolDTO confActividadDocumentoRolDTO = null;
+            if (idAct != null && !idAct.equals("")) {
+                ConfActividadDocumentoRolDTO filtro = new ConfActividadDocumentoRolDTO();
+                filtro.setTipoActividadId(Long.parseLong(idAct));
+                confActividadDocumentoRolDTO = confActividadDocumentoService.consultaConfActividadDocumentoRolPorIdActividad(filtro);
+            } 
+            String xml = null;
+            PrintWriter pw = null;
+            converter.alias("confActividadDocumentoRolDTO", ConfActividadDocumentoRolDTO.class);
+            xml = converter.toXML(confActividadDocumentoRolDTO);
             response.setContentType("text/xml");
             pw = response.getWriter();
             pw.print(xml);

@@ -4257,6 +4257,14 @@
 				parameter="obtenerConfActividadDocumento"
 				validate="false">				
 	</action>
+        
+        <action path="/obtenerConfActividadDocumentoRol"
+				type="mx.gob.segob.nsjp.web.atencionTempranaPenal.action.AtencionTempranaPenalAction"
+				name=""
+				scope="request"
+				parameter="obtenerConfActividadDocumentoRol"
+				validate="false">				
+	</action>
 	
 	<action path="/consultaBitacoraMovObjetosAlmacen"
 				type="mx.gob.segob.nsjp.web.atencionTempranaPenal.action.AtencionTempranaPenalAction"
