@@ -765,12 +765,12 @@ function popopAsistencia(rowid){
 			dataType: 'xml',
 			async: false,
 			success: function(xml){
-				actividad=$(xml).find('confActividadDocumentoDTO').find('tipoActividadId').text();
-				formaID=$(xml).find('confActividadDocumentoDTO').find('formaId').text();
-				titulo=$(xml).find('confActividadDocumentoDTO').find('nombreDocumento').text();
-				usaeditor=$(xml).find('confActividadDocumentoDTO').find('usaEditor').text();
-				estatusId=$(xml).find('confActividadDocumentoDTO').find('estadoCambioExpediente').find('idCampo').text();
-				nombreActividad=$(xml).find('confActividadDocumentoDTO').find('nombreActividad').text();
+				actividad=$(xml).find('confActividadDocumentoRolDTO').find('tipoActividadId').text();
+				formaID=$(xml).find('confActividadDocumentoRolDTO').find('formaId').text();
+				titulo=$(xml).find('confActividadDocumentoRolDTO').find('nombreDocumento').text();
+				usaeditor=$(xml).find('confActividadDocumentoRolDTO').find('usaEditor').text();
+				estatusId=$(xml).find('confActividadDocumentoRolDTO').find('estadoCambioExpediente').find('idCampo').text();
+				nombreActividad=$(xml).find('confActividadDocumentoRolDTO').find('nombreActividad').text();
 			}
 		});
 		
