@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Registrar Datos Persona</title>
 <link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/multiselect/jquery.multiselect.css" />
 <link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/multiselect/style.css" />
@@ -60,7 +60,7 @@ $(document).ready(function() {
 	jQuery("#gridFamiliares").jqGrid({
 		url:'<%= request.getContextPath()%>/consultarFamiliaresEntrevistaComplementariaPorId.do?idSesion='+idSesion+'',
 		datatype: "xml", 
-		colNames:['Nombre','Apellido Paterno','Apellido Materno','Edad','Parentesco','Escolaridad','Estado Civil','Ocupación'],
+		colNames:['Nombre','Apellido Paterno','Apellido Materno','Edad','Parentesco','Escolaridad','Estado Civil','Ocupaci&oacute;n'],
 		colModel:[	{name:'Nombre',index:'index0', width:100},
 		          	{name:'Paterno',index:'index1', width:100},
 		          	{name:'Materno',index:'index2', width:110},
@@ -68,7 +68,7 @@ $(document).ready(function() {
 		          	{name:'Parentesco',index:'index4', width:100},
 		          	{name:'Escolaridad',index:'index5', width:100},
 		          	{name:'Estado Civil',index:'index6', width:100},
-		          	{name:'Ocupación',index:'index7', width:100},
+		          	{name:'Ocupaci&oacute;n',index:'index7', width:100},
 					],
 		pager: jQuery('#pagerGridFamiliares'),
 		rowNum:20,
@@ -105,7 +105,7 @@ $(document).ready(function() {
 	cargaEscolaridad();
 	cargaParentesco();
 	
-	//ocultamos las pestañas
+	//ocultamos las pesta&ntilde;as
 	killPestanas();
 });
 
@@ -230,7 +230,7 @@ function onClickBtnGuardaConciencia()
 	guardaActualizaNarrativaEntrevistaComplementaria(narrativa,opcionGuardado);
 }
 	else{
-		 alert("El campo Conciencia de la Problemática debe ser ingresado");
+		 alert("El campo Conciencia de la Problem&aacute;tica debe ser ingresado");
 	}
 }
 
@@ -242,7 +242,7 @@ function onClickBtnGuardarImpresionFamiliar()
 	guardaActualizaNarrativaEntrevistaComplementaria(narrativa,opcionGuardado);
 }
 	else{
-		 alert("El campo Impresión Diagnóstica de la Familia debe ser ingresado");
+		 alert("El campo Impresi&oacute;n Diagn&oacute;stica de la Familia debe ser ingresado");
 	}
 
 }
@@ -255,7 +255,7 @@ function onClickBtnGuardarHipotesisFamiliar()
 	guardaActualizaNarrativaEntrevistaComplementaria(narrativa,opcionGuardado);
 }
 	else{
-		 alert("El campo Hipótesis Familiar debe ser ingresado");
+		 alert("El campo Hip&oacute;tesis Familiar debe ser ingresado");
 	}
 }
 
@@ -289,11 +289,11 @@ function guardaActualizaNarrativaEntrevistaComplementaria(narrativa,opcionGuarda
 	});
 	if(bandera==true)
 	{
-		alert("Se guardó o actualizó la entrevista complementaria exitosamente.");
+		alert("Se guard&oacute; o actualiz&oacute; la entrevista complementaria exitosamente.");
 	}
 	else
 	{
-		alert("Ocurrió un error al guardar o actualizar la entrevista complementaria.");
+		alert("Ocurri&oacute; un error al guardar o actualizar la entrevista complementaria.");
 	}
 }
 /****** FIN listeners para los botones de guardado *******/
@@ -349,7 +349,7 @@ function abrirEntrevistaComplementaria(id){
 }
 function abrirNotasEvolucion(id){
 
-	$.newWindow({id:"iframewindowVisorNotasEjecucion", statusBar: true, posx:200,posy:50,width:1140,height:400,title:"Nota de Evolución", type:"iframe"});
+	$.newWindow({id:"iframewindowVisorNotasEjecucion", statusBar: true, posx:200,posy:50,width:1140,height:400,title:"Nota de Evoluci&oacute;n", type:"iframe"});
     $.updateWindowContent("iframewindowVisorNotasEjecucion","<iframe src='<%= request.getContextPath() %>/visorNotaEjecucion.do?rowid="+id+"' width='1140' height='400' />");
 }
 
@@ -393,13 +393,13 @@ function agregarFamiliar()
 			//Venimos de una insercion
 			if(parseInt($(xml).find('code').text())==0)
 			{
-				alert("Se guardó exitosamente el familiar.");
+				alert("Se guard&oacute; exitosamente el familiar.");
 				limpiaCamposIngresoFamiliar();
 				cargaGridFamiliares();
 	    	}
 			else
 			{
-				alert("Se debe ingresar toda la información del familiar.");
+				alert("Se debe ingresar toda la informaci&oacute;n del familiar.");
 			}
 		}
 	});
@@ -483,7 +483,7 @@ function validaCamposInsercion()
 	//validacion de ocupacion
 	if(parseInt($("#select4 option:selected").val())==-1)
 	{
-		alert("El campo Ocupación debe ser ingresado");
+		alert("El campo Ocupaci&oacute;n debe ser ingresado");
 		return false;
 	}
 	return true;  
@@ -507,11 +507,11 @@ function limpiaCamposIngresoFamiliar()
 				<ul>
 					<li><a href="#tabsconsultaprincipal-1">Familiares</a></li>
 					<li><a href="#tabsconsultaprincipal-2">Motivo de Consulta</a></li>
-					<li><a href="#tabsconsultaprincipal-3">Conciencia de la Problemática</a></li>
-					<li><a href="#tabsconsultaprincipal-4">Dinámica Familiar</a></li>
-					<li id="liPropuestaPsico"><a href="#tabsconsultaprincipal-5">Propuesta Psicológica</a></li>
+					<li><a href="#tabsconsultaprincipal-3">Conciencia de la Problem&aacute;tica</a></li>
+					<li><a href="#tabsconsultaprincipal-4">Din&aacute;mica Familiar</a></li>
+					<li id="liPropuestaPsico"><a href="#tabsconsultaprincipal-5">Propuesta Psicol&oacute;gica</a></li>
 					<li id="liExamenMental"><a href="#tabsconsultaprincipal-6">Examen Mental</a></li>
-					<li id="liDiagnostico"><a href="#tabsconsultaprincipal-7">Diagnóstico</a></li>
+					<li id="liDiagnostico"><a href="#tabsconsultaprincipal-7">Diagn&oacute;stico</a></li>
 					
 			
 					
@@ -527,7 +527,7 @@ function limpiaCamposIngresoFamiliar()
 				<div id="tabsconsultaprincipal-2">
 				<table width="100%" height="100%">
 				<tr>
-				 <td colspan="6">Motivo de Consulta (Explícito e Implícito)</td>
+				 <td colspan="6">Motivo de Consulta (Expl&iacute;cito e Impl&iacute;cito)</td>
     <td colspan="2"><input name="" type="button" value="Guardar" class="btn_guardar"  id="btnGuardarMotivoConsulta"/></td>
    
     
@@ -545,7 +545,7 @@ function limpiaCamposIngresoFamiliar()
 				
 				<table width="100%" height="100%">
 				<tr>
-				 <td colspan="6">Conciencia de la Problemática (Herramientas con las que cuenta y afronta el problema que demanda)</td>
+				 <td colspan="6">Conciencia de la Problem&aacute;tica (Herramientas con las que cuenta y afronta el problema que demanda)</td>
     <td colspan="2"><input name="" type="button" value="Guardar" class="btn_guardar"  id="btnGuardaConciencia"/></td>
    
     
@@ -626,7 +626,7 @@ function limpiaCamposIngresoFamiliar()
   <tr>
     <td>*Edad Aproximada:</td>
     <td><input type="text" name="textfield4" id="textfield4" onKeyPress="return solonumeros(event);" maxlength="3"/></td>
-    <td>*Ocupación:</td>
+    <td>*Ocupaci&oacute;n:</td>
     <td><select name="select4" id="select4">
     </select></td>
   </tr>

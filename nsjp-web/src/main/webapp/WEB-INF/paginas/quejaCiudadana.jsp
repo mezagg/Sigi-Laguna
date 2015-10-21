@@ -1,11 +1,11 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.funcionario.Puestos"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Queja Ciudadana</title>
 	
 	<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css"/>
@@ -102,7 +102,7 @@
 	  //Funcion que refleja los datos de nombre, apellido paterno, apellido materno a la ventana padre
 	function bloqueaDatos(){
 		if($("#chkAnonima").is(':checked')){
-			$("#solDeQuejosoNombre").val("Anónimo");
+			$("#solDeQuejosoNombre").val("An&oacute;nimo");
 			$("#solDeQuejosoAPaterno").val(" ");
 			$("#solDeQuejosoAMaterno").val(" ");
 			
@@ -175,7 +175,7 @@
 							}
 						});
 			    	}else{
-			    			customAlert("No se logró guardar la queja ciudadana");
+			    			customAlert("No se logr&oacute; guardar la queja ciudadana");
 				    }
 			  	}
 		    });
@@ -223,7 +223,7 @@
 						<table width="100%">
 							<tr align="center">
 								<td align="center" colspan="2">
-									¿La Queja es An&oacute;nima?
+									&iquest;La Queja es An&oacute;nima?
 								
 								
 		                            <input type="checkbox" id="chkAnonima"/>
@@ -259,7 +259,7 @@
                             </tr>
 							<tr>
 								<td align="center" colspan="2">
-									¿Es el Afectado?
+									&iquest;Es el Afectado?
 								
 		                            <input type="checkbox" id="chkAfectado"/>
 								</td>
@@ -289,7 +289,7 @@
 							</tr>
 							<tr>
 								<td align="right">
-									Número de Expediente:
+									N&uacute;mero de Expediente:
 								</td>
 								<td align="left">
 									<input type="text" class="" size="50" maxlength="50" id="solServPericialNumExpediente"  />

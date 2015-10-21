@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.calidad.Calidades" %>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.forma.Formas" %>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.funcionario.Puestos" %>
@@ -7,8 +7,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Atención a solicitudes periciales</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Atenci&oacute;n a solicitudes periciales</title>
 	
 	<!--Se importan las css necesarias-->
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css" />
@@ -229,7 +229,7 @@
 					validaSeleccion();
 				},
 				"Cancelar":function() {
-					confirmar=confirm("¿Realmente desea salir?");
+					confirmar=confirm("&iquest;Realmente desea salir?");
 					if (confirmar){
 							$(this).dialog("close");
 					}				  		
@@ -277,7 +277,7 @@
 			$("#divAgregarMedidaCautelar").dialog("close");
 			nuevaVentanaMedidasCautelares(rowid);
 		}else{
-			customAlert("Por favor seleccione un renglón");
+			customAlert("Por favor seleccione un rengl&oacute;n");
 		} 
 	}
 
@@ -305,7 +305,7 @@
 			jQuery("#gridDatosDePruebaPJENS").jqGrid({ 
 				url:'<%=request.getContextPath()%>/consultarDatosDePruebaPorFiltro.do?numeroExpediente='+numeroCausa+'',
 				datatype: "xml",
-				colNames:['Nombre del Dato','Número de Identificación', 'Reg. de Cadena de Custodia','Registrado','Aceptado','Desechado'], 
+				colNames:['Nombre del Dato','N&uacute;mero de Identificaci&oacute;n', 'Reg. de Cadena de Custodia','Registrado','Aceptado','Desechado'], 
 				colModel:[ 					
 				           	{name:'nombreDato',index:'nombreDato', width:100, align:'left'}, 
 				           	{name:'numIdentificacion',index:'numIdentificacion', width:80, align:'left'},
@@ -459,7 +459,7 @@
 			},
 			"Cancelar":function() {
 
-				customConfirm("¿Realmente desea salir?", "", cancelarRelacionarMediosDePrueba);
+				customConfirm("&iquest;Realmente desea salir?", "", cancelarRelacionarMediosDePrueba);
 			}
 		}
 		});
@@ -487,11 +487,11 @@
     		success: function(xml){
 	   			if(parseInt($(xml).find('code').text())==0)
 	    		  {
-	   				alertDinamico("La relación ha sido guardada");
+	   				alertDinamico("La relaci&oacute;n ha sido guardada");
 					//Limpiar los ids seleccionados
 	   	    	}
 	  			else{
-	  				alertDinamico("Ocurrió un error durante la relación");
+	  				alertDinamico("Ocurri&oacute; un error durante la relaci&oacute;n");
 	      		}
     		}
 		});
@@ -511,7 +511,7 @@
 			jQuery("#gridRelacionarMediosDePruebaPJENS").jqGrid({ 
 				url:'<%=request.getContextPath()%>/consultarMediosPruebaXDatoPrueba.do?idDatoPrueba='+idDatoPrueba+'&numeroExpediente='+numeroCausa+'',
 				datatype: "xml",
-				colNames:['Nombre del Medio','Número de Identificación'], 
+				colNames:['Nombre del Medio','N&uacute;mero de Identificaci&oacute;n'], 
 				colModel:[ 					
 				           	{name:'nombreDato',index:'nombreDato', width:350, align:'center'}, 
 				           	{name:'numIdentificacion',index:'numIdentificacion', width:350, align:'center'},
@@ -564,7 +564,7 @@
 			   	$(this).dialog("close");
 			},
 			"Cancelar":function() {
-				customConfirm("¿Realmente desea salir?", "", salir);						
+				customConfirm("&iquest;Realmente desea salir?", "", salir);						
 			}
 		}
 		});
@@ -577,7 +577,7 @@
 
 	
 
-	//bandera para controlar el cargado de la asociación de imputados
+	//bandera para controlar el cargado de la asociaci&oacute;n de imputados
 	banderaAsociarImputado=true;
 	
 	/**
@@ -635,11 +635,11 @@
     		success: function(xml){
 	   			if(parseInt($(xml).find('code').text())==0)
 	    		  {
-	   				alertDinamico("La asociación ha sido guardada");
+	   				alertDinamico("La asociaci&oacute;n ha sido guardada");
 					//Limpiar los ids seleccionados
 	   	    	}
 	  			else{
-	  				alertDinamico("Ocurrió un error durante la asociación");
+	  				alertDinamico("Ocurri&oacute; un error durante la asociaci&oacute;n");
 	      		}
 	      		cargaGridPrueba();
 	      		
@@ -667,7 +667,7 @@
 			},
 			"Cancelar":function() {
 				
-				customConfirm("¿Realmente desea salir del registro del dato de prueba?", "", cancelarAgregarDatoDePrueba);					  		
+				customConfirm("&iquest;Realmente desea salir del registro del dato de prueba?", "", cancelarAgregarDatoDePrueba);					  		
 			}
 		}
 		});	 
@@ -700,12 +700,12 @@
 			}
 			else{
 				if($('#txtNumeroIdeDatoPruebaPJENS').val() == ""){
-					alertDinamico("Ingrese un número de identificación");
+					alertDinamico("Ingrese un n&uacute;mero de identificaci&oacute;n");
 				}
 				else{
 					
 					if($('#txtAreaDescripcionDatoPruebaPJENS').val() == ""){
-						alertDinamico("Ingrese una descripción");
+						alertDinamico("Ingrese una descripci&oacute;n");
 					}
 					else{
 						validacion=true;
@@ -733,12 +733,12 @@
 				}
 				else{
 					if($('#txtNumeroIdeDatoPruebaPJENS').val() == ""){
-						alertDinamico("Ingrese un número de identificación");
+						alertDinamico("Ingrese un n&uacute;mero de identificaci&oacute;n");
 					}
 					else{
 						
 						if($('#txtAreaDescripcionDatoPruebaPJENS').val() == ""){
-							alertDinamico("Ingrese una descripción");
+							alertDinamico("Ingrese una descripci&oacute;n");
 						}
 						else{
 							validacion=true;
@@ -907,7 +907,7 @@
 			},
 			"Cancelar":function() {
 		
-				customConfirm("¿Realmente desea salir del registro del medio de prueba?", "", cancelarAgregarMedioDePrueba);			
+				customConfirm("&iquest;Realmente desea salir del registro del medio de prueba?", "", cancelarAgregarMedioDePrueba);			
 			}
 		}
 		});	 
@@ -943,7 +943,7 @@
 				}
 				else{
 					if($('#txtNumeroIdeDocumentoMedioPruebaPJENS').val() == ""){
-						alertDinamico("Ingrese un número de identificación");
+						alertDinamico("Ingrese un n&uacute;mero de identificaci&oacute;n");
 					}
 					else{
 						if($('#archivoPorSubir').val() == ""){
@@ -951,7 +951,7 @@
 						}
 						else{
 							if($('#txtAreaDescripcionDocMedioPruebaPJENS').val() == ""){
-								alertDinamico("Ingrese una descripción");
+								alertDinamico("Ingrese una descripci&oacute;n");
 							}
 							else{
 								
@@ -1027,7 +1027,7 @@
 			break;
 			
 			case 4:
-				stringCalidad="Policía ministerial";
+				stringCalidad="Polic&iacute;a ministerial";
 			break;
 
 			default: alertDinamico("Error, calidad no encontrada");				
@@ -1167,7 +1167,7 @@
 
 				url:'<%=request.getContextPath()%>/consultarMediosPruebaAsociadosAlExpediente.do?idDatoPrueba=null&numeroExpediente='+numeroCausa+'',
 				datatype: "xml",
-				colNames:['Nombre del Medio','Número de Identificación'], 
+				colNames:['Nombre del Medio','N&uacute;mero de Identificaci&oacute;n'], 
 				colModel:[ 					
 				           	{name:'nombreMedio',index:'nombreMedio', width:350, align:'center'}, 
 				           	{name:'numIdentificacion',index:'numIdentificacion', width:350, align:'center'},
@@ -1224,7 +1224,7 @@
 			jQuery("#gridPruebaPJENS").jqGrid({ 
 				url:'<%=request.getContextPath()%>/consultarPruebasPorNumeroExpediente.do?numeroExpediente='+numeroCausa+'',
 				datatype: "xml", 
-				colNames:['Prueba Aceptada','Número de Identificación','Reg. de Cadena de Custodia', 'No. de Imputados Asociados', 'Imputados'], 
+				colNames:['Prueba Aceptada','N&uacute;mero de Identificaci&oacute;n','Reg. de Cadena de Custodia', 'No. de Imputados Asociados', 'Imputados'], 
 				colModel:[ 					
 				           	{name:'nombrePrueba',index:'nombrePrueba', width:200, align:'center'}, 
 				           	{name:'numIdentificacion',index:'numIdentificacion', width:180, align:'center'},
@@ -1719,7 +1719,7 @@
 	        <td>&nbsp;</td>
 	        <td align="right">
 	        	<div id="etiDescripcionPJENS">
-	        		<strong>Descripción:</strong>
+	        		<strong>Descripci&oacute;n:</strong>
 	        	</div>
 	        </td>
 	        <td>
@@ -1836,7 +1836,7 @@
 	                  <option value="2">Archivo de audio</option>
 	                  <option value="1">Archivo de texto</option>	                  
 	                  <option value="3">Archivo de video</option>
-	                  <option value="4">Imágenes/Fotografías</option>
+	                  <option value="4">Im&aacute;genes/Fotograf&iacute;as</option>
 	                </select>
 	            </div>
 	        </td>
@@ -1907,7 +1907,7 @@
 	        <td>&nbsp;</td>
 	        <td align="right">
 	        	<div id="etiRefUbicacionDocumentoMedioPruebaPJENS">
-			    	<strong>Ref. ubicación física:</strong>
+			    	<strong>Ref. ubicaci&oacute;n f&iacute;sica:</strong>
 			    </div>
 	        </td>
 	        <td>
@@ -1921,7 +1921,7 @@
 	        <td>&nbsp;</td>
 	        <td align="right">
 	        	<div id="etiDescripcionDocMedioPruebaPJENS">
-			    	<strong>*Descripción:</strong>
+			    	<strong>*Descripci&oacute;n:</strong>
 			    </div>
 	        </td>
 	        <td>

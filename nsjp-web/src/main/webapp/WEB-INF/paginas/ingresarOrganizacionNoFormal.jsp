@@ -59,7 +59,7 @@
 <!-- Tabla INGRESAR ORGANIZACION NO FORMAL-->
    <table id="iIngresarOrgNoFormalWorkSheet" width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
-        <td width="30%" height="30">Área de influencia: </td>
+        <td width="30%" height="30">&Aacute;rea de influencia: </td>
         <td >
         	<input id="txtIngOrgNoFormalArea" title="Escribir area de influencia" type="text" size="90" maxlength="150"/>
         </td>

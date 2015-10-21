@@ -126,14 +126,14 @@
 		var COORDINADOR_AT=61;
 		var SISTEMA_TRADICIONAL = 9;
 		
-		// Esta función es invocada también desde el menú intermedio, para recargar el grid
+		// Esta funci&oacute;n es invocada tambi&eacute;n desde el men&uacute; intermedio, para recargar el grid
 		function regresaGrid(){
 			jQuery("#gridDetalleFrmPrincipal").jqGrid('setGridParam', {url: contextoPagina + '/BusquedaCanalizadosRestaurativa.do?area=PM&actividad=ATENDER_CANALIZACION',datatype: "xml" });
 			$("#gridDetalleFrmPrincipal").trigger("reloadGrid");
 			muestraOcultaGrids("gridDetalleFrmPrincipal");
 		}
 		
-		// Esta función es invocada también desde el menú intermedio, para recargar el grid
+		// Esta funci&oacute;n es invocada tambi&eacute;n desde el men&uacute; intermedio, para recargar el grid
 		function recargaGridExpedientesEstatus(estatus){
 			muestraDetalle=estatus;
 			jQuery("#gridDetalleFrmPrincipal").jqGrid('setGridParam', {url: contextoPagina + '/BusquedaCanalizadosRestaurativa.do?area=PM&actividad=ATENDER_CANALIZACION&estatus='+estatus,datatype: "xml" });
@@ -148,7 +148,7 @@
 			jQuery(document).ajaxStop(jQuery.unblockUI);
 			estilosMenu('procuracionJusticia');
 			
-			//cargamos la imagen dependiendo del usuario que llama la página
+			//cargamos la imagen dependiendo del usuario que llama la p&aacute;gina
 			var idTipoUsuario='<%= request.getParameter("idUSer")%>';
 			if(parseInt(idTipoUsuario)==1)
 			{
@@ -266,7 +266,7 @@
 			//Grid de Solicitudes por atender
 			jQuery("#gridSolsXAtndr").jqGrid({ 
 				datatype: "xml", 
-				colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creación','Fecha Limite','Institución','Remitente','IdExpediente'], 
+				colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creaci&oacute;n','Fecha Limite','Instituci&oacute;n','Remitente','IdExpediente'], 
 				colModel:[ 	{name:'caso',index:'caso', width:150},
 				           	{name:'expediente',index:'expediente', width:130}, 
 							{name:'folio',index:'folio', width:100}, 
@@ -427,7 +427,7 @@
 		}
 		
 		function administrarResolutivosImputado(){
-			if(tipoResolutivo == "Prisión Preventiva"){
+			if(tipoResolutivo == "Prisi&oacute;n Preventiva"){
 				$.newWindow({id:"iframewindowAdministrarResolutivosImputado", statusBar: true, posx:200,posy:50,width:840,height:450,title:"Administrar Resolutivos Imputado", type:"iframe"});
 			    $.updateWindowContent("iframewindowAdministrarResolutivosImputado",'<iframe src="<%=request.getContextPath()%>/visorAdministrarResolutivosImputado.do" width="840" height="450" />'); 					  	  			  	  		
 	  	  	}else{
@@ -437,7 +437,7 @@
 		}
 
 		function muestraDetencion(folioIPH){
-			$.newWindow({id:"iframewindowDetencion", statusBar: true, posx:258,posy:139,width:927,height:530,title:"Detención", type:"iframe"});
+			$.newWindow({id:"iframewindowDetencion", statusBar: true, posx:258,posy:139,width:927,height:530,title:"Detenci&oacute;n", type:"iframe"});
 		    $.updateWindowContent("iframewindowDetencion",'<iframe src="<%=request.getContextPath()%>/administrarDetencionDePersona.jsp?folioIPH='+folioIPH+'" width="927" height="530" />'); 
 		}
 
@@ -511,7 +511,7 @@
 			jQuery("#gridElaborarOficioResolutivoJuez").jqGrid({
 				url:'<%=request.getContextPath()%>/consultarSolicitudesMandatoJudicial.do',
 				datatype: "xml",
-				colNames:['Número de IPH','Nombre del Inculpado','Delito','Tipo de Resolutivo','Resolución Emitida Por','Fecha de Resolución' ],
+				colNames:['N&uacute;mero de IPH','Nombre del Inculpado','Delito','Tipo de Resolutivo','Resoluci&oacute;n Emitida Por','Fecha de Resoluci&oacute;n' ],
 				colModel:[ 	{name:'iph',index:'1', width:40, align:"center"},
 							{name:'nombreInculpado',index:'2', width:45, align:"center"},
 							{name:'delito',index:'3', width:30, align:"center"},
@@ -792,7 +792,7 @@
 			}
 		}
 
-		//Muestra el visor con la información del IPH
+		//Muestra el visor con la informaci&oacute;n del IPH
 		function mostrarIPH(rowid){
 			var ret = jQuery("#gridInformePolicialSPUCA").jqGrid('getRowData',rowid);
 			var folioIPH = ret.folioControl;
@@ -902,7 +902,7 @@
 				url : '<%= request.getContextPath()%>/.do', 
 				datatype: "xml", 
 				
-				colNames:['Folio Aviso Auxilio','Folio de Control IPH', 'Presunto Responsable','Víctima'], 
+				colNames:['Folio Aviso Auxilio','Folio de Control IPH', 'Presunto Responsable','V&iacute;ctima'], 
 				colModel:[ 	
 				        	{name:'Auxilio',index:'1', sortable:false,width:191},
 				           	{name:'Control',index:'2', sortable:false,width:191},
@@ -1054,7 +1054,7 @@
 		
 		
 		customVentana(	"iframewindowCarpInvNuevaDenuncia" + idWindowNuevaDenuncia, 
-						"Carpeta de investigación: ", 
+						"Carpeta de investigaci&oacute;n: ", 
 						"/BusquedaExpediente.do", 
 						"?abreenPenal=abrPenal&ingresoDenuncia=" + ingresoDenuncia + 
 						"&idNumeroExpediente=" + id + 
@@ -1128,7 +1128,7 @@
     
     
 	/*
-	*Funcion que carga el grid con los expediente de registro de detencion según su estatus
+	*Funcion que carga el grid con los expediente de registro de detencion seg&uacute;n su estatus
 	*/
 	function cargaGridRegistroDeDetencion(estatus){
 
@@ -1138,7 +1138,7 @@
 			  jQuery("#gridRegistroDeDetencion").jqGrid({ 
 					url:'<%= request.getContextPath() %>/consultarRegistroDeDetencionPorEstatus.do?estatus='+estatus+'',					
 					datatype: "xml",
-					colNames:['Número de Expediente','Folio Aviso Auxilio','Fecha del Aviso Auxilio','Probable Delito'], 
+					colNames:['N&uacute;mero de Expediente','Folio Aviso Auxilio','Fecha del Aviso Auxilio','Probable Delito'], 
 					colModel:[ 	{name:'NumeroExpediente',index:'1',width:250, align:'center'},
 								{name:'FolioAviso',index:'2',width:200, align:'center'}, 
 								{name:'FechaAviso',index:'3', width:200, align:'center'}, 
@@ -1173,7 +1173,7 @@
     var primeraVezGridDetencion = true;
     
 	/*
-	*Funcion que carga el grid con los expediente de registro de detencion según su estatus
+	*Funcion que carga el grid con los expediente de registro de detencion seg&uacute;n su estatus
 	*/
 	function cargaGridDetencion(estatus){
 
@@ -1182,7 +1182,7 @@
 			  jQuery("#gridDetencion").jqGrid({ 
 					url:'<%= request.getContextPath() %>/consultarDetencionPorEstatus.do?estatus='+estatus+'',					
 					datatype: "xml",
-					colNames:['Número de Expediente','FechaApertura','Estatus'], 
+					colNames:['N&uacute;mero de Expediente','FechaApertura','Estatus'], 
 					colModel:[ 	{name:'NumeroExpediente',index:'1',width:250, align:'center'},
 					           	{name:'FechaApertura',index:'2',width:150, align:'center'},
 					           	{name:'Estatus',index:'3',width:150, align:'center'}
@@ -1229,7 +1229,7 @@
 	function consultaRegistroDeDetencionPorExpedienteId(rowid){
 		var ret = jQuery("#gridRegistroDeDetencion").jqGrid('getRowData',rowid);
    		idWindowMostrarRegistroDetencion++;
-   		$.newWindow({id:"iframewindowMostrarRegistroDetencion" + idWindowMostrarRegistroDetencion, statusBar: true, posx:150,posy:10,width:1000,height:580,title:"Registro de detención. Expediente:"+ret.NumeroExpediente+". No. Folio:"+ret.FolioAviso, type:"iframe"});
+   		$.newWindow({id:"iframewindowMostrarRegistroDetencion" + idWindowMostrarRegistroDetencion, statusBar: true, posx:150,posy:10,width:1000,height:580,title:"Registro de detenci&oacute;n. Expediente:"+ret.NumeroExpediente+". No. Folio:"+ret.FolioAviso, type:"iframe"});
    		$.updateWindowContent("iframewindowMostrarRegistroDetencion" + idWindowMostrarRegistroDetencion,'<iframe src="<%= request.getContextPath() %>/mostrarRegistroDetencion.do?expedienteId='+rowid+'&numeroExpediente='+ret.NumeroExpediente+'" width="1000" height="580" />');		
 	}
 
@@ -1445,7 +1445,7 @@
 
 		if(parseInt(errorCode)==0){
 			idWindowMostrarRegistroDetencion++;
-	   		$.newWindow({id:"iframewindowMostrarRegistroDetencion" + idWindowMostrarRegistroDetencion, statusBar: true, posx:150,posy:10,width:1000,height:580,title:"Registro de detención. Expediente:"+numeroExpedienteSSP, type:"iframe"});
+	   		$.newWindow({id:"iframewindowMostrarRegistroDetencion" + idWindowMostrarRegistroDetencion, statusBar: true, posx:150,posy:10,width:1000,height:580,title:"Registro de detenci&oacute;n. Expediente:"+numeroExpedienteSSP, type:"iframe"});
 	   		$.updateWindowContent("iframewindowMostrarRegistroDetencion" + idWindowMostrarRegistroDetencion,'<iframe src="<%= request.getContextPath() %>/mostrarRegistroDetencion.do?expedienteId='+expedienteIdSSP+'&numeroExpediente='+numeroExpedienteSSP+'&hechoId='+hechoId+'&registroSinHecho=true" width="1000" height="580" />');
 		}
 	}
@@ -1736,7 +1736,7 @@
 <!-- 					</div> -->
 
 					<h3  id="ConsyMediacionSSPPolicia">
-						<a id="conciliacionMedicion" href="#"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png" id="botpenal" width="15" height="15">&nbsp;Conciliación y Mediación</a>
+						<a id="conciliacionMedicion" href="#"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png" id="botpenal" width="15" height="15">&nbsp;Conciliaci&oacute;n y Mediaci&oacute;n</a>
 					</h3>
 					<div>
 					<table width="100%" border="0" bordercolor="#FFFFFF" cellspacing="0" cellpadding="0" style="cursor:pointer">
@@ -1766,7 +1766,7 @@
 						</table>	
 					</div>
 					
-<!-- 			<h3 ><a id="imageViewer" href="#" onclick=""><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png"  width="15" height="15">Gráficas y Reportes</a></h3>
+<!-- 			<h3 ><a id="imageViewer" href="#" onclick=""><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png"  width="15" height="15">Gr&aacute;ficas y Reportes</a></h3>
 				<div>		
 					<input type="button" value="Ver Grafica" id="imageViewer" name="imageViewer"/>	
 					<ul id="seccion3treePJENC" class="filetree">
@@ -1908,7 +1908,7 @@
 	<div id="menu_head">
 		<ul class="toolbar">
 			<li id="tbarBtnHeaderZise" class="first"><span></span></li>
-			<!-- Se comentan menus por modificacion de incidencia 49-5	Policía Ministerial	Generar Denuncia -->
+			<!-- Se comentan menus por modificacion de incidencia 49-5	Polic&iacute;a Ministerial	Generar Denuncia -->
 			<!--li id="tbarBtnQuejaCiudadana" class="first"><span></span>Recibir queja&nbsp;<img src="<%= request.getContextPath() %>/resources/images/icn_errorinfo.png" width="15" height="16"></li>			
 			<li id="lugarHechos" class="first" onclick="abreVentanaLugarDeHechos();"><span></span>Llamadas de auxilio <img src="<%= request.getContextPath() %>/resources/images/icn_folderchek.png" width="15" height="16"></li>
 			<li id="detencionBtn" class="first" onclick="generarExpedienteYDetencion();"><span></span>Detenci&oacute;n<img src="<%= request.getContextPath() %>/resources/images/icn_folderchek.png" width="15" height="16"></li-->
@@ -2034,7 +2034,7 @@
 
 	<div id="dialog-logout" title="Cerrar Sesi&oacute;n">
 		<p align="center">
-			<span id="logout">¿Desea cerrar su sesi&oacute;n?</span>
+			<span id="logout">&iquest;Desea cerrar su sesi&oacute;n?</span>
 		</p>
 	</div>
 
@@ -2049,11 +2049,11 @@
 		<p align="center">
 			<table border="0">
 				<tr>
-					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contraseña para desbloquear.</td>
+					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contrase&ntilde;a para desbloquear.</td>
 					
 				</tr>
 				<tr>
-					<td align="right"><label style="color:#4A5C68">Contraseña:</label></td>
+					<td align="right"><label style="color:#4A5C68">Contrase&ntilde;a:</label></td>
 					<td><input type="password" name="password" id="password" value="" maxlength="15" size="20"></td>
 				</tr>
 				<tr id="captchaJPG" >
@@ -2082,7 +2082,7 @@
 				La sesi&oacute;n se cerrara en <span id="dialog-countdown" style="font-weight:bold"></span> segundos.
 			</p>
 
-			<p>¿Desea continuar con la sesi&oacute;n?</p>
+			<p>&iquest;Desea continuar con la sesi&oacute;n?</p>
 	</div>
 	<div id="dialog-alarmPos" title="Alarma ">
 		<p align="center">

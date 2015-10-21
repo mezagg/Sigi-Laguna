@@ -89,7 +89,7 @@
 
 	 /**
 	  * Muestra u oculta los combo box's o cajas de texto dependiendo
-	  * de el país seleccionado tiene o no, entidades federativas.
+	  * de el pa&iacute;s seleccionado tiene o no, entidades federativas.
 	  * Esto para el domicilio.
 	  */	
 	  function hideControls(existenEntidades) {
@@ -132,7 +132,7 @@
 
 	 /**
 	  * Muestra u oculta los combo box's o cajas de texto dependiendo
-	  * de el país seleccionado tiene o no, entidades federativas.
+	  * de el pa&iacute;s seleccionado tiene o no, entidades federativas.
 	  * Esto para el domicilio.
 	  */		
 	  function hideControlsNotif(existenEntidades) {
@@ -438,7 +438,7 @@
 	
 	/**
 	* Si existe un cambio en el combo de paises se realiza la consulta de 
-	* entidades federativas, y si la consulta es NO vacía se leventa la 
+	* entidades federativas, y si la consulta es NO vac&iacute;a se leventa la 
 	* bandera para mostrar los combo box. Esto para el domicilio
 	*/ 	
 	function onSelectChangePais() {
@@ -453,7 +453,7 @@
 			async: false,									// la accion cargar estados y llena el combo con la consulta
 			type: 'POST',
 			url: '<%= request.getContextPath()%>/cargarEntFederativas.do',
-			data: 'glCatPaisId=' + selected.val(),	//Parametro para hacer la consulta de Entidades por Id del País
+			data: 'glCatPaisId=' + selected.val(),	//Parametro para hacer la consulta de Entidades por Id del Pa&iacute;s
 			dataType: 'xml',
 			success: function(xml){
 				$(xml).find('catEntidadesFed').each(function(){
@@ -470,7 +470,7 @@
 
 	/**
 	* Si existe un cambio en el combo de paises se realiza la consulta de 
-	* entidades federativas, y si la consulta es NO vacía se leventa la 
+	* entidades federativas, y si la consulta es NO vac&iacute;a se leventa la 
 	* bandera para mostrar los combo box. Esto para el domicilio de Notificaciones
 	*/ 	
 	function onSelectChangePaisNotif() {
@@ -485,7 +485,7 @@
 			async: false,									// la accion cargar estados y llena el combo con la consulta
 			type: 'POST',
 			url: '<%= request.getContextPath()%>/cargarEntFederativas.do',
-			data: 'glCatPaisId=' + selected.val(),	//Parametro para hacer la consulta de Entidades por Id del País
+			data: 'glCatPaisId=' + selected.val(),	//Parametro para hacer la consulta de Entidades por Id del Pa&iacute;s
 			dataType: 'xml',
 			success: function(xml){
 				$(xml).find('catEntidadesFed').each(function(){
@@ -808,7 +808,7 @@
 
 	  /*
 	   *Funcion que realiza la consulta de los datos
-	   *por código postal
+	   *por c&oacute;digo postal
 	   */
 	  function cosultaPorCodigoPostal(){	  
 		var codigoPostal = $("#codigoPostal");
@@ -852,7 +852,7 @@
 
 	  /*
 	   *Funcion que realiza la consulta de los datos
-	   *por código postal, para el domicilio de notificaciones
+	   *por c&oacute;digo postal, para el domicilio de notificaciones
 	   *(SIN FUNCIONALIDAD POR EL MOMENTO)
 	   */
 	  function cosultaPorCodigoPostalNotif(){
@@ -2153,7 +2153,7 @@ $("#cbxPais").change(function(e){
 			onSelectChangeCiudadMunicipioTipoAsentamientoNotif();
 		});
 						
-		$("#codigoPostalButton").bind("click",cosultaPorCodigoPostal);					//Escuchador para consultar pos código postal
+		$("#codigoPostalButton").bind("click",cosultaPorCodigoPostal);					//Escuchador para consultar pos c&oacute;digo postal
 		$("#limpiarButton").bind("click",limpiarFormulario);							//Funcion para limpiar el formulario
 		/**
 	 	* Escuchador de evento para el domicilio de notificaciones

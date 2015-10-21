@@ -1,12 +1,12 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.convenios.Convenios"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>Solicitar Permisos</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/estilos.css" media="screen" />
 	<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/multiselect/jquery.multiselect.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/multiselect/style.css" />
@@ -156,7 +156,7 @@
 		else
 		{
 			var probableResponsableProp = '<bean:message key="msjProbableResponsable"/>';
-			customAlert("Debe seleccionar el nombre del "+ probableResponsableProp +" el nombre de la víctima, para los cuales se generará el convenio");
+			customAlert("Debe seleccionar el nombre del "+ probableResponsableProp +" el nombre de la v&iacute;ctima, para los cuales se generar&aacute; el convenio");
 		}
 	}
 	
@@ -396,7 +396,7 @@
 		   	    <td align="left">
 		   	    	<table width="200" border="0" align="center">
 		  				<tr>
-    						<td align="center">Conciliación</td>
+    						<td align="center">Conciliaci&oacute;n</td>
   						</tr>
   						<tr>
     						<td align="center"><input type="radio" name="tipoConvenio" id="radConvenio" value="<%=Convenios.CONCILIACION.getValorId()%>" disabled="disabled"/></td>
@@ -407,7 +407,7 @@
 				<td align="left">
 					<table width="200" border="0" align="center">
   						<tr>
-    						<td align="center">Mediación</td>
+    						<td align="center">Mediaci&oacute;n</td>
   						</tr>
   						<tr>
     						<td align="center"><input type="radio" name="tipoConvenio" id="radMediacion" value="<%=Convenios.MEDIACION.getValorId()%>" disabled="disabled"/></td>

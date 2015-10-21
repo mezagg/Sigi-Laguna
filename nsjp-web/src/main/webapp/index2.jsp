@@ -512,9 +512,9 @@
 	                 		<td width="168" height="40" colspan="2" align="center">
 								<table align="center" cellpadding="2" cellspacing="2">
 									<tr>
-										<td><a href="#"><img src="<%=request.getContextPath()%>/resources/images/btn_head_buscar.png" width="35" height="35" alt="Botón Buscar General" title="Buscar" /></a></td>
-										<td><a href="#"><img src="<%=request.getContextPath()%>/resources/images/btn_head_cerrarSesion.png" width="35" height="35" alt="Botón cerrar sesión" title="Cerrar Sesión"/></a></td>
-										<td><a href="#"><img src="<%=request.getContextPath()%>/resources/images/btn_head_ayuda.png" width="35" height="35" alt="Botón ayuda" title="Ayuda"/></a></td>
+										<td><a href="#"><img src="<%=request.getContextPath()%>/resources/images/btn_head_buscar.png" width="35" height="35" alt="Bot&oacute;n Buscar General" title="Buscar" /></a></td>
+										<td><a href="#"><img src="<%=request.getContextPath()%>/resources/images/btn_head_cerrarSesion.png" width="35" height="35" alt="Bot&oacute;n cerrar sesi&oacute;n" title="Cerrar Sesi&oacute;n"/></a></td>
+										<td><a href="#"><img src="<%=request.getContextPath()%>/resources/images/btn_head_ayuda.png" width="35" height="35" alt="Bot&oacute;n ayuda" title="Ayuda"/></a></td>
 									</tr>
 								</table>
 							</td>
@@ -697,7 +697,7 @@
 											type="text" name="areaCalle" id="areaCalle" /></td>
 									</tr>
 									<tr>
-										<td>Código Postal</td>
+										<td>C&oacute;digo Postal</td>
 										<td>
 											<input type="text" name="codigoPostal" id="codigoPostal" size="5" maxlength="5" />
 											<input type="button" value="Enviar" id="codigoPostalButton" class="btn_Generico"/>
@@ -734,7 +734,7 @@
 											<input type="text" name="areaReferencias" id="areaReferencias" /></td>
 									</tr>
 									<tr>
-										<td>Delegación/Municipio</td>
+										<td>Delegaci&oacute;n/Municipio</td>
 										<td>
 											<select	name="cbxDelegacionMunicipio" id="cbxDelegacionMunicipio">
 												<option value="-1">-Seleccione-</option>
@@ -793,7 +793,7 @@
 									<tr>
 										<td>&nbsp;</td>
 										<td>&nbsp;</td>
-										<td>Coordenadas Geográficas</td>
+										<td>Coordenadas Geogr&aacute;ficas</td>
 										<td>
 											<label for="areaCoordenadas"></label> 
 											<input type="text" name="areaCoordenadas" id="areaCoordenadas" />
@@ -839,7 +839,7 @@
 										</td>
 									</tr>
 									<tr>
-										<td>Código Postal</td>
+										<td>C&oacute;digo Postal</td>
 										<td> 
 											<input type="text" name="codigoPostalNotif" id="codigoPostalNotif" maxlength="5" size="5"/>
 											<input type="button" value="Enviar" id="codigoPostalButtonNotif" class="btn_Generico"/>
@@ -877,7 +877,7 @@
 										</td>
 									</tr>
 									<tr>
-										<td>Delegación/Municipio</td>
+										<td>Delegaci&oacute;n/Municipio</td>
 										<td>
 											<select	name="cbxDelegacionMunicipioNotif" id="cbxDelegacionMunicipioNotif">
 												<option value="-1">-Seleccione-</option>
@@ -932,7 +932,7 @@
 									<tr>
 										<td>&nbsp;</td>
 										<td>&nbsp;</td>
-										<td>Coordenadas Geográficas</td>
+										<td>Coordenadas Geogr&aacute;ficas</td>
 										<td> 
 											<input type="text" name="areaCoordenadasNotif" id="areaCoordenadasNotif" />
 										</td>

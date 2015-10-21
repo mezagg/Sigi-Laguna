@@ -7,7 +7,7 @@
 <%@ page import="mx.gob.segob.nsjp.web.base.action.GenericAction"%>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Solicitar Audiencia</title>
         <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css" />
         <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/estilos.css" media="screen" />
@@ -156,7 +156,7 @@
 	    var hashNombreCompletoDestinatarioInstExterna = new Object();
 	    
 		 /*
-		*Funcion que consulta los funcionarios que recibirán la solicitud
+		*Funcion que consulta los funcionarios que recibir&aacute;n la solicitud
 		* asignados a ese tribunal
 		*/
 		 function cargaDestinatario(){
@@ -380,7 +380,7 @@
 					<tr>
 						<td style="vertical-align: top" colspan="2">Fundamento de la solicitud:</td>
 						<td style="vertical-align: top" colspan="4">
-							<!--Víctimas:-->
+							<!--V&iacute;ctimas:-->
 							<bean:message key="solicitarAudiencia.LeyedaGridProbResp"/>
 						</td>
 					</tr>

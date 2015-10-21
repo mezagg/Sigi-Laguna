@@ -24,11 +24,11 @@
 		<li id="tabInvDefendidoInvitado"><a href="#tabsInvolucrado-4" onclick="cargarInvitado()">Invitado</a></li>
 		<li id="tabSolicitanteJusticiaR"><a href="#tabsInvolucrado-5" onclick="cargarSolicitanteJusticiaRestaurativa()">Solicitante de justicia restaurativa</a></li>  -->
 		<li id="tabInvolucrdDenunciante"><a href="#tabsInvolucrado-6">Denunciante</a></li>
-		<li id="tab_Involucrado_Victima"><a href="#tabsInvolucrado-7">Víctimas</a></li>
+		<li id="tab_Involucrado_Victima"><a href="#tabsInvolucrado-7">V&iacute;ctimas</a></li>
 		<li id="tab_ProbableResponsable"><a href="#tabsInvolucrado-8"><bean:message key="probableResponsableTitulo" /></a></li>
 		<li id="tab_Involucrado_Testigo"><a href="#tabsInvolucrado-9">Testigos</a></li>
-		<li id="tabInvolucradoTraductor"><a href="#tabsInvolucrado-10">Traductor-Intérprete</a></li>
-		<li id="tabInvolucrdQuienDetuvo"><a href="#tabsInvolucrado-11" onclick="cargarQuienDetuvo()">Quién Detuvo</a></li>
+		<li id="tabInvolucradoTraductor"><a href="#tabsInvolucrado-10">Traductor-Int&eacute;rprete</a></li>
+		<li id="tabInvolucrdQuienDetuvo"><a href="#tabsInvolucrado-11" onclick="cargarQuienDetuvo()">Qui&eacute;n Detuvo</a></li>
 	</ul>
 <%
 	Long idDefendido = 0L;

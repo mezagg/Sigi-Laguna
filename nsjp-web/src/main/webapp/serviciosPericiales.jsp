@@ -552,7 +552,7 @@ body,td,th {
 						<ul>
 							<li class="closed" id="idEspecialidad"><span class="folder">Especialidad</span>
 								<ul>
-									<li><span class="file"><a id="dictamen01">Dictámenes</a></span></li>
+									<li><span class="file"><a id="dictamen01">Dict&aacute;menes</a></span></li>
 									<li><span class="file"><a id="informe01">Informes</a></span></li>
 								</ul>
 							</li>
@@ -562,7 +562,7 @@ body,td,th {
 						<ul>
 							<li class="closed" id="idPerito"><span class="folder">Perito</span>
 								<ul>
-									<li><span class="file"><a id="dictamen02">Dictámenes</a></span></li>
+									<li><span class="file"><a id="dictamen02">Dict&aacute;menes</a></span></li>
 									<li><span class="file"><a id="informe02">Informes</a></span></li>
 								</ul>
 							</li>
@@ -784,7 +784,7 @@ body,td,th {
 
 <div id="dialog-logout" title="Cerrar Sesi&oacute;n">
 	<p align="center">
-		<span id="logout">¿Desea cerrar su sesi&oacute;n?</span>
+		<span id="logout">&iquest;Desea cerrar su sesi&oacute;n?</span>
 	</p>
 </div>
 					<!-- dialogos para Bloqueo de pantalla-->
@@ -792,11 +792,11 @@ body,td,th {
 		<p align="center">
 			<table border="0">
 				<tr>
-					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contraseña para desbloquear.</td>
+					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contrase&ntilde;a para desbloquear.</td>
 					
 				</tr>
 				<tr>
-					<td align="right"><label style="color:#4A5C68">Contraseña:</label></td>
+					<td align="right"><label style="color:#4A5C68">Contrase&ntilde;a:</label></td>
 					<td><input type="password" name="password" id="password" value="" maxlength="15" size="20"></td>
 				</tr>
 				<tr id="captchaJPG" >
@@ -825,7 +825,7 @@ body,td,th {
 				La sesi&oacute;n se cerrar&aacute; en <span id="dialog-countdown" style="font-weight:bold"></span> segundos.
 			</p>
 
-			<p>¿Desea continuar con la sesi&oacute;n?</p>
+			<p>&iquest;Desea continuar con la sesi&oacute;n?</p>
 	</div>
 
 </body>

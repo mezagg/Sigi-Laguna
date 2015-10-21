@@ -222,7 +222,7 @@
 				dataType: "json",
 				async: false,
 				success: function( objJson ){
-					intervalo = objJson.Anios+" Año(s), "+objJson.Meses+" Mes(es), "+objJson.Dias+" Día(s) ";
+					intervalo = objJson.Anios+" A&ntilde;o(s), "+objJson.Meses+" Mes(es), "+objJson.Dias+" D&iacute;a(s) ";
 				},
 		
 				error: function(){
@@ -427,7 +427,7 @@
 													<tr id="rowMultaPagada">
 														<td align="right">Cumplida:</td>
 														<td align="left" style="width:100px" >
-															S&iacute; <html:radio name="IngresarSentenciaForm" property="multaPagada" title="Sí" value="true" /> 
+															S&iacute; <html:radio name="IngresarSentenciaForm" property="multaPagada" title="S&iacute;" value="true" /> 
 															No <html:radio name="IngresarSentenciaForm" property="multaPagada" title="No" value="false" />
 														</td>
 													</tr>
@@ -453,7 +453,7 @@
 													<tr id="rowDanioPagado">
 														<td align="right">Cumplida:</td>
 														<td align="left" style="width:100px" >
-															S&iacute; <html:radio name="IngresarSentenciaForm" property="reparacionPagada" title="Sí" value="true" /> 
+															S&iacute; <html:radio name="IngresarSentenciaForm" property="reparacionPagada" title="S&iacute;" value="true" /> 
 															No <html:radio name="IngresarSentenciaForm" property="reparacionPagada" title="No" value="false" />
 														</td>
 													</tr>
@@ -468,7 +468,7 @@
 									<legend> Datos Adicionales </legend>
 									<table>
 										<tr>
-											<td align="right">¿Present&oacute; lesiones?</td>
+											<td align="right">&iquest;Present&oacute; lesiones?</td>
 											<td align="left">
 												S&iacute; <html:radio name="IngresarSentenciaForm" property="lesionado" 
 													title="S&iacute;" value="true" /> 

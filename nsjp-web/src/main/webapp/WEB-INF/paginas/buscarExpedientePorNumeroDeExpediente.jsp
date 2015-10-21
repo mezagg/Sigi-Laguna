@@ -43,7 +43,7 @@
 														if(id==='-1'){
 															customAlert("El expediente no ha sido asignado a la unidad.","");
 														}else if(id==='-2'){
-															customAlert("Usted no es el dueño del expediente,<br> y no cuenta con permisos para consultarlo.","");
+															customAlert("Usted no es el due&ntilde;o del expediente,<br> y no cuenta con permisos para consultarlo.","");
 														}else{
 															detEvi(id, numExp);
 														}
@@ -59,7 +59,7 @@
 															if(id==='-1'){
 																customAlert("El expediente no ha sido asignado a la unidad.","");
 															}else if(id==='-2'){
-																customAlert("Usted no es el dueño del expediente,<br> y no cuenta con permisos para consultarlo.","");
+																customAlert("Usted no es el due&ntilde;o del expediente,<br> y no cuenta con permisos para consultarlo.","");
 															}else{
 																detExp(id);	
 															}
@@ -86,7 +86,7 @@ $.updateWindowContent("iframewindowDetalleExp",'<iframe src="<%= request.getCont
 
 			if ($('#noExpediente').val()==''){
 				if($('#noExpediente').val()==''){
-					customAlert("Favor de ingresar un Número de Expediente");
+					customAlert("Favor de ingresar un N&uacute;mero de Expediente");
 					validaExpediente=false;
 				}
 					}else {
@@ -117,12 +117,12 @@ $.updateWindowContent("iframewindowDetalleExp",'<iframe src="<%= request.getCont
     <td height="13" colspan="2" align="center">&nbsp;</td>
   </tr>
   <tr>
-    <td height="25" colspan="2" align="center"><span id="etiquetaNumExp">Número Expediente</span>:
+    <td height="25" colspan="2" align="center"><span id="etiquetaNumExp">N&uacute;mero Expediente</span>:
 		<input type="text" name="noExpediente" id="noExpediente" size="50" maxlength="50" />&nbsp;&nbsp;</td>
     </tr>
   
   <tr id="espacios" >
-    <td height="25" colspan="2" align="center">* Sólo se permiten n&uacute;meros, letras y los caracteres especiales: "-","/" y "Y"</td>
+    <td height="25" colspan="2" align="center">* S&oacute;lo se permiten n&uacute;meros, letras y los caracteres especiales: "-","/" y "Y"</td>
     </tr>
 
   <tr >

@@ -9,8 +9,8 @@
 	import="mx.gob.segob.nsjp.comun.enums.expediente.TipoDeBusquedaDeExpediente"%>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.institucion.Areas"%>
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 <%
 	UsuarioDTO usuarioDTO = (UsuarioDTO) request.getSession()
@@ -26,7 +26,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Reasignar responsable de un expediente en Polic&iacute;a
 Ministerial</title>
 <style>
@@ -134,7 +134,7 @@ input.error {
 	var gridHistorico = { 
 		url:"",
 		datatype: "local",
-		colNames:['N&uacute;mero Expediente','¿Es solicitud?','Id Responsable', 'Dueño actual', 'Id Asigna', 'Quien realizo el cambio', 'Id Revocado', 'Dueño anterior', 'Fecha cambio', 'Fecha Fin'], 
+		colNames:['N&uacute;mero Expediente','&iquest;Es solicitud?','Id Responsable', 'Due&ntilde;o actual', 'Id Asigna', 'Quien realizo el cambio', 'Id Revocado', 'Due&ntilde;o anterior', 'Fecha cambio', 'Fecha Fin'], 
 		colModel:[
 					{name:'NumeroExpediente',index:'NumeroExpediente',width:230, align:"center"},
 					{name:'esSolicitud',index:'esSolicitud',width:100, align:"center", sortable:false},
@@ -445,7 +445,7 @@ input.error {
 		
 		
 		/**
-		* Permite consultar un expediente de atención temprana administrativa
+		* Permite consultar un expediente de atenci&oacute;n temprana administrativa
 		**/
 		function consultaExpedienteDeAtencionTemAdm(numeroExpediente, idNumeroExpediente) {
 			$.newWindow({id:"iframewindowRegistraDatosPersona", statusBar: true, posx:200,posy:50,width:1140,height:450,title:"Expediente:  "+numeroExpediente, type:"iframe"});
@@ -470,7 +470,7 @@ input.error {
 		}
 				
 		/*
-		* Permimte consultar los funcionarios con rol de policía ministerial que pertenezcan al distrito del usuario firmado en sesión
+		* Permimte consultar los funcionarios con rol de polic&iacute;a ministerial que pertenezcan al distrito del usuario firmado en sesi&oacute;n
 		* y que se encuentren activos.
 		*/
 		function cargarFuncionariosRolPoliciaMinisterial(){		
@@ -620,7 +620,7 @@ input.error {
 		}
 		
 		function popUpDetalleDeNumeroExpediente(){
-			var titulo = "CAMBIO DE DUEÑOS DE EXPEDIENTE/SOLICITUD";
+			var titulo = "CAMBIO DE DUE&Ntilde;OS DE EXPEDIENTE/SOLICITUD";
 			$("#numeroExpediente").val("");
 			$("#seccionDeHistorico").dialog("open");
 		  	$("#seccionDeHistorico").dialog({ autoOpen: true, 

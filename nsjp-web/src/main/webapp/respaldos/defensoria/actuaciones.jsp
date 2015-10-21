@@ -21,7 +21,7 @@
 				</tr>
 				<tr>
 					<td>
-						<input type="button" value="Teoría del caso/Escritos de prueba" id="teoriaDelCaso" onClick="abreTeoria();" class="btn_grande"/>					
+						<input type="button" value="Teor&iacute;a del caso/Escritos de prueba" id="teoriaDelCaso" onClick="abreTeoria();" class="btn_grande"/>					
 					</td>
 				</tr>
 				<tr>
@@ -60,7 +60,7 @@
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
-		<td><input type="button" value="Teoría del caso/Escritos de prueba" id="teoriaDelCaso" onClick="abreTeoria();" class="btn_grande"/></td>
+		<td><input type="button" value="Teor&iacute;a del caso/Escritos de prueba" id="teoriaDelCaso" onClick="abreTeoria();" class="btn_grande"/></td>
 	</tr>
 	<tr id="btnRelacionExpedienteCaso">
 		<td>&nbsp;</td>

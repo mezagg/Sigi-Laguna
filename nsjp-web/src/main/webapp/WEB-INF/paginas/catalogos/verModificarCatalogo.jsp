@@ -10,12 +10,12 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html" %>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic" %>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean" %>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/estilos.css"/>	
 	<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/layout_complex.css"/>
 	<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css"/>
@@ -121,7 +121,7 @@
 				longitud = $("#valorExtra-0-Clave").val();
 				if(longitud.length > 2){
 					valor = longitud.substring(0,2);
-					alertDinamico("La longitud máxima debe ser de dos caracteres");
+					alertDinamico("La longitud m&aacute;xima debe ser de dos caracteres");
 				}
 			});
 		}else if(idCatalogoNuevo == '<%=Catalogos.AGENCIAS.ordinal()%>'){			
@@ -129,7 +129,7 @@
 				longitud = $("#valorExtra-0-Clave").val();
 				if(longitud.length > 3){
 					valor = longitud.substring(0,3);
-					alertDinamico("La longitud máxima debe ser de tres caracteres");
+					alertDinamico("La longitud m&aacute;xima debe ser de tres caracteres");
 				}
 			});
 		}
@@ -222,7 +222,7 @@
 						if(nombre.length == 0)
 							mensaje = mensaje + "El nombre es obligatorio.\n";
 						if(claveAgencia.length != 3)
-							mensaje = mensaje + "La clave debe ser de tres dígitos.\n";
+							mensaje = mensaje + "La clave debe ser de tres d&iacute;gitos.\n";
 						if(parseInt(idDistrito)==-1)
 							mensaje = mensaje + "Debe de seleccionar un Distrito.";
 						alertDinamico(mensaje);
@@ -298,7 +298,7 @@
 			alertDinamicoCerrar(textoAlert);
 		}
 		
-		//Función para alertDinamicoCerrar
+		//Funci&oacute;n para alertDinamicoCerrar
 		function alertDinamicoCerrar(textoAlert){						
 			$("#divAlertTextoCerrar").html(textoAlert);
 		    $( "#dialog-AlertCerrar" ).dialog({
@@ -546,7 +546,7 @@
 	<logic:notEqual name="cat" property="valor" value="HIDE_CAMPO">
 	<tr>
 		<td width="5%">
-			<span id="descripcionTag">Descripción:</span>
+			<span id="descripcionTag">Descripci&oacute;n:</span>
 			<span id="claveTag">Clave <bean:message key="agencia"/>:</span>
 		</td>
 		<td width="50%">
@@ -565,7 +565,7 @@
 		<td width="100%">
 		<logic:present name="valor" property="valorPadre">	
 			<select name="valorExtra" id="valorExtra-<%=idValor+"-"+nombreC%>">
-				<option value="-1">Seleccione una opción</option>
+				<option value="-1">Seleccione una opci&oacute;n</option>
 	
 		
 <%

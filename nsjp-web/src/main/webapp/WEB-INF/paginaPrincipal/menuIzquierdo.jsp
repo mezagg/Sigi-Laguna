@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html" %>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic" %>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean" %>
@@ -18,7 +18,7 @@
 								"strings" : {
 								            "loading"		: "Cargando...",
 								            "new_node"	: "Nuevo Nodo",
-								            "multiple_selection" : "Selección Multiple"
+								            "multiple_selection" : "Selecci&oacute;n Multiple"
 								},
 					        	"themes" : {
 						            "theme" : "classic",

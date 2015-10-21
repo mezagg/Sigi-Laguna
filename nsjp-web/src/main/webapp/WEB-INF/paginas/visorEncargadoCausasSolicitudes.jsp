@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Ingresar juez manualmente</title>
 
 	<script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery-1.5.1.js"></script>
@@ -256,14 +256,14 @@ function checkboxListenerResponsable(){
 				      <tr>
 				      	<td width="8%" >Fecha:</td>
 				        <td width="27%"><input type="text" id="txtFecha" /></td>
-				        <td>Duración Estimada:</td>
+				        <td>Duraci&oacute;n Estimada:</td>
 				        <td><input type="text" id="txtDuracionAprox" /></td>
 			          </tr>
 				      <tr>
 				      	<td>Hora: </td>
 				        <td><input type="text" id="idHoraDate" size="10" class="timeRange" value="8:00 AM">
 				        </td>
-				        <td colspan="2">¿Medios de Comunicaci&oacute;n presentes?: 
+				        <td colspan="2">&iquest;Medios de Comunicaci&oacute;n presentes?: 
 				        	Si
                           <input type="radio" name="medios" id="rdbMediosSi" />
 No

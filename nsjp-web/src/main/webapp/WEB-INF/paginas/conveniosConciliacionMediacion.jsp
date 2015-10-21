@@ -1,7 +1,7 @@
 <%@page
 	import="mx.gob.segob.nsjp.comun.enums.funcionario.TipoDefensoria"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -42,7 +42,7 @@
 }
 </style>
 
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <script type="text/javascript">
 
@@ -74,7 +74,7 @@ function grid(){
 		
 							data : "",
 							datatype : "xml",
-							colNames : ['Numer Convenio', 'Fecha Inicio','Fecha Termino','Periodicidad','Cantidad Total a Pagar',' Cantidad Total Por Pago','Fecha Último Cumplimiento','Convenio'  ],
+							colNames : ['Numer Convenio', 'Fecha Inicio','Fecha Termino','Periodicidad','Cantidad Total a Pagar',' Cantidad Total Por Pago','Fecha &Uacute;ltimo Cumplimiento','Convenio'  ],
 							colModel : [ {name : 'NConvenio',index : 'NConvenio',	width : 200,resizable : true},
 										{name : 'Inicio',index : 'Inicio',	width : 200,resizable : true},	
 							             {name : 'Termino',index : 'Termino',	width : 200,resizable : true},
@@ -133,7 +133,7 @@ function grid(){
 			
 								data : "",
 								datatype : "xml",
-								colNames : ['Fecha Programada Cumplimiento', 'Descripción de Cumplimiento','Cumplió','Fecha Cumplimiento','Hora Cumplimiento','Observaciones' ],
+								colNames : ['Fecha Programada Cumplimiento', 'Descripci&oacute;n de Cumplimiento','Cumpli&oacute;','Fecha Cumplimiento','Hora Cumplimiento','Observaciones' ],
 								colModel : [ {name : 'NumEvidencia',index : 'NumEvidencia',	width : 200,resizable : true},
 											{name : 'NEvidencia',index : 'NEvidencia',	width : 200,resizable : true},	
 								             {name : 'IEvidencia',index : 'IEvidencia',	width : 200,resizable : true},

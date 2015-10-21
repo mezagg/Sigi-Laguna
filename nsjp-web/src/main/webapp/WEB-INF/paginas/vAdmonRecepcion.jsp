@@ -52,7 +52,7 @@ function cargaTurno(){
 <br />
 <table width="500"  border="1"   align="center"  >
   <tr align="center">
-    <td colspan="2" >Bienvenido a Unidad  de Atención Integral.</td> 
+    <td colspan="2" >Bienvenido a Unidad  de Atenci&oacute;n Integral.</td> 
   </tr>
   <tr align="center">
     <td >Generar Turno.</td><td width="80" align="right" >N&uacute;mero de Turno: <input type="text" id="tiem" style="border: 0;" maxlength="30" > </td>
@@ -60,16 +60,16 @@ function cargaTurno(){
  
   <tr align="center" onclick="turno()">
     <td width="118" > 
-      <input type="radio" name="kevinTipoTurno" value="0" id="checpenal" /> Atención Penal
+      <input type="radio" name="kevinTipoTurno" value="0" id="checpenal" /> Atenci&oacute;n Penal
       </td> 
-      <td width="173"><input type="radio" name="kevinTipoTurno" value="1" id="checadmin"  />Atención Administrativa
+      <td width="173"><input type="radio" name="kevinTipoTurno" value="1" id="checadmin"  />Atenci&oacute;n Administrativa
       </td>
   </tr>
  
    <tr align="center"><td  colspan="2"><table width="200" border="0" align="center">
   <tr>
     <td id="emer"><span style="display:none;" id="textemer"><input name="checemer" type="checkbox"  id="checemer" />Urgente </span></td>
-    <td  ><input name="Generar Turno de atención penal" type="button"  id="botpenal" value="Generar Turno" class="btn_Generico"/></td></tr>
+    <td  ><input name="Generar Turno de atenci&oacute;n penal" type="button"  id="botpenal" value="Generar Turno" class="btn_Generico"/></td></tr>
 </table>
  
 </td> 

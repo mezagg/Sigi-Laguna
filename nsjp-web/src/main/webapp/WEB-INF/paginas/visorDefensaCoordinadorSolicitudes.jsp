@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
 </head>
@@ -312,7 +312,7 @@ if(id!=null){
 	}
 
 	/**
-	 *Limpia todos los campos de esta página
+	 *Limpia todos los campos de esta p&aacute;gina
 	 */
 	function cleanDatosGenerales(){
 
@@ -518,7 +518,7 @@ if(id!=null){
 							<td class="noSub">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="datosCaso">Datos del caso</a></td>
 						</tr>
 						<tr>
-							<td class="noSub">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="">Acuse de atención</a></td>
+							<td class="noSub">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="">Acuse de atenci&oacute;n</a></td>
 						</tr>
 						
 					</table>					
@@ -526,7 +526,7 @@ if(id!=null){
 	<div id="tabsconsultaprincipal-2">
 		<table width="25%" cellpadding="0" cellspacing="0" id="tblInformacionCaso" bgcolor="#DDD">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id=""><b>Número de Caso:</b></a></td><td>&nbsp;&nbsp;&nbsp; 001 </td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id=""><b>N&uacute;mero de Caso:</b></a></td><td>&nbsp;&nbsp;&nbsp; 001 </td>
 						</tr>
 						<tr>
 							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="">Detenido:</a></td><td>&nbsp;&nbsp;&nbsp; Jasper Hayton </td>
@@ -550,7 +550,7 @@ if(id!=null){
 		<li><a href="#tabschild-1">Solicitante</a></li>
 		<li><a href="#tabschild-2">Para Quien Solicita</a></li>
 		<li><a href="#tabschild-3">Motivo</a></li>
-		<!-- <li><a href="#tabsconsultaprincipal-4">Enviar Notificación</a></li> -->
+		<!-- <li><a href="#tabsconsultaprincipal-4">Enviar Notificaci&oacute;n</a></li> -->
 	</ul>
 	<div id="tabschild-1">
 		<jsp:include page="datosSolicitud.jsp"></jsp:include>					
@@ -563,7 +563,7 @@ if(id!=null){
 		<textarea class="jquery_ckeditor" name="Motivo" cols="70" rows="5" id="Motivo"></textarea>
 		<br/>
 		<input type="button" name="button" id="btnGuardar" value="Guardar" class="btn_Generico"/> &nbsp;
-		<input type="button" name="button" id="btnGenera" value="Generar Acuse de Atención" class="btn_Generico"/>
+		<input type="button" name="button" id="btnGenera" value="Generar Acuse de Atenci&oacute;n" class="btn_Generico"/>
 		</center>
 	</div>
 	<div id="tabsconsultaprincipal-4">

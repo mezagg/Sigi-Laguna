@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Reasignar Solicitud Pericial</title>
 
 		
@@ -231,7 +231,7 @@ function cargaGridSolicitudes(){
 			jQuery("#gridPerito").jqGrid({ 
 				url:'<%= request.getContextPath()%>/consultarPeritosADesignar.do?nombre='+nombre+'&apellidoPaterno='+apPat+'&apellidoMaterno='+apMat+'&especialidad='+especialidad+'', 
 				datatype: "xml", 
-				colNames:['Nombre','Especialidad','Institución','Asignaciones' ], 
+				colNames:['Nombre','Especialidad','Instituci&oacute;n','Asignaciones' ], 
 				colModel:[ 	{name:'Nombre',index:'nombre', width:200},
 				           	{name:'Especialidad',index:'especialidad', width:200},
 				           	{name:'Institucion',index:'instituciozn', width:200},
@@ -264,7 +264,7 @@ function cargaGridSolicitudes(){
 /////////////////////////////////////////////////////////TERMINA FUNCIONALIDAD DEL LA CEJA PERITO //////////////////////////////////////////////////
 
 
-//Envia la solicitud basándose en solicitudId y el id del perito seleccionado	
+//Envia la solicitud bas&aacute;ndose en solicitudId y el id del perito seleccionado	
 function reasignarSolicitudPericial(){
 	//Obtenemos el id del perito seleccionado. 
 	var rowPerito = jQuery("#gridPerito").jqGrid('getGridParam','selrow');
@@ -288,12 +288,12 @@ function reasignarSolicitudPericial(){
 		async: false,
 		success: function(xml){
 			if($(xml).find('bandera').text() == "1"){
-				customAlert("Reasignación exitosa","", function(){
+				customAlert("Reasignaci&oacute;n exitosa","", function(){
 					limpiarTodo("todo");
 					cargaGridSolicitudes();
 				});
 			}else{
-				customAlert("Fallo la reasignación");
+				customAlert("Fallo la reasignaci&oacute;n");
 			}
 		}
 	});

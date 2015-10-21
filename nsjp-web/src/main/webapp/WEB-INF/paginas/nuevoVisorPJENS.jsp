@@ -1,12 +1,12 @@
 <%@ page import="mx.gob.segob.nsjp.comun.enums.calidad.Calidades"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"></meta>
-<title>Atención de Audiencias</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+<title>Atenci&oacute;n de Audiencias</title>
 
 	<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css"/>
 	<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath() %>/resources/css/jquery.windows-engine.css"/>				
@@ -100,7 +100,7 @@
 			jQuery("#gridDatosDePruebaPJENS").jqGrid({ 
 				url:'<%=request.getContextPath()%>/consultarDatosDePruebaPorFiltro.do?audienciaId='+audienciaId+'&numeroExpediente='+numeroExpediente+'',
 				datatype: "xml",
-				colNames:['Nombre del Dato','Número de Identificación', 'Reg. de Cadena de Custodia','Registrado','Aceptado','Rechazado'], 
+				colNames:['Nombre del Dato','N&uacute;mero de Identificaci&oacute;n', 'Reg. de Cadena de Custodia','Registrado','Aceptado','Rechazado'], 
 				colModel:[ 					
 				           	{name:'nombreDato',index:'nombreDato', width:100, align:'left'}, 
 				           	{name:'numIdentificacion',index:'numIdentificacion', width:80, align:'left'},
@@ -241,7 +241,7 @@
 			   	$(this).dialog("close");
 			},
 			"Cancelar":function() {
-				confirmar=confirm("¿Realmente desea salir?");
+				confirmar=confirm("&iquest;Realmente desea salir?");
 				if (confirmar){
 						$(this).dialog("close");
 				}				  		
@@ -267,11 +267,11 @@
     		success: function(xml){
 	   			if(parseInt($(xml).find('code').text())==0)
 	    		  {
-	   				alert("La relación ha sido guardada");
+	   				alert("La relaci&oacute;n ha sido guardada");
 					//Limpiar los ids seleccionados
 	   	    	}
 	  			else{
-	  				alert("Ocurrió un error durante la relación");
+	  				alert("Ocurri&oacute; un error durante la relaci&oacute;n");
 	      		}
     		}
 		});
@@ -291,7 +291,7 @@
 			jQuery("#gridRelacionarMediosDePruebaPJENS").jqGrid({ 
 				url:'<%=request.getContextPath()%>/consultarMediosPruebaXDatoPrueba.do?idDatoPrueba='+idDatoPrueba+'&numeroExpediente='+numeroExpediente+'',
 				datatype: "xml",
-				colNames:['Nombre del Medio','Número de Identificación'], 
+				colNames:['Nombre del Medio','N&uacute;mero de Identificaci&oacute;n'], 
 				colModel:[ 					
 				           	{name:'nombreDato',index:'nombreDato', width:350, align:'center'}, 
 				           	{name:'numIdentificacion',index:'numIdentificacion', width:350, align:'center'},
@@ -343,7 +343,7 @@
 			},
 			"Cancelar":function() {
 	
-				customConfirm("¿Realmente desea salir del registro del dato de prueba?", "", cancelarAgregarDatoDePrueba);			  		
+				customConfirm("&iquest;Realmente desea salir del registro del dato de prueba?", "", cancelarAgregarDatoDePrueba);			  		
 
 			}
 		}
@@ -377,12 +377,12 @@
 			}
 			else{
 				if($('#txtNumeroIdeDatoPruebaPJENS').val() == ""){
-					alert("Ingrese un número de identificación");
+					alert("Ingrese un n&uacute;mero de identificaci&oacute;n");
 				}
 				else{
 					
 					if($('#txtAreaDescripcionDatoPruebaPJENS').val() == ""){
-						alert("Ingrese una descripción");
+						alert("Ingrese una descripci&oacute;n");
 					}
 					else{
 						validacion=true;
@@ -410,12 +410,12 @@
 				}
 				else{
 					if($('#txtNumeroIdeDatoPruebaPJENS').val() == ""){
-						alert("Ingrese un número de identificación");
+						alert("Ingrese un n&uacute;mero de identificaci&oacute;n");
 					}
 					else{
 						
 						if($('#txtAreaDescripcionDatoPruebaPJENS').val() == ""){
-							alert("Ingrese una descripción");
+							alert("Ingrese una descripci&oacute;n");
 						}
 						else{
 							validacion=true;
@@ -584,13 +584,13 @@
 			   	//$(this).dialog("close");
 			},
 			"Cancelar":function() {
-				confirmar=confirm("¿Realmente desea salir del registro del medio de prueba?");
+				confirmar=confirm("&iquest;Realmente desea salir del registro del medio de prueba?");
 				if (confirmar){
 					limpiarYSalirMedioPrueba();
 					$(this).dialog("close");
 				}	
 				
-				customConfirm("¿Realmente desea salir del registro del medio de prueba?", "", salirMedioDePrueba());			  		
+				customConfirm("&iquest;Realmente desea salir del registro del medio de prueba?", "", salirMedioDePrueba());			  		
 				
 			}
 		}
@@ -627,7 +627,7 @@
 				}
 				else{
 					if($('#txtNumeroIdeDocumentoMedioPruebaPJENS').val() == ""){
-						alert("Ingrese un número de identificación");
+						alert("Ingrese un n&uacute;mero de identificaci&oacute;n");
 					}
 					else{
 						//if($('#txtAdjuntarDocumentoMedioPruebaPJENS').val() == ""){
@@ -635,7 +635,7 @@
 						//}
 						//else{
 							if($('#txtAreaDescripcionDocMedioPruebaPJENS').val() == ""){
-								alert("Ingrese una descripción");
+								alert("Ingrese una descripci&oacute;n");
 							}
 							else{
 								
@@ -720,7 +720,7 @@
 			break;
 			
 			case 4:
-				stringCalidad="Policía Ministerial";
+				stringCalidad="Polic&iacute;a Ministerial";
 			break;
 
 			default: alert("Error calidad inexistente");				
@@ -858,7 +858,7 @@
 
 				url:'<%=request.getContextPath()%>/consultarMediosPruebaAsociadosAlExpediente.do?idDatoPrueba=null&numeroExpediente='+numeroExpediente+'',
 				datatype: "xml",
-				colNames:['Nombre del Medio','Número de Identificación'], 
+				colNames:['Nombre del Medio','N&uacute;mero de Identificaci&oacute;n'], 
 				colModel:[ 					
 				           	{name:'nombreMedio',index:'nombreMedio', width:350, align:'center'}, 
 				           	{name:'numIdentificacion',index:'numIdentificacion', width:350, align:'center'},
@@ -927,7 +927,7 @@
 				//url:'<%=request.getContextPath()%>/gridConsultaObjetos.do?audienciaId='+idAudienciaSiguiente,
 				//datatype: "xml", 
 				datatype: "local",
-				colNames:['Nombre','Número de Identificación','Reg. de Cadena de Custodia','En proceso','Desahogada'], 
+				colNames:['Nombre','N&uacute;mero de Identificaci&oacute;n','Reg. de Cadena de Custodia','En proceso','Desahogada'], 
 				colModel:[ 					
 				           	{name:'nombrePrueba',index:'nombrePrueba', width:100, align:'center'}, 
 				           	{name:'numIdentificacion',index:'numIdentificacion', width:80, align:'center'},
@@ -1309,7 +1309,7 @@
 	        <td>&nbsp;</td>
 	        <td align="right">
 	        	<div id="etiDescripcionPJENS">
-	        		<strong>Descripción:</strong>
+	        		<strong>Descripci&oacute;n:</strong>
 	        	</div>
 	        </td>
 	        <td>
@@ -1408,7 +1408,7 @@
 	                  <option value="2">Archivo de audio</option>
 	                  <option value="1">Archivo de texto</option>	                  
 	                  <option value="3">Archivo de video</option>
-	                  <option value="4">Imagenes/Fotografías</option>
+	                  <option value="4">Imagenes/Fotograf&iacute;as</option>
 	                </select>
 	            </div>
 	        	
@@ -1416,7 +1416,7 @@
 	                <select id="cbxCalidadPersonaMedioPruebaPJENS" style="width:200px">
 	                  <option value="0">-Seleccione-</option>
 	                  <option value="3">Perito</option>
-	                  <option value="4">Policía ministerial</option>
+	                  <option value="4">Polic&iacute;a ministerial</option>
 	                  <option value="<%=Calidades.PROBABLE_RESPONSABLE_PERSONA.getValorId()%>">Prob. Responsable</option>
 	                  <option value="<%=Calidades.TESTIGO.getValorId()%>">Testigo</option>
 	                </select>
@@ -1485,7 +1485,7 @@
 	        <td>&nbsp;</td>
 	        <td align="right">
 	        	<div id="etiRefUbicacionDocumentoMedioPruebaPJENS">
-			    	<strong>Ref. ubicación física:</strong>
+			    	<strong>Ref. ubicaci&oacute;n f&iacute;sica:</strong>
 			    </div>
 	        </td>
 	        <td>
@@ -1499,7 +1499,7 @@
 	        <td>&nbsp;</td>
 	        <td align="right">
 	        	<div id="etiDescripcionDocMedioPruebaPJENS">
-			    	<strong>Descripción:</strong>
+			    	<strong>Descripci&oacute;n:</strong>
 			    </div>
 	        </td>
 	        <td>

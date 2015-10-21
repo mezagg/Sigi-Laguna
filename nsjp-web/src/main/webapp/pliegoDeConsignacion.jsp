@@ -1,7 +1,7 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.documento.TipoOficioEstructurado"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.funcionario.TipoDefensoria"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -711,7 +711,7 @@ google_ad_height = 150;
 	</div>
 	<div id="dhtmlgoodies_listOfItems">
 		<div>
-			<p>Índice Estructurado</p>
+			<p>&Iacute;ndice Estructurado</p>
 		<ul id="allItems">
 			<li id="node1">Student A</li>
 			<li id="node2">Student B</li>
@@ -734,7 +734,7 @@ google_ad_height = 150;
 	<div id="dhtmlgoodies_mainContainer">
 		<!-- ONE <UL> for each "room" -->
 		<div>
-			<p>Índice Pliego de Consignación</p>
+			<p>&Iacute;ndice Pliego de Consignaci&oacute;n</p>
 			<ul id="box1">
 				
 			</ul>

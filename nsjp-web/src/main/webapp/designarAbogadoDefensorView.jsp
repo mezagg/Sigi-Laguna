@@ -127,7 +127,7 @@
 		});
 
 		function verExpediente(idExpediente, numeroExpediente) {
-			$.newWindow({id:"iframewindowExp" + idExpediente, statusBar: true, posx:200,posy:50,width:1140,height:400,title:NúmeroExpediente, type:"iframe"});
+			$.newWindow({id:"iframewindowExp" + idExpediente, statusBar: true, posx:200,posy:50,width:1140,height:400,title:N&uacute;meroExpediente, type:"iframe"});
 		    $.updateWindowContent("iframewindowExp" + idExpediente,'<iframe src="<%= request.getContextPath() %>/IngresarMenuIntermedio.do" width="1140" height="400" />');			
 		}
 				
@@ -446,19 +446,19 @@
 									<li><span class="file"><a id="exp0002">EXP 00000002</a></span></li>
 								</ul>
 							</li>
-							<li class="closed" id="caso1"><span class="folder">Integración</span>
+							<li class="closed" id="caso1"><span class="folder">Integraci&oacute;n</span>
 								<ul>
 									<li><span class="file"><a id="expI0001">EXP 00000001</a></span></li>
 									<li><span class="file"><a id="expI0002">EXP 00000002</a></span></li>
 								</ul>
 							</li>
-							<li class="closed" id="caso1"><span class="folder">Defensoria Técnica</span>
+							<li class="closed" id="caso1"><span class="folder">Defensoria T&eacute;cnica</span>
 								<ul>
 									<li><span class="file"><a id="expD0001">EXP 00000001</a></span></li>
 									<li><span class="file"><a id="expD0002">EXP 00000002</a></span></li>
 								</ul>
 							</li>
-							<li class="closed" id="caso1"><span class="folder">Seguimiento de Ejecución</span>
+							<li class="closed" id="caso1"><span class="folder">Seguimiento de Ejecuci&oacute;n</span>
 								<ul>
 									<li><span class="file"><a id="expS0001">EXP 00000001</a></span></li>
 									<li><span class="file"><a id="expS0002">EXP 00000002</a></span></li>
@@ -484,19 +484,19 @@
 									<li><span class="file"><a id="">EXP 00000002</a></span></li>
 								</ul>
 							</li>
-							<li class="closed" id="caso1"><span class="folder">Integración</span>
+							<li class="closed" id="caso1"><span class="folder">Integraci&oacute;n</span>
 								<ul>
 									<li><span class="file"><a id="">EXP 00000001</a></span></li>
 									<li><span class="file"><a id="">EXP 00000002</a></span></li>
 								</ul>
 							</li>
-							<li class="closed" id="caso1"><span class="folder">Defensoria Técnica</span>
+							<li class="closed" id="caso1"><span class="folder">Defensoria T&eacute;cnica</span>
 								<ul>
 									<li><span class="file"><a id="">EXP 00000001</a></span></li>
 									<li><span class="file"><a id="">EXP 00000002</a></span></li>
 								</ul>
 							</li>
-							<li class="closed" id="caso1"><span class="folder">Seguimiento de Ejecución</span>
+							<li class="closed" id="caso1"><span class="folder">Seguimiento de Ejecuci&oacute;n</span>
 								<ul>
 									<li><span class="file"><a id="">EXP 00000001</a></span></li>
 									<li><span class="file"><a id="">EXP 00000002</a></span></li>
@@ -526,19 +526,19 @@
 									<li><span class="file"><a id="">EXP 00000002</a></span></li>
 								</ul>
 							</li>
-							<li class="closed" id="caso1"><span class="folder">Integración</span>
+							<li class="closed" id="caso1"><span class="folder">Integraci&oacute;n</span>
 								<ul>
 									<li><span class="file"><a id="">EXP 00000001</a></span></li>
 									<li><span class="file"><a id="">EXP 00000002</a></span></li>
 								</ul>
 							</li>
-							<li class="closed" id="caso1"><span class="folder">Defensoria Técnica</span>
+							<li class="closed" id="caso1"><span class="folder">Defensoria T&eacute;cnica</span>
 								<ul>
 									<li><span class="file"><a id="">EXP 00000001</a></span></li>
 									<li><span class="file"><a id="">EXP 00000002</a></span></li>
 								</ul>
 							</li>
-							<li class="closed" id="caso1"><span class="folder">Seguimiento de Ejecución</span>
+							<li class="closed" id="caso1"><span class="folder">Seguimiento de Ejecuci&oacute;n</span>
 								<ul>
 									<li><span class="file"><a id="">EXP 00000001</a></span></li>
 									<li><span class="file"><a id="">EXP 00000002</a></span></li>
@@ -560,19 +560,19 @@
 									<li><span class="file"><a id="">EXP 00000002</a></span></li>
 								</ul>
 							</li>
-							<li class="closed" id="caso1"><span class="folder">Integración</span>
+							<li class="closed" id="caso1"><span class="folder">Integraci&oacute;n</span>
 								<ul>
 									<li><span class="file"><a id="">EXP 00000001</a></span></li>
 									<li><span class="file"><a id="">EXP 00000002</a></span></li>
 								</ul>
 							</li>
-							<li class="closed" id="caso1"><span class="folder">Defensoria Técnica</span>
+							<li class="closed" id="caso1"><span class="folder">Defensoria T&eacute;cnica</span>
 								<ul>
 									<li><span class="file"><a id="">EXP 00000001</a></span></li>
 									<li><span class="file"><a id="">EXP 00000002</a></span></li>
 								</ul>
 							</li>
-							<li class="closed" id="caso1"><span class="folder">Seguimiento de Ejecución</span>
+							<li class="closed" id="caso1"><span class="folder">Seguimiento de Ejecuci&oacute;n</span>
 								<ul>
 									<li><span class="file"><a id="">EXP 00000001</a></span></li>
 									<li><span class="file"><a id="">EXP 00000002</a></span></li>
@@ -599,19 +599,19 @@
 									<li><span class="file"><a id="">EXP 00000002</a></span></li>
 								</ul>
 							</li>
-							<li class="closed" id="caso1"><span class="folder">Integración</span>
+							<li class="closed" id="caso1"><span class="folder">Integraci&oacute;n</span>
 								<ul>
 									<li><span class="file"><a id="">EXP 00000001</a></span></li>
 									<li><span class="file"><a id="">EXP 00000002</a></span></li>
 								</ul>
 							</li>
-							<li class="closed" id="caso1"><span class="folder">Defensoria Técnica</span>
+							<li class="closed" id="caso1"><span class="folder">Defensoria T&eacute;cnica</span>
 								<ul>
 									<li><span class="file"><a id="">EXP 00000001</a></span></li>
 									<li><span class="file"><a id="">EXP 00000002</a></span></li>
 								</ul>
 							</li>
-							<li class="closed" id="caso1"><span class="folder">Seguimiento de Ejecución</span>
+							<li class="closed" id="caso1"><span class="folder">Seguimiento de Ejecuci&oacute;n</span>
 								<ul>
 									<li><span class="file"><a id="">EXP 00000001</a></span></li>
 									<li><span class="file"><a id="">EXP 00000002</a></span></li>
@@ -633,19 +633,19 @@
 									<li><span class="file"><a id="">EXP 00000002</a></span></li>
 								</ul>
 							</li>
-							<li class="closed" id="caso1"><span class="folder">Integración</span>
+							<li class="closed" id="caso1"><span class="folder">Integraci&oacute;n</span>
 								<ul>
 									<li><span class="file"><a id="">EXP 00000001</a></span></li>
 									<li><span class="file"><a id="">EXP 00000002</a></span></li>
 								</ul>
 							</li>
-							<li class="closed" id="caso1"><span class="folder">Defensoria Técnica</span>
+							<li class="closed" id="caso1"><span class="folder">Defensoria T&eacute;cnica</span>
 								<ul>
 									<li><span class="file"><a id="">EXP 00000001</a></span></li>
 									<li><span class="file"><a id="">EXP 00000002</a></span></li>
 								</ul>
 							</li>
-							<li class="closed" id="caso1"><span class="folder">Seguimiento de Ejecución</span>
+							<li class="closed" id="caso1"><span class="folder">Seguimiento de Ejecuci&oacute;n</span>
 								<ul>
 									<li><span class="file"><a id="">EXP 00000001</a></span></li>
 									<li><span class="file"><a id="">EXP 00000002</a></span></li>
@@ -757,9 +757,9 @@
 	                 		<td width="168" height="40" colspan="2" align="center">
 								<table align="center" cellpadding="2" cellspacing="2">
 									<tr>
-										<td><a href="#"><img src="<%=request.getContextPath()%>/resources/images/btn_head_buscar.png" width="35" height="35" alt="Botón Buscar General" title="Buscar" /></a></td>
-										<td><a href="#"><img src="<%=request.getContextPath()%>/resources/images/btn_head_cerrarSesion.png" width="35" height="35" alt="Botón cerrar sesión" title="Cerrar Sesión"/></a></td>
-										<td><a href="#"><img src="<%=request.getContextPath()%>/resources/images/btn_head_ayuda.png" width="35" height="35" alt="Botón ayuda" title="Ayuda"/></a></td>
+										<td><a href="#"><img src="<%=request.getContextPath()%>/resources/images/btn_head_buscar.png" width="35" height="35" alt="Bot&oacute;n Buscar General" title="Buscar" /></a></td>
+										<td><a href="#"><img src="<%=request.getContextPath()%>/resources/images/btn_head_cerrarSesion.png" width="35" height="35" alt="Bot&oacute;n cerrar sesi&oacute;n" title="Cerrar Sesi&oacute;n"/></a></td>
+										<td><a href="#"><img src="<%=request.getContextPath()%>/resources/images/btn_head_ayuda.png" width="35" height="35" alt="Bot&oacute;n ayuda" title="Ayuda"/></a></td>
 									</tr>
 								</table>
 							</td>
@@ -782,8 +782,8 @@
 			<li id="tbarBtnHeaderZise" class="first"><span></span></li>
 			<li id="tbarBtnSolicitudes" class="first" onmousedown="ocultaMuestraGridsAlertas('1');">Bandeja de Casos</li>
 			<li id="tbarBtnAgendaAudiencias" onmousedown="ocultaMuestraGridsAlertas('2');">Bandeja de Audiencias</li>
-			<li id="tbarBtnImpresoras">Número de Expediente</li>	
-			<li id="tbarBtnImpresoras">Información del Caso</li>			
+			<li id="tbarBtnImpresoras">N&uacute;mero de Expediente</li>	
+			<li id="tbarBtnImpresoras">Informaci&oacute;n del Caso</li>			
 		</div>
 		<div id="menu_config">
 			<li id="buscarCaso">Buscar Caso</li>

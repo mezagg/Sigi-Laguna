@@ -1,8 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Solicitud de Perito Exterior</title>
 	
 	<link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jquery.windows-engine.css" />
@@ -114,7 +114,7 @@
 	}
 
 	function muestraSolEvidencia(){
-		$.newWindow({id:"iframewindowAsignacionEvidencia", statusBar: true, posx:200,posy:50,width:700,height:350,title:"Asignación de Evidencia", type:"iframe"});
+		$.newWindow({id:"iframewindowAsignacionEvidencia", statusBar: true, posx:200,posy:50,width:700,height:350,title:"Asignaci&oacute;n de Evidencia", type:"iframe"});
 	    $.updateWindowContent("iframewindowAsignacionEvidencia",'<iframe src="<%=request.getContextPath()%>/asignacionDeEvidencia.jsp" width="700" height="350" />');
 	}
 
@@ -162,7 +162,7 @@
 					<table width="100%" border="0" height="90%">
 						<tr>
 							<td>
-								Nombre Servidor Público:
+								Nombre Servidor P&uacute;blico:
 							</td>
 							<td>
 								<input type="text" class="" size="50" maxlength="50" id="solDePericialNombre" onkeypress="return soloLetrasNPunto(event,this.id);" onblur="validaSoloLetras(this);"/>
@@ -178,7 +178,7 @@
 						</tr>
 						<tr>
 							<td>
-								Área Administrativa:
+								&Aacute;rea Administrativa:
 							</td>
 							<td>
 								<input type="text" size="50" maxlength="50" id="solDePericialAreaAdmin" />
@@ -186,7 +186,7 @@
 						</tr>
 						<tr>
 							<td>
-								Fecha Elaboración:
+								Fecha Elaboraci&oacute;n:
 							</td>
 							<td>
 								<input type="text" size="50" maxlength="13"	id="solDePericialFecha" disabled="disabled"/>
@@ -203,7 +203,7 @@
 					<table width="100%" border="0" height="90%">
 						<tr>
 							<td>
-								Número de Expediente:
+								N&uacute;mero de Expediente:
 							</td>
 							<td>
 								<input type="text" size="50" maxlength="50" id="solServPericialNumExpediente"/>

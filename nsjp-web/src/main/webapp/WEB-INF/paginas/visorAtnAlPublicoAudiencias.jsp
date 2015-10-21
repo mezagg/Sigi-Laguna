@@ -5,13 +5,13 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.forma.Formas"%>
 <%@ page import="mx.gob.segob.nsjp.dto.configuracion.ConfiguracionDTO"%>
 <%@ page import="mx.gob.segob.nsjp.web.base.action.GenericAction"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Atención de Audiencias</title>	
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Atenci&oacute;n de Audiencias</title>	
 	
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css" />
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/estilos.css" media="screen" />
@@ -59,7 +59,7 @@
         permisos="<%= request.getParameter("permisos")%>";
 		idEvento=<%= request.getAttribute("idEvento")%>;
 		
-		// Variable permisos -> Proviene de la página padre, esta se encarga de controlar las acciones sobre las audiencias
+		// Variable permisos -> Proviene de la p&aacute;gina padre, esta se encarga de controlar las acciones sobre las audiencias
 		if(permisos=="Sin permisos"){
 			$("#operacionesAudiencia").hide();			
 		}
@@ -91,7 +91,7 @@
 		jQuery("#gridDetalleAtencionPruebas").jqGrid({ 
 			url: '<%= request.getContextPath()%>/detalleAudienciasDelDia.do?tipoDeRespuesta=0&idEvento='+idEvento+'',
 			datatype: "xml", 
-			colNames:['Prueba','Recibida','Fecha de Recepción'], 
+			colNames:['Prueba','Recibida','Fecha de Recepci&oacute;n'], 
 			colModel:[ 	{name:'prueba',index:'prueba', width:100,align:"center"}, 
 						{name:'recibida',index:'recibida', width:100, align:"center"},
 						{name:'fechaRecepcion',index:'fechaRecepcion', width:100, align:"center"}
@@ -284,7 +284,7 @@
 						else{
 							var tomaDecision=mensajeEstadoJAVS(eliminacion);
 							if(tomaDecision==""){
-								customAlert("La audiencia esta programada en Sala JAVS, fallo general al conectar con el servidor JAVS</br>Vuelva a intentarlo más tarde"); 	
+								customAlert("La audiencia esta programada en Sala JAVS, fallo general al conectar con el servidor JAVS</br>Vuelva a intentarlo m&aacute;s tarde"); 	
 							}
 							else{
 								customAlert(tomaDecision);
@@ -302,13 +302,13 @@
 		var S_Mensaje="";
 		switch (idEvento){
             case "<%=ConstantesGenerales.FALLO_GENERAL%>":
-                S_Mensaje = "La audiencia esta programada en Sala JAVS, fallo al conectar con el servidor JAVS.</br>Vuelva a intentarlo más tarde";
+                S_Mensaje = "La audiencia esta programada en Sala JAVS, fallo al conectar con el servidor JAVS.</br>Vuelva a intentarlo m&aacute;s tarde";
                 break;
             case "<%=ConstantesGenerales.FALLO_GENERAL_JAVS%>":
-                S_Mensaje = "La audiencia esta programada en Sala JAVS, fallo al conectar con el servidor JAVS.</br>Vuelva a intentarlo más tarde";
+                S_Mensaje = "La audiencia esta programada en Sala JAVS, fallo al conectar con el servidor JAVS.</br>Vuelva a intentarlo m&aacute;s tarde";
                 break;
             case "<%=ConstantesGenerales.ERROR_CREDENCIALES_CONSULTA%>":
-            	S_Mensaje = "La audiencia esta programada en Sala JAVS, fallo al conectar con el servidor JAVS.</br>Error en credenciales, vuelva a intentarlo más tarde";
+            	S_Mensaje = "La audiencia esta programada en Sala JAVS, fallo al conectar con el servidor JAVS.</br>Error en credenciales, vuelva a intentarlo m&aacute;s tarde";
                 break;
             case "<%=ConstantesGenerales.AUDIENCIA_PROCESO%>":
             	S_Mensaje = "La audiencia no fue cancelada, ya que esta programada en Sala JAVS y ya se esta llevando a cabo.</br>Se han actualizado los datos de la audiencia";
@@ -317,16 +317,16 @@
             	S_Mensaje = "La audiencia no fue cancelada, ya que esta programada en Sala JAVS y ya se llevo a cabo.</br>Se han actualizado los datos de la audiencia";
                 break;
             case "<%=ConstantesGenerales.ERROR_ELIMINACION%>":
-                S_Mensaje = "La audiencia no fue cancelada. Ya que esta programada en Sala JAVS y no se logró eliminar en el servidor JAVS";
+                S_Mensaje = "La audiencia no fue cancelada. Ya que esta programada en Sala JAVS y no se logr&oacute; eliminar en el servidor JAVS";
                 break;
             case "<%=ConstantesGenerales.EXITO_ELIMINACION%>":
-                S_Mensaje = "La audiencia esta agendada en Sala JAVS. Se canceló correctamente en el Sistema y en el servidor JAVS";
+                S_Mensaje = "La audiencia esta agendada en Sala JAVS. Se cancel&oacute; correctamente en el Sistema y en el servidor JAVS";
                 break;
             case "<%=ConstantesGenerales.NO_HAY_AUDIENCIAS%>":
-                S_Mensaje = "La audiencia no esta agendada en Sala JAVS. Se canceló correctamente en el Sistema";
+                S_Mensaje = "La audiencia no esta agendada en Sala JAVS. Se cancel&oacute; correctamente en el Sistema";
                 break;        
             case "<%=ConstantesGenerales.ERROR_SERVICIO_ELIMINACION%>":
-                S_Mensaje = "La audiencia esta programada en Sala JAVS, fallo al conectar con el servidor JAVS.</br>Vuelva a intentarlo más tarde";
+                S_Mensaje = "La audiencia esta programada en Sala JAVS, fallo al conectar con el servidor JAVS.</br>Vuelva a intentarlo m&aacute;s tarde";
                 break;              
         }		
         return S_Mensaje;
@@ -343,7 +343,7 @@
 				if(idWindowVisorReprogramarAudiencia == 0){
 					idWindowVisorReprogramarAudiencia++;
 					//Abre la ventana para poder reprogramar una audiencia
-					$.newWindow({id:"iframewindowReprogramarAudiencia"+idWindowVisorReprogramarAudiencia, statusBar: true, posx:0,posy:0,width:$(document).width(),height:$(document).height(),title:"Reprogramación de audiencia", type:"iframe", onWindowClose: function(id){
+					$.newWindow({id:"iframewindowReprogramarAudiencia"+idWindowVisorReprogramarAudiencia, statusBar: true, posx:0,posy:0,width:$(document).width(),height:$(document).height(),title:"Reprogramaci&oacute;n de audiencia", type:"iframe", onWindowClose: function(id){
 							idWindowVisorReprogramarAudiencia--;
 						}
 					});
@@ -432,10 +432,10 @@
 <div id="tabsDetalleAudiencias">
 		<ul>
 			<li><a href="#tabsDetalleAudiencias-1">Datos de Audiencia</a></li>
-			<li id="pestañaPruebas"><a href="#tabsDetalleAudiencias-2" style="display: none;">Pruebas</a></li>
+			<li id="pesta&ntilde;aPruebas"><a href="#tabsDetalleAudiencias-2" style="display: none;">Pruebas</a></li>
 			<li><a href="#tabsDetalleAudiencias-3">Intervinientes</a></li>
 			<li id="acumulacion">
-				<a href="#tabAcumulacion-14">Acumulación</a>
+				<a href="#tabAcumulacion-14">Acumulaci&oacute;n</a>
 			</li>
 	  	</ul>
   	<!--COMIENZA TAB Acumulacion-->
@@ -450,7 +450,7 @@
 	            <td colspan="2" align="center"><strong>Tipo de Audiencia:
 	              <input type="text" id="tipoAudienciaPJATP" style="width:200px; border: 0; background:#DDD;" readonly="readonly"/>
 	            </strong></td>
-				<td colspan="2" align="center"><strong>Número de Audiencia:
+				<td colspan="2" align="center"><strong>N&uacute;mero de Audiencia:
 	              <input type="text" id="numeroAudienciaConsulta" style="width:200px; border: 0; background:#DDD;" readonly="readonly"/>
 	            </strong></td>	            
 	        </tr>
@@ -458,14 +458,14 @@
 	          <td colspan="4" align="center">&nbsp;</td>
 	        </tr>
 	        <tr>
-	            <td width="21%" align="right"><strong>Número de Caso:</strong></td>
+	            <td width="21%" align="right"><strong>N&uacute;mero de Caso:</strong></td>
 	            <td width="37%"><input type="text" id="numCasoPJATP" style="width:200px; border: 0; background:#DDD;" readonly="readonly"/></td>
 	            <td colspan="2" align="right">
 	                <input type="button" id="btnAdjuntarDocumento" value="Adjuntar documento"  class="back_button"/>
 	            </td>
 	        </tr>
 	        <tr>
-	            <td align="right"><strong>Número de Causa:</strong></td>
+	            <td align="right"><strong>N&uacute;mero de Causa:</strong></td>
 	            <td><input type="text" id="numExpPJATP" style="width:200px; border: 0; background:#DDD;" readonly="readonly"/></td>
 	            <td colspan="2" rowspan="5">
 	                <!--					<table id="gridDetalleAtencionAudiencias"></table>-->
@@ -473,7 +473,7 @@
 	            </td>
 	        </tr>
 	        <tr>
-	            <td align="right"><strong>Carácter:</strong></td>
+	            <td align="right"><strong>Car&aacute;cter:</strong></td>
 	            <td><input type="text" id="caracterPJATP" style="width:200px; border: 0; background:#DDD;" readonly="readonly"/></td>
 	        </tr>
 	        <tr>
@@ -495,7 +495,7 @@
 	            <td width="26%">&nbsp;</td>
 	        </tr>
 	        <tr>
-	            <td align="right"><strong>Ubicación:</strong></td>
+	            <td align="right"><strong>Ubicaci&oacute;n:</strong></td>
 	            <td><input type="text" id="ubicacionPJATP" style="width:320px; border: 0; background:#DDD;" readonly="readonly"/></td>
 	            <td align="right"></td>
 	            <td></td>
@@ -542,9 +542,9 @@
 			  <td colspan="5" align="center">&nbsp;</td>
 	  		</tr>
 			<tr>
-				<td width="18%" align="right"><strong>Número de Caso:</strong></td>
+				<td width="18%" align="right"><strong>N&uacute;mero de Caso:</strong></td>
 				<td colspan="2"><input type="text" id="numCasoPruebasPJATP" style="width:200px; border: 0; background:#DDD;" readonly="readonly"/></td>
-				<td width="24%"><strong>Número de Expediente:</strong></td>
+				<td width="24%"><strong>N&uacute;mero de Expediente:</strong></td>
 				<td width="29%"><input type="text" id="numExpPruebasPJATP" style="width:200px; border: 0; background:#DDD;" readonly="readonly"/></td>
 			</tr>
 			<tr>

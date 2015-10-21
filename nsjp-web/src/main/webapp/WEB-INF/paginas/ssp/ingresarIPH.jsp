@@ -1,12 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 	 <%@ page import="mx.gob.segob.nsjp.comun.enums.calidad.Calidades" %>
 	 <%@ page import="mx.gob.segob.nsjp.comun.enums.actividad.Actividades" %>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Ingresar IPH</title>
 
 	<!--Hoja de estilos de Layout-->
@@ -79,7 +79,7 @@
 
 	//variable en donde se almacena el id del funcionario para poder registrar el usuario
     var idFuncionario;
-	//variable global para manipular la pestaña de dar de alta un usuario segun de donde se mande a llamar
+	//variable global para manipular la pesta&ntilde;a de dar de alta un usuario segun de donde se mande a llamar
     var administrador= '<%=request.getParameter("administrador")!=null?request.getParameter("administrador"):""%>';
     
 	var numeroExpediente="";
@@ -306,7 +306,7 @@
 	function generarInformeIPH(){
 		var regreso = guardarDatosGeneralesIPH();
 		var idAgencia = parseInt($("#cbxAgencia option:selected").val());
-		customConfirm('<span style="font-size:20px">'+ 'Esta seguro de enviar el IPH' +'</span>','Confirmar de envío de IPH',
+		customConfirm('<span style="font-size:20px">'+ 'Esta seguro de enviar el IPH' +'</span>','Confirmar de env&iacute;o de IPH',
 				function (){
 			$.ajax({								
 			  	  type: 'POST',
@@ -360,12 +360,12 @@
 					   var claveFuncionario =  $(xml).find('funcionarioDTO').find('claveFuncionario').first().text();
 					   obtenerSuperior(claveFuncionario);
 				   }else{
-						alertDinamico('No existe funcionario con ese número de empleado');
+						alertDinamico('No existe funcionario con ese n&uacute;mero de empleado');
 				   }
 	    		}
 			});
 		}else{
-			alertDinamico("Debe ingresar un número de empleado");
+			alertDinamico("Debe ingresar un n&uacute;mero de empleado");
 		}
 		
 	}
@@ -475,7 +475,7 @@
 	//Abre una nueva ventana de crear una nuev victima
 	function creaNuevaVictima() {
 		idWindowIngresarVictima++;
-		$.newWindow({id:"iframewindowIngresarVictima" + idWindowIngresarVictima, statusBar: true, posx:200,posy:50,width:1050,height:600,title:"Ingresar Víctima", type:"iframe"});
+		$.newWindow({id:"iframewindowIngresarVictima" + idWindowIngresarVictima, statusBar: true, posx:200,posy:50,width:1050,height:600,title:"Ingresar V&iacute;ctima", type:"iframe"});
 	    $.updateWindowContent("iframewindowIngresarVictima" + idWindowIngresarVictima,'<iframe src="<%= request.getContextPath() %>/IngresarVictima.do?numeroExpediente='+numeroExpediente+'" width="1050" height="600" />');		
 	}
 	function cargaVictima(nombre,id){
@@ -503,7 +503,7 @@
 	//Abre una nueva ventana de crear una nuev victima
 	function modificarVictima(id) {
 		idWindowIngresarVictima++;
-		$.newWindow({id:"iframewindowIngresarVictima" + idWindowIngresarVictima, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Consultar Víctima", type:"iframe"});
+		$.newWindow({id:"iframewindowIngresarVictima" + idWindowIngresarVictima, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Consultar V&iacute;ctima", type:"iframe"});
 	    $.updateWindowContent("iframewindowIngresarVictima" + idWindowIngresarVictima,'<iframe src="<%= request.getContextPath() %>/IngresarVictima.do?idVictima='+id +'&numeroExpediente='+numeroExpediente +'" width="1100" height="530" />');		
 	}
 	
@@ -1151,7 +1151,7 @@
 			<div id="tabschild2" class="tabs-bottom">
 				<ul>
 					<li><a href="#tabschild2-1">Denunciante</a></li>
-					<li><a href="#tabschild2-2">Víctima</a></li>
+					<li><a href="#tabschild2-2">V&iacute;ctima</a></li>
 					<li><a href="#tabschild2-3"><bean:message key="probableResponsable" /></a></li>
 					<li><a href="#tabschild2-4">Testigo</a></li>
 				</ul>
@@ -1186,7 +1186,7 @@
 										</td>
 									</tr>
 									<tr>
-										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevaVictima"><input type="button" value="Ingresar Víctima" class="btn_Generico"/></a></td>
+										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevaVictima"><input type="button" value="Ingresar V&iacute;ctima" class="btn_Generico"/></a></td>
 									</tr>
 								</table>
 							</td>
@@ -1256,7 +1256,7 @@
 										</td>
 									</tr>
 									<tr>
-										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoVehiculo"><input type="button" value="Ingresar Vehículo" class="btn_Generico"/></a></td>
+										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoVehiculo"><input type="button" value="Ingresar Veh&iacute;culo" class="btn_Generico"/></a></td>
 									</tr>
 								</table>
 							</td>
@@ -1472,14 +1472,14 @@
 				 <input type="button" class="btn_Generico" id="btnCadCusConsultaCadCus" style="width: 250px;" value="Consultar cadena de custodia"/><br/><br/>    
   				 <input type="button" class="btn_Generico" id="btnCadCusRegEslabones" style="width: 250px;" value="Registrar eslabones"/> <br/><br/>
   				 <input type="button" class="btn_Generico" id="btnCadCusRepEvidencias" style="width: 250px;" style="width: 250px;" value="Reporte de evidencias"/> <br/><br/>
-  				 <input type="button" class="btn_Generico" id="btnCadCusElabOficio" style="width: 250px;" value="Elaborar oficio para fijación y preservación"/><br/><br/>  
+  				 <input type="button" class="btn_Generico" id="btnCadCusElabOficio" style="width: 250px;" value="Elaborar oficio para fijaci&oacute;n y preservaci&oacute;n"/><br/><br/>  
    				 <input type="button" class="btn_Generico" id="btnCadCusAdmDestino" style="width: 250px;" value="Administrar destino legal de evidencia"/>
 		</div>		
 		
 	</div>
 	<div id="dialog-detenido-informe" title="Aviso">
 		<p align="center">
-			<!-- <span id="logout">¿Existe alg&uacute;n detenido en el informe?</span> -->
+			<!-- <span id="logout">&iquest;Existe alg&uacute;n detenido en el informe?</span> -->
 		</p>
 	</div>
 

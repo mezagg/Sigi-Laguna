@@ -1,6 +1,6 @@
 /**
  * Nombre del Programa 	: Defensa Restaurativa                                    
- * Autor               	: Cuauhtémoc Paredes                                              
+ * Autor               	: Cuauhtï¿½moc Paredes                                              
  * Compania            	: Ultrasist                                                
  * Proyecto            	: NSJP              			Fecha:22/07/2011 
  * Marca de cambio     	: N/A                                                     
@@ -16,7 +16,7 @@
  * Proyecto              :N/A                                   Fecha: N/A       
  * Modificacion          :N/A                                                           
  *------------------------------------------------------------------------------      
- */
+ */ 
 package mx.gob.segob.nsjp.web.defensor.action;
 
 import java.io.IOException;

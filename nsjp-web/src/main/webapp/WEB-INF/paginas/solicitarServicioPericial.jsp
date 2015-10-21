@@ -1,7 +1,7 @@
 <!-- 
 CU Solicitar Servicio Pericial
 
-Da de alta una solicitud de pericial ya sea Dictamen o Asesoría
+Da de alta una solicitud de pericial ya sea Dictamen o Asesor&iacute;a
 Cada una se dirige a un funcionario diferente.
  -->
 
@@ -11,7 +11,7 @@ Cada una se dirige a un funcionario diferente.
 <%@ page import="mx.gob.segob.nsjp.comun.enums.institucion.Areas"%>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.solicitud.EstatusSolicitud"%>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.funcionario.Puestos"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.solicitud.TiposSolicitudes" %>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 
@@ -19,7 +19,7 @@ Cada una se dirige a un funcionario diferente.
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Solicitar Servicio Pericial</title>
 	
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/jquery-ui.css" />
@@ -47,7 +47,7 @@ Cada una se dirige a un funcionario diferente.
 
 	//documentoId = 0;
 
-	 // Variable para definir el área de donde proviene la solicitud.
+	 // Variable para definir el &aacute;rea de donde proviene la solicitud.
 	 // Para Procuraduria el valor es 1
 	 // Para Defensoria el valor es 2
 	var area = <%=request.getParameter("area")%>;
@@ -215,7 +215,7 @@ Cada una se dirige a un funcionario diferente.
 			async: false,
 			type: 'POST',
 			url: '<%= request.getContextPath()%>/consultarDiscriminantesXDistritoSinWSInstitucion.do',
-			data: 'distritoId=' + selected.val(),	//Parametro para hacer la consulta de Entidades por Id del País
+			data: 'distritoId=' + selected.val(),	//Parametro para hacer la consulta de Entidades por Id del Pa&iacute;s
 			dataType: 'xml',
 			success: function(xml){
 				$(xml).find('catDiscriminanteDTO').each(function(){
@@ -227,7 +227,7 @@ Cada una se dirige a un funcionario diferente.
 	
 
 	/*
-	*Obtiene los parametros para la consulta del funcionario y valida si están completos. 
+	*Obtiene los parametros para la consulta del funcionario y valida si est&aacute;n completos. 
 	*/
 	function obtenerParametrosConsultaFuncionario(){
 
@@ -275,7 +275,7 @@ Cada una se dirige a un funcionario diferente.
 
 	
 	/**
-	* Carga el funcionario a mostrar en la tab de Avisar a Funcionario según puesto del destinatario
+	* Carga el funcionario a mostrar en la tab de Avisar a Funcionario seg&uacute;n puesto del destinatario
 	*/
 	function consultaFuncionario(){
 
@@ -443,7 +443,7 @@ Cada una se dirige a un funcionario diferente.
 				funcDestinatario == 0 || (observaciones == "" && subArea != '<%=Areas.ATENCION_TEMPRANA_PG_NO_PENAL.parseLong()%>') ){
 			var cadena="";
 			if(fechaLimite==""){
-				cadena+="<br />- Fecha Límite";
+				cadena+="<br />- Fecha L&iacute;mite";
 			}
 			if(tipoServicio==0){
 				cadena+="<br />- Tipo de Servicio";
@@ -480,7 +480,7 @@ Cada una se dirige a un funcionario diferente.
 			parametros += '&rolId=' + rolId;
 			
 			if(idsDoctsSelecc.length < 1){
-				if(confirm("No ha anexado documentos,\n¿Desea continuar enviando la solicitud?")) {
+				if(confirm("No ha anexado documentos,\n&iquest;Desea continuar enviando la solicitud?")) {
 					guardarSolicitud(parametros);
 				}				
 			}
@@ -518,7 +518,7 @@ Cada una se dirige a un funcionario diferente.
 			url:'<%= request.getContextPath()%>/consultarCadenaCustodiaXNumeroExpediente.do?numeroExpedienteId='+numeroExpedienteId+'&folioCadenaCustodia='+folioCadenaCustodia+'', 
 			data:'',
 			datatype: "xml", 
-			colNames:['Cadena de Custodia','Objeto','Descripción','Código de Barras'],
+			colNames:['Cadena de Custodia','Objeto','Descripci&oacute;n','C&oacute;digo de Barras'],
 			colModel:[ {name:'CadenaCustodia',index:'1', width:150},
 						{name:'Objeto',index:'2', width:150},
 						{name:'Descripcion',index:'3', width:150},
@@ -546,7 +546,7 @@ Cada una se dirige a un funcionario diferente.
 			url:'local', 
 			data:'',
 			datatype: "xml", 
-			colNames:['Cadena de Custodia','Objeto','Descripción','Código de Barras'],
+			colNames:['Cadena de Custodia','Objeto','Descripci&oacute;n','C&oacute;digo de Barras'],
 			colModel:[ {name:'CadenaCustodia',index:'1', width:150},
 						{name:'Objeto',index:'2', width:150},
 						{name:'Descripcion',index:'3', width:150},
@@ -629,7 +629,7 @@ Cada una se dirige a un funcionario diferente.
 			}
 		} 
 		else{
-			 customAlert("Por favor seleccione un renglón");
+			 customAlert("Por favor seleccione un rengl&oacute;n");
 		} 		
 	} 
 
@@ -646,7 +646,7 @@ Cada una se dirige a un funcionario diferente.
 			}
 		} 
 		else{
-			 customAlert("Por favor seleccione un renglón");
+			 customAlert("Por favor seleccione un rengl&oacute;n");
 		} 	
 	}
 
@@ -662,7 +662,7 @@ Cada una se dirige a un funcionario diferente.
 			jQuery("#gridDocumentosDigitales").jqGrid({
 				url:'<%=request.getContextPath()%>/consultarDocumentos.do?idExpedienteop='+numeroExpedienteId+'',
 				datatype: "xml", 
-				colNames:['Área del responsable','Fecha de la actividad','Nombre de la actividad','Tipo de documento','Nombre de Documento','Fecha del documento','strEsGuardadoParcial','esGuardadoParcial','Tipo de documento'],
+				colNames:['&Aacute;rea del responsable','Fecha de la actividad','Nombre de la actividad','Tipo de documento','Nombre de Documento','Fecha del documento','strEsGuardadoParcial','esGuardadoParcial','Tipo de documento'],
 				colModel:[ 	{name:'area',index:'area', width:200},
 							{name:'fechaActividad',index:'fechaActividad', width:170},							
 							{name:'nombreActividad',index:'nombreActividad', width:400},
@@ -741,7 +741,7 @@ Cada una se dirige a un funcionario diferente.
 		jQuery("#gridSolicitudesPeri3").jqGrid({ 
 			url:'<%= request.getContextPath()%>/consultarSolicitudesPericialesPorExpediente.do?numeroExpedienteId='+numeroExpedienteId+'&estatus='+concluida+'', 
 			datatype: "xml", 
-			colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creación','Fecha Limite','Institución','Remitente'], 
+			colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creaci&oacute;n','Fecha Limite','Instituci&oacute;n','Remitente'], 
 			colModel:[ 	{name:'caso',index:'caso', width:150},
 			           	{name:'expediente',index:'expediente', width:130}, 
 						{name:'folio',index:'folio', width:125}, 
@@ -772,7 +772,7 @@ Cada una se dirige a un funcionario diferente.
 	/*
 	*Funcion que aplica submit a la forma para abrir el documento solicitado
 	*id= id del documento seleccionado en el grid de documentos
-	*Así se obtenia anteriormente:
+	*As&iacute; se obtenia anteriormente:
 	*	
 	*document.frmDoc.documentoId.value = id;
 	*document.frmDoc.submit();
@@ -896,7 +896,7 @@ Cada una se dirige a un funcionario diferente.
 					<table width="100%" border="0" height="90%">
 						<tr>
 							<td align="right">
-								Número de Expediente:
+								N&uacute;mero de Expediente:
 							</td>
 							<td>
 								<input type="text" size="50" maxlength="50" id="solServPericialNumExpediente" disabled="disabled"/>

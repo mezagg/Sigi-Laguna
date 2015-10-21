@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
@@ -145,7 +145,7 @@ var banderaGridDocumentosDigitalesPropios = true;
 		/*
 		*Funcion que aplica submit a la forma para abrir el documento solicitado
 		*id= id del documento seleccionado en el grid de documentos
-		*Así se obtenia anteriormente:
+		*As&iacute; se obtenia anteriormente:
 		*	
 		*document.frmPDF.documentoId.value = id;
 		*document.frmPDF.submit();

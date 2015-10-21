@@ -1,4 +1,4 @@
-<%@page language="java" contentType="text/html; charset=ISO-8859-1"	pageEncoding="ISO-8859-1"%>
+<%@page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@page import="mx.gob.segob.nsjp.dto.usuario.UsuarioDTO"%>
 <%@page import="mx.gob.segob.nsjp.dto.configuracion.ConfiguracionDTO"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.seguridad.Roles"%>
@@ -6,7 +6,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Ingresar Quien Detuvo</title>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/jquery-ui.css" />
 <link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/estilos.css" />
@@ -199,7 +199,7 @@ DD P {
 
 					ocultaDomicilioNotificaciones();
 					
-					//Instrucción pensada solo para el caso de policía ministerial
+					//Instrucci&oacute;n pensada solo para el caso de polic&iacute;a ministerial
 					if(deshabilitarCampos == true){
 						$(":enabled").attr('disabled','disabled');
 					}					
@@ -229,7 +229,7 @@ DD P {
 					}
 				});//FIN funcion onready
 
-			//Asociamos la función que atiende el evento click del check de servidor público
+			//Asociamos la funci&oacute;n que atiende el evento click del check de servidor p&uacute;blico
 			function formaCapturaServidorPublico() {
 				if ($("#iVictimaCmpServidorPublico").is(':checked')) {
 					habilitaDeshabilitaTabAcordeon1("servidorPublicoTab",1);
@@ -376,7 +376,7 @@ DD P {
 			    	});
 
 				}
-				// Función que guarda los datos de la pantalla
+				// Funci&oacute;n que guarda los datos de la pantalla
 				function guardarQuienDetuvo(){
 					$("#iDetieneBtnGuardar").unbind();
 					
@@ -439,10 +439,10 @@ DD P {
 					    	  		success: function(xml){
 					    		  		idindi=$(xml).find('IngresarIndividuoForm').find('idIndividuo').text();
 					    		  		if(idindi!=0){
-								  			alertDinamicoCerrar("Se almacenó la información de forma correcta",xml);
+								  			alertDinamicoCerrar("Se almacen&oacute; la informaci&oacute;n de forma correcta",xml);
 					    		  		}
 					    		  		else{
-					    		  			alertDinamico('Ocurrió un error al almacenar la información, involucrado no guardado');
+					    		  			alertDinamico('Ocurri&oacute; un error al almacenar la informaci&oacute;n, involucrado no guardado');
 					    		  		}
 					    	  		}
 					    		});	
@@ -462,7 +462,7 @@ DD P {
 					$("#iDetieneBtnGuardar").click(guardarQuienDetuvo);
 				}
 								
-				//Función para alertDinamicoCerrar
+				//Funci&oacute;n para alertDinamicoCerrar
 				function alertDinamicoCerrar(textoAlert,xml){
 					$("#divAlertTextoCerrar").html(textoAlert);
 				    $( "#dialog-AlertCerrar" ).dialog({
@@ -566,7 +566,7 @@ DD P {
 							<table width="100%" style="background: #DDD; border: 0;">
 								<!-- tr>
 									<td width="32%" height="25" align="right">CALIDAD</td>
-		                            <td width="29%" height="25" align="center">TRADUCTOR-INTÉRPRETE</td>
+		                            <td width="29%" height="25" align="center">TRADUCTOR-INT&Eacute;RPRETE</td>
 								</tr-->
 								<tr>
 									<td align="right">Nombre:</td>
@@ -624,7 +624,7 @@ DD P {
 									<dd>
 										<jsp:include page="ingresarMediosContactoView.jsp" />
 									</dd>
-									<dt>Documentos de Identificación</dt>
+									<dt>Documentos de Identificaci&oacute;n</dt>
 									<dd>
 										<jsp:include page="ingresarDocumentoIdentificacionView.jsp" />
 									</dd>

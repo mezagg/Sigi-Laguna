@@ -1,7 +1,7 @@
 
 <%@page import="mx.gob.segob.nsjp.comun.enums.expediente.EstatusExpediente"%>
 <%@ page contentType="text/html"%>
-<%@ page pageEncoding="ISO-8859-1"%>
+<%@ page pageEncoding="UTF-8"%>
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
@@ -64,7 +64,7 @@ function cargaGridExpedientesPorEstatus(estatus,fechaIni,fechaFin){
 			},
 			datatype: "xml", 
     		mtype: "POST",
-			colNames:['Número De Caso','Número De Causa', 'Procedimiento de Ejecuci&oacute;n', 'Nombre Sentenciado', 'Delito(s)', 'Fecha De Creación', 'NumExpId'], 
+			colNames:['N&uacute;mero De Caso','N&uacute;mero De Causa', 'Procedimiento de Ejecuci&oacute;n', 'Nombre Sentenciado', 'Delito(s)', 'Fecha De Creaci&oacute;n', 'NumExpId'], 
 			colModel:[ 	{name:'noCaso',index:'1', width:140}, 
 						{name:'noCausa',index:'2', width:70}, 
 						{name:'carpeta',index:'3', width:140}, 

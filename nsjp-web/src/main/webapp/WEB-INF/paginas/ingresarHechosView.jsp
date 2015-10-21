@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.expediente.OrigenExpediente"%>
 <%@ page import="mx.gob.segob.nsjp.dto.configuracion.ConfiguracionDTO"%>
 <%@ page import="mx.gob.segob.nsjp.web.base.action.GenericAction"%>
@@ -6,7 +6,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Ingresar Hechos</title>
 		<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css"/>
 		<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/jquery.easyaccordion.css" />	
@@ -265,7 +265,7 @@
 						$("#btnModificarHechos").hide();	
 					}
 					
-					// si es rol agenteMP se muestra la pestaña de conclusion
+					// si es rol agenteMP se muestra la pesta&ntilde;a de conclusion
 					
 					
 					
@@ -542,7 +542,7 @@
 				if(validaDatosIngresoHecho())
 				{
 					//guardare el hecho
-					var parametrosHechos=extraeDatosIngresarHechos();//obtengo la información a almacenar
+					var parametrosHechos=extraeDatosIngresarHechos();//obtengo la informaci&oacute;n a almacenar
 					//llamamos al action que guardara el nuevo Hecho
 					$.ajax({
 						async: false,
@@ -557,14 +557,14 @@
 								if(parseInt($(xml).find('code').text())==0)
 								{
 									$("#btnGuardarHechos").attr("disabled","disabled");	
-									alertDinamicoCerrar("Se guardó exitosamente la información",1,xml);
+									alertDinamicoCerrar("Se guard&oacute; exitosamente la informaci&oacute;n",1,xml);
 									if (typeof window.parent.cambiaTextoVisor == 'function') {
 										window.parent.cambiaTextoVisor($(':radio[name=rdTipoExpediente]:checked').val());
 								    }
 						    	}
 								else
 								{
-									alertDinamico("Debe capturar la información solicitada en la pestaña: Fecha y hora de los hechos");
+									alertDinamico("Debe capturar la informaci&oacute;n solicitada en la pesta&ntilde;a: Fecha y hora de los hechos");
 								}
 							}
 							else
@@ -581,11 +581,11 @@
 										window.parent.cambiaTextoVisor($(':radio[name=rdTipoExpediente]:checked').val());
 								    }
 									
-									alertDinamicoCerrar("Se actualizó correctamente la información",2,"");
+									alertDinamicoCerrar("Se actualiz&oacute; correctamente la informaci&oacute;n",2,"");
 								}
 								else
 								{
-									alertDinamico("No se actualizó la información del hecho");
+									alertDinamico("No se actualiz&oacute; la informaci&oacute;n del hecho");
 								}
 							}
 						}
@@ -644,7 +644,7 @@
 				//lamaremos a cada uno de los metodos que validan las secciones de la vista
 				if(escape($('.jquery_ckeditor').val()).length==0)
 				{
-					alertDinamico("Favor de registrar la descripción de los hechos");
+					alertDinamico("Favor de registrar la descripci&oacute;n de los hechos");
 					return false;
 				}
 				
@@ -765,7 +765,7 @@
 				}
 			}
 
-			//Función para alertDinamicoCerrar
+			//Funci&oacute;n para alertDinamicoCerrar
 			function alertDinamicoCerrar(textoAlert,estado,xml){
 				$("#divAlertTextoCerrar").html(textoAlert);
 			    $( "#dialog-AlertCerrar" ).dialog({

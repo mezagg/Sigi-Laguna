@@ -3,13 +3,13 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.solicitud.TiposSolicitudes"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.forma.Formas"%>
 <%@page import="java.util.Calendar"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="logic" uri="/WEB-INF/tld/struts-logic.tld" %>
 <%@ taglib prefix="bean" uri="/WEB-INF/tld/struts-bean.tld" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Atenci&ocute;n a Solicitudes</title>
 
 <!--Se importan las css necesarias-->
@@ -74,7 +74,7 @@
 		
 	
 	/*
-	* Abre la ventana de búsqueda general de expediente para que el usurio pueda buscar por diferentes criterios 
+	* Abre la ventana de b&uacute;squeda general de expediente para que el usurio pueda buscar por diferentes criterios 
 	* un numero de expediente/causa
 	*
 	*/
@@ -550,7 +550,7 @@
 		
 		if ($('#fechaSolicitudPJATP').val() == '' || $('#fechaLimiteAudiencia').val() == ''
 				|| $('#horaLimiteAudiencia').val() == '') {
-			alertDinamico("Se debe ingresar una fecha y hora límite");
+			alertDinamico("Se debe ingresar una fecha y hora l&iacute;mite");
 			validaFecha = false;
 		} else {
 
@@ -563,14 +563,14 @@
 			var hInicio=hIniVal.split(":");
 			var hFin=hFinVal.split(":");
 
-		//si el año fin es mayor termina
+		//si el a&ntilde;o fin es mayor termina
 		 if (fin[2] > inicio[2] )   
     {   
 			 validaFecha = true;
     }   
     else  
     {   
-    	//si el año fin es = al inicial compara los meses
+    	//si el a&ntilde;o fin es = al inicial compara los meses
     if (fin[2] == inicio[2])   
       {    
         //compara que el mes final sea mayor al inicial termina
@@ -596,7 +596,7 @@
       	        	validaFecha = true;
       	        }   
       		 else  {
-      			alertDinamico("La hora límite debe de ser mayor a la hora de solicitud");
+      			alertDinamico("La hora l&iacute;mite debe de ser mayor a la hora de solicitud");
          	   validaFecha = false;  
          	  		 } 	 
       	 }
@@ -605,13 +605,13 @@
           else  {
         	  validaFecha = false; 
 
-        	  alertDinamico("La fecha límite debe de ser mayor a la fecha de solicitud");
+        	  alertDinamico("La fecha l&iacute;mite debe de ser mayor a la fecha de solicitud");
         	  }
         	    
         }   
       }   
      else  {
-    	 alertDinamico("La fecha límite debe de ser mayor a la fecha de solicitud");
+    	 alertDinamico("La fecha l&iacute;mite debe de ser mayor a la fecha de solicitud");
 
     	 validaFecha = false; 
 
@@ -624,7 +624,7 @@
 	
 	//Funcion que cierra la ventana 
 	 function confirmaCancelar() {
-		 alertDinamicoDosBotones("¿Desea salir sin enviar?","cierraVentanaNuevaSolicitud");
+		 alertDinamicoDosBotones("&iquest;Desea salir sin enviar?","cierraVentanaNuevaSolicitud");
 	 } 
 
 
@@ -634,7 +634,7 @@
 	}
 
 	/**
-	* Carga el grid para seleccionar involucrados en la audiencia con las víctimas y probables responsables
+	* Carga el grid para seleccionar involucrados en la audiencia con las v&iacute;ctimas y probables responsables
 	* del expediente seleccionado en los pasos anteriores
 	*/
 	primeraConsultaInvolucrados = true;
@@ -755,7 +755,7 @@
 
 	/*
 	*Funcion que carga el grid de las audoiencias asociadas al numero de expediente
-	*que están en estatus de terminada
+	*que est&aacute;n en estatus de terminada
 	*/
 	function cargarGridAudienciasDeCausa(){
 		validaAudiencias=true;
@@ -812,7 +812,7 @@
 			
 			
 		if($("#institucionSolicitantePJATP").val() <= 0){
-			alertDinamico("Por favor seleccione una Institución Solicitante");
+			alertDinamico("Por favor seleccione una Instituci&oacute;n Solicitante");
 			$("#institucionSolicitantePJATP").focus();
 			return false;
 		}
@@ -833,11 +833,11 @@
 
 	//Valida los campos requeridos para registrar una audiencia de tipo:
 	// Audio y video de audiencias
-	// Transcripción de audiencias
+	// Transcripci&oacute;n de audiencias
 	function validaInstitucionYSolicitante(){
 				
 		if($("#institucionSolicitantePJATP").val() <= 0){
-			alertDinamico("Por favor seleccione una Institución Solicitante");
+			alertDinamico("Por favor seleccione una Instituci&oacute;n Solicitante");
 			$("#institucionSolicitantePJATP").focus();
 			return false;
 		}
@@ -865,7 +865,7 @@
 		/*
 		*Funcion que aplica submit a la forma para abrir el documento solicitado
 		*id= id del documento seleccionado en el grid de documentos
-		*Así se obtenia anteriormente:
+		*As&iacute; se obtenia anteriormente:
 		*	
 		*document.frmDoc.documentoId.value = id;
 		*document.frmDoc.submit();
@@ -894,7 +894,7 @@
 			      <tr>
 			        <td colspan="6">
 						<span id="divEtiquetaInvolucrados"><strong>Seleccione los involucrados de la audiencia</strong></span>
-			        	<span class="av ra rc ta"><strong>Seleccione la audiencia a la que será asociada la solicitud</strong></span>			        
+			        	<span class="av ra rc ta"><strong>Seleccione la audiencia a la que ser&aacute; asociada la solicitud</strong></span>			        
 						<form name="frmDoc" action="<%= request.getContextPath() %>/ConsultarContenidoArchivoDigital.do" method="post">
 							<!--<input type="hidden" name="documentoId" />-->
 						</form>
@@ -941,7 +941,7 @@
 			        </td>
 			        <td width="125" align="right">
 			            <div id="divFechaLimite">
-			                <strong>Fecha límite: </strong>
+			                <strong>Fecha l&iacute;mite: </strong>
 			            </div>
 			            <div id="divTipoRecurso">
 			                <strong>Tipo de recurso:</strong>
@@ -966,7 +966,7 @@
 			            <input type="text" id="fechaSolicitudPJATP" style="width: 200px; border: 0; background: #DDD;" readonly="readonly" />
 			        </td>
 			        <td align="right">
-			            <div id="divHoraLimite"><strong>Hora límite:</strong></div>
+			            <div id="divHoraLimite"><strong>Hora l&iacute;mite:</strong></div>
 			        </td>
 			        <td>
 			            <input type="text" id="horaLimiteAudiencia" size="10" value="01:00 AM" tabindex="13"/>
@@ -993,7 +993,7 @@
 			      <tr>
 			        <td colspan="2">&nbsp;</td>
 			        <td align="right">
-			            <div id="divInsSolicitante"><strong>Institución Solicitante:</strong></div>
+			            <div id="divInsSolicitante"><strong>Instituci&oacute;n Solicitante:</strong></div>
 			        </td>
 			        <td>
 			            <select id="institucionSolicitantePJATP" style="width:200px;" tabindex="6"></select>
@@ -1054,7 +1054,7 @@
 			        </td>
 			        <td>
 			        	<div id="divRadioVoluntario">
-				        	<input type="radio" name="esVoluntario" value="1"> Sí &nbsp;&nbsp;
+				        	<input type="radio" name="esVoluntario" value="1"> S&iacute; &nbsp;&nbsp;
 			        		<input type="radio" name="esVoluntario"  value="o" checked="checked"> No
 			        	</div>
 			        </td>

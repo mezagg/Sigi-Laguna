@@ -159,7 +159,7 @@
 							nombreCompleto+=$(this).find('apellidoMaterno').text()+" ";
 						}
 						if(nombreCompleto==null || nombreCompleto=="null" || nombreCompleto=="" || nombreCompleto=="   "){
-							nombreCompleto="Anónimo";
+							nombreCompleto="An&oacute;nimo";
 						}
 						$('#cbxVictimasExpRDPD').append('<option value="' + $(this).find('elementoId').first().text() + '">' + nombreCompleto+ '</option>');
 					});
@@ -267,7 +267,7 @@
 		        	jQuery("#gridCatDelitosRDPD").jqGrid({ 
 						url:'<%= request.getContextPath()%>/CargarProbRespsAsociadosAlDelito.do?idDelito='+idDelito +'&idExpediente='+idExpedienteop +'', 
 						datatype: "xml",
-						colNames:[probableResponsableProp,'Forma de Participación','Víctima','Ids'], 
+						colNames:[probableResponsableProp,'Forma de Participaci&oacute;n','V&iacute;ctima','Ids'], 
 						colModel:[ 	{name:'ProbableResp',index:'probableresp', width:250}, 
 									{name:'FormaParticipacion',index:'formaParticipacion',width:300},
 									{name:'Victima',index:'victima',width:250},
@@ -408,7 +408,7 @@
 							});	
 			    		/* }
 						else {
-							alertDinamico("Ya existe esta relación, favor de verificar.");
+							alertDinamico("Ya existe esta relaci&oacute;n, favor de verificar.");
 						}
 					}
 				}); */
@@ -541,12 +541,12 @@
 					async: false,
 					success: function(xml){
 						if(parseInt($(xml).find('code').text())==0 && parseInt($(xml).find('bandera').text())==1){
-							alertDinamico("Se anularon con éxito la(s) relaci\u00F3n(es)");
+							alertDinamico("Se anularon con &eacute;xito la(s) relaci\u00F3n(es)");
 							consultaDelitosPRRDPD();
 							consultaDelitosPRRDPPV();
 						}				    		
 			    		else
-			    			alertDinamico("No se logró anular la(s) relaci\u00F3n(es)")
+			    			alertDinamico("No se logr&oacute; anular la(s) relaci\u00F3n(es)")
 					}
 				});
 			}
@@ -609,7 +609,7 @@
 				<input type="button" value="Relacionar" id="btnRelacionarRDPD" class="btn_modificar"/>
 			</td>
 			<td align="left" valign="top">
-				<input type="button" id="btnAnulaRelacionDelDel" value="Anular relación Delito - Persona" onclick="anularRelacionDelitoPersona();" class="btn_grande"/>
+				<input type="button" id="btnAnulaRelacionDelDel" value="Anular relaci&oacute;n Delito - Persona" onclick="anularRelacionDelitoPersona();" class="btn_grande"/>
 			</td>
 		</tr>
 	</table>

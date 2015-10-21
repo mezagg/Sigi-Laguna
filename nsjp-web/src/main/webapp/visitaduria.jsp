@@ -159,7 +159,7 @@
 		jQuery("#gridDetalleFrmPrincipal").jqGrid({ 
 								url:'<%= request.getContextPath()%>/consultaexpedientesVisitadores.do?idDepartamento='+gIdDepartamento+'&idFuncionario=0&opcionFuncionario=1&opcionStatus='+opIdEstatus+'&idEstatus='+gIdEstatus, 
 								datatype: "xml", 
-								colNames:['Carpeta de Auditoría','Expediente Auditado','AMP Auditado','Delito Principal', 'Tipo Expediente Auditado','Estatus Auditado'], 
+								colNames:['Carpeta de Auditor&iacute;a','Expediente Auditado','AMP Auditado','Delito Principal', 'Tipo Expediente Auditado','Estatus Auditado'], 
 								colModel:[ 	{name:'Carpeta',index:'estado', width:100},
 											{name:'Expediente',index:'expediente', width:100},
 											{name:'AMP',index:'dueno', width:120}, 
@@ -172,7 +172,7 @@
 								rowList:[10,20,30,40,50,60,70,80,90,100],
 								autowidth: true,
 								sortname: 'detalle',
-								caption: "Carpetas de Auditoría del Visitador",
+								caption: "Carpetas de Auditor&iacute;a del Visitador",
 								viewrecords: true,
 								onSelectRow: function(id){
 									selectr(id);
@@ -205,7 +205,7 @@
 		jQuery("#gridSolsXAtndr").jqGrid({ 
 			url:'local', 
 			datatype: "xml", 
-			colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creación','Fecha Limite','Institución','Remitente'], 
+			colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creaci&oacute;n','Fecha Limite','Instituci&oacute;n','Remitente'], 
 			colModel:[ 	{name:'caso',index:'caso', width:150},
 			           	{name:'expediente',index:'expediente', width:130}, 
 						{name:'folio',index:'folio', width:100}, 
@@ -231,7 +231,7 @@
 		jQuery("#gridSolsGeneradas").jqGrid({ 
 			url:'<%= request.getContextPath()%>/consultaSolsGeneradas.do?tipoSoliciutd=0&idArea=0&estatus=0', 
 			datatype: "xml", 
-			colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creación','Fecha Limite','Institución','Remitente'], 
+			colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creaci&oacute;n','Fecha Limite','Instituci&oacute;n','Remitente'], 
 			colModel:[ 	{name:'caso',index:'caso', width:150},
 			           	{name:'expediente',index:'expediente', width:130}, 
 						{name:'folio',index:'folio', width:100}, 
@@ -1014,7 +1014,7 @@
 
 	<div class="content">
 		<div id="accordionmenuprincipal">
-			<h3><a href="#" onclick="activaAuditoria()"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png" id="botpenal" width="15" height="15">&nbsp;Carpetas de Auditoría</a></h3>
+			<h3><a href="#" onclick="activaAuditoria()"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png" id="botpenal" width="15" height="15">&nbsp;Carpetas de Auditor&iacute;a</a></h3>
 			<div>			
 				<ul id="seccion1tree" class="filetree">
 
@@ -1251,7 +1251,7 @@
 
 <div id="dialog-logout" title="Cerrar Sesi&oacute;n">
 	<p align="center">
-		<span id="logout">¿Desea cerrar su sesi&oacute;n?</span>
+		<span id="logout">&iquest;Desea cerrar su sesi&oacute;n?</span>
 	</p>
 </div>
 
@@ -1266,11 +1266,11 @@
 		<p align="center">
 			<table border="0">
 				<tr>
-					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contraseña para desbloquear.</td>
+					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contrase&ntilde;a para desbloquear.</td>
 					
 				</tr>
 				<tr>
-					<td align="right"><label style="color:#4A5C68">Contraseña:</label></td>
+					<td align="right"><label style="color:#4A5C68">Contrase&ntilde;a:</label></td>
 					<td><input type="password" name="password" id="password" value="" maxlength="15" size="20"></td>
 				</tr>
 				<tr id="captchaJPG" >
@@ -1299,7 +1299,7 @@
 				La sesi&oacute;n se cerrar&aacute; en <span id="dialog-countdown" style="font-weight:bold"></span> segundos.
 			</p>
 
-			<p>¿Desea continuar con la sesi&oacute;n?</p>
+			<p>&iquest;Desea continuar con la sesi&oacute;n?</p>
 	</div>
 	<div id="dialog-alarmPos" title="Alarma ">
 		<p align="center">

@@ -17,7 +17,7 @@
  * Modificacion           	: N/A
  *------------------------------------------------------------------------------
  */
-package mx.gob.segob.nsjp.web.organizacion.action;
+package mx.gob.segob.nsjp.web.organizacion.action; 
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -319,11 +319,11 @@ public class IngresarOrganizacionAction extends GenericAction {
 				log.info("#################################66");	
 				domicilioDTO.setLongitud(formaOrganizacion.getLongitud());
 				if (!(formaOrganizacion.getLatitudN()== null) && !formaOrganizacion.getLatitudN().equals("")) {
-					String lat= formaOrganizacion.getLatitudN()+formaOrganizacion.getLatitudGrados()+"°"+formaOrganizacion.getLatitudMinutos()+"'"+formaOrganizacion.getLatitudSegundos()+"\"";
+					String lat= formaOrganizacion.getLatitudN()+formaOrganizacion.getLatitudGrados()+"ï¿½"+formaOrganizacion.getLatitudMinutos()+"'"+formaOrganizacion.getLatitudSegundos()+"\"";
 					domicilioDTO.setLatitud(lat);
 				}
 				if (!(formaOrganizacion.getLongitudE()== null) && !formaOrganizacion.getLongitudE().equals("")) {
-					String longitud= formaOrganizacion.getLongitudE()+formaOrganizacion.getLongitudGrados()+"°"+formaOrganizacion.getLongitudMinutos()+"'"+formaOrganizacion.getLongitudSegundos()+"\"";
+					String longitud= formaOrganizacion.getLongitudE()+formaOrganizacion.getLongitudGrados()+"ï¿½"+formaOrganizacion.getLongitudMinutos()+"'"+formaOrganizacion.getLongitudSegundos()+"\"";
 					domicilioDTO.setLongitud(longitud);
 				}
 				log.info("#################################LONGITUD::"+formaOrganizacion.getLongitud());

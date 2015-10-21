@@ -1,6 +1,6 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.forma.Formas"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -37,8 +37,8 @@
 	<script src="<%= request.getContextPath()%>/resources/js/validate/mktSignup.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.timeentry.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/bloqueaTecla.js?n=1"></script>		
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Defensa en Integración</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Defensa en Integraci&oacute;n</title>
 	
 	<script type="text/javascript">
       
@@ -103,7 +103,7 @@
 								url:'<%=request.getContextPath()%>/consultarDocumentos.do?idExpedienteop='+idExpediente, 
 								datatype: "xml", 
 								
-								colNames:['Área del responsable','Fecha de la actividad','Nombre de la actividad','Tipo de documento','Nombre de Documento','Fecha del documento'],
+								colNames:['&Aacute;rea del responsable','Fecha de la actividad','Nombre de la actividad','Tipo de documento','Nombre de Documento','Fecha del documento'],
 								colModel:[ 	{name:'area',index:'area', width:200},
 											{name:'FechaActividad',index:'fechaActividad', width:170},							
 											{name:'NombreActividad',index:'nombreActividad', width:400},
@@ -267,7 +267,7 @@
 					<table>
 					<tr>
 					<td>
-					Área Solicitante:
+					&Aacute;rea Solicitante:
 					</td>
 					<td>
 					<input type="text" id="areaSolicitante">
@@ -285,7 +285,7 @@
 					
 					<tr>
 					<td>
-					Número de caso:
+					N&uacute;mero de caso:
 					</td>
 					<td>
 					<input type="text" id="numCaso" size="28">
@@ -294,7 +294,7 @@
 					
 					<tr>
 					<td>
-					Número de expediente:
+					N&uacute;mero de expediente:
 					</td>
 					<td>
 					<input type="text" id="numExpediente" size="28">
@@ -312,7 +312,7 @@
 					
 					<tr>
 					<td>
-					Víctima:
+					V&iacute;ctima:
 					</td>
 					<td>
 					<input type="text" id="victima">

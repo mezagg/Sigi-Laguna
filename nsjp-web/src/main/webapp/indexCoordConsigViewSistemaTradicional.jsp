@@ -447,7 +447,7 @@
         
 		idWindowNuevaDenunciaTrad++;
 	 		
-		$.newWindow({id:"iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenunciaTrad, statusBar: true, posx:0,posy:0,width:$(document).width(),height:$(document).height(),title:"Averiguación previa: ", type:"iframe"});
+		$.newWindow({id:"iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenunciaTrad, statusBar: true, posx:0,posy:0,width:$(document).width(),height:$(document).height(),title:"Averiguaci&oacute;n previa: ", type:"iframe"});
 		$.maximizeWindow("iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenunciaTrad);
 		$.updateWindowContent("iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenunciaTrad,'<iframe src="<%= request.getContextPath() %>/BusquedaExpedienteSistTrad.do?'+parametros+'" width="100%" height="100%" />');		
 	} 
@@ -456,7 +456,7 @@
     *Agrega el numero de expediente al titulo de la ventana hijo (ingresarMenuIntermedioSistTrad.jsp)
     */
     function tituloVentana(numExp){
-		$("#iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenunciaTrad+" div.window-titleBar-content").html("Averiguación Previa:: "+numExp);
+		$("#iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenunciaTrad+" div.window-titleBar-content").html("Averiguaci&oacute;n Previa:: "+numExp);
 	}
 	
     
@@ -864,7 +864,7 @@
 
 	<div id="dialog-logout" title="Cerrar Sesi&oacute;n">
 		<p align="center">
-			<span id="logout">¿Desea cerrar su sesi&oacute;n?</span>
+			<span id="logout">&iquest;Desea cerrar su sesi&oacute;n?</span>
 		</p>
 	</div>
 	<!-- dialogos para Bloqueo de pantalla-->
@@ -872,11 +872,11 @@
 		<p align="center">
 			<table border="0">
 				<tr>
-					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contraseña para desbloquear.</td>
+					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contrase&ntilde;a para desbloquear.</td>
 					
 				</tr>
 				<tr>
-					<td align="right"><label style="color:#4A5C68">Contraseña:</label></td>
+					<td align="right"><label style="color:#4A5C68">Contrase&ntilde;a:</label></td>
 					<td><input type="password" name="password" id="password" value="" maxlength="15" size="20"></td>
 				</tr>
 				<tr id="captchaJPG" >
@@ -905,7 +905,7 @@
 				La sesi&oacute;n se cerrar&aacute; en <span id="dialog-countdown" style="font-weight:bold"></span> segundos.
 			</p>
 
-			<p>¿Desea continuar con la sesi&oacute;n?</p>
+			<p>&iquest;Desea continuar con la sesi&oacute;n?</p>
 	</div>
 	
 </body>

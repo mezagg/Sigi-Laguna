@@ -1,7 +1,7 @@
 <%@page
     import="mx.gob.segob.nsjp.comun.enums.funcionario.TipoDefensoria"%>
-    <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-             pageEncoding="ISO-8859-1"%>
+    <%@ page language="java" contentType="text/html; charset=UTF-8"
+             pageEncoding="UTF-8"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>     
         
     <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -53,7 +53,7 @@
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/jquery.windows-engine.css"/>
 	
 
-            <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
             <script type="text/javascript">
             var idNumeroExpedienteOp1=parent.idNumeroExpedienteOp;
@@ -120,14 +120,14 @@
                 		 success: function(xml){
                 			 $(xml).find('expedienteDTO').each(function(){
                 				regreso= $(this).find('expedienteId').text()+" ";
-                				if(regreso!=0){alertDinamicoCerrar("Se envió correctamente la carpeta");}
-                				else{customAlert("No se logró enviar la carpeta de investigación");}
+                				if(regreso!=0){alertDinamicoCerrar("Se envi&oacute; correctamente la carpeta");}
+                				else{customAlert("No se logr&oacute; enviar la carpeta de investigaci&oacute;n");}
                 			 });
                 		  }
                 		});
                 	 }
 
-              //Función para alertDinamicoCerrar
+              //Funci&oacute;n para alertDinamicoCerrar
         		function alertDinamicoCerrar(textoAlert){						
         			$("#divAlertTextoCerrar").html(textoAlert);
         		    $( "#dialog-AlertCerrar" ).dialog({
@@ -161,7 +161,7 @@
           <table class="fondoClaroAp">
                 <tr>
 
-                    <td  colspan="2" align="center">Enviar Carpeta de Investigación Defensoria
+                    <td  colspan="2" align="center">Enviar Carpeta de Investigaci&oacute;n Defensoria
                     </td>
                 </tr>
                 <tr>

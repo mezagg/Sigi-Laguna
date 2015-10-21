@@ -104,7 +104,7 @@
 <!-- Tabla INGRESAR ORGANIZACION FORMAL-->
    <table id="iIngresarOrgFormalWorkSheet" width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>            
-        <td height="30">Tipo de la Organización: </td>
+        <td height="30">Tipo de la Organizaci&oacute;n: </td>
         <td >
         	<select id="cbxIngOrgFormalTiposOrganizacion">
           </select>

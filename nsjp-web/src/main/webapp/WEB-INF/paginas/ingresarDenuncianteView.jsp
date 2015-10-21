@@ -2,12 +2,12 @@
 <%@page import="mx.gob.segob.nsjp.dto.configuracion.ConfiguracionDTO"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.seguridad.Roles"%>
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Ingresar Denunciante</title>
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/jquery-ui.css" />
 		<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/jquery.easyaccordion.css" />
@@ -632,7 +632,7 @@
 					if(idindi!='null' && idindi!=0)
 					{
 						//debemos mostrar un confirm
-						customConfirm ("¿Está seguro que desea anular al denunciante?", "", anularInvolucrado);
+						customConfirm ("&iquest;Est&aacute; seguro que desea anular al denunciante?", "", anularInvolucrado);
 					}
 				}
  				
@@ -662,7 +662,7 @@
 					    		    	   $(xml).find('cadena').each(function(){
 					    		    			mensaje+= $(this).text()+ "<br/>";
 				            			   });
-					    		    	   mensaje+= "<br/>¿Está seguro de querer eliminarlo?";
+					    		    	   mensaje+= "<br/>&iquest;Est&aacute; seguro de querer eliminarlo?";
 					    		    	   customConfirm (mensaje, "", anularInvolucradoCnRelaciones);
 				    		    	   }
 								   }
@@ -672,17 +672,17 @@
 				    		    	   if(parseInt($(xml).find('numRel').text())>-1)
 								   		{
 				    		    		   //Lista nula
-								   			customAlert("No se logró revisar si el involucrado tiene relaciones, intente más tarde");
+								   			customAlert("No se logr&oacute; revisar si el involucrado tiene relaciones, intente m&aacute;s tarde");
 								   		}
 				    		    	   else if(parseInt($(xml).find('numRel').text())>-2)
 									   {
 				    		    		   //ID no llego
-				    		    		   customAlert("Ocurrió un problema de conexión, intente más tarde");
+				    		    		   customAlert("Ocurri&oacute; un problema de conexi&oacute;n, intente m&aacute;s tarde");
 									   }
 				    		    	   else if(parseInt($(xml).find('numRel').text())>-3)
 									   {
 				    		    		   //excepcion
-				    		    		   customAlert("Ocurrió un problema al tratar de eliminar el involucrado, intente más tarde");
+				    		    		   customAlert("Ocurri&oacute; un problema al tratar de eliminar el involucrado, intente m&aacute;s tarde");
 									   }
 				    		      }
 				    	  }
@@ -708,7 +708,7 @@
 										try{
 											window.parent.eliminarVictimaDenunciante(idindi);
 										}catch(err){}
-										window.parent.customAlert("Sé logró anular al denunciante con éxito");
+										window.parent.customAlert("S&eacute; logr&oacute; anular al denunciante con &eacute;xito");
 										cerrarCustomVentana();
 										window.parent.$("#crearDenunciante").show();
 										//window.parent.cerrarVentanaVictima();
@@ -716,18 +716,18 @@
 									else if(parseInt($(xml).find('banderaOp').text())==0)
 									{
 										//se puede eliminar el objeto sin problemas
-										window.parent.customAlert("No se logró anular al denunciante");
+										window.parent.customAlert("No se logr&oacute; anular al denunciante");
 									}
 									else if(parseInt($(xml).find('banderaOp').text())==-1)
 									{
-										window.parent.customAlert("Ocurrión un error al tratar de anular al denunciante,<br/>consulte a su administrador ");
+										window.parent.customAlert("Ocurri&oacute;n un error al tratar de anular al denunciante,<br/>consulte a su administrador ");
 									}
 					    	  }
 					    });
 				}
  				
 				/**
-				* Función que guarda los datos de la pantalla
+				* Funci&oacute;n que guarda los datos de la pantalla
 				*/
 				function guardarOrgDenunciante(){
 					$('#iIngOrgBtnGuardar').unbind();
@@ -769,7 +769,7 @@
 					    			  $("#iIngOrgBtnIngresarContacto,#btnIngOrgFormalDatosRep").attr("disabled","");
 					    			  habilitaDeshabilitaCamposIngOrganizacion(0);
 					    			  deshabilitaDatosDomicilio();
-						    		  alertDinamico("La organización se guardó exitosamente");
+						    		  alertDinamico("La organizaci&oacute;n se guard&oacute; exitosamente");
 									}
 									else
 									{
@@ -781,7 +781,7 @@
 					    		  else
 					    		  {
 					    			  idOrganizacion=0;
-					    			  alertDinamico("Ocurrió un error al guardar la organización");
+					    			  alertDinamico("Ocurri&oacute; un error al guardar la organizaci&oacute;n");
 					    		  }
 					    	  }
 					    	});
@@ -1001,15 +1001,15 @@
 					                <dd>
 					                	<jsp:include page="ingresarDomicilioView.jsp"/>
 						            </dd>
-					                <!-- dt id="mediafiliacionTab">Media Filiación</dt>
+					                <!-- dt id="mediafiliacionTab">Media Filiaci&oacute;n</dt>
 					                <dd>
-					                	<p> Media filiación</p>
+					                	<p> Media filiaci&oacute;n</p>
 					                </dd-->
 					                <dt id="mediosContactos">Medios de Contacto</dt>
 					                <dd>
 					                	<jsp:include page="ingresarMediosContactoView.jsp"/>
 					                </dd>
-					                <dt id="documentosIdentificacion">Documentos de Identificación </dt>
+					                <dt id="documentosIdentificacion">Documentos de Identificaci&oacute;n </dt>
 					                <dd>
 										<jsp:include page="ingresarDocumentoIdentificacionView.jsp"/>
 									</dd>

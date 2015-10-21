@@ -2,7 +2,7 @@
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Solicitar Defensor</title>
 	
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css" />
@@ -78,7 +78,7 @@
 
 		function cancelarSolicitudDeDefensor(){
 			
-			customConfirm("¿Realmente desea cancelar la solicitud de defensor?",
+			customConfirm("&iquest;Realmente desea cancelar la solicitud de defensor?",
 					"Cancelar solicitud", 
 					function(){
 						//Aceptar

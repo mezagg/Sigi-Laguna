@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Registrar Datos Persona</title>
 <link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/multiselect/jquery.multiselect.css" />
 <link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/multiselect/style.css" />
@@ -114,7 +114,7 @@
 			<div id="boton2"><input type="button" value="Agendar Cita"  id="botonGuarda"	class="btn_Generico"/></div>
 		</td>
 		<td align="center">
-			<div id="boton" ><input type="button" value="Elaborar Evaluación"  id="botonGenerarActa" class="btn_Generico"/> </div>
+			<div id="boton" ><input type="button" value="Elaborar Evaluaci&oacute;n"  id="botonGenerarActa" class="btn_Generico"/> </div>
 		</td>
 		<td align="left" colspan="3">
 			<div id="boton3"><input type="button" value="Solicitar Apoyo de &#10; Instituci&oacute;n Externa"  id="btnSolApoyoIE"	class="btn_Generico"/></div>
@@ -205,7 +205,7 @@ function cargaNacionalidad(){
 }
 
 /**
- *Limpia todos los campos de esta página
+ *Limpia todos los campos de esta p&aacute;gina
  */
 function cleanDatosGenerales(){
 

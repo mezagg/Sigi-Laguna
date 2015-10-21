@@ -100,7 +100,7 @@
 		cargaComboModusDelitoRDPPV();
 		//cargamos el combo de causa delito
 		cargaComboCausaDelitoRDPPV();
-		//Permite mostrar la información del delito persona
+		//Permite mostrar la informaci&oacute;n del delito persona
 		pintaDatosDelitoPersona();
 		//Permite deshabilitar los cambos
 		//inhabilitaCamposGenerico();
@@ -113,7 +113,7 @@
 		if (rolActivo == '<%=Roles.ATPENAL.getValorId()%>'){
 			ocultaCombosInnecesariosDelitoPersonaPorPersona();
 		}
-		// Asociación de eventos
+		// Asociaci&oacute;n de eventos
 		$("#btnGuardar").click(RelacionarDelitoRDPPV);
 	}); //Fin Ready
 
@@ -180,7 +180,7 @@
 						nombreCompleto+=$(this).find('apellidoMaterno').text()+" ";
 					}
 					if(nombreCompleto==null || nombreCompleto=="null" || nombreCompleto=="" || nombreCompleto=="   "){
-						nombreCompleto="Anónimo";
+						nombreCompleto="An&oacute;nimo";
 					}
 					$('#cbxVictimasExpRDPPV').append('<option value="' + $(this).find('elementoId').first().text() + '">' + nombreCompleto+ '</option>');
 					contaProbResps++;

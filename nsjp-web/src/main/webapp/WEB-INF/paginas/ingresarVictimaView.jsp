@@ -1,7 +1,7 @@
 <%@page import="mx.gob.segob.nsjp.dto.usuario.UsuarioDTO"%>
 <%@page import="mx.gob.segob.nsjp.dto.configuracion.ConfiguracionDTO"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.seguridad.Roles"%>
-<%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%@ page import="mx.gob.segob.nsjp.comun.enums.institucion.Instituciones" %>
 <%@page import="mx.gob.segob.nsjp.dto.configuracion.ConfInstitucionDTO"%>
@@ -12,8 +12,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<title>Ingresar Víctima</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Ingresar V&iacute;ctima</title>
 	
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/jquery-ui.css" />
 		<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/jquery.easyaccordion.css" />
@@ -649,7 +649,7 @@
 						
 						if(nombreGeneralOP=="Desconocido" && desconocidoOp==true && $('#iVictimaCmpApellidoPaterno').val()!="" && $('#iVictimaCmpApellidoMaterno').val()!=""){
 							banderaContradiccion=0;
-							alertDinamico("Favor de ingresar el nombre del desconocido ó ingresar los apellidos");									
+							alertDinamico("Favor de ingresar el nombre del desconocido &oacute; ingresar los apellidos");									
 						}							
 						
 						if(nombreGeneralOP!=""){							
@@ -710,7 +710,7 @@
 						    		  	window.parent.cargaVictima($(xml).find('IngresarIndividuoForm').find('nombre').text(),$(xml).find('IngresarIndividuoForm').find('idIndividuo').text());
 								      }
 						    		  idindi=$(xml).find('IngresarIndividuoForm').find('idIndividuo').text();
-						    		  alertDinamico('Víctima Guardada');
+						    		  alertDinamico('V&iacute;ctima Guardada');
 						    		  desavilitaDatos();
 						    	  }
 						    	});	
@@ -734,7 +734,7 @@
 					if(idindi!='null' && idindi!=0)
 					{
 						//debemos mostrar un confirm
-						customConfirm ("¿Está seguro que desea anular la víctima?", "", anularInvolucrado);
+						customConfirm ("&iquest;Est&aacute; seguro que desea anular la v&iacute;ctima?", "", anularInvolucrado);
 					}
 				}
 				
@@ -762,7 +762,7 @@
 					    		    	   $(xml).find('cadena').each(function(){
 					    		    		   mensaje+= $(this).text()+ "<br/>";
 				            			   });
-					    		    	   mensaje+= "<br/>¿Está seguro de querer eliminarlo?";
+					    		    	   mensaje+= "<br/>&iquest;Est&aacute; seguro de querer eliminarlo?";
 					    		    	   customConfirm (mensaje, "", anularInvolucradoCnRelaciones);
 				    		    	   }
 								   }
@@ -772,17 +772,17 @@
 				    		    	   if(parseInt($(xml).find('numRel').text())>-1)
 								   		{
 				    		    		   //Lista nula
-								   			customAlert("No se logró revisar si el involucrado tiene relaciones, intente más tarde");
+								   			customAlert("No se logr&oacute; revisar si el involucrado tiene relaciones, intente m&aacute;s tarde");
 								   		}
 				    		    	   else if(parseInt($(xml).find('numRel').text())>-2)
 									   {
 				    		    		   //ID no llego
-				    		    		   customAlert("Ocurrió un problema de conexión, intente más tarde");
+				    		    		   customAlert("Ocurri&oacute; un problema de conexi&oacute;n, intente m&aacute;s tarde");
 									   }
 				    		    	   else if(parseInt($(xml).find('numRel').text())>-3)
 									   {
 				    		    		   //excepcion
-				    		    		   customAlert("Ocurrió un problema al tratar de eliminar el involucrado, intente más tarde");
+				    		    		   customAlert("Ocurri&oacute; un problema al tratar de eliminar el involucrado, intente m&aacute;s tarde");
 									   }
 				    		      }
 				    	  }
@@ -803,18 +803,18 @@
 									if(parseInt($(xml).find('banderaOp').text())==1)
 									{
 										window.parent.eliminarVictima(idindi);
-										window.parent.customAlert("Sé logró anular la víctima con éxito");
+										window.parent.customAlert("S&eacute; logr&oacute; anular la v&iacute;ctima con &eacute;xito");
 										cerrarCustomVentana();
 										//window.parent.cerrarVentanaVictima();
 									}
 									else if(parseInt($(xml).find('banderaOp').text())==0)
 									{
 										//se puede eliminar el objeto sin problemas
-										window.parent.customAlert("No se logró anular a la víctima");
+										window.parent.customAlert("No se logr&oacute; anular a la v&iacute;ctima");
 									}
 									else if(parseInt($(xml).find('banderaOp').text())==-1)
 									{
-										window.parent.customAlert("Ocurrión un error al tratar de anular a la víctima,<br/>consulte a su administrador ");
+										window.parent.customAlert("Ocurri&oacute;n un error al tratar de anular a la v&iacute;ctima,<br/>consulte a su administrador ");
 									}
 					    	  }
 					    });
@@ -1376,7 +1376,7 @@
 					}
 					
 					/**
-					* Función que guarda los datos de la pantalla
+					* Funci&oacute;n que guarda los datos de la pantalla
 					*/
 					function guardarOrgDenunciante(){
 						$('#iIngOrgBtnGuardar').unbind();
@@ -1421,7 +1421,7 @@
 						    			  }
 
 						    			  try{window.parent.cargaGridVictimaOrg();}catch(e){}
-							    		  alertDinamico("La organización se guardó exitosamente");
+							    		  alertDinamico("La organizaci&oacute;n se guard&oacute; exitosamente");
 							    		  desavilitaDatos();
 							    		  habilitaDeshabilitaCamposIngOrganizacion(0);
 						    			  deshabilitaDatosDomicilio();
@@ -1436,7 +1436,7 @@
 						    		  else
 						    		  {
 						    			  idOrganizacion=0;
-						    			  alertDinamico("Ocurrió un error al guardar la organización");
+						    			  alertDinamico("Ocurri&oacute; un error al guardar la organizaci&oacute;n");
 						    		  }
 						    	  }
 						    	});
@@ -1501,7 +1501,7 @@
 			$("#trIdiomaLengua").hide();
 			$("#rowDomicilioNotif").hide();
 			
-			//deshabilita pestañas inecesarias
+			//deshabilita pesta&ntilde;as inecesarias
 			habilitaDeshabilitaTabAcordeon1("mContactoTab", 0);
 			habilitaDeshabilitaTabAcordeon1("cejaMediaFiliacion",0);
 			habilitaDeshabilitaTabAcordeon1("documentoTab",0);
@@ -1529,7 +1529,7 @@
 			//cambia etiqueta colonia por localidad
 			cambiaEtiquetaColonia("si");
 			
-			//habilita pestaña defuncion
+			//habilita pesta&ntilde;a defuncion
 			habilitaDeshabilitaTabAcordeon1("lugarDefuncionTab", 1);
 		
 		}
@@ -1546,7 +1546,7 @@
 		$("#trIdiomaLengua").show();
 		$("#rowDomicilioNotif").show();
 		
-		//habilita pestañas necesarias
+		//habilita pesta&ntilde;as necesarias
 		habilitaDeshabilitaTabAcordeon1("mContactoTab",1);
 		habilitaDeshabilitaTabAcordeon1("cejaMediaFiliacion",1);
 		habilitaDeshabilitaTabAcordeon1("documentoTab",1);
@@ -1557,7 +1557,7 @@
 		//cambia etiqueta colonia por localidad
 		cambiaEtiquetaColonia("no");
 		
-		//deshabilita pestaña defuncion
+		//deshabilita pesta&ntilde;a defuncion
 		habilitaDeshabilitaTabAcordeon1("lugarDefuncionTab", 0);
 	}
 	
@@ -1734,7 +1734,7 @@
 					                <dd>
 					                	<jsp:include page="ingresarMediosContactoView.jsp"/>
 					                </dd>
-					                <dt id="documentoTab">Documentos de Identificación </dt>
+					                <dt id="documentoTab">Documentos de Identificaci&oacute;n </dt>
 					                <dd>
 										<jsp:include page="ingresarDocumentoIdentificacionView.jsp"/>
 									</dd>

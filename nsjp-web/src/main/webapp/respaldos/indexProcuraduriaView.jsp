@@ -295,7 +295,7 @@
 		//Grid de Solicitudes por atender
 		jQuery("#gridSolsXAtndr").jqGrid({ 
 			datatype: "xml", 
-			colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creación','Fecha Limite','Institución','Remitente'], 
+			colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creaci&oacute;n','Fecha Limite','Instituci&oacute;n','Remitente'], 
 			colModel:[ 	{name:'caso',index:'caso', width:180,hidden:true},
 			           	{name:'expediente',index:'expediente', width:180}, 
 						{name:'folio',index:'folio', width:100}, 
@@ -320,7 +320,7 @@
 		//Grid de Solicitudes generadas
 		jQuery("#gridSolsGeneradas").jqGrid({ 
 			datatype: "xml", 
-			colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creación','Fecha Limite','Institución','Destinatario'], 
+			colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creaci&oacute;n','Fecha Limite','Instituci&oacute;n','Destinatario'], 
 			colModel:[ 	{name:'caso',index:'caso', width:150,hidden:true},
 			           	{name:'expediente',index:'expediente', width:180}, 
 						{name:'folio',index:'folio', width:100}, 
@@ -452,7 +452,7 @@
         var pantallaSolicitada=4;
 		idWindowNuevaDenuncia++;
 		 		
-		$.newWindow({id:"iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia, statusBar: true, posx:0,posy:0,width:1430,height:670,title:"Carpeta de investigación: ", type:"iframe"});
+		$.newWindow({id:"iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia, statusBar: true, posx:0,posy:0,width:1430,height:670,title:"Carpeta de investigaci&oacute;n: ", type:"iframe"});
 		$.updateWindowContent("iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia,'<iframe src="<%= request.getContextPath() %>/BusquedaExpediente.do?abreenPenal=abrPenal&ingresoDenuncia='+ingresoDenuncia +'&idNumeroExpediente='+id+'&pantallaSolicitada='+pantallaSolicitada+'&flagIndexProcView=1" width="1430" height="670" />');
 		$("#" +"iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia + " .window-maximizeButton").click();		
 	}
@@ -482,7 +482,7 @@
 
     
     function tituloVentana(num){
-		$("#iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia+" div.window-titleBar-content").html("Carpeta de investigación: "+num);
+		$("#iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia+" div.window-titleBar-content").html("Carpeta de investigaci&oacute;n: "+num);
 	}
 
     function buscarExpediente() {
@@ -1004,7 +1004,7 @@
 			alert("Ya se abrio una ventana");
 		}
 		else{
-			$.newWindow({id:"iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia, statusBar: true, posx:200,posy:50,width:1140,height:400,title:"Carpeta de investigación: "+numeroExpediente, type:"iframe"});
+			$.newWindow({id:"iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia, statusBar: true, posx:200,posy:50,width:1140,height:400,title:"Carpeta de investigaci&oacute;n: "+numeroExpediente, type:"iframe"});
 	    	$.updateWindowContent("iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia,'<iframe src="<%= request.getContextPath() %>/IngresarMenuIntermedio.do?idNuevaDenuncia=1&pantallaSolicitada='+pantallaSolicitada+'" width="1140" height="400" />');
 		}	
 	}
@@ -1018,7 +1018,7 @@
 			jQuery("#gridEvidenciasNuevas").jqGrid({ 
 				url:'<%= request.getContextPath()%>/solicitudEvidenciasPorEstatus.do?estatus=1&areaSolicitante=3', 
 				datatype: "xml", 
-				colNames:['Folio','Número de caso','Número de expediente','Nombre del solicitante','Cadena de custodia','Objetos solicitados','Inicio de préstamo','Fin de préstamo','Fecha límite'], 
+				colNames:['Folio','N&uacute;mero de caso','N&uacute;mero de expediente','Nombre del solicitante','Cadena de custodia','Objetos solicitados','Inicio de pr&eacute;stamo','Fin de pr&eacute;stamo','Fecha l&iacute;mite'], 
 				colModel:[ 	{name:'Folio',index:'folio', width:100},
 				           	{name:'NumeroCaso',index:'numeroCaso', width:100},
 				           	{name:'NumeroExpediente',index:'numeroExpediente', width:100},
@@ -1063,7 +1063,7 @@
 			jQuery("#gridEvidenciasPendientes").jqGrid({ 
 				url:'<%= request.getContextPath()%>/solicitudEvidenciasPorEstatus.do?estatus=2&areaSolicitante=3', 
 				datatype: "xml", 
-				colNames:['Folio','Número de caso','Número de expediente','Nombre del solicitante','Cadena de custodia','Objetos solicitados','Inicio de préstamo','Fin de préstamo','Fecha límite','Ultima modificación'], 
+				colNames:['Folio','N&uacute;mero de caso','N&uacute;mero de expediente','Nombre del solicitante','Cadena de custodia','Objetos solicitados','Inicio de pr&eacute;stamo','Fin de pr&eacute;stamo','Fecha l&iacute;mite','Ultima modificaci&oacute;n'], 
 				colModel:[ 	{name:'Folio',index:'folio', width:100},
 				           	{name:'NumeroCaso',index:'numeroCaso', width:100},
 							{name:'NumeroExpediente',index:'numeroExpediente', width:100},
@@ -1106,7 +1106,7 @@
 			jQuery("#gridEvidenciasConcluidas").jqGrid({ 
 				url:'<%= request.getContextPath()%>/solicitudEvidenciasPorEstatus.do?estatus=3&areaSolicitante=3', 
 				datatype: "xml", 
-				colNames:['Folio','Número de caso','Número de expediente','Nombre del solicitante','Cadena de custodia','Objetos solicitados','Inicio de préstamo','Fin de préstamo','Fecha límite','Fecha de cierre' ], 
+				colNames:['Folio','N&uacute;mero de caso','N&uacute;mero de expediente','Nombre del solicitante','Cadena de custodia','Objetos solicitados','Inicio de pr&eacute;stamo','Fin de pr&eacute;stamo','Fecha l&iacute;mite','Fecha de cierre' ], 
 				colModel:[ 	{name:'Folio',index:'folio', width:100},
 				           	{name:'NumeroCaso',index:'numeroCaso', width:100},
 							{name:'NumeroExpediente',index:'numeroExpediente', width:100},
@@ -1145,7 +1145,7 @@
 		jQuery("#gridNuevoAvisoPosHechoDel").jqGrid({ 
 			url:'<%=request.getContextPath()%>/consultarAvisosNuevosPosiblesHechosDel.do?estatus=NO_ATENDIDA', 
 			datatype: "xml", 
-			colNames:['Lugar de los hechos','Tipo de delito', 'Fecha y Hora envío'], 
+			colNames:['Lugar de los hechos','Tipo de delito', 'Fecha y Hora env&iacute;o'], 
 			colModel:[ 	{name:'Lugar',index:'lugar', width:425},
 			           	{name:'Tipodelito',index:'tipodelito', width:125}, 
 						{name:'Fecha',index:'fecha', width:125}
@@ -1173,7 +1173,7 @@
 		jQuery("#gridAvisoAtnddPosHechoDel").jqGrid({ 
 			url:'<%=request.getContextPath()%>/consultarAvisosNuevosPosiblesHechosDel.do?estatus=ATENDIDA', 
 			datatype: "xml", 
-			colNames:['Lugar de los hechos','Tipo de delito', 'Fecha y Hora envío'], 
+			colNames:['Lugar de los hechos','Tipo de delito', 'Fecha y Hora env&iacute;o'], 
 			colModel:[ 		{name:'Lugar',index:'lugar', width:425},
 				           	{name:'Tipodelito',index:'tipodelito', width:205}, 
 							{name:'Fecha',index:'fecha', width:195}
@@ -1324,7 +1324,7 @@
 	*/
 	function dblClickRowBandejaAudiencias(rowID){
 		idWindowDetalleNotificacion++;
-		$.newWindow({id:"iframewindowDetalleNotificacion"+idWindowDetalleNotificacion, statusBar: true, posx:251,posy:111,width:838,height:360,title:"Atender Notificación", type:"iframe"});
+		$.newWindow({id:"iframewindowDetalleNotificacion"+idWindowDetalleNotificacion, statusBar: true, posx:251,posy:111,width:838,height:360,title:"Atender Notificaci&oacute;n", type:"iframe"});
     	$.updateWindowContent("iframewindowDetalleNotificacion"+idWindowDetalleNotificacion,'<iframe src="<%=request.getContextPath()%>/acarrearIdEvento.do?idEvento=' +rowID +'" width="838" height="360" />'); 
 	}
 	
@@ -1462,7 +1462,7 @@
 			jQuery("#gridDetalleSolAvisosDetencion").jqGrid({ 
 				url:'<%= request.getContextPath()%>/SolicitudesNoAtendidas.do', 
 				datatype: "xml", 
-				colNames:['Folio','Caso','Imputado:','Delito(s)','<bean:message key="agencia"/>','Fecha-Hora de detención','Fecha-Hora de aviso'], 
+				colNames:['Folio','Caso','Imputado:','Delito(s)','<bean:message key="agencia"/>','Fecha-Hora de detenci&oacute;n','Fecha-Hora de aviso'], 
 				colModel:[ 	{name:'folio',index:'2008', width:150, align:"center"},
 				           	{name:'caso',index:'2002', width:180, align:"center"},
 				           	{name:'imputado',index:'2009', width:200, align:"center"},
@@ -1502,7 +1502,7 @@
 	}
 
 	/*
-	*Invocación de la funcionalidad para generar un visualizador de imagen  $('#imageViewer').click(generaVisorGraficaView);
+	*Invocaci&oacute;n de la funcionalidad para generar un visualizador de imagen  $('#imageViewer').click(generaVisorGraficaView);
 	*/
 	function generaVisorGraficaView() {
 		$.newWindow({id:"iframewindowWindowImageViewer", statusBar: true, posx:85,posy:86,width:1120,height:499,title:"Visor de imagenes", type:"iframe"});
@@ -1516,7 +1516,7 @@
 	function muestraSolicitudTranscripcion()
 	{
 		idWindowSolicitudTranscripcion++;
-		$.newWindow({id:"iframewindowSolicitudTranscripcion"+idWindowSolicitudTranscripcion, statusBar: true, posx:253,posy:113,width:812,height:454,title:"Solicitud de Transcripción", type:"iframe"});
+		$.newWindow({id:"iframewindowSolicitudTranscripcion"+idWindowSolicitudTranscripcion, statusBar: true, posx:253,posy:113,width:812,height:454,title:"Solicitud de Transcripci&oacute;n", type:"iframe"});
     	$.updateWindowContent("iframewindowSolicitudTranscripcion"+idWindowSolicitudTranscripcion,'<iframe src="<%=request.getContextPath()%>/solicitarTranscripcionEnPG.do" width="812" height="454" />');
 
     	}
@@ -1846,7 +1846,7 @@
 			//$("#gview_gridExpCompartidos .ui-jqgrid-bdiv").css('width', '900px');
 	}
 	/************************************** FIN  FUNCIONES PARA EL GRID DE EXPEDIENTES COMPARTIDOS ********************************************/
-	//$("#" +"iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia + " .window-maximizeButton").click();		ajusta al tamaño de la pantalla
+	//$("#" +"iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia + " .window-maximizeButton").click();		ajusta al tama&ntilde;o de la pantalla
 	/*
 	 *Funcion para consultar los roles extras de cada usuario y
 	 * construlle el arbol dinamico de los tipos de rol en el menu derecho
@@ -2219,7 +2219,7 @@
 
 	<div id="dialog-logout" title="Cerrar Sesi&oacute;n">
 		<p align="center">
-			<span id="logout">¿Desea cerrar su sesi&oacute;n?</span>
+			<span id="logout">&iquest;Desea cerrar su sesi&oacute;n?</span>
 		</p>
 	</div>
 
@@ -2234,11 +2234,11 @@
 		<p align="center">
 			<table border="0">
 				<tr>
-					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contraseña para desbloquear.</td>
+					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contrase&ntilde;a para desbloquear.</td>
 					
 				</tr>
 				<tr>
-					<td align="right"><label style="color:#4A5C68">Contraseña:</label></td>
+					<td align="right"><label style="color:#4A5C68">Contrase&ntilde;a:</label></td>
 					<td><input type="password" name="password" id="password" value="" maxlength="15" size="20"></td>
 				</tr>
 				<tr id="captchaJPG" >
@@ -2267,7 +2267,7 @@
 				La sesi&oacute;n se cerrar&aacute; en <span id="dialog-countdown" style="font-weight:bold"></span> segundos.
 			</p>
 
-			<p>¿Desea continuar con la sesi&oacute;n?</p>
+			<p>&iquest;Desea continuar con la sesi&oacute;n?</p>
 	</div>
 	<div id="dialog-alarmPos" title="Alarma ">
 		<p align="center">

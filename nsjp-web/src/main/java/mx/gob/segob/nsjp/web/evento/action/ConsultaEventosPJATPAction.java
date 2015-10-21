@@ -12,7 +12,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+ 
 import mx.gob.segob.nsjp.comun.enums.audiencia.EstatusAudiencia;
 import mx.gob.segob.nsjp.comun.enums.audiencia.Eventos;
 import mx.gob.segob.nsjp.comun.enums.calidad.Calidades;
@@ -286,7 +286,7 @@ public class ConsultaEventosPJATPAction extends GenericAction {
 
 	/**
 	 * Metodo utilizado para realizar la consulta de eventos por expediente
-	 * (SOLO HISTÓRCIO)
+	 * (SOLO HISTï¿½RCIO)
 	 * 
 	 * @param mapping
 	 * @param form
@@ -597,7 +597,7 @@ public class ConsultaEventosPJATPAction extends GenericAction {
 
 	/**
 	 * Metodo utilizado para realizar la consulta de eventos por expediente
-	 * (SOLO HISTÓRCIO)
+	 * (SOLO HISTï¿½RCIO)
 	 * 
 	 * @param mapping
 	 * @param form
@@ -639,7 +639,7 @@ public class ConsultaEventosPJATPAction extends GenericAction {
 
 	/**
 	 * Metodo utilizado para realizar la consulta de eventos por expediente
-	 * (SOLO HISTÓRCIO)
+	 * (SOLO HISTï¿½RCIO)
 	 * 
 	 * @param mapping
 	 * @param form
@@ -871,7 +871,7 @@ public class ConsultaEventosPJATPAction extends GenericAction {
 
 	/**
 	 * Metodo utilizado para realizar la consulta de eventos por expediente
-	 * (SOLO HISTÓRCIO)
+	 * (SOLO HISTï¿½RCIO)
 	 * 
 	 * @param mapping
 	 * @param form
@@ -950,7 +950,7 @@ public class ConsultaEventosPJATPAction extends GenericAction {
 
 	/**
 	 * Metodo utilizado para realizar la consulta de eventos por expediente
-	 * (SOLO HISTÓRCIO)
+	 * (SOLO HISTï¿½RCIO)
 	 * 
 	 * @param mapping
 	 * @param form
@@ -1024,7 +1024,7 @@ public class ConsultaEventosPJATPAction extends GenericAction {
 
 	/**
 	 * Realiza la consulta de datos para llenar un grid de involucrados y
-	 * víctimas relacionados a un número de expediente
+	 * vï¿½ctimas relacionados a un nï¿½mero de expediente
 	 * 
 	 * @param mapping
 	 * @param form
@@ -1116,10 +1116,10 @@ public class ConsultaEventosPJATPAction extends GenericAction {
 	}
 
 	/**
-	 * Consulta las audiencias finalizadas de un tipo de causa en específico
+	 * Consulta las audiencias finalizadas de un tipo de causa en especï¿½fico
 	 * para llenar el grid donde el usuario selecciona la audiencia a la que se
-	 * refiere al dar de alta una solicitud de transcripción, audio/video,
-	 * casasión, apelación
+	 * refiere al dar de alta una solicitud de transcripciï¿½n, audio/video,
+	 * casasiï¿½n, apelaciï¿½n
 	 * 
 	 * @param mapping
 	 * @param form

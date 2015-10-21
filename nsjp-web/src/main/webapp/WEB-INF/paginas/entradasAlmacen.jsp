@@ -1,7 +1,7 @@
 <%@page
 	import="mx.gob.segob.nsjp.comun.enums.funcionario.TipoDefensoria"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -42,7 +42,7 @@
 }
 </style>
 
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <script type="text/javascript">
 
@@ -73,12 +73,12 @@ function tipoEslabon(){
 	  	width: 237,
 	  	height: 241,
 	  	maxWidth: 500,
-	  	buttons:{"Registrar Movimiento en Almacén":function() {	
+	  	buttons:{"Registrar Movimiento en Almac&eacute;n":function() {	
 
 	  					  					 
 	  			$(this).dialog("close");
 	  		},
-	  		"Relación de Evidencias con Movimiento":function() {
+	  		"Relaci&oacute;n de Evidencias con Movimiento":function() {
 	  			$(this).dialog("close");
 	  		}
 	  	}
@@ -125,7 +125,7 @@ function grid(){
 		
 							data : "",
 							datatype : "xml",
-							colNames : ['Número de la Evidencia', 'Nombre de la Evidencia','Información de la Evidencia','Número de Eslabón','Tipo de Eslabón',' Nombre del Almacén' ],
+							colNames : ['N&uacute;mero de la Evidencia', 'Nombre de la Evidencia','Informaci&oacute;n de la Evidencia','N&uacute;mero de Eslab&oacute;n','Tipo de Eslab&oacute;n',' Nombre del Almac&eacute;n' ],
 							colModel : [ {name : 'NumEvidencia',index : 'NumEvidencia',	width : 200,resizable : true},
 										{name : 'NEvidencia',index : 'NEvidencia',	width : 200,resizable : true},	
 							             {name : 'IEvidencia',index : 'IEvidencia',	width : 200,resizable : true},
@@ -200,7 +200,7 @@ function grid(){
 
 <table id="catEslabon" style="display: none;">
 <tr>
-<td>Tipo Eslabón</td>
+<td>Tipo Eslab&oacute;n</td>
 <td><select >
 <option  >- Seleccionar -</option>
 </select> </td>
@@ -209,7 +209,7 @@ function grid(){
 <div id="nabtabgrid" >
 <table id="tabgrid" align="center"></table>
 <div id="pagerGrid"></div>
-<input type="button" value="Registrar Entradas al Almacén" onclick="lanzaRegistrarEntradasAlmacen()" class="btn_Generico">
+<input type="button" value="Registrar Entradas al Almac&eacute;n" onclick="lanzaRegistrarEntradasAlmacen()" class="btn_Generico">
 </div>
 
 

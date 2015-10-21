@@ -18,7 +18,7 @@
 *------------------------------------------------------------------------------
 */
 package mx.gob.segob.nsjp.web.objeto.form;
-
+    
 import mx.gob.segob.nsjp.web.base.form.GenericForm;
 
 /**
@@ -139,7 +139,7 @@ public class AnimalForm extends GenericForm{
 	private String gcDescripcionAnimal;
 
 	/**
-	 * Método de acceso al campo glTipoAnimalId.
+	 * Mï¿½todo de acceso al campo glTipoAnimalId.
 	 * @return El valor del campo glTipoAnimalId
 	 */
 	public Long getGlTipoAnimalId() {
@@ -155,7 +155,7 @@ public class AnimalForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo gsEstadoAnimal.
+	 * Mï¿½todo de acceso al campo gsEstadoAnimal.
 	 * @return El valor del campo gsEstadoAnimal
 	 */
 	public String getGsEstadoAnimal() {
@@ -171,7 +171,7 @@ public class AnimalForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo gsRazaAnimal.
+	 * Mï¿½todo de acceso al campo gsRazaAnimal.
 	 * @return El valor del campo gsRazaAnimal
 	 */
 	public String getGsRazaAnimal() {
@@ -187,7 +187,7 @@ public class AnimalForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo glCondicionFisicaAnimalId.
+	 * Mï¿½todo de acceso al campo glCondicionFisicaAnimalId.
 	 * @return El valor del campo glCondicionFisicaAnimalId
 	 */
 	public Long getGlCondicionFisicaAnimalId() {
@@ -203,7 +203,7 @@ public class AnimalForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo gcDescripcionAnimal.
+	 * Mï¿½todo de acceso al campo gcDescripcionAnimal.
 	 * @return El valor del campo gcDescripcionAnimal
 	 */
 	public String getGcDescripcionAnimal() {
@@ -219,7 +219,7 @@ public class AnimalForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo serialversionuid.
+	 * Mï¿½todo de acceso al campo serialversionuid.
 	 * @return El valor del campo serialversionuid
 	 */
 	public static long getSerialversionuid() {

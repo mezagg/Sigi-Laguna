@@ -98,7 +98,7 @@
 			//Se agrega una clase de estilo al boton
 			$("#btnRegEslbnCadCus").removeClass("btn_Generico");
 			$("#btnRegEslbnCadCus").addClass("btn_grande");
-			$("#btnRegEslbnCadCus").val("Solicitar extensión / cancelación de prestamo");
+			$("#btnRegEslbnCadCus").val("Solicitar extensi&oacute;n / cancelaci&oacute;n de prestamo");
 			$("#btnAdjuntarDocumento").hide();
 			configuraValorTipoEslabon(<%= TiposEslabon.SOLICITUD.getValorId() %>);
 			$("#seccionTipoEslabon").hide();
@@ -194,12 +194,12 @@
 							var bandera=$(xml).find('exito').find('bandera').text();
 							if(parseInt(bandera)==0 || $(xml).find('body').text() == "null")
 							{
-								customAlert("Ocurrió un error al guardar el eslabón de la cadena de custodia.");
+								customAlert("Ocurri&oacute; un error al guardar el eslab&oacute;n de la cadena de custodia.");
 							}
 							else
 							{
 					        								
-					        	customAlert("Se guardó exitosamente el eslabón de la cadena de custodia.");
+					        	customAlert("Se guard&oacute; exitosamente el eslab&oacute;n de la cadena de custodia.");
 					        	
 					        	
 								if (typeof consultarEslabonesXidEvidencia == 'function') {
@@ -207,7 +207,7 @@
 						        }
 
 								//Se acualiza el estatus de la solicitud
-								//Consulta el primer eslabón de tipo Registro
+								//Consulta el primer eslab&oacute;n de tipo Registro
 								switch(parseInt($('#cbxTipoEslabon option:selected').val())){
 									case <%= TiposEslabon.REGISTRO.getValorId() %>: 
 										 actualizaEstatusDeEvidencia('<%= EstatusEvidencia.NUEVA.getValorId() %>');
@@ -240,7 +240,7 @@
 						else
 						{
 							cadenaCustodia="";
-							customAlert("Ocurrió un error al guardar el eslabón de la cadena de custodia.");
+							customAlert("Ocurri&oacute; un error al guardar el eslab&oacute;n de la cadena de custodia.");
 						}
 				}
 			});
@@ -254,7 +254,7 @@
 		//revisamos la opcion seleccionada
 		if(parseInt(tipoEslabon)==-1)
 		{
-			customAlert("Debe seleccionar el tipo de eslabón de entrega para poder continuar");
+			customAlert("Debe seleccionar el tipo de eslab&oacute;n de entrega para poder continuar");
 			return false;
 		}
 		//revisamos el nombre de la persona que entrega
@@ -294,7 +294,7 @@
 		//revisamos la institucon de entrega
 		if($.trim($("#txtInstitucionEslbnEntrega").val()).length==0)
     	{
-			customAlert("Debe proporcionar la institución de entrega");
+			customAlert("Debe proporcionar la instituci&oacute;n de entrega");
 			return false;
     	}
 		//revisamos el nombre de quien recibe
@@ -321,19 +321,19 @@
 		//revisamos la fecha de recepcion
 		if($.trim($("#txtFechaRecepcionEslbn").val()).length==0)
 		{
-			customAlert("Debe proporcionar la fecha de la recepción");
+			customAlert("Debe proporcionar la fecha de la recepci&oacute;n");
 			return false;
 		}
 		//revisamos la hora de recpcion
 		if($.trim($("#txtHoraRecepcionEslbn").val()).length==0)
 		{
-			customAlert("Debe proporcionar la hora de la recepción");
+			customAlert("Debe proporcionar la hora de la recepci&oacute;n");
 			return false;
 		}
 		//revisamos la institucon de recepcion
 		if($.trim($("#txtInstitucionEslbnRecepcion").val()).length==0)
     	{
-			customAlert("Debe proporcionar la institución de recepción");
+			customAlert("Debe proporcionar la instituci&oacute;n de recepci&oacute;n");
 			return false;
     	}
 		
@@ -360,25 +360,25 @@
 				//revisamos la fecha de inicio del periodo de prestamo
 				if($.trim($("#txtFechaPrestamoEslbn").val()).length==0)
 				{
-					customAlert("Debe proporcionar la fecha de inicio del periodo de préstamo");
+					customAlert("Debe proporcionar la fecha de inicio del periodo de pr&eacute;stamo");
 					return false;
 				}
 				//revisamos la hora de inicio del periodo de prestamo
 				if($.trim($("#txtHoraEntregaEslbn").val()).length==0)
 				{
-					customAlert("Debe proporcionar la hora de inicio del periodo de préstamo");
+					customAlert("Debe proporcionar la hora de inicio del periodo de pr&eacute;stamo");
 					return false;
 				}
 				//revisamos la fecha de fin del periodo de prestamo
 				if($.trim($("#txtFechaPrestamoRecEslbn").val()).length==0)
 				{
-					customAlert("Debe proporcionar la fecha final del periodo de préstamo");
+					customAlert("Debe proporcionar la fecha final del periodo de pr&eacute;stamo");
 					return false;
 				}
 				//revisamos la hora de fin del periodo de prestamo
 				if($.trim($("#txtHoraPrestamoRepEslbn").val()).length==0)
 				{
-					customAlert("Debe proporcionar la hora del final del periodo de préstamo");
+					customAlert("Debe proporcionar la hora del final del periodo de pr&eacute;stamo");
 					return false;
 				}
 					
@@ -576,7 +576,7 @@
 					}
 					else
 					{
-						customAlert("Ocurrió un error al recuperar su información");
+						customAlert("Ocurri&oacute; un error al recuperar su informaci&oacute;n");
 					}
 			}
 		});
@@ -603,7 +603,7 @@
 			case <%= TiposEslabon.OTROS.getValorId() %>: 
 			   	$('#cbxEstatusEvidencia').append('<option value="' +   <%= EstatusEvidencia.BAJA.getValorId() %>  + '">Baja</option>');
 		   		$('#cbxEstatusEvidencia').append('<option value="' +   <%= EstatusEvidencia.DESTRUIDA.getValorId() %>  + '">Destruida</option>');
-		   		$('#cbxEstatusEvidencia').append('<option value="' +   <%= EstatusEvidencia.EN_ALMACEN.getValorId() %>  + '">En almacén</option>');
+		   		$('#cbxEstatusEvidencia').append('<option value="' +   <%= EstatusEvidencia.EN_ALMACEN.getValorId() %>  + '">En almac&eacute;n</option>');
 			   	$('#cbxEstatusEvidencia').append('<option value="' +   <%= EstatusEvidencia.EN_PRESTAMO.getValorId() %>  + '">En prestamo</option>');
 			   	$('#idSeccionEstatusEvidencia').show();
 			     break;    
@@ -835,11 +835,11 @@
 			<legend>Informaci&oacute;n de la evidencia</legend>
 			<table width="518" border="0">
 			  <tr>
-			    <td width="186">Ubicación Física:</td>
+			    <td width="186">Ubicaci&oacute;n F&iacute;sica:</td>
 			    <td width="316"><textarea name="texUbicacion" id="texUbicacion" cols="45" rows="4"></textarea></td>
 			  </tr>
 			  <tr>
-			    <td>Posición:</td>
+			    <td>Posici&oacute;n:</td>
 			    <td><input type="text" name="txtPosicion" id="txtPosicion" size="48" /></td>
 			  </tr>
 			</table>

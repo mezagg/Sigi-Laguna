@@ -9,7 +9,7 @@ import java.util.logging.Level;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+ 
 import mx.gob.segob.nsjp.comun.enums.documento.EstatusNotificacion;
 import mx.gob.segob.nsjp.comun.enums.excepciones.CodigoError;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
@@ -56,7 +56,7 @@ public class GenerarNotificacionAction extends GenericAction {
             FuncionarioDTO funcionarioDto = getUsuarioFirmado(request).getFuncionario();
             NotificacionDTO notificacionDto = notificacionDelegate.consultarUltimaNotificacionPorAnio(funcionarioDto);
             converter.alias("Notificacion", NotificacionDTO.class);
-            notificacionDto.setMotivo("Informe de notificación");
+            notificacionDto.setMotivo("Informe de notificaciï¿½n");
             String notificacionXml = converter.toXML(notificacionDto);
             if (logger.isDebugEnabled()) {
                 logger.debug("notificacionXml = " + notificacionXml);
@@ -91,7 +91,7 @@ public class GenerarNotificacionAction extends GenericAction {
             destinatarios.add(destinatario);
         }
         Grid<Destinatario> paginaGrid = new Grid<Destinatario>
-                //colNames:['idDestinatario','Nombre','Puesto', 'Correo Electrónico', 'Principal', "Copia"],
+                //colNames:['idDestinatario','Nombre','Puesto', 'Correo Electrï¿½nico', 'Principal', "Copia"],
                 (1, 32, 10, destinatarios, "claveFuncionario", "nombreFuncionario", "departamento.area.nombre", "email", "principal", "copia");
         if (logger.isDebugEnabled()) {
             logger.debug("paginaGrid = " + paginaGrid);

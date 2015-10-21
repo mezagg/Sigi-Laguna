@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title></title>
 						
 		<style type="text/css">
@@ -140,7 +140,7 @@
 				jQuery("#gridDetalleFrmPrincipal").jqGrid({ 
 					url:'local', 
 					datatype: "xml", 
-					colNames:['No. Evidencia','Tipo de Objeto', 'Objeto','Descripción'], 
+					colNames:['No. Evidencia','Tipo de Objeto', 'Objeto','Descripci&oacute;n'], 
 					colModel:[ 	{name:'Evidencia',index:'1', width:30}, 
 								{name:'Tipo',index:'2', width:30},
 								{name:'Objeto',index:'3', width:40}, 
@@ -371,7 +371,7 @@
     <TD width="1060" align="center">
 	    <table width="196" align="center" border="0" cellspacing="0" cellpadding="2">
 			<tr>
-				<td align="center" class="txt_gral_victima">Pantalla Consultar Movimiento de Objetos de Almacén</td>
+				<td align="center" class="txt_gral_victima">Pantalla Consultar Movimiento de Objetos de Almac&eacute;n</td>
 			</tr>
      	</table>
 	</TD>
@@ -435,7 +435,7 @@
 									<td id="fechaDatEntrega"></td>
 								</tr>
 								<tr>
-									<td class="txt_gral_victima">Tipo de préstamo:</td>
+									<td class="txt_gral_victima">Tipo de pr&eacute;stamo:</td>
 									<td id="prestamoDatEntrega"></td>
 								</tr>
 								<tr>
@@ -448,7 +448,7 @@
 						<td>&nbsp;</td>
 					</tr>
 					<tr>
-						<td colspan="2" class="txt_gral_victima">Datos de la Recepción</td>
+						<td colspan="2" class="txt_gral_victima">Datos de la Recepci&oacute;n</td>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 						<td><INPUT type=button class="btn_guardar" id=anterior value=- onclick="menosDatos()"></td>

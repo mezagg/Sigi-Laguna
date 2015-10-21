@@ -3,13 +3,13 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.solicitud.TiposSolicitudes"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.forma.Formas"%>
 <%@page import="java.util.Calendar"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="logic" uri="/WEB-INF/tld/struts-logic.tld" %>
 <%@ taglib prefix="bean" uri="/WEB-INF/tld/struts-bean.tld" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Atencion a Sollicitudes</title>
 
 <!--Se importan las css necesarias-->
@@ -373,7 +373,7 @@
 		
 		if ($('#fechaSolicitudPJATP').val() == '' || $('#fechaLimiteAudiencia').val() == ''
 				|| $('#horaLimiteAudiencia').val() == '') {
-			alert("Se debe ingresar una fecha y hora límite");
+			alert("Se debe ingresar una fecha y hora l&iacute;mite");
 		} else {
 
 			var fechaIniVal = $('#fechaSolicitudPJATP').val();
@@ -425,7 +425,7 @@
 		}
 		else
 		{
-			alert("Ocurrió un error al tratar de enviar la transcripción.");
+			alert("Ocurri&oacute; un error al tratar de enviar la transcripci&oacute;n.");
 		}
 	}
 
@@ -544,11 +544,11 @@
 				//Venismo de una insercion
 				if(parseInt($(xml).find('bandera').text())==1)
 				{
-					alert("La solicitud de la transcripción fue exitosa.");
+					alert("La solicitud de la transcripci&oacute;n fue exitosa.");
 				}
 				else
 				{
-					alert("Ocurrió un error al solicitar la transcripción.");
+					alert("Ocurri&oacute; un error al solicitar la transcripci&oacute;n.");
 				}
 			}
 		});
@@ -575,7 +575,7 @@
 			      	<td align="right">
 			      	</td>
 			      	<td align="right">
-			      		<input type="button" id="btnSolTranscripcion" value="Solicitar Transcripción" onclick="enviaTranscripcion();" class="btn_Generico"/>
+			      		<input type="button" id="btnSolTranscripcion" value="Solicitar Transcripci&oacute;n" onclick="enviaTranscripcion();" class="btn_Generico"/>
 			      	</td>
 			      </tr>
 				 <tr>
@@ -619,7 +619,7 @@
 			        <tr>
 			        <td width="125" align="right">
 			            <div id="divFechaLimite">
-			                <strong>Fecha límite: </strong>
+			                <strong>Fecha l&iacute;mite: </strong>
 			            </div>
 			            <div id="divTipoRecurso">
 			                <strong>Tipo de recurso:</strong>
@@ -667,7 +667,7 @@
 			      <tr>
 			        <td colspan="2"></td>
 			        <td align="right">
-			            <div id="divInsSolicitante"><strong>Institución Solicitante:</strong></div>
+			            <div id="divInsSolicitante"><strong>Instituci&oacute;n Solicitante:</strong></div>
 			        </td>
 			        <td>
 			            <select id="institucionSolicitantePJATP" style="width:200px;"></select>

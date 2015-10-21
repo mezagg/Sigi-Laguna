@@ -19,7 +19,7 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html" %>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic" %>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean" %>
-<%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%> 
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -428,7 +428,7 @@
 		jQuery("#gridObjsVehiculo").jqGrid({ 
 			url:'<%= request.getContextPath()%>/ConsultaObjetosGridVisorXTipo.do?numeroExpediente='+numeroExpediente+'&tipoObjeto=<%= Objetos.VEHICULO.getValorId() %>', 
 			datatype: "xml", 
-			colNames:['Vehículo','Folio de cadena de custodia', 'No. de casos asociados'], 
+			colNames:['Veh&iacute;culo','Folio de cadena de custodia', 'No. de casos asociados'], 
 			colModel:[ 	{name:'Vehiculo',index:'vehiculo', width:100}, 
 						{name:'FolioCadCus',index:'folioCadCus', width:150}, 
 						{name:'NoExpedientes',index:'noExpedientes', width:200,hidden:false}, 
@@ -437,7 +437,7 @@
 			rowNum:10,
 			rowList:[10,20,30,40,50,60],
 			width:600,
-			caption:"VEHÍCULOS",
+			caption:"VEH&Iacute;CULOS",
 			sortname: 'Clave',
 			viewrecords: true,
 			id: 'gridObjsVehiculo',
@@ -474,7 +474,7 @@
 		jQuery("#gridObjsEquipoComputo").jqGrid({
 			url:'<%= request.getContextPath()%>/limpiarGrid.do',
 			datatype: "xml", 
-			colNames:['Equipo de Cómputo','Folio de cadena de custodia', 'No. de casos asociados'], 
+			colNames:['Equipo de C&oacute;mputo','Folio de cadena de custodia', 'No. de casos asociados'], 
 			colModel:[ 	{name:'EquipoComputo',index:'equipoComputon', width:150}, 
 						{name:'FolioCadCus',index:'folioCadCus', width:150}, 
 						{name:'NoExpedientes',index:'noExpedientes', width:200,hidden:true}, 
@@ -1010,7 +1010,7 @@
 
 
 	/**
-	* Funcion que, de acuerdo a la etapa se ocultan o muestran pestañas.
+	* Funcion que, de acuerdo a la etapa se ocultan o muestran pesta&ntilde;as.
 	*/
 	function manageTabs(){
 		$("#tabDatosInteres").hide();
@@ -1400,11 +1400,11 @@
 	    	      if($(this).find('calidad').text() == '<%= Calidades.DENUNCIANTE.getValorId() %>' || $(this).find('calidad').text() == '<%= Calidades.DENUNCIANTE_ORGANIZACION.getValorId() %>'){
 						var liga = '<tr id="' + $(this).find('involucradoId').text() + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificaDenunciante(' + $(this).find('involucradoId').text() + ');">';
 	    	      	  if($(this).find('nombre').text()=='null'){
-						  liga += 'Anónimo';
+						  liga += 'An&oacute;nimo';
 					  }else if($(this).find('nombre').text()==''){
-						  liga += 'Anónimo';
+						  liga += 'An&oacute;nimo';
 					  }else if($(this).find('nombre').text()=='   '){							  
-						  liga += 'Anónimo';			
+						  liga += 'An&oacute;nimo';			
 					  }	else{
 						  liga += $(this).find('nombre').text();
 						}	
@@ -1418,7 +1418,7 @@
 							if($(this).find('nombre').text()=='null'){
 								  liga += 'Desconocido';
 						}else if($(this).find('nombre').text()=='' || $(this).find('nombre').text()=='   '){
-								  liga += 'Anónimo';
+								  liga += 'An&oacute;nimo';
 	    	    	    }
   		    	    	    else{
 								  liga += $(this).find('nombre').text();
@@ -1544,7 +1544,7 @@
 	//Abre una nueva ventana de crear una nuev victima
 	function modificarVictima(id) {
 		idWindowIngresarVictima++;
-		$.newWindow({id:"iframewindowIngresarVictima" + idWindowIngresarVictima, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Ingresar Víctima", type:"iframe"});
+		$.newWindow({id:"iframewindowIngresarVictima" + idWindowIngresarVictima, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Ingresar V&iacute;ctima", type:"iframe"});
 	    $.updateWindowContent("iframewindowIngresarVictima" + idWindowIngresarVictima,'<iframe src="<%= request.getContextPath() %>/IngresarVictima.do?idVictima='+id +'&numeroExpediente='+numeroExpediente +'" width="1100" height="530" />');
 	    $("#" +"iframewindowIngresarVictima" + idWindowIngresarVictima + " .window-maximizeButton").click();
 	}
@@ -1576,7 +1576,7 @@
 
 	function modificaQuienDetuvo(id) {			
 		idWindowIngresarQuienDetuvo++;
-		$.newWindow({id:"iframewindowQuienDetuvo" + idWindowIngresarQuienDetuvo, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Ingresar Quién Detuvo", type:"iframe"});
+		$.newWindow({id:"iframewindowQuienDetuvo" + idWindowIngresarQuienDetuvo, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Ingresar Qui&eacute;n Detuvo", type:"iframe"});
 	    $.updateWindowContent("iframewindowQuienDetuvo" + idWindowIngresarQuienDetuvo,'<iframe src="<%= request.getContextPath() %>/IngresarQuienDetuvo.do?elemento='+id +'&numeroExpediente='+numeroExpediente +'" width="1100" height="530" />');
 	    $("#" +"iframewindowQuienDetuvo" + idWindowIngresarQuienDetuvo + " .window-maximizeButton").click();
 	}
@@ -2058,7 +2058,7 @@
 		jQuery("#gridDetalleFrmPrincipal").jqGrid({ 
 			url:'<%=request.getContextPath()%>/consultarDocumentosDefensoria.do?tipo=3&idExpedienteop='+<%=numeroExpedienteIdOK%>+'&expedienteId='+<%=idExpedienteOK%>, 
 			datatype: "xml", 
-			colNames:['Tipo de documento','Fecha','Nombre de Documento','Nombre de la actividad','Fecha de la actividad','Área del responsable','Documentos', 'Documento Parcial'], 
+			colNames:['Tipo de documento','Fecha','Nombre de Documento','Nombre de la actividad','Fecha de la actividad','&Aacute;rea del responsable','Documentos', 'Documento Parcial'], 
 			colModel:[ 	{name:'Tipo',index:'tipo', width:155, align:"center"}, 
 			           	{name:'Fecha',index:'fecha', width:90, align:"center"},
 						{name:'Nombre',index:'nombre', width:255, align:"center"},
@@ -2114,7 +2114,7 @@
 	/*
 	*Funcion que aplica submit a la forma para abrir el documento solicitado
 	*id= id del documento seleccionado en el grid de documentos
-	*Así se obtenia anteriormente:
+	*As&iacute; se obtenia anteriormente:
 	*	
 	*document.formaArchivoD.documentoId.value = id;
 	*document.formaArchivoD.submit();
@@ -2129,7 +2129,7 @@
 		jQuery("#gridBitacora").jqGrid({
 					url : '<%= request.getContextPath()%>/consultarBitacoraPorExpediente.do?numeroExpedienteId='+<%=numeroExpedienteIdOK%>+'', 
 					datatype: "xml", 						
-					colNames:['Fecha','Hora','Movimiento','Descripción'], 
+					colNames:['Fecha','Hora','Movimiento','Descripci&oacute;n'], 
 					colModel:[{name:'Fecha',	 	index:'1',  width:200, align:"center"},
 					          {name:'Hora',	        index:'4', 	width:200, align:"center", sortable: false},
 					          {name:'Movimiento',	index:'2', 	width:200, align:"center"},
@@ -2148,7 +2148,7 @@
 
 	
     </script>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Menu Defensor</title>			
 </head>
 <body>
@@ -2160,7 +2160,7 @@
 		<li id="tabResumenExped"><a href="#tabsconsultaprincipal-1" onclick="datosGenerales()" >Resumen</a></li>
 		<li id="tabResumenSol"><a href="#tabsVisorDefensoria-1" >Resumen de la Solicitud</a></li>
 		<li id="tabDatosInteres"><a href="#tabsconsultaprincipal-2" >Interesado</a></li>
-		<li id="tabMotivoAsesor"><a href="#tabsconsultaprincipal-3" >Motivo Asesoría</a></li>
+		<li id="tabMotivoAsesor"><a href="#tabsconsultaprincipal-3" >Motivo Asesor&iacute;a</a></li>
 		<!-- funcion definida en cmpInvolucradosExpedientes.js --> 
 		<!-- <li id="tabInvolucrados"><a href="#tabsconsultaprincipal-4" onclick="cargarTabInvolucradosOnClick()">Involucrados</a></li> -->
 		<li class="tabTabsInv"><a href="#tabs-1" onclick="cargarInvolucradosExpedienteMI(<%=idNumeroExpediente%>);">Involucrados</a></li>
@@ -2175,7 +2175,7 @@
 		<li id="tab_Actuaciones"><a href="#tabsconsultaprincipal-10" onclick="cagarGridActuacionesPorDefendido();">Actuaciones</a></li>
 		<li id="tab_Notas_Exped"><a href="#tabsconsultaprincipal-11" onclick="consultarNotas()">Notas</a></li>
 		<li id="tabDocumentosEx"><a href="#tabsconsultaprincipal-12"  onclick="documentos()">Documentos</a></li>
-		<li id="tab_BitacoraExp"><a href="#tabsconsultaprincipal-13" onclick="cargaGridBitacora()">Bitácora</a></li>
+		<li id="tab_BitacoraExp"><a href="#tabsconsultaprincipal-13" onclick="cargaGridBitacora()">Bit&aacute;cora</a></li>
 	</ul>
 	
 	<!--Inicia Resumen Expediente Cuando tiene una solicitud-->
@@ -2187,7 +2187,7 @@
 	
 	<div id="tabsconsultaprincipal-1" style="height: 600px !important;">			
 
-		<!-- Inicia Resumen Expediente con Carpeta de Investigación -->
+		<!-- Inicia Resumen Expediente con Carpeta de Investigaci&oacute;n -->
 		<div id="resumen2" class="fondoClaroAp">
 			<table width="1142px"  height="612px" border="0" cellspacing="0" cellpadding="0" class="back_generales">
 			  <tr><td colspan="6">&nbsp;</td></tr>			
@@ -2199,7 +2199,7 @@
 			    <td width="19" style="font-size:14px; background-color:" >&nbsp;</td>
 			    <td width="4">&nbsp;</td>
 			    <td align="left" width="507" style="font-size:14px; background-color:">
-					<strong>Estatus de Actuación:</strong>&nbsp;
+					<strong>Estatus de Actuaci&oacute;n:</strong>&nbsp;
 					<label id="estatusActuacion"></label>
 				</td>
 			    <!--  <td id="idsNumerosDelExpediente" width="250" style="font-size:14px; background-color:">
@@ -2235,17 +2235,17 @@
 			   
 			   	 <table  border="0" cellpadding="0" cellspacing="0" width="99%">
 		          <tr>
-		            <td width="145" align="right" nowrap style="background-color:">Vehículos:</td>
+		            <td width="145" align="right" nowrap style="background-color:">Veh&iacute;culos:</td>
 		            <td width="332" id="Vehiculos">&nbsp;</td>
 		            <td id="imgVehiculo" width="25"><img title="Contiene mas registros" width="10px" src='<%= request.getContextPath() %>/resources/images/add.png'></td>
 		          </tr>
 		          <tr>
-		            <td align="right" style="background-color:">Equipos de cómputo:</td>
+		            <td align="right" style="background-color:">Equipos de c&oacute;mputo:</td>
 		            <td id="EquiposDeComputo" >&nbsp;</td>
 		            <td id="imgEquiposDeComputo" width="25"><img title="Contiene mas registros" width="10px" src='<%= request.getContextPath() %>/resources/images/add.png'></td>
 		          </tr>
 		          <tr>
-		            <td align="right" style="background-color:">Equipos Telefónicos:</td>
+		            <td align="right" style="background-color:">Equipos Telef&oacute;nicos:</td>
 		            <td id="EquiposTelefonicos">&nbsp;</td>
 		            <td id="imgEquiposTelefonicos" width="25"><img title="Contiene mas registros" width="10px" src='<%= request.getContextPath() %>/resources/images/add.png'></td>
 		          </tr>
@@ -2275,7 +2275,7 @@
 		            <td id="imgAeronaves" width="25"><img title="Contiene mas registros" width="10px" src='<%= request.getContextPath() %>/resources/images/add.png'></td>
 		          </tr>
 		          <tr>
-		            <td align="right" style="background-color:">Embarcación:</td>
+		            <td align="right" style="background-color:">Embarcaci&oacute;n:</td>
 		            <td id="Embarcacion">&nbsp;</td>
 		            <td id="imgEmbarcacion" width="25"><img title="Contiene mas registros" width="10px" src='<%= request.getContextPath() %>/resources/images/add.png'></td>
 		          </tr>
@@ -2386,7 +2386,7 @@
 			    <td id="fechaApertura" align="right">&nbsp;</td>
 			  </tr>
 			  <tr>
-			    <td align="right"><strong>Responsable del Trámite:</strong></td>
+			    <td align="right"><strong>Responsable del Tr&aacute;mite:</strong></td>
 			    <td></td>
 			  </tr>
 			  <tr>
@@ -2396,7 +2396,7 @@
 			    <td align="right"><span id="spanGralJAR">Justicia Alternativa Restaurativa</span></td>
 			  </tr>
 			  <tr>
-			    <td align="right"><span id="spanGralUI">Unidad de Investigación: </span><span id="spanInfoGralUI"></span></td>
+			    <td align="right"><span id="spanGralUI">Unidad de Investigaci&oacute;n: </span><span id="spanInfoGralUI"></span></td>
 			  </tr>
 			  <tr>
 			    <td align="right"><span id="spanGralIE">Instituci&oacute;n Externa: </span><span id="spanInfoGralIE"></span></td>
@@ -2411,7 +2411,7 @@
 			
 		
 		</div>
-		<!--Termina Resumen Expediente con Carpeta de Investigación -->
+		<!--Termina Resumen Expediente con Carpeta de Investigaci&oacute;n -->
 		
 	</div>
 	<div id="tabsconsultaprincipal-2" style="height: 600px !important;">
@@ -2462,11 +2462,11 @@
 		<li id="tabInvDefendidoInvitado"><a href="#tabsInvolucrado-4" onclick="cargarInvitado()">Invitado</a></li>
 		<li id="tabSolicitanteJusticiaR"><a href="#tabsInvolucrado-5" onclick="cargarSolicitanteJusticiaRestaurativa()">Solicitante de justicia restaurativa</a></li>  -->				
 				<li><a href="#tabschild-1">Denunciante</a></li>
-				<li><a href="#tabschild-2">Víctima</a></li>
+				<li><a href="#tabschild-2">V&iacute;ctima</a></li>
 				<li><a href="#tabschild-3" id="tapProbableResposable"></a></li>
 				<li><a href="#tabschild-4">Testigo</a></li>
 				<li><a href="#tabschild-5">Traductor</a></li>
-				<li class="tabTabsQuienDetuvo"><a href="#tabschild-6">Quién detuvo</a></li>
+				<li class="tabTabsQuienDetuvo"><a href="#tabschild-6">Qui&eacute;n detuvo</a></li>
 			</ul>
 			<div id="tabschild-7">
 				<div style="width: 1042px; height: 490px;" class="back_hechos">
@@ -2499,7 +2499,7 @@
 				<div style="width: 1042px; height: 490px;" class="back_hechos">
 					<table width="25%" cellpadding="0" cellspacing="0" id="tblVictima" style="padding: .5cm;">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevaVictima"><input type="button" class="btn_Generico" value="Ingresar Víctima"/></a></td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevaVictima"><input type="button" class="btn_Generico" value="Ingresar V&iacute;ctima"/></a></td>
 						</tr>
 					</table>
 				</div>
@@ -2535,7 +2535,7 @@
 				<div style="width: 1042px; height: 490px;" class="back_hechos" style="padding: .5cm;">
 					<table width="25%" cellpadding="0" cellspacing="0" id="tblQuienDetuvo">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="quienDetuvo"><input type="button" class="btn_Generico" value="Ingresar Quién Detuvo"/></a></td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="quienDetuvo"><input type="button" class="btn_Generico" value="Ingresar Qui&eacute;n Detuvo"/></a></td>
 						</tr>
 					</table>
 				</div>	

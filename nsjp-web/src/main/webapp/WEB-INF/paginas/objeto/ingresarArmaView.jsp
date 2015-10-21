@@ -1,6 +1,6 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.elemento.TipoElemento"%>
 <%@ page import="org.omg.CORBA.Request"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="mx.gob.segob.nsjp.dto.usuario.UsuarioDTO"%>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.configuracion.Parametros"%>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.seguridad.Roles" %>
@@ -13,7 +13,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Ingresar Arma</title>
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/estilos.css" media="screen" />
 	
@@ -307,17 +307,17 @@
 					  					  
 					  //Desde asentarRegCadenaCustodiaView.jsp 
 					  if(parseInt( ocultaAnularObjetoCadCus ) == 1){
-						  customAlert("Se guardó correctamente la información");
+						  customAlert("Se guard&oacute; correctamente la informaci&oacute;n");
 						  regresarControlCadenaCustodia();
-						  //customAlert("Se guardó correctamente la información", '', regresarControlCadenaCustodia);
+						  //customAlert("Se guard&oacute; correctamente la informaci&oacute;n", '', regresarControlCadenaCustodia);
 					  }else //Desde el ingresarMenuIntermedio.jsp
 					  {
-						  window.parent.customAlert('Se guardó correctamente la información', '',regresarControl(id,tipoArma) );
+						  window.parent.customAlert('Se guard&oacute; correctamente la informaci&oacute;n', '',regresarControl(id,tipoArma) );
 					  }
 				  }
 				  else if(idArma==0 && id==0)
 				  {
-					  window.parent.customAlert("Favor de revisar la información capturada");
+					  window.parent.customAlert("Favor de revisar la informaci&oacute;n capturada");
 				  }
 				  else  //Actualizacion del elemento - solo desde el ingresarMenuIntermedio.jsp 
 				  {   
@@ -325,10 +325,10 @@
 					//Desde asentarRegCadenaCustodiaView.jsp 
 					  if(parseInt( ocultaAnularObjetoCadCus ) == 1){
 						  regresarControlCadenaCustodiaActualizacion();
-						  customAlert("La información se actualizó correctamente");
+						  customAlert("La informaci&oacute;n se actualiz&oacute; correctamente");
 					  }else //Desde el ingresarMenuIntermedio.jsp
 					  {
-						  window.parent.customAlert('La información se actualizó correctamente', '',regresarControl(id,tipoArma) );
+						  window.parent.customAlert('La informaci&oacute;n se actualiz&oacute; correctamente', '',regresarControl(id,tipoArma) );
 					  }
 				  }
 				  
@@ -373,7 +373,7 @@
 			mensaje += "<br />- Marca del arma";			
 		}
 		if(parseInt(condicionArma) == -1){
-			mensaje += "<br />- Condición del arma";			
+			mensaje += "<br />- Condici&oacute;n del arma";			
 		}
 		
 		//Comienza segunda validacion para validacion de consistencia de expresiones regulares
@@ -428,7 +428,7 @@
 		if(idArma!=null && idArma!=0)
 		{
 			//procederemos a tratar de eliminar la evidencia
-			customConfirm ("¿Está seguro que desea anular el objeto?", "", validarObjEvdncNoEslbns);
+			customConfirm ("&iquest;Est&aacute; seguro que desea anular el objeto?", "", validarObjEvdncNoEslbns);
 		}
 	}
 	
@@ -450,7 +450,7 @@
 				if(parseInt($(xml).find('bandera').text())==1)
 				{
 					//debemos mostrar un confirm
-					customConfirm ("El objeto es ya una evidencia en alguna cadena de custodia <br/> ¿Está seguro que desea anular el objeto?", "", anularObjeto);
+					customConfirm ("El objeto es ya una evidencia en alguna cadena de custodia <br/> &iquest;Est&aacute; seguro que desea anular el objeto?", "", anularObjeto);
 				}
 				else if(parseInt($(xml).find('bandera').text())==2)
 				{

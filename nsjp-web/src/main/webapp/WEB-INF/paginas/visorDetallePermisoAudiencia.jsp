@@ -2,13 +2,13 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.audiencia.EstatusAudiencia"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.audiencia.EstatusPermisosAudiencia"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.forma.Formas"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Atención de Audiencias</title>	
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Atenci&oacute;n de Audiencias</title>	
 	
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css" />
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/estilos.css" media="screen" />
@@ -98,13 +98,13 @@
 							alertDinamicoCerrar("Fallo al realizar el cambio de estado, vuelva a intentarlo");
 						}
 						else{
-							alertDinamicoCerrar("El cambio de estado se realizó correctamente");
+							alertDinamicoCerrar("El cambio de estado se realiz&oacute; correctamente");
 						}
 				}				    	
 			});					
 	}	
 	
-	//Función para alertDinamicoCerrar
+	//Funci&oacute;n para alertDinamicoCerrar
 	function alertDinamicoCerrar(textoAlert){						
 		$("#divAlertTextoCerrar").html(textoAlert);
 	    $( "#dialog-AlertCerrar" ).dialog({
@@ -142,14 +142,14 @@
 			<tr><td>&nbsp;</td></tr>
 			<tr>
 	        	<td>&nbsp;</td>
-	        	<td align="right"><strong>Número de Permiso de Audiencia:</strong></td>
+	        	<td align="right"><strong>N&uacute;mero de Permiso de Audiencia:</strong></td>
 	            <td width="37%"><input type="text" id="permisoAudiencia" style="width:230px; border: 0; background:#DDD;" readonly="readonly"/></td>	            	            	        
 	        </tr>
 	        <tr><td>&nbsp;</td></tr>
 	        <tr><td>&nbsp;</td></tr>			
 			<tr>
 	        	<td>&nbsp;</td>
-	            <td align="right"><strong>Institución:</strong></td>
+	            <td align="right"><strong>Instituci&oacute;n:</strong></td>
 	            <td><input type="text" id="institucion" style="width:230px; border: 0; background:#DDD;" readonly="readonly"/></td>
 	        </tr>
 			<tr>
@@ -159,7 +159,7 @@
 	        </tr>
 	        <tr>
 	        	<td>&nbsp;</td>
-	        	<td align="right"><strong>Número de Audiencia:</strong></td>
+	        	<td align="right"><strong>N&uacute;mero de Audiencia:</strong></td>
 	            <td><input type="text" id="audiencia" style="width:230px; border: 0; background:#DDD;" readonly="readonly"/></td>
 	        </tr>	        
 	        <tr>
@@ -184,7 +184,7 @@
 	        </tr>
 	        <tr>
 	        	<td>&nbsp;</td>
-	            <td width="21%" align="right"><strong>Fecha de Asignación:</strong></td>
+	            <td width="21%" align="right"><strong>Fecha de Asignaci&oacute;n:</strong></td>
 	            <td width="37%"><input type="text" id="fechaAsignacion" style="width:230px; border: 0; background:#DDD;" readonly="readonly"/></td>
 	        </tr>	        
 	        <tr><td>&nbsp;</td></tr>

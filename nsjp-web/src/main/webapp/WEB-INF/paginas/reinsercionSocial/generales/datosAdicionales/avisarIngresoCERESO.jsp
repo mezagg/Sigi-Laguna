@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
@@ -136,7 +136,7 @@
 		</tr>		
 		<tr>
 			<td align="right">
-				<strong>¿Se encuentra físicamente en el CERESO?</strong>
+				<strong>&iquest;Se encuentra f&iacute;sicamente en el CERESO?</strong>
 			</td>
 			<td align="left">
 				<input type="radio" id="esArraigado" name="esArraigado" checked="checked" readonly="readonly" disabled="disabled" value ="1" > S&iacute;
@@ -152,7 +152,7 @@
 		</tr>
 		<tr>
 			<td colspan="2">
-				¿Desea continuar?
+				&iquest;Desea continuar?
 			</td>
 		</tr>	
 	</table>

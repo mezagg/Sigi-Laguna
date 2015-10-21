@@ -1,10 +1,10 @@
 <%@ page import="mx.gob.segob.nsjp.comun.enums.solicitud.TiposSolicitudes"%>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.solicitud.EstatusSolicitud"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Detalle solicitudes por atender UI</title>
 
     <!--	Hoja de estilo para los gadgets-->
@@ -228,7 +228,7 @@
 		}
 		
 		function enviaCarpeta() {
-			bloquearPantalla(true, "Enviando Carpeta de investigación");  
+			bloquearPantalla(true, "Enviando Carpeta de investigaci&oacute;n");  
         	var param ="";
         	param += 'folioSol='+$("#txtFolio").val();
         	param+= '&caso='+$("#txtNoCaso").val();
@@ -254,14 +254,14 @@
         				regreso= $(this).find('expedienteId').text()+" ";
         				if(regreso!=0){
         					if(typeof window.parent.cerrarVentanaGenerico == 'function'){
-        						customAlert("Se envió correctamente la carpeta", "Aviso",
+        						customAlert("Se envi&oacute; correctamente la carpeta", "Aviso",
         						function(){		
             						window.parent.cerrarVentanaGenerico(detalleSolicitudWindowId);
         						}
         						);
                 			}
             			}else{
-                			customAlert("No se logró enviar la carpeta de investigación");
+                			customAlert("No se logr&oacute; enviar la carpeta de investigaci&oacute;n");
                 		}
         			 });
         			 

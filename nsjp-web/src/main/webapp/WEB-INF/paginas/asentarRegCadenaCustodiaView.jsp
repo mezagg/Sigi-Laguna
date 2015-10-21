@@ -4,13 +4,13 @@
 <%@ page import="mx.gob.segob.nsjp.comun.enums.seguridad.Roles" %>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
   <head>
     <%@ page import="mx.gob.segob.nsjp.comun.enums.objeto.Objetos" %>
     
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Ingresar Cadena de Custodia</title>   
     
 <!--	Hoja de estilo para los gadgets-->
@@ -137,11 +137,11 @@
 			if(parseInt(operacion)==1){
 				$("#spanCadCusIngCon").html("Ingresar Cadena de Custodia");
 				$("#spanEvCadCusIngCon").html("Ingresar Evidencia(s) de Cadena de Custodia");
-				$("#spanEslCadCusIngCon").html("Ingresar Eslabón de Cadena de Custodia");
+				$("#spanEslCadCusIngCon").html("Ingresar Eslab&oacute;n de Cadena de Custodia");
 			}else if(parseInt(operacion)==2){
 				$("#spanCadCusIngCon").html("Consultar Cadena de Custodia");
 				$("#spanEvCadCusIngCon").html("Consultar Evidencia(s) de Cadena de Custodia");
-				$("#spanEslCadCusIngCon").html("Consultar Eslabón de Cadena de Custodia");
+				$("#spanEslCadCusIngCon").html("Consultar Eslab&oacute;n de Cadena de Custodia");
 			}
 		}
 			
@@ -202,7 +202,7 @@
 			
 		$("#btnAddEslbnCadCus").show();
 		$("#btnRegEslbnCadCus").hide();
-		//mostramos la sección del eslabón 
+		//mostramos la secci&oacute;n del eslab&oacute;n 
 		$("#tablaEslabonesCadCustodia").hide();
 		$("#tablaInsercionEslabones").hide();
 		//ocultamos las observaciones
@@ -427,7 +427,7 @@
 		jQuery("#gridCadCustodiaEvdncs").jqGrid({
 			url:'<%=request.getContextPath()%>/limpiarGrid.do',
 			datatype: "xml",
-			colNames:['No.','NoHidden','Información', 'Fecha de levantamiento','Hora de levantamiento','Origen','Tipo de Objeto','IdObjeto','IdEvidencia','Almac&eacute;n'], 
+			colNames:['No.','NoHidden','Informaci&oacute;n', 'Fecha de levantamiento','Hora de levantamiento','Origen','Tipo de Objeto','IdObjeto','IdEvidencia','Almac&eacute;n'], 
 			colModel:[ 	{name:'Numero',index:'numero', width:60},
 			           	{name:'NumeroHidden',index:'numeroHidden', width:60,hidden:true}, 
 						{name:'Informacion',index:'informacion', width:160}, 
@@ -499,7 +499,7 @@
 		//url local
 		jQuery("#gridCadCustodiaEvdncsRegs").jqGrid({ 
 			datatype: "xml",
-			colNames:['Tipo','Información', ''], 
+			colNames:['Tipo','Informaci&oacute;n', ''], 
 			colModel:[ 	{name:'Tipo',index:'tipo', width:160}, 
 						{name:'Informacion',index:'informacion', width:160}, 
 						{name:'Combo',index:'combo',width:30,align:'center'},
@@ -531,15 +531,15 @@
 		jQuery("#gridCadCustodiaEvdncsEslabon").jqGrid({
 			url:'<%=request.getContextPath()%>/limpiarGrid.do',
 			datatype: "xml",
-			colNames:['','Evidencia No.','Evidenica No.H','Información', 'Fecha del levantamiento','Origen','Último Eslabón','No. Eslabón','Tipo Eslabón',''], 
+			colNames:['','Evidencia No.','Evidenica No.H','Informaci&oacute;n', 'Fecha del levantamiento','Origen','&Uacute;ltimo Eslab&oacute;n','No. Eslab&oacute;n','Tipo Eslab&oacute;n',''], 
 			colModel:[ 	{name:'Check',index:'check', width:20,align:'center'},
 			           	{name:'Numero',index:'numero', width:60},
 			           	{name:'Tipo',index:'tipo', width:60,align:'center',hidden:true}, 
 						{name:'Informacion',index:'informacion', width:160}, 
 						{name:'Fecha',index:'fecha', width:160},
 						{name:'Origen',index:'origen', width:160},
-						// Se oculta por el momento el número de eslabón, último eslabón y el tipo de eslabón, 
-						// ya que no están construidos en servicio.							
+						// Se oculta por el momento el n&uacute;mero de eslab&oacute;n, &uacute;ltimo eslab&oacute;n y el tipo de eslab&oacute;n, 
+						// ya que no est&aacute;n construidos en servicio.							
 						{name:'UltimoEslabon',index:'ultimoEslabon', width:160, hidden:true},
 						{name:'NoEslabon',index:'noEslabon', width:75,hidden:true},
 						{name:'TipoEslabon',index:'tipoEslabon', width:100,hidden:true},
@@ -595,7 +595,7 @@
 	}
 		
 	/*
-	* Funcion para habilitar la inserción de eslabones a una cadena de custodia consultada
+	* Funcion para habilitar la inserci&oacute;n de eslabones a una cadena de custodia consultada
 	*/
 	function habilitaRegistroEslabonCadCus(){
 		$("#tablaInsercionEslabones").show();
@@ -636,7 +636,7 @@
 					}
 				}
 				else{
-					alertDinamico("Ocurrió un error al recuperar su información");
+					alertDinamico("Ocurri&oacute; un error al recuperar su informaci&oacute;n");
 				}
 			}
 		});
@@ -697,7 +697,7 @@
 						if(parseInt($(xml).find('code').text())==0){
 							var bandera=$(xml).find('exito').find('bandera').text();
 							if(parseInt(bandera)==0){
-								alertDinamico("Ocurrió un error al asentar las evidencias en la cadena de custodia");
+								alertDinamico("Ocurri&oacute; un error al asentar las evidencias en la cadena de custodia");
 							}
 							else{
 								alertDinamico("Se asentaron correctamente las evidencias en la cadena de custodia");
@@ -706,7 +706,7 @@
 							}
 						}
 						else{
-							alertDinamico("Ocurrió un error al asentar las evidencias en la cadena de custodia");
+							alertDinamico("Ocurri&oacute; un error al asentar las evidencias en la cadena de custodia");
 						}
 					}
 				});
@@ -752,7 +752,7 @@
 	}
 		
 	/*
-	*Funcion para consultar las evidencias recien ingresadas durante la creación de la 
+	*Funcion para consultar las evidencias recien ingresadas durante la creaci&oacute;n de la 
 	*cadena de custodia
 	*/
 	function consultaEvidenciasCadenaDeCustodia(){
@@ -785,7 +785,7 @@
 		//var pantalla ="iframewindowIngresarEvidencia";
 		//pantalla += idWindowObEvidencia;
 		//$.closeWindow(pantalla);
-		//customAlert("La información se actualizó correctamente.")
+		//customAlert("La informaci&oacute;n se actualiz&oacute; correctamente.")
 	}
 
 		
@@ -964,7 +964,7 @@
 						
 						var bandera=$(xml).find('exito').find('bandera').text();
 						if(parseInt(bandera)==0){
-							alertDinamico("Ocurrió un error al guardar el eslabón de la cadena de custodia");
+							alertDinamico("Ocurri&oacute; un error al guardar el eslab&oacute;n de la cadena de custodia");
 						}else{
 							limpiaCamposEslabonCadCus();
 							$("#btnAddEslbnCadCus").show();
@@ -972,11 +972,11 @@
 							$("#tablaInsercionEslabones").hide();
 							$("#tablaEslabonesCadCustodia").hide();
 							$("#tablaObsGeneralesEslbnCadCus").hide();
-							alertDinamico("Se guardó correctamente el eslabón de la cadena de custodia");
+							alertDinamico("Se guard&oacute; correctamente el eslab&oacute;n de la cadena de custodia");
 						}
 					}else{
 						cadenaCustodia="";
-						alertDinamico("Ocurrió un error al guardar el eslabón de la cadena de custodia");
+						alertDinamico("Ocurri&oacute; un error al guardar el eslab&oacute;n de la cadena de custodia");
 					}
 				}
 			});
@@ -1000,7 +1000,7 @@
 		}
 		if($.trim($("#txtCadCusFechaRecepcion").val()).length==0)
 		{
-			mensaje += "<br />- Fecha de recepción";
+			mensaje += "<br />- Fecha de recepci&oacute;n";
 		}
 		if($.trim($("#txtCadCusRespEmbNombre").val()).length==0)
 		{
@@ -1054,7 +1054,7 @@
 	    });
 		if(i==0)
 		{
-			alertDinamico("Debe seleccionar al menos una evidencia para guardar un eslabón");
+			alertDinamico("Debe seleccionar al menos una evidencia para guardar un eslab&oacute;n");
 			return false;
 		}
 		//abriremos el popup del tipo de objeto seleccionado 
@@ -1062,7 +1062,7 @@
 		//revisamos la opcion seleccionada
 		if(parseInt(tipoEslabon)==-1)
 		{
-			alertDinamico("Debe seleccionar el tipo de eslabón de entrega para poder continuar");
+			alertDinamico("Debe seleccionar el tipo de eslab&oacute;n de entrega para poder continuar");
 			return false;
 		}
 		//revisamos el nombre de la persona que entrega
@@ -1101,7 +1101,7 @@
 		//revisamos la institucon de entrega
 		if($.trim($("#txtInstitucionEslbnEntrega").val()).length==0)
        	{
-			alertDinamico("Debe proporcionar la institución de entrega");
+			alertDinamico("Debe proporcionar la instituci&oacute;n de entrega");
 			return false;
        	}
 		//revisamos el nombre de quien recibe
@@ -1128,19 +1128,19 @@
 		//revisamos la fecha de recepcion
 		if($.trim($("#txtFechaRecepcionEslbn").val()).length==0)
 		{
-			alertDinamico("Debe proporcionar la fecha de la recepción");
+			alertDinamico("Debe proporcionar la fecha de la recepci&oacute;n");
 			return false;
 		}
 		//revisamos la hora de recpcion
 		if($.trim($("#txtHoraRecepcionEslbn").val()).length==0)
 		{
-			alertDinamico("Debe proporcionar la hora de la recepción");
+			alertDinamico("Debe proporcionar la hora de la recepci&oacute;n");
 			return false;
 		}
 		//revisamos la institucon de recepcion
 		if($.trim($("#txtInstitucionEslbnRecepcion").val()).length==0)
        	{
-			alertDinamico("Debe proporcionar la institución de recepción");
+			alertDinamico("Debe proporcionar la instituci&oacute;n de recepci&oacute;n");
 			return false;
        	}
 		
@@ -1148,25 +1148,25 @@
 		//revisamos la fecha de inicio del periodo de prestamo
 		/* if($.trim($("#txtFechaPrestamoEslbn").val()).length==0)
 		{
-			alertDinamico("Debe proporcionar la fecha de inicio del periodo de préstamo");
+			alertDinamico("Debe proporcionar la fecha de inicio del periodo de pr&eacute;stamo");
 			return false;
 		}
 		//revisamos la hora de inicio del periodo de prestamo
 		if($.trim($("#txtHoraEntregaEslbn").val()).length==0)
 		{
-			alertDinamico("Debe proporcionar la hora de inicio del periodo de préstamo");
+			alertDinamico("Debe proporcionar la hora de inicio del periodo de pr&eacute;stamo");
 			return false;
 		}
 		//revisamos la fecha de fin del periodo de prestamo
 		if($.trim($("#txtFechaPrestamoRecEslbn").val()).length==0)
 		{
-			alertDinamico("Debe proporcionar la fecha final del periodo de préstamo");
+			alertDinamico("Debe proporcionar la fecha final del periodo de pr&eacute;stamo");
 			return false;
 		}
 		//revisamos la hora de fin del periodo de prestamo
 		if($.trim($("#txtHoraPrestamoRepEslbn").val()).length==0)
 		{
-			alertDinamico("Debe proporcionar la hora del final del periodo de préstamo");
+			alertDinamico("Debe proporcionar la hora del final del periodo de pr&eacute;stamo");
 			return false;
 		} */
 		return true;
@@ -1215,12 +1215,12 @@
 			$.newWindow({id:"iframewindowIngresarEvidencia" + idWindowObEvidencia, statusBar: true, posx:200,posy:5,width:1000,height:450,title:"Ingresar veh&iacute;culo", type:"iframe",modal: true});
 		    $.updateWindowContent("iframewindowIngresarEvidencia" + idWindowObEvidencia,'<iframe src="<%= request.getContextPath() %>/IngresarVehiculo.do?numeroExpediente='+numeroExpediente +'&tipoObjeto=VEHICULO&idVehiculo=0&cadenaCustodia='+cadenaCustodia+'&fechaLevCadCus='+fechaLevCadCus+'&origenEvdCadCus='+origenEvdCadCus+'&anularConsultaCadCus=1" width="1000" height="450" />');
 		}
-		else if(parseInt(tipoObjeto)=='<%= Objetos.EQUIPO_DE_COMPUTO.getValorId() %>')//Equipo de Cómputo
+		else if(parseInt(tipoObjeto)=='<%= Objetos.EQUIPO_DE_COMPUTO.getValorId() %>')//Equipo de C&oacute;mputo
 		{
 			$.newWindow({id:"iframewindowIngresarEvidencia" + idWindowObEvidencia, statusBar: true, posx:100,posy:10,width:1000,height:450,title:"Ingresar equipo de c&oacute;mputo", type:"iframe",modal: true});
 		    $.updateWindowContent("iframewindowIngresarEvidencia" + idWindowObEvidencia,'<iframe src="<%= request.getContextPath() %>/IngresarEquipoDeComputo.do?numeroExpediente='+numeroExpediente +'&idEquipoComputo=0&tipoObjeto=EQUIPO_COMPUTO&cadenaCustodia='+cadenaCustodia+'&fechaLevCadCus='+fechaLevCadCus+'&origenEvdCadCus='+origenEvdCadCus+'&anularConsultaCadCus=1" width="1000" height="450" />');
 		}
-		else if(parseInt(tipoObjeto)=='<%= Objetos.EQUIPO_TELEFONICO.getValorId() %>')//Equipo Telefónico
+		else if(parseInt(tipoObjeto)=='<%= Objetos.EQUIPO_TELEFONICO.getValorId() %>')//Equipo Telef&oacute;nico
 		{
 			$.newWindow({id:"iframewindowIngresarEvidencia" + idWindowObEvidencia, statusBar: true, posx:100,posy:10,width:1000,height:450,title:"Ingresar equipo telef&oacute;nico", type:"iframe",modal: true});
 		    $.updateWindowContent("iframewindowIngresarEvidencia" + idWindowObEvidencia,'<iframe src="<%= request.getContextPath() %>/IngresarEquipoTelefonico.do?numeroExpediente='+numeroExpediente+'&idEquipoTelefonico=0&tipoObjeto=EQUIPO_TELEFONICO&cadenaCustodia='+cadenaCustodia+'&fechaLevCadCus='+fechaLevCadCus+'&origenEvdCadCus='+origenEvdCadCus+'&anularConsultaCadCus=1" width="1000" height="450" />');
@@ -1250,7 +1250,7 @@
 			$.newWindow({id:"iframewindowIngresarEvidencia" + idWindowObEvidencia, statusBar: true, posx:200,posy:10,width:1000,height:450,title:"Ingresar aeronave", type:"iframe",modal: true});
 		    $.updateWindowContent("iframewindowIngresarEvidencia" + idWindowObEvidencia,'<iframe src="<%= request.getContextPath() %>/IngresarAeronave.do?numeroExpediente='+numeroExpediente +'&tipoObjeto=AERONAVE&idAeronave=0&cadenaCustodia='+cadenaCustodia+'&fechaLevCadCus='+fechaLevCadCus+'&origenEvdCadCus='+origenEvdCadCus+'&anularConsultaCadCus=1" width="1000" height="450" />');			
 		}
-		else if(parseInt(tipoObjeto)=='<%= Objetos.EMBARCACION.getValorId() %>')//Embarcación
+		else if(parseInt(tipoObjeto)=='<%= Objetos.EMBARCACION.getValorId() %>')//Embarcaci&oacute;n
 		{
 			$.newWindow({id:"iframewindowIngresarEvidencia" + idWindowObEvidencia, statusBar: true, posx:200,posy:10,width:1000,height:450,title:"Ingresar embarcaci&oacute;n", type:"iframe",modal: true});
 		    $.updateWindowContent("iframewindowIngresarEvidencia" + idWindowObEvidencia,'<iframe src="<%= request.getContextPath() %>/IngresarEmbarcacion.do?numeroExpediente='+numeroExpediente +'&tipoObjeto=EMBARCACION&idEmbarcacion=0&cadenaCustodia='+cadenaCustodia+'&fechaLevCadCus='+fechaLevCadCus+'&origenEvdCadCus='+origenEvdCadCus+'&anularConsultaCadCus=1" width="1000" height="450" />');			
@@ -1319,10 +1319,10 @@
 						cadenaCustodia=$(xml).find('custodiaDTO').find('cadenaDeCustodiaId').text();
 						$("#spanFolioCadCus").html($(xml).find('custodiaDTO').find('folio').text());
 						folioCadenaCustodia=$(xml).find('custodiaDTO').find('folio').text();
-						alertDinamico("Se guardó correctamente la cadena de custodia");
+						alertDinamico("Se guard&oacute; correctamente la cadena de custodia");
 					}else{
 						cadenaCustodia="";
-						alertDinamico("Ocurrió un error al guardar la cadena de custodia");
+						alertDinamico("Ocurri&oacute; un error al guardar la cadena de custodia");
 					}
 				}
 			});
@@ -1531,7 +1531,7 @@
   					}
   					else
   					{
-  						alertDinamico("No se encontró el usuario");
+  						alertDinamico("No se encontr&oacute; el usuario");
   					}
   				}
   			});	  
@@ -1552,7 +1552,7 @@
   					}
   					else
   					{
-  						alertDinamico("No se encontró el usuario");
+  						alertDinamico("No se encontr&oacute; el usuario");
   					}
   				}
   			});
@@ -1571,7 +1571,7 @@
 	      
 	     	     
      /*
-     * Función para pintar los datos extraidos de la consulta de los usuarios:
+     * Funci&oacute;n para pintar los datos extraidos de la consulta de los usuarios:
      *Presentes o NO presentes
      */
      function seteaDatosUsusarioInt(xml,idSeccion){
@@ -1705,7 +1705,7 @@
 	}
 			
 	function consultaCadenaDeCustodia(idCadenaCustodia){
-		//método Ajax para consultar la cadena de custodia
+		//m&eacute;todo Ajax para consultar la cadena de custodia
 		params="idCadena="+idCadenaCustodia;
 		//mandamos a llamar al action que guardara la cadena de custodia
 		$.ajax({
@@ -1720,7 +1720,7 @@
 					seteaDatosConsultaCadenaDeCustodia(xml);
 					mostrarPestanasDeConsulta();
 				}else{
-					alertDinamico("Ocurrió un error al consultar la cadena de custodia");
+					alertDinamico("Ocurri&oacute; un error al consultar la cadena de custodia");
 				}
 			}
 		});
@@ -1818,11 +1818,11 @@
 								var bandera=$(xml).find('bandera').text();
 								if(parseInt(bandera)==0)
 								{
-									alertDinamico("Ocurrió un error al asignar el Alamcén");
+									alertDinamico("Ocurri&oacute; un error al asignar el Alamc&eacute;n");
 								}
 								else
 								{
-									alertDinamico("Se asocio de forma correcta el Almacén a la(s) evidencia(s)");
+									alertDinamico("Se asocio de forma correcta el Almac&eacute;n a la(s) evidencia(s)");
 									//Se recarga el grid para ver reflejado el cambio de almacen
 									consultaEvidenciasCadenaDeCustodia();
 								}
@@ -1830,13 +1830,13 @@
 							}
 							else
 							{
-								alertDinamico("Ocurrió un error al asignar el Alamcén");
+								alertDinamico("Ocurri&oacute; un error al asignar el Alamc&eacute;n");
 							}
 					}
 				});
 		}	
 		else{
-			alertDinamico("Debe de seleccionar al menos una evidencia y un almacén")
+			alertDinamico("Debe de seleccionar al menos una evidencia y un almac&eacute;n")
 		}
 	}
 			
@@ -1845,7 +1845,7 @@
          jQuery("#gridAlmacen").jqGrid({
               url:'<%=request.getContextPath()%>'+'/consultarAlmacenesPorTipo.do',
               datatype: "xml",
-              colNames:['ID','Tipo de Almacén','Nombre del Almacén','Dirección','Descripción' ],
+              colNames:['ID','Tipo de Almac&eacute;n','Nombre del Almac&eacute;n','Direcci&oacute;n','Descripci&oacute;n' ],
               colModel:[
 				  {name:'idAlmacen',index:'4',  sortable:true, width:50, align:'center'},
                   {name:'tipoDeAlmacen',index:'1',  sortable:true, width:100},
@@ -2149,12 +2149,12 @@
 		if((idEvdAElmnr!=null && idEvdAElmnr>0) &&(idObjAElmnr!=null && idObjAElmnr>0))
 		{
 			if(parseInt(num)>0){
-				customAlert("No podrá eliminar la evidencia seleccionada dado <br/> que existen documentos asociados a la denuncia");
+				customAlert("No podr&aacute; eliminar la evidencia seleccionada dado <br/> que existen documentos asociados a la denuncia");
 			}
 			else
 			{
 				//procederemos a tratar de eliminar la evidencia
-				customConfirm ("¿Está seguro que desea anular la evidencia seleccionada?", "", anulaEvidencia);
+				customConfirm ("&iquest;Est&aacute; seguro que desea anular la evidencia seleccionada?", "", anulaEvidencia);
 			}
 		}
 		else
@@ -2531,7 +2531,7 @@
         	<br/>
         	<table width="850px">
         		<tr class="trCapturaEvidenciaCadCus tablaInsercion">
-        			<td><b>Información de la evidencia :</b></td>
+        			<td><b>Informaci&oacute;n de la evidencia :</b></td>
         		</tr>
         		<tr class="trCapturaEvidenciaCadCus tablaInsercion">
         			<td>

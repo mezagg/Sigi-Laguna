@@ -191,7 +191,7 @@
 									}
 								});
 							}else{
-								jQuery( "#confirmText" ).html("El programa seleccionado ser&aacute; eliminado de la asignaci&oacute;n,<br /> ¿Desea continuar?");
+								jQuery( "#confirmText" ).html("El programa seleccionado ser&aacute; eliminado de la asignaci&oacute;n,<br /> &iquest;Desea continuar?");
 								jQuery( "#dialog-confirm" ).dialog({ 
 									title: "Eliminar Programa",
 									buttons: {

@@ -197,7 +197,7 @@ body,td,th {
 		jQuery("#gridSolsXAtndr").jqGrid({ 
 				url:'<%=request.getContextPath()%>/BusquedaInicialExpPsicologicosUAVDGrid.do?idArea='+<%= Areas.COORDINACION_ATENCION_VICTIMAS.parseLong() %>+'&estatus='+<%=EstatusSolicitud.EN_PROCESO.getValorId()%>+'&tipoSoliciutd='+<%=TiposSolicitudes.ATENCION_JURIDICA.getValorId()%>+'&cadenaArea=ATNJUR', 
 				datatype: "xml", 
-				colNames:['Expediente','Fecha', 'Víctima','Delito'], 
+				colNames:['Expediente','Fecha', 'V&iacute;ctima','Delito'], 
 				colModel:[ 	{name:'Expediente',index:'1', width:300, align:'center'}, 
 							{name:'Fecha',index:'2', width:70, align:'center'},
 							{name:'Denunciante',index:'3', width:250, align:'center'}, 
@@ -293,7 +293,7 @@ body,td,th {
 		jQuery("#gridSolicitudesCompartidas").jqGrid({
 			url:'<%=request.getContextPath()%>/CargarGridMenuSolicitudesCompartidas.do',
 			datatype: "xml",
-			colNames:['Expediente','Fecha', 'Víctima','Delito'],
+			colNames:['Expediente','Fecha', 'V&iacute;ctima','Delito'],
 			colModel:[ 	{name:'Expediente',index:'1', width:300, align:'center'},
 						{name:'Fecha',index:'2', width:70, align:'center'},
 						{name:'Denunciante',index:'3', width:250, align:'center'},
@@ -1112,7 +1112,7 @@ body,td,th {
 
 	<div id="dialog-logout" title="Cerrar Sesi&oacute;n">
 		<p align="center">
-			<span id="logout">¿Desea cerrar su sesi&oacute;n?</span>
+			<span id="logout">&iquest;Desea cerrar su sesi&oacute;n?</span>
 		</p>
 	</div>
 
@@ -1128,11 +1128,11 @@ body,td,th {
 		<p align="center">
 			<table border="0">
 				<tr>
-					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contraseña para desbloquear.</td>
+					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contrase&ntilde;a para desbloquear.</td>
 					
 				</tr>
 				<tr>
-					<td align="right"><label style="color:#4A5C68">Contraseña:</label></td>
+					<td align="right"><label style="color:#4A5C68">Contrase&ntilde;a:</label></td>
 					<td><input type="password" name="password" id="password" value="" maxlength="15" size="20"></td>
 				</tr>
 				<tr id="captchaJPG" >
@@ -1161,7 +1161,7 @@ body,td,th {
 				La sesi&oacute;n se cerrar&aacute; en <span id="dialog-countdown" style="font-weight:bold"></span> segundos.
 			</p>
 
-			<p>¿Desea continuar con la sesi&oacute;n?</p>
+			<p>&iquest;Desea continuar con la sesi&oacute;n?</p>
 	</div>
 	
 	<div id="dialog-alarmPos" title="Alarma ">

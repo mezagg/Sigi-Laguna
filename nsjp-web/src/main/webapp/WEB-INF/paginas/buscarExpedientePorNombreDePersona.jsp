@@ -107,7 +107,7 @@
     </tr>
 
   <tr id="espacios" >
-    <td height="25" align="center">* Sólo se permiten letras y espacios</td>
+    <td height="25" align="center">* S&oacute;lo se permiten letras y espacios</td>
     </tr>
 
   <tr >

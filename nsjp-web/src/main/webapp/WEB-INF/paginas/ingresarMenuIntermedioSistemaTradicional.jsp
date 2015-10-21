@@ -301,7 +301,7 @@
 			jQuery("#gridDetalleFrmPrincipalAudiencias").jqGrid({ 
 				url:'<%=request.getContextPath()%>/consultarAudiencias.do?numeroExpediente='+numeroExpediente, 
 				datatype: "xml",
-				colNames:['Folio','Estatus','Fecha Creación','Fecha Limite','Institución','Destinatario'],
+				colNames:['Folio','Estatus','Fecha Creaci&oacute;n','Fecha Limite','Instituci&oacute;n','Destinatario'],
 				colModel:[ 	{name:'folio',index:'folio', width:200},
 				           	{name:'estatus',index:'estatus', width:200},
 							{name:'fecha',index:'fecha', width:170},							
@@ -328,7 +328,7 @@
 			jQuery("#gridDetalleAlertas").jqGrid({ 
 				url:'<%=request.getContextPath()%>/consultarAlertas.do?idExpedienteop='+idNumeroExpedienteConsul, 
 				datatype: "xml", 
-				colNames:['Fecha y Hora','Descripción'], 
+				colNames:['Fecha y Hora','Descripci&oacute;n'], 
 				colModel:[ 	{name:'FechaHora',index:'fechaHora', width:160}, 
 				           	{name:'Descripcion',index:'descripcion', width:450}
 						],
@@ -544,7 +544,7 @@
 	        		$("#actividadesXDelitosDelExpediente").hide(); 
 	        		cargaActuaciones();
 			}		
-			//oculta la pestaña de Alertas
+			//oculta la pesta&ntilde;a de Alertas
 			ocultaMuestraTabVisor("tabTabsAlertas",0);
 
 			if(ingresoDenuncia=='true'){
@@ -659,7 +659,7 @@
 			}); 
 			
 
-			//llenamos los combos de UI e IE de la pestaña de Acciones
+			//llenamos los combos de UI e IE de la pesta&ntilde;a de Acciones
 			cargaInstitucionesExternas();
 			cargaUnidadesInvestigacion();
 			mostraDivGenerarOficioCanalizacion(0);
@@ -698,7 +698,7 @@
 			jQuery("#gridObjsVehiculo").jqGrid({ 
 				url:'<%= request.getContextPath()%>/ConsultaObjetosGridVisorXTipo.do?numeroExpediente='+numeroExpediente+'&tipoObjeto=<%= Objetos.VEHICULO.getValorId() %>', 
 				datatype: "xml", 
-				colNames:['Vehículo','Folio Custodia de Evidencias', 'No. Casos Asociados'], 
+				colNames:['Veh&iacute;culo','Folio Custodia de Evidencias', 'No. Casos Asociados'], 
 				colModel:[ 	{name:'Vehiculo',index:'vehiculon', width:150}, 
 							{name:'FolioCadCus',index:'folioCadCus', width:150}, 
 							{name:'NoExpedientes',index:'noExpedientes', width:200,hidden:true}, 
@@ -707,7 +707,7 @@
 				rowNum:10,
 				rowList:[10,20,30,40,50,60],
 				width:600,
-				caption:"VEHÍCULOS",
+				caption:"VEH&Iacute;CULOS",
 				sortname: 'Clave',
 				viewrecords: true,
 				id: 'gridObjsVehiculo',
@@ -747,7 +747,7 @@
 			jQuery("#gridObjsEquipoComputo").jqGrid({ 
 				//url:'local', 
 				datatype: "xml", 
-				colNames:['Equipo de Cómputo','Folio Custodia de Evidencias', 'No. Casos Asociados'], 
+				colNames:['Equipo de C&oacute;mputo','Folio Custodia de Evidencias', 'No. Casos Asociados'], 
 				colModel:[ 	{name:'EquipoComputo',index:'equipoComputon', width:150}, 
 							{name:'FolioCadCus',index:'folioCadCus', width:150},
 							{name:'NoExpedientes',index:'noExpedientes', width:200,hidden:true}, 
@@ -1385,9 +1385,9 @@
 			
 			
 			registrarActividadExpediente(151,1712,0);
-			alertDinamico("Se asignó correctamente la Averiguación previa");	
+			alertDinamico("Se asign&oacute; correctamente la Averiguaci&oacute;n previa");	
 		}else{
-			alertDinamico("Debe seleccionar un agente para realizar la asignación");	
+			alertDinamico("Debe seleccionar un agente para realizar la asignaci&oacute;n");	
 		}
 	}
 
@@ -1407,7 +1407,7 @@
 		
 		//Sele colocara la funcion para signar agente ke aun no esta realizada
 		registrarActividadExpediente(<%= Actividades.ATENDER_CANALIZACION_JAR.getValorId() %>,2542,0);
-		alertDinamico("Se asignó correctamente el expediente");
+		alertDinamico("Se asign&oacute; correctamente el expediente");
 	}
 
 
@@ -1568,13 +1568,13 @@
 
 					var sistemaTradicional=1; 
 					
-					$.newWindow({id:"iframewindowGenerarDocumento", statusBar: true, posx:20,posy:20,width:940,height:350,title:"Solicitud de Ayuda a la Unidad de Atención a Víctimas", type:"iframe"});
+					$.newWindow({id:"iframewindowGenerarDocumento", statusBar: true, posx:20,posy:20,width:940,height:350,title:"Solicitud de Ayuda a la Unidad de Atenci&oacute;n a V&iacute;ctimas", type:"iframe"});
 		            $.updateWindowContent("iframewindowGenerarDocumento",'<iframe src="<%= request.getContextPath() %>/solicitarAyudaPsicologicaUAVD.do?formaId='+formaID+'&idExpedienteop='+idExpedienteop+'&numeroCaso='+numeroCaso+'&numeroUnicoExpediente='+numeroExpediente+'&idNumeroExpedienteOp='+idNumeroExpedienteOp+'&sistemaTradicional=1"    width="1140" height="550" />');
 				}
 				else
 				{
 					var probableResponsableProp = '<bean:message key="msjProbableResponsable"/>';
-					alertDinamico("Debe tener registrada la relacion de la víctima \n con el "+probableResponsableProp+" y el delito");
+					alertDinamico("Debe tener registrada la relacion de la v&iacute;ctima \n con el "+probableResponsableProp+" y el delito");
 				}
 			}
 			
@@ -1595,7 +1595,7 @@
 	     	}
 	     	
 			else if(actividad=='<%= Actividades.SOLICITAR_SERVICIO_PERICIAL.getValorId() %>'){
-				 // Variable para definir el área de donde proviene la solicitud.
+				 // Variable para definir el &aacute;rea de donde proviene la solicitud.
 				 // Para Procuraduria el valor es 1
 				 // Para Defensoria el valor es 2
 				registrarActividadExpediente(actividad,estatusId,0);
@@ -1671,10 +1671,10 @@
 							if(existeProbableResponsableReincidente() == "false"){
 								var excede = excedeMediaAritmeticaDelitos(); 
 								if( excede == "null"){
-									alert("Existe un problema con la media aritmética de los delitos");
+									alert("Existe un problema con la media aritm&eacute;tica de los delitos");
 								}else{
 									if(excede == "true"){
-										alert("La media aritmética de los delitos excede de lo permitido");
+										alert("La media aritm&eacute;tica de los delitos excede de lo permitido");
 									}else if(excede == "false"){
 										
 							idWindowPantallaActuaciones++;
@@ -1801,7 +1801,7 @@
 		
 		/*
 		*Seteamos la bandera cuando el usuario seleccione el tipo de denuncia o querella
-		* en la pestaña de Generales
+		* en la pesta&ntilde;a de Generales
 		*/
 		function seteaBanderaTipoSelected()
 		{
@@ -1848,7 +1848,7 @@
 		function eliminaProbableResponsableDeMenuIntermedio(id){
 			var row =$('#tblProbableResponsable tr:#'+id);
 			$(row).remove();
-			alertDinamico("Se anuló exitosamente el involucrado");
+			alertDinamico("Se anul&oacute; exitosamente el involucrado");
 		}
 		
 		/*
@@ -2186,7 +2186,7 @@
 			var row =$('#tblDenunciante tr:#'+id);
 			$(row).remove();
 			$('#crearDenunciante').show();
-			alertDinamico("Se anuló exitosamente el involucrado");
+			alertDinamico("Se anul&oacute; exitosamente el involucrado");
 		}
 		
 		/*
@@ -2331,7 +2331,7 @@
 			$.updateWindowContent("iframewindowConsultarProbResponsable" + idWindowConsultarProbResponsable,'<iframe src="<%= request.getContextPath() %>/ConsultarIndividuo.do?idInvolucrado=' +idInvolucrado +'&idCalidad=PROBABLE_RESPONSABLE" width="1100" height="530" />');
 		}
 
-		//Abre una nueva ventana para consultar una víctima		
+		//Abre una nueva ventana para consultar una v&iacute;ctima		
 		function consultarVictima(idInvolucrado){
 			idWindowIngresarSentenciadoReinsertar++;
 			$.newWindow({id:"iframewindowIngresarSentenciadoReinsertar" + idWindowIngresarSentenciadoReinsertar, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Consultar Victima", type:"iframe"});
@@ -2370,26 +2370,26 @@
 		function consultarContactoDeUnaOrganizacion() {
 			
 			idWindowConsultarContactoDeUnaOrganizacion++;
-			$.newWindow({id:"iframewindowConsultarContactoDeUnaOrganizacion" + idWindowConsultarContactoDeUnaOrganizacion, statusBar: true, posx:250,posy:150,width:1050,height:620,title:"Consultar contacto de una organización", type:"iframe"});
+			$.newWindow({id:"iframewindowConsultarContactoDeUnaOrganizacion" + idWindowConsultarContactoDeUnaOrganizacion, statusBar: true, posx:250,posy:150,width:1050,height:620,title:"Consultar contacto de una organizaci&oacute;n", type:"iframe"});
 			$.updateWindowContent("iframewindowConsultarContactoDeUnaOrganizacion" + idWindowConsultarContactoDeUnaOrganizacion,'<iframe src="<%= request.getContextPath() %>/ConsultarIndividuo.do?idInvolucrado=1001&idCalidad=CONTACTO_ORGANIZACION" width="1100" height="530" />');		
 		}
 
 		//No existe la pantalla para consulta de quien detuvo
 		function consultarQuienDetuvo(idInvolucrado){
-			alertDinamico('Aún no hay pantalla para el involucrado QUIEN DETUVO ');
+			alertDinamico('A&uacute;n no hay pantalla para el involucrado QUIEN DETUVO ');
 		}
 
 		//Abre una nueva ventana de crear una nuev victima
 		function creaNuevaVictima() {
 			idWindowIngresarVictima++;
-			$.newWindow({id:"iframewindowIngresarVictima" + idWindowIngresarVictima, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Ingresar Víctima", type:"iframe"});
+			$.newWindow({id:"iframewindowIngresarVictima" + idWindowIngresarVictima, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Ingresar V&iacute;ctima", type:"iframe"});
 		    $.updateWindowContent("iframewindowIngresarVictima" + idWindowIngresarVictima,'<iframe src="<%= request.getContextPath() %>/IngresarVictima.do?numeroExpediente='+numeroExpediente +'" width="1100" height="530" />');		
 		}
 
 		//Abre una nueva ventana de crear una nuev victima
 		function modificarVictima(id) {
 			idWindowIngresarVictima++;
-			$.newWindow({id:"iframewindowIngresarVictima" + idWindowIngresarVictima, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Ingresar Víctima", type:"iframe"});
+			$.newWindow({id:"iframewindowIngresarVictima" + idWindowIngresarVictima, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Ingresar V&iacute;ctima", type:"iframe"});
 		    $.updateWindowContent("iframewindowIngresarVictima" + idWindowIngresarVictima,'<iframe src="<%= request.getContextPath() %>/IngresarVictima.do?idVictima='+id +'&numeroExpediente='+numeroExpediente +'" width="1100" height="530" />');		
 		}
 
@@ -2446,7 +2446,7 @@
 		function creaNuevoContactoDeUnaOrganizacion() {
 			
 			idWindowIngresarContactoDeUnaOrganizacion++;
-			$.newWindow({id:"iframewindowIngresarContactoDeUnaOrganizacion" + idWindowIngresarContactoDeUnaOrganizacion, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Contacto de una organización", type:"iframe"});
+			$.newWindow({id:"iframewindowIngresarContactoDeUnaOrganizacion" + idWindowIngresarContactoDeUnaOrganizacion, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Contacto de una organizaci&oacute;n", type:"iframe"});
 			$.updateWindowContent("iframewindowIngresarContactoDeUnaOrganizacion" + idWindowIngresarContactoDeUnaOrganizacion,'<iframe src="<%= request.getContextPath() %>/IngresarContactoDeUnaOrganizacion.do" width="1100" height="530"  />');		
 		}
 
@@ -2474,7 +2474,7 @@
 		//Abre una nueva ventana de ingresar quien detuvo
 		function creaQuienDetuvo() {
 			idWindowIngresarQuienDetuvo++;
-		$.newWindow({id:"iframewindowQuienDetuvo" + idWindowIngresarQuienDetuvo, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Ingresar Quién detuvo", type:"iframe"});
+		$.newWindow({id:"iframewindowQuienDetuvo" + idWindowIngresarQuienDetuvo, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Ingresar Qui&eacute;n detuvo", type:"iframe"});
 	    $.updateWindowContent("iframewindowQuienDetuvo" + idWindowIngresarQuienDetuvo,'<iframe src="<%= request.getContextPath() %>/IngresarQuienDetuvo.do?elemento='+0+'&numeroExpediente='+numeroExpediente+'" width="1050" height="600" />');
 		}	
 
@@ -3064,7 +3064,7 @@
 				if(existeDelitoGraveEnGrid())
 				{
 					//se le indica al usuario que seleccione un delito grave como principal
-					alertDinamico("El delito principal debe ser un delito grave,\n por favor revise su selección");
+					alertDinamico("El delito principal debe ser un delito grave,\n por favor revise su selecci&oacute;n");
 				}
 			}
 		}
@@ -3093,7 +3093,7 @@
 				if(existeDelitoGraveEnGrid())
 				{
 					//se le indica al usuario que seleccione un delito grave como principal
-					alertDinamico("El delito principal debe ser un delito grave,\n por favor revise su selección");
+					alertDinamico("El delito principal debe ser un delito grave,\n por favor revise su selecci&oacute;n");
 				}
 				else
 				{
@@ -3107,14 +3107,14 @@
 					{
 						if($(this).find('departamento').text()!="")
 						{
-							//seteamos el combo de la pestaña de Acciones dependiendo del departamento
+							//seteamos el combo de la pesta&ntilde;a de Acciones dependiendo del departamento
 							$('#cbxCanalizaAUI').val(parseInt($(this).find('departamento').find('departamentoId').text()));
 							$('#cbxCanalizaAUI').multiselect('refresh');
 							mostraDivGenerarOficioCanalizacion(2);
 						}
 						else
 						{
-							//seteamos el combo de la pestaña de Acciones dependiendo de la institucion
+							//seteamos el combo de la pesta&ntilde;a de Acciones dependiendo de la institucion
 							$('#cbxCanalizaAIE').val(parseInt($(this).find('institucion').find('institucionId').text()));
 							$('#cbxCanalizaAIE').multiselect('refresh');
 							mostraDivGenerarOficioCanalizacion(3);
@@ -3271,14 +3271,14 @@
 					{
 						if($(this).find('departamento').text()!="")
 						{
-							//seteamos el combo de la pestaña de Acciones dependiendo del departamento
+							//seteamos el combo de la pesta&ntilde;a de Acciones dependiendo del departamento
 							$('#cbxCanalizaAUI').val(parseInt($(this).find('departamento').find('departamentoId').text()));
 							$('#cbxCanalizaAUI').multiselect('refresh');
 							mostraDivGenerarOficioCanalizacion(2);
 						}
 						else
 						{
-							//seteamos el combo de la pestaña de Acciones dependiendo de la institucion
+							//seteamos el combo de la pesta&ntilde;a de Acciones dependiendo de la institucion
 							$('#cbxCanalizaAIE').val(parseInt($(this).find('institucion').find('institucionId').text()));
 							$('#cbxCanalizaAIE').multiselect('refresh');
 							mostraDivGenerarOficioCanalizacion(3);
@@ -3441,7 +3441,7 @@
 	    		  else
 	    		  {
 	    			  isDelitoSaved=false;
-	    			  alertDinamico("Ocurrió un error al tratar de guardar los delitos agraviados");
+	    			  alertDinamico("Ocurri&oacute; un error al tratar de guardar los delitos agraviados");
 	    		  }   			    		
 			  }
 	    	});
@@ -3560,7 +3560,7 @@
 						}
 						else
 						{
-							alertDinamico("Debe de seleccionar guardar en la pestaña Delito");
+							alertDinamico("Debe de seleccionar guardar en la pesta&ntilde;a Delito");
 							return;
 						}
 					}
@@ -3575,7 +3575,7 @@
 			}
 			if(!banderaTipo)
 			{
-				alertDinamico("Debe seleccionar el tipo en la pestaña Generales");
+				alertDinamico("Debe seleccionar el tipo en la pesta&ntilde;a Generales");
 				return;
 			}
 		}
@@ -3709,7 +3709,7 @@
 
 		function abrirDenuncia() {
 			$.newWindow({id:"iframewindowAbrirDenuncia", statusBar: true, posx:200,posy:50,width:1140,height:400,title:"Denuncia", type:"iframe"});
-		    $.updateWindowContent("iframewindowAbrirDenuncia",'<iframe src="<%= request.getContextPath() %>/resources/images/Denuncia en Atención Temprana _JAS.pdf" width="1140" height="400" />');
+		    $.updateWindowContent("iframewindowAbrirDenuncia",'<iframe src="<%= request.getContextPath() %>/resources/images/Denuncia en Atenci&oacute;n Temprana _JAS.pdf" width="1140" height="400" />');
 		   		
 		}
 		
@@ -3721,14 +3721,14 @@
 
 		function pliegoConsignacion() {
 		
-			$.newWindow({id:"iframewindowAbrirteoria", statusBar: true, posx:20,posy:20,width:1390,height:600,title:"Pliego de Consignación", type:"iframe"});
+			$.newWindow({id:"iframewindowAbrirteoria", statusBar: true, posx:20,posy:20,width:1390,height:600,title:"Pliego de Consignaci&oacute;n", type:"iframe"});
 		    $.updateWindowContent("iframewindowAbrirteoria",'<iframe src="<%= request.getContextPath() %>/pliegoDeConsignacion.jsp?idExpediente='+idExpedienteop+'&numeroExpediente='+numeroExpediente+'" width="1390" height="600" />');
 		      		
 		}
 
 		
 		function lanzaCarpetaInvestigacionDefensoria() {
-			$.newWindow({id:"iframewindowAbrirteoria", statusBar: true, posx:20,posy:20,width:310,height:231,title:"Enviar Averiguación previa", type:"iframe"});
+			$.newWindow({id:"iframewindowAbrirteoria", statusBar: true, posx:20,posy:20,width:310,height:231,title:"Enviar Averiguaci&oacute;n previa", type:"iframe"});
 		    $.updateWindowContent("iframewindowAbrirteoria",'<iframe src="<%= request.getContextPath() %>/enviarCarpetaInvestigacionDefensoria.do" width="310" height="231" />');
 		      		
 		}
@@ -3925,7 +3925,7 @@
 			}
 		
 		function abreLineasInvestiga(){		
-			$.newWindow({id:"iframewindowLineaInvestigacion", statusBar: true, posx:20,posy:20,width:1300,height:550,title:"Investigacón", type:"iframe"});
+			$.newWindow({id:"iframewindowLineaInvestigacion", statusBar: true, posx:20,posy:20,width:1300,height:550,title:"Investigac&oacute;n", type:"iframe"});
 	        $.updateWindowContent("iframewindowLineaInvestigacion",'<iframe src="<%= request.getContextPath() %>/lineasInvestigacion.do?numeroUnicoExpediente='+numeroExpediente+'&idNumeroUnicoExpediente='+idNumeroExpedienteConsul+'&pantalla='+pantallaSolicitada+'"    width="1300" height="550" />');
 		}
 		
@@ -3938,7 +3938,7 @@
 				jQuery("#gridDocumentosDigitales").jqGrid({
 					url:'<%=request.getContextPath()%>/consultarDocumentos.do?idExpedienteop='+idNumeroExpedienteConsul+'',
 					datatype: "xml", 
-					colNames:['Área del responsable','Fecha de la actividad','Nombre de la actividad','Tipo de documento','Nombre de Documento','Fecha del documento'],
+					colNames:['&Aacute;rea del responsable','Fecha de la actividad','Nombre de la actividad','Tipo de documento','Nombre de Documento','Fecha del documento'],
 					colModel:[ 	{name:'area',index:'area', width:200},
 								{name:'fechaActividad',index:'fechaActividad', width:170},							
 								{name:'nombreActividad',index:'nombreActividad', width:400},
@@ -4007,7 +4007,7 @@
 					estatusId=$(xml).find('confActividadDocumentoDTO').find('estadoCambioExpediente').find('idCampo').text();
 				}
 			});
-			$.newWindow({id:"iframewindowElaborarSolicitud", statusBar: true, posx:20,posy:20,width:1140,height:550,title:"Notificación Auditoría", type:"iframe"});
+			$.newWindow({id:"iframewindowElaborarSolicitud", statusBar: true, posx:20,posy:20,width:1140,height:550,title:"Notificaci&oacute;n Auditor&iacute;a", type:"iframe"});
             $.updateWindowContent("iframewindowElaborarSolicitud",'<iframe src="<%= request.getContextPath() %>/elaborarNotificacionAuditoria.do?formaId='+formaID+'&numeroUnicoExpediente='+idNumeroExpedienteOp+'"    width="1140" height="550" />');
 		}
 		
@@ -4042,7 +4042,7 @@
 		function muestraSolicitudTranscripcion()
 		{
 			idWindowSolicitudTranscripcion++;
-			$.newWindow({id:"iframewindowSolicitudTranscripcion"+idWindowSolicitudTranscripcion, statusBar: true, posx:253,posy:100,width:812,height:454,title:"Solicitud de Transcripción", type:"iframe"});
+			$.newWindow({id:"iframewindowSolicitudTranscripcion"+idWindowSolicitudTranscripcion, statusBar: true, posx:253,posy:100,width:812,height:454,title:"Solicitud de Transcripci&oacute;n", type:"iframe"});
 	    	$.updateWindowContent("iframewindowSolicitudTranscripcion"+idWindowSolicitudTranscripcion,'<iframe src="<%=request.getContextPath()%>/solicitarTranscripcionEnPG.do" width="812" height="454" />');
 
 	    }
@@ -4094,7 +4094,7 @@
 		
 		
 		/*
-		*Funcion que permite saber la Media aritmética de los delitos NO exceda de 4 años (definido en tabla Parametro)
+		*Funcion que permite saber la Media aritm&eacute;tica de los delitos NO exceda de 4 a&ntilde;os (definido en tabla Parametro)
 		*/
 		function excedeMediaAritmeticaDelitos()
 		{
@@ -4360,7 +4360,7 @@
 	    					//Se actualiza el estatus del expediente del agente sistema tradicional A CONSIGNADO
 	    					actualizarEstatusNumerosDeExpedientesPorRolST("<%=Roles.AGENTEMPSISTRAD.getValorId()%>","<%=EstatusExpediente.CONSIGNADO.getValorId()%>","");
 	    					
-	    					alertDinamico("Se asignó correctamente el expediente");
+	    					alertDinamico("Se asign&oacute; correctamente el expediente");
 	    				}else{
 	    					alertDinamico("Error al asignar el expediente");
 	    				}
@@ -4501,7 +4501,7 @@
 	
 		<ul>
 			<li class="tabTabsGrals"><a href="#tabs-6" onclick="datosGenerales()">Resumen</a></li>
-			<li class="tabTabsVisitaduria"><a href="#tabs-16">Visitaduría</a></li>
+			<li class="tabTabsVisitaduria"><a href="#tabs-16">Visitadur&iacute;a</a></li>
 			<li class="tabTabsHechos"><a href="#tabs-3">Hechos</a></li>
 			<li class="tabTabsInv"><a href="#tabs-1">Involucrado</a></li>
 			<li class="tabTabsDelito"><a href="#tabs-2" onclick="cargaComboProbableResponsableRDPPVDelito()">Delito</a></li>
@@ -4510,11 +4510,11 @@
 			<li class="tabTabsDocs"><a href="#tabs-11" onclick="documentos()">Documentos</a></li>
 			<li class="tabTabsAcciones"><a href="#tabs-7">Actuaciones</a></li>
 			<li class="tabTabsPeri"><a href="#tabs-8" onclick="cargaGridsPericiales()" id="tapPericiales">Periciales</a></li> <!--onclick : gridPericiales() -->
-			<li class="tabTabsPolMin"><a href="#tabs-9" onclick="">Policía ministerial</a></li>
+			<li class="tabTabsPolMin"><a href="#tabs-9" onclick="">Polic&iacute;a ministerial</a></li>
 			<li class="tabTabsCadCus"><a href="#tabs-10" onclick="gridCustodia()">Cadena de custodia</a></li>
 			<li class="tabTabsAudiencias"><a href="#tabs-12">Judiciales</a></li>
 			<li class="tabTabsNotas"><a href="#tabs-5">Notas</a></li>
-			<li class="tabTabsAlertas"><a href="#tabs-14" onclick="alertas()">Bitácora de alarmas</a></li>
+			<li class="tabTabsAlertas"><a href="#tabs-14" onclick="alertas()">Bit&aacute;cora de alarmas</a></li>
 		</ul>
 		
 		<!--COMIENZAN TABS INFERIORES DE INDIVIDUO-->
@@ -4522,11 +4522,11 @@
 			<div id="tabschild" class="tabs-bottom">
 				<ul>
 					<li><a href="#tabschild-1">Denunciante</a></li>
-					<li><a href="#tabschild-2">Víctima</a></li>
+					<li><a href="#tabschild-2">V&iacute;ctima</a></li>
 					<li><a href="#tabschild-3"><bean:message key="probableResponsableTitulo"/></a></li>
 					<li><a href="#tabschild-4">Testigo</a></li>
-					<li><a href="#tabschild-5">Traductor-Intérprete</a></li>
-					<li class="tabTabsQuienDetuvo"><a href="#tabschild-6">Quién Detuvo</a></li>
+					<li><a href="#tabschild-5">Traductor-Int&eacute;rprete</a></li>
+					<li class="tabTabsQuienDetuvo"><a href="#tabschild-6">Qui&eacute;n Detuvo</a></li>
 				</ul>
 				
 				
@@ -4549,7 +4549,7 @@
 				<div style="width: 1042px; height: 490px;" class="back_hechos">
 					<table width="25%" cellpadding="0" cellspacing="0" id="tblVictima" style="padding: .5cm;">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevaVictima"><input type="button" class="btn_Generico" value="Ingresar Víctima"/></a></td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevaVictima"><input type="button" class="btn_Generico" value="Ingresar V&iacute;ctima"/></a></td>
 						</tr>
 						
 					</table>
@@ -4675,7 +4675,7 @@
 						<table width="50%">
 							<tr>
 								<td width="10%"></td>
-								<td><b>Nombre del MP dueño del expediente auditado : </b>
+								<td><b>Nombre del MP due&ntilde;o del expediente auditado : </b>
 								</td>
 								<td id="spanNombrDuenoExpAud">
 								</td>
@@ -4994,18 +4994,18 @@
 			    <td></td>
 			    <td rowspan="16" align="center" width="507" style="background-color:" valign="top"><table border="0" cellpadding="0" cellspacing="0" width="99%">
 		          <tr>
-		            <td width="145" align="right" nowrap style="background-color:">Vehículos:</td>
+		            <td width="145" align="right" nowrap style="background-color:">Veh&iacute;culos:</td>
 		            <td width="332" id="Vehiculos">&nbsp;</td>
 		            <td id="imgVehiculo" width="25"><img title="Contiene mas registros" width="10px" src='<%= request.getContextPath() %>/resources/images/add.png'></td>
 		            
 		          </tr>
 		          <tr>
-		            <td align="right" style="background-color:">Equipos de cómputo:</td>
+		            <td align="right" style="background-color:">Equipos de c&oacute;mputo:</td>
 		            <td id="EquiposDeComputo" >&nbsp;</td>
 		            <td id="imgEquiposDeComputo" width="25"><img title="Contiene mas registros" width="10px" src='<%= request.getContextPath() %>/resources/images/add.png'></td>
 		          </tr>
 		          <tr>
-		            <td align="right" style="background-color:">Equipos Telefónicos:</td>
+		            <td align="right" style="background-color:">Equipos Telef&oacute;nicos:</td>
 		            <td id="EquiposTelefonicos">&nbsp;</td>
 		            <td id="imgEquiposTelefonicos" width="25"><img title="Contiene mas registros" width="10px" src='<%= request.getContextPath() %>/resources/images/add.png'></td>
 		          </tr>
@@ -5035,7 +5035,7 @@
 		            <td id="imgAeronaves" width="25"><img title="Contiene mas registros" width="10px" src='<%= request.getContextPath() %>/resources/images/add.png'></td>
 		          </tr>
 		          <tr>
-		            <td align="right" style="background-color:">Embarcación:</td>
+		            <td align="right" style="background-color:">Embarcaci&oacute;n:</td>
 		            <td id="Embarcacion">&nbsp;</td>
 		            <td id="imgEmbarcacion" width="25"><img title="Contiene mas registros" width="10px" src='<%= request.getContextPath() %>/resources/images/add.png'></td>
 		          </tr>
@@ -5097,12 +5097,12 @@
     <td id="imgTestigos" width="15"><img title="Contiene mas registros" width="10px" src='<%= request.getContextPath() %>/resources/images/add.png'></td>
   </tr>
   <tr>
-    <td align="right" style="background-color:">Traductores/Intérpretes:</td>
+    <td align="right" style="background-color:">Traductores/Int&eacute;rpretes:</td>
     <td id="Traductores">&nbsp;</td>
     <td id="imgTraductores" width="15"><img title="Contiene mas registros" width="10px" src='<%= request.getContextPath() %>/resources/images/add.png'></td>
   </tr>
   <tr>
-    <td align="right" style="background-color:">Quién detuvo:</td>
+    <td align="right" style="background-color:">Qui&eacute;n detuvo:</td>
     <td id="QuienDetuvo">&nbsp;</td>
     <td id="imgQuienDetuvo" width="15"><img title="Contiene mas registros" width="10px" src='<%= request.getContextPath() %>/resources/images/add.png'></td>
   </tr>
@@ -5178,7 +5178,7 @@
 			    <td>&nbsp;</td>
 			  </tr>
 			  <tr>
-			    <td align="right"><span id="spanGralUI">Agencia del Ministerio Público: </span><span id="spanInfoGralUI"></span></td>
+			    <td align="right"><span id="spanGralUI">Agencia del Ministerio P&uacute;blico: </span><span id="spanInfoGralUI"></span></td>
 			    <td>&nbsp;</td>
 			    
 			    <td align="right">&nbsp;</td>
@@ -5219,7 +5219,7 @@
 			<div id="tabschild7" class="tabs-bottom">
 				<ul>
 					<li><a href="#tabschild7-1">Actuaciones</a></li>
-					<li><a href="#tabschild7-2" id="tapRelacionarInfoDeExp">Relacionar Información del expediente</a></li>					
+					<li><a href="#tabschild7-2" id="tapRelacionarInfoDeExp">Relacionar Informaci&oacute;n del expediente</a></li>					
 				</ul>				
 				<div id="tabschild7-1">					
 					<!--<table width="600" border="0" cellspacing="0" cellpadding="0" id="tablaAcusePenal" style="display: none;">
@@ -5340,14 +5340,14 @@
 					<button value="Adjuntar documento" id="btnAdjuntarDocumento" class="btn_Generico" onclick="abreVentanaAdjuntarDocumentoAExpediente()">Adjuntar documento</button>
 				</td>
 				<td>
-					<button value="Elaborar teoria del caso" id="idTeoriaCaso" class="btn_Generico" onclick="abreTeoria()">Teoría del Caso</button>
+					<button value="Elaborar teoria del caso" id="idTeoriaCaso" class="btn_Generico" onclick="abreTeoria()">Teor&iacute;a del Caso</button>
 				</td>
 				<td>
 					<div id="idRadiosBUt" style="display: none;">
 					<table>
 						<tr>
 						<td>
-						Mediación
+						Mediaci&oacute;n
 						</td>
 						<td>
 						<input type="radio" name="rbConci" id="raio1" checked="checked" />
@@ -5355,7 +5355,7 @@
 						</tr>
 						<tr>
 						<td>
-						Conciliación
+						Conciliaci&oacute;n
 						</td>
 						<td>
 						<input type="radio" name="rbConci" id="raio2" />
@@ -5390,7 +5390,7 @@
 					
 				</td>
 				<td>
-				<button value="Enviar de Investigacion" class="btn_Generico" onclick="lanzaCarpetaInvestigacionDefensoria()">Enviar carpeta de investigación</button>
+				<button value="Enviar de Investigacion" class="btn_Generico" onclick="lanzaCarpetaInvestigacionDefensoria()">Enviar carpeta de investigaci&oacute;n</button>
 				</td>
 			</tr>
 		<!-- <tr>
@@ -5554,7 +5554,7 @@
 								<option value="-1">-Seleccione-</option>
 							</select></td>							
 							<td>
-								<input type="button" id="idInvestiga" onclick="abreLineasInvestiga()" value="Investigación" class="btn_Generico"/>
+								<input type="button" id="idInvestiga" onclick="abreLineasInvestiga()" value="Investigaci&oacute;n" class="btn_Generico"/>
 							</td>
 						</tr>
 					</table>
@@ -5600,7 +5600,7 @@
 					<table id="transcipcionAudiencia">
 						<tr>
 							<td>
-								<input type="button" id="btnTranscripcionAudiencia" value="Transcripción de audiencia" class="btn_Generico">
+								<input type="button" id="btnTranscripcionAudiencia" value="Transcripci&oacute;n de audiencia" class="btn_Generico">
 							</td>
 						</tr>
 					</table>
@@ -5633,7 +5633,7 @@
 					<input type="radio" name="noJuridico" id="juridicoSi" onclick="validaCriterios()">
 				</td>
 				<td>
-					<input type="radio" name="noJuridico" id="juridicoNo" onclick="validaCriterios()"> No se afecta bien jurídico.
+					<input type="radio" name="noJuridico" id="juridicoNo" onclick="validaCriterios()"> No se afecta bien jur&iacute;dico.
 				</td>
 			</tr>
 			<tr>
@@ -5641,7 +5641,7 @@
 					<input type="radio" name="noImputado" id="imputadoSi" onclick="validaCriterios()">
 				</td>
 				<td>
-					<input type="radio" name="noImputado" id="imputadoNo" onclick="validaCriterios()"> El <bean:message key="indiciado" /> sufrió daños graves.
+					<input type="radio" name="noImputado" id="imputadoNo" onclick="validaCriterios()"> El <bean:message key="indiciado" /> sufri&oacute; da&ntilde;os graves.
 				</td>
 			</tr>
 			<tr>
@@ -5665,7 +5665,7 @@
 					<input type="button" id="btnInformeCriterio" onclick="dialigoDictamenOprtunidad()" value="Informar criterio de oportunidad" class="btn_Generico">
 				</td>
 				<td>
-					<input type="button"  id="btnTurnarInpugna" onclick="dialigoImpugnacion()" value="Turnar inpugnación de criterio de oportunidad" class="btn_Generico">
+					<input type="button"  id="btnTurnarInpugna" onclick="dialigoImpugnacion()" value="Turnar inpugnaci&oacute;n de criterio de oportunidad" class="btn_Generico">
 				</td>
 			</tr>
 			</table>
@@ -5786,23 +5786,23 @@
 	<!-- DIV para el dialogo de criterios de oportunidad -->
 	<div id="dialogCriterios-confirm" title="Criterio de Opotunidad" >
 		<p align="left">
-			¿Desea ejercer el criterio de oportunidad? 
+			&iquest;Desea ejercer el criterio de oportunidad? 
 		</p>
 	</div>
 	<!-- DIV para el dialogo de envio de dictamen -->
-	<div id="dialogDictamen-confirm" title="Criterio de Opotunidad Envío de Dictamen " >
+	<div id="dialogDictamen-confirm" title="Criterio de Opotunidad Env&iacute;o de Dictamen " >
 		<p align="left">
-			¿Desea enviar el dictamen de criterio de oportunidad? 
+			&iquest;Desea enviar el dictamen de criterio de oportunidad? 
 		</p>
 	</div>
 	<!-- DIV para el dialogo de inpugnacion de criterio -->
-	<div id="dialogImpugnacion-confirm" title="Criterio de Opotunidad Impugnación " >
+	<div id="dialogImpugnacion-confirm" title="Criterio de Opotunidad Impugnaci&oacute;n " >
 		<p align="left">
-			¿Desea impugnar el criterio de oportunidad? 
+			&iquest;Desea impugnar el criterio de oportunidad? 
 		</p>
 	</div>
 	<!-- DIV para el dialogo de inpugnacion de criterio para archivo -->
-	<div id="dialogImpugnacionARchivo-confirm" title="Criterio de Opotunidad Impugnación " >
+	<div id="dialogImpugnacionARchivo-confirm" title="Criterio de Opotunidad Impugnaci&oacute;n " >
 		<p align="left">
 			Seleccionar Archivo a adjuntar:
 			<input type="file">

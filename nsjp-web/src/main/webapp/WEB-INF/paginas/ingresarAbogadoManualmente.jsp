@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Ingresar Abogado Manualmente</title>
 
 	<script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery-1.5.1.js"></script>
@@ -77,11 +77,11 @@
 			      			<select id="lstEtapas" style="width: 180px;" onchange="cambiaListaAbogados();">
 								<option value="4">Abogado Externo</option>
 								<option value="3">Alternativa - Restaurativa</option>
-								<option value="1">Asesoría Legal</option>
-								<option value="2">Defensa Técnica</option>
-								<option value="0">Integración</option>	
+								<option value="1">Asesor&iacute;a Legal</option>
+								<option value="2">Defensa T&eacute;cnica</option>
+								<option value="0">Integraci&oacute;n</option>	
 							</select>
-			      			<!-- input type="button" value="Integración" id="txtIntegracion" readonly="readonly" style="border: 0;" onclick="cambiaListaAbogados(0);"/-->
+			      			<!-- input type="button" value="Integraci&oacute;n" id="txtIntegracion" readonly="readonly" style="border: 0;" onclick="cambiaListaAbogados(0);"/-->
 			      		</td>
 			      		<td valign="top" align="center">
 			      			<table width="100%">
@@ -121,7 +121,7 @@
 						      	</tr>
 						      	<tr>
 						      		<td align="right">
-						      			Teléfono:
+						      			Tel&eacute;fono:
 						      		</td>
 						      		<td>
 						      			<input type="text" value="" size="50" maxlength="40" id="iVictimaCmpNombre"  readonly="readonly" style="background:#DDD;border: 0;" class="required"/>
@@ -157,7 +157,7 @@
 				<table width="100%" height="100%" border="0">
 			     	<tr align="center">
 			     		<td align="center"">
-			     			<input type="button" value="Enviar Notificación" class="btn_Generico"/>
+			     			<input type="button" value="Enviar Notificaci&oacute;n" class="btn_Generico"/>
 			     		</td>
 			     	</tr>
 			     </table>

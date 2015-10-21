@@ -57,7 +57,7 @@
 		     autowidth: true, width:"100%", height:440,
 		     pager: '#pagerAbogadoDefensor',
 		     sortname: 'nombre', viewrecords: true, gridview: true, 
-		     caption: "Número de expediente del defensor asociado  " +numExpediente, 
+		     caption: "N&uacute;mero de expediente del defensor asociado  " +numExpediente, 
 		     sortorder: "desc"	,
 		     onSelectRow: function (rowid){
 		    	 idFuncionario = rowid;
@@ -65,7 +65,7 @@
 		     },
 		     loadComplete: function(xml){
 		    	var noAsignado = $(xml).find('string').text();
-			     if(noAsignado == "El expediente aún no tiene defensor designado, favor de verificar"){
+			     if(noAsignado == "El expediente a&uacute;n no tiene defensor designado, favor de verificar"){
 			    	 alert(noAsignado);
 				 }
 			 }   
@@ -77,7 +77,7 @@
 	function cambiarDefensor(){		
 		alert(idFuncionario);
 		alert(idExpediente);
-		var conf = confirm("El expediente se quedara sin defensor asociado ¿desea continuar?");
+		var conf = confirm("El expediente se quedara sin defensor asociado &iquest;desea continuar?");
 		if (conf == true) {
 		 	$.ajax({
 		   		type: 'POST',

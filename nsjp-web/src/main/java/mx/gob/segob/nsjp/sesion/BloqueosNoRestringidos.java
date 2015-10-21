@@ -19,7 +19,7 @@ public enum BloqueosNoRestringidos {
 	  CHECK	("CHECK.PNG"),
 	  PLEC_TOP_NAR	("PLEC_TOP_NAR.JPG"),
 	  BACK_USUARIO	("BACK_USUARIO.PNG"),
-	  BACK_BIENVENIDO	("BACK_BIENVENIDO.PNG"),
+	  BACK_BIENVENIDO	("BACK_BIENVENIDO.PNG"), 
 	  BACK_BIENVENIDO_DEF	("BACK_BIENVENIDO_DEF.PNG"),
 	  PLECA_BOTTOM	("PLECA_BOTTOM.PNG"),
 	  BACK_IZQ_GRAL	("BACK_IZQ_GRAL.PNG"),
@@ -104,7 +104,7 @@ return hash.get(valor);
 }
 
 /**
-* Método de acceso al campo valorId.
+* Mï¿½todo de acceso al campo valorId.
 * 
 * @return El valor del campo valorId asociado en le BD.
 */

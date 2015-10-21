@@ -2,11 +2,11 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.documento.OperacionDocumento"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.expediente.EtapasExpediente"%>
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css"/>
 <link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath() %>/resources/css/jquery.windows-engine.css"/>				
@@ -209,7 +209,7 @@
 		
 		//Guarda datos del solicitante
 		$("#btnGuardarDatos").click(guardaDatosSolicitante);
-		//Copia los datos a la pestaña para quien solicita a la de solicitante
+		//Copia los datos a la pesta&ntilde;a para quien solicita a la de solicitante
 		$("#mismaPersona").change(mismoParaQuienSolicita);
 		$("#btnGuardarDelitosAg").css("display", "none");		
 		//cambia bandera si hay cambio en el solicitante
@@ -245,7 +245,7 @@
 //			   selectedList: 1 
 //			});
 		
-		//Da estilo a las pestañas principales
+		//Da estilo a las pesta&ntilde;as principales
 		$( "#tabsprincipalconsulta" ).tabs();
 
 		//Asocia estilo al select de Ocupacion
@@ -540,7 +540,7 @@
 	}
 
 	/**
-	 *Limpia todos los campos de esta página
+	 *Limpia todos los campos de esta p&aacute;gina
 	 */
 	function cleanDatosGenerales(){		
 
@@ -615,10 +615,10 @@
 				 dataType: 'xml',
 				 success: function(xml){				 
 					 if($(xml).find('involucradoDTO').first().find('elementoId')){
-							customAlert("Se guardó con éxito el solicitante");
+							customAlert("Se guard&oacute; con &eacute;xito el solicitante");
 							vSolicitanteDEATT = 0;		 
 					 }else{
-						 customAlert("No se registró la información");	
+						 customAlert("No se registr&oacute; la informaci&oacute;n");	
 					 }	
 				  }
 				});
@@ -686,9 +686,9 @@
 							 guardarDelitosAgraviadosExp();
 							 idIndividuo=0;
 							 idIndividuo=$(xml).find('involucradoDTO').first().find('elementoId').text();
-							 customAlert("Se guardó con éxito la persona para quien solicita");	
+							 customAlert("Se guard&oacute; con &eacute;xito la persona para quien solicita");	
 						 }else{
-							 customAlert("No se registró la información");	
+							 customAlert("No se registr&oacute; la informaci&oacute;n");	
 							 vParaQuienDEATT = 1;				 
 						 }	
 					 }
@@ -717,7 +717,7 @@
         	  data: params+numExpediente2+idExpediente2+numeroExpedienteId2+documentoId2,
         	  async: false,
         	  success: function(xml) {
-		        customAlert("Se guardó con éxito");
+		        customAlert("Se guard&oacute; con &eacute;xito");
 		        vMotivoDEATT = 0;
 		        $("#btnGenera").removeAttr('disabled');        	     		
         	  }	    		
@@ -738,7 +738,7 @@
 		vMotivoDEATT = 1;				
 	}
 
-	//Valida por pestaña al momento de guardar
+	//Valida por pesta&ntilde;a al momento de guardar
    function guardado(){
 	    
 		if(vSolicitanteDEATT != 0){		
@@ -771,7 +771,7 @@
 			success: function(xml){
 			}
 		});
-		customAlert("La solicitud se actualizó correctamente");
+		customAlert("La solicitud se actualiz&oacute; correctamente");
 		generarDocumentoSinCaso();
 	}
 	
@@ -954,7 +954,7 @@
 		    	$('#idiomaExtranjero').hide();			    		
 	    	}
 	    }
-	//Copia los datos de la pestaña para quien solicita a solicitante
+	//Copia los datos de la pesta&ntilde;a para quien solicita a solicitante
 	function mismoParaQuienSolicita(){
 		
 		if ($("#mismaPersona").is(':checked')) {
@@ -975,7 +975,7 @@
 			cleanDatosGenerales();
 		}
 	}
-	//Habilita las pestañas de delitos y centro de detencion
+	//Habilita las pesta&ntilde;as de delitos y centro de detencion
 	function activaCaso(){
 		
 		if($('#RadioDetenido_2').is(':checked')){
@@ -984,8 +984,8 @@
 
 			$('#cmbEtapaExpediente').empty();
 			$('#cmbEtapaExpediente').append('<option value="-1">-Seleccione-</option>');
-			$('#cmbEtapaExpediente').append('<option value="'+ <%=EtapasExpediente.CONCILIACION_Y_MEDIACION.getValorId()%>+ '">Conciliación y Mediación</option>');
-			$('#cmbEtapaExpediente').append('<option value="' + <%=EtapasExpediente.TECNICA.getValorId()%> + '">Técnica</option>');
+			$('#cmbEtapaExpediente').append('<option value="'+ <%=EtapasExpediente.CONCILIACION_Y_MEDIACION.getValorId()%>+ '">Conciliaci&oacute;n y Mediaci&oacute;n</option>');
+			$('#cmbEtapaExpediente').append('<option value="' + <%=EtapasExpediente.TECNICA.getValorId()%> + '">T&eacute;cnica</option>');
 			$('#cmbEtapaExpediente').attr('disabled','');
 			
 			if($("#cejaDetenido").hasClass('active')){
@@ -1001,7 +1001,7 @@
 		}else{
 
 			$('#cmbEtapaExpediente').empty();
-			$('#cmbEtapaExpediente').append('<option value="' + <%=EtapasExpediente.INTEGRACION.getValorId()%> + '">Integración</option>');
+			$('#cmbEtapaExpediente').append('<option value="' + <%=EtapasExpediente.INTEGRACION.getValorId()%> + '">Integraci&oacute;n</option>');
 		    $('#cmbEtapaExpediente').find("option[value='"+<%=EtapasExpediente.INTEGRACION.getValorId()%>+"']").attr("selected","selected");
 			$('#cmbEtapaExpediente').attr('disabled','disabled');
 
@@ -1082,7 +1082,7 @@
     		  else
     		  {
     			  isDelitoSaved=false;
-    			  customAlert("Ocurrió un error al tratar de guardar los delitos agraviados");
+    			  customAlert("Ocurri&oacute; un error al tratar de guardar los delitos agraviados");
     		  }   			    		
 		  }
     	});
@@ -1259,7 +1259,7 @@
 		                       <dd>
 								<jsp:include page="seleccionarDelitoView.jsp"></jsp:include>							
 		                       </dd>
-		                     <dt id="datosDetencion">Datos de detención</dt>
+		                     <dt id="datosDetencion">Datos de detenci&oacute;n</dt>
 		                       <dd>
 		                       	<jsp:include page="datosDetencion.jsp"/>
 		                        </dd>
@@ -1348,7 +1348,7 @@
 					<tr>
 						<td align="right">
 							<input type="button" id="btnGuardar" value="Guardar" onclick="guardaMotivo()" class="btn_guardar" />
-							<input type="button" id="btnGenera" value="Generar Acuse de Atención" onclick="guardado()" disabled="disabled" class="btn_Generico"/>
+							<input type="button" id="btnGenera" value="Generar Acuse de Atenci&oacute;n" onclick="guardado()" disabled="disabled" class="btn_Generico"/>
 						</td>	
 					</tr>
 				</table>				

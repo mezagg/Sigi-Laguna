@@ -36,7 +36,7 @@ public class IngresarActaCircunstanciadaForm extends GenericForm{
 	private Long idActaCircunstancial;
 	private String numExpediente;
 	private String idUsuario;
-	
+	 
 	private Long idHecho;
 	private Long idDomicilio;
 	
@@ -61,7 +61,7 @@ public class IngresarActaCircunstanciadaForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo docIdentificacion.
+	 * Mï¿½todo de acceso al campo docIdentificacion.
 	 * @return El valor del campo docIdentificacion
 	 */
 	public String getDocIdentificacion() {
@@ -76,7 +76,7 @@ public class IngresarActaCircunstanciadaForm extends GenericForm{
 		this.docIdentificacion = docIdentificacion;
 	}
 	/**
-	 * Método de acceso al campo folioDoc.
+	 * Mï¿½todo de acceso al campo folioDoc.
 	 * @return El valor del campo folioDoc
 	 */
 	public String getFolioDoc() {

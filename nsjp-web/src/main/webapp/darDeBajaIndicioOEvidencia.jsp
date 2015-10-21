@@ -1,7 +1,7 @@
 <%@page
     import="mx.gob.segob.nsjp.comun.enums.funcionario.TipoDefensoria"%>
-    <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-             pageEncoding="ISO-8859-1"%>
+    <%@ page language="java" contentType="text/html; charset=UTF-8"
+             pageEncoding="UTF-8"%>
     <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
     <html>
         <head>
@@ -42,7 +42,7 @@
                 }
             </style>
 
-            <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 			<script type="text/javascript" src="<%=request.getContextPath()%>/js/bloqueaTecla.js?n=1"></script>
 			
@@ -77,7 +77,7 @@
                         // Si hay parametros faltantes lo indicamos
                         $("#mensajeValidacion").dialog({ autoOpen: true,
                             modal: true,
-                            title: 'Atención',
+                            title: 'Atenci&oacute;n',
                             dialogClass: 'alert',
                             position: [200,30],
                             width: 230,
@@ -103,7 +103,7 @@
                                 parametros += "&" + evidenciasId;
                                 $("#confirmaSolicitud").dialog({ autoOpen: true,
                                     modal: true,
-                                    title: 'Confirmación',
+                                    title: 'Confirmaci&oacute;n',
                                     dialogClass: 'alert',
                                     position: [200,30],
                                     width: 412,
@@ -126,7 +126,7 @@
                                 // mensaje informando al usuario.
                                 $("#mensajeFuncionarioInexistente").dialog({ autoOpen: true,
                                     modal: true,
-                                    title: 'Atención',
+                                    title: 'Atenci&oacute;n',
                                     dialogClass: 'alert',
                                     position: [200,30],
                                     width: 412,
@@ -155,7 +155,7 @@
                         ventana.dialog("close");
                         $("#mensajeExistoBaja").dialog({ autoOpen: true,
                             modal: true,
-                            title: 'Atención',
+                            title: 'Atenci&oacute;n',
                             dialogClass: 'alert',
                             position: [200,30],
                             width: 412,
@@ -193,7 +193,7 @@
                          * Tipo de eslabon
                          * Almacen
                          */
-                        colNames:['id','Número','Información', 'Origen', 'Último eslabón asociado', 'Número de eslabón', 'Tipo de eslabón', 'Almacén'],
+                        colNames:['id','N&uacute;mero','Informaci&oacute;n', 'Origen', '&Uacute;ltimo eslab&oacute;n asociado', 'N&uacute;mero de eslab&oacute;n', 'Tipo de eslab&oacute;n', 'Almac&eacute;n'],
                         colModel:[
                             {name:'id',index:'id', width:75, viewable:false, key:true, hidden:true},
                             {name:'numero',index:'numero', sorteable:false, align:"center"},
@@ -220,13 +220,13 @@
         </head>
         <body>
             <div id="confirmaSolicitud" style="display: none">
-                ¿Desea dar de baja las evidencias o indicios seleccionados?
+                &iquest;Desea dar de baja las evidencias o indicios seleccionados?
             </div>
             <div id="mensajeValidacion" style="display: none">
                 Por favor llene los campos requeridos
             </div>
             <div id="mensajeFuncionarioInexistente" style="display: none">
-                No existe un funcionario que corresponda con la información capturada
+                No existe un funcionario que corresponda con la informaci&oacute;n capturada
             </div>
             <div id="mensajeExistoBaja" style="display: none">
                 Las evidencias han sido dadas de baja correctamente
@@ -234,7 +234,7 @@
             <table>
                 <tr class="fondoFuerteAP">
                     <td style="color: white" colspan="2" align="center">
-                        Información de la evidencia
+                        Informaci&oacute;n de la evidencia
                     </td>
                 </tr>
                 <tr>
@@ -251,7 +251,7 @@
                     </td>
                     <td align="right">
                         <select id="tipoDeBaja" class="parametro">
-                            <option value="-1">--Seleccione una opción--</option>
+                            <option value="-1">--Seleccione una opci&oacute;n--</option>
                         </select>
                     </td>
                 </tr>
@@ -259,7 +259,7 @@
             <table>
                 <tr class="fondoFuerteAP">
                     <td style="color: white" colspan="2" align="center">
-                        Información del personal que autoriza la baja del indicio o evidencia
+                        Informaci&oacute;n del personal que autoriza la baja del indicio o evidencia
                     </td>
                 </tr>
                 <tr>
@@ -288,7 +288,7 @@
                 </tr>
                 <tr>
                     <td align="left">
-                        Institución*
+                        Instituci&oacute;n*
                     </td>
                     <td align="right">
                         <input type="text" id="institucion" class="parametro" size="60">

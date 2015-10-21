@@ -1,7 +1,7 @@
 <%@page
 	import="mx.gob.segob.nsjp.comun.enums.funcionario.TipoDefensoria"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -42,7 +42,7 @@
 }
 </style>
 
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <script type="text/javascript">
 
@@ -123,7 +123,7 @@ function grid(){
 															
 							data : "",
 							datatype : "xml",
-							colNames : ['Folio de la Cadena de Custodia', 'Número de Evidencia','Descripción de la Evidencia','Número de Eslabón','Tipo de Eslabón','Almacén','Destino Legal' ],
+							colNames : ['Folio de la Cadena de Custodia', 'N&uacute;mero de Evidencia','Descripci&oacute;n de la Evidencia','N&uacute;mero de Eslab&oacute;n','Tipo de Eslab&oacute;n','Almac&eacute;n','Destino Legal' ],
 							colModel : [ {name : 'NumEvidencia',index : 'NumEvidencia',	width : 200,resizable : true},
 										{name : 'NEvidencia',index : 'NEvidencia',	width : 200,resizable : true},	
 							             {name : 'IEvidencia',index : 'IEvidencia',	width : 200,resizable : true},
@@ -189,7 +189,7 @@ function grid(){
 			
 								data : "",
 								datatype : "xml",
-								colNames : ['Número de la Evidencia', 'Destino de la Evidencia'],
+								colNames : ['N&uacute;mero de la Evidencia', 'Destino de la Evidencia'],
 								colModel : [ {name : 'NumEvidencia',index : 'NumEvidencia',	width : 200,resizable : true},
 											{name : 'DesEvidencia',index : 'DesEvidencia',	width : 200,resizable : true},	
 								             	

@@ -3,8 +3,8 @@
 <%@ page import="mx.gob.segob.nsjp.comun.enums.expediente.TipoDeBusquedaDeExpediente" %>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.institucion.Areas" %>
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <% 
    	UsuarioDTO usuario = (UsuarioDTO) request.getSession().getAttribute("KEY_SESSION_USUARIO_FIRMADO");
 	String rolUsuarioSesion = "";
@@ -17,7 +17,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>B&uacute;squeda avanzada de expediente</title>
 <style>
 	input.error {
@@ -350,7 +350,7 @@
  			   
  		}
 	
-	//Función que genera un nuevo número de expediente para la UI en el mismo expediente
+	//Función que genera un nuevo n&uacute;mero de expediente para la UI en el mismo expediente
 		function nuevoNumeroExpediente(id){
 				
 			var idExpediente="0";

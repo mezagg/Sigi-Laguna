@@ -11,12 +11,12 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.solicitud.TiposSolicitudes"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.solicitud.EstatusSolicitud"%>
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Ingresar Mandamiento Judicial</title>
 
 		<link rel="stylesheet" type="text/css"  href="<%= request.getContextPath()%>/resources/css/jquery-ui.css"/>
@@ -318,13 +318,13 @@
 			    	  dataType: 'xml',
 			    	  async: false,
 			    	  success: function(xml){
-			    		  	//Si no tenía mandamiento
+			    		  	//Si no ten&iacute;a mandamiento
 			    		  	var idArchivoMandamiento = $(xml).find("mandamientoDTO").find("archivoDigital").first().find("archivoDigitalId").first().text();
 							var idArchivoImagenFunc = $(xml).find("mandamientoDTO").find("resolutivo").first().find("audiencia").find("expediente").find("responsableTramite").find("archivoDigital").find("archivoDigitalId").first().text();
 			    		  
 			    			if(idArchivoMandamiento != ""
 			    					&& idArchivoMandamiento != idArchivoImagenFunc){
-								//el documento ya está generado, consultarlo
+								//el documento ya est&aacute; generado, consultarlo
 								document.verMandamientoForm.archivoDigitalId.value = idArchivoMandamiento;
 								document.verMandamientoForm.documentoId.value = "";
 								document.verMandamientoForm.submit();
@@ -333,7 +333,7 @@
 								mandamientoJudicialId = $(xml).find("documentoId").first().text();
 								numExp = $(xml).find("numeroExpediente").first().text();
 								
-								//mandamiento recién creado, mostrar el editor
+								//mandamiento reci&eacute;n creado, mostrar el editor
 								idWindowPantallaActuaciones++;
 								$.newWindow({id:"iframewindowGenerarMandamientoJudicial"+idWindowPantallaActuaciones, 
 									statusBar: true, posx:200,posy:50,width:1140,height:400,title:"Generar Mandamiento", 
@@ -342,7 +342,7 @@
 						        		"<iframe src='<%=request.getContextPath()%>/generarDocumentoSinCaso.do?documentoId="+mandamientoJudicialId+"&numeroUnicoExpediente="+numExp+"&ocultarNumeroOficio=true&idWindowPantallaActuaciones="+idWindowPantallaActuaciones+"' width='1140' height='400' />");
 							}
 			    			
-				    		  //Despues de guardar el mandamiento judicial se oculta el boton, mosotrando el botón de cancelar
+				    		  //Despues de guardar el mandamiento judicial se oculta el boton, mosotrando el bot&oacute;n de cancelar
 				    		  $("#guardarMandamientoJudicial").hide();
 			    		  
 			    		  
@@ -364,7 +364,7 @@
 					customAlert("Seleccione un tipo de mandamiento");
 				}
 				else if($('#mandamientoJudicialFechaEjecucion').val() == ""){
-					customAlert("Seleccione una fecha de ejecución");
+					customAlert("Seleccione una fecha de ejecuci&oacute;n");
 				}
 				else{
 				  		if(tipoMandamiento == <%=TipoMandamiento.SENTENCIA.getValorId()%>){
@@ -424,7 +424,7 @@
 				}
 					
 				if(validaFecha==false){	
-					customAlert("La fecha final debe de ser mayor ó igual a la fecha inicial");
+					customAlert("La fecha final debe de ser mayor &oacute; igual a la fecha inicial");
 				}
 				
 			}
@@ -547,7 +547,7 @@
 	}
 	
 	/**
-	* Funcion que realiza la carga del catálogo de tipos de mandamiento
+	* Funcion que realiza la carga del cat&aacute;logo de tipos de mandamiento
 	*/
 	function cargaTipoMandamiento() {
 		
@@ -567,7 +567,7 @@
 	}
 
 	/**
-	* Funcion que realiza la carga del catálogo de tipos de sentencia
+	* Funcion que realiza la carga del cat&aacute;logo de tipos de sentencia
 	*/
 	function cargaTipoSentencia() {
 		
@@ -898,7 +898,7 @@
 		 }
 		
 		/**
-		* Función que es invocada cuando se termina la creación del archivo digital de la medida
+		* Funci&oacute;n que es invocada cuando se termina la creaci&oacute;n del archivo digital de la medida
 		*/
 		function replicarMandamientoAPGR(){
 			$.ajax({

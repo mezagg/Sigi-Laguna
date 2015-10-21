@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <title>Visor Medio de Prueba</title>
 
 	<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css"/>
@@ -138,7 +138,7 @@
 			
 			url:'<%=request.getContextPath()%>/consultarDatosPruebaAsociadosXMedioPrueba.do?medioPruebaId='+medioPruebaId+'',
 			datatype: "xml", 
-			colNames:['Nombre','Número'], 
+			colNames:['Nombre','N&uacute;mero'], 
 			colModel:[ 	{name:'nombreDatoPrueba',index:'nombreDatoPrueba', width:350,align:'left'},
 						{name:'numeroDatoPrueba',index:'numeroDatoPrueba', width:350,align:'left'}
 					],
@@ -248,17 +248,17 @@
         </td>
     </tr>
     <tr>
-        <td align="right"><strong>Número de identificación:</strong></td>
+        <td align="right"><strong>N&uacute;mero de identificaci&oacute;n:</strong></td>
         <td><input type="text" id="numeroMedioPruebaDetallePJENS"
             style="width: 200px; border: 0; background: #DDD;"
             readonly="readonly" /></td>
-        <td align="right"><strong>Número identificación:</strong></td>
+        <td align="right"><strong>N&uacute;mero identificaci&oacute;n:</strong></td>
         <td><input type="text" id="numeroIdDatoPruebaDetallePJENS"
             style="width: 200px; border: 0; background: #DDD;"
             readonly="readonly" /></td>
     </tr>
     <tr>
-        <td align="right"><strong>Ref. a ubicación física:</strong></td>
+        <td align="right"><strong>Ref. a ubicaci&oacute;n f&iacute;sica:</strong></td>
         <td><input type="text" id="refUbicacionMedioPruebaDetallePJENS"
             style="width: 200px; border: 0; background: #DDD;"
             readonly="readonly" /></td>
@@ -286,7 +286,7 @@
         <td align="right">&nbsp;</td>
         <td>&nbsp;</td>
         <td align="right">
-<!--        	<strong>Fecha Cancelación:</strong>}-->
+<!--        	<strong>Fecha Cancelaci&oacute;n:</strong>}-->
         </td>
         <td>
 <!--        	<input type="text" id="fechaCancelacionDatoPruebaDetallePJENS2" style="width: 200px; border: 0; background: #DDD;" readonly="readonly" />-->
@@ -303,9 +303,9 @@
         </td>
     </tr>
     <tr>
-        <td align="right"><strong>Descripción:</strong></td>
+        <td align="right"><strong>Descripci&oacute;n:</strong></td>
         <td>&nbsp;</td>
-        <td align="right"><strong>Descripción:</strong></td>
+        <td align="right"><strong>Descripci&oacute;n:</strong></td>
         <td>&nbsp;</td>
     </tr>
     <tr>

@@ -2,9 +2,10 @@
 <%@page import="mx.gob.segob.nsjp.dto.catalogo.CatDelitoDTO"%>
 <%@page import="mx.gob.segob.nsjp.dto.catalogo.CatalogoDTO"%>
 <%@page import="mx.gob.segob.nsjp.web.catalogo.form.CatalogosForm"%>
+<%@page pageEncoding="UTF-8"%>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/estilos.css"/>	
 	<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/layout_complex.css"/>
 	<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/jquery-ui.css"/>
@@ -503,7 +504,7 @@
 		totalPenaMin += parseInt(penaMinD);
 		
 		if(parseInt(totalPenaMin) == 0){	
-			alertDinamico("Ingrese una pena mínima");
+			alertDinamico("Ingrese una pena m&iacute;nima");
 			return false;	 
 		}
 		
@@ -514,11 +515,11 @@
 		totalPenaMax += parseInt(penaMaxD);
 		
 		if(parseInt(totalPenaMax) == 0){
-			alertDinamico("Ingrese una pena máxima");
+			alertDinamico("Ingrese una pena m&aacute;xima");
 			return false;
 		}
 		if(parseInt(totalPenaMin) > parseInt(totalPenaMax)){
-			alertDinamico("La pena mínima debe ser menor o igual a la pena máxima");
+			alertDinamico("La pena m&iacute;nima debe ser menor o igual a la pena m&aacute;xima");
 			return false;
 		}
 
@@ -561,11 +562,11 @@
 		}
 		else if($("input[name='esAccPenalPriv']:checked").val() === undefined){
 			
-			alertDinamico("Seleccione si el delito es acción penal privada");
+			alertDinamico("Seleccione si el delito es acci&oacute;n penal privada");
 			return false;
 		}
 		else if($("#jerarquiaUIEdelito option:selected").val() == "nop"){
-			alertDinamico("Seleccione una Unidad de Investigación Especializada");
+			alertDinamico("Seleccione una Unidad de Investigaci&oacute;n Especializada");
 			return false;
 		}
 		else if(cveInterIns == " " || cveInterIns == ""){
@@ -581,7 +582,7 @@
 //*****************************************************************FUNVCIONES PARA ELIMINAR UN DELITO*****************************************/
 
 	/*
-	*Funcion que elimina el delito que se consultó
+	*Funcion que elimina el delito que se consult&oacute;
 	*/
 	function eliminarDelito(){
 
@@ -604,7 +605,7 @@
 		// En este if entran las excepciones generadas por Hibernate (cuando truena a nivel negocio)
 		// por el momento se agrupan en un solo bloque ya que esto cumple con la funcionalidad requerida.
 		if(banderaValidacion != 2  &&  banderaValidacion!=1){
-			alertSincronoNoExisteOusado("El delito no se puede eliminar porque tiene relación en denuncias existentes");
+			alertSincronoNoExisteOusado("El delito no se puede eliminar porque tiene relaci&oacute;n en denuncias existentes");
 		}
 		
 		banderaValidacion = 0;
@@ -616,10 +617,10 @@
 	function respuestaIntentarEliminar(resultado){
 		
 		if(resultado == -1){
-			alertSincronoNoExisteOusado("El delito no se puede eliminar porque tiene relación en denuncias existentes");
+			alertSincronoNoExisteOusado("El delito no se puede eliminar porque tiene relaci&oacute;n en denuncias existentes");
 		}
 		else if(resultado == 2){
-			alertSincronoNoExisteOusado("El delito no se logró eliminar porque no se encontró en la base de datos");
+			alertSincronoNoExisteOusado("El delito no se logr&oacute; eliminar porque no se encontr&oacute; en la base de datos");
 		}
 		else if(resultado == 1){
 			alertSincronoNoExisteOusado("El delito fue eliminado correctamente");				

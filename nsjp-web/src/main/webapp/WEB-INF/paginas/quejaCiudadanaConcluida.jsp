@@ -2,12 +2,12 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.actividad.Actividades"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.forma.Formas"%>
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Queja Ciudadana Concluida</title>
 
 <link rel="stylesheet" type="text/css" media="screen"
@@ -163,7 +163,7 @@
 		<div id="tabsPrincipal">
 		<ul>
 			<li><a href="#tabsconsultaprincipal-1">Datos de la Queja</a></li>
-			<li><a href="#tabsconsultaprincipal-2">Confirmación de Datos</a></li>
+			<li><a href="#tabsconsultaprincipal-2">Confirmaci&oacute;n de Datos</a></li>
 		</ul>
 		<div id="tabsconsultaprincipal-1">
 		<fieldset><legend>Datos del Quejoso</legend>
@@ -205,7 +205,7 @@
 					<td width="156"><input type="text" id="cQNomInvolucradoCompara" /></td>
 				</tr>
 				<tr align="right">
-					<td>Número de Expediente:</td>
+					<td>N&uacute;mero de Expediente:</td>
 					<td><input type="text" id="cQNumExpedienteCompara" /></td>
 				</tr>
 				<tr align="right">

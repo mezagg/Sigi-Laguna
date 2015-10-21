@@ -2,8 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        <title>Lineas de Investigación</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Lineas de Investigaci&oacute;n</title>
         
         
         <!--		Hojas de estilos asociadas-->
@@ -36,7 +36,7 @@
             	jQuery("#gridDetalleFrmPrincipal").jqGrid({ 
 					url: '<%=request.getContextPath()%>/nuevosNumerosExpedienteVisitaduria.do?idExpediente='+idEspdientes+'&idVisitador='+idFuncionario+'&tipoVisita='+tipoVisita+'',
 					datatype: "xml", 
-					colNames:['Expediente Auditado','Tipo de Visita','Enviar Notificación'], 
+					colNames:['Expediente Auditado','Tipo de Visita','Enviar Notificaci&oacute;n'], 
 					colModel:[ 	{name:'Auditado',index:'dueno', width:120},
 					           	{name:'TipoVisita',index:'visita', width:100},
 								{name:'Enviar',index:'fechai', width:90, hidden:true}
@@ -47,7 +47,7 @@
 					autowidth: true,
 					height:300,
 					//sortname: 'detalle',
-					caption: "Carpetas de Auditoría",
+					caption: "Carpetas de Auditor&iacute;a",
 					viewrecords: true
 				});
             });
@@ -77,7 +77,7 @@
                               window.parent.cargaGridVisi();
                         }
                   });
-                  $.newWindow({id:"iframewindowElaborarSolicitud", statusBar: true, posx:20,posy:20,width:1140,height:550,title:"Notificación Auditoría", type:"iframe"});
+                  $.newWindow({id:"iframewindowElaborarSolicitud", statusBar: true, posx:20,posy:20,width:1140,height:550,title:"Notificaci&oacute;n Auditor&iacute;a", type:"iframe"});
             	$.updateWindowContent("iframewindowElaborarSolicitud",'<iframe src="<%= request.getContextPath() %>/elaborarNotificacionAuditoria.do?formaId='+formaID+'&variosExpedientes=true"  width="1140" height="550" />');
             }
 
@@ -107,7 +107,7 @@
         	<table  border=0; cellspacing="3" align="center" width="924px" height="500px">
             	<tr r>
             		<td>
-            			Se crearon la(s) Siguiente(s) Carpeta(s) de Auditoría:	
+            			Se crearon la(s) Siguiente(s) Carpeta(s) de Auditor&iacute;a:	
             		</td>
             		<td align="right">
             			<input id='btnElabora' type='button' class='btn_Generico' onclick="desabilitarBoton('btnElabora');elaboraNotificacionAuditoria()" value='Enviar Notificaciones' style='height:22px;width:120px;font-size:-3'/>

@@ -1,7 +1,7 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.seguridad.Roles"%>
 <%@page import="mx.gob.segob.nsjp.dto.usuario.RolDTO"%>
 <%@page import="mx.gob.segob.nsjp.dto.usuario.UsuarioDTO"%>
-<%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="java.util.Date"%>
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
@@ -164,7 +164,7 @@
 			.tabEstilo  { height: 350px; overflow: auto; }
 			
 		</style>    
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title><tiles:getAsString name="title" /></title>	
 		<script type="text/javascript">
 		

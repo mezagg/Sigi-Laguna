@@ -8,13 +8,13 @@
 <%@ page import="mx.gob.segob.nsjp.web.base.action.GenericAction"%>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.expediente.EstatusExpediente"%>
 <%@ page import="org.omg.CORBA.Request"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Ingresar Persona</title>
 
 <style type="text/css">
@@ -277,7 +277,7 @@ DD P {
 				$("#tabsprincipalconsulta" ).tabs();
 				//ocultamos el domicilio de notificaciones
 				killDomicilioNotificaciones();
-				//se genera las pestañas de domicilio
+				//se genera las pesta&ntilde;as de domicilio
 				$('#iProbResponsablePane').easyAccordion({ 
 			  autoStart: false, 
 			  slideInterval: 3000
@@ -305,7 +305,7 @@ DD P {
 				           	{name:'Fecha',index:'fecha', width:170,align:'center'},
 				           	{name:'Documento',index:'documento', hidden:false},
 				           	{name:'EsParcial',index:'esParcial', hidden:true},
-				           	// campo asociado, para la recuperación de los tipos de solicitudes asociados a un 
+				           	// campo asociado, para la recuperaci&oacute;n de los tipos de solicitudes asociados a un 
 				           	// nu_mero de expediente cuando se cargan los documentos
 				           	{name:'TipoActividadId',index:'tipoActividadId', hidden:true}
 						],
@@ -419,7 +419,7 @@ DD P {
 		}
 		
 		/*
-		* Funcion que validará los datos obligatorios:
+		* Funcion que validar&aacute; los datos obligatorios:
 		* Nombre y apellido paterno del solicitante
 		* Motivo de la solicitud
 		*/
@@ -473,7 +473,7 @@ DD P {
 					datosPestania = obtenerMedios();
 					parametros += datosPestania;
 					
-					//Documento de identificación
+					//Documento de identificaci&oacute;n
 					datosPestania = '&';
 					datosPestania = recuperaDatosTipoDocIdentificacion();					
 					parametros += datosPestania;
@@ -507,7 +507,7 @@ DD P {
 									  $("#btnModificar").attr('disabled','');
 									  $("#btnGuardarHechos").hide();
 									  $("#btnGuardarHechos").attr('disabled','');
-									  textoAlert = "Se guardó la información exitosamente.";
+									  textoAlert = "Se guard&oacute; la informaci&oacute;n exitosamente.";
 									  if(!validarTipoActividadEnExpediente()){
 										  textoAlert += "<br/>Favor de generar el Acta Circunstanciada.";
 									  }
@@ -566,7 +566,7 @@ DD P {
 
 	  /*
 	   *Funcion que muestra los datos del involucrado de acuerdo a su condicion, es
-	   *decir Vivo, Muerto, Desconocido, simpre y cuando, sea persona física
+	   *decir Vivo, Muerto, Desconocido, simpre y cuando, sea persona f&iacute;sica
 	   */
 		function muestraDatosCondicion(xml){
 
@@ -597,7 +597,7 @@ DD P {
 		}
 
 	  /*
-	   *Funcion que verifica si el prob responsable es una persona física o moral
+	   *Funcion que verifica si el prob responsable es una persona f&iacute;sica o moral
 	   *y oculta o muestra los datos dependiendo de ello
 	   */	
 		function muestraDatosPersona(xml){
@@ -659,7 +659,7 @@ DD P {
 		*Limpia los datos de la ceja datos generales 
 		*/
 		function limpiaCejaDatosGenerales(){
-		  //El padre invoca una función del hijo
+		  //El padre invoca una funci&oacute;n del hijo
 		  cleanDatosGenerales();  
 		}			
 			
@@ -669,7 +669,7 @@ DD P {
 		}
 
 		/**
-		* Función que guarda los datos de la pantalla
+		* Funci&oacute;n que guarda los datos de la pantalla
 		*/
 		function guardarProbResponsable()
 		{
@@ -1073,7 +1073,7 @@ DD P {
 			}				
 		}else if(actividad=='<%= Actividades.SOLICITAR_SERVICIO_PERICIAL.getValorId() %>'){
 					/*
-					*Variable para definir el área de donde proviene la solicitud.
+					*Variable para definir el &aacute;rea de donde proviene la solicitud.
 					*Para Procuraduria el valor es 1
 					*Para Defensoria el valor es 2
 					*codigo para cambiar el estatus del expediente
@@ -1088,7 +1088,7 @@ DD P {
 	//*****************************************Termina Funcionalidad para le ceja de solicitar atecion********************************************/
 	
 	/*
-	*Funcion que consulta los tipos de atención seleccionadas y dibuja
+	*Funcion que consulta los tipos de atenci&oacute;n seleccionadas y dibuja
 	*los tipos de atencion
 	*/	
 	function consultaTiposAtencionSeleccionados(){
@@ -1216,7 +1216,7 @@ DD P {
 	<tr>
 		<td>
 			<fieldset>
-				<legend align= "left">Tipos de atención solicitados:</legend>
+				<legend align= "left">Tipos de atenci&oacute;n solicitados:</legend>
 				<table id="tblTiposSol" border="0">
 					<tr>
 					</tr>
@@ -1243,7 +1243,7 @@ DD P {
 	de atenci&oacute;n</a></li>
 	<li class="tabTabsDocs"><a href="#tabsconsultaprincipal-3"
 		onclick="documentos()">Documentos</a></li>
-	<li><a href="#tabsconsultaprincipal-4" id="tapActuaciones">Solicitar Atención</a></li>
+	<li><a href="#tabsconsultaprincipal-4" id="tapActuaciones">Solicitar Atenci&oacute;n</a></li>
 </ul>
 <div id="tabsconsultaprincipal-1"><!--  ACORDEON CU PROBABLE RESPONSABLE-INGRESAR ORGANIZACION  -->
 	<div id="iProbResponsablePane">
@@ -1254,7 +1254,7 @@ DD P {
 			<dd><jsp:include page="ingresarDomicilioView.jsp" /></dd>
 			<dt id="cejaMediosContacto">Medios de Contacto</dt>
 			<dd><jsp:include page="ingresarMediosContactoView.jsp" /></dd>
-			<dt>Documentos de identificación</dt>
+			<dt>Documentos de identificaci&oacute;n</dt>
 			<dd><jsp:include page="ingresarDocumentoIdentificacionView.jsp"/></dd>					               
 		</dl>
 	</div>
@@ -1311,7 +1311,7 @@ DD P {
     			<td width="40%"></td>
   			</tr>
   			<tr>
-    			<td align="right"><span>Solicitar tipo de atención:</span></td>
+    			<td align="right"><span>Solicitar tipo de atenci&oacute;n:</span></td>
     			<td>
 					<select id="cbxTipoDeAtencion" style="width:320px" size="10">
 <!-- 						<option value="nop">-Seleccione-</option> -->

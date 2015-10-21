@@ -1,8 +1,8 @@
 <%@page import="mx.gob.segob.nsjp.web.base.action.GenericAction"%>
 <%@page import="mx.gob.segob.nsjp.dto.configuracion.ConfiguracionDTO"%>
 <%@page import="mx.gob.segob.nsjp.web.login.action.LoginAction"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
 <%@page import="java.util.*" session="false" %>
     <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/jquery.windows-engine.css"/>
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/layout_complex.css" media="screen" />
@@ -120,7 +120,7 @@
   <tr>
     <td>&nbsp;</td>
     <td align="left"><form id="archivoDigital" name="solicitudRecurso" action="<%= request.getContextPath() %>/adjuntarArchivo.do" method="post" enctype="multipart/form-data" >
-						 <strong>¿Se llegó a un acuerdo de las partes? </strong><strong>&nbsp;&nbsp;Si </strong>
+						 <strong>&iquest;Se lleg&oacute; a un acuerdo de las partes? </strong><strong>&nbsp;&nbsp;Si </strong>
                          <input type="radio" id="acuerdoSi"  name="acuerdos"/>
                          <strong>No
                          <input type="radio" id="acuerdoNo"  name="acuerdos"/>&nbsp;&nbsp;&nbsp;
@@ -190,7 +190,7 @@
 							<td colspan="2">&nbsp;</td>
 						</tr>
 						<tr>
-							<td align="right"><strong>Lapso de duración del
+							<td align="right"><strong>Lapso de duraci&oacute;n del
 									convenio: </strong>
 							</td>
 							<td><strong> <input type="text" size="30"
@@ -259,7 +259,7 @@
 						</tr>
 						<tr>
 							
-							<td><strong>Fecha de Judialización:</strong> <input type="text"
+							<td><strong>Fecha de Judializaci&oacute;n:</strong> <input type="text"
 						id="fechaJudalizacion" /> <strong>Hora:</strong><input
 						type="text" id="horaJudalizacion" /></td>
 						</tr>					

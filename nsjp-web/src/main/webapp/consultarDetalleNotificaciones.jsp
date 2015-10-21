@@ -10,7 +10,7 @@
 
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Consultar Notifiaciones</title>
         <!--Hoja de estilos de Layout-->
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/layout_complex.css" media="screen" />
@@ -42,13 +42,13 @@
     <body id="bodyDetalle">
         <div id="tabprincipal">
             <ul>
-                <li><a href="#detalleNotificacion">Detalle de la notificación</a></li>
+                <li><a href="#detalleNotificacion">Detalle de la notificaci&oacute;n</a></li>
             </ul>
             <div id="detalleNotificacion">
                 <table cellspacing="5">
                     <tr>
                         <td>
-                           Número de notificacion:
+                           N&uacute;mero de notificacion:
                         </td>
                         <td id="consecutivoNotificacion" class="notificacion">
 

@@ -9,7 +9,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+ 
 import mx.gob.segob.nsjp.comun.enums.catalogo.TipoDiscriminante;
 import mx.gob.segob.nsjp.comun.enums.expediente.EstatusExpediente;
 import mx.gob.segob.nsjp.comun.enums.institucion.Areas;
@@ -64,7 +64,7 @@ public class VisitaduriaAction extends GenericAction{
 	@Autowired
 	protected CatUIEspecializadaDelegate catUIEDelegate;
 	/**
-	 * Método utilizado para generar el HTML de los departamentos en el menu izquierdo
+	 * Mï¿½todo utilizado para generar el HTML de los departamentos en el menu izquierdo
 	 * en el coordinador de visitaduria
 	 * 
 	 * @param mapping
@@ -85,7 +85,7 @@ public class VisitaduriaAction extends GenericAction{
 			List<JerarquiaOrganizacionalDTO> listaDeptosXInstitucion= catDelegate.consultarDepartamentosExceptoAreasYDepartamentos(null,idsAreasADescartar,idsDepartamentosADescartar); 
 			
 			//generamos la opcion de todas las areas y la insertamos en la lista
-			JerarquiaOrganizacionalDTO nodoTodasLasAreas= new JerarquiaOrganizacionalDTO(0L,"Todas las Áreas");
+			JerarquiaOrganizacionalDTO nodoTodasLasAreas= new JerarquiaOrganizacionalDTO(0L,"Todas las ï¿½reas");
 			listaDeptosXInstitucion.add(0, nodoTodasLasAreas);
 			
 			converter.alias("listaDepartamentos", java.util.List.class);
@@ -100,7 +100,7 @@ public class VisitaduriaAction extends GenericAction{
 	}
 	
 	/**
-	 * Método utilizado para realizar la consulta de departamentos por filtro
+	 * Mï¿½todo utilizado para realizar la consulta de departamentos por filtro
 	 * @param mapping
 	 * @param form
 	 * @param request
@@ -133,7 +133,7 @@ public class VisitaduriaAction extends GenericAction{
 	}
 	
 	/**
-	 * Método utilizado para realizar la consulta de estatus por departamento
+	 * Mï¿½todo utilizado para realizar la consulta de estatus por departamento
 	 * @param mapping
 	 * @param form
 	 * @param request
@@ -163,7 +163,7 @@ public class VisitaduriaAction extends GenericAction{
 	}
 	
 	/**
-	 * Método utilizado para realizar la consulta de estatus por departamento
+	 * Mï¿½todo utilizado para realizar la consulta de estatus por departamento
 	 * @param mapping
 	 * @param form
 	 * @param request
@@ -425,7 +425,7 @@ public class VisitaduriaAction extends GenericAction{
 	
 	
 	/**
-	 * Método utilizado para realizar la consulta de la informacion de resumen de visitaduria
+	 * Mï¿½todo utilizado para realizar la consulta de la informacion de resumen de visitaduria
 	 * @param mapping
 	 * @param form
 	 * @param request
@@ -457,7 +457,7 @@ public class VisitaduriaAction extends GenericAction{
 	}
 	
 	/**
-	 * Método utilizado para consultar los tipos de las agencias de un distrito
+	 * Mï¿½todo utilizado para consultar los tipos de las agencias de un distrito
 	 * 
 	 * @param mapping
 	 * @param form

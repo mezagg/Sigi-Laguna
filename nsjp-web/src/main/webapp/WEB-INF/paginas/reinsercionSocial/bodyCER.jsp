@@ -4,7 +4,7 @@
 <%@page import="mx.gob.segob.nsjp.dto.usuario.UsuarioDTO"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.expediente.EstatusExpediente"%>
 <%@ page contentType="text/html"%>
-<%@ page pageEncoding="ISO-8859-1"%>
+<%@ page pageEncoding="UTF-8"%>
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
@@ -47,7 +47,7 @@ var gridExpedientesPorEstatus = {
 			datatype: "xml",
 			page:1,
 			postData: {}, 
-			colNames:['Número De Caso','Número De Causa', 'Procedimiento de Ejecuci&oacute;n', 'Nombre Sentenciado', 'Delito(s)', 'Fecha De Creación', 'NumExpId'], 
+			colNames:['N&uacute;mero De Caso','N&uacute;mero De Causa', 'Procedimiento de Ejecuci&oacute;n', 'Nombre Sentenciado', 'Delito(s)', 'Fecha De Creaci&oacute;n', 'NumExpId'], 
 			colModel:[ 	{name:'noCaso',index:'1', width:140}, 
 						{name:'noCausa',index:'2', width:70}, 
 						{name:'carpeta',index:'3', width:140}, 
@@ -83,7 +83,7 @@ var gridSolicitudesGeneradas = 	{
 		datatype: "xml",
 		page:1,
 		postData :{},
-		colNames:['No. Caso','Expediente', 'Folio','Estatus','Fecha Creación','Fecha Limite','Institución','Destinatario'], 
+		colNames:['No. Caso','Expediente', 'Folio','Estatus','Fecha Creaci&oacute;n','Fecha Limite','Instituci&oacute;n','Destinatario'], 
 		colModel:[ 	{name:'caso',index:'caso', width:150,hidden:true},
 		           	{name:'expediente',index:'expediente', width:180,align:'center'}, 
 					{name:'folio',index:'folio', width:100,align:'center'}, 
@@ -115,7 +115,7 @@ var gridSolicitudesGeneradas = 	{
 		datatype: "xml",
 		page:1,
 		postData :{},
-		colNames:['No. Caso','Expediente', 'Folio','Estatus','Fecha Creación','Fecha Limite','Institución','Remitente'], 
+		colNames:['No. Caso','Expediente', 'Folio','Estatus','Fecha Creaci&oacute;n','Fecha Limite','Instituci&oacute;n','Remitente'], 
 		colModel:[ 	{name:'caso',index:'caso', width:150,hidden:true},
 		           	{name:'expediente',index:'expediente', width:180,align:'center'}, 
 					{name:'folio',index:'folio', width:100,align:'center'}, 
@@ -364,7 +364,7 @@ function cargaGridExpedientesPorEstatus(estatus,fechaIni,fechaFin){
 					}
 					$('#idSolicitud').val(parseInt($(xml).find('SolicitudDTO').find('documentoId').text()));
 				} else {
-					customAlert('Error al intentar guardar la solicitud, inténtelo mas tarde');
+					customAlert('Error al intentar guardar la solicitud, int&eacute;ntelo mas tarde');
 				}
 			}
 		});			   		
@@ -499,7 +499,7 @@ function creaVentanaAcumulacionPuntos() {
 	    	  async: false,
 	    	  dataType: 'xml',
 	    	  success: function(xml){
-				//INICIA: FIX PARA QUE SOLO MUESTRE LA INSTITUCIÓN DEL USUARIO
+				//INICIA: FIX PARA QUE SOLO MUESTRE LA INSTITUCI&Oacute;N DEL USUARIO
 				$('#instituciones').empty();
 				if(esExterno) {
 					$('#instituciones').append( '<option value="1">-Seleccione-</option>');
@@ -521,7 +521,7 @@ function creaVentanaAcumulacionPuntos() {
 					<% } %>
 				});
 				enSeleccionInstitucion();
-				//TERMINA: FIX PARA QUE SOLO MUESTRE LA INSTITUCIÓN DEL USUARIO
+				//TERMINA: FIX PARA QUE SOLO MUESTRE LA INSTITUCI&Oacute;N DEL USUARIO
 			
 	    	  }
 	    	});

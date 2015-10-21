@@ -112,7 +112,7 @@
 									}
 								});
 							}else{
-								jQuery( "#confirmText" ).html("El acto de buena conducta seleccionado ser&aacute; eliminado de la acumulaci&oacute;n,<br /> ¿Desea continuar?");
+								jQuery( "#confirmText" ).html("El acto de buena conducta seleccionado ser&aacute; eliminado de la acumulaci&oacute;n,<br /> &iquest;Desea continuar?");
 								jQuery( "#dialog-confirm" ).dialog({ 
 									title: "Eliminar acto de buena conducta",
 									buttons: {
@@ -541,7 +541,7 @@
 				<p>
 					Se van a acumular los puntos otorgados de los actos de buena conducta seleccionados, <br/>
 					lo cual actualizar&aacute; la cantidad de puntos obtenidos para la sentencia. <br/>
-					¿Desea acumular los puntos?
+					&iquest;Desea acumular los puntos?
 				</p>
 			</div>
 			<div id="dialog-confirm" title="">

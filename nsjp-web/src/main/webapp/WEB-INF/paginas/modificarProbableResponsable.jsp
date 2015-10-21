@@ -1,7 +1,7 @@
 <table>
 	<tbody>
 		<tr>
-			<td>Condición: </td>
+			<td>Condici&oacute;n: </td>
 			<td id='tdProbResponsableCondicion'></td>
 		</tr>
 		<tr>
@@ -9,13 +9,13 @@
 			<td><input type="checkbox" id='chbProbResponsableMayorDeEdad'/></td>
 		</tr>
 		<tr>
-			<td>Está detenido ?  </td>
+			<td>Est&aacute; detenido ?  </td>
 			<td><input type="checkbox" id='chbProbResponsableEstaDetenido'/></td>
 		</tr>
 		<tr>
 			<td>Tipo de persona:  </td>
 			<td>
-				<input id='rbtProbResponsablePersonaFisica' type="radio" name="rbtProbResponsableTipoPersona" value="0">Física <input id='rbtProbResponsablePersonaMoral' type="radio" name="rbtProbResponsableTipoPersona" value="1">Moral<br/>
+				<input id='rbtProbResponsablePersonaFisica' type="radio" name="rbtProbResponsableTipoPersona" value="0">F&iacute;sica <input id='rbtProbResponsablePersonaMoral' type="radio" name="rbtProbResponsableTipoPersona" value="1">Moral<br/>
 		 	</td>
 		</tr>
 	</tbody>

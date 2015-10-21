@@ -1,7 +1,7 @@
 <%@page
 	import="mx.gob.segob.nsjp.comun.enums.funcionario.TipoDefensoria"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -41,7 +41,7 @@
 }
 </style>
 
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <script type="text/javascript">
 
@@ -84,10 +84,10 @@ function gridSolicitud(){
 									
 							data : "",
 							datatype : "xml",
-							colNames : [ 'Número de Expediente visitaduría','Nombre completo','Número de Expediente Permisos','Periodo de asignación de permisos'],
+							colNames : [ 'N&uacute;mero de Expediente visitadur&iacute;a','Nombre completo','N&uacute;mero de Expediente Permisos','Periodo de asignaci&oacute;n de permisos'],
 							colModel:[ {name : 'CadenaCustodia',index : 'CadenaCustodia',	width : 200,resizable : true},
 							 {name : 'Autorizado',index : 'Autorizado',	width : 200,resizable : true},
-							 {name : 'InicioPréstamo',index : 'InicioPréstamo',	width : 200,resizable : true},
+							 {name : 'InicioPr&eacute;stamo',index : 'InicioPr&eacute;stamo',	width : 200,resizable : true},
 							 {name : 'FinPrestamo',index : 'FinPrestamo',	width : 200,resizable : true},
 	  ],
 							resizable : true,

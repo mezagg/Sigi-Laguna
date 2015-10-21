@@ -1,6 +1,6 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.calidad.Calidades"%>
-<%@page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@page import="mx.gob.segob.nsjp.dto.usuario.UsuarioDTO"%>
 <%@page import="mx.gob.segob.nsjp.dto.configuracion.ConfiguracionDTO"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.seguridad.Roles"%>
@@ -137,7 +137,7 @@
 					ajaxGridOptions : {
 		                   async:false
 		            },
-					colNames:['Clave','Clave','Delito', '¿Es grave?','¿Es grave?','¿Es principal?','Tipo','DelitoId'], 
+					colNames:['Clave','Clave','Delito', '&iquest;Es grave?','&iquest;Es grave?','&iquest;Es principal?','Tipo','DelitoId'], 
 					colModel:[ 	{name:'Clave',				sortable: false,	index:'clave',				width:20,	align:'center',	hidden:true}, 
 					           	{name:'ClaveBD',			sortable: false,	index:'claveDB',			width:50,	align:'center'	},
 					           	{name:'Delito',				sortable: false,	index:'delito',				width:150,	align:'left'	}, 
@@ -231,7 +231,7 @@
 	    	            	  async:false
 	        	    },
 					datatype: "xml",
-					colNames:['Clave','Clave','Delito', '¿Es grave?','¿Es grave?','Delito Principal','Tipo','DelitoId'],
+					colNames:['Clave','Clave','Delito', '&iquest;Es grave?','&iquest;Es grave?','Delito Principal','Tipo','DelitoId'],
 					 
 					colModel:[ 	{name:'Clave',				index:'1',			width:20,	align:'center',		hidden:true}, 
 					        	{name:'ClaveBD',			index:'claveDB',	width:50,	align:'center'},
@@ -310,7 +310,7 @@
 		
 		/*
 		*Verifica que al intentar quitar un delito del grid de delitos del expediente,
-		*esté no se encuentre en una relacion delito persona. Y por lo tanto no pueda ser
+		*est&eacute; no se encuentre en una relacion delito persona. Y por lo tanto no pueda ser
 		*removido de la lista de delitos agraviados
 		*/
 		function validaRelacionDelitos(delitoId){

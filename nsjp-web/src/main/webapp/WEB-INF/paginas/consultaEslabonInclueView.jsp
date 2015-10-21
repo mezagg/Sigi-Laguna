@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/estilos.css"/>
         
         <script type="text/javascript" 	src="<%=request.getContextPath()%>/js/comun.js?n=1"></script>
@@ -64,7 +64,7 @@
 						pintaDatosDeEslabon(xml);								
 					}
 					else{
-						// ocultaDetalleSolicitud, es una función del jsp menuGestionarAlmacen
+						// ocultaDetalleSolicitud, es una funci&oacute;n del jsp menuGestionarAlmacen
 						// No tiene solicitudes pendientes -> no se muestra detalle de la solicitud
 						ocultaDetalleSolicitud();					
 					}

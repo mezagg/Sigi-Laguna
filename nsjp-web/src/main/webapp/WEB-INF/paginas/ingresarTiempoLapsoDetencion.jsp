@@ -167,25 +167,25 @@
 
 <table width="250px" height="100px" border="0">
 	<tr>
-		<td>Fecha Detención:</td>
+		<td>Fecha Detenci&oacute;n:</td>
 		<td><div id="idFechaDateDivLapso">
 		<input type="text" id="idFechaDateLapso" size="15">
 		</div></td>
 	</tr>
 	<tr>
-		<td>Hora Detención:</td>
+		<td>Hora Detenci&oacute;n:</td>
 		<td><div id="idHoraLapso">
 		<input size="10" class="timeRange" type="text" id="idHoraDateLapsoInicio" value="7:00">
 		</div></td>
 	</tr>
 	<tr>
-		<td>Fecha Recepción:</td>
+		<td>Fecha Recepci&oacute;n:</td>
 		<td><div id="idFechaDateDivLapso2">
 		<input type="text" id="idFechaDateLapso2" size="15">
 		</div></td>
 	</tr>
 	<tr>
-		<td>Hora Recepción:</td>
+		<td>Hora Recepci&oacute;n:</td>
 		<td><div id="idHoraLapso2">
 		<input type="text" id="idHoraDateLapsoFin" size="10" class="timeRange" value="8:00">
 		</div></td>

@@ -1,5 +1,5 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.elemento.TipoElemento"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="mx.gob.segob.nsjp.dto.usuario.UsuarioDTO"%>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.configuracion.Parametros"%>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.seguridad.Roles" %>
@@ -12,7 +12,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Ingresar Aeronave</title>
 	<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/jquery.windows-engine.css"/>
 	<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/estilos.css"/>	
@@ -399,26 +399,26 @@
 				  {	  
 					  //Desde asentarRegCadenaCustodiaView.jsp 
 					  if(parseInt( ocultaAnularObjetoCadCus ) == 1){
-						  customAlert("Se guardó correctamente la información");
+						  customAlert("Se guard&oacute; correctamente la informaci&oacute;n");
 						  regresarControlCadenaCustodia();
 					  }else //Desde el ingresarMenuIntermedio.jsp
 					  {
-						  window.parent.customAlert('Se guardó correctamente la información.', '',regresarControl(id,tipoAeronave) );
+						  window.parent.customAlert('Se guard&oacute; correctamente la informaci&oacute;n.', '',regresarControl(id,tipoAeronave) );
 					  }
 				  }
 				  else if(idAeronave==0 && id==0)
 				  {
-					  window.parent.customAlert("Favor de revisar la información capturada");
+					  window.parent.customAlert("Favor de revisar la informaci&oacute;n capturada");
 				  }
 				  else  //Actualizacion del elemento - solo desde el ingresarMenuIntermedio.jsp 
 				  {   
 					//Desde asentarRegCadenaCustodiaView.jsp 
 					  if(parseInt( ocultaAnularObjetoCadCus ) == 1){
 						  regresarControlCadenaCustodiaActualizacion();
-						  customAlert("La información se actualizó correctamente");
+						  customAlert("La informaci&oacute;n se actualiz&oacute; correctamente");
 					  }else //Desde el ingresarMenuIntermedio.jsp
 					  {
-						  window.parent.customAlert('La información se actualizó correctamente.', '',regresarControl(id,tipoAeronave) );
+						  window.parent.customAlert('La informaci&oacute;n se actualiz&oacute; correctamente.', '',regresarControl(id,tipoAeronave) );
 					  }
 				  }
 				  
@@ -474,10 +474,10 @@
 			mensaje += "<br />- Color de la aeronave";			
 		}
 		if(parseInt(paisOrigenAeronave) == -1){
-			mensaje += "<br />- País de origen de la aeronave";			
+			mensaje += "<br />- Pa&iacute;s de origen de la aeronave";			
 		}
 		if(parseInt(condicionAeronave) == -1){
-			mensaje += "<br />- Condición de la aeronave";			
+			mensaje += "<br />- Condici&oacute;n de la aeronave";			
 		}
 
 		//Comienza segunda validacion para validacion de consistencia de expresiones regulares
@@ -533,7 +533,7 @@
 		if(idAeronave!=null && idAeronave!=0)
 		{
 			//procederemos a tratar de eliminar la evidencia
-			customConfirm ("¿Está seguro que desea anular el objeto?", "", validarObjEvdncNoEslbns);
+			customConfirm ("&iquest;Est&aacute; seguro que desea anular el objeto?", "", validarObjEvdncNoEslbns);
 		}
 	}
 	
@@ -555,7 +555,7 @@
 				if(parseInt($(xml).find('bandera').text())==1)
 				{
 					//debemos mostrar un confirm
-					customConfirm ("El objeto es ya una evidencia en alguna cadena de custodia <br/> ¿Está seguro que desea anular el objeto?", "", anularObjeto);
+					customConfirm ("El objeto es ya una evidencia en alguna cadena de custodia <br/> &iquest;Est&aacute; seguro que desea anular el objeto?", "", anularObjeto);
 				}
 				else if(parseInt($(xml).find('bandera').text())==2)
 				{
@@ -618,7 +618,7 @@
                 <td width="36%"><select id="cbxTipoAeronave" style="width:180px">
                   <option value="-1">-Seleccione-</option>
                 </select></td>
-                <td width="36%" rowspan="7" align="center" valign="top">Descripción:<textarea cols="25" rows="9" id="txtBoxDescAeronave" maxlength="200"></textarea></td>               
+                <td width="36%" rowspan="7" align="center" valign="top">Descripci&oacute;n:<textarea cols="25" rows="9" id="txtBoxDescAeronave" maxlength="200"></textarea></td>               
               </tr>
               <tr height="6.25%">
                 <td width="28%" align="right">Marca:</td>
@@ -649,7 +649,7 @@
                 <td width="36%"><input type="text" id="txtModeloAeronave" maxlength="25" style="width:175px"/></td>
               </tr>
               <tr height="6.25%">
-                <td width="28%" align="right">Matrícula:</td>
+                <td width="28%" align="right">Matr&iacute;cula:</td>
                 <td width="36%"><input type="text" id="txtMatAeronave" maxlength="15" style="width:175px"/></td>
               </tr>
               <tr height="6.25%">

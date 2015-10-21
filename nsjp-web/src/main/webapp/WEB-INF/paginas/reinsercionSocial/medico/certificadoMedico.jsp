@@ -1,6 +1,6 @@
 <%@page import="org.apache.commons.lang.math.NumberUtils"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.solicitud.EstatusSolicitud"%>
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.actividad.Actividades"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
@@ -252,13 +252,13 @@
 	<legend>Datos del individuo: </legend>
 	<table border="0">
 		<tr>
-			<td align="right">Edad biológica:</td>
+			<td align="right">Edad biol&oacute;gica:</td>
 			<td align="left">
 				<input type="text" id="edadBiologica" readonly="readonly" size="10" />
 			</td>
 		</tr>					
 		<tr>
-			<td align="right">¿Presenta lesiones?</td>
+			<td align="right">&iquest;Presenta lesiones?</td>
 			<td align="left">
 				S&iacute; <input type="radio" name="estaLesionado" title="S&iacute;" value="1" disabled="disabled"/>
 				No <input type="radio" name="estaLesionado" title="No;" value="0" disabled="disabled"/>

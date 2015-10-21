@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Atencion a Sollicitudes</title>
 
 	
@@ -56,7 +56,7 @@
         	</strong></td>
         </tr>
 		<tr>
-			<td width="15%" align="right"><strong>Número de Caso:</strong></td>
+			<td width="15%" align="right"><strong>N&uacute;mero de Caso:</strong></td>
 			<td width="30%"><input type="text"
 				id="numCasoAtencionAudienciaDetalle" value="NSJPYUCPROC201100001"
 				style="width: 150px; border: 0; background: #DDD;"
@@ -65,7 +65,7 @@
 			<td width="21%">&nbsp;</td>
 		</tr>
 		<tr>
-			<td align="right"><strong>Número de Expediente:</strong></td>
+			<td align="right"><strong>N&uacute;mero de Expediente:</strong></td>
 			<td><input type="text" id="numCasoAtencionAudienciaDetalle2"
 				style="width: 150px; border: 0; background: #DDD;"
 				readonly="readonly" value="000001" /></td>
@@ -87,16 +87,16 @@
 				readonly="readonly" value="11:00" /></td>
 		</tr>
 		<tr>
-			<td align="right"><strong>Institución Solicitante:</strong></td>
+			<td align="right"><strong>Instituci&oacute;n Solicitante:</strong></td>
 			<td><input type="text" id="numCasoAtencionAudienciaDetalle6"
 				style="width: 150px; border: 0; background: #DDD;"
-				readonly="readonly" value="Ministerio Público" /></td>
+				readonly="readonly" value="Ministerio P&uacute;blico" /></td>
 		</tr>
 		<tr>
 			<td align="right"><strong>Solicitante:</strong></td>
 			<td><input type="text" id="numCasoAtencionAudienciaDetalle9"
 				style="width: 150px; border: 0; background: #DDD;"
-				readonly="readonly" value="Ricardo Rodríguez" /></td>
+				readonly="readonly" value="Ricardo Rodr&iacute;guez" /></td>
 		</tr>
 		<tr>
 			<td align="right">&nbsp;</td>

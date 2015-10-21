@@ -30,7 +30,7 @@
 	    	jQuery("#gridCatDelitosRDPTodos").jqGrid({ 
 				url:'<%= request.getContextPath()%>/ConsultarRelacionDelitosPorTodos.do?idExpediente='+idExpedienteop+'', 
 				datatype: "xml",
-				colNames:[probableResponsableProp,'Delito','Forma de Participación','Víctima'], 
+				colNames:[probableResponsableProp,'Delito','Forma de Participaci&oacute;n','V&iacute;ctima'], 
 				colModel:[ 	{name:'Probable',index:'probable', width:250},
 				           	{name:'Delito',index:'delito', width:250}, 
 							{name:'FormaParticipacion',index:'formaParticipacion',width:250},

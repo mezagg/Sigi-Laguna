@@ -2,7 +2,7 @@
 <%@page import="mx.gob.segob.nsjp.dto.usuario.UsuarioDTO"%>
 <%@ page import="mx.gob.segob.nsjp.dto.configuracion.ConfiguracionDTO"%>
 <%@ page import="mx.gob.segob.nsjp.web.login.action.LoginAction"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html" %>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic" %>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean" %>

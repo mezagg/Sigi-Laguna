@@ -16,7 +16,7 @@
 * Proyecto                 	: N/A                                 Fecha: N/A
 * Modificacion           	: N/A
 *------------------------------------------------------------------------------
-*/
+*/ 
 package mx.gob.segob.nsjp.web.elemento.form;
 
 import org.apache.struts.upload.FormFile;
@@ -59,7 +59,7 @@ public class ElementoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo idElemento.
+	 * Mï¿½todo de acceso al campo idElemento.
 	 * @return El valor del campo idElemento
 	 */
 	public Long getIdElemento() {

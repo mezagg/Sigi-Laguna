@@ -82,12 +82,12 @@ $.updateWindowContent("iframewindowDetalleExp",'<iframe src="<%= request.getCont
     <td height="13" colspan="2" align="center">&nbsp;</td>
   </tr>
   <tr>
-    <td height="25" colspan="2" align="center"><span id="etiquetaNumExp">Número Expediente</span>:
+    <td height="25" colspan="2" align="center"><span id="etiquetaNumExp">N&uacute;mero Expediente</span>:
 		<input type="text" name="noExpediente" id="noExpediente" size="50" maxlength="50" />&nbsp;&nbsp;</td>
     </tr>
   
   <tr id="espacios" >
-    <td height="25" colspan="2" align="center">* Sólo se permiten numeros, letras y los caracteres especiales: "-","/" y "Y"</td>
+    <td height="25" colspan="2" align="center">* S&oacute;lo se permiten numeros, letras y los caracteres especiales: "-","/" y "Y"</td>
     </tr>
 
   <tr >

@@ -1,9 +1,9 @@
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Detalle de audiencia</title>
 
 	
@@ -169,7 +169,7 @@
 					<td width="34%">&nbsp;</td>
 				</tr>
 				<tr>
-				  <td width="22%" align="right"><strong>Número de Caso:</strong></td>
+				  <td width="22%" align="right"><strong>N&uacute;mero de Caso:</strong></td>
 				  <td width="17%"><input type="text"
 						id="numCasoPJENS"
 						style="width: 200px; border: 0; background: #DDD;"
@@ -179,7 +179,7 @@
 					</td>
 				</tr>
 				<tr>
-				  <td align="right"><strong>Carácter: </strong></td>
+				  <td align="right"><strong>Car&aacute;cter: </strong></td>
 				  <td><input type="text" id="caracterPJENS"
 						style="width: 200px; border: 0; background: #DDD;"
 						readonly="readonly" /></td>
@@ -203,14 +203,14 @@
 						readonly="readonly"  /></td>
 				</tr>
 				<tr>
-				  <td align="right"><strong>Dirección de Sala:</strong></td>
+				  <td align="right"><strong>Direcci&oacute;n de Sala:</strong></td>
 				  <td><input type="text" id="direccionSalaPJENS"
 						style="width: 200px; border: 0; background: #DDD; "
 						readonly="readonly" 
 						 /></td>
 				</tr>
 				<tr>
-				  <td align="right"><strong>Ubicación:</strong></td>
+				  <td align="right"><strong>Ubicaci&oacute;n:</strong></td>
 				  <td><input type="text" id="ubicacionPJENS"
 						style="width: 200px; border: 0; background: #DDD;"
 						readonly="readonly" /></td>

@@ -2,8 +2,8 @@
 <%@page import="mx.gob.segob.nsjp.web.login.action.LoginAction"%>
 <%@page import="mx.gob.segob.nsjp.dto.configuracion.ConfiguracionDTO"%>
 <%@page import="mx.gob.segob.nsjp.web.base.action.GenericAction"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@page import="mx.gob.segob.nsjp.dto.usuario.RolDTO"%>
 <%@page import="mx.gob.segob.nsjp.dto.usuario.UsuarioDTO"%>
 <% 
@@ -368,7 +368,7 @@
 			jQuery("#gridEvidenciasNuevas").jqGrid({ 
 				url:'<%= request.getContextPath()%>/solicitudEvidenciasPorEstatus.do?estatus=1&areaSolicitante=2', 
 				datatype: "xml", 
-				colNames:['Número de expediente','Número de caso','Cadena de custodia','Número de evidencia','Nombre del solicitante','Fecha límite','Perito responsable','Acuse' ], 
+				colNames:['N&uacute;mero de expediente','N&uacute;mero de caso','Cadena de custodia','N&uacute;mero de evidencia','Nombre del solicitante','Fecha l&iacute;mite','Perito responsable','Acuse' ], 
 				colModel:[ 	{name:'NumeroExpediente',index:'1', width:200},
 				           	{name:'NumeroCaso',index:'2', width:200},
 				           	{name:'CadenaCustodia',index:'3', width:150},
@@ -417,7 +417,7 @@
 			jQuery("#gridEvidenciasPendientes").jqGrid({ 
 				url:'<%= request.getContextPath()%>/solicitudEvidenciasPorEstatus.do?estatus=2&areaSolicitante=2', 
 				datatype: "xml", 
-				colNames:['Número de expediente','Número de caso','Cadena de custodia','Numero de evidencia','Nombre del solicitante','Fecha límite','Fecha ultima de modificación' ], 
+				colNames:['N&uacute;mero de expediente','N&uacute;mero de caso','Cadena de custodia','Numero de evidencia','Nombre del solicitante','Fecha l&iacute;mite','Fecha ultima de modificaci&oacute;n' ], 
 				colModel:[ 	{name:'NumeroExpediente',index:'1', width:200},
 				           	{name:'NumeroCaso',index:'2', width:200},
 				           	{name:'CadenaCustodia',index:'3', width:200},
@@ -459,7 +459,7 @@
 			jQuery("#gridEvidenciasConcluidas").jqGrid({ 
 				url:'<%= request.getContextPath()%>/solicitudEvidenciasPorEstatus.do?estatus=3&areaSolicitante=2', 
 				datatype: "xml", 
-				colNames:['Número de expediente','Número de caso','Cadena de custodia','Número de evidencia','Nombre del solicitante','Perito responsable','Fecha inicio de préstamo','Fecha fin de préstamo','Fecha de cierre' ], 
+				colNames:['N&uacute;mero de expediente','N&uacute;mero de caso','Cadena de custodia','N&uacute;mero de evidencia','Nombre del solicitante','Perito responsable','Fecha inicio de pr&eacute;stamo','Fecha fin de pr&eacute;stamo','Fecha de cierre' ], 
 				colModel:[ 	{name:'NumeroExpediente',index:'1', width:200},
 				           	{name:'NumeroCaso',index:'2', width:150},
 				           	{name:'CadenaCustodia',index:'3', width:150},
@@ -503,7 +503,7 @@
 			jQuery("#gridResguardoEvidencia").jqGrid({ 
 				url:'<%= request.getContextPath()%>/consultaResguardoEvidencias.do', 
 				datatype: "xml", 
-				colNames:['Número de Caso','Nombre AMP','Folio de Cadena de Custodia','Numero de evidencias en Resguardo','Nombre del Almacen' ], 
+				colNames:['N&uacute;mero de Caso','Nombre AMP','Folio de Cadena de Custodia','Numero de evidencias en Resguardo','Nombre del Almacen' ], 
 				colModel:[ 	{name:'NumeroCaso',index:'1', width:200},
 				           	{name:'NombreAMP',index:'2', width:200},
 				           	{name:'FolioCadenaCustodia',index:'3', width:150},
@@ -644,7 +644,7 @@
 
 /////////////////////////////////////////////////////////////////////////FUNCIONALIDAD PARA ASIGNACIONES RECIBIDAS ////////////////////////////////////////////////////////////////
 	/*
-	*Funcion que carga el grid de solicitudes periciales no atendidas por el perito, tanto las de asesoría, como las de dictamen
+	*Funcion que carga el grid de solicitudes periciales no atendidas por el perito, tanto las de asesor&iacute;a, como las de dictamen
 	*/
 	function cargaGridAsignacionesRecibidasNoAtendidas(){
 	
@@ -654,7 +654,7 @@
 				
 				url:'<%= request.getContextPath()%>/asignacionesRecibidasNoAtendidas.do', 
 				datatype: "xml", 
-				colNames:['Nombre del Solicitante','Tipo de Asignacion','Número de Expediente','Número de Caso','Fecha Límite','Acuse' ], 
+				colNames:['Nombre del Solicitante','Tipo de Asignacion','N&uacute;mero de Expediente','N&uacute;mero de Caso','Fecha L&iacute;mite','Acuse' ], 
 				colModel:[ 	{name:'NombreSolicitante',index:'1', width:180},
 				           	{name:'TipoAsignacion',index:'2', width:90},
 				           	{name:'NumExpediente',index:'3', width:150},
@@ -794,7 +794,7 @@
 	
 				url:'<%=request.getContextPath()%>/consultarSolicitudesPericialesPeritoEnProceso.do', 
 				datatype: "xml", 
-				colNames:['Número Expediente','Número de Caso','Fecha Límite','Fecha Última Modificación','Documento creado'], 
+				colNames:['N&uacute;mero Expediente','N&uacute;mero de Caso','Fecha L&iacute;mite','Fecha &Uacute;ltima Modificaci&oacute;n','Documento creado'], 
 				colModel:[ 	{name:'numeroExpediente',index:'1', width:220,align:'center'}, 
 				           	{name:'numeroCaso',index:'2', width:220,align:'center'}, 
 							{name:'fechaLimite',index:'3', width:150,align:'center'},
@@ -1225,7 +1225,7 @@ function visorLeyesCodigos() {
 		<div id="divDetalleAsignacionesRecibidasNoAtendidas" align="center">
 			<table width="925" border="0" cellspacing="0" cellpadding="0" bgcolor="#EEEEEE">
 			  <tr height="20">
-			    <td><strong>Detalle de la asignación:</strong></td>
+			    <td><strong>Detalle de la asignaci&oacute;n:</strong></td>
 			  </tr>
 			  <tr height="180">
 			    <td align="center">
@@ -1251,7 +1251,7 @@ function visorLeyesCodigos() {
 <!--Termina main content-->
 	<div id="dialog-logout" title="Cerrar Sesi&oacute;n">
 		<p align="center">
-			<span id="logout">¿Desea cerrar su sesi&oacute;n?</span>
+			<span id="logout">&iquest;Desea cerrar su sesi&oacute;n?</span>
 		</p>
 	</div>
 
@@ -1266,11 +1266,11 @@ function visorLeyesCodigos() {
 		<p align="center">
 			<table border="0">
 				<tr>
-					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contraseña para desbloquear.</td>
+					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contrase&ntilde;a para desbloquear.</td>
 					
 				</tr>
 				<tr>
-					<td align="right"><label style="color:#4A5C68">Contraseña:</label></td>
+					<td align="right"><label style="color:#4A5C68">Contrase&ntilde;a:</label></td>
 					<td><input type="password" name="password" id="password" value="" maxlength="15" size="20"></td>
 				</tr>
 				<tr id="captchaJPG" >
@@ -1299,7 +1299,7 @@ function visorLeyesCodigos() {
 				La sesi&oacute;n se cerrar&aacute; en <span id="dialog-countdown" style="font-weight:bold"></span> segundos.
 			</p>
 
-			<p>¿Desea continuar con la sesi&oacute;n?</p>
+			<p>&iquest;Desea continuar con la sesi&oacute;n?</p>
 	</div>
 	<div id="dialog-alarmPos" title="Alarma ">
 		<p align="center">

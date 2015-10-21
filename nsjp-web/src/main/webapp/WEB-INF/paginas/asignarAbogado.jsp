@@ -3,8 +3,8 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.forma.Formas"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.funcionario.TipoDefensoria"%>
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -124,7 +124,7 @@
 	}
 	</style>
 
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 	<script type="text/javascript">
 	var idindi;
@@ -304,7 +304,7 @@
 			success: function(xml){
 					$(xml).find('funcionarioDTO').each(function(){
 						if(pasatipoDefensoria==1){   
-							$("#tipoDefensa").val('Integración');
+							$("#tipoDefensa").val('Integraci&oacute;n');
 						}
 						if(pasatipoDefensoria==2){   
 							$("#tipoDefensa").val('Tecnica');
@@ -370,7 +370,7 @@
 					var errorCode = $(xml).find('response').find('code').text();
 	    			//Si errorCode=0 entonces continuamos con el flujo
 	    			if(parseInt(errorCode)==0){
-						window.parent.customAlert("Se asignó de forma correcta el defensor.");
+						window.parent.customAlert("Se asign&oacute; de forma correcta el defensor.");
 						parent.cerrarVentana();
 					}
 					else{
@@ -588,7 +588,7 @@
 			jQuery("#gridDetalleFrmPrincipal").jqGrid({ 
 				url:'<%=request.getContextPath()%>/consultarDocumentosDefensoria.do?tipo=2&idExpedienteop='+numEXPID, 
 				datatype: "xml", 
-				colNames:['Área del responsable','Fecha de la actividad','Nombre de la actividad','Tipo de documento','Nombre de Documento','Fecha del documento','Documento Parcial'],
+				colNames:['&Aacute;rea del responsable','Fecha de la actividad','Nombre de la actividad','Tipo de documento','Nombre de Documento','Fecha del documento','Documento Parcial'],
 				colModel:[ 	{name:'area',index:'area', width:200},
 							{name:'FechaActividad',index:'fechaActividad', width:170},							
 							{name:'NombreActividad',index:'nombreActividad', width:400},
@@ -635,7 +635,7 @@
 			<li id="tabResumen"><a href="#tabsconsultaprincipal-1">Resumen</a></li>
 			<li id="tabAsignarDefensor"  style="display: none" ><a href="#tabsconsultaprincipal-2">Asignar defensor</a></li>
 			<li id="datosInteresado" style="display: none"><a href="#tabsconsultaprincipal-3">Datos del interesado</a></li>
-			<li id="motivoAsesoria"  style="display: none"><a href="#tabsconsultaprincipal-4">Motivo de asesoría</a></li>
+			<li id="motivoAsesoria"  style="display: none"><a href="#tabsconsultaprincipal-4">Motivo de asesor&iacute;a</a></li>
 			<li id="tabDocumentos"  style="display: none"><a href="#tabsconsultaprincipal-5" onclick="documentos()">Documentos</a></li>
 		</ul>
 
@@ -652,7 +652,7 @@
 					<td id="campoDetenido">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="22%" align="right"><strong>Número de
+					<td width="22%" align="right"><strong>N&uacute;mero de
 							caso:</strong>
 					</td>
 					<td width="20%"><input type="text" id="casoAT"
@@ -738,7 +738,7 @@
 				  <td width="29%">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="22%" align="right"><strong>Número de
+					<td width="22%" align="right"><strong>N&uacute;mero de
 							caso:</strong>
 					</td>
 					<td width="20%"><input type="text" id="casoPJ"
@@ -755,7 +755,7 @@
 					  </strong></td>
 				</tr>
 				<tr>
-					<td align="right" id="etiquetaCausa"><strong>Número
+					<td align="right" id="etiquetaCausa"><strong>N&uacute;mero
 							de causa:</strong>
 					</td>
 					<td id="campoCausa"><input type="text" id="causaPJ"
@@ -849,7 +849,7 @@
 					<td width="29%">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="22%" align="right"><strong>Número de
+					<td width="22%" align="right"><strong>N&uacute;mero de
 							caso:</strong>
 					</td>
 					<td width="20%"><input type="text" id="casoAD"
@@ -883,7 +883,7 @@
 						style="width: 150px; border: 0; background: #DDD;"
 						readonly="readonly" /></td>
 				  <td align="right" id="etiquetaFechaHoraMensaje"><strong>Fecha
-				    y hora de envío del aviso:</strong></td>
+				    y hora de env&iacute;o del aviso:</strong></td>
 				  <td id="campoFechaHoraMensaje"><strong>
 				    <input
 							type="text" id="fechaHoraMensajeAD"
@@ -978,25 +978,25 @@
 				<tr align="center"  class="toolbar fondoFuerteAP">
 					<td width="10%" align="center">Tipo Defensa</td>
 					<td width="70%" align="center">Disponibilidad</td>
-					<td width="20%" align="center">Información de Defensor</td>
+					<td width="20%" align="center">Informaci&oacute;n de Defensor</td>
 				</tr>
 				<tr>
 					<td><table height="" width="">
 							<tr>
 								<td><input type="button" id="integracion"
 									onclick="pasavalor(this.id)" id="integracion"
-									value="Integración" style="cursor: pointer;" class="btn_Generico">
+									value="Integraci&oacute;n" style="cursor: pointer;" class="btn_Generico">
 								</td>
 							</tr>
 							<tr>
 								<td><input type="button" onclick="pasavalor(this.id)"
-									id="tecnica" style="cursor: pointer;" value="Técnica" class="btn_Generico">
+									id="tecnica" style="cursor: pointer;" value="T&eacute;cnica" class="btn_Generico">
 								</td>
 							</tr>
 							<tr>
 								<td><input type="button" onclick="pasavalor(this.id)"
 									id="restaurativa" style="cursor: pointer;"
-									value="Conciliación y mediación" class="btn_Generico">
+									value="Conciliaci&oacute;n y mediaci&oacute;n" class="btn_Generico">
 								</td>
 							</tr>
 							<tr>
@@ -1041,13 +1041,13 @@
 								</td>
 							</tr>
 							<tr>
-								<td>Correo Electrónico</td>
+								<td>Correo Electr&oacute;nico</td>
 								<td><input id="" type="text" border="0" class="transpa"
 									disabled="disabled">
 								</td>
 							</tr>
 							<tr>
-								<td>Numero de Teléfono</td>
+								<td>Numero de Tel&eacute;fono</td>
 								<td><input id="" type="text" border="0" class="transpa"
 									disabled="disabled">
 								</td>

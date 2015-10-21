@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Solicitar Evidencia</title>
 	
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css" />
@@ -135,7 +135,7 @@
 					<table width="100%" border="0" height="90%">
 						<tr>
 							<td>
-								Nombre Servidor Público:
+								Nombre Servidor P&uacute;blico:
 							</td>
 							<td>
 								<input type="text" class="" size="50" maxlength="50" id="solDePericialNombre" disabled="disabled"/>
@@ -151,7 +151,7 @@
 						</tr>
 						<tr>
 							<td>
-								Área Administrativa:
+								&Aacute;rea Administrativa:
 							</td>
 							<td>
 								<input type="text" size="50" maxlength="50" id="solDePericialAreaAdmin" disabled="disabled"/>
@@ -159,7 +159,7 @@
 						</tr>
 						<tr>
 							<td>
-								Fecha Elaboración:
+								Fecha Elaboraci&oacute;n:
 							</td>
 							<td>
 								<input type="text" size="50" maxlength="13"	id="solDePericialFecha" disabled="disabled"/>
@@ -171,7 +171,7 @@
 					<table width="100%" border="0" height="90%">
 						<tr>
 							<td>
-								Número de Expediente:
+								N&uacute;mero de Expediente:
 							</td>
 							<td>
 								<input type="text" size="50" maxlength="50" id="solServPericialNumExpediente"/>
@@ -179,7 +179,7 @@
 						</tr>
 						<tr>
 							<td>
-								Fecha inicio de préstamo:
+								Fecha inicio de pr&eacute;stamo:
 							</td>
 							<td>
 								<input type="text" id="solServPericialFechaInicioPrestamo" width="50px" />
@@ -187,7 +187,7 @@
 						</tr>
 						<tr>
 							<td>
-								Fecha fin de préstamo:
+								Fecha fin de pr&eacute;stamo:
 							</td>
 							<td>
 								<input type="text" id="solServPericialFechaFinPrestamo" width="50px" />

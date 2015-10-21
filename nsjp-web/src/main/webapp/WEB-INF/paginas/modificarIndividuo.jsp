@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Modificar individuo</title>
 
 	<link type="text/css" href="<%=request.getContextPath()%>/resources/css/ingresarIndividuo.css" rel="stylesheet" />
@@ -19,7 +19,7 @@
 		cargarCmbCalidad();
 		$('#cmbCalidad').attr('selectedIndex',1);
 	    $("#cmbCalidad").change(cambiaTabCalidad);
-	    /*Inician llamados para creación de tabs*/
+	    /*Inician llamados para creaci&oacute;n de tabs*/
 	    creaTab('Calidad','Calidad');
 	    inhabilitaTabs('Calidad','Calidad');
 	    creaTab('Denunciante','Denunciante');
@@ -33,7 +33,7 @@
 	});
 
 	/**
-	* Función que cambia el tab principal a nivel de calidad del Individuo dependiendo la selección de cmbCalidad
+	* Funci&oacute;n que cambia el tab principal a nivel de calidad del Individuo dependiendo la selecci&oacute;n de cmbCalidad
 	*/
 	function cambiaTabCalidad(){
 		habilitaTabs('Calidad','Calidad');
@@ -63,7 +63,7 @@
 	}
 
 	/**
-	* función que carga los controles iniciales de la pestania de Probable Responsable
+	* funci&oacute;n que carga los controles iniciales de la pestania de Probable Responsable
 	*/
 	function cargarPestaniaProbableResponsable(){
 		cargarRbtCondicion('<%= request.getContextPath()%>');
@@ -80,7 +80,7 @@
 	}
 
 	/**
-	* función que simula el llenado do los controles iniciales de la pestania de Probable Responsable
+	* funci&oacute;n que simula el llenado do los controles iniciales de la pestania de Probable Responsable
 	*/
 	function simulaLlenado(){
 		$('#chbProbResponsableEstaDetenido').attr({checked: true});
@@ -98,7 +98,7 @@
 	}
 	
 	/**
-	* Función que carga el combo de calidad
+	* Funci&oacute;n que carga el combo de calidad
 	*/
 	function cargarCmbCalidad() {
 	    $.ajax({
@@ -140,7 +140,7 @@
 		<ul class="tabNavigationCalidad">
 			<li><a id="tabDenunciante" href="#denunciante">Denunciante</a></li>
 			<li><a id="tabRLegal" href="#rLegal">Representante Legal</a></li>
-			<li><a id="tabVictima" href="#victima">Víctima</a></li>
+			<li><a id="tabVictima" href="#victima">V&iacute;ctima</a></li>
 			<li><a id="tabTestigo" href="#testigo">Testigo</a></li>
 			<li><a id="tabPResponsable" href="#pResponsable"><bean:message key="probableResponsable"/></a></li>
 			<li><a id="tabCOrganizacional" href="#cOrganizacional">Contacto Organizacional</a></li>
@@ -156,7 +156,7 @@
 			<br/>
 		</div>
 		<div id="victima">
-			<h2>Víctima</h2>
+			<h2>V&iacute;ctima</h2>
 			<br/>
 		</div>
 		<div id="testigo">

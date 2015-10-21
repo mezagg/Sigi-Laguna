@@ -5,7 +5,7 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html" %>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic" %>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean" %>
-<%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%> 
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 
  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -93,7 +93,7 @@
     </script>
     
     
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Menu Defensor</title>			
 </head>
 <body>
@@ -110,8 +110,8 @@
 		<li id="tab_Involucrado_Victima"><a href="#tabsInvolucrado-7">Victimas</a></li>
 		<li id="tab_ProbableResponsable"><a href="#tabsInvolucrado-8">Probables Responsable</a></li>
 		<li id="tab_Involucrado_Testigo"><a href="#tabsInvolucrado-9">Testigos</a></li>
-		<li id="tabInvolucradoTraductor"><a href="#tabsInvolucrado-10">Traductor-Intérprete</a></li>
-		<li id="tabInvolucrdQuienDetuvo"><a href="#tabsInvolucrado-11">Quién Detuvo</a></li>
+		<li id="tabInvolucradoTraductor"><a href="#tabsInvolucrado-10">Traductor-Int&eacute;rprete</a></li>
+		<li id="tabInvolucrdQuienDetuvo"><a href="#tabsInvolucrado-11">Qui&eacute;n Detuvo</a></li>
 	</ul>
 
 	<div id="tabsInvolucrado-1"><!-- PARA QUIEN SE SOLITA calidad DEFENDIDO -->
