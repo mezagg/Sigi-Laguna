@@ -1,0 +1,11 @@
+/target/
+/nsjp-comun/target/
+/nsjp-dto/target/
+/nsjp-modelo/target/
+/nsjp-persistencia/target/
+/nsjp-servicios-api/target/
+/nsjp-wsclient/target/
+/nsjp-servicios-impl/target/
+/nsjp-delegate/target/
+/nsjp-ws/target/
+/nsjp-web/target/
