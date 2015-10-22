@@ -19,6 +19,7 @@
 */
 package mx.gob.segob.nsjp.dao.objeto;
 
+import java.util.Date;
 import java.util.List;
 
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
@@ -70,4 +71,6 @@ public interface ObjetoDAO extends GenericDao<Objeto, Long>{
      */
     public Boolean existenEslabonesPorIdObjeto(Long idObjeto);
 	
+    
+    public List<Objeto> consultarBienesPorEnajenar(Date fecha,Integer diasParaEnajenar);
 }

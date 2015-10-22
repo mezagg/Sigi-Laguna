@@ -19,6 +19,7 @@
 */
 package mx.gob.segob.nsjp.delegate.objeto;
 
+import java.util.Date;
 import java.util.List;
 
 import mx.gob.segob.nsjp.comun.enums.objeto.Objetos;
@@ -306,6 +307,17 @@ public interface ObjetoDelegate {
 	List<ObjetoDTO> consultarObjetos(
 			ExpedienteDTO expedienteDTO, ValorDTO tipoObjeto)
 			throws NSJPNegocioException;
-	
+
+        /**
+     * M&eacute;todo que obtiene los bienes por enajenar en determinada fecha
+     * @param fecha
+     * @param diasParaEnajenar
+     * @return Lista de Bienes
+     * @throws NSJPNegocioException
+     */
+	List<ObjetoDTO> consultarBienesPorEnajenar(
+                           Date fecha,Integer diasParaEnajenar)
+			throws NSJPNegocioException;
+
 }
 

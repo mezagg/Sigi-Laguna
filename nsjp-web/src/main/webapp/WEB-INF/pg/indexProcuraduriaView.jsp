@@ -247,6 +247,31 @@
 		$("#divGridSolsGeneradas").hide();
 		$("#divGridMandamientosJudiciales").hide();
 		$("#divGridMedidasCautelares").hide();
+                
+                //Grid bienes asegurados por enajenar
+                jQuery("#gridBienesPorEnajenar").jqGrid({ 
+			datatype: "xml", 
+			colNames:['Tipo','Descripción', 'Cantidad','Número Expediente','Fecha para enajenar','Fecha Aseguramiento'], 
+			colModel:[ 	{name:'tipo',index:'tipo', width:80},
+			           	{name:'descripcion',index:'descripcion', width:150}, 
+                                        {name:'cantidad',index:'cantidad', width:80}, 
+					{name:'expediente',index:'expediente', width:80}, 
+					{name:'fechaParaEnajenar',index:'fechaParaEnajenar', width:120},
+					{name:'fechaCreacion',index:'fechaCreacion', width:120}
+				],
+			pager: jQuery('#pagerGridBienesPorEnajenar'),
+			rowNum:10,
+			rowList:[10,20,30,40,50,60,70,80,90,100],
+			autowidth: true,
+			shrinkToFit: true,
+			sortname: 'detalle',
+			viewrecords: true,
+			sortorder: "desc",
+			ondblClickRow: function(rowid) {
+					dblClickRowBandejaSolicitudesGen(rowid);
+					}
+		}).navGrid('#pagerGridBienesPorEnajenar',{edit:false,add:false,del:false});
+
 		
 		$('#test').weatherfeed(['MXDF0132']);
 				
@@ -304,6 +329,7 @@
 		ajustarGridAlCentro($("#gridMandamientosJudiciales"));
 		ajustarGridAlCentro($("#gridMedidasCautelares"));
 		ajustarGridAlCentro($("#gridEvidenciaAlmacenExpediente"));
+                ajustarGridAlCentro($("#gridBienesPorEnajenar"));
 	}
 
 	function ocultaMuestraGridsAlertas(idGrid)
@@ -358,7 +384,8 @@
 		$("#divGridDetalleSolAvisosDetencion").hide();
 		$("#divGridMedidasCautelares").hide();
 		$("#divGridMandamientosJudiciales").hide();		
-		$("#divGridDetalleEvidencia").hide();		
+		$("#divGridDetalleEvidencia").hide();	
+                $("#divGridBienesPorEnajenar").hide();
 		
 		switch (nombreGrid){
 			case "divGridAvisosDetencion":
@@ -412,6 +439,9 @@
         	case "gridEvidenciaAlmacenExpediente":
         		$("#divGridDetalleEvidencia").show();
         		break;
+                case "gridBienesPorEnajenar":
+        		$("#divGridBienesPorEnajenar").show();
+        		break;        
 	    }		
 
 		restablecerPantallas();
@@ -691,6 +721,7 @@
 		$("#divGridSolsGeneradas").hide();
 		$("#divGridMandamientosJudiciales").hide();
 		$("#divGridMedidasCautelares").hide();
+                $("#divGridBienesPorEnajenar").hide();
 	}
 
 	function activaUno() {
@@ -742,6 +773,7 @@
 		$("#divGridEvaluarDocumentos").hide();
 		$("#divGridNotificaciones").hide();
 		$("#divGridSolsXAtndr").hide();
+                $("#divGridBienesPorEnajenar").hide();
 		gridSolServPericiales();
 	}
 	
@@ -1270,6 +1302,21 @@
 			$("#gridExpCompartidos").setGridWidth($("#mainContent").width() - 5, true);
 	}
 
+        /*
+	*Funcion para realizar la consulta del grid de bienes por enajenar
+	*/
+	function consultaPorEnajenarHoy()
+	{		
+                var fecha=new Date();
+                var dia = fecha.getDate()<10?'0'+fecha.getDate():''+fecha.getDate();
+                var mes = fecha.getMonth()+1<10?'0'+(fecha.getMonth()+1):''+(fecha.getMonth()+1);
+                var anio = fecha.getFullYear();
+                var hoy=dia+'/'+mes+'/'+anio;
+                        
+                jQuery("#gridBienesPorEnajenar").jqGrid('setGridParam', {url: contextoPagina + '/consultarBienesPorEnajenar.do?fecha='+hoy,datatype: "xml" });
+		$("#gridBienesPorEnajenar").trigger("reloadGrid");
+		ocultaMuestraGrids("gridBienesPorEnajenar");
+	}
 </script>
 <!-- Div para mostrar la ventana modal para elegir la fecha de consulta para mandamientos judiciales y medidas cautelares -->
 <div id="busquedaFecha" style="display: none">
@@ -1413,7 +1460,10 @@
                          <table id="gridEvidenciaAlmacenExpediente"></table>
                          <div id="paginadorEvidenciaAlmacenExpediente"></div>
                     </div>
-					
+                                        <div id="divGridBienesPorEnajenar" style="display: none;">
+					 	<table id="gridBienesPorEnajenar"></table>
+						<div id="pagerGridBienesPorEnajenar"></div>
+					</div>	
 					<table width="100%">
 					<tr valign="top">
 						<td width="100%" valign="top">

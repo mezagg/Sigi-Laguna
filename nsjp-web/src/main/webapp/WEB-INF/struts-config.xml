@@ -8386,6 +8386,12 @@
 	parameter="consultaTiposSolsXArea">
 	</action>
 	
+        <action path="/consultarBienesPorEnajenar"
+	type="mx.gob.segob.nsjp.web.objeto.action.ConsultarBienesPorEnajenarAction"
+	name=""
+	parameter="consultarBienesPorEnajenar">
+	</action>
+        
 	<action path="/consultarDetalleSolicitudBandeja" forward="/WEB-INF/paginas/detalleSolsXAtndrUIView.jsp" />
 	<action path="/consultarDetalleSolicitudBandejaGen" forward="/WEB-INF/paginas/detalleSolsGeneradasView.jsp" />
 	
