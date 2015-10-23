@@ -17,7 +17,7 @@
 * Modificacion        :N/A
 *------------------------------------------------------------------------------
 */
-package mx.gob.segob.nsjp.web.caso.form;
+package mx.gob.segob.nsjp.web.caso.form; 
 
 import mx.gob.segob.nsjp.web.base.form.GenericForm;
 /**
@@ -45,7 +45,7 @@ public class IngresarDatosGeneralesForm  extends GenericForm {
 	private String especialidadpericial;
 	
 	/**
-	 * Método de acceso al campo serviciopericial.
+	 * Mï¿½todo de acceso al campo serviciopericial.
 	 * @return El valor del campo serviciopericial
 	 */
 	public String getServiciopericial() {
@@ -59,7 +59,7 @@ public class IngresarDatosGeneralesForm  extends GenericForm {
 		this.serviciopericial = serviciopericial;
 	}
 	/**
-	 * Método de acceso al campo especialidadpericial.
+	 * Mï¿½todo de acceso al campo especialidadpericial.
 	 * @return El valor del campo especialidadpericial
 	 */
 	public String getEspecialidadpericial() {

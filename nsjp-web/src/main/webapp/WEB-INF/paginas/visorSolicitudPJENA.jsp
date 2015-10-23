@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Atencion a Sollicitudes</title>
 
 	
@@ -101,7 +101,7 @@
 		</tr>
 		<tr>
 			<td width="26%" align="right">
-				<strong>Número de Caso:</strong>
+				<strong>N&uacute;mero de Caso:</strong>
 			</td>
 			<td width="30%">
 				<input type="text" id="numCasoAtencionAudienciaDetalle" style="width:180px; border: 0; background:#DDD;" readonly="readonly"/>
@@ -115,7 +115,7 @@
 		</tr>
 		<tr>
 			<td align="right">
-				<strong>Número de Expediente:</strong>
+				<strong>N&uacute;mero de Expediente:</strong>
 			</td>
 			<td>
 				<input type="text" id="numCasoAtencionAudienciaDetalle2" style="width:180px; border: 0; background:#DDD;" readonly="readonly"/>
@@ -129,7 +129,7 @@
 		</tr>
 		<tr>
 			<td align="right">
-				<strong>Institución Solicitante:</strong>
+				<strong>Instituci&oacute;n Solicitante:</strong>
 			</td>
 			<td>
 				<input type="text" id="institucion" style="width:180px; border: 0; background:#DDD;" readonly="readonly">

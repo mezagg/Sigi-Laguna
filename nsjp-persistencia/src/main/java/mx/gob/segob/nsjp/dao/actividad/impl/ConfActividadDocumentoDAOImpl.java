@@ -63,54 +63,37 @@ public class ConfActividadDocumentoDAOImpl
         return query.list();
     }
 
+    @SuppressWarnings("unchecked")
     @Override
-    public List<ConfActividadDocumentoRol> consultarActividadRol(Long idRol) {
-
-        StringBuilder sb = new StringBuilder();
-        /*  private Long confActividadDocumentoRolId;
-         private String descripcion;
-         private Valor tipoActividad;
-         private Valor tipoDocumento;
-         private Boolean muestraEnCombo;
-         private Forma forma;
-         private Boolean usaEditor;
-         private Rol rol;
-         private Boolean activo;
-    
-         sb.append("SELECT cRol.*, cRol.tipoActividad.valor, cRol.tipoActividad.valorId "
-         + ", cRol.tipoDocumento.valor, cRol.tipoDocumento.valorId "
-         + "FROM ConfActividadDocumentoRol cRol").
-         append(" WHERE cRol.rol.rolId = ").append(idRol).
-         append(" AND cRol.activo = 1").
-         append(" order by cRol.tipoActividad.valor");
-         logger.info("QUERY PARA consultarActividadRol: " + sb);
-         Query query = super.getSession().createQuery(sb.toString());
-        
-         return query.list();*/
-        return consultarActividadCatUie(idRol, null);
-    }
-
-    @Override
-    public List<ConfActividadDocumentoRol> consultarActividadCatUie(Long idRol, Long catUIE) {
-
-        StringBuilder sb = new StringBuilder();
-
-       // sb.append("SELECT cRol.*, cRol.tipoDocumento.valorId, cRol.tipoDocumento.valor , ").
-        //    append(" cRol.tipoActividad.valorId, cRol.tipoActividad.valor  FROM").
-        sb.append("SELECT cRol from ConfActividadDocumentoRol cRol").
-                append(catUIE != null ? " , ConfActividadUIE cUie " : "").
-                append(" WHERE cRol.rol.rolId = ").append(idRol).
-                append(" AND cRol.activo = 1");
-        if (catUIE != null) {
-            //:TODO agregar atributo de activo
-            //sb.append(" AND cUie.activo = 1 and cUie.catUIEspecializada.catUIEId = ").append(catUIE).
-            sb.append(" AND cUie.catUIEspecializada.catUIEId = ").append(catUIE).
-                    append(" AND cRol.tipoActividad.valorId = cUie.tipoActividad.valorId");
+    public List<ConfActividadDocumento> consultarConfActividadDocumento(
+            Long jerarquiaOrganizacionalId, NumeroExpediente numeroExpediente, Long idCategoriaActidad, Long catUIE) {
+        Valor estatus = numeroExpediente.getEstatus();
+        if (estatus == null) {
+            throw new IllegalStateException("No es posible consulta conActivid"
+                    + "adDocumento para el expediente = " + numeroExpediente.getNumeroExpediente()
+                    + " Se requiere que el expediente tenga un estatus asociado");
         }
 
-        sb.append(" order by cRol.tipoActividad.valor ");
+        StringBuilder sb = new StringBuilder();
 
-        logger.info("QUERY PARA consultarActividadCatUie: " + sb);
+        sb.append("SELECT conf FROM ConfActividadDocumento conf ").
+                append(catUIE != null ? " , ConfActividadUIE cUie " : "").
+                append("WHERE conf.grupoActividad = ").append(estatus.getValorId()).append(" ").
+                append("AND conf.jerarquiaOrganizacional.jerarquiaOrganizacionalId = ").append(jerarquiaOrganizacionalId).
+                append(" AND conf.muestraEnCombo = 1");
+        if (idCategoriaActidad != null) {
+            sb.append(" AND conf.categoriaActividad = ").append(idCategoriaActidad);
+        }
+        if (catUIE != null) {
+            sb.append(" AND cUie.catUIEspecializada.catUIEId = ").append(catUIE).
+            append(" AND conf.tipoActividad.valorId = cUie.tipoActividad.valorId");;
+        }
+
+        sb.append(" order by ");
+        sb.append("conf.tipoActividad.valor");
+        
+        logger.info("CONSULTA PARA consultarConfActividadDocumento CON Y SIN CATUIE: " + sb);
+
         Query query = super.getSession().createQuery(sb.toString());
         return query.list();
     }
@@ -292,33 +275,33 @@ public class ConfActividadDocumentoDAOImpl
         return (Long) qry.uniqueResult();
     }
 
-    @Override
-    public List<ConfActividadDocumento> consultarConfActividadDocumentoCatUie(Long jerarquiaOrganizacionalId, NumeroExpediente numeroExpediente, Long idCategoriaActidad, Long catUie) {
-        // Debemos consultar el estado del expediente.
-        Valor estatus = numeroExpediente.getEstatus();
-        if (estatus == null) {
-            throw new IllegalStateException("No es posible consulta conActivid"
-                    + "adDocumento para el expediente = " + numeroExpediente.getNumeroExpediente()
-                    + " Se requiere que el expediente tenga un estatus asociado");
-        }
-        // Buscamos los registros que tengan grupoActividad = estatus
-        StringBuilder sb = new StringBuilder();
-        sb.append("SELECT conf FROM ConfActividadDocumento conf, CatUIEConfActDocumeto cad, CatUIEspecializada cuie ").
-                append("WHERE conf.grupoActividad = ").append(estatus.getValorId()).append(" ").
-                append("AND conf.jerarquiaOrganizacional.jerarquiaOrganizacionalId = ").append(jerarquiaOrganizacionalId).
-                append(" AND conf.muestraEnCombo = 1");
-        if (idCategoriaActidad != null) {
-            sb.append(" AND conf.categoriaActividad = ").append(idCategoriaActidad);
-        }
-        sb.append(" AND cad.catUIEspecializada.catUIEId = ").append(catUie).
-                append(" AND cuie.catUIEId = cad.catUIEspecializada.catUIEId").
-                append(" AND conf.confActividadDocumentoId = cad.confActividadDocumento.confActividadDocumentoId");
-
-        sb.append(" order by ");
-        sb.append("conf.tipoActividad.valor");
-
-        logger.info("LA CONSULTA PARA consultarConfActividadDocumentoCatUie " + sb);
-        Query query = super.getSession().createQuery(sb.toString());
-        return query.list();
-    }
+//    @Override
+//    public List<ConfActividadDocumento> consultarConfActividadDocumentoCatUie(Long jerarquiaOrganizacionalId, NumeroExpediente numeroExpediente, Long idCategoriaActidad, Long catUie) {
+//        // Debemos consultar el estado del expediente.
+//        Valor estatus = numeroExpediente.getEstatus();
+//        if (estatus == null) {
+//            throw new IllegalStateException("No es posible consulta conActivid"
+//                    + "adDocumento para el expediente = " + numeroExpediente.getNumeroExpediente()
+//                    + " Se requiere que el expediente tenga un estatus asociado");
+//        }
+//        // Buscamos los registros que tengan grupoActividad = estatus
+//        StringBuilder sb = new StringBuilder();
+//        sb.append("SELECT conf FROM ConfActividadDocumento conf, CatUIEConfActDocumeto cad, CatUIEspecializada cuie ").
+//                append("WHERE conf.grupoActividad = ").append(estatus.getValorId()).append(" ").
+//                append("AND conf.jerarquiaOrganizacional.jerarquiaOrganizacionalId = ").append(jerarquiaOrganizacionalId).
+//                append(" AND conf.muestraEnCombo = 1");
+//        if (idCategoriaActidad != null) {
+//            sb.append(" AND conf.categoriaActividad = ").append(idCategoriaActidad);
+//        }
+//        sb.append(" AND cad.catUIEspecializada.catUIEId = ").append(catUie).
+//                append(" AND cuie.catUIEId = cad.catUIEspecializada.catUIEId").
+//                append(" AND conf.confActividadDocumentoId = cad.confActividadDocumento.confActividadDocumentoId");
+//
+//        sb.append(" order by ");
+//        sb.append("conf.tipoActividad.valor");
+//
+//        logger.info("LA CONSULTA PARA consultarConfActividadDocumentoCatUie " + sb);
+//        Query query = super.getSession().createQuery(sb.toString());
+//        return query.list();
+//    }
 }

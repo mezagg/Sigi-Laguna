@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Ingresar Lugar de los Hechos</title>
 
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css" />
@@ -59,7 +59,7 @@
 	  //Funcion que refleja los datos de nombre, apellido paterno, apellido materno a la ventana padre
 	function bloqueaDatos(){
 		if($("#chkAnonima").is(':checked')){
-			$("#solicitanteNombre").val("Anónimo");
+			$("#solicitanteNombre").val("An&oacute;nimo");
 			$("#solicitanteAPaterno").val("");
 			$("#solicitanteAMaterno").val("");
 			
@@ -147,7 +147,7 @@
 		
 		if(!$("#chkAnonima").is(':checked')){
 			if(($('#solicitanteNombre').val()=="") && ($('#solicitanteAPaterno').val()=="") && ($('#solicitanteAMaterno').val()=="")){
-				customAlert("Por favor capture la información del solicitante");
+				customAlert("Por favor capture la informaci&oacute;n del solicitante");
 				return false;
 			}
 		}
@@ -251,7 +251,7 @@
 				<table width="100%">
 					<tr align="center">
 						<td align="center" colspan="2">
-							¿La llamada es an&oacute;nima?
+							&iquest;La llamada es an&oacute;nima?
 							<input type="checkbox" id="chkAnonima"/>
 						</td>
 						<td width="64%" rowspan="8">                           

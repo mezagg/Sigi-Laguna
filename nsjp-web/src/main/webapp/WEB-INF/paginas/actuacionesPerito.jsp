@@ -8,13 +8,13 @@ Funcionalidad para:
  -->
 <%@page import="mx.gob.segob.nsjp.comun.enums.forma.Formas"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.funcionario.Puestos"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.solicitud.TiposSolicitudes" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Atención a solicitudes periciales</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Atenci&oacute;n a solicitudes periciales</title>
 	
 	<!--Se importan las css necesarias-->
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css" />
@@ -274,8 +274,8 @@ Funcionalidad para:
 	    
 	}
 	/**
-	* Función que es llamada por el generador de documentos cuando se realiza un guardado definitivo del documento
-	* Esta función actualiza el estado de la solicitud pericial y adjunta el archivo digital recién generado a las solicitudes padre
+	* Funci&oacute;n que es llamada por el generador de documentos cuando se realiza un guardado definitivo del documento
+	* Esta funci&oacute;n actualiza el estado de la solicitud pericial y adjunta el archivo digital reci&eacute;n generado a las solicitudes padre
 	*/
 	function documentoGenerado(){
 		

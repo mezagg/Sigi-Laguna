@@ -553,7 +553,7 @@ body,td,th {
 			jQuery("#gridSolicitudesDeTrasladoDeImputadosNoAtendidas").jqGrid({ 
 				url:'<%= request.getContextPath()%>/consultarSolicitudesDeTrasladoDeImputadoNoAtendidas.do', 
 				datatype: "xml", 
-				colNames:['Número de IPH','Nombre del imputado','Tipo de Audiencia','Fecha de Audiencia','Hora de Audiencia','Domicilio Sala','Sala' ], 
+				colNames:['N&uacute;mero de IPH','Nombre del imputado','Tipo de Audiencia','Fecha de Audiencia','Hora de Audiencia','Domicilio Sala','Sala' ], 
 				colModel:[ 	{name:'NumeroIPH',index:'numeroIPH', width:109},
 				           	{name:'NombreImputado',index:'nombreImputado', width:109},
 				           	{name:'TipoAudiencia',index:'tipoAudiencia', width:109},
@@ -608,7 +608,7 @@ body,td,th {
 			jQuery("#gridSolicitudesDeTrasladoDeImputadosEnProceso").jqGrid({ 
 				url:'<%= request.getContextPath()%>/consultarSolicitudesDeTrasladoDeImputadoEnProceso.do', 
 				datatype: "xml", 
-				colNames:['Solicitante','Número de IPH','Nombre del imputado','Tipo de Audiencia','Fecha de Audiencia','Hora de Audiencia','Domicilio Sala','Sala','Fecha Aut. de Desencarcelación' ], 
+				colNames:['Solicitante','N&uacute;mero de IPH','Nombre del imputado','Tipo de Audiencia','Fecha de Audiencia','Hora de Audiencia','Domicilio Sala','Sala','Fecha Aut. de Desencarcelaci&oacute;n' ], 
 				colModel:[ 	{name:'Solicitante',index:'solicitante', width:85},
 							{name:'NumeroIPH',index:'numeroIPH', width:85},
 				           	{name:'NombreImputado',index:'nombreImputado', width:85},
@@ -655,7 +655,7 @@ body,td,th {
 			jQuery("#gridSolicitudesDeTrasladoDeImputadosTerminadas").jqGrid({ 
 				url:'<%= request.getContextPath()%>/consultarSolicitudesDeTrasladoDeImputadoTerminadas.do', 
 				datatype: "xml", 
-				colNames:['Solicitante','Número de IPH','Nombre del imputado','Tipo de Audiencia','Fecha de Audiencia','Hora de Audiencia','Domicilio Sala','Sala','Fecha Aut. de Desencarcelación','Fecha Exámen Médico' ], 
+				colNames:['Solicitante','N&uacute;mero de IPH','Nombre del imputado','Tipo de Audiencia','Fecha de Audiencia','Hora de Audiencia','Domicilio Sala','Sala','Fecha Aut. de Desencarcelaci&oacute;n','Fecha Ex&aacute;men M&eacute;dico' ], 
 				colModel:[ 	{name:'Solicitante',index:'solicitante', width:76},
 							{name:'NumeroIPH',index:'numeroIPH', width:76},
 				           	{name:'NombreImputado',index:'nombreImputado', width:76},
@@ -940,7 +940,7 @@ function visorLeyesCodigos() {
 <!--	Termina mainContent-->
 <div id="dialog-logout" title="Cerrar Sesi&oacute;n">
 	<p align="center">
-		<span id="logout">¿Desea cerrar su sesi&oacute;n?</span>
+		<span id="logout">&iquest;Desea cerrar su sesi&oacute;n?</span>
 	</p>
 </div>
 	<!-- dialogos para las alarmas -->
@@ -954,11 +954,11 @@ function visorLeyesCodigos() {
 		<p align="center">
 			<table border="0">
 				<tr>
-					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contraseña para desbloquear.</td>
+					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contrase&ntilde;a para desbloquear.</td>
 					
 				</tr>
 				<tr>
-					<td align="right"><label style="color:#4A5C68">Contraseña:</label></td>
+					<td align="right"><label style="color:#4A5C68">Contrase&ntilde;a:</label></td>
 					<td><input type="password" name="password" id="password" value="" maxlength="15" size="20"></td>
 				</tr>
 				<tr id="captchaJPG" >
@@ -987,7 +987,7 @@ function visorLeyesCodigos() {
 				La sesi&oacute;n se cerrar&aacute; en <span id="dialog-countdown" style="font-weight:bold"></span> segundos.
 			</p>
 
-			<p>¿Desea continuar con la sesi&oacute;n?</p>
+			<p>&iquest;Desea continuar con la sesi&oacute;n?</p>
 	</div>
 	<div id="dialog-alarmPos" title="Alarma ">
 		<p align="center">

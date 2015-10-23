@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<title>Ingresar contacto de una organización</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Ingresar contacto de una organizaci&oacute;n</title>
 		<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css"/>
 		<link rel="stylesheet" type="text/css" media="screen"href="<%= request.getContextPath()%>/resources/css/estilos.css" />
 		<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/jquery.easyaccordion.css" />
@@ -113,11 +113,11 @@
 				    			  //deshabilitamos el boton de guardado 
 					    		  $("#iVictimaBtnGuardar").attr("disabled","disabled");
 					    		  window.parent.deshabilitaBotonContacto();
-				    			  customAlert("El contacto de la organización se guardó exitosamente");
+				    			  customAlert("El contacto de la organizaci&oacute;n se guard&oacute; exitosamente");
 				    		  }
 				    		  else
 				    		  {
-				    			  customAlert("Ocurrió un error al guardar el contacto de la organización");
+				    			  customAlert("Ocurri&oacute; un error al guardar el contacto de la organizaci&oacute;n");
 				    		  }
 				    	  }
 				    	});
@@ -252,15 +252,15 @@
 					                <dd>
 					                	<jsp:include page="ingresarDomicilioView.jsp"/>
 						            </dd>
-					                <!-- dt id="mediafiliacionTab">Media Filiación</dt>
+					                <!-- dt id="mediafiliacionTab">Media Filiaci&oacute;n</dt>
 					                <dd>
-					                	<p> Media filiación</p>
+					                	<p> Media filiaci&oacute;n</p>
 					                </dd-->
 					                <dt>Medios de Contacto</dt>
 					                <dd>
 					                	<jsp:include page="ingresarMediosContactoView.jsp"/>
 					                </dd>
-					                <dt>Documentos de Identificación </dt>
+					                <dt>Documentos de Identificaci&oacute;n </dt>
 					                <dd>
 										<jsp:include page="ingresarDocumentoIdentificacionView.jsp"/>
 									</dd>

@@ -1,8 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"></meta>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
 	<title>Crear o Editar Plantilla</title>
 	
 		<!--CSS DE LA PAGINA-->
@@ -108,7 +108,7 @@
 				if($(xml).find('long').text() == '1'){
 					customAlert("El nombre de la plantilla ya existe en el sistema");
 				}else{
-					customAlert("La información se guardó con éxito", "", cerrarVentana());
+					customAlert("La informaci&oacute;n se guard&oacute; con &eacute;xito", "", cerrarVentana());
 					
 				}
 			}
@@ -152,7 +152,7 @@
 		  </tr>
 		  <tr>
 		    <td align="right">
-				<!--<strong>Fecha de creación:</strong>-->
+				<!--<strong>Fecha de creaci&oacute;n:</strong>-->
 				<strong>Tipo de Forma:</strong>
 		    </td>
 		    <td>
@@ -184,7 +184,7 @@
 		    <td align="right">
 		    	<table>
 		    		<tr>
-					  	<td align="center" id="seccionCbxTamanioPapel"><span></span>Tamaño de Papel
+					  	<td align="center" id="seccionCbxTamanioPapel"><span></span>Tama&ntilde;o de Papel
 							<select name="cbxTamanioPapel" id="cbxTamanioPapel" onchange="recuperarTamanioPapel()" style=" border:0; background-color:#FFF;">
 					    	</select>
 					    </td>

@@ -16,7 +16,7 @@
 * Proyecto                 :N/A                                 Fecha: N/A
 * Modificacion           :N/A
 *------------------------------------------------------------------------------
-*/
+*/ 
 package mx.gob.segob.nsjp.web.objeto.form;
 
 import mx.gob.segob.nsjp.web.base.form.GenericForm;
@@ -128,7 +128,7 @@ public class EquipoTelefonicoForm extends GenericForm{
 
 	
 	/**
-	 * Método de acceso al campo glMarcaEquipoTelefId.
+	 * Mï¿½todo de acceso al campo glMarcaEquipoTelefId.
 	 * @return El valor del campo glMarcaEquipoTelefId
 	 */
 	public Long getGlMarcaEquipoTelefId() {
@@ -144,7 +144,7 @@ public class EquipoTelefonicoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo glTipoEquipoTelefId.
+	 * Mï¿½todo de acceso al campo glTipoEquipoTelefId.
 	 * @return El valor del campo glTipoEquipoTelefId
 	 */
 	public Long getGlTipoEquipoTelefId() {
@@ -160,7 +160,7 @@ public class EquipoTelefonicoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo gsModeloEquipoTelef.
+	 * Mï¿½todo de acceso al campo gsModeloEquipoTelef.
 	 * @return El valor del campo gsModeloEquipoTelef
 	 */
 	public String getGsModeloEquipoTelef() {
@@ -176,7 +176,7 @@ public class EquipoTelefonicoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo glCantidadEquipoTelef.
+	 * Mï¿½todo de acceso al campo glCantidadEquipoTelef.
 	 * @return El valor del campo glCantidadEquipoTelef
 	 */
 	public Long getGsCantidadEquipoTelef() {
@@ -192,7 +192,7 @@ public class EquipoTelefonicoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo glCondicionFisicaEquipoTelefId.
+	 * Mï¿½todo de acceso al campo glCondicionFisicaEquipoTelefId.
 	 * @return El valor del campo glCondicionFisicaEquipoTelefId
 	 */
 	public Long getGlCondicionFisicaEquipoTelefId() {
@@ -209,7 +209,7 @@ public class EquipoTelefonicoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo gsDescripcionEquipoTelef.
+	 * Mï¿½todo de acceso al campo gsDescripcionEquipoTelef.
 	 * @return El valor del campo gsDescripcionEquipoTelef
 	 */
 	public String getGsDescripcionEquipoTelef() {
@@ -225,7 +225,7 @@ public class EquipoTelefonicoForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo serialversionuid.
+	 * Mï¿½todo de acceso al campo serialversionuid.
 	 * @return El valor del campo serialversionuid
 	 */
 	public static long getSerialversionuid() {

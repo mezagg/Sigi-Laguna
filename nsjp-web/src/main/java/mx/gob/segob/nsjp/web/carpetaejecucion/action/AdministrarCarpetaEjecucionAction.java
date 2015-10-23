@@ -18,7 +18,7 @@
 *------------------------------------------------------------------------------
 */
 package mx.gob.segob.nsjp.web.carpetaejecucion.action;
-
+ 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -68,10 +68,10 @@ import org.apache.struts.action.ActionMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * Action para atender las solicitudes de la adminsitración de una
- * carpeta de ejecución
+ * Action para atender las solicitudes de la adminsitraciï¿½n de una
+ * carpeta de ejecuciï¿½n
  * @version 1.0 
- * @author Emigdio Hernández
+ * @author Emigdio Hernï¿½ndez
  *
  */
 public class AdministrarCarpetaEjecucionAction extends GenericAction {
@@ -94,7 +94,7 @@ public class AdministrarCarpetaEjecucionAction extends GenericAction {
 	private static final Logger log = Logger.getLogger(AdministrarCarpetaEjecucionAction.class);
 
 	/**
-	 * Método para obtener los datos para rellenar el grid de los documentos asociados a la carpeta
+	 * Mï¿½todo para obtener los datos para rellenar el grid de los documentos asociados a la carpeta
 	 * @param mapping
 	 * @param form
 	 * @param request
@@ -135,7 +135,7 @@ public class AdministrarCarpetaEjecucionAction extends GenericAction {
 	
 
 	/**
-	 * Método para obtener los datos generales de la carpeta de ejcución:
+	 * Mï¿½todo para obtener los datos generales de la carpeta de ejcuciï¿½n:
 	 * Datos del expediente carpeta y datos del sentenciado
 	 * @param mapping
 	 * @param form
@@ -168,7 +168,7 @@ public class AdministrarCarpetaEjecucionAction extends GenericAction {
 	
 	
 	/**
-	 * Método para obtener las solicitudes de beneficios de preeliberacion
+	 * Mï¿½todo para obtener las solicitudes de beneficios de preeliberacion
 	 * @param mapping
 	 * @param form
 	 * @param request
@@ -216,7 +216,7 @@ public class AdministrarCarpetaEjecucionAction extends GenericAction {
 		
 	}
 	/**
-	 * Realiza el registro de una solicitud de estudio del sentenciado y retorna la información
+	 * Realiza el registro de una solicitud de estudio del sentenciado y retorna la informaciï¿½n
 	 * necesaria para emitir un documento
 	 * @param mapping
 	 * @param form
@@ -269,7 +269,7 @@ public class AdministrarCarpetaEjecucionAction extends GenericAction {
 	
 	
 	/**
-	 * Método para obtener las solicitudes de beneficios de preeliberacion
+	 * Mï¿½todo para obtener las solicitudes de beneficios de preeliberacion
 	 * @param mapping
 	 * @param form
 	 * @param request
@@ -292,10 +292,10 @@ public class AdministrarCarpetaEjecucionAction extends GenericAction {
 			PrintWriter writer = response.getWriter();
 			writer.print("<rows>");
 				writer.print("<records>" + solicitudes.size() + "</records>");
-//				Número de causa
-//				- Número de carpeta de ejecución
+//				Nï¿½mero de causa
+//				- Nï¿½mero de carpeta de ejecuciï¿½n
 //				- Solicitante
-//				- Institución solicitante
+//				- Instituciï¿½n solicitante
 //				- Sentenciado
 //				- Fecha - hora de solicitud (Nota 1)
 				for (SolicitudDTO solicitud : solicitudes) {
@@ -337,7 +337,7 @@ public class AdministrarCarpetaEjecucionAction extends GenericAction {
 	}
 
 	/**
-	 * Método para obtener las solicitudes de beneficios de preeliberacion
+	 * Mï¿½todo para obtener las solicitudes de beneficios de preeliberacion
 	 * @param mapping
 	 * @param form
 	 * @param request
@@ -370,8 +370,8 @@ public class AdministrarCarpetaEjecucionAction extends GenericAction {
 				writer.print("<total>0</total>");
 				writer.print("<records>0</records>");
 			}
-//				- Número de causa
-//				- Número de carpeta de ejecución				
+//				- Nï¿½mero de causa
+//				- Nï¿½mero de carpeta de ejecuciï¿½n				
 //				- Sentenciado
 //				- Fecha Audiencia 
 //				- Sala Audiencia (Nota 1)
@@ -417,10 +417,10 @@ public class AdministrarCarpetaEjecucionAction extends GenericAction {
 //			PrintWriter writer = response.getWriter();
 //			writer.print("<rows>");
 //				writer.print("<records>" + solicitudes.size() + "</records>");
-////				Número de causa
-////				- Número de carpeta de ejecución
+////				Nï¿½mero de causa
+////				- Nï¿½mero de carpeta de ejecuciï¿½n
 ////				- Solicitante
-////				- Institución solicitante
+////				- Instituciï¿½n solicitante
 ////				- Sentenciado
 ////				- Fecha - hora de solicitud (Nota 1)
 //				for (SolicitudDTO solicitud : solicitudes) {
@@ -454,7 +454,7 @@ public class AdministrarCarpetaEjecucionAction extends GenericAction {
 	}
 
 	/**
-	 * Método para obtener las solicitudes de beneficios de preeliberacion
+	 * Mï¿½todo para obtener las solicitudes de beneficios de preeliberacion
 	 * @param mapping
 	 * @param form
 	 * @param request
@@ -474,8 +474,8 @@ public class AdministrarCarpetaEjecucionAction extends GenericAction {
 			PrintWriter writer = response.getWriter();
 			writer.print("<rows>");
 				writer.print("<records>" + numExpedientes.size() + "</records>");
-//				Número de causa
-//				- Número de carpeta de ejecución
+//				Nï¿½mero de causa
+//				- Nï¿½mero de carpeta de ejecuciï¿½n
 			ExpedienteDTO dto = new ExpedienteDTO();
 			ValorDTO valorDTO = new ValorDTO();
 				valorDTO.setIdCampo(Calidades.PROBABLE_RESPONSABLE_PERSONA.getValorId());
@@ -574,7 +574,7 @@ public class AdministrarCarpetaEjecucionAction extends GenericAction {
 	}
 	
 	/**
-	 * Método para obtener las solicitudes de beneficios de preeliberacion
+	 * Mï¿½todo para obtener las solicitudes de beneficios de preeliberacion
 	 * @param mapping
 	 * @param form
 	 * @param request
@@ -598,8 +598,8 @@ public class AdministrarCarpetaEjecucionAction extends GenericAction {
 			PrintWriter writer = response.getWriter();
 			writer.print("<rows>");
 				writer.print("<records>" + numExpedientes.size() + "</records>");
-//				Número de causa
-//				- Número de carpeta de ejecución				
+//				Nï¿½mero de causa
+//				- Nï¿½mero de carpeta de ejecuciï¿½n				
 				for (ExpedienteDTO expedienteDTO : numExpedientes) {
 					log.info("/******** ::: /" + expedienteDTO);
 					writer.print("<row id='" + expedienteDTO.getNumeroExpedienteId() +"'>");					
@@ -631,7 +631,7 @@ public class AdministrarCarpetaEjecucionAction extends GenericAction {
 	}
 	
 	/**
-	 * Método para obtener las solicitudes de beneficios de preeliberacion
+	 * Mï¿½todo para obtener las solicitudes de beneficios de preeliberacion
 	 * @param mapping
 	 * @param form
 	 * @param request
@@ -684,7 +684,7 @@ public class AdministrarCarpetaEjecucionAction extends GenericAction {
 	
 	
 	/**
-	 * Método para obtener las solicitudes de Carpeta de beneficios de preeliberacion
+	 * Mï¿½todo para obtener las solicitudes de Carpeta de beneficios de preeliberacion
 	 * @param mapping
 	 * @param form
 	 * @param request
@@ -713,8 +713,8 @@ public class AdministrarCarpetaEjecucionAction extends GenericAction {
 			PrintWriter writer = response.getWriter();
 			writer.print("<rows>");
 				writer.print("<records>" + solicitudDTOs.size() + "</records>");
-//				Número de causa
-//				- Número de carpeta de ejecución
+//				Nï¿½mero de causa
+//				- Nï¿½mero de carpeta de ejecuciï¿½n
 				for (SolicitudDTO solicitudDTO : solicitudDTOs) {
 					log.info("/******** ::::: /" + solicitudDTO);
 					writer.print("<row id='" + solicitudDTO.getDocumentoId() +"'>");					
@@ -739,7 +739,7 @@ public class AdministrarCarpetaEjecucionAction extends GenericAction {
 	}
 	
 	/**
-	 * Método para obtener las solicitar Actuaciones Preliberacion
+	 * Mï¿½todo para obtener las solicitar Actuaciones Preliberacion
 	 * @param mapping
 	 * @param form
 	 * @param request
@@ -767,8 +767,8 @@ public class AdministrarCarpetaEjecucionAction extends GenericAction {
 //			PrintWriter writer = response.getWriter();
 //			writer.print("<rows>");
 //				writer.print("<records>" + numExpedientes.size() + "</records>");
-////				Número de causa
-////				- Número de carpeta de ejecución
+////				Nï¿½mero de causa
+////				- Nï¿½mero de carpeta de ejecuciï¿½n
 //				for (ExpedienteDTO expedienteDTO : numExpedientes) {
 //					log.info("/******** ::::: /" + expedienteDTO);
 //					writer.print("<row id='" + expedienteDTO.getNumeroExpedienteId() +"'>");					
@@ -790,7 +790,7 @@ public class AdministrarCarpetaEjecucionAction extends GenericAction {
 	}
 
 	/**
-	 * Método para obtener las solicitar Actuaciones Preliberacion
+	 * Mï¿½todo para obtener las solicitar Actuaciones Preliberacion
 	 * @param mapping
 	 * @param form
 	 * @param request
@@ -818,8 +818,8 @@ public class AdministrarCarpetaEjecucionAction extends GenericAction {
 			PrintWriter writer = response.getWriter();
 			writer.print("<rows>");
 				writer.print("<records>" + documentoDTOs.size() + "</records>");
-//				Número de causa
-//				- Número de carpeta de ejecución
+//				Nï¿½mero de causa
+//				- Nï¿½mero de carpeta de ejecuciï¿½n
 				for (DocumentoDTO documentoDTO : documentoDTOs) {
 					log.info("/******** ::::: /" + documentoDTO);
 					writer.print("<row id='" + documentoDTO.getDocumentoId() +"'>");					
@@ -842,7 +842,7 @@ public class AdministrarCarpetaEjecucionAction extends GenericAction {
 	}
 
 	/**
-	 * Método para obtener las solicitar programarAudienciasCarpetaPreliberacion
+	 * Mï¿½todo para obtener las solicitar programarAudienciasCarpetaPreliberacion
 	 * @param mapping
 	 * @param form
 	 * @param request
@@ -867,8 +867,8 @@ public class AdministrarCarpetaEjecucionAction extends GenericAction {
 			PrintWriter writer = response.getWriter();
 			writer.print("<rows>");
 				writer.print("<records>" + medidasAlternas.size() + "</records>");
-//				Número de causa
-//				- Número de carpeta de ejecución
+//				Nï¿½mero de causa
+//				- Nï¿½mero de carpeta de ejecuciï¿½n
 //				- Nombre
 //				- Descripcion
 //				- Periodicidad
@@ -904,8 +904,8 @@ public class AdministrarCarpetaEjecucionAction extends GenericAction {
 //			PrintWriter writer = response.getWriter();
 //			writer.print("<rows>");
 //				writer.print("<records>" + numExpedientes.size() + "</records>");
-////				Número de causa
-////				- Número de carpeta de ejecución
+////				Nï¿½mero de causa
+////				- Nï¿½mero de carpeta de ejecuciï¿½n
 //				for (ExpedienteDTO expedienteDTO : numExpedientes) {
 //					log.info("/******** ::::: /" + expedienteDTO);
 //					writer.print("<row id='" + expedienteDTO.getNumeroExpedienteId() +"'>");					
@@ -928,7 +928,7 @@ public class AdministrarCarpetaEjecucionAction extends GenericAction {
 	
 	
 	/**
-	 * Método para obtener las solicitudes de beneficios de preeliberacion
+	 * Mï¿½todo para obtener las solicitudes de beneficios de preeliberacion
 	 * @param mapping
 	 * @param form
 	 * @param request
@@ -978,7 +978,7 @@ public class AdministrarCarpetaEjecucionAction extends GenericAction {
 	
 	
 	/**
-	 * Método para obtener las solicitudes de beneficios de preeliberacion
+	 * Mï¿½todo para obtener las solicitudes de beneficios de preeliberacion
 	 * @param mapping
 	 * @param form
 	 * @param request
@@ -1013,7 +1013,7 @@ public class AdministrarCarpetaEjecucionAction extends GenericAction {
 	}
 	
 	/**
-	 * Método para obtener las solicitudes de beneficios de preeliberacion
+	 * Mï¿½todo para obtener las solicitudes de beneficios de preeliberacion
 	 * @param mapping
 	 * @param form
 	 * @param request
@@ -1060,7 +1060,7 @@ public class AdministrarCarpetaEjecucionAction extends GenericAction {
 	}
 	
 	/**
-	 * Método para obtener las solicitudes de beneficios de preeliberacion
+	 * Mï¿½todo para obtener las solicitudes de beneficios de preeliberacion
 	 * @param mapping
 	 * @param form
 	 * @param request
@@ -1120,7 +1120,7 @@ public class AdministrarCarpetaEjecucionAction extends GenericAction {
 	
 	
 	/**
-	 * Método para consultar las sentencias por estatus
+	 * Mï¿½todo para consultar las sentencias por estatus
 	 * @param mapping
 	 * @param form
 	 * @param request

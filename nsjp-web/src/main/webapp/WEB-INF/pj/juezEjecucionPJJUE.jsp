@@ -236,7 +236,7 @@
 		if(tipo=="expediente"){
 			$("#tiposBusquedaExpediente").css("display","block");
 			$("#tiposBusquedafecha").css("display","none");
-			titulo="Buscar por número de causa";
+			titulo="Buscar por n&uacute;mero de causa";
 		}else{
 			$("#tiposBusquedaExpediente").css("display","none");
 			$("#tiposBusquedafecha").css("display","block");
@@ -297,7 +297,7 @@
 				postData: datosPeticion,
 				datatype: "xml", 
 	    		mtype: "POST",
-				colNames:['Número De Caso','Número De Causa', 'Carpeta Ejecución', 'Nombre Sentenciado', 'Delito(s)', 'Fecha Cambio de Estatus', 'NumExpId'], 
+				colNames:['N&uacute;mero De Caso','N&uacute;mero De Causa', 'Carpeta Ejecuci&oacute;n', 'Nombre Sentenciado', 'Delito(s)', 'Fecha Cambio de Estatus', 'NumExpId'], 
 				colModel:[ 	{name:'noCaso',index:'1', width:140}, 
 							{name:'noCausa',index:'2', width:70}, 
 							{name:'carpeta',index:'3', width:140, hidden:true}, 
@@ -530,11 +530,11 @@
 		<p align="center">
 			<table border="0">
 				<tr>
-					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contraseña para desbloquear.</td>
+					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contrase&ntilde;a para desbloquear.</td>
 					
 				</tr>
 				<tr>
-					<td align="right"><label style="color:#4A5C68">Contraseña:</label></td>
+					<td align="right"><label style="color:#4A5C68">Contrase&ntilde;a:</label></td>
 					<td><input type="password" name="password" id="password" value="" maxlength="15" size="20"></td>
 				</tr>
 				<tr id="captchaJPG" >

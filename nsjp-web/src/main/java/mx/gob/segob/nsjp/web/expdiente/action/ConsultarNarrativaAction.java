@@ -4,7 +4,7 @@
 * Compania                  : Ultrasist                                                
 * Proyecto                  : NSJP                    Fecha: 24/02/2011 
 * Marca de cambio        	: N/A                                                     
-* Descripcion General    	: Integración xxxxxxxxxxx                      
+* Descripcion General    	: Integraciï¿½n xxxxxxxxxxx                      
 * Programa Dependiente  	: N/A                                                      
 * Programa Subsecuente 		: N/A                                                      
 * Cond. de ejecucion        : N/A                                                      
@@ -17,7 +17,7 @@
 * Modificacion           	:N/A                                                           
 *------------------------------------------------------------------------------           
 */
-package mx.gob.segob.nsjp.web.expdiente.action;
+package mx.gob.segob.nsjp.web.expdiente.action; 
 
 import java.io.IOException;
 

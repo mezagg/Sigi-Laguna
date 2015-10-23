@@ -23,7 +23,7 @@ response.setDateHeader ("Expires", -1);
 	jQuery().ready(function () {
 		var error='<%= request.getAttribute("error")%>';
 		if(error==0){
-			alert("Usuario y/o contraseña inválidos, favor de verificar");
+			alert("Usuario y/o contrase&ntilde;a inv&aacute;lidos, favor de verificar");
 			$('#errorLogin').val('Credenciales Invalidas');
 			//errorlog(error);					
 		}else if(error==2){
@@ -105,7 +105,7 @@ response.setDateHeader ("Expires", -1);
 								</tr>
 	                <tr>
 	                    <td align="center" style="border-left:#FFFFFF; border-top:#FFFFFF; border-right-width:3; border-bottom-width:3;">
-	                    	<label style="color:#4A5C68">Dirección IP Bloqueada</label>	
+	                    	<label style="color:#4A5C68">Direcci&oacute;n IP Bloqueada</label>	
 	                    </td>
 	                </tr>
 	                <tr>
@@ -116,14 +116,14 @@ response.setDateHeader ("Expires", -1);
 								</tr>
 								<tr>
 	                            	<td align="center" colspan="1">
-	                            		<label style="color:#4A5C68">La dirección IP <%= request.getAttribute("ip") %></label>
+	                            		<label style="color:#4A5C68">La direcci&oacute;n IP <%= request.getAttribute("ip") %></label>
 	                            	</td>
 						        </tr>
 	                            <tr>
 	                            	<td>&nbsp;</td>
 	                            </tr>
 	                            <tr>
-	                                <td align="center" colspan="1"><label style="color:#4A5C68">Ha sido bloqueada por exceder el número de intentos permitidos para iniciar sesión, intente más tarde</label></td>			
+	                                <td align="center" colspan="1"><label style="color:#4A5C68">Ha sido bloqueada por exceder el n&uacute;mero de intentos permitidos para iniciar sesi&oacute;n, intente m&aacute;s tarde</label></td>			
 	                            </tr>
 								<tr>
 									<td align="center">

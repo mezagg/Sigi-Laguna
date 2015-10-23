@@ -2,7 +2,7 @@
 <%@page import="mx.gob.segob.nsjp.web.login.action.LoginAction"%>
 <%@page import="mx.gob.segob.nsjp.dto.configuracion.ConfiguracionDTO"%>
 <%@page import="mx.gob.segob.nsjp.web.base.action.GenericAction"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="mx.gob.segob.nsjp.dto.usuario.RolDTO"%>
 <%@page import="mx.gob.segob.nsjp.dto.usuario.UsuarioDTO"%>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.institucion.Instituciones"%>
@@ -452,13 +452,13 @@ response.setDateHeader("Expires", 0);
 	 */
 	function abreDiasInhabiles(){
 		
-		$.newWindow({id:"iframewindowRegistrarDiasInhabiles", statusBar: true, posx:200,posy:50,width:900,height:400,title:"Registrar días inhábiles", type:"iframe"});
+		$.newWindow({id:"iframewindowRegistrarDiasInhabiles", statusBar: true, posx:200,posy:50,width:900,height:400,title:"Registrar d&iacute;as inh&aacute;biles", type:"iframe"});
 	    $.updateWindowContent("iframewindowRegistrarDiasInhabiles",'<iframe src="<%=request.getContextPath()%>/registrarDiasInhabiles.do" width="900" height="400" />'); 
 						
 		}	
 	
 	function administrarCatalogos(){
-		$.newWindow({id:"iframewindowCatalogo", statusBar: true, posx:200,posy:10,width:1005,height:605,title:"Administración de catálogos", type:"iframe"});
+		$.newWindow({id:"iframewindowCatalogo", statusBar: true, posx:200,posy:10,width:1005,height:605,title:"Administraci&oacute;n de cat&aacute;logos", type:"iframe"});
 	    $.updateWindowContent("iframewindowCatalogo",'<iframe src="<%=request.getContextPath()%>/AdministrarCatalogos.do" width="1005" height="605" />'); 		
 	}
 	
@@ -663,7 +663,7 @@ response.setDateHeader("Expires", 0);
 	 */
 	function ventanaBitacoraMovObjetosAlmacen(){
 		
-		$.newWindow({id:"iframewindowBitacoraMovObjetosAlmacen", statusBar: true, posx:200,posy:50,width:1070,height:570,title:"Consultar Movimiento de Objetos de Almacén", type:"iframe"});
+		$.newWindow({id:"iframewindowBitacoraMovObjetosAlmacen", statusBar: true, posx:200,posy:50,width:1070,height:570,title:"Consultar Movimiento de Objetos de Almac&eacute;n", type:"iframe"});
 	    $.updateWindowContent("iframewindowBitacoraMovObjetosAlmacen",'<iframe src="<%=request.getContextPath()%>/bitacoraConsultaMovObjetosAlmacen.do" width="1070" height="570" />'); 
 						
 	}
@@ -1138,7 +1138,7 @@ response.setDateHeader("Expires", 0);
 	
 	<div id="dialog-logout" title="Cerrar Sesi&oacute;n">
 		<p align="center">
-			<span id="logout">¿Desea cerrar su sesi&oacute;n?</span>
+			<span id="logout">&iquest;Desea cerrar su sesi&oacute;n?</span>
 		</p>
 	</div>
 		<!-- dialogos para las alarmas -->
@@ -1152,11 +1152,11 @@ response.setDateHeader("Expires", 0);
 		<p align="center">
 			<table border="0">
 				<tr>
-					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contraseña para desbloquear.</td>
+					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contrase&ntilde;a para desbloquear.</td>
 					
 				</tr>
 				<tr>
-					<td align="right"><label style="color:#4A5C68">Contraseña:</label></td>
+					<td align="right"><label style="color:#4A5C68">Contrase&ntilde;a:</label></td>
 					<td><input type="password" name="password" id="password" value="" maxlength="15" size="20"></td>
 				</tr>
 				<tr id="captchaJPG" >
@@ -1185,7 +1185,7 @@ response.setDateHeader("Expires", 0);
 				La sesi&oacute;n se cerrara en <span id="dialog-countdown" style="font-weight:bold"></span> segundos.
 			</p>
 
-			<p>¿Desea continuar con la sesi&oacute;n?</p>
+			<p>&iquest;Desea continuar con la sesi&oacute;n?</p>
 	</div>
 	<div id="dialog-alarmPos" title="Alarma ">
 		<p align="center">
@@ -1211,7 +1211,7 @@ response.setDateHeader("Expires", 0);
    </script>
 </html>
 <!-- var idValort;
-		idValort=$('#cmbTipoTeléfono1 option:selected').val();
+		idValort=$('#cmbTipoTel&eacute;fono1 option:selected').val();
 		if(idValort==67){
 			varTipo="Casa";
 			}

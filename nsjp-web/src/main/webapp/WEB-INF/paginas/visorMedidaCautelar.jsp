@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="mx.gob.segob.nsjp.dto.usuario.UsuarioDTO"%>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.configuracion.Parametros"%>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.seguridad.Roles" %>
@@ -8,7 +8,7 @@
 <head>
 	 <%@ page import="mx.gob.segob.nsjp.comun.enums.institucion.Instituciones" %>
 	 
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Visor Medida Cautelar</title>
 
 	
@@ -59,13 +59,13 @@
 		$("#tabsprincipalconsulta" ).tabs();
 		
 		if(ocultarAdd == "true" || 
-			// flujoMedCautelar define de donde a donde va a viajar la medida cautelar, si no va asignado el valor, no se debe mostrar el botón
+			// flujoMedCautelar define de donde a donde va a viajar la medida cautelar, si no va asignado el valor, no se debe mostrar el bot&oacute;n
 			// agregar. Checar en ingresarMedidasCautelaresPJENC los flujos que se han definido.
 			(flujoMedCautelar=="" || flujoMedCautelar==null || flujoMedCautelar=="null")){
 			jQuery("#divBotonNuevaMedidaCautelar").hide();
 		}
 		
-		// Este servicio tiene como parámetro de acción en ingresarMedidasCautelaresPJENC.jsp
+		// Este servicio tiene como par&aacute;metro de acci&oacute;n en ingresarMedidasCautelaresPJENC.jsp
 		// a flujoMedCautelar
 		if(flujoMedCautelar=="dePJaSSPyPGJ"){
 			//Ocultar Periodicidad
@@ -94,7 +94,7 @@
 					{ url:'<%= request.getContextPath() %>/consultaMedidasCautelaresGenerico.do?numeroExpediente='+numeroCausa+'', 						
 						datatype: "xml",
 						mtype: 'POST',
-		    			colNames:['N&uacute;mero','Nombre','Medida Cautelar','Fecha de creación', 'Fecha de inicio', 'Fecha de fin','Periodicidad','Descripci&oacute;n', 'Estado','Encargado Seguimiento'], 
+		    			colNames:['N&uacute;mero','Nombre','Medida Cautelar','Fecha de creaci&oacute;n', 'Fecha de inicio', 'Fecha de fin','Periodicidad','Descripci&oacute;n', 'Estado','Encargado Seguimiento'], 
 						colModel:[ 	{name:'numeroCausa',index:'numeroCausa', width:150 , sortable:false,hidden:true,align:'center'},
 						           	{name:'nombre',index:'nombre', width:200, sortable:false,align:'center'}, 
 									{name:'medidaCautelar',index:'4', width:200, sortable:true,align:'center'},

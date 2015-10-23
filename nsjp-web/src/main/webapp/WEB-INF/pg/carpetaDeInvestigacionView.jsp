@@ -85,7 +85,7 @@
 		jQuery("#gridSolsXAtndr").jqGrid({ 
 			datatype: "xml", 
 			autowidth: true,
-			colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creación','Fecha Limite','Institución','Remitente'], 
+			colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creaci&oacute;n','Fecha Limite','Instituci&oacute;n','Remitente'], 
 			colModel:[ 	{name:'caso',index:'caso', width:180,hidden:true},
 			           	{name:'expediente',index:'expediente', width:180}, 
 						{name:'folio',index:'folio', width:100}, 
@@ -110,7 +110,7 @@
 		jQuery("#gridSolsGeneradas").jqGrid({ 
 			datatype: "xml", 
 			autowidth: true,
-			colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creación','Fecha Limite','Institución','Destinatario'], 
+			colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creaci&oacute;n','Fecha Limite','Instituci&oacute;n','Destinatario'], 
 			colModel:[ 	{name:'caso',index:'caso', width:180,hidden:true},
 			           	{name:'expediente',index:'expediente', width:180}, 
 						{name:'folio',index:'folio', width:100}, 
@@ -281,7 +281,7 @@
 		idWindowNuevaDenuncia++;
 		var ingresoDenuncia = true;
 		customVentana(	"iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia,
-						"Carpeta de investigación: ", 
+						"Carpeta de investigaci&oacute;n: ", 
 						"/BusquedaExpediente.do",
 						"?abreenPenal=abrPenal&ingresoDenuncia="+ingresoDenuncia +
 						"&idNumeroExpediente="+numeroExpedienteId+"&pantallaSolicitada="+pantallaSolicitada);
@@ -322,7 +322,7 @@
 
 	//var numExpAlter = null;
 	
-	//Función que genera un nuevo número de expediente para la UI en el mismo expediente
+	//Funci&oacute;n que genera un nuevo n&uacute;mero de expediente para la UI en el mismo expediente
 	function nuevoNumeroExpediente(id){
 			
 		var idExpediente="0";
@@ -357,7 +357,7 @@
 		idWindowNuevaDenuncia++;
 		 var ingresoDenuncia = true;
 		customVentana(	"iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia, 
-						"Carpeta de investigación: ", 
+						"Carpeta de investigaci&oacute;n: ", 
 						"/BusquedaExpediente.do", 
 						"?abreenPenal=abrPenal&ingresoDenuncia="+ingresoDenuncia +
 						"&idNumeroExpediente="+id+"&pantallaSolicitada="+pantallaSolicitadaCD);
@@ -366,7 +366,7 @@
 	}
     
     function tituloVentana(num){
-		$("#iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia+" div.window-titleBar-content").html("Carpeta de investigación: "+num);
+		$("#iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia+" div.window-titleBar-content").html("Carpeta de investigaci&oacute;n: "+num);
 	}
 	
 	function activaPrincipal() {
@@ -491,14 +491,14 @@
 		if(nombreGrid == "gridDetalleFrmPrincipal") {
 			divGrid += "divGridSolicitudes";
 			if(visualizaMenuAsignarExps == 1 && tieneRolAgentemp===true){
-				// Muestra el botón de asignación de expedientes
+				// Muestra el bot&oacute;n de asignaci&oacute;n de expedientes
 				if(menuExpedienteAsignado==false){
 					jQuery("#gridDetalleFrmPrincipal").setGridParam({ multiboxonly: true }).showCol('cb');
     				ajustarGridPrincipalAlCentro($("#gridDetalleFrmPrincipal"));
     				$("#botonesExpedientes").show();
 				}
 				else{
-				// Oculta el botón de asignación de expedientes
+				// Oculta el bot&oacute;n de asignaci&oacute;n de expedientes
 				// si la consulta es por expedientes asignados
 					jQuery("#gridDetalleFrmPrincipal").setGridParam({ multiboxonly: true }).hideCol('cb');
 					restablecerPantallas();
@@ -785,7 +785,7 @@
 	
 	 /**
      * Permite consultar Evidencias asociadas al Almacen del cual es responsable 
-     * el usuario firmado en seción. Permite consultar evidencias en base al
+     * el usuario firmado en seci&oacute;n. Permite consultar evidencias en base al
      * estatus de la evidencia.
      **/
 		var cargaGridEvidencias=false;
@@ -850,7 +850,7 @@
        		jQuery("#gridDetalleFrmPrincipal").jqGrid({ 
        			url:'<%=request.getContextPath()%>/BusquedaCanalizadosRestaurativa.do?area=UI&actividad=RECIBIR_CANALIZACION&expedientesAsignados=false', 
        			datatype: "xml", 
-       			colNames:['Número de Expediente','Tipo','Fecha', 'Denunciante', 'Delito','Origen','Estatus'], 
+       			colNames:['N&uacute;mero de Expediente','Tipo','Fecha', 'Denunciante', 'Delito','Origen','Estatus'], 
        			colModel:[ 	{name:'Detalle',index:'NumeroExpediente',width:100},
        			           	{name:'Tipo',index:'7', width:120, align:'center', hidden:true}, 
        						{name:'Fecha',index:'Fecha',width:55 , searchoptions:{dataInit:function(elem){$(elem).datepicker();}, attr:{title:'Select Date'}} }, 
@@ -869,7 +869,7 @@
 				height: 500,
        			viewrecords: true,
        			ondblClickRow: function(id) {
-       				// Muestra el detalle del número de expediente, si el coordinadorAmp
+       				// Muestra el detalle del n&uacute;mero de expediente, si el coordinadorAmp
        				// no tiene el rol de agentemp y la bandera esta apagada
        				if(!(visualizaMenuAsignarExps == 1 && tieneRolAgentemp===true)){
 	       				nuevoNumeroExpediente(id);
@@ -886,7 +886,7 @@
     		}
     		else{
     			restablecerPantallas();
-    			// Remplazar instrucción:
+    			// Remplazar instrucci&oacute;n:
     			// jQuery("#gridDetalleFrmPrincipal").setGridParam({multiselect:false}).hideCol('cb');
     			// Por:
     			jQuery("#gridDetalleFrmPrincipal").setGridParam({ multiboxonly: true }).hideCol('cb');
@@ -901,8 +901,8 @@
    		ocultaMuestraGrids("gridDetalleFrmPrincipal");
    	}
     
-    // Ajusta el grid al centro y dispone un espacio para mostrar el botón de
-    // asignación de expedientes
+    // Ajusta el grid al centro y dispone un espacio para mostrar el bot&oacute;n de
+    // asignaci&oacute;n de expedientes
     function ajustarGridPrincipalAlCentro(grid, params){
     	var height = 0;
     	grid.setGridWidth($("#mainContent").width() - 5, true);
@@ -923,7 +923,7 @@
     	
     }
 
-	// Recolección de los números de expedientes a asignar
+	// Recolecci&oacute;n de los n&uacute;meros de expedientes a asignar
     function asignarExps(){
     	
     	var longitudTabla = jQuery("#gridDetalleFrmPrincipal").getDataIDs();
@@ -937,11 +937,11 @@
 			nuevosNumerosDeExpedientes(idsExpedientes);
 		}
 		else{
-			customAlert("Favor de seleccionar al menos un registro, para que se pueda realizar la asignación de expedientes");
+			customAlert("Favor de seleccionar al menos un registro, para que se pueda realizar la asignaci&oacute;n de expedientes");
 		}
     }
     
-    // Generación de los nuevos números de expedientes
+    // Generaci&oacute;n de los nuevos n&uacute;meros de expedientes
 	function nuevosNumerosDeExpedientes(idsExpedientes){
 		
 		var idExpediente="0";
@@ -959,10 +959,10 @@
     			regresaGrid();
     			var resultado=$(xml).find('boolean').text();
     			if(resultado===true || resultado=="true"){        		
-    				customAlert("Se realizó de manera correcta la asignación de carpetas de investigación");
+    				customAlert("Se realiz&oacute; de manera correcta la asignaci&oacute;n de carpetas de investigaci&oacute;n");
     			}
     			else{
-    				customAlert("La asignación de carpetas de investigación no se realizó de manera correcta");
+    				customAlert("La asignaci&oacute;n de carpetas de investigaci&oacute;n no se realiz&oacute; de manera correcta");
     			}
     		}    		
     	});

@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Ingresar juez manualmente</title>
 
 	<script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery-1.5.1.js"></script>
@@ -220,19 +220,19 @@ function checkboxListenerResponsable(){
 					<table width="349" border="0" cellspacing="0" cellpadding="0">
 				      <tr>
 				        <td width="11%"><input type="checkbox" id="juez1" /></td>
-				        <td width="89%">Juez. Armando Castañeda Tenango</td>
+				        <td width="89%">Juez. Armando Casta&ntilde;eda Tenango</td>
 				      </tr>
 				      <tr>
 				        <td><input type="checkbox" id="juez2" /></td>
-				        <td>Juez. Cuauhtémoc Paredes Serrano</td>
+				        <td>Juez. Cuauht&eacute;moc Paredes Serrano</td>
 				      </tr>
 				      <tr>
 				        <td><input type="checkbox" id="juez3" /></td>
-				        <td>Juez. Jorge Ignacio Fernández Ortíz</td>
+				        <td>Juez. Jorge Ignacio Fern&aacute;ndez Ort&iacute;z</td>
 				      </tr>
 				      <tr>
 				        <td><input type="checkbox" id="juez4" /></td>
-				        <td>Juez. Erick Arturo de la Peña Soto</td>
+				        <td>Juez. Erick Arturo de la Pe&ntilde;a Soto</td>
 				      </tr>
 					</table>
 				</td>
@@ -332,19 +332,19 @@ function checkboxListenerResponsable(){
 					<table width="349" border="0" cellspacing="0" cellpadding="0">
 				      <tr>
 				        <td width="11%"><input type="checkbox" id="responsable1" /></td>
-				        <td width="89%">Responsable: Erick Arturo de la Peña Soto</td>
+				        <td width="89%">Responsable: Erick Arturo de la Pe&ntilde;a Soto</td>
 				      </tr>
 				      <tr>
 				        <td><input type="checkbox" id="responsable2" /></td>
-				        <td>Responsable: Jorge Ignacio Fernández Ortíz</td>
+				        <td>Responsable: Jorge Ignacio Fern&aacute;ndez Ort&iacute;z</td>
 				      </tr>
 				      <tr>
 				        <td><input type="checkbox" id="responsable3" /></td>
-				        <td>Responsable: Cuauhtémoc Paredes Serrano</td>
+				        <td>Responsable: Cuauht&eacute;moc Paredes Serrano</td>
 				      </tr>
 				      <tr>
 				        <td><input type="checkbox" id="responsable4" /></td>
-				        <td>Responsable: Armando Castañeda Tenango</td>
+				        <td>Responsable: Armando Casta&ntilde;eda Tenango</td>
 				      </tr>
 					</table>	
 				</td>

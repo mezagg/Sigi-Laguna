@@ -211,21 +211,21 @@
 					                <dd></dd>
 					                <dt>Suspender derechos</dt>
 					                <dd></dd>
-					                <dt>Localizadores electrónicos</dt>
+					                <dt>Localizadores electr&oacute;nicos</dt>
 					                <dd></dd>
-					                <dt>Presentaciones periódicas</dt>
+					                <dt>Presentaciones peri&oacute;dicas</dt>
 					                <dd></dd>
 					                <dt>Someten a vigilancia</dt>
 					                <dd></dd>
 					                <dt>Arresto domiciliario</dt>
 					                <dd></dd>
-					                <dt>Separación de domicilio</dt>
+					                <dt>Separaci&oacute;n de domicilio</dt>
 					                <dd></dd>
 					                <dt>Prohibir salida territorial</dt>
 					                <dd></dd>
 					                <dt>Prohibir convivencia</dt>
 					                <dd></dd>
-					                <dt>Prisión preventiva</dt>
+					                <dt>Prisi&oacute;n preventiva</dt>
 					                <dd></dd>
 					            </dl>
 							</div>

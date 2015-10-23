@@ -167,7 +167,7 @@
 	/*************  FUNCION PARA ABRIR LA VENTANA DE CAMBIO DE PASSWORD *************/
 	function abreVentanaModificarContrasena()
 	{
-		$.newWindow({id:"iframewindowModificarPwdUsuario", statusBar: true, posx:400,posy:90,width:380,height:280,title:"Modificar Contraseña", type:"iframe"});
+		$.newWindow({id:"iframewindowModificarPwdUsuario", statusBar: true, posx:400,posy:90,width:380,height:280,title:"Modificar Contrase&ntilde;a", type:"iframe"});
 	    $.updateWindowContent("iframewindowModificarPwdUsuario",'<iframe src="<%=request.getContextPath()%>/cambiarContrasena.do?administrador=4" width="380" height="280" />');
 	}
 	

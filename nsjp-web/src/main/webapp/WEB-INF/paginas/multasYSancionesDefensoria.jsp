@@ -55,7 +55,7 @@
 		jQuery("#gridMultas").jqGrid({
 					url : '<%= request.getContextPath()%>/consultarMultasPorDefensor.do?defensorId='+defensorId+'', 
 					datatype: "xml", 						
-					colNames:['Folio de la Multa/Sanción','Motivo de la Multa/Sanción','Fecha - Hora Registro','Descripción de la Multa/Sanción','Estatus'], 
+					colNames:['Folio de la Multa/Sanci&oacute;n','Motivo de la Multa/Sanci&oacute;n','Fecha - Hora Registro','Descripci&oacute;n de la Multa/Sanci&oacute;n','Estatus'], 
 					colModel:[{name:'folio',	index:'1',  width:300, align:"center"},
 					          {name:'motivo',	index:'2', 	width:350, align:"center"},
 					          {name:'fecha',	index:'3', 	width:250, align:"center"},
@@ -92,10 +92,10 @@
 	    	  success: function(xml){
 	    		var respuestaMulta=  $(xml).find('long').text();
 	    		if(respuestaMulta!=""){
-					alert("Multa Registrada con éxito");
+					alert("Multa Registrada con &eacute;xito");
 					window.parent.cerrarVentanaMultas();
 		    		}else{
-		    			alert("No se logró registrar la multa");
+		    			alert("No se logr&oacute; registrar la multa");
 			    		}
 			  }
 	    });

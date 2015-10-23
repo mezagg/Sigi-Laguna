@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Consultar Tutor</title>
 <link type="text/css" href="<%=request.getContextPath()%>/resources/css/consultarTutor.css" rel="stylesheet" />
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery-1.5.1.js"></script>
@@ -20,7 +20,7 @@
 	*/
 	function cargaInicialPagina()
 	{
-	    /*Inician llamados para creación de tabs*/
+	    /*Inician llamados para creaci&oacute;n de tabs*/
 	    creaTab('ConsultaTutor','ConsultaTutor');
 	}
 	
@@ -52,7 +52,7 @@
 					<li><a id="tabDatosGConsultaTutor" href="#datosGConsultaTutor" >Datos generales</a></li>
 					<li><a id="tabDomicilioConsultaTutor" href="#domicilioConsultaTutor" >Domicilio</a></li>
 					<li><a id="tabMContactoConsultaTutork" href="#mContactoConsultaTutor" >Medios de contacto</a></li>
-					<li><a id="tabTipoDocConsultaTutor" href="#tipoDocConsultaTutor">Tipo de documento de identificación</a></li>
+					<li><a id="tabTipoDocConsultaTutor" href="#tipoDocConsultaTutor">Tipo de documento de identificaci&oacute;n</a></li>
 				</ul>
 				<div id="datosGConsultaTutor">
 					<h2>Datos Generales</h2>
@@ -64,7 +64,7 @@
 					<h2>Medios de contacto</h2>
 				</div>
 				<div id="tipoDocConsultaTutor">
-					<h2>Tipo de documento de identificación</h2>
+					<h2>Tipo de documento de identificaci&oacute;n</h2>
 				</div>
 			</div>
 	<br/>

@@ -393,6 +393,6 @@
 		Si el acto ya ha sido acumulado en alg&uacute;n per&iacute;odo, los puntos otorgados <br/>
 		por el acto anterior, dejar&aacute;n de ser parte de la acumulaci&oacute;n 
 		</p>
-		<p>¿Desea eliminar el acto de buena conducta?</p>
+		<p>&iquest;Desea eliminar el acto de buena conducta?</p>
 	</div>
 </div>

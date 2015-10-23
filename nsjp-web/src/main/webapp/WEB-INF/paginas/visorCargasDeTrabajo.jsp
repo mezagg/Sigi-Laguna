@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Configurar Cargas de Trabajo</title>
 
 <link rel="stylesheet" type="text/css"
@@ -100,7 +100,7 @@
 				</tr>
 				<tr>
 					<td>&nbsp;</td>
-					<td valign="top">Imputación:</td>
+					<td valign="top">Imputaci&oacute;n:</td>
 					<td valign="top"><select name="select">
 							<option>1</option>
 							<option>2</option>
@@ -126,7 +126,7 @@
 				</tr>
 				<tr>
 					<td>&nbsp;</td>
-					<td valign="top">Vinculación:</td>
+					<td valign="top">Vinculaci&oacute;n:</td>
 					<td valign="top"><select name="select2">
 							<option>1</option>
 							<option>2</option>

@@ -11,7 +11,7 @@
 			  jQuery("#gridPertenencias").jqGrid({ 
 					url: '<%= request.getContextPath()%>/consultarPertenencias.do',
 					datatype: "xml", 
-					colNames:['Categoría de la pertenencia','Descripción de la pertenencia','Condición física de la pertenencia'], 
+					colNames:['Categor&iacute;a de la pertenencia','Descripci&oacute;n de la pertenencia','Condici&oacute;n f&iacute;sica de la pertenencia'], 
 					colModel:[ {name:'categoria',index:'categoria', width:220, editable:true, align:"center"},
 							   {name:'descripcion',index:'descripcion', width:220, align:"right", editable:true,align:"center"},					    
 					 		   {name:'condicion',index:'condicion', width:220, align:"right", editable:true,align:"center"}						    
@@ -29,7 +29,7 @@
 				     gridview: true, 
 				     caption: "Ingresar inventario de pertenencias", 
 				     sortorder: "desc", 
-				     editurl: "http://localhost:8080/nsjp-web/administrarDiasInhabiles.jsp"
+				     editurl: "<%=request.getContextPath()%>/administrarDiasInhabiles.jsp"
 				    
 					  }); 
 
@@ -69,7 +69,7 @@
 					if ($("#categoriaPertenencia").val()=="Documento oficial"){
 						tipoObjeto="DOCUMENTO_OFICIAL";
 					}
-					if ($("#categoriaPertenencia").val()=="Equipo de cómputo"){
+					if ($("#categoriaPertenencia").val()=="Equipo de c&oacute;mputo"){
 						tipoObjeto="EQUIPO_COMPUTO";
 					}
 					if ($("#categoriaPertenencia").val()=="Equipo telefonico"){
@@ -154,7 +154,7 @@
 				   
 			     else {
 
-				     customAlert("Por favor selecciona un día a eliminar"); 
+				     customAlert("Por favor selecciona un d&iacute;a a eliminar"); 
 
 			     } 
 
@@ -248,7 +248,7 @@
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td align="right"><strong>Categoría de la pertenencia:</strong></td>
+    <td align="right"><strong>Categor&iacute;a de la pertenencia:</strong></td>
     <td><select id="categoriaPertenencia"><option></option></select></td>
     <td>&nbsp;</td>
   </tr>
@@ -260,7 +260,7 @@
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td align="right"><strong> Condición física de la pertenencia:</strong></td>
+    <td align="right"><strong> Condici&oacute;n f&iacute;sica de la pertenencia:</strong></td>
     <td><select id="condicionFisica">
       <option></option>
     </select></td>
@@ -274,7 +274,7 @@
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td align="right"><strong>Descripción de la pertenencia::</strong></td>
+    <td align="right"><strong>Descripci&oacute;n de la pertenencia::</strong></td>
     <td align="left"><textarea id="descripcion"></textarea></td>
     <td>&nbsp;</td>
   </tr>

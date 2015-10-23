@@ -142,7 +142,7 @@
 		//Grid de Solicitudes por atender
 		jQuery("#gridSolsXAtndr").jqGrid({ 
 			datatype: "xml", 
-			colNames:['No. Caso','Expediente', 'Folio','Estatus','Fecha Creación','Fecha Limite','Institución','Remitente'], 
+			colNames:['No. Caso','Expediente', 'Folio','Estatus','Fecha Creaci&oacute;n','Fecha Limite','Instituci&oacute;n','Remitente'], 
 			colModel:[ 	{name:'caso',index:'caso', width:150,hidden:true},
 			           	{name:'expediente',index:'expediente', width:180,align:'center'}, 
 						{name:'folio',index:'folio', width:100,align:'center'}, 
@@ -168,7 +168,7 @@
 		//Grid de Solicitudes generadas
 		jQuery("#gridSolsGeneradas").jqGrid({ 
 			datatype: "xml", 
-			colNames:['No. Caso','Expediente', 'Folio','Estatus','Fecha Creación','Fecha Limite','Institución','Destinatario'], 
+			colNames:['No. Caso','Expediente', 'Folio','Estatus','Fecha Creaci&oacute;n','Fecha Limite','Instituci&oacute;n','Destinatario'], 
 			colModel:[ 	{name:'caso',index:'caso', width:150,hidden:true},
 			           	{name:'expediente',index:'expediente', width:180,align:'center'}, 
 						{name:'folio',index:'folio', width:100,align:'center'}, 
@@ -250,7 +250,7 @@
 	    		  }
 	    		  else
 	    		  {
-	    			  customAlert("Ocurrió un error al intentar registrar la denuncia");
+	    			  customAlert("Ocurri&oacute; un error al intentar registrar la denuncia");
 	    		  }
 			  }
 	    	});
@@ -454,7 +454,7 @@
 		$("#iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia+" div.window-titleBar-content").html("Expediente: "+num);
 	}
 
-	// Función invocada también desde el menu intermedio para recargar el grid principal
+	// Funci&oacute;n invocada tambi&eacute;n desde el menu intermedio para recargar el grid principal
 	function activaExpediente() {
 		jQuery("#gridDetalleFrmPrincipal").jqGrid('setGridParam',  
 			{url:'<%=request.getContextPath()%>/BusquedaInicialTurnosGrid.do', 
@@ -724,7 +724,7 @@
 	/*************  FUNCION PARA ABRIR LA VENTANA DE CAMBIO DE PASSWORD *************/
 	function abreVentanaModificarContrasena()
 	{
-		$.newWindow({id:"iframewindowModificarPwdUsuario", statusBar: true, posx:400,posy:90,width:380,height:280,title:"Modificar Contraseña", type:"iframe"});
+		$.newWindow({id:"iframewindowModificarPwdUsuario", statusBar: true, posx:400,posy:90,width:380,height:280,title:"Modificar Contrase&ntilde;a", type:"iframe"});
 	    $.updateWindowContent("iframewindowModificarPwdUsuario",'<iframe src="<%=request.getContextPath()%>/cambiarContrasena.do?administrador=4" width="380" height="280" />');
 	}
 	

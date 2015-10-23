@@ -1,4 +1,4 @@
-<%@page language="java" contentType="text/html;charset=ISO-8859-1"%>
+<%@page language="java" contentType="text/html;charset=UTF-8"%>
 
 <!-- Column 1 start -->
 <div id="head_colCentro">
@@ -71,7 +71,7 @@
 <div id="vistaPrevia_resumen">Resumen</div>
 <div id="vistaPrevia_acordeon">
 <div class="acordeon_solapa">
-<div id="solapa_personas_titulo">Título personas</div>
+<div id="solapa_personas_titulo">T&iacute;tulo personas</div>
 <div id="solapa_personas_contenido">Contenido personas</div>
 </div>
 </div>

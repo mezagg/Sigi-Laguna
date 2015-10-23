@@ -75,7 +75,7 @@
 		jQuery("#gridSolsXAtndr").jqGrid({ 
 			//url:'local', 
 			datatype: "xml", 
-			colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creación','Fecha Limite','Institución','Remitente'], 
+			colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creaci&oacute;n','Fecha Limite','Instituci&oacute;n','Remitente'], 
 			colModel:[ 	{name:'caso',index:'caso', width:150,hidden:true},
 			           	{name:'expediente',index:'expediente', width:180,align:'center'}, 
 						{name:'folio',index:'folio', width:100,align:'center'}, 
@@ -104,7 +104,7 @@
 		jQuery("#gridSolsGeneradas").jqGrid({ 
 			//url:'local', 
 			datatype: "xml", 
-			colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creación','Fecha Limite','Institución','Destinatario'], 
+			colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creaci&oacute;n','Fecha Limite','Instituci&oacute;n','Destinatario'], 
 			colModel:[ 	{name:'caso',index:'caso', width:150,hidden:true},
 			           	{name:'expediente',index:'expediente', width:180,align:'center'}, 
 						{name:'folio',index:'folio', width:100,align:'center'}, 
@@ -628,7 +628,7 @@
     		
     	});
 
-        //recarga el grid de expedientes para ver el último numero de expediente recien creado, mediante el paginador
+        //recarga el grid de expedientes para ver el &uacute;ltimo numero de expediente recien creado, mediante el paginador
         var lastPage = $("#gridExpedientesPorEstatus").getGridParam("lastpage");
 		$("#gridExpedientesPorEstatus").setGridParam({page:lastPage}).trigger("reloadGrid");
         
@@ -637,7 +637,7 @@
 		var isWindowOpen = true;
 
 		idWindowNuevaDenunciaTrad++;
-		$.newWindow({id:"iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenunciaTrad, statusBar: true, posx:0,posy:0,width:1430,height:670,title:"Averiguación Previa: "+numeroExpediente, type:"iframe"});
+		$.newWindow({id:"iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenunciaTrad, statusBar: true, posx:0,posy:0,width:1430,height:670,title:"Averiguaci&oacute;n Previa: "+numeroExpediente, type:"iframe"});
 		$.updateWindowContent("iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenunciaTrad,'<iframe src="<%= request.getContextPath() %>/IngresarMenuIntermedioSistTrad.do?detenido=1&numeroGeneralCaso='+numeroCasoNuevo+'&abreenPenal=abrPenal&idNuevaDenuncia='+idNuevaDenuncia +'&ingresoDenuncia='+ingresoDenuncia +'&numeroExpediente='+numeroExpediente+'&pantallaSolicitada='+pantallaSolicitada+'&idNumeroExpedienteop='+numeroExpedienteId+'&idExpedienteop='+idExpediente+'" width="1430" height="670" />');
     } 
 
@@ -655,7 +655,7 @@
         var pantallaSolicitada=9;
 		idWindowNuevaDenunciaTrad++;
 	 		
-		$.newWindow({id:"iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenunciaTrad, statusBar: true, posx:0,posy:0,width:$(document).width(),height:$(document).height(),title:"Averiguación previa: ", type:"iframe"});
+		$.newWindow({id:"iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenunciaTrad, statusBar: true, posx:0,posy:0,width:$(document).width(),height:$(document).height(),title:"Averiguaci&oacute;n previa: ", type:"iframe"});
 		$.maximizeWindow("iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenunciaTrad);
 		$.updateWindowContent("iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenunciaTrad,'<iframe src="<%= request.getContextPath() %>/BusquedaExpedienteSistTrad.do?abreenPenal=abrPenal&ingresoDenuncia='+ingresoDenuncia +'&idNumeroExpediente='+id+'&pantallaSolicitada='+pantallaSolicitada+'" width="100%" height="100%" />');		
 	} 
@@ -664,7 +664,7 @@
     *Agrega el numero de expediente al titulo de la ventana hijo (ingresarMenuIntermedioSistTrad.jsp)
     */
     function tituloVentana(numExp){
-		$("#iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenunciaTrad+" div.window-titleBar-content").html("Averiguación Previa:: "+numExp);
+		$("#iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenunciaTrad+" div.window-titleBar-content").html("Averiguaci&oacute;n Previa:: "+numExp);
 	}
 
     /*
@@ -693,7 +693,7 @@
 						<ul>				
 							<li>						
 								<span class='file'>
-									<a onclick='cargaGridExpedientesPorEstatus("<%=EstatusExpediente.EN_TRAMITE.getValorId()%>","fechaini","fechafin")'>En Trámite</a>
+									<a onclick='cargaGridExpedientesPorEstatus("<%=EstatusExpediente.EN_TRAMITE.getValorId()%>","fechaini","fechafin")'>En Tr&aacute;mite</a>
 								</span>
 							</li>
 							<li>
@@ -933,7 +933,7 @@
 
 	<div id="dialog-logout" title="Cerrar Sesi&oacute;n">
 		<p align="center">
-			<span id="logout">¿Desea cerrar su sesi&oacute;n?</span>
+			<span id="logout">&iquest;Desea cerrar su sesi&oacute;n?</span>
 		</p>
 	</div>
 	<!-- dialogos para Bloqueo de pantalla-->
@@ -941,11 +941,11 @@
 		<p align="center">
 			<table border="0">
 				<tr>
-					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contraseña para desbloquear.</td>
+					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contrase&ntilde;a para desbloquear.</td>
 					
 				</tr>
 				<tr>
-					<td align="right"><label style="color:#4A5C68">Contraseña:</label></td>
+					<td align="right"><label style="color:#4A5C68">Contrase&ntilde;a:</label></td>
 					<td><input type="password" name="password" id="password" value="" maxlength="15" size="20"></td>
 				</tr>
 				<tr id="captchaJPG" >
@@ -974,7 +974,7 @@
 				La sesi&oacute;n se cerrar&aacute; en <span id="dialog-countdown" style="font-weight:bold"></span> segundos.
 			</p>
 
-			<p>¿Desea continuar con la sesi&oacute;n?</p>
+			<p>&iquest;Desea continuar con la sesi&oacute;n?</p>
 	</div>
 	
 </body>

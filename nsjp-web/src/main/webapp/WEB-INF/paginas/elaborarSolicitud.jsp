@@ -5,13 +5,13 @@
 <%@ page import="mx.gob.segob.nsjp.comun.enums.seguridad.Roles"%>
 
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Elaborar Solicitud</title>
 	
 	<!--		Hojas de estilos asociadas-->
@@ -151,7 +151,7 @@
 			if(!validadDatosSolicitud()){
 				return;
 			}else{
-				customConfirm("¿Est\u00E1 seguro que quiere enviar el oficio de investigaci\u00F3n?", "Aviso",generaDocumentoFormaTransaccional);	
+				customConfirm("&iquest;Est\u00E1 seguro que quiere enviar el oficio de investigaci\u00F3n?", "Aviso",generaDocumentoFormaTransaccional);	
 			}
 		}
 		
@@ -162,7 +162,7 @@
 				return;
 			}
 			
-			//mostramos los divs en el padre de la pestaña de Acciones.
+			//mostramos los divs en el padre de la pesta&ntilde;a de Acciones.
 			try{
 				if(!window.parent.muestraDIVSCanalizacion()){
 					return;
@@ -178,7 +178,7 @@
 				customAlert("La solicitud se envi\u00F3 correctamente.", "", cerrarVentaDocumentoActualizarGrid);
 				
 			}else{
-				customAlert("Error al intentar enviar la solictud, inténtelo mas tarde");
+				customAlert("Error al intentar enviar la solictud, int&eacute;ntelo mas tarde");
 			}
 		}
 		
@@ -319,7 +319,7 @@
 	    	  async: false,
 	    	  dataType: 'xml',
 	    	  success: function(xml){
-	    	  	//INICIA: FIX PARA QUE SOLO MUESTRE LA INSTITUCIÓN DEL USUARIO
+	    	  	//INICIA: FIX PARA QUE SOLO MUESTRE LA INSTITUCION DEL USUARIO
 		    	 	$(xml).find('instituciones').each(function(){
 		    	 		<%
 		    	 			UsuarioDTO usuario = (UsuarioDTO) request.getSession().getAttribute("KEY_SESSION_USUARIO_FIRMADO");
@@ -332,7 +332,7 @@
 						
 					});
 					enSeleccionInstitucion();
-				//TERMINA: FIX PARA QUE SOLO MUESTRE LA INSTITUCIÓN DEL USUARIO
+				//TERMINA: FIX PARA QUE SOLO MUESTRE LA INSTITUCION DEL USUARIO
 				}
 	    	});
 	     }
@@ -545,7 +545,7 @@
 				<ul class="toolbar" id="menu_head">
 						<li id="btnEnviarSolicitud"><span></span>Enviar</li>
 						<li id="vistaPreliminarNarrativa"><span></span>Vista Preliminar</li>
-						<li id="seccionCbxTamanioPapel"><span></span>Tamaño de Papel
+						<li id="seccionCbxTamanioPapel"><span></span>Tama&ntilde;o de Papel
 							<select name="cbxTamanioPapel" id="cbxTamanioPapel" onchange="recuperarTamanioPapel()" style=" border:0; background-color:#EEEEEE;">
 		    				</select>
 		    			</li>

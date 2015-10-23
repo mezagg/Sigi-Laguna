@@ -1052,7 +1052,7 @@
 			</li>
 			<li><a href="#tabs-28" id="idTapCejasMF">Cejas</a>
 			</li>
-			<li><a href="#tabs-29" id="idTapSeniasPartMF">Señas Particulares</a>
+			<li><a href="#tabs-29" id="idTapSeniasPartMF">Se&ntilde;as Particulares</a>
 			</li>
 			<li><a href="#tabs-30" id="idTapOtrosMF">Otros</a>
 			</li>
@@ -1062,7 +1062,7 @@
 			<table width="700px" height="250px" border="0" cellspacing="0"
 				cellpadding="0">
 				<tr>
-					<td align="right" height="25">Tamaño de Boca:</td>
+					<td align="right" height="25">Tama&ntilde;o de Boca:</td>
 					<td width="53" height="25" align="left"><select
 						id="cmpTamanoBoca" style="width: 180px;">
 							<option value="-1">-Seleccione-</option>
@@ -1074,7 +1074,7 @@
 					</select></td>
 				</tr>
 				<tr>
-					<td width="120" height="25" align="right">Forma de Mentón:</td>
+					<td width="120" height="25" align="right">Forma de Ment&oacute;n:</td>
 					<td width="142" height="25" align="left"><select
 						id="cmpFormaMenton" style="width: 180px;">
 							<option value="-1">-Seleccione-</option>
@@ -1155,7 +1155,7 @@
 					</select></td>
 				</tr>
 				<tr>
-					<td align="right" height="25">Tamaño de Oreja:</td>
+					<td align="right" height="25">Tama&ntilde;o de Oreja:</td>
 					<td width="53" height="25" align="left"><select
 						id="cmpTamanoOreja" style="width: 180px;">
 							<option value="-1">-Seleccione-</option>
@@ -1230,7 +1230,7 @@
 					<td></td>
 				</tr>
 				<tr>
-					<td width="120" height="25" align="right">Tamaño Ojo:</td>
+					<td width="120" height="25" align="right">Tama&ntilde;o Ojo:</td>
 					<td width="142" height="25" align="left"><select
 						id="cmpTamanoOjos" style="width: 180px;">
 							<option value="-1">-Seleccione-</option>
@@ -1397,7 +1397,7 @@
 			<table width="700px" height="250px" border="0" cellspacing="0"
 				cellpadding="0">
 				<tr>
-					<td align="right" height="25">Implantación</td>
+					<td align="right" height="25">Implantaci&oacute;n</td>
 					<td width="53" height="25" align="left"><select
 						id="cmpImplantacionCejas" style="width: 180px;">
 							<option value="-1">-Seleccione-</option>
@@ -1415,7 +1415,7 @@
 
 				</tr>
 				<tr>
-					<td width="120" height="25" align="right">Tamaño:</td>
+					<td width="120" height="25" align="right">Tama&ntilde;o:</td>
 					<td width="142" height="25" align="left"><select
 						id="cmpTamanoCejas" style="width: 180px;">
 							<option value="-1">-Seleccione-</option>
@@ -1438,7 +1438,7 @@
 						maxlength="15" />No</td>
 					<td width="53" height="25" align="left"><input type="text"
 						id="Cicatricestext" size="15" maxlength="15" /></td>
-					<td align="right" height="25">Prótesis:</td>
+					<td align="right" height="25">Pr&oacute;tesis:</td>
 					<td width="53" height="25" align="right"><input type="radio"
 						id="Protesis1" name="Protesis" size="15" maxlength="15" />Si</td>
 					<td width="53" height="25" align="left"><input type="radio"

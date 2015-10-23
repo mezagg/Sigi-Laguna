@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <%@ page import="mx.gob.segob.nsjp.comun.enums.actividad.Actividades" %>
 	   
@@ -128,7 +128,7 @@
 	   	    					window.parent.cerrarVentanaConclusionOrdenAprension();
 	   	    				 }    					    				 
 	   	    				 else{
-	   	    					  customAlert('Problemas al intentar guardar, inténtelo mas tarde');
+	   	    					  customAlert('Problemas al intentar guardar, int&eacute;ntelo mas tarde');
 	   	    				 }
 	   	    			}
 	   	    		});    
@@ -141,7 +141,7 @@
 	   			if(tipo=='<%=Actividades.REPORTE_ORDENES_DE_APREHENSION_CUMPLIDAS.getValorId()%>' ){
 		   			if($("#datosGeneralesCmpCorporaciones").val()=="-1")
 		   			{
-		   				mensaje += "<br />- Corporación Policiaca";
+		   				mensaje += "<br />- Corporaci&oacute;n Policiaca";
 		   			}
 	   			}
 	   			else if( tipo=='<%=Actividades.CONCLUSION_POR_VISTA_DE_NO_EJERCICIO.getValorId()%>'){
@@ -161,7 +161,7 @@
 	   			else if( tipo=='<%=Actividades.CONCLUSION_POR_REPARACION_DEL_DANO.getValorId()%>'){
 	   				if($("#esReparacion").val()=="-1")
 		   			{
-		   				mensaje += "<br />- >Conclusión por Reparación del Daño";
+		   				mensaje += "<br />- >Conclusi&oacute;n por Reparaci&oacute;n del Da&ntilde;o";
 		   			}
 		   			if($.trim($("#montoReparacion").val()).length==0)
 		   			{
@@ -229,10 +229,10 @@
 			<td>
 				<div id="ordenAprehension">
 					<fieldset>
-					    <legend>Orden de Aprehensión</legend>
+					    <legend>Orden de Aprehensi&oacute;n</legend>
 					    <table border="0">
 							<tr>
-								<td align="right">Corporación Policiaca: </td>
+								<td align="right">Corporaci&oacute;n Policiaca: </td>
 								<td>
 									<select id="datosGeneralesCmpCorporaciones">
 										<option value="-1" selected="selected">-Seleccione-</option>
@@ -248,7 +248,7 @@
 			<td>
 				<div id="noEjercicio">
 					<fieldset>
-					    <legend>Conclusión por vista de no ejercicio</legend>
+					    <legend>Conclusi&oacute;n por vista de no ejercicio</legend>
 					    <table border="0">
 							<tr>
 								<td align="right">No. de ficha de pago: </td>
@@ -280,15 +280,15 @@
 			<td>
 				<div id="reparacionDano">
 					<fieldset>
-					    <legend>Conclusión por Reparación del Daño</legend>
+					    <legend>Conclusi&oacute;n por Reparaci&oacute;n del Da&ntilde;o</legend>
 					    <table border="0">
 							<tr>
-								<td align="right">Conclusión por Reparación del Daño: </td>
+								<td align="right">Conclusi&oacute;n por Reparaci&oacute;n del Da&ntilde;o: </td>
 								<td>
 									<select id="esReparacion">
 										<option value="-1" selected="selected">-Seleccione-</option>
-										<option value="0" >sin reparación</option>
-										<option value="1" >con reparación</option>
+										<option value="0" >sin reparaci&oacute;n</option>
+										<option value="1" >con reparaci&oacute;n</option>
 									</select>
 								</td>
 							</tr>

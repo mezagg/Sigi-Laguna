@@ -121,7 +121,7 @@
                 
                 $.alerts.okButton="OK";  
                 $.alerts.cancelButton="Cancel";  
-                hiConfirm("¿Desea eliminar el evento seleccionado?", 'Confirmar',function(r){ r && callback(0);});           
+                hiConfirm("&iquest;Desea eliminar el evento seleccionado?", 'Confirmar',function(r){ r && callback(0);});           
             }
             function wtd(p)
             {

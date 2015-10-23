@@ -7,7 +7,7 @@
 		<table width="100%" border="0" align="center" cellpadding="0"cellspacing="5">
 		<tr id = "trCaso">
 			<td align="right" width="50%">
-				<strong>Número de caso:</strong>
+				<strong>N&uacute;mero de caso:</strong>
 			</td>
 			<td width="50%">
 				<input class="texto" type="text" readonly="readonly" id="caso"/>
@@ -15,7 +15,7 @@
 		</tr>
 		<tr id = "trExpediente">
 			<td align="right" width="50%">
-				<strong>Número de expediente:</strong>
+				<strong>N&uacute;mero de expediente:</strong>
 			</td>
 			<td width="50%">
 				<input class="texto" type="text" readonly="readonly" id="expediente"/>
@@ -71,7 +71,7 @@
 		</tr>
 		<tr id = "trFechaDesignacion">
 			<td align="right">
-				<strong>Fecha Designación:</strong>
+				<strong>Fecha Designaci&oacute;n:</strong>
 			</td>
 			<td>
 				<input class="texto" type="text" readonly="readonly" id="fechaDesignacion"/>
@@ -79,7 +79,7 @@
 		</tr>
 		<tr id = "trHoraDesignacion">
 			<td align="right">
-				<strong>Hora Designación:</strong>
+				<strong>Hora Designaci&oacute;n:</strong>
 			</td>
 			<td>
 				<input class="texto" type="text" readonly="readonly" id="horaDesignacion"/>
@@ -139,7 +139,7 @@
 			</tr>
 			<tr id = "trFechaDetencion">
 				<td align="right">
-					<strong>Fecha de Detención:</strong>
+					<strong>Fecha de Detenci&oacute;n:</strong>
 				</td>
 				<td>
 					<input class="texto" type="text" readonly="readonly" id="fechaDetencion"/>
@@ -147,7 +147,7 @@
 			</tr>
 			<tr id = "trHoraDetencion">
 				<td align="right">
-					<strong>Hora de Detención:</strong>
+					<strong>Hora de Detenci&oacute;n:</strong>
 				</td>
 				<td>
 					<input class="texto" type="text" readonly="readonly" id="horaDetencion"/>
@@ -155,7 +155,7 @@
 			</tr>
 			<tr id = "trFechaMensaje">
 				<td align="right">
-					<strong>Fecha envío del aviso:</strong>
+					<strong>Fecha env&iacute;o del aviso:</strong>
 				</td>
 				<td>
 					<input class="texto" type="text" readonly="readonly" id="fechaMensaje"/>
@@ -163,7 +163,7 @@
 			</tr>
 			<tr id = "trHoraMensaje">
 				<td align="right">
-					<strong>Hora envío del aviso:</strong>
+					<strong>Hora env&iacute;o del aviso:</strong>
 				</td>
 				<td>
 					<input class="texto" type="text" readonly="readonly" id="horaMensaje"/>
@@ -208,7 +208,7 @@
 </div>
 <!--Termina Resumen Expediente -->
 	
-<!-- Inicia Resumen Expediente con Carpeta de Investigación -->
+<!-- Inicia Resumen Expediente con Carpeta de Investigaci&oacute;n -->
 <div id="resumen2" style="display: none">
 	<table width="1142px"  height="612px" border="0" cellspacing="0" cellpadding="0" class="back_generales">
 	<tr>
@@ -237,15 +237,15 @@
 		<td rowspan="16" align="right" style="background-color:" valign="top">
 			<table border="0" cellpadding="0" cellspacing="0"  style="background-color: #DCDDDE">
 		  	<tr>
-				<td nowrap align="right" style="background-color:">Vehículos:</td>
+				<td nowrap align="right" style="background-color:">Veh&iacute;culos:</td>
 				<td id="Vehiculos">&nbsp;</td>
 		    </tr>
 		    <tr>
-				<td align="right" style="background-color:">Equipos de cómputo:</td>
+				<td align="right" style="background-color:">Equipos de c&oacute;mputo:</td>
 				<td id="EquiposDeComputo">&nbsp;</td>
 			</tr>
 			<tr>
-				<td align="right" style="background-color:">Equipos Telefónicos:</td>
+				<td align="right" style="background-color:">Equipos Telef&oacute;nicos:</td>
 				<td id="EquiposTelefonicos">&nbsp;</td>
 			</tr>
 			<tr>
@@ -269,7 +269,7 @@
 				<td id="Aeronaves">&nbsp;</td>
 			</tr>
 			<tr>
-				<td align="right" style="background-color:">Embarcación:</td>
+				<td align="right" style="background-color:">Embarcaci&oacute;n:</td>
 				<td id="Embarcacion">&nbsp;</td>
 			</tr>
 			<tr>
@@ -306,7 +306,7 @@
 				<td id="Denunciantes">&nbsp;</td>
 			</tr>
 			<tr>
-				<td align="right" style="background-color:">Víctimas:</td>
+				<td align="right" style="background-color:">V&iacute;ctimas:</td>
 				<td id="Victimas">&nbsp;</td>
 			</tr>
 			<tr>
@@ -318,11 +318,11 @@
 				<td id="Testigos">&nbsp;</td>
 			</tr>
 			<tr>
-				<td align="right" style="background-color:">Traductores/Intérpretes:</td>
+				<td align="right" style="background-color:">Traductores/Int&eacute;rpretes:</td>
 				<td id="Traductores">&nbsp;</td>
 			</tr>
 			<tr>
-				<td align="right" style="background-color:">Quién detuvo:</td>
+				<td align="right" style="background-color:">Qui&eacute;n detuvo:</td>
 				<td id="QuienDetuvo">&nbsp;</td>
 			</tr>
 			</table>
@@ -381,7 +381,7 @@
 	  <td>&nbsp;</td>
 	</tr>
 	<tr>
-	  <td align="right"><span id="spanGralUI">Unidad de Investigación: </span><span id="spanInfoGralUI"></span></td>
+	  <td align="right"><span id="spanGralUI">Unidad de Investigaci&oacute;n: </span><span id="spanInfoGralUI"></span></td>
 	  <td>&nbsp;</td>
 	  <td align="right">&nbsp;</td>
 	  <td>&nbsp;</td>
@@ -408,4 +408,4 @@
 	</tr>
 	</table>
 </div>
-<!--Termina Resumen Expediente con Carpeta de Investigación -->
+<!--Termina Resumen Expediente con Carpeta de Investigaci&oacute;n -->

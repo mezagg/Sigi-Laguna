@@ -5,7 +5,7 @@
              jQuery("#gridAmparos").jqGrid({
                   url:'<%=request.getContextPath()%>'+'/consultarAmparosPorExpediente.do?idNumeroExpediente='+ idNumeroExpediente,
                   datatype: "xml",
-                  colNames:['Folio del Amparo','Descripción','Amparo','Estatus'],
+                  colNames:['Folio del Amparo','Descripci&oacute;n','Amparo','Estatus'],
                   colModel:[
                       {name:'folio',index:'1',  sortable:true, width:200},
                       {name:'descripcion',index:'2',  sortable:false, width:300},
@@ -102,7 +102,7 @@
          		
         </script>
 
-	<table border="0" summary="Consulta información de amparos">
+	<table border="0" summary="Consulta informaci&oacute;n de amparos">
 	  <tr>
 	    <td>
 	  		<div id="divGridAmparos"> 

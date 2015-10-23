@@ -4,7 +4,7 @@
 <%@ page import="mx.gob.segob.nsjp.comun.enums.seguridad.Roles" %>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.expediente.TipoDeBusquedaDeExpediente" %>
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -31,7 +31,7 @@
 	<script src="<%= request.getContextPath()%>/resources/js/validate/jquery.validate.min.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/comun.js?n=1"></script>
 	
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Historial del expediente</title>
 	
 	<script type="text/javascript">
@@ -122,7 +122,7 @@
 		jQuery("#gridProcesoDelExp").jqGrid({
 			url:'<%=request.getContextPath()%>/consultarProcesoDelExpediente.do?idExpediente='+idExpediente + '&idCaso=' + idCaso,
 			datatype: "xml", 
-			colNames:['Polic&iacute;a Ministerial','Audiencias', 'Detenidos', 'Visitaduría', 'UAVD'], 
+			colNames:['Polic&iacute;a Ministerial','Audiencias', 'Detenidos', 'Visitadur&iacute;a', 'UAVD'], 
 			colModel:[ 	{name:'polMin',index:'polMin', width:150, sortable:false, align:'center'}, 
 						{name:'audiencias',index:'audiencias', width:150, sortable:false, align:'center'}, 
 						{name:'detenidos',index:'detenidos', width:200, sortable:false, align:'center'},
@@ -316,7 +316,7 @@
 	var gridHistorico = { 
 		url:"",
 		datatype: "local",
-		colNames:['N&uacute;mero Expediente','Id Responsable', 'Dueño actual', 'Id Asigna', 'Quien realizo el cambio', 'Id Revocado', 'Dueño anterior', 'Fecha cambio', 'Fecha Fin'], 
+		colNames:['N&uacute;mero Expediente','Id Responsable', 'Due&ntilde;o actual', 'Id Asigna', 'Quien realizo el cambio', 'Id Revocado', 'Due&ntilde;o anterior', 'Fecha cambio', 'Fecha Fin'], 
 		colModel:[
 					{name:'NumeroExpediente',index:'NumeroExpediente',width:200, align:"center"},
 					{name:'IdResponsable',index:'FuncionarioActual', sortable:false, hidden:true}, 
@@ -340,7 +340,7 @@
 		ondblClickRow: function(id) {
 			//cargarGrid(1);
 		},
-		caption: "CAMBIO DE DUEÑOS DE EXPEDIENTE",
+		caption: "CAMBIO DE DUE&Ntilde;OS DE EXPEDIENTE",
 		sortorder: "desc"			
 	};
 	
@@ -521,7 +521,7 @@
 			      	    break;
 			      }		
 			}else{//No tiene permisos para visualizar el expediente
-				customAlert("Usted no es el dueño del expediente,<br> y no cuenta con permisos para consultarlo.","");
+				customAlert("Usted no es el due&ntilde;o del expediente,<br> y no cuenta con permisos para consultarlo.","");
 			}		
 		}
 	}
@@ -567,7 +567,7 @@
 	
 	
 	/**
-	* Permite consultar un expediente de atención temprana administrativa
+	* Permite consultar un expediente de atenci&oacute;n temprana administrativa
 	**/
 	function consultaExpedienteDeAtencionTemAdm(numeroExpediente, idNumeroExpediente) {
 		$.newWindow({id:"iframewindowRegistraDatosPersona", statusBar: true, posx:200,posy:50,width:1140,height:450,title:"Expediente:  "+numeroExpediente, type:"iframe"});

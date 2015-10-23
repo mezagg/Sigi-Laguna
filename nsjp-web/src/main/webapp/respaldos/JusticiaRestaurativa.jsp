@@ -324,7 +324,7 @@
 		jQuery("#gridSolsGeneradas").jqGrid({ 
 			url:'<%= request.getContextPath()%>/consultaSolsGeneradas.do?tipoSoliciutd=0&idArea=0&estatus=0', 
 			datatype: "xml", 
-			colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creación','Fecha Limite','Institución','Destinatario'], 
+			colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creaci&oacute;n','Fecha Limite','Instituci&oacute;n','Destinatario'], 
 			colModel:[ 	{name:'caso',index:'caso', width:150},
 			           	{name:'expediente',index:'expediente', width:130}, 
 						{name:'folio',index:'folio', width:100}, 
@@ -481,7 +481,7 @@
 	}
 
 	function tituloVentana(num){
-		$("#iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia+" div.window-titleBar-content").html("Carpeta de investigación: "+num);
+		$("#iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia+" div.window-titleBar-content").html("Carpeta de investigaci&oacute;n: "+num);
 	}
 	
 		
@@ -831,7 +831,7 @@
 	function pdf() {
 		
 		$.newWindow({id:"iframewindowpdf", statusBar: true, posx:200,posy:50,width:900,height:600,title:"Designar Abogado Defensor", type:"iframe"});
-	    $.updateWindowContent("iframewindowpdf",'<iframe src="<%= request.getContextPath() %>/resources/images/Denuncia en Atención Temprana _JAS.pdf" width="900" height="600" />');		
+	    $.updateWindowContent("iframewindowpdf",'<iframe src="<%= request.getContextPath() %>/resources/images/Denuncia en Atenci&oacute;n Temprana _JAS.pdf" width="900" height="600" />');		
 	}
 
 	/*
@@ -1041,12 +1041,12 @@ function visorLeyesCodigos() {
 		<h3><a href="#" onclick="activaPrincipal()"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png" id="botpenal" width="15" height="15">&nbsp;Expedientes Remitidos</a></h3>
 			<div>
 				<ul id="seccion11tree" class="filetree">
-					<li class="closed" ><span id="casos_unidad_inv" class="folder" onclick="activaUno()">Por Unidad de Investigación</span>
+					<li class="closed" ><span id="casos_unidad_inv" class="folder" onclick="activaUno()">Por Unidad de Investigaci&oacute;n</span>
 						<ul>
 						
 						</ul>
 					</li>
-					<li class="closed" ><span id="casos_at_penal" class="folder" onclick="activaUno()">Por Atención Temprana Penal</span>
+					<li class="closed" ><span id="casos_at_penal" class="folder" onclick="activaUno()">Por Atenci&oacute;n Temprana Penal</span>
 						<ul>
 						
 						</ul>
@@ -1066,7 +1066,7 @@ function visorLeyesCodigos() {
 							<li class="closed" id="caso4"><span class="folder">En Seguimiento de Acuerdo</span>
 								
 							</li>
-							<li class="closed" id="caso5"><span class="folder">A Unidad de Investigación</span>
+							<li class="closed" id="caso5"><span class="folder">A Unidad de Investigaci&oacute;n</span>
 								
 							</li>
 							<li class="closed" id="caso6"><span class="folder">Cerrados</span>
@@ -1080,7 +1080,7 @@ function visorLeyesCodigos() {
 				<table width="100%" border="0" bordercolor="#FFFFFF" cellspacing="0" cellpadding="0" bgcolor="#EEEEEE" style="cursor:pointer" id="tableSolsGeneradas">
 				</table>
 			</div>
-<!--			<h3 ><a id="" href="#" onclick="generaVisorGraficaView()"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png"  width="15" height="15">Gráficas y Reportes</a></h3>
+<!--			<h3 ><a id="" href="#" onclick="generaVisorGraficaView()"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png"  width="15" height="15">Gr&aacute;ficas y Reportes</a></h3>
 				<div>		
 					<input type="button" value="Ver Grafica" id="imageViewer" name="imageViewer"/>	
 					<ul id="seccion3treePJENC" class="filetree">
@@ -1312,7 +1312,7 @@ function visorLeyesCodigos() {
 					                	<table border="0" cellpadding="0" cellspacing="0">
 					                		<tr>
 					                			<td>
-					                				<img onclick="pdf()" src="<%= request.getContextPath()%>/resources/images/índicePDF.jpg" width="50px" height="50px"/>
+					                				<img onclick="pdf()" src="<%= request.getContextPath()%>/resources/images/&iacute;ndicePDF.jpg" width="50px" height="50px"/>
 					                			</td>
 					                		</tr>
 					                	</table>
@@ -1322,7 +1322,7 @@ function visorLeyesCodigos() {
 					                	<table border="0" cellpadding="0" cellspacing="0">
 					                		<tr>
 					                			<td>
-					                				<a >Oficio de Canalización</a>
+					                				<a >Oficio de Canalizaci&oacute;n</a>
 					                			</td>
 					                		</tr>
 					                	</table>
@@ -1339,7 +1339,7 @@ function visorLeyesCodigos() {
 		</div>
 	<div id="dialog-logout" title="Cerrar Sesi&oacute;n">
 		<p align="center">
-			<span id="logout">¿Desea cerrar su sesi&oacute;n?</span>
+			<span id="logout">&iquest;Desea cerrar su sesi&oacute;n?</span>
 		</p>
 	</div>
 	
@@ -1354,11 +1354,11 @@ function visorLeyesCodigos() {
 		<p align="center">
 			<table border="0">
 				<tr>
-					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contraseña para desbloquear.</td>
+					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contrase&ntilde;a para desbloquear.</td>
 					
 				</tr>
 				<tr>
-					<td align="right"><label style="color:#4A5C68">Contraseña:</label></td>
+					<td align="right"><label style="color:#4A5C68">Contrase&ntilde;a:</label></td>
 					<td><input type="password" name="password" id="password" value="" maxlength="15" size="20"></td>
 				</tr>
 				<tr id="captchaJPG" >
@@ -1387,7 +1387,7 @@ function visorLeyesCodigos() {
 				La sesi&oacute;n se cerrar&aacute; en <span id="dialog-countdown" style="font-weight:bold"></span> segundos.
 			</p>
 
-			<p>¿Desea continuar con la sesi&oacute;n?</p>
+			<p>&iquest;Desea continuar con la sesi&oacute;n?</p>
 	</div>
 	<div id="dialog-alarmPos" title="Alarma ">
 		<p align="center">

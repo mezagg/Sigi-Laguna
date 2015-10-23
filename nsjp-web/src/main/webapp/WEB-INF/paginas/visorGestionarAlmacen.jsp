@@ -1,6 +1,6 @@
 <%@ page import="mx.gob.segob.nsjp.comun.enums.forma.Formas" %>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.evidencia.EstatusEvidencia" %>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -37,8 +37,8 @@
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.timeentry.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/comun.js?n=1"></script>
 	
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Defensa en Integración</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Defensa en Integraci&oacute;n</title>
 	
 	<script type="text/javascript">
       
@@ -174,7 +174,7 @@
 		    			$("#btnModificar2").css("display","");
 		    			$("#btnGuardar1").css("display","none");		
 		    			$("#btnGuardar2").css("display","none");
-		    			customAlert("El Almac\u00E9n se actualizó de forma correcta");	
+		    			customAlert("El Almac\u00E9n se actualiz&oacute; de forma correcta");	
 					}
 					else{
 						idAlmacen = $(xml).find('long').text();
@@ -185,7 +185,7 @@
 		    			$("#btnModificar2").css("display","");
 		    			$("#btnGuardar1").css("display","none");		
 		    			$("#btnGuardar2").css("display","none");
-		    			customAlert("El Almac\u00E9n se registró de forma correcta");
+		    			customAlert("El Almac\u00E9n se registr&oacute; de forma correcta");
 					}
 		    		parent.consultarAlmacenesPorTipo();
 		    	  }
@@ -404,7 +404,7 @@
     				<table width="100%">
       					<tr>
         					<td>
-        						<label>          Sí
+        						<label>          S&iacute;
           							<input type="radio" name="RadioEsVirtual" value="true" id="RadioEsVirtual_0" checked="checked" />
 								</label>
 							</td>
@@ -426,7 +426,7 @@
     				<table width="100%">
       					<tr>
         					<td>
-        						<label>          Sí
+        						<label>          S&iacute;
           							<input type="radio" name="RadioResguardaEV" value="true" id="RadioResguardaEV_0" checked="checked"/>
 								</label>
 							</td>
@@ -470,7 +470,7 @@
     			<table width="100%">
       				<tr>
       					<td align="right">Es Encargado Interno:</td>      				
-        				<td> Sí </td>
+        				<td> S&iacute; </td>
         				<td>
         					<label>        				
           						<input type="radio" name="RadioEsRespInterno" value="true" id="RadioEsRespInterno_0" checked="checked" onchange="selectorDeCaptura();"/>
@@ -511,7 +511,7 @@
 					<tr>
 						<td colspan="2" align="center">
 							<font FACE="arial" SIZE=2>
-								<b>Información del Encargado Externo</b>
+								<b>Informaci&oacute;n del Encargado Externo</b>
 							</font>			
 						</td>
 					</tr>

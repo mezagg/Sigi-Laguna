@@ -18,7 +18,7 @@
 *------------------------------------------------------------------------------
 */
 package mx.gob.segob.nsjp.web.objeto.form;
-
+ 
 import mx.gob.segob.nsjp.web.base.form.GenericForm;
 
 /**
@@ -148,7 +148,7 @@ public class NumerarioForm extends GenericForm{
 	private String gcDescripcion;
 
 	/**
-	 * Método de acceso al campo glCantidad.
+	 * Mï¿½todo de acceso al campo glCantidad.
 	 * @return El valor del campo glCantidad
 	 */
 	public Long getGlCantidad() {
@@ -164,7 +164,7 @@ public class NumerarioForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo gcMoneda.
+	 * Mï¿½todo de acceso al campo gcMoneda.
 	 * @return El valor del campo gcMoneda
 	 */
 	public String getGcMoneda() {
@@ -180,7 +180,7 @@ public class NumerarioForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo gcCtaTesoreria.
+	 * Mï¿½todo de acceso al campo gcCtaTesoreria.
 	 * @return El valor del campo gcCtaTesoreria
 	 */
 	public String getGcCtaTesoreria() {
@@ -196,7 +196,7 @@ public class NumerarioForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo gcFechaDeposito.
+	 * Mï¿½todo de acceso al campo gcFechaDeposito.
 	 * @return El valor del campo gcFechaDeposito
 	 */
 	public String getGcFechaDeposito() {
@@ -212,7 +212,7 @@ public class NumerarioForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo gcHoraDeposito.
+	 * Mï¿½todo de acceso al campo gcHoraDeposito.
 	 * @return El valor del campo gcHoraDeposito
 	 */
 	public String getGcHoraDeposito() {
@@ -228,7 +228,7 @@ public class NumerarioForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo glCondicionFisica.
+	 * Mï¿½todo de acceso al campo glCondicionFisica.
 	 * @return El valor del campo glCondicionFisica
 	 */
 	public Long getGlCondicionFisica() {
@@ -244,7 +244,7 @@ public class NumerarioForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo gcDescripcion.
+	 * Mï¿½todo de acceso al campo gcDescripcion.
 	 * @return El valor del campo gcDescripcion
 	 */
 	public String getGcDescripcion() {
@@ -260,7 +260,7 @@ public class NumerarioForm extends GenericForm{
 	}
 
 	/**
-	 * Método de acceso al campo serialversionuid.
+	 * Mï¿½todo de acceso al campo serialversionuid.
 	 * @return El valor del campo serialversionuid
 	 */
 	public static long getSerialversionuid() {

@@ -147,7 +147,7 @@ function consultaCiudadana(){
         <p>
 		 <label>
          <input type="radio" name="rdbTipoPersona" id="rdbTipoPersona_0" onClick="configuraPersonaFisica()" value="1" checked/>
-     	 Persona Física</label>
+     	 Persona F&iacute;sica</label>
     
         <label>
         <input type="radio" name="rdbTipoPersona" value="0" id="rdbTipoPersona_1" onClick="configuraPersonaMoral()"/>

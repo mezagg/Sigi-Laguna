@@ -14,8 +14,8 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.funcionario.Especialidades"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.solicitud.TiposSolicitudes"%>
 <%@page import="java.util.Calendar"%>
-<%@page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 
 <% 
@@ -25,8 +25,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Atención de Audiencias</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>AtenciÃ³n de Audiencias</title>
 		
 	
 <link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css"/>
@@ -95,7 +95,7 @@
 	
 	var audienciaConsulta;
 	/**
-	* Variables globales para controlar los datos de la pestaña de programar audiencia 
+	* Variables globales para controlar los datos de la pestaÃ±a de programar audiencia 
 	*/
 	var idApplet=0;
 	var idPermisos=0;
@@ -326,7 +326,7 @@
 				
 			/**Sub ceja Involucrados*/
 			
-				//Oculta las pestañas de imputado,testigo,perito y policia ministerial
+				//Oculta las pestaÃ±as de imputado,testigo,perito y policia ministerial
 				ocultaSubCejasProgAudiencia();
 
 			/**Sub ceja Objetos*/
@@ -355,7 +355,7 @@
 		jQuery("#gridDetalleFrmPrincipal").jqGrid({ 
 			url:'<%=request.getContextPath()%>/consultarDocumentosPorAudiencia.do?idAudiencia='+idAudiencia,
 			datatype: "xml",
-			colNames:['Área del responsable','Fecha de la actividad','Nombre de la actividad','Tipo de documento','Nombre de Documento','Fecha del documento', 'Documento', 'Es Parcial'],
+			colNames:['Ãrea del responsable','Fecha de la actividad','Nombre de la actividad','Tipo de documento','Nombre de Documento','Fecha del documento', 'Documento', 'Es Parcial'],
 			colModel:[ 	{name:'area',index:'da', width:200, align:'center'},
 						{name:'FechaActividad',index:'fechaActividad', width:170, align:'center', hidden:true},							
 						{name:'NombreActividad',index:'nombreActividad', width:400, align:'center', hidden:true},
@@ -467,7 +467,7 @@
 	
 	/**
 	*Funcion para deshabilitar los botones de designar 
-	*Juez manualmente y automáticamente, Guardar y Designar Sala Temporal
+	*Juez manualmente y automaticamente, Guardar y Designar Sala Temporal
 	*/
 	function deshabilitarHabilitarComponentes(accion){
 
@@ -1115,7 +1115,7 @@
 					sortorder: "desc",
 					hidegrid: false,
 					toolbar: [true,"top"],
-					caption:"Víctima",
+					caption:"VÃ­ctima",
 					ondblClickRow: function(rowid) {
 						
 						var row = jQuery("#gridVictima").jqGrid('getRowData',rowid);
@@ -1170,7 +1170,7 @@
 					viewrecords: true, 
 					sortorder: "desc",
 					hidegrid: false,
-					caption:"Víctima Persona Moral",
+					caption:"VÃ­ctima Persona Moral",
 					ondblClickRow: function(rowid) {
 						consultarVictimaOrg(rowid);
 					} 
@@ -1190,20 +1190,20 @@
 	function creaNuevaVictima() {
 		idWindowIngresarVictima++;
 		var elementoNuevo="si";
-		$.newWindow({id:"iframewindowIngresarVictima" + idWindowIngresarVictima, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Ingresar Víctima", type:"iframe"});
+		$.newWindow({id:"iframewindowIngresarVictima" + idWindowIngresarVictima, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Ingresar VÃ­ctima", type:"iframe"});
 	    $.updateWindowContent("iframewindowIngresarVictima" + idWindowIngresarVictima,'<iframe src="<%= request.getContextPath() %>/IngresarVictima.do?numeroExpediente='+numeroExpediente +'&audienciaId='+idAudiencia+'&elemento='+elementoNuevo+'" width="1100" height="530" />');		
 	}
 
 	var idWindowConsultarVictima = 1;
 	
-	//Abre una nueva ventana para consultar una víctima		
+	//Abre una nueva ventana para consultar una vÃ­ctima		
 	function consultarVictima(idInvolucrado){
 		idWindowConsultarVictima++;
 		$.newWindow({id:"iframewindowConsultarVictima" + idWindowConsultarVictima, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Consultar V&iacute;ctima", type:"iframe"});		
 		$.updateWindowContent("iframewindowConsultarVictima" + idWindowConsultarVictima,'<iframe src="<%= request.getContextPath() %>/ConsultarIndividuo.do?numeroExpediente='+numeroExpediente+'&idVictima='+idInvolucrado+'&deshabilitar='+audienciaFinalizadadeshabilitar+'&idCalidad=VICTIMA" width="1100" height="530" />');
 	}
 
-	//Abre una nueva ventana para consultar una víctima		
+	//Abre una nueva ventana para consultar una vÃ­ctima		
 	function consultarVictimaOrg(idOrganizacion){
 		idWindowConsultarVictima++;
 		$.newWindow({id:"iframewindowConsultarVictima" + idWindowConsultarVictima, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Consultar V&iacute;ctima", type:"iframe"});		
@@ -1575,7 +1575,7 @@
 				sortorder: "desc",
 				hidegrid: false,
 				toolbar: [true,"top"],
-				caption:"Elemento de la policía ministerial"
+				caption:"Elemento de la policÃ­a ministerial"
 		}).navGrid('#paginadorGridPolicia',{edit:false,add:false,del:false});
 		
 		$("#t_gridPolicia").append("<input type='button' class='btn_Generico' id='butAgrePoli' value='Agregar Polic&iacute;a Ministerial' style='height:20px;font-size:-3'/>");
@@ -1660,7 +1660,7 @@
 								var ret = jQuery("#ListaImputados").jqGrid('getRowData',idsConDefensor[i]);
 								mensaje += ret.nombre +" "+ ret.apaterno +" "+ ret.amaterno +"<br>"
 							}
-							mensaje+= "¿Desea enviar las solicitudes de defensor?";
+							mensaje+= "Â¿Desea enviar las solicitudes de defensor?";
 							customConfirm(mensaje,"Advertencia",function(){
 								enviarSolicitudDefensor(s,idAudienciaDefensor);
 								$(this).dialog("close");
@@ -1671,7 +1671,7 @@
 	   		  		}
 		  		},
 		  		"Cancelar":function() {
-			  		customConfirm("¿Realmente desea salir de la solicitud del abogado defensor sin enviar la solicitud?", "", cancelarEnvioAudiencia);			  		
+			  		customConfirm("Â¿Realmente desea salir de la solicitud del abogado defensor sin enviar la solicitud?", "", cancelarEnvioAudiencia);			  		
 		  		}
 		  	}
 		});	  	
@@ -1731,7 +1731,7 @@
 			jQuery("#gridDatosDePruebaPJENS").jqGrid({ 
 				url:'<%=request.getContextPath()%>/consultarDatosDePruebaPorFiltro.do?audienciaId='+audienciaId+'&numeroExpediente='+numeroExpediente+'',
 				datatype: "xml",
-				colNames:['Nombre del Dato','Número de Identificación', 'Reg. de Cadena de Custodia','Registrado','Aceptado','Desechado'], 
+				colNames:['Nombre del Dato','NÃºmero de IdentificaciÃ³n', 'Reg. de Cadena de Custodia','Registrado','Aceptado','Desechado'], 
 				colModel:[ 					
 				           	{name:'nombreDato',index:'nombreDato', width:100, align:'left',sortable:false}, 
 				           	{name:'numIdentificacion',index:'numIdentificacion', width:80, align:'left',sortable:false},
@@ -1884,7 +1884,7 @@
 			},
 			"Cancelar":function() {
 
-				customConfirm("¿Realmente desea salir?", "", cancelarRelacionarMediosDePrueba);
+				customConfirm("Â¿Realmente desea salir?", "", cancelarRelacionarMediosDePrueba);
 			}
 		}
 		});
@@ -1912,11 +1912,11 @@
     		success: function(xml){
 	   			if(parseInt($(xml).find('code').text())==0)
 	    		  {
-	   				alertDinamico("La relación ha sido guardada");
+	   				alertDinamico("La relaciÃ³n ha sido guardada");
 					//Limpiar los ids seleccionados
 	   	    	}
 	  			else{
-	  				alertDinamico("Ocurrió un error durante la relación");
+	  				alertDinamico("OcurriÃ³ un error durante la relaciÃ³n");
 	      		}
     		}
 		});
@@ -1936,7 +1936,7 @@
 			jQuery("#gridRelacionarMediosDePruebaPJENS").jqGrid({ 
 				url:'<%=request.getContextPath()%>/consultarMediosPruebaXDatoPrueba.do?idDatoPrueba='+idDatoPrueba+'&numeroExpediente='+numeroExpediente+'',
 				datatype: "xml",
-				colNames:['Nombre del Medio','Número de Identificación'], 
+				colNames:['Nombre del Medio','NÃºmero de IdentificaciÃ³n'], 
 				colModel:[ 					
 				           	{name:'nombreDato',index:'nombreDato', width:350, align:'center'}, 
 				           	{name:'numIdentificacion',index:'numIdentificacion', width:350, align:'center'},
@@ -1991,7 +1991,7 @@
 			   	$(this).dialog("close");
 			},
 			"Cancelar":function() {
-				customConfirm("¿Realmente desea salir?", "", salir);						
+				customConfirm("Â¿Realmente desea salir?", "", salir);						
 			}
 		}
 		});
@@ -2004,7 +2004,7 @@
 
 	
 
-	//bandera para controlar el cargado de la asociación de imputados
+	//bandera para controlar el cargado de la asociaciÃ³n de imputados
 	banderaAsociarImputado=true;
 	
 	/**
@@ -2062,11 +2062,11 @@
     		success: function(xml){
 	   			if(parseInt($(xml).find('code').text())==0)
 	    		  {
-	   				alertDinamico("La asociación ha sido guardada");
+	   				alertDinamico("La asociaciÃ³n ha sido guardada");
 					//Limpiar los ids seleccionados
 	   	    	}
 	  			else{
-	  				alertDinamico("Ocurrió un error durante la asociación");
+	  				alertDinamico("OcurriÃ³ un error durante la asociaciÃ³n");
 	      		}
 	      		cargaGridPrueba();
 	      		
@@ -2094,7 +2094,7 @@
 			},
 			"Cancelar":function() {
 				
-				customConfirm("¿Realmente desea salir del registro del dato de prueba?", "", cancelarAgregarDatoDePrueba);					  		
+				customConfirm("Â¿Realmente desea salir del registro del dato de prueba?", "", cancelarAgregarDatoDePrueba);					  		
 			}
 		}
 		});	 
@@ -2127,12 +2127,12 @@
 			}
 			else{
 				if($('#txtNumeroIdeDatoPruebaPJENS').val() == ""){
-					alertDinamico("Ingrese un número de identificación");
+					alertDinamico("Ingrese un nÃºmero de identificaciÃ³n");
 				}
 				else{
 					
 					if($('#txtAreaDescripcionDatoPruebaPJENS').val() == ""){
-						alertDinamico("Ingrese una descripción");
+						alertDinamico("Ingrese una descripciÃ³n");
 					}
 					else{
 						validacion=true;
@@ -2160,12 +2160,12 @@
 				}
 				else{
 					if($('#txtNumeroIdeDatoPruebaPJENS').val() == ""){
-						alertDinamico("Ingrese un número de identificación");
+						alertDinamico("Ingrese un nÃºmero de identificaciÃ³n");
 					}
 					else{
 						
 						if($('#txtAreaDescripcionDatoPruebaPJENS').val() == ""){
-							alertDinamico("Ingrese una descripción");
+							alertDinamico("Ingrese una descripciÃ³n");
 						}
 						else{
 							validacion=true;
@@ -2334,7 +2334,7 @@
 			},
 			"Cancelar":function() {
 		
-				customConfirm("¿Realmente desea salir del registro del medio de prueba?", "", cancelarAgregarMedioDePrueba);			
+				customConfirm("Â¿Realmente desea salir del registro del medio de prueba?", "", cancelarAgregarMedioDePrueba);			
 			}
 		}
 		});	 
@@ -2370,7 +2370,7 @@
 				}
 				else{
 					if($('#txtNumeroIdeDocumentoMedioPruebaPJENS').val() == ""){
-						alertDinamico("Ingrese un número de identificación");
+						alertDinamico("Ingrese un nÃºmero de identificaciÃ³n");
 					}
 					else{
 						if($('#archivoPorSubir').val() == ""){
@@ -2378,7 +2378,7 @@
 						}
 						else{
 							if($('#txtAreaDescripcionDocMedioPruebaPJENS').val() == ""){
-								alertDinamico("Ingrese una descripción");
+								alertDinamico("Ingrese una descripciÃ³n");
 							}
 							else{
 								
@@ -2451,7 +2451,7 @@
 			break;
 			
 			case 4:
-				stringCalidad="Policía ministerial";
+				stringCalidad="PolicÃ­a ministerial";
 			break;
 
 			default: alertDinamico("Error, calidad no encontrada");				
@@ -2591,7 +2591,7 @@
 
 				url:'<%=request.getContextPath()%>/consultarMediosPruebaAsociadosAlExpediente.do?idDatoPrueba=null&numeroExpediente='+numeroExpediente+'',
 				datatype: "xml",
-				colNames:['Nombre del Medio','Número de Identificación'], 
+				colNames:['Nombre del Medio','NÃºmero de IdentificaciÃ³n'], 
 				colModel:[ 					
 				           	{name:'nombreMedio',index:'nombreMedio', width:350, align:'center'}, 
 				           	{name:'numIdentificacion',index:'numIdentificacion', width:350, align:'center'},
@@ -2659,7 +2659,7 @@
 			jQuery("#gridPruebaPJENS").jqGrid({ 
 				url:'<%=request.getContextPath()%>/consultarPruebasPorNumeroExpediente.do?numeroExpediente='+numeroExpediente+'',
 				datatype: "xml", 
-				colNames:['Prueba Aceptada','Número de Identificación','Reg. de Cadena de Custodia', 'No. de Imputados Asociados', 'Imputados'], 
+				colNames:['Prueba Aceptada','NÃºmero de IdentificaciÃ³n','Reg. de Cadena de Custodia', 'No. de Imputados Asociados', 'Imputados'], 
 				colModel:[ 					
 				           	{name:'nombrePrueba',index:'nombrePrueba', width:200, align:'center'}, 
 				           	{name:'numIdentificacion',index:'numIdentificacion', width:180, align:'center'},
@@ -2795,7 +2795,7 @@
 			},
 			"Cancelar":function() {
 		
-				customConfirm("¿Realmente desea salir de el registro de un resolutivo?", "", cancelarAgregarRegistrarResolutivo);
+				customConfirm("Â¿Realmente desea salir de el registro de un resolutivo?", "", cancelarAgregarRegistrarResolutivo);
 			}
 		}
 		});	 
@@ -2845,7 +2845,7 @@
 				},
 		
 			"Cancelar":function() {
-					customConfirm("¿Realmente desea salir de la modificaci&oacute;n de un resolutivo?", "", cancelarModificarResolutivo);			
+					customConfirm("Â¿Realmente desea salir de la modificaci&oacute;n de un resolutivo?", "", cancelarModificarResolutivo);			
 			}
 		  }
 		});	 	 			
@@ -3107,7 +3107,7 @@
 		//deshabilitamos el combo de tipo de audiencia
 		$("#tipoAudienciaProgramarAudiencia").attr('disabled',true);
 		
-		//Si pulso automáticamente
+		//Si pulso automaticamente
 		if(automatico == true){
 			//jQuery("#gridSolicitudDeAudienciaJuecesPJENA").setGridParam({multiselect:false}).hideCol('cb');
 			$("#gridSolicitudDeAudienciaJuecesPJENA").unbind('click');
@@ -3154,7 +3154,7 @@
 			//$("#gridAgendaPJENA").jqGrid('setCell',"1","lunes","",{'font-weight': 'bold',color: 'white','text-align':'center','background-color':'red'});			
 		}
 		else{
-			alertDinamico("Seleccione un día hábil");
+			alertDinamico("Seleccione un d&iacute;a h&aacute;bil");
 		}
 	}
 
@@ -3431,7 +3431,7 @@
 			var horaInicio=idRow.substring(horaInicioPos1+1,horaInicioPos2);
 			
 
-			//tamaño en medias hrs. del espacio disponible
+			//tamaÃ±o en medias hrs. del espacio disponible
 			var espacioPos1=idRow.indexOf("/",0);
 			var espacioPos2=idRow.indexOf("*",espacioPos2);
 			var espacioDisponible=idRow.substring(espacioPos1+1,espacioPos2);
@@ -3460,7 +3460,7 @@
 						deshabilitarHabilitarComponentes("horarioSala");
 					}
 					else{
-						alertDinamico("La duración estimada es mayor que el tiempo disponible para esta sala.\rIntente con otra sala");	
+						alertDinamico("La duraciÃ³n estimada es mayor que el tiempo disponible para esta sala.\rIntente con otra sala");	
 					}
 				}
 				else{
@@ -3469,7 +3469,7 @@
 			}
 			else{
 				
-				alertDinamico("Seleccione una duración estimada para la audiencia");
+				alertDinamico("Seleccione una duraciÃ³n estimada para la audiencia");
 			}
 				
 		}
@@ -3727,7 +3727,7 @@
 			}
 
 			if(banderaConfirm == false){
-				customConfirm("Usted no se ha seleccionado como Juez para la audiencia, ¿Desea continuar?","",guardarAudiencia);
+				customConfirm("Usted no se ha seleccionado como Juez para la audiencia, Â¿Desea continuar?","",guardarAudiencia);
 			}
 			else{
 				guardarAudiencia();
@@ -3831,7 +3831,7 @@
 					if(mensaje == "fail"){
 						alertDinamico("La audiencia ya fue programada anteriormente");
 						/*
-						*recargamos el grid de audiencias para que la solicitud de audiencia que se abrío ya no 
+						*recargamos el grid de audiencias para que la solicitud de audiencia que se abrÃ­o ya no 
 						*aparesca en la bandeja
 						*/
 
@@ -3849,7 +3849,7 @@
 						}catch(e){}
 					}
 					else{
-						alertDinamico("La programación de la audiencia se realizó de manera correcta");
+						alertDinamico("La programaciÃ³n de la audiencia se realizÃ³ de manera correcta");
 						//Refrescamos el grid de las salas
 						controlSalas(fechaReal);	
 						/*
@@ -4019,7 +4019,7 @@
 					sortorder: "desc",
 					hidegrid: false,
 					toolbar: [true,"top"],
-					caption:"Víctima",
+					caption:"VÃ­ctima",
 					ondblClickRow: function(rowid) {
 
 						var row = jQuery("#gridVictima1").jqGrid('getRowData',rowid);
@@ -4060,13 +4060,13 @@
 	function creaNuevaVictima1() {
 		idWindowIngresarVictima1++;
 		var elementoNuevo="si";
-		$.newWindow({id:"iframewindowIngresarVictima1" + idWindowIngresarVictima1, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Ingresar Víctima", type:"iframe"});
+		$.newWindow({id:"iframewindowIngresarVictima1" + idWindowIngresarVictima1, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Ingresar VÃ­ctima", type:"iframe"});
 	    $.updateWindowContent("iframewindowIngresarVictima1" + idWindowIngresarVictima1,'<iframe src="<%= request.getContextPath() %>/IngresarVictima.do?numeroExpediente='+numeroExpediente +'&audienciaId='+idAudienciaSiguiente+'&elemento='+elementoNuevo+'" width="1100" height="530" />');		
 	}
 
 	var idWindowConsultarVictima1 = 1;
 	
-	//Abre una nueva ventana para consultar una víctima		
+	//Abre una nueva ventana para consultar una vÃ­ctima		
 	function consultarVictima1(idInvolucrado){
 		idWindowConsultarVictima1++;
 		$.newWindow({id:"iframewindowConsultarVictima1" + idWindowConsultarVictima1, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Consultar Victima", type:"iframe"});		
@@ -4350,7 +4350,7 @@
 			viewrecords: true, 
 			sortorder: "desc",
 			toolbar: [true,"top"],
-			caption:"Elemento de la policía ministerial"
+			caption:"Elemento de la policÃ­a ministerial"
 		}).navGrid('#paginadorGridPolicia1',{edit:false,add:false,del:false});
 		
 		$("#t_gridPolicia1").append("<input type='button' class='btn_Generico' id='butAgrePolMin1' value='Agregar Policia Ministerial' style='height:20px;font-size:-3'/>");
@@ -4439,7 +4439,7 @@
 		width: 800, height:480, maxWidth: 800, maxHeight:550,
 		buttons:{
 			"Asociar":function() {
-				customConfirm("¿Realmente desea asociar los involucrados a la siguiente audiencia?", "", asociarIndividuoAAudiencia);
+				customConfirm("Â¿Realmente desea asociar los involucrados a la siguiente audiencia?", "", asociarIndividuoAAudiencia);
 			},
 			"Cancelar":function() {
 				cerrarAsociarInvolucradosPorCalidadAudienciaSiguiente();
@@ -4566,7 +4566,7 @@
 		jQuery("#gridSolObjetos").jqGrid({ 
 			url:'<%=request.getContextPath()%>/gridConsultaObjetos.do?audienciaId='+idAudienciaSiguiente,
 			datatype: "xml", 
-			colNames:['Otorgante','No. Prueba', 'Cadena de Custodia', 'Descripción Objeto', 'Aceptado'], 
+			colNames:['Otorgante','No. Prueba', 'Cadena de Custodia', 'DescripciÃ³n Objeto', 'Aceptado'], 
 			colModel:[ 					
 			           	{name:'Otorgante',index:'Otorgante', width:100, align:'center'}, 
 			           	{name:'Prueba',index:'Prueba', width:80, align:'center'},
@@ -4675,7 +4675,7 @@
 			*/
 			jQuery("#gridTrasladoPJA").jqGrid({
 				datatype: "xml", 
-				colNames:['Imputado','Delito','Centro de Detención'], 
+				colNames:['Imputado','Delito','Centro de DetenciÃ³n'], 
 				colModel:[ 	{name:'imputado',index:'imputado', width:200,align:'center'}, 
 							{name:'Delito',index:'delito', width:100,align:'center'},
 							{name:'centroDetencion',index:'centroDetencion', width:200,align:'center'}
@@ -4799,7 +4799,7 @@
 		        parametros += '&aPaterno=' + $("#apellidoPaterno").val();
 		        parametros += '&aMaterno=' + $("#apellidoMaterno").val();
 		        
-		        if($("#cmbInstitucion option:selected").val() == "Ministerio Público"){
+		        if($("#cmbInstitucion option:selected").val() == "Ministerio PÃºblico"){
 		        	parametros +='&institucion=' + 1;
 				}else{
 					parametros +='&institucion=' + 2;
@@ -4894,7 +4894,7 @@
 					alertDinamico(s_MENSAJE);
 				}
 				else{
-					// Puede ser error de conexión WS
+					// Puede ser error de conexiÃ³n WS
 					alertDinamico("Fallo al eliminar la audiencia");
 				}
 				$("#gridAudienciasResolutivosPJENS").trigger("reloadGrid");
@@ -4906,13 +4906,13 @@
 		var s_MENSAJE="";
 		switch (idEvento){
         case "<%=ConstantesGenerales.FALLO_GENERAL%>":
-            s_MENSAJE = "Fallo al conectar con el servidor JAVS.</br>Vuelva a intentarlo más tarde";
+            s_MENSAJE = "Fallo al conectar con el servidor JAVS.</br>Vuelva a intentarlo m&aacute;s tarde";
             break;
         case "<%=ConstantesGenerales.FALLO_GENERAL_JAVS%>":
-            s_MENSAJE = "Fallo al conectar con el servidor JAVS.</br>Vuelva a intentarlo más tarde";
+            s_MENSAJE = "Fallo al conectar con el servidor JAVS.</br>Vuelva a intentarlo m&aacute;s tarde";
             break;
         case "<%=ConstantesGenerales.ERROR_CREDENCIALES_CONSULTA%>":
-        	s_MENSAJE = "Fallo al conectar con el servidor JAVS, Error en credenciales.</br>vuelva a intentarlo más tarde";
+        	s_MENSAJE = "Fallo al conectar con el servidor JAVS, Error en credenciales.</br>vuelva a intentarlo m&aacute;s tarde";
             break;
         case "<%=ConstantesGenerales.AUDIENCIA_PROCESO%>":
         	s_MENSAJE = "La audiencia no fue cancelada, ya que esta programada en Sala JAVS y ya se esta llevando a cabo.</br>Se han actualizado los datos de la audiencia";
@@ -4921,16 +4921,16 @@
         	s_MENSAJE = "La audiencia no fue cancelada, ya que esta programada en Sala JAVS y ya se llevo a cabo.</br>Se han actualizado los datos de la audiencia";
             break;
         case "<%=ConstantesGenerales.ERROR_ELIMINACION%>":
-            s_MENSAJE = "La audiencia no fue eliminada, ocurrió un problema.</br>Vuelva a intentarlo más tarde";
+            s_MENSAJE = "La audiencia no fue eliminada, ocurri&oacute; un problema.</br>Vuelva a intentarlo m&aacute;s tarde";
             break;
         case "<%=ConstantesGenerales.EXITO_ELIMINACION%>":
-            s_MENSAJE = "Se eliminó correctamente la agenda del registro del AutoLog del servidor JAVS";
+            s_MENSAJE = "Se eliminÃ³ correctamente la agenda del registro del AutoLog del servidor JAVS";
             break;
         case "<%=ConstantesGenerales.NO_HAY_AUDIENCIAS%>":
-            s_MENSAJE = "No se encontró la audiencia registrada en el AutoLog de JAVS";
+            s_MENSAJE = "No se encontrÃ³ la audiencia registrada en el AutoLog de JAVS";
             break;        
         case "<%=ConstantesGenerales.ERROR_SERVICIO_ELIMINACION%>":
-            s_MENSAJE = "Fallo al conectar con el servidor JAVS.</br>Vuelva a intentarlo más tarde";
+            s_MENSAJE = "Fallo al conectar con el servidor JAVS.</br>Vuelva a intentarlo m&aacute;s tarde";
             break;
         case "<%=ConstantesGenerales.NO_ES_JAVS%>":
             s_MENSAJE = "La audiencia no se llevo a cabo en una Sala JAVS";
@@ -5080,14 +5080,14 @@
 	function deshabilitarDespuesFinalizadaAudiencia(){
 			
 		if(audienciaFinalizadadeshabilitar==true){
-			//Pestaña Individualizacion, se ocultan todos los botones del toolbar para cada subpestaña
+			//PestaÃ±a Individualizacion, se ocultan todos los botones del toolbar para cada subpestaÃ±a
 			$("#t_gridVictima").hide();
 			$("#t_gridFiscal").hide();
 			$("#t_gridDefensor").hide();
 			$("#t_gridTestigo").hide();
 			$("#t_gridPerito").hide();
 			$("#t_gridPolicia").hide();
-			//Pestaña Pruebas
+			//PestaÃ±a Pruebas
 			$("#t_gridDatosDePruebaPJENS").hide();
 			$("#t_gridPruebaPJENS").hide();
 			inhabilitaRadiosGridDatosDePrueba();
@@ -5095,16 +5095,16 @@
 				//No hace nada el doble clic
 			} })
 			$('#gridDatosDePruebaPJENS').unbind('click');
-			//Pestaña Resolutivos de Audiencia
+			//PestaÃ±a Resolutivos de Audiencia
 			$("#agregarResolutivoBoton").hide();
 			$("#eliminarResolutivoBoton").hide();
-			//Pestaña Programar Audiencia, Se oculta la pestaña
+			//PestaÃ±a Programar Audiencia, Se oculta la pestaÃ±a
 			$("#calendario").hide();
 			$("#tabsDetalleAudiencias-5").hide();
-			//Pestaña Administrar Actuaciones de Audiencia
+			//PestaÃ±a Administrar Actuaciones de Audiencia
 			$("#finalAudienciaPes").hide();
 			$("#tabsDetalleAudiencias-7").hide();
-			//Pestaña Notas
+			//PestaÃ±a Notas
 			$("#botonGuardarNotas").hide();
 						
 			deshabilitaChecksGrids();
@@ -5114,7 +5114,7 @@
 	}
 	
 	/* Funcion que inhabilita los radios opcion del Grid Datos de Prueba
-	* de la Pestaña Pruebas cuando el estatus de la audiencia es finalizada 
+	* de la PestaÃ±a Pruebas cuando el estatus de la audiencia es finalizada 
 	*/
 	function inhabilitaRadiosGridDatosDePrueba(){
 		if(audienciaFinalizadadeshabilitar==true){
@@ -5297,7 +5297,7 @@
 	* letras, letras con acentos y el caracter punto(.)
 	*/
 	function validaSoloLetrasYPunto(campo){
-		var regexp = new RegExp(/^[A-Za-zÑñáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙ\.\s]*$/);
+		var regexp = new RegExp(/^[A-Za-zÃ‘Ã±Ã¡Ã©Ã­Ã³ÃºÃÃ‰ÃÃ“ÃšÃ¤Ã«Ã¯Ã¶Ã¼Ã„Ã‹ÃÃ–ÃœÃ Ã¨Ã¬Ã²Ã¹Ã€ÃˆÃŒÃ’Ã™\.\s]*$/);
 		aEvaluar = campo.value;
 	    if (!regexp.test(aEvaluar)) {
 	    	customAlert("Caracteres invalidos en:<br>"+aEvaluar);
@@ -5320,7 +5320,7 @@
 			<a href="#tabsDetalleAudiencias-13">Relaciones Delito-Persona</a>
 		</li>
 		<li id="involucrados">
-			<a href="#tabsDetalleAudiencias-2">Individualización</a>
+			<a href="#tabsDetalleAudiencias-2">IndividualizaciÃ³n</a>
 		</li>
 		<li id="Objetos">
 			<a href="#tabsDetalleAudiencias-3">Pruebas</a>
@@ -5353,7 +5353,7 @@
 			<a href="#tabExhortos-13">Exhortos</a>
 		</li>
 		<li id="acumulacion">
-			<a href="#tabAcumulacion-14">Acumulación</a>
+			<a href="#tabAcumulacion-14">AcumulaciÃ³n</a>
 		</li>		
 	</ul>
 	
@@ -6473,7 +6473,7 @@
 			<td width="127">
 				<select name="select" id="cmbInstitucion">
 					<option value="Defensoria">Defensoria</option>
-					<option value="Ministerio Público">Ministerio P&uacute;blico</option>
+					<option value="Ministerio PÃºblico">Ministerio P&uacute;blico</option>
 				</select>
 			</td>
 			<td width="143">Direcci&oacute;n Electronica:</td>
@@ -6835,7 +6835,7 @@
 	                  <option value="2">Archivo de audio</option>
 	                  <option value="1">Archivo de texto</option>	                  
 	                  <option value="3">Archivo de video</option>
-	                  <option value="4">Imágenes/Fotografías</option>
+	                  <option value="4">Im&aacute;genes/Fotograf&iacute;as</option>
 	                </select>
 	            </div>
 	        </td>

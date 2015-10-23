@@ -2,8 +2,8 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.documento.EstatusMedida"%>
 <%@page import="java.util.Calendar"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.forma.Formas"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -40,7 +40,7 @@
 	<script src="<%= request.getContextPath()%>/resources/js/validate/jquery.validate.min.js"></script>
 	<script src="<%= request.getContextPath()%>/resources/js/validate/mktSignup.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.timeentry.js"></script>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Medidas Alternas</title>
 	
 	<script type="text/javascript">	
@@ -257,7 +257,7 @@
 						//$("#gridAgendaPJENA").jqGrid('setCell',"1","lunes","",{'font-weight': 'bold',color: 'white','text-align':'center','background-color':'red'});			
 					}
 					else{
-						alert("Seleccione un dia hábil");
+						alert("Seleccione un dia h&aacute;bil");
 					}
 				}
 							
@@ -351,7 +351,7 @@
 	    });
 	}
 
-	//Funcion que obtiene de un xml la información requerida a mostrar en la pestaña 'Medidas Alternas'  
+	//Funcion que obtiene de un xml la informaci&oacute;n requerida a mostrar en la pesta&ntilde;a 'Medidas Alternas'  
 	function pintarDatosMedidaAlterna(xml){
 		if($(xml).find('MedidaAlternaDTO') != null){
 			$('#campoCasoSSP').val($(xml).find('numeroCaso').text());
@@ -422,7 +422,7 @@
 			dataType: 'xml',
 			async: false,
 			success: function(xml){
-				alert('Calendarización registrada de manera correcta.');
+				alert('Calendarizaci&oacute;n registrada de manera correcta.');
 				$('#btnCalendarizar').hide();
 				jQuery("#gridSeguimiento").jqGrid('setGridParam', {url:'<%= request.getContextPath()%>/consultarCalendarizacionPorMedidaIdReducido.do?medidaCautelarId='+medidaAlternaId+'',datatype: "xml" });
 				$("#gridSeguimiento").trigger("reloadGrid");
@@ -599,11 +599,11 @@
 					if($(xml).find('bandera').text()=='1')
 					{
 						killTabSeguimiento();
-						alert("Se canceló exitosamente el seguimiento.");
+						alert("Se cancel&oacute; exitosamente el seguimiento.");
 					}
 					else
 					{
-						alert("No se logró cancelar el seguimiento");
+						alert("No se logr&oacute; cancelar el seguimiento");
 					}
 				}
 			});

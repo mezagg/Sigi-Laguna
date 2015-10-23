@@ -2,8 +2,8 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.documento.EstatusMedida"%>
 <%@page import="java.util.Calendar"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.forma.Formas"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -40,7 +40,7 @@
 	<script src="<%= request.getContextPath()%>/resources/js/validate/jquery.validate.min.js"></script>
 	<script src="<%= request.getContextPath()%>/resources/js/validate/mktSignup.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.timeentry.js"></script>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Medidas Cautelares</title>
 	
 	<script type="text/javascript">	
@@ -269,7 +269,7 @@
 			//$("#gridAgendaPJENA").jqGrid('setCell',"1","lunes","",{'font-weight': 'bold',color: 'white','text-align':'center','background-color':'red'});			
 		}
 		else{
-			alert("Seleccione un dia hábil");
+			alert("Seleccione un dia h&aacute;bil");
 		}
 	}
 							
@@ -366,7 +366,7 @@ banderaCambio=1;
 	    });
 	}
 
-	//Funcion que obtiene de un xml la información requerida a mostrar en la pestaña 'Medidas Cautelares'  
+	//Funcion que obtiene de un xml la informaci&oacute;n requerida a mostrar en la pesta&ntilde;a 'Medidas Cautelares'  
 	function pintarDatosMedidaCautelar(xml){
 		if($(xml).find('MedidaCautelarDTO') != null){
 			$('#campoCasoSSP').val($(xml).find('numeroCaso').text());
@@ -431,7 +431,7 @@ banderaCambio=1;
 	//Funcion que envia parametros al servicio que guarda las fechas de cumplimiento en la base de datos
 	function generarCalendarizacion(){
 		
-		//FIXME CRear los valores del ENUM que no están todos mapeados.
+		//FIXME CRear los valores del ENUM que no est&aacute;n todos mapeados.
 		
 		$("#tabsprincipalconsulta").tabs('enable', 1);
 
@@ -449,7 +449,7 @@ banderaCambio=1;
 			dataType: 'xml',
 			async: false,
 			success: function(xml){
-				alert('Calendarización registrada de manera correcta.');
+				alert('Calendarizaci&oacute;n registrada de manera correcta.');
 				$('#btnCalendarizar').hide();
 				jQuery("#gridSeguimiento").jqGrid('setGridParam', {url:'<%= request.getContextPath()%>/consultarCalendarizacionPorMedidaIdReducido.do?medidaCautelarId='+medidaCautelarId+'',datatype: "xml" });
 				$("#gridSeguimiento").trigger("reloadGrid");
@@ -556,7 +556,7 @@ banderaCambio=1;
 	*	//Leyenda de Medida Vrs. Estatus de Medidas
 	*	//---ABIERTAS---
 	*	//Nuevas--NO_ATENDIDA
-	*	//En Proceso -- EN_PROCESO --Acción de Calendarizar
+	*	//En Proceso -- EN_PROCESO --Acci&oacute;n de Calendarizar
 	*	//Inclumplidas --SUSPENDIDA
 	*	
 	*	//----CERRADAS---
@@ -703,7 +703,7 @@ banderaCambio=1;
 	function controlGenerarDocumento(tipo){	
 		
 		if(tipo == 'colaboracionCumplimiento'){
-			forma = <%=Formas.OFICIO_DE_COLABORACIÓN_DE_CAUTELARES.getValorId()%>;
+			forma = <%=Formas.OFICIO_DE_COLABORACI&Oacute;N_DE_CAUTELARES.getValorId()%>;
 		}
 		if(tipo == 'incumplimientoMedida'){
 			forma = <%=Formas.INCUMPLIMIETO_DE_MEDIDA_CAUTELAR.getValorId()%>;
@@ -798,8 +798,8 @@ banderaCambio=1;
 	}
 	
 	/**
-	* Función que es llamada por el generador de documentos cuando se realiza un guardado definitivo del documento
-	* Esta función actualiza el estado de la solicitud pericial y adjunta el archivo digital recién generado a las solicitudes padre
+	* Funci&oacute;n que es llamada por el generador de documentos cuando se realiza un guardado definitivo del documento
+	* Esta funci&oacute;n actualiza el estado de la solicitud pericial y adjunta el archivo digital reci&eacute;n generado a las solicitudes padre
 	*/
 	function documentoGenerado(){
 		
@@ -949,11 +949,11 @@ banderaCambio=1;
 				if($(xml).find('bandera').text()=='1')
 				{
 					killTabSeguimiento();
-					alert("Se canceló exitosamente el seguimiento.");
+					alert("Se cancel&oacute; exitosamente el seguimiento.");
 				}
 				else
 				{
-					alert("No se logró cancelar el seguimiento");
+					alert("No se logr&oacute; cancelar el seguimiento");
 				}
 			}
 		});
@@ -1002,7 +1002,7 @@ banderaCambio=1;
 			    <td width="145" ><input name="" id="campoCausaSSP" type="text" disabled="disabled" /></td>
 			  </tr>
 			  <tr>
-			    <!--<td align="right">Carpeta Ejecución</td>
+			    <!--<td align="right">Carpeta Ejecuci&oacute;n</td>
 			    <td><input name="" id="campoEjecucionSSP" type="text" disabled="disabled" /></td>-->
 			    <td align="right">Sujeto a Medida</td>
 			    <td><input name="" id="campoSujetoSSP" type="text" disabled="disabled" /></td>

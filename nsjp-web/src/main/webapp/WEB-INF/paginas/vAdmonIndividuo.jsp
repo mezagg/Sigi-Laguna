@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -154,7 +154,7 @@
 
 
 
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <body onload=" prettyPrint();">
@@ -182,7 +182,7 @@
   <tr>
     <td>Edad: </td>
     <td><input type = "text" name = "nombre15" size = "20" /></td>
-    <td>Ocupación:</td>
+    <td>Ocupaci&oacute;n:</td>
     <td> <form >
         <select name="ocupa" multiple="multiple"  id="ocupacion" ondblclick="alert(this.value)" >
         </select>
@@ -234,7 +234,7 @@
     </form></td>
   </tr>
      <tr>
-    <td>Religión</td>
+    <td>Religi&oacute;n</td>
     <td><form id="form1" name="form1" method="post" action="">
       
         <select name="select5" id="religion">
@@ -253,7 +253,7 @@
     <td colspan="6" align="center"   bgcolor="#9999FF">Fecha de Nacimiento:</td>
   </tr>
   <tr>
-    <td>Día:</td>
+    <td>D&iacute;a:</td>
     <td><select name="select6" id="dia">
 
        <option>- Selecciona -</option>
@@ -262,8 +262,8 @@
     <td><select name="select" id="mes">
        <option>- Selecciona -</option>
     </select></td>
-    <td>Año:</td>
-    <td><select name="año" id="anio">
+    <td>A&ntilde;o:</td>
+    <td><select name="a&ntilde;o" id="anio">
      
       <option>- Selecciona -</option>
     </select></td>

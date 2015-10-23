@@ -1,10 +1,10 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.forma.Formas"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Atencion a Sollicitudes de Recurso</title>
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css" />
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/estilos.css" media="screen" />
@@ -120,7 +120,7 @@
 			<td width="33%">&nbsp;</td>
 		</tr>
 		<tr>
-		  <td align="right"><strong>Número de Causa:</strong></td>
+		  <td align="right"><strong>N&uacute;mero de Causa:</strong></td>
 		  <td><input type="text"
 				id="numCausa" 
 				style="width: 150px; border: 0; background: #DDD;"
@@ -142,7 +142,7 @@
 				readonly="readonly"  /></td>
   </tr>
 		<tr>
-		  <td align="right"><strong>Institución Solicitante:</strong></td>
+		  <td align="right"><strong>Instituci&oacute;n Solicitante:</strong></td>
 		  <td><input type="text" id="insSolicitante"
 				style="width: 150px; border: 0; background: #DDD;"
 				readonly="readonly"  /></td>

@@ -1,12 +1,12 @@
 
 <!-- 
- Inicia código JavaScript  
+ Inicia c&oacute;digo JavaScript  
  --> 
 	<script type="text/javascript">
 
 	</script>
 <!-- 
- Termina código JavaScript  
+ Termina c&oacute;digo JavaScript  
  --> 
 
 <div id="mainContent">

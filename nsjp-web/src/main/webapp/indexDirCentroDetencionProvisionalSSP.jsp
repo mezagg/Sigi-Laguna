@@ -126,7 +126,7 @@
 			/*jQuery("#gridDetalleFrmPrincipal").jqGrid({ 
 				url:'<%=request.getContextPath()%>/EjemploCoorPeriDefensoriaCheck.xml', 
 				datatype: "xml", 
-				colNames:['Asignar','Nombre del Solicitante','Número del Expediente','Número de Caso','Tipo de solicitud','Especialidad Perito','Fecha Límite','Enterado' ,'Acuse'], 
+				colNames:['Asignar','Nombre del Solicitante','N&uacute;mero del Expediente','N&uacute;mero de Caso','Tipo de solicitud','Especialidad Perito','Fecha L&iacute;mite','Enterado' ,'Acuse'], 
 				colModel:[ 	{name:'Asignar',index:'asignar', width:25}, 
 							{name:'Solicitante',index:'solicitante', width:50},
 							{name:'Noexpediente',index:'noexpediente', width:50},
@@ -318,12 +318,12 @@
 		}
 		
 		function dblClickRowBandejaSolicitudes(rowID){
-			$.newWindow({id:"iframewindowCoordPeriDefensoriaBandjSolicitudes", statusBar: true, posx:255,posy:111,width:1023,height:481,title:"Designación de Perito", type:"iframe"});
+			$.newWindow({id:"iframewindowCoordPeriDefensoriaBandjSolicitudes", statusBar: true, posx:255,posy:111,width:1023,height:481,title:"Designaci&oacute;n de Perito", type:"iframe"});
 		    $.updateWindowContent("iframewindowCoordPeriDefensoriaBandjSolicitudes",'<iframe src="<%=request.getContextPath()%>/visorCoorPeriDefensoriaBandSolicitudes.do" width="1023" height="481" />'); 
 		}
 
 		function muestraSolicitarDetencion(){
-			$.newWindow({id:"iframewindowSolicitarDetencion", statusBar: true, posx:255,posy:111,width:1023,height:481,title:"Solicitud Detención ", type:"iframe"});
+			$.newWindow({id:"iframewindowSolicitarDetencion", statusBar: true, posx:255,posy:111,width:1023,height:481,title:"Solicitud Detenci&oacute;n ", type:"iframe"});
 		    $.updateWindowContent("iframewindowSolicitarDetencion",'<iframe src="<%=request.getContextPath()%>/solicitarDetencion.jsp" width="1023" height="481" />'); 
 		}
 
@@ -333,17 +333,17 @@
 		}
 
 		function muestraDescarcelacionNA(){
-			$.newWindow({id:"iframewindowDescarcelacionNA", statusBar: true, posx:255,posy:111,width:1023,height:481,title:"Descarcelación No Atendida", type:"iframe"});
+			$.newWindow({id:"iframewindowDescarcelacionNA", statusBar: true, posx:255,posy:111,width:1023,height:481,title:"Descarcelaci&oacute;n No Atendida", type:"iframe"});
 		    $.updateWindowContent("iframewindowDescarcelacionNA",'<iframe src="<%=request.getContextPath()%>/descarcelacionNADirecCentroDetencionSSP.jsp" width="1023" height="481" />'); 
 		}
 
 		function muestraDescarcelacionProceso(){
-			$.newWindow({id:"iframewindowDescarcelacionProceso", statusBar: true, posx:255,posy:111,width:1023,height:481,title:"Descarcelación En Proceso", type:"iframe"});
+			$.newWindow({id:"iframewindowDescarcelacionProceso", statusBar: true, posx:255,posy:111,width:1023,height:481,title:"Descarcelaci&oacute;n En Proceso", type:"iframe"});
 		    $.updateWindowContent("iframewindowDescarcelacionProceso",'<iframe src="<%=request.getContextPath()%>/descarcelacionProceso.jsp" width="1023" height="481" />'); 
 		}
 
 		function muestraDescarcelacionTerminada(){
-			$.newWindow({id:"iframewindowDescarcelacionTerminada", statusBar: true, posx:255,posy:111,width:1023,height:481,title:"Descarcelación Terminada", type:"iframe"});
+			$.newWindow({id:"iframewindowDescarcelacionTerminada", statusBar: true, posx:255,posy:111,width:1023,height:481,title:"Descarcelaci&oacute;n Terminada", type:"iframe"});
 		    $.updateWindowContent("iframewindowDescarcelacionTerminada",'<iframe src="<%=request.getContextPath()%>/descarcelacionTerminada.jsp" width="1023" height="481" />'); 
 		}
 		
@@ -505,7 +505,7 @@
 			jQuery("#gridDetalleEvidencias").jqGrid({ 
 				url:'<%= request.getContextPath()%>/EjemploCoordinadorPeritajeEvidencia.xml', 
 				datatype: "xml", 
-				colNames:['Número de Expediente','Número de Caso','Tipo de solicitud','Nombre del Solicitante','Cadena de Custodia','Perito Responsable','Fecha Límite','Acuse' ], 
+				colNames:['N&uacute;mero de Expediente','N&uacute;mero de Caso','Tipo de solicitud','Nombre del Solicitante','Cadena de Custodia','Perito Responsable','Fecha L&iacute;mite','Acuse' ], 
 				colModel:[ 	{name:'NumeroExpediente',index:'numeroExpediente', width:40},
 				           	{name:'NumeroCaso',index:'numeroCaso', width:25},
 				           	{name:'TipoSolicitud',index:'tipoSolicitud', width:40},
@@ -530,7 +530,7 @@
 			}
 	
 		function muestraSolEvidencia(rowid){
-			$.newWindow({id:"iframewindowAsignacionEvidencia", statusBar: true, posx:200,posy:50,width:700,height:350,title:"Asignación de Evidencia", type:"iframe"});
+			$.newWindow({id:"iframewindowAsignacionEvidencia", statusBar: true, posx:200,posy:50,width:700,height:350,title:"Asignaci&oacute;n de Evidencia", type:"iframe"});
 		    $.updateWindowContent("iframewindowAsignacionEvidencia",'<iframe src="<%=request.getContextPath()%>/asignacionDeEvidencia.jsp" width="700" height="350" />');
 		}
 		
@@ -619,7 +619,7 @@
 				
 				url:'<%= request.getContextPath()%>/consultarSolicitudesDeTrasladoDeImputadoNoAtendidas.do',
 				datatype: "xml", 
-				colNames:['Número de IPH','Nombre del Imputado','Tipo de Audiencia','Fecha de Audiencia','Hora de Audiencia','Domicilio Sala','Sala' ], 
+				colNames:['N&uacute;mero de IPH','Nombre del Imputado','Tipo de Audiencia','Fecha de Audiencia','Hora de Audiencia','Domicilio Sala','Sala' ], 
 				colModel:[ 	{name:'NumeroIph',index:'numeroIph', width:200},
 				           	{name:'NombreImputado',index:'nombreImputado', width:200},
 				           	{name:'TipoAudiencia',index:'tipoAudiencia', width:230},
@@ -662,7 +662,7 @@
 			jQuery("#gridSolicitudesDeTrasladoDeImputadosProceso").jqGrid({ 
 				url:'<%= request.getContextPath()%>/consultarSolicitudesDeTrasladoDeImputadoEnProceso.do', 
 				datatype: "xml", 
-				colNames:['Solicitante','Número de IPH','Nombre del Imputado','Tipo de Audiencia','Fecha de Audiencia','Hora de Audiencia','Domicilio Sala','Sala','Fecha de Autorización descarcelación'], 
+				colNames:['Solicitante','N&uacute;mero de IPH','Nombre del Imputado','Tipo de Audiencia','Fecha de Audiencia','Hora de Audiencia','Domicilio Sala','Sala','Fecha de Autorizaci&oacute;n descarcelaci&oacute;n'], 
 				colModel:[ 	{name:'Solicitante',index:'solicitante', width:200},
 				           	{name:'NumeroIph',index:'numeroIph', width:200},
 				           	{name:'NombreImputado',index:'nombreImputado', width:230},
@@ -708,7 +708,7 @@
 			jQuery("#gridSolicitudesDeTrasladoDeImputadosTerminadas").jqGrid({ 
 				url:'<%= request.getContextPath()%>/consultarSolicitudesDeTrasladoDeImputadoTerminadas.do', 
 				datatype: "xml", 
-				colNames:['Solicitante','Número de IPH','Nombre del Imputado','Tipo de Audiencia','Fecha de Audiencia','Hora de Audiencia','Domicilio Sala','Sala','Fecha de Autorización descarcelación','Fecha Exámen Médico'], 
+				colNames:['Solicitante','N&uacute;mero de IPH','Nombre del Imputado','Tipo de Audiencia','Fecha de Audiencia','Hora de Audiencia','Domicilio Sala','Sala','Fecha de Autorizaci&oacute;n descarcelaci&oacute;n','Fecha Ex&aacute;men M&eacute;dico'], 
 				colModel:[ 	{name:'Solicitante',index:'solicitante', width:200},
 				           	{name:'NumeroIph',index:'numeroIph', width:200},
 				           	{name:'NombreImputado',index:'nombreImputado', width:230},
@@ -823,7 +823,7 @@
 				
 				url:'<%= request.getContextPath()%>/consultarSolicitudesDeDescarcelacionNoAtendidas.do',
 				datatype: "xml", 
-				colNames:['Solicitante','Número de IPH','Nombre del Imputado','Tipo de Audiencia','Fecha de Audiencia','Hora de Audiencia','Domicilio Sala','Sala' ], 
+				colNames:['Solicitante','N&uacute;mero de IPH','Nombre del Imputado','Tipo de Audiencia','Fecha de Audiencia','Hora de Audiencia','Domicilio Sala','Sala' ], 
 				colModel:[ 	{name:'Solicitante',index:'solicitante', width:200},
 							{name:'NumeroIph',index:'numeroIph', width:200},
 				           	{name:'NombreImputado',index:'nombreImputado', width:200},
@@ -867,7 +867,7 @@
 			jQuery("#gridSolicitudesDeDescarcelacionProceso").jqGrid({ 
 				url:'<%= request.getContextPath()%>/consultarSolicitudesDeDescarcelacionEnProceso.do', 
 				datatype: "xml", 
-				colNames:['Solicitante','Número de IPH','Nombre del Imputado','Tipo de Audiencia','Fecha de Audiencia','Hora de Audiencia','Domicilio Sala','Sala'], 
+				colNames:['Solicitante','N&uacute;mero de IPH','Nombre del Imputado','Tipo de Audiencia','Fecha de Audiencia','Hora de Audiencia','Domicilio Sala','Sala'], 
 				colModel:[ 	{name:'Solicitante',index:'solicitante', width:200},
 				           	{name:'NumeroIph',index:'numeroIph', width:200},
 				           	{name:'NombreImputado',index:'nombreImputado', width:230},
@@ -912,7 +912,7 @@
 			jQuery("#gridSolicitudesDeDescarcelacionTerminadas").jqGrid({ 
 				url:'<%= request.getContextPath()%>/consultarSolicitudesDeDescarcelacionTerminadas.do', 
 				datatype: "xml", 
-				colNames:['Solicitante','Número de IPH','Nombre del Imputado','Tipo de Audiencia','Fecha de Audiencia','Hora de Audiencia','Domicilio Sala','Sala','Fecha de Cierre'], 
+				colNames:['Solicitante','N&uacute;mero de IPH','Nombre del Imputado','Tipo de Audiencia','Fecha de Audiencia','Hora de Audiencia','Domicilio Sala','Sala','Fecha de Cierre'], 
 				colModel:[ 	{name:'Solicitante',index:'solicitante', width:200},
 				           	{name:'NumeroIph',index:'numeroIph', width:200},
 				           	{name:'NombreImputado',index:'nombreImputado', width:230},
@@ -968,7 +968,7 @@ function visorLeyesCodigos() {
 			<div class="content">
 				<div id="accordionmenuprincipal">
 					<h3>
-						<a id="solicitudesAudio" href="#"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png" id="botpenal" width="15" height="15">&nbsp;Director Policía Procesal</a>
+						<a id="solicitudesAudio" href="#"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png" id="botpenal" width="15" height="15">&nbsp;Director Polic&iacute;a Procesal</a>
 					</h3>
 					<div>
 						<table width="100%" border="0" bordercolor="#FFFFFF" cellspacing="0" cellpadding="0" style="cursor:pointer">
@@ -977,7 +977,7 @@ function visorLeyesCodigos() {
 							   <td width="100%" id="solicitarDetencion"><img src="<%=request.getContextPath()%>/resources/images/icn_folderchek.png" width="20" height="16"  /><span id="sp1" onclick="estilosMenu('sp1')">Solicitudes</span></td>
 							</tr>
 							<tr>
-							   <td width="100%" id="solicitudes"><img src="<%=request.getContextPath()%>/resources/images/icn_folderchek.png" width="20" height="16"  /><span id="sp2" onclick="estilosMenu('sp2')">Descarcelación</span></td>
+							   <td width="100%" id="solicitudes"><img src="<%=request.getContextPath()%>/resources/images/icn_folderchek.png" width="20" height="16"  /><span id="sp2" onclick="estilosMenu('sp2')">Descarcelaci&oacute;n</span></td>
 								
 							</tr>
 							<tr>
@@ -1228,7 +1228,7 @@ function visorLeyesCodigos() {
 
 	<div id="dialog-logout" title="Cerrar Sesi&oacute;n">
 		<p align="center">
-			<span id="logout">¿Desea cerrar su sesi&oacute;n?</span>
+			<span id="logout">&iquest;Desea cerrar su sesi&oacute;n?</span>
 		</p>
 	</div>
 	<!-- dialogos para las alarmas -->
@@ -1242,11 +1242,11 @@ function visorLeyesCodigos() {
 		<p align="center">
 			<table border="0">
 				<tr>
-					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contraseña para desbloquear.</td>
+					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contrase&ntilde;a para desbloquear.</td>
 					
 				</tr>
 				<tr>
-					<td align="right"><label style="color:#4A5C68">Contraseña:</label></td>
+					<td align="right"><label style="color:#4A5C68">Contrase&ntilde;a:</label></td>
 					<td><input type="password" name="password" id="password" value="" maxlength="15" size="20"></td>
 				</tr>
 				<tr id="captchaJPG" >
@@ -1275,7 +1275,7 @@ function visorLeyesCodigos() {
 				La sesi&oacute;n se cerrar&aacute; en <span id="dialog-countdown" style="font-weight:bold"></span> segundos.
 			</p>
 
-			<p>¿Desea continuar con la sesi&oacute;n?</p>
+			<p>&iquest;Desea continuar con la sesi&oacute;n?</p>
 	</div>
 	<div id="dialog-alarmPos" title="Alarma ">
 		<p align="center">

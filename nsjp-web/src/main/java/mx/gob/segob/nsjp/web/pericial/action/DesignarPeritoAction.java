@@ -18,7 +18,7 @@
 *------------------------------------------------------------------------------
 */
 package mx.gob.segob.nsjp.web.pericial.action;
-
+ 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -61,7 +61,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * Componente de Action que atiende las solicitudes para asignar peritos a un expediente
  * y atender una solicitud de servicio pericial
  * @version 1.0
- * @author Emigdio Hernández
+ * @author Emigdio Hernï¿½ndez
  *
  */
 public class DesignarPeritoAction extends GenericAction {
@@ -77,7 +77,7 @@ public class DesignarPeritoAction extends GenericAction {
 	private static final Logger log  = Logger.getLogger(DesignarPeritoAction.class);
 	
 	/**
-	 * Método para realizar al búsqueda de peritos por 3 tipos de filtro:
+	 * Mï¿½todo para realizar al bï¿½squeda de peritos por 3 tipos de filtro:
 	 * Nombre: Busca peritos por nombre, apellido paterno y/o apellido materno
 	 * @param mapping
 	 * @param form
@@ -182,7 +182,7 @@ public class DesignarPeritoAction extends GenericAction {
 	}
 	
 	/**
-	 * Método para realizar al búsqueda de peritos por 3 tipos de filtro:
+	 * Mï¿½todo para realizar al bï¿½squeda de peritos por 3 tipos de filtro:
 	 * Nombre: Busca peritos por nombre, apellido paterno y/o apellido materno
 	 * @param mapping
 	 * @param form
@@ -247,7 +247,7 @@ public class DesignarPeritoAction extends GenericAction {
 	
 	
 	/**
-	 * Método para realizar al búsqueda de peritos por 3 tipos de filtro:
+	 * Mï¿½todo para realizar al bï¿½squeda de peritos por 3 tipos de filtro:
 	 * Nombre: Busca peritos por nombre, apellido paterno y/o apellido materno
 	 * @param mapping
 	 * @param form
@@ -299,7 +299,7 @@ public class DesignarPeritoAction extends GenericAction {
 	
 	
 	/**
-	 * Método para realizar la consulta de asignaciones no atendidas por un perito, tanto la asignacion
+	 * Mï¿½todo para realizar la consulta de asignaciones no atendidas por un perito, tanto la asignacion
 	 * de una asesoria, como de un dictamen
 	 * @param mapping
 	 * @param form
@@ -362,7 +362,7 @@ public class DesignarPeritoAction extends GenericAction {
 	}
 	
 	/**
-	 * Método para realizar la consulta de asignaciones no atendidas por un perito, tanto la asignacion
+	 * Mï¿½todo para realizar la consulta de asignaciones no atendidas por un perito, tanto la asignacion
 	 * de una asesoria, como de un dictamen
 	 * @param mapping
 	 * @param form
@@ -392,7 +392,7 @@ public class DesignarPeritoAction extends GenericAction {
 	
 	
 	/**
-	 * Método para realizar la consulta de asignaciones no atendidas por un perito, tanto la asignacion
+	 * Mï¿½todo para realizar la consulta de asignaciones no atendidas por un perito, tanto la asignacion
 	 * de una asesoria, como de un dictamen
 	 * @param mapping
 	 * @param form
@@ -495,7 +495,7 @@ public class DesignarPeritoAction extends GenericAction {
 	
 	
 	/**
-	 * Método para realizar la consulta de todos aquellos peritos que no esten en posesion o tengan asignada una 
+	 * Mï¿½todo para realizar la consulta de todos aquellos peritos que no esten en posesion o tengan asignada una 
 	 * evidencia, relacionada con la solicitud
 	 * @param mapping
 	 * @param form
@@ -578,7 +578,7 @@ public class DesignarPeritoAction extends GenericAction {
 	}
 	
 	/**
-	 * Método realizar la asociacion del perito con la evidencia
+	 * Mï¿½todo realizar la asociacion del perito con la evidencia
 	 * @param mapping
 	 * @param form
 	 * @param request 
@@ -609,7 +609,7 @@ public class DesignarPeritoAction extends GenericAction {
 	}
 	
 	/**
-	 * Método para asignar los peritos a la bandeja de entrada
+	 * Mï¿½todo para asignar los peritos a la bandeja de entrada
 	 * @param mapping
 	 * @param form
 	 * @param request 
@@ -652,7 +652,7 @@ public class DesignarPeritoAction extends GenericAction {
 	}
 	
 	/**
-	 * Método para realizar la consulta de solicitudes para reasignacion
+	 * Mï¿½todo para realizar la consulta de solicitudes para reasignacion
 	 * @param mapping
 	 * @param form
 	 * @param request 
@@ -699,7 +699,7 @@ public class DesignarPeritoAction extends GenericAction {
 	}
 	
 	/**
-	 * Método reasigna perito a una solicitud pericial
+	 * Mï¿½todo reasigna perito a una solicitud pericial
 	 * @param mapping
 	 * @param form
 	 * @param request 

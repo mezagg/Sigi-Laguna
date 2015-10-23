@@ -9,7 +9,7 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.funcionario.TipoDefensoria"%>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Visor Defensor&iacute;a</title>
 
 	<!--HOJAS DE ESTILO-->
@@ -535,7 +535,7 @@
 			var errorCode = $(respuesta).find('response').find('code').text();
 			//Si errorCode=0 entonces continuamos con el flujo
 			if(parseInt(errorCode)==0){
-				customConfirm("Se asignó de forma correcta al defensor","",function(){
+				customConfirm("Se asign&oacute; de forma correcta al defensor","",function(){
 					//Aceptar
 					//Recargar el gird de solicitudes 
 					window.parent.cargaGridSolicitudesDefensor(idInstitucion,estatusSolicitud);
@@ -543,7 +543,7 @@
 					window.parent.closeVentana(idWindow);
 				},"");
 			}else{
-				customAlert("Ocurrió un error al asignar el defensor");
+				customAlert("Ocurri&oacute; un error al asignar el defensor");
 			}
 		} , param);		
 	} 

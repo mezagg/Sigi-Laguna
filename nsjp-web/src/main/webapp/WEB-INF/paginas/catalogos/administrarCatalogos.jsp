@@ -4,12 +4,12 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html" %>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic" %>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean" %>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Insert title here</title>
 
 	<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/estilos.css"/>	
@@ -139,7 +139,7 @@
 		</html:form>
 		</td>
 		<td>
-			<input type="button" id="agregarValorAlCatalogo" value="Agregar nuevo valor al Catálogo" onclick="agregarValorCatalogo()" class="btn_Generico"/>
+			<input type="button" id="agregarValorAlCatalogo" value="Agregar nuevo valor al Cat&aacute;logo" onclick="agregarValorCatalogo()" class="btn_Generico"/>
 		</td>
 	</tr>
 	</table>

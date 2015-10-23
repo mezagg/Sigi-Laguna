@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.institucion.Instituciones"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.institucion.Areas"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.expediente.EstatusExpediente"%>
@@ -9,7 +9,7 @@
 <html>
 <head>
 <title>Solicitar Permisos</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/jquery.windows-engine.css"/>
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/estilos.css" media="screen" />
 	<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/multiselect/jquery.multiselect.css" />
@@ -81,7 +81,7 @@
 				idWindowDetalleAuditoria++;
 				var anchoVentana = $(document).width();
 				var altoVentana = $(document).height();
-				$.newWindow({id:"iframewindowDetalleAuditoria"+idWindowDetalleAuditoria, statusBar: true, posx:0,posy:0,width:anchoVentana,height:altoVentana,title:"Carpetas de Investigación", type:"iframe"});
+				$.newWindow({id:"iframewindowDetalleAuditoria"+idWindowDetalleAuditoria, statusBar: true, posx:0,posy:0,width:anchoVentana,height:altoVentana,title:"Carpetas de Investigaci&oacute;n", type:"iframe"});
 				$.maximizeWindow("iframewindowDetalleAuditoria"+idWindowDetalleAuditoria);
 				$.updateWindowContent("iframewindowDetalleAuditoria"+idWindowDetalleAuditoria,'<iframe src="<%= request.getContextPath() %>/expedientesAuditados.do?idExpedientes='+s+'&idFuncionario='+idFuncionario+'&tipoVisita='+tipoVisita+'" width='+anchoVentana+' height='+altoVentana+' />');
 			}		
@@ -315,7 +315,7 @@
 							url:'<%=request.getContextPath()%>/consultarExpedientesPorFuncionarioAreaEstatus.do?idFuncionario='+ idFuncionario + 			
 									'', 
 							datatype: "xml",  							
-							colNames:['Número de Expediente','Número de caso','Delito Principal'], 
+							colNames:['N&uacute;mero de Expediente','N&uacute;mero de caso','Delito Principal'], 
 							colModel:[  {name:'Expediente',index:'expediente',width:250,align:'center'},
 							            {name:'Caso',index:'caso', width:250,align:'center'},
 										{name:'Delito',index:'delito',width:300,align:'center'}

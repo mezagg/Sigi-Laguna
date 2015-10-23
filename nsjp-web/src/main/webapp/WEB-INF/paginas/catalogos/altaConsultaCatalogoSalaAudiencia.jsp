@@ -4,7 +4,7 @@
 <%@page import="mx.gob.segob.nsjp.web.catalogo.form.CatalogosForm"%>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/estilos.css"/>	
 	<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/layout_complex.css"/>
 	<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/jquery-ui.css"/>
@@ -369,7 +369,7 @@
 	function validaCampos(){
 			
 		if($("#nombreSala").val() == "" || $("#domicilioSala").val() == "" || $("#ubicacionSala").val() == ""){
-			alertDinamico("Es indispensable capturar los campos que están marcados con asterisco");
+			alertDinamico("Es indispensable capturar los campos que est&aacute;n marcados con asterisco");
 			return 0;
 		}
 		else{
@@ -399,26 +399,26 @@
 						campos = campos +", Funcionario";
 					}
 				}
-				alertDinamico("Favor de verificar que tenga una selección valida los siguientes campos: " + campos);
+				alertDinamico("Favor de verificar que tenga una selecci&oacute;n valida los siguientes campos: " + campos);
 				return 0;
 			}				
 		}	
 		
 		if($("#salaJAVS").is(':checked')){					
 			if($("#dirJAVS").val() == "" || $("#userJAVS").val() == "" || $("#psJAVS").val() == "" || $("#psJAVS1").val() == ""){
-				alertDinamico("Es indispensable capturar los campos que están marcados con asterisco");
+				alertDinamico("Es indispensable capturar los campos que est&aacute;n marcados con asterisco");
 				return 0;
 			}
 			else{
 				
 				if($("#psJAVS").val() != $("#psJAVS1").val()){
-					alertDinamico("Favor de verificar la contraseña proporcionada");
+					alertDinamico("Favor de verificar la contrase&ntilde;a proporcionada");
 					return 0;					
 				}
 				
 				var ipCorrecta = validaDireccionIP($("#dirJAVS").val());
 				if(ipCorrecta==0){
-					alertDinamico("Favor de verificar el formato de la dirección IP (XXX.XXX.XXX.XXX)");
+					alertDinamico("Favor de verificar el formato de la direcci&oacute;n IP (XXX.XXX.XXX.XXX)");
 				}
 				return ipCorrecta;
 			}
@@ -508,13 +508,13 @@
 					}
 					else{
 						if(estatusElimina == 1){
-							alertSincronoGuardado("La sala de audiencia no ha sido eliminada, ocurrió un error");
+							alertSincronoGuardado("La sala de audiencia no ha sido eliminada, ocurri&oacute; un error");
 						}
 						else{
 							<% if (esNuevo == false) { %>
-								alertSincronoGuardado("La sala de audiencia no ha sido registrada, ocurrió un error");
+								alertSincronoGuardado("La sala de audiencia no ha sido registrada, ocurri&oacute; un error");
 							<% } else { %>
-								alertSincronoGuardado("La sala de audiencia no ha sido modificada, ocurrió un error");
+								alertSincronoGuardado("La sala de audiencia no ha sido modificada, ocurri&oacute; un error");
 							<% }  %>
 						}
 					}
@@ -616,7 +616,7 @@
 	  	</tr>
 	  	<tr>
 	    	<td>
-	    		<div align="center">* Ubicación de la sala:</div>
+	    		<div align="center">* Ubicaci&oacute;n de la sala:</div>
 	    	</td>
 	    	<td>
 	    		<input type="text" id="ubicacionSala" style="width:260px" tabindex="1" maxlength="100"/>
@@ -641,13 +641,13 @@
 	  	<tr><td>&nbsp;</td></tr>
 		<tr>
 	    	<td>
-		    	<div align="center" id="labelDirJAVS">* Dirección IP - Servidor JAVS:</div>
+		    	<div align="center" id="labelDirJAVS">* Direcci&oacute;n IP - Servidor JAVS:</div>
 	    	</td>
 	    	<td>
 	    		<input type="text" id="dirJAVS" style="width:150px" tabindex="1" maxlength="20"/>
 	    	</td>
 	    	<td>
-		    	<div align="center" id="labelPsJAVS">* Contraseña del usuario:</div>
+		    	<div align="center" id="labelPsJAVS">* Contrase&ntilde;a del usuario:</div>
 	    	</td>
 	    	<td>
 	    		<input type="password" id="psJAVS" style="width:150px" tabindex="1" maxlength="20"/>
@@ -661,7 +661,7 @@
 	    		<input type="text" id="userJAVS" style="width:150px" tabindex="1" maxlength="20"/>
 	    	</td>
 	  		<td>
-		    	<div align="center" id="labelPsJAVS1">* Repetir Contraseña:</div>
+		    	<div align="center" id="labelPsJAVS1">* Repetir Contrase&ntilde;a:</div>
 	    	</td>
 	    	<td>
 	    		<input type="password" id="psJAVS1" style="width:150px" tabindex="1" maxlength="20"/>

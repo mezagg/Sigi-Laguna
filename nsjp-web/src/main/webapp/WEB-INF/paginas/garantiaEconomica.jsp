@@ -104,15 +104,15 @@
 					                </dd>
 					                <dt>Suspender derechos</dt>
 					                <dd></dd>
-					                <dt>Localizadores electrónicos</dt>
+					                <dt>Localizadores electr&oacute;nicos</dt>
 					                <dd>
 					                	  <table><tr><td>Localizador Electronico:<select id="cmbLocalizador"><option>Radio</option></select></td></tr></table>                       
 					                </dd>
-					                <dt>Presentaciones periódicas</dt>
+					                <dt>Presentaciones peri&oacute;dicas</dt>
 					                <dd>
 					                	<table width="530px"><tr><td colspan="2">Presentarse en:<select id="cmbInstitucion"><option>Defensoria</option></select></td></tr>
 					                			<tr><td colspan="2">Presentarse con:<select id="cmbEncargadoIns"><option>Juan Hernandez - Coordinador</option></select></td></tr>
-					                			<tr><td colspan="2">Día(s):<input type="text" size="20" /></td></tr>
+					                			<tr><td colspan="2">D&iacute;a(s):<input type="text" size="20" /></td></tr>
 					                    		<tr><td colspan="2">Hora:<input type="text" size="20" /></td></tr>
 					                    		<tr><td width="81">&nbsp;</td>
 					                    		  <td width="437">&nbsp;</td>
@@ -132,7 +132,7 @@
 					                <dt>Arresto domiciliario</dt>
 					                <dd>
 					                </dd>
-					                <dt>Separación de domicilio</dt>
+					                <dt>Separaci&oacute;n de domicilio</dt>
 					                <dd></dd>
 					                <dt>Prohibir salida territorial</dt>
 					                <dd>
@@ -141,7 +141,7 @@
 									<td width="40">Territorio:</td>
 									<td width="40"><select name="cmbProhibicion2"
 										id="cmbProhibicion2">
-											<option>Delegación ó Municipio</option>
+											<option>Delegaci&oacute;n &oacute; Municipio</option>
 											<option>Estado</option>
 											<option>Otro</option>
 									</select>
@@ -158,7 +158,7 @@
 									<td>Estado:</td>
 									<td><select name="cmbProhibicion3" id="cmbProhibicion3">
 											<option>Chiapas</option>
-											<option>México</option>
+											<option>M&eacute;xico</option>
 											<option>Puebla</option>
 									</select>
 									</td>
@@ -182,7 +182,7 @@
 					                <dd>
 							<table width="530px">
 								<tr>
-									<td width="82">Víctimas:</td>
+									<td width="82">V&iacute;ctimas:</td>
 									<td width="282" align="right">Tipo de Prohibici&oacute;n:
 									</td>
 									<td><select name="cmbProhibicion" id="cmbProhibicion">
@@ -215,7 +215,7 @@
 							</table>
 
 						</dd>
-					                <dt>Prisión preventiva</dt>
+					                <dt>Prisi&oacute;n preventiva</dt>
 					                <dd>
 					                	<table><tr><td colspan="2">Reclusorios:<select id="cmbReclu">
 					                	<option>Norte</option>

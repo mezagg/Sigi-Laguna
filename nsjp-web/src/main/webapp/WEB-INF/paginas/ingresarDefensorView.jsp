@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
 		<%@ page import="mx.gob.segob.nsjp.comun.enums.calidad.Calidades" %>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Ingresar Victima</title>
 		<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/estilos.css" media="screen" />
 		<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css"/>
@@ -458,7 +458,7 @@
 					}
 				}
 				
-				//Función para alertDinamicoCerrar
+				//Funci&oacute;n para alertDinamicoCerrar
 				function alertDinamicoCerrar(textoAlert){						
 					$("#divAlertTextoCerrar").html(textoAlert);
 				    $( "#dialog-AlertCerrar" ).dialog({
@@ -476,7 +476,7 @@
 					});    
 				 }
 				/**
-				* Función que guarda los datos de la pantalla
+				* Funci&oacute;n que guarda los datos de la pantalla
 				*/
 				function guardarOrgDenunciante(){
 					var params = '';
@@ -505,12 +505,12 @@
 						    		  //$("#iVictimaBtnGuardar").attr("disabled","disabled");
 					    			  $("#iIngOrgBtnGuardar").attr("disabled","disabled");
 					    			  $("#iIngOrgBtnIngresarContacto,#btnIngOrgFormalDatosRep").attr("disabled","");
-						    		  customAlert("La Organización se guardó exitosamente");
+						    		  customAlert("La Organizaci&oacute;n se guard&oacute; exitosamente");
 					    		  }
 					    		  else
 					    		  {
 					    			  idOrganizacion=0;
-					    			  customAlert("Ocurrió un error al guardar la organización");
+					    			  customAlert("Ocurri&oacute; un error al guardar la organizaci&oacute;n");
 					    		  }
 					    	  }
 					    	});
@@ -606,7 +606,7 @@
 					
     	            <table width="195" border="0" cellspacing="0" cellpadding="0">
 	                    <tr>
-			 				<td width="111" align="left" valign="middle" class="txt_gral_victima"> Defensor Público</td>
+			 				<td width="111" align="left" valign="middle" class="txt_gral_victima"> Defensor P&uacute;blico</td>
 							<td width="84"><span class="txt_gral_victima"><input type="radio" value="false" name="defensor" id="iDefensorPublico"/></span></td>
 							
 	                    </tr>
@@ -709,15 +709,15 @@
 					                <dd>
 					                	<jsp:include page="ingresarDomicilioView.jsp"/>
 						            </dd>
-					                <!-- dt id="mediafiliacionTab">Media Filiación</dt>
+					                <!-- dt id="mediafiliacionTab">Media Filiaci&oacute;n</dt>
 					                <dd>
-					                	<p> Media filiación</p>
+					                	<p> Media filiaci&oacute;n</p>
 					                </dd-->
 					                <dt id="mediosContactos">Medios de Contacto</dt>
 					                <dd>
 					                	<jsp:include page="ingresarMediosContactoView.jsp"/>
 					                </dd>
-					                <dt id="documentosIdentificacion">Documentos de Identificación </dt>
+					                <dt id="documentosIdentificacion">Documentos de Identificaci&oacute;n </dt>
 					                <dd>
 										<jsp:include page="ingresarDocumentoIdentificacionView.jsp"/>
 									</dd>

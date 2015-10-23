@@ -2,8 +2,8 @@
 <%@page import="mx.gob.segob.nsjp.web.login.action.LoginAction"%>
 <%@page import="mx.gob.segob.nsjp.dto.configuracion.ConfiguracionDTO"%>
 <%@page import="mx.gob.segob.nsjp.web.base.action.GenericAction"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
 <%@page import="mx.gob.segob.nsjp.dto.usuario.RolDTO"%>
 <%@page import="mx.gob.segob.nsjp.dto.usuario.UsuarioDTO"%>
 <% 
@@ -568,7 +568,7 @@ body,td,th {
 		*/
 		function dblClickRowBandejaAudiencias(rowID){
 			idWindowDetalleNotificacion++;
-			$.newWindow({id:"iframewindowDetalleNotificacion"+idWindowDetalleNotificacion, statusBar: true, posx:200,posy:50,width:1140,height:400,title:"Atender Notificación", type:"iframe"});
+			$.newWindow({id:"iframewindowDetalleNotificacion"+idWindowDetalleNotificacion, statusBar: true, posx:200,posy:50,width:1140,height:400,title:"Atender Notificaci&oacute;n", type:"iframe"});
 	    	$.updateWindowContent("iframewindowDetalleNotificacion"+idWindowDetalleNotificacion,'<iframe src="<%=request.getContextPath()%>/acarrearIdEvento.do?idEvento=' +rowID +'" width="1140" height="400" />'); 
 	    	$("#" +"iframewindowDetalleNotificacion"+idWindowDetalleNotificacion+ " .window-maximizeButton").click();
 			}
@@ -718,7 +718,7 @@ body,td,th {
              */
 	
             function lanzaMenuSalidasAlmacen() {
-                abreNuevoFrame("iframewindowGenerarDocumento", "/salidaAlmacen.do", 10, 10, 1024, 900, "Salida de Almacén");
+                abreNuevoFrame("iframewindowGenerarDocumento", "/salidaAlmacen.do", 10, 10, 1024, 900, "Salida de Almac&eacute;n");
             }
 
           
@@ -737,7 +737,7 @@ body,td,th {
             }
 
             function paraGridGenerarReporte() {
-            // Se llena del osd Seleccionar almacén de evidencias
+            // Se llena del osd Seleccionar almac&eacute;n de evidencias
 	
             }
 
@@ -823,17 +823,17 @@ body,td,th {
         		$('#divGridDetalle').hide();
         		
         		
-        	//Número de causa
-        	//- Número de carpeta de ejecución
+        	//N&uacute;mero de causa
+        	//- N&uacute;mero de carpeta de ejecuci&oacute;n
         	//- Solicitante
-        	//- Institución solicitante
+        	//- Instituci&oacute;n solicitante
         	//- Sentenciado
         	//- Fecha - hora de solicitud (Nota 1)
         	
         jQuery("#gridPreliberacion").jqGrid({ 
         						url:'<%= request.getContextPath()%>/consultarSolicitudesPorTipoYEstatus.do',
         						datatype: "xml", 
-        						colNames:['Número de Causa','Carpeta de Ejecución','Solicitante','Institución Solicitante','Sentenciado','Fecha - Hora de Solicitud'], 
+        						colNames:['N&uacute;mero de Causa','Carpeta de Ejecuci&oacute;n','Solicitante','Instituci&oacute;n Solicitante','Sentenciado','Fecha - Hora de Solicitud'], 
         						colModel:[ 	{name:'numeroCausa',index:'1', width:127}, 
         									{name:'carpetaEjecucion',index:'2', width:127}, 
         									{name:'solicitante',index:'3', width:127}, 
@@ -939,15 +939,15 @@ body,td,th {
 						
 					</ul>	
                     </div>-->
-               <h3 ><a id="evento" href="#" onclick="cargaCarpetadePreliberacion()"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png" id="botpenal" width="15" height="15">&nbsp;Beneficios de Preliberación</a></h3>
+               <h3 ><a id="evento" href="#" onclick="cargaCarpetadePreliberacion()"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png" id="botpenal" width="15" height="15">&nbsp;Beneficios de Preliberaci&oacute;n</a></h3>
 				<div>			
 					<!-- <ul id="seccion1treePJENC" class="filetree">
-						<li><span class="file"><a id="audienciaDelDia" style="cursor: pointer;" onclick="cargaGridDiaPJENC();">Audiencia de Ejecución</a></span></li>
-						<li><span class="file" id="porFecha" style="cursor: pointer;" onclick="modalFecha()">Carpeta de Ejecución</span></li>
+						<li><span class="file"><a id="audienciaDelDia" style="cursor: pointer;" onclick="cargaGridDiaPJENC();">Audiencia de Ejecuci&oacute;n</a></span></li>
+						<li><span class="file" id="porFecha" style="cursor: pointer;" onclick="modalFecha()">Carpeta de Ejecuci&oacute;n</span></li>
 						<li><span class="file" id="porFecha" style="cursor: pointer;" onclick="modalFecha()">Hist&oacute;rico</span></li>
 					</ul>	-->	
 				</div>
-<!-- 			<h3 ><a id="" href="#" onclick="generaVisorGraficaView()"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png"  width="15" height="15">Gráficas y Reportes</a></h3>
+<!-- 			<h3 ><a id="" href="#" onclick="generaVisorGraficaView()"><img src="<%=request.getContextPath() %>/resources/images/icn_carpprincipal.png"  width="15" height="15">Gr&aacute;ficas y Reportes</a></h3>
 				<div>		
 					<input type="button" value="Ver Grafica" id="imageViewer" name="imageViewer"/>	
 					<ul id="seccion3treePJENC" class="filetree">
@@ -1185,7 +1185,7 @@ body,td,th {
         
     <div id="dialog-logout" title="Cerrar Sesi&oacute;n">
 		<p align="center">
-			<span id="logout">¿Desea cerrar su sesi&oacute;n?</span>
+			<span id="logout">&iquest;Desea cerrar su sesi&oacute;n?</span>
 		</p>
 	</div>
 	<!-- dialogos para las alarmas -->
@@ -1199,11 +1199,11 @@ body,td,th {
 		<p align="center">
 			<table border="0">
 				<tr>
-					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contraseña para desbloquear.</td>
+					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contrase&ntilde;a para desbloquear.</td>
 					
 				</tr>
 				<tr>
-					<td align="right"><label style="color:#4A5C68">Contraseña:</label></td>
+					<td align="right"><label style="color:#4A5C68">Contrase&ntilde;a:</label></td>
 					<td><input type="password" name="password" id="password" value="" maxlength="15" size="20"></td>
 				</tr>
 				<tr id="captchaJPG" >
@@ -1232,7 +1232,7 @@ body,td,th {
 				La sesi&oacute;n se cerrar&aacute; en <span id="dialog-countdown" style="font-weight:bold"></span> segundos.
 			</p>
 
-			<p>¿Desea continuar con la sesi&oacute;n?</p>
+			<p>&iquest;Desea continuar con la sesi&oacute;n?</p>
 	</div>
 	<div id="dialog-alarmPos" title="Alarma ">
 		<p align="center">

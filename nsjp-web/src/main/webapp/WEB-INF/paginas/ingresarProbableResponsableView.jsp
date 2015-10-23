@@ -1,5 +1,5 @@
 <%@page import="org.omg.CORBA.Request"%>
-<%@page language="java" contentType="text/html; charset=ISO-8859-1"	pageEncoding="ISO-8859-1"%>
+<%@page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@page import="mx.gob.segob.nsjp.dto.usuario.UsuarioDTO"%>
 <%@page import="mx.gob.segob.nsjp.dto.configuracion.ConfiguracionDTO"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.seguridad.Roles"%>
@@ -15,7 +15,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 			<title><bean:message key="ingProbaleResponsableTitulo"/></title>
 				
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/jquery-ui.css" />
@@ -240,7 +240,7 @@ DD P {
 				habilitaDetenido();
 			}		
 
-			//Si viene de CoordinadorAMP, policiaMinister ó agenteMP se muestra el campo de detenido
+			//Si viene de CoordinadorAMP, policiaMinister &oacute; agenteMP se muestra el campo de detenido
 			if(parseInt(muestraDetenido) == 1){
 					$("#etiquetaDetenido").show();
 					$("#chkPResponsableDetenido").show();
@@ -268,7 +268,7 @@ DD P {
 			var nombreDefensor=parent.nombreDefensor;
 			//agregamos el listener del evento onchange del combo de tipo de persona
 			//$("#cbxProbResponsableTipoResp").change(onSelectChangeTipoPersonaMoral);
-			//Se muestra o se oculta la sección de datos para ingresa organzacion 
+			//Se muestra o se oculta la secci&oacute;n de datos para ingresa organzacion 
 			$('#iIngresarOrgWorkSheet').hide();
 			$('#iVictimaBtnModificarDatos').hide();	
 			//recuperamos la fecha del servidor
@@ -711,7 +711,7 @@ DD P {
 
 	  /*
 	   *Funcion que muestra los datos del involucrado de acuerdo a su condicion, es
-	   *decir Vivo, Muerto, Desconocido, simpre y cuando, sea persona física
+	   *decir Vivo, Muerto, Desconocido, simpre y cuando, sea persona f&iacute;sica
 	   */
 		function muestraDatosCondicion(xml){
 
@@ -743,7 +743,7 @@ DD P {
 		}
 
 	  /*
-	   *Funcion que verifica si el prob responsable es una persona física o moral
+	   *Funcion que verifica si el prob responsable es una persona f&iacute;sica o moral
 	   *y oculta o muestra los datos dependiendo de ello
 	   */	
 		function muestraDatosPersona(xml){
@@ -885,7 +885,7 @@ DD P {
 			}
 			else{
 				if(idConDefensor!=null && idConDefensor!="null" && idConDefensor!=0){
-	                if (confirm("¿Desea anular el defensor asociado?")){                      
+	                if (confirm("&iquest;Desea anular el defensor asociado?")){                      
 	                	anularDefensor();
 	                }
 					else{
@@ -1012,7 +1012,7 @@ DD P {
 				
 		/*
 		 * Funcion para deshabilitar el tab de un acordeon, se pasa el id del elemento DT a
-		 * deshabilitar y el id del elemento dt, para activar su pestaña correspondiente
+		 * deshabilitar y el id del elemento dt, para activar su pesta&ntilde;a correspondiente
 		 * y un 0 para deshabilitar o un 1 para habilitar
 		 */
 		function habilitaDeshabilitaTabAcordeon(idTabAcordeon,idTabAcordeonActive,bandera)
@@ -1075,7 +1075,7 @@ DD P {
 		*Limpia los datos de la ceja datos generales 
 		*/
 		function limpiaCejaDatosGenerales(){
-		  //El padre invoca una función del hijo
+		  //El padre invoca una funci&oacute;n del hijo
 		  cleanDatosGenerales();  
 		}			
 			
@@ -1158,7 +1158,7 @@ DD P {
 		}
 
 		/**
-		* Función que guarda los datos de la pantalla
+		* Funci&oacute;n que guarda los datos de la pantalla
 		*/
 		function guardarProbResponsable(){
 			$('#iIngOrgBtnGuardar').unbind();
@@ -1324,7 +1324,7 @@ DD P {
 							    		  //$("#iVictimaBtnGuardar").attr("disabled","disabled");
 						    			  $("#iIngOrgBtnGuardar").attr("disabled","disabled");
 						    			  $("#iIngOrgBtnIngresarContacto,#btnIngOrgFormalDatosRep").attr("disabled","");
-						    			  customAlert("La organización se guardó exitosamente");
+						    			  customAlert("La organizaci&oacute;n se guard&oacute; exitosamente");
 						    			  habilitaDeshabilitaCamposIngOrganizacion(0);
 						    			  deshabilitaDatosDomicilio();
 									}
@@ -1339,7 +1339,7 @@ DD P {
 					    		  else
 					    		  {
 					    			  idOrganizacion=0;
-					    			  customAlert("Ocurrió un error al guardar la organización");
+					    			  customAlert("Ocurri&oacute; un error al guardar la organizaci&oacute;n");
 					    			  op=1;
 					    		  }				    		
 					    	  }					
@@ -1481,7 +1481,7 @@ DD P {
 								    		  //$("#iVictimaBtnGuardar").attr("disabled","disabled");
 							    			  $("#iIngOrgBtnGuardar").attr("disabled","disabled");
 							    			  $("#iIngOrgBtnIngresarContacto,#btnIngOrgFormalDatosRep").attr("disabled","");
-							    			  customAlert("La organización se guardó exitosamente");
+							    			  customAlert("La organizaci&oacute;n se guard&oacute; exitosamente");
 							    			  habilitaDeshabilitaCamposIngOrganizacion(0);
 							    			  deshabilitaDatosDomicilio();
 										}
@@ -1496,7 +1496,7 @@ DD P {
 					    		  else
 					    		  {
 					    			  idOrganizacion=0;
-					    			  customAlert("Ocurrió un error al guardar la organización");
+					    			  customAlert("Ocurri&oacute; un error al guardar la organizaci&oacute;n");
 					    			  op=1;
 					    		  }	    		 
 					    	  }					
@@ -1529,7 +1529,7 @@ DD P {
 			{
 				//debemos mostrar un confirm
 				
-				var texto = "¿Está seguro que desea anular al " +
+				var texto = "&iquest;Est&aacute; seguro que desea anular al " +
 							msjProbableResponsableProp + "?";
 				customConfirm (texto, "", anularInvolucrado);
 			}
@@ -1560,7 +1560,7 @@ DD P {
 			    		    	   $(xml).find('cadena').each(function(){
 			    		    		   mensaje+= $(this).text()+ "<br/>";
 		            			   });
-			    		    	   mensaje+= "<br/>¿Está seguro de querer eliminarlo?";
+			    		    	   mensaje+= "<br/>&iquest;Est&aacute; seguro de querer eliminarlo?";
 			    		    	   customConfirm (mensaje, "", anularInvolucradoCnRelaciones);
 		    		    	   }
 						   }
@@ -1570,17 +1570,17 @@ DD P {
 		    		    	   if(parseInt($(xml).find('numRel').text())>-1)
 						   		{
 		    		    		   //Lista nula
-						   			customAlert("No se logró revisar si el involucrado tiene relaciones, intente más tarde");
+						   			customAlert("No se logr&oacute; revisar si el involucrado tiene relaciones, intente m&aacute;s tarde");
 						   		}
 		    		    	   else if(parseInt($(xml).find('numRel').text())>-2)
 							   {
 		    		    		   //ID no llego
-		    		    		   customAlert("Ocurrió un problema de conexión, intente más tarde");
+		    		    		   customAlert("Ocurri&oacute; un problema de conexi&oacute;n, intente m&aacute;s tarde");
 							   }
 		    		    	   else if(parseInt($(xml).find('numRel').text())>-3)
 							   {
 		    		    		   //excepcion
-		    		    		   customAlert("Ocurrió un problema al tratar de eliminar el involucrado, intente más tarde");
+		    		    		   customAlert("Ocurri&oacute; un problema al tratar de eliminar el involucrado, intente m&aacute;s tarde");
 							   }
 		    		      }
 		    	  }
@@ -1601,9 +1601,9 @@ DD P {
 							if(parseInt($(xml).find('banderaOp').text())==1)
 							{
 								window.parent.eliminarVictima(idindi);
-								var texto = "Sé logró anular al " +
+								var texto = "S&eacute; logr&oacute; anular al " +
 								msjProbableResponsableProp +
-								" con éxito";
+								" con &eacute;xito";
 									
 								window.parent.customAlert(texto);
 								cerrarCustomVentana();
@@ -1612,13 +1612,13 @@ DD P {
 							else if(parseInt($(xml).find('banderaOp').text())==0)
 							{
 								//se puede eliminar el objeto sin problemas
-								var texto = "No sé logró anular al " + msjProbableResponsableProp;
+								var texto = "No s&eacute; logr&oacute; anular al " + msjProbableResponsableProp;
 								window.parent.customAlert(texto);
 
 							}
 							else if(parseInt($(xml).find('banderaOp').text())==-1)
 							{
-								var texto = "Ocurrió un error al tratar de anular al " +
+								var texto = "Ocurri&oacute; un error al tratar de anular al " +
 								msjProbableResponsableProp +
 								",<br/>consulte a su administrador";
 								window.parent.customAlert(texto);
@@ -2482,7 +2482,7 @@ DD P {
 						<table width="12%" border="0" cellspacing="0" cellpadding="0"
 							class="celda2" id="tableUAVDOpsHide">
 							<tr>
-								<td height="29" class="seccion"><div id="lblcondicion">Condición:</div></td>
+								<td height="29" class="seccion"><div id="lblcondicion">Condici&oacute;n:</div></td>
 							</tr>
 							<tr>
 								<td align="left"><div id="vivo">Vivo</div></td>
@@ -2639,7 +2639,7 @@ DD P {
 					<dt id="cejaMediosContacto">Medios de Contacto</dt>
 					<dd><jsp:include page="ingresarMediosContactoView.jsp" /></dd>
 					<dt id="cejaDocumentosIdentificacion">Documentos de
-					Identificación</dt>
+					Identificaci&oacute;n</dt>
 					<dd><jsp:include
 						page="ingresarDocumentoIdentificacionView.jsp" /></dd>
 				</dl>

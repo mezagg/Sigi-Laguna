@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
 	<link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/jquery.windows-engine.css"/>
@@ -79,7 +79,7 @@
 		     sortname: 'nombre',
 		     viewrecords: true,
 		     gridview: true, 
-		     caption: "Número de expediente del defensor asociado  " +numExpediente, 
+		     caption: "N&uacute;mero de expediente del defensor asociado  " +numExpediente, 
 		     sortorder: "desc"	,
 		     onSelectRow: function (rowid){		
 		    	 var def = jQuery("#gridDetalleExpediente").jqGrid('getRowData',rowid);
@@ -89,7 +89,7 @@
 		     },
 			loadComplete: function(xml){
 	    		var noAsignado = $(xml).find('string').text();
-			     if(noAsignado == "El expediente aún no tiene defensor designado, favor de verificar"){
+			     if(noAsignado == "El expediente a&uacute;n no tiene defensor designado, favor de verificar"){
 			    	 customAlert(noAsignado);
 			     }
 			}   	    

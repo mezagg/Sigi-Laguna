@@ -52,7 +52,7 @@
 		{
 			$("#btnDarSeguimiento").hide();
 		}
-		//ocultamos la pestaña del domicilio de notificaicones
+		//ocultamos la pesta&ntilde;a del domicilio de notificaicones
 		killDomicilioNotificaciones();
 		if(idAviso!=null && idAviso>0)
 		{

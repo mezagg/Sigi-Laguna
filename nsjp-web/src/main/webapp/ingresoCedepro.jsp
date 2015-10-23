@@ -1,12 +1,12 @@
 <%@page import="mx.gob.segob.nsjp.web.base.action.GenericAction"%>
 <%@page import="mx.gob.segob.nsjp.dto.configuracion.ConfiguracionDTO"%>
 <%@page import="mx.gob.segob.nsjp.web.login.action.LoginAction"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Ingreso CEDEPRO</title>
 	
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css" />
@@ -83,7 +83,7 @@
 					<table width="100%" border="0" height="90%">
 						<tr>
 							<td align="right">
-								Nombre Servidor Público:
+								Nombre Servidor P&uacute;blico:
 							</td>
 							<td>
 								<input type="text" class="" size="50" maxlength="50" id="solDeSSPNombre" disabled="disabled" onkeypress="return soloLetrasNPunto(event,this.id);" onblur="validaSoloLetras(this);"/>
@@ -99,7 +99,7 @@
 						</tr>
 						<tr>
 							<td align="right">
-								Área Administrativa:
+								&Aacute;rea Administrativa:
 							</td>
 							<td>
 								<input type="text" size="50" maxlength="50" id="solDeSSPAreaAdmin" disabled="disabled"/>
@@ -107,7 +107,7 @@
 						</tr>
 						<tr>
 							<td align="right">
-								Fecha Elaboración:
+								Fecha Elaboraci&oacute;n:
 							</td>
 							<td>
 								<input type="text" size="50" maxlength="13"	id="solDeSSPFecha" disabled="disabled"/>
@@ -143,7 +143,7 @@
 						</tr>
 						<tr>
 							<td align="right">
-								Fecha Elaboración:
+								Fecha Elaboraci&oacute;n:
 							</td>
 							<td>
 								<input type="text" size="50" maxlength="13"	id="solDeSSPFecha2" disabled="disabled"/>

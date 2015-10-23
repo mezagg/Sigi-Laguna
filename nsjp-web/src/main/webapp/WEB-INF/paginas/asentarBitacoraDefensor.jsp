@@ -188,7 +188,7 @@
     <td>&nbsp;</td>
     <td colspan="2"><div id="divJudializacion" style="display: none">
 
-<strong>Fecha de Judicialización:</strong>
+<strong>Fecha de Judicializaci&oacute;n:</strong>
 <input type="text" id="fechaJudalizacion" />
 <strong>Hora:</strong><input type="text" id="horaJudalizacion" /></div></td>
     <td>&nbsp;</td>
@@ -219,7 +219,7 @@
     <td>&nbsp;</td>
     <td colspan="2"><div id="divLiberacion" style="display: none">
 
-<strong>Fecha de Liberación:</strong>
+<strong>Fecha de Liberaci&oacute;n:</strong>
 <input type="text" id="fechaLiberacion" />
 <strong>Hora:</strong><input type="text" id="horaLiberacion" /></div></td>
     <td>&nbsp;</td>

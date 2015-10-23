@@ -74,7 +74,7 @@ public class ConsultarConfActividadDocumentoServiceImpl implements
     
     @Autowired
     private ConfActividadDocumentoDAO confActividadDocumentoDao;
-    
+        
     @Autowired
     private NumeroExpedienteDAO NumeroExpedienteDAO;
     
@@ -138,7 +138,7 @@ public class ConsultarConfActividadDocumentoServiceImpl implements
         }
         List<ConfActividadDocumento> configuraciones = null;
         if (catUIE != null) {
-            configuraciones = confActividadDocumentoDao.consultarConfActividadDocumentoCatUie(jerarquiaOrgId, numeroExpediente, idCategoriaActividad, catUIE);
+//            configuraciones = confActividadDocumentoDao.consultarConfActividadDocumentoCatUie(jerarquiaOrgId, numeroExpediente, idCategoriaActividad, catUIE);
         } else {
             configuraciones = confActividadDocumentoDao.consultarConfActividadDocumento(jerarquiaOrgId, numeroExpediente, idCategoriaActividad);
         }
@@ -201,10 +201,10 @@ public class ConsultarConfActividadDocumentoServiceImpl implements
             logger.info("EL CATUIE DEL USUARIO ES: " + catUIE);
         }
         List<ConfActividadDocumento> configuraciones = null;
-        if (catUIE != null && !sinCatUie) {
-            configuraciones = confActividadDocumentoDao.consultarConfActividadDocumentoCatUie(jerarquiaOrgId, numeroExpediente, idCategoriaActividad, catUIE);
-        } else {
-            configuraciones = confActividadDocumentoDao.consultarConfActividadDocumento(jerarquiaOrgId, numeroExpediente, idCategoriaActividad);
+        if (!sinCatUie) {
+            configuraciones = confActividadDocumentoDao.consultarConfActividadDocumento(jerarquiaOrgId, numeroExpediente, idCategoriaActividad, catUIE);
+        }else{
+            configuraciones = confActividadDocumentoDao.consultarConfActividadDocumento(jerarquiaOrgId, numeroExpediente, idCategoriaActividad, null);
         }
         if (configuraciones != null & !configuraciones.isEmpty()) {
             configuracionesDto = new LinkedList<ConfActividadDocumentoDTO>();
@@ -212,49 +212,6 @@ public class ConsultarConfActividadDocumentoServiceImpl implements
                 ConfActividadDocumentoDTO configuracionDto
                         = ConfActividadDocumentoTransformer.
                         transformarConfActividadDocumento(confActividadDocumento);
-                configuracionesDto.add(configuracionDto);
-            }
-        }
-        return configuracionesDto;
-    }
-    
-    @Override
-    public List<ConfActividadDocumentoRolDTO> consultarConfActividadDocumento(UsuarioDTO usuarioDto, Long idRol, Boolean sinCatUie)
-            throws NSJPNegocioException {
-        Long discriminante = null;
-        Long catUIE = null;
-        
-        if (usuarioDto == null || usuarioDto.getIdUsuario() == null) {
-            throw new NSJPNegocioException(CodigoError.PARAMETROS_INSUFICIENTES);
-        }
-        
-        Usuario usuario = UsuarioTransformer.transformarDTO(usuarioDto);
-        if (usuario.getFuncionario() == null || usuario.getFuncionario().getArea() == null) {
-            usuario = usuarioDao.read(usuarioDto.getIdUsuario());
-        }
-        Funcionario funcionario = usuario.getFuncionario();
-        discriminante = funcionario.getDiscriminante().getCatDiscriminanteId();
-        if (discriminante != null) {
-            catUIE = confActividadDocumentoDao.consultarCatUieIdFuncionario(discriminante);
-            logger.info("EL CATUIE DEL USUARIO ES: " + catUIE);
-        }
-        List<ConfActividadDocumentoRol> configuraciones = null;
-        if (catUIE != null && !sinCatUie) {
-            configuraciones = confActividadDocumentoDao.consultarActividadCatUie(idRol, catUIE);
-//            configuraciones = confActividadDocumentoDao.consultarConfActividadDocumentoCatUie(jerarquiaOrgId, numeroExpediente, idCategoriaActividad, catUIE);
-        } else {
-            configuraciones = confActividadDocumentoDao.consultarActividadCatUie(idRol, null);
-//            configuraciones = confActividadDocumentoDao.consultarConfActividadDocumento(jerarquiaOrgId, numeroExpediente, idCategoriaActividad);
-        }
-        
-        List<ConfActividadDocumentoRolDTO> configuracionesDto = Collections.emptyList();
-        logger.info("TAMAÑO DE configuraciones " + configuraciones.size());
-        if (configuraciones != null & !configuraciones.isEmpty()) {
-            configuracionesDto = new LinkedList<ConfActividadDocumentoRolDTO>();
-            for (ConfActividadDocumentoRol confActividadDocumentoRol : configuraciones) {
-                ConfActividadDocumentoRolDTO configuracionDto = ConfActividadDocumentoRolTransformer.
-                        transformarConfActividadDocumento(confActividadDocumentoRol);
-                
                 configuracionesDto.add(configuracionDto);
             }
         }
@@ -410,9 +367,22 @@ public class ConsultarConfActividadDocumentoServiceImpl implements
         ConfActividadDocumento conf = confActividadDocumentoDao.consultaConfActividadDocumentoPorIdActividad(filtro.getTipoActividadId());
         return ConfActividadDocumentoTransformer.transformarConfActividadDocumento(conf);
     }
-    
+
     @Override
     public ConfActividadDocumentoDTO consultaConfActividadDocumentoPorId(Long idConfActividadDocumento, Boolean sinCauie) throws NSJPNegocioException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        logger.info("Servicion consultaConfActividadDocumentoPorIdActividad");
+        if (idConfActividadDocumento == null || idConfActividadDocumento < 0) {
+            throw new NSJPNegocioException(CodigoError.PARAMETROS_INSUFICIENTES);
+        }
+        
+        ConfActividadDocumentoDTO confActividadDocumentoDTO = new ConfActividadDocumentoDTO();
+        
+        ConfActividadDocumento confActividadDocumento = confActividadDocumentoDao.read(idConfActividadDocumento);
+        
+        if (confActividadDocumento != null) {
+            confActividadDocumentoDTO = ConfActividadDocumentoTransformer.transformarConfActividadDocumento(confActividadDocumento);
+        }
+        
+        return confActividadDocumentoDTO;
     }
 }

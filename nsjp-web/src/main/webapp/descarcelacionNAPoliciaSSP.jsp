@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Descarcelacion No Atendida</title>
 	
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css" />
@@ -84,7 +84,7 @@
 		jQuery("#gridDetalleCadenaCustodia").jqGrid({ 
 			url:'<%= request.getContextPath()%>/EjemploCadenaCustodia.xml', 
 			datatype: "xml", 
-			colNames:['Número de Evidencia','Tipo de Objeto','Objeto','Descripción','Código de Barras','Acuse'], 
+			colNames:['N&uacute;mero de Evidencia','Tipo de Objeto','Objeto','Descripci&oacute;n','C&oacute;digo de Barras','Acuse'], 
 			colModel:[ 	{name:'NumeroEvidencia',index:'numeroEvidencia', width:40},
 			           	{name:'TipoObjeto',index:'tipoObjeto', width:40},
 			           	{name:'Objeto',index:'objeto', width:40},
@@ -112,7 +112,7 @@
 			<div id="tabsPrincipal">
 				<ul>
 					<li><a href="#tabsconsultaprincipal-1">Solicitante</a></li>
-					<li><a href="#tabsconsultaprincipal-2">A Quién Solicita</a></li>
+					<li><a href="#tabsconsultaprincipal-2">A Qui&eacute;n Solicita</a></li>
 					<li><a href="#tabsconsultaprincipal-3">Motivo</a></li>
 					<li><a href="#tabsconsultaprincipal-4">Dar Aviso A</a></li>
 					
@@ -121,7 +121,7 @@
 					<table width="100%" border="0" height="90%">
 						<tr>
 							<td align="right">
-								Nombre Servidor Público:
+								Nombre Servidor P&uacute;blico:
 							</td>
 							<td>
 								<input type="text" class="" size="50" maxlength="50" id="solDePericialNombre"/>
@@ -137,7 +137,7 @@
 						</tr>
 						<tr>
 							<td align="right">
-								Área Administrativa:
+								&Aacute;rea Administrativa:
 							</td>
 							<td>
 								<input type="text" size="50" maxlength="50" id="solDePericialAreaAdmin" />
@@ -145,7 +145,7 @@
 						</tr>
 						<tr>
 							<td align="right">
-								Fecha Elaboración:
+								Fecha Elaboraci&oacute;n:
 							</td>
 							<td>
 								<input type="text" size="50" maxlength="13"	id="solDePericialFecha" disabled="disabled"/>
@@ -162,7 +162,7 @@
 				<table width="100%" border="0" height="90%">
 						<tr>
 							<td align="right">
-								Número IPH:
+								N&uacute;mero IPH:
 							</td>
 							<td>
 								<input type="text" class="" size="50" maxlength="50" id="solDePericialNombre"/>
@@ -227,7 +227,7 @@
 					<table width="100%" border="0" height="90%">
 						<tr>
 							<td>
-								<input type="checkbox" id="chbDirCentroDet"/>Dirección del Centro de Detención Provisional
+								<input type="checkbox" id="chbDirCentroDet"/>Direcci&oacute;n del Centro de Detenci&oacute;n Provisional
 							</td>
 						</tr>
 						<tr>

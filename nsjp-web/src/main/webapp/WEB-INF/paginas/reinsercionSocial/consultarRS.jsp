@@ -1,5 +1,5 @@
 <%@ page contentType="text/html"%>
-<%@ page pageEncoding="ISO-8859-1"%>
+<%@ page pageEncoding="UTF-8"%>
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
@@ -171,7 +171,7 @@
 
 <div id="mainContent">
 	<div class="ui-layout-center">
-		<!-- div class="header">Resultado de la Búsqueda</div-->
+		<!-- div class="header">Resultado de la B&uacute;squeda</div-->
 		<div class="ui-layout-content">
 			<div class="ui-layout-north">
 				<!-- INICIA: Tabs Principal del menu -->

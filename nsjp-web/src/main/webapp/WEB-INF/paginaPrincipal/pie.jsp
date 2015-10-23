@@ -4,7 +4,7 @@
 <%@ page import="mx.gob.segob.nsjp.comun.constants.ConstantesGenerales"%>
 <%@page import="mx.gob.segob.nsjp.dto.usuario.UsuarioDTO"%>
 <%@page import="mx.gob.segob.nsjp.dto.configuracion.ConfInstitucionDTO"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%UsuarioDTO usuarioDTO = (UsuarioDTO) request.getSession().getAttribute("KEY_SESSION_USUARIO_FIRMADO");
 					ConfInstitucionDTO confInstitucionDTO = usuarioDTO.getInstitucion();%>

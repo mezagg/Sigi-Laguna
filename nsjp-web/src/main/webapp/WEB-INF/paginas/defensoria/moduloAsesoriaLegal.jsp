@@ -1,6 +1,6 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.expediente.EstatusExpediente"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
 <%@ page import="mx.gob.segob.nsjp.dto.configuracion.ConfiguracionDTO"%>
 <%@ page import="mx.gob.segob.nsjp.web.base.action.GenericAction"%>	
@@ -171,7 +171,7 @@
 		if(parseInt(idRolActivo) == <%=Roles.DEFENSOR.getValorId()%> &&
 			estatusSolicitud == <%=EstatusSolicitud.ASIGNADO.getValorId()%>){
 
-			customConfirm("¿Dar seguimiento a la solicitud?", "Seguimiento de la solicitud", function () {
+			customConfirm("&iquest;Dar seguimiento a la solicitud?", "Seguimiento de la solicitud", function () {
 					actualizarEstatusSolicitud(<%=EstatusExpediente.EN_PROCESO.getValorId()%>, numeroExpedienteId, idInstitucion); 
 				} );
 		}

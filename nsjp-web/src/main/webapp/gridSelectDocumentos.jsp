@@ -4,7 +4,7 @@
 <%@ page import="mx.gob.segob.nsjp.web.base.action.GenericAction"%>
 <html>
 <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css" />
         <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/estilos.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/ui-lightness/jquery-ui-1.8.11.custom.css" />
@@ -52,7 +52,7 @@
         	 jQuery("#gridDetalleFrmPrincipal").jqGrid({ 
 					url:'<%=request.getContextPath()%>/consultarDocumentos.do?idExpedienteop='+idNumeroExpediente, 
 					datatype: "xml",
-					colNames:['Área del responsable','Fecha de la actividad','Nombre de la actividad','Tipo de documento','Nombre de Documento','Fecha del documento', 'Documento', 'Es Parcial'],
+					colNames:['&Aacute;rea del responsable','Fecha de la actividad','Nombre de la actividad','Tipo de documento','Nombre de Documento','Fecha del documento', 'Documento', 'Es Parcial'],
 					colModel:[ 	{name:'area',index:'da', width:200},
 								{name:'FechaActividad',index:'fechaActividad', width:170},							
 								{name:'NombreActividad',index:'nombreActividad', width:400},

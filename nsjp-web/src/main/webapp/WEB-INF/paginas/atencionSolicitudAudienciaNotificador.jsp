@@ -2,13 +2,13 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.forma.Formas"%>
 <%@ page import="mx.gob.segob.nsjp.dto.configuracion.ConfiguracionDTO"%>
 <%@ page import="mx.gob.segob.nsjp.web.base.action.GenericAction"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Atender Notificación</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Atender Notificaci&oacute;n</title>
 	<!--css para ventanas-->
 	<link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jquery.windows-engine.css" />	
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/layout_complex.css" media="screen" />
@@ -307,7 +307,7 @@
 	/*
 	*Funcion que aplica submit a la forma para abrir el documento solicitado
 	*id= id del documento seleccionado en el grid de documentos
-	*Así se obtenia anteriormente:
+	*As&iacute; se obtenia anteriormente:
 	*	
 	*document.frmDoc.documentoId.value = id;
 	*document.frmDoc.submit();
@@ -372,7 +372,7 @@
 		<li><a href="#tabsprincipalconsulta-1">Detalle Evento</a></li>
 		<li><a href="#tabsprincipalconsulta-2">Notificaciones</a></li>
 		<li id="acumulacion">
-				<a href="#tabAcumulacion-14">Acumulación</a>
+				<a href="#tabAcumulacion-14">Acumulaci&oacute;n</a>
 		</li>
   	</ul>
   	<!--COMIENZA TAB Acumulacion-->
@@ -412,7 +412,7 @@
 	  					<legend>Direcci&oacute;n del Evento</legend>
 		  				<table width="720" border="0" align="center" cellpadding="0" cellspacing="5">
 							<tr>
-								<td align="right"><strong>Dirección de Evento:</strong></td>
+								<td align="right"><strong>Direcci&oacute;n de Evento:</strong></td>
 								<td><input type="text" id="direccionEventoNotifDetalle" style="width:500px; border: 0; background:#DDD;" readonly="readonly"/></td>
 							</tr>
 							<tr>
@@ -478,7 +478,7 @@
       <tr>
         <td align="right">Nombre:</td>
         <td><input type="text" size="30" id="nombre" onkeypress="return soloLetrasNPunto(event,this.id);" onblur="validaSoloLetras(this);"/></td>
-        <td align="right">Institución:</td>
+        <td align="right">Instituci&oacute;n:</td>
         <td>
             <select name="select" id="cmbInstitucion" style="width:165px;">
             <option value="Seleccione">-Seleccione-</option>
@@ -490,7 +490,7 @@
       <tr>
         <td align="right">Apellido Paterno:</td>
         <td><input type="text" size="30" id="apPat" onkeypress="return soloLetrasNPunto(event,this.id);" onblur="validaSoloLetras(this);"/></td>
-        <td align="right">Dirección Electronica:</td>
+        <td align="right">Direcci&oacute;n Electronica:</td>
         <td><input type="text" size="30" id="correo"/></td>
       </tr>
       <tr>

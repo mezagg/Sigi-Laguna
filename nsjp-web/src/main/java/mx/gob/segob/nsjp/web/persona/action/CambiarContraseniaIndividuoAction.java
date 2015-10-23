@@ -15,7 +15,7 @@ import mx.gob.segob.nsjp.web.login.action.LoginAction;
 
 import org.apache.log4j.Logger;
 import org.apache.struts.action.ActionForm;
-import org.apache.struts.action.ActionForward;
+import org.apache.struts.action.ActionForward; 
 import org.apache.struts.action.ActionMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -52,11 +52,11 @@ public class CambiarContraseniaIndividuoAction extends GenericAction {
 			oldUserDTO.setPassword(oldPassword);
 			newUserDTO.setClaveUsuario(username);
 			newUserDTO.setPassword(newPassword);
-			log.debug("---------- Servicio para el cambio de contraseña del usuario ----------");
+			log.debug("---------- Servicio para el cambio de contraseï¿½a del usuario ----------");
 			log.debug("Usuario id: " + username);
-			log.debug("Constraseña Antigua: " + oldPassword);
-			log.debug("Contraseña Nueva: " + newPassword);
-			log.debug("---------- Servicio para el cambio de contraseña del usuario ----------");
+			log.debug("Constraseï¿½a Antigua: " + oldPassword);
+			log.debug("Contraseï¿½a Nueva: " + newPassword);
+			log.debug("---------- Servicio para el cambio de contraseï¿½a del usuario ----------");
 			try {
 				if (usuarioDelegate.cambiaContrasenia(oldUserDTO, newUserDTO)) {
 					String xml = "<error><bandera>0</bandera></error>";

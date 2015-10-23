@@ -189,7 +189,7 @@
 				},
 				selectedList: 1 
 			});
-			//llenamos los combos de UI e IE de la pestaña de Acciones
+			//llenamos los combos de UI e IE de la pesta&ntilde;a de Acciones
 			cargaInstitucionesExternas();
 			cargaUnidadesInvestigacion();
 			mostraDivGenerarOficioCanalizacion(0);
@@ -385,7 +385,7 @@
 			$.updateWindowContent("iframewindowConsultarProbResponsable" + idWindowConsultarProbResponsable,'<iframe src="<%= request.getContextPath() %>/ConsultarIndividuo.do?idInvolucrado=' +idInvolucrado +'&idCalidad=PROBABLE_RESPONSABLE" width="1050" height="620" />');
 		}
 
-		//Abre una nueva ventana para consultar una víctima		
+		//Abre una nueva ventana para consultar una v&iacute;ctima		
 		function consultarVictima(idInvolucrado){
 			idWindowIngresarSentenciadoReinsertar++;
 			$.newWindow({id:"iframewindowIngresarSentenciadoReinsertar" + idWindowIngresarSentenciadoReinsertar, statusBar: true, posx:200,posy:50,width:1050,height:600,title:"Consultar Victima", type:"iframe"});
@@ -424,7 +424,7 @@
 		function consultarContactoDeUnaOrganizacion() {
 			
 			idWindowConsultarContactoDeUnaOrganizacion++;
-			$.newWindow({id:"iframewindowConsultarContactoDeUnaOrganizacion" + idWindowConsultarContactoDeUnaOrganizacion, statusBar: true, posx:250,posy:150,width:1050,height:620,title:"Consultar contacto de una organización", type:"iframe"});
+			$.newWindow({id:"iframewindowConsultarContactoDeUnaOrganizacion" + idWindowConsultarContactoDeUnaOrganizacion, statusBar: true, posx:250,posy:150,width:1050,height:620,title:"Consultar contacto de una organizaci&oacute;n", type:"iframe"});
 			$.updateWindowContent("iframewindowConsultarContactoDeUnaOrganizacion" + idWindowConsultarContactoDeUnaOrganizacion,'<iframe src="<%= request.getContextPath() %>/ConsultarIndividuo.do?idInvolucrado=1001&idCalidad=CONTACTO_ORGANIZACION" width="1050" height="620" />');		
 		}
 
@@ -466,7 +466,7 @@
 		function creaNuevoContactoDeUnaOrganizacion() {
 			
 			idWindowIngresarContactoDeUnaOrganizacion++;
-			$.newWindow({id:"iframewindowIngresarContactoDeUnaOrganizacion" + idWindowIngresarContactoDeUnaOrganizacion, statusBar: true, posx:250,posy:150,width:1050,height:620,title:"Ingresar contacto de una organización", type:"iframe"});
+			$.newWindow({id:"iframewindowIngresarContactoDeUnaOrganizacion" + idWindowIngresarContactoDeUnaOrganizacion, statusBar: true, posx:250,posy:150,width:1050,height:620,title:"Ingresar contacto de una organizaci&oacute;n", type:"iframe"});
 			$.updateWindowContent("iframewindowIngresarContactoDeUnaOrganizacion" + idWindowIngresarContactoDeUnaOrganizacion,'<iframe src="<%= request.getContextPath() %>/IngresarContactoDeUnaOrganizacion.do" width="1050" height="620" />');		
 		}
 
@@ -982,7 +982,7 @@ if(abrePenal=="abrPenal"){""
 			<li><a href="#tabs-4">Objetos y evidencias</a></li>
 			<li><a href="#tabs-7">Acciones</a></li>
 			<li><a href="#tabs-8" onclick="gridPericiales()">Periciales</a></li>
-			<li><a href="#tabs-9" onclick="gridMinisterial()">Policía Ministerial</a></li>
+			<li><a href="#tabs-9" onclick="gridMinisterial()">Polic&iacute;a Ministerial</a></li>
 			<li><a href="#tabs-10" onclick="gridCustodia()">Cadena de Custodia</a></li>
 			<li><a href="#tabs-5">Notas</a></li>
 		</ul>
@@ -1427,7 +1427,7 @@ if(abrePenal=="abrPenal"){""
 			  <tr>
 			    <td>&nbsp;</td>
 			    <td>&nbsp;</td>
-			    <td align="right" style="background-color:#FFC">Vehículos:</td>
+			    <td align="right" style="background-color:#FFC">Veh&iacute;culos:</td>
 			    <td>&nbsp;</td>
 			    <td align="right" style="background-color:#FFC">Denunciantes:</td>
 			    <td>&nbsp;</td>
@@ -1435,7 +1435,7 @@ if(abrePenal=="abrPenal"){""
 			  <tr>
 			    <td  style="background-color:#91B8E8"align="right"><span style="border-left:#000000; border-top:#000000 border-bottom-width:4; font-size:14px; background-color:#91B8E8"><strong>Tipo:</strong></span></td>
 			    <td>&nbsp;</td>
-			    <td align="right" style="background-color:#FFC">Equipos de cómputo:</td>
+			    <td align="right" style="background-color:#FFC">Equipos de c&oacute;mputo:</td>
 			    <td>&nbsp;</td>
 			    <td align="right" style="background-color:#FFC">Victimas:</td>
 			    <td>&nbsp;</td>
@@ -1443,7 +1443,7 @@ if(abrePenal=="abrPenal"){""
 			  <tr>
 			    <td align="right">Denuncia</td>
 			    <td><input type="radio" name="generales" id="rbtnDenuncia" value="d" /></td>
-			    <td align="right" style="background-color:#FFC">Equipos Telefónicos:</td>
+			    <td align="right" style="background-color:#FFC">Equipos Telef&oacute;nicos:</td>
 			    <td>&nbsp;</td>
 			    <td align="right" style="background-color:#FFC"><bean:message key="plProbalbeResponsableTitulo"/>:</td>
 			    <td>&nbsp;</td>
@@ -1461,7 +1461,7 @@ if(abrePenal=="abrPenal"){""
 			    <td>&nbsp;</td>
 			    <td align="right" style="background-color:#FFC">Explosivos:</td>
 			    <td>&nbsp;</td>
-			    <td align="right" style="background-color:#FFC">Traductores/Intérpretes:</td>
+			    <td align="right" style="background-color:#FFC">Traductores/Int&eacute;rpretes:</td>
 			    <td>&nbsp;</td>
 			  </tr>
 			  <tr>
@@ -1481,7 +1481,7 @@ if(abrePenal=="abrPenal"){""
 			    <td>&nbsp;</td>
 			  </tr>
 			  <tr>
-			    <td align="right"><span id="spanGralUI">Unidad de Investigación: </span><span id="spanInfoGralUI"></span></td>
+			    <td align="right"><span id="spanGralUI">Unidad de Investigaci&oacute;n: </span><span id="spanInfoGralUI"></span></td>
 			    <td><!-- <input type="radio" name="radio" id="rbtnUnidadDeInvestigacion" value="rbtnUnidadDeInvestigacion" />--></td>
 			    <td align="right" style="background-color:#FFC">Aeronaves:</td>
 			    <td>&nbsp;</td>
@@ -1491,7 +1491,7 @@ if(abrePenal=="abrPenal"){""
 			  <tr>
 			    <td align="right"><span id="spanGralIE">Instituci&oacute;n Externa: </span><span id="spanInfoGralIE"></span></td>
 			    <td>&nbsp;</td>
-			    <td align="right" style="background-color:#FFC">Embarcación:</td>
+			    <td align="right" style="background-color:#FFC">Embarcaci&oacute;n:</td>
 			    <td>&nbsp;</td>
 			    <td align="right">&nbsp;</td>
 			    <td>&nbsp;</td>

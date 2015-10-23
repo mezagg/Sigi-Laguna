@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Detención</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Detenci&oacute;n</title>
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css" />
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/estilos.css" media="screen" />
 	<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/multiselect/jquery.multiselect.css" />
@@ -172,8 +172,8 @@ var formaId;
 					<div id="tabschild" class="tabs-bottom">
 						<ul>
 							<li><a href="#tabschild-1">Detenido o Aprehendido</a></li>
-							<li><a href="#tabschild-2">Ingresar datos generales de la detención</a></li>
-							<li><a href="#tabschild-3">Ingresar lugar de la detención</a></li>
+							<li><a href="#tabschild-2">Ingresar datos generales de la detenci&oacute;n</a></li>
+							<li><a href="#tabschild-3">Ingresar lugar de la detenci&oacute;n</a></li>
 							<li id="tabIngresarPertenencias" ><a href="#tabschild-5">Ingresar Pertenencias</a></li>
 							
 						</ul>
@@ -227,7 +227,7 @@ var formaId;
 										</select>
 										</td>
 										<td width="140" align="right"><strong>Fecha de
-												Detención:</strong>
+												Detenci&oacute;n:</strong>
 										</td>
 										<td width="153"><strong> <input type="text"
 												id="fechaDetencion" /> </strong>
@@ -250,7 +250,7 @@ var formaId;
 												<option value="1">Jaime</option>
 										</select>
 										</td>
-										<td align="right"><strong>Hora de Detención:</strong>
+										<td align="right"><strong>Hora de Detenci&oacute;n:</strong>
 										</td>
 										<td><input type="text" id="horaDetencion" name="horaDetencion"/>
 										</td>
@@ -264,12 +264,12 @@ var formaId;
 									<tr>
 										<td>&nbsp;</td>
 										<td align="right"><strong>Motivo de la
-												detención:</strong>
+												detenci&oacute;n:</strong>
 										</td>
 										<td align="left"><input type="text" id="motivoDetencion"
 											size="30" />
 										</td>
-										<td align="right"><strong>Fecha de Recepción: </strong>
+										<td align="right"><strong>Fecha de Recepci&oacute;n: </strong>
 										</td>
 										<td align="left"><strong> <input type="text"
 												id="fechaRecepcion" /> </strong>
@@ -286,7 +286,7 @@ var formaId;
 										<td align="right"><strong>Observaciones</strong>:</td>
 										<td width="217" rowspan="2"><textarea id="observaciones"></textarea>
 										</td>
-										<td align="right"><strong>Hora de Recepción:</strong>
+										<td align="right"><strong>Hora de Recepci&oacute;n:</strong>
 										</td>
 										<td><input type="text" id="horaRecepcion" name="horaRecepcion" />
 										</td>

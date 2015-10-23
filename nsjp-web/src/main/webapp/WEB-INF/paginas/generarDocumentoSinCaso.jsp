@@ -4,7 +4,7 @@
 <%@ page import="mx.gob.segob.nsjp.dto.usuario.UsuarioDTO"%>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.actividad.Actividades" %>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.seguridad.Roles" %>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.expediente.OrigenExpediente"%>
 <%@ page import="mx.gob.segob.nsjp.dto.configuracion.ConfiguracionDTO"%>
 <%@ page import="mx.gob.segob.nsjp.web.base.action.GenericAction"%>
@@ -45,7 +45,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Generar Documento</title>
 	
 	<!--iframe que crea una nueva peticion para imprimir un PDF-->
@@ -531,7 +531,7 @@
 				    	});
 			}
 			else{
-				customConfirm("¿Est\u00E1 seguro que quiere guardarlo definitivamente?", "Aviso",generaDocumento);
+				customConfirm("&iquest;Est\u00E1 seguro que quiere guardarlo definitivamente?", "Aviso",generaDocumento);
 				
 			}	
 		}
@@ -543,7 +543,7 @@
 			if(!validaDocumentos()){
 				return;
 			}			
-			//mostramos los divs en el padre de la pestaña de Acciones.
+			//mostramos los divs en el padre de la pesta&ntilde;a de Acciones.
 			if(idRolActivo != '<%=Roles.VISITADOR.getValorId()%>' && idRolActivo != '<%=Roles.ENCARGADOCAUSA.getValorId()%>'){
 				try{
 					if(!window.parent.muestraDIVSCanalizacion()){
@@ -1017,7 +1017,7 @@
 			var idRolJAR = '<%=Roles.COORDINADORJAR.getValorId()%>';
 			
 			var totalDestinartario = 0;
-			//buscar si existen Coordinadores en el área seleccionada
+			//buscar si existen Coordinadores en el &aacute;rea seleccionada
 			var params = 'catDiscriminanteId=' + $("#cbxAgencia option:selected").val();
 			params += '&idRol=' + idRolJAR;
 			
@@ -1190,7 +1190,7 @@
 						<li id="imprimirNarraTiva"><span></span>Guardado Definitivo</li>
 						<li id="btnEnviarSolicitud" style="display:none"><span></span>Enviar</li>
 						<li id="vistaPreliminar"><span></span>Vista Preliminar</li>
-						<li id="seccionCbxTamanioPapel"><span></span>Tamaño de Papel
+						<li id="seccionCbxTamanioPapel"><span></span>Tama&ntilde;o de Papel
 							<select name="cbxTamanioPapel" id="cbxTamanioPapel" onchange="recuperarTamanioPapel()" style=" border:0; background-color:#EEEEEE;">
 		    				</select>
 		    			</li>
@@ -1217,7 +1217,7 @@
 			<td><input type="text" title="Estado" size="30" id="iEstado" disabled="disabled" style=" border:0; background-color:#EEEEEE;"/></td>			
 		</tr>
 		<tr>
-			<td width="20%"><span id="labelNumeroOficio">PamN&uacute;mero de Oficio:</span></td>
+			<td width="20%"><span id="labelNumeroOficio">N&uacute;mero de Oficio:</span></td>
 			<td width=""><input type="text" title="Numero de Oficio" size="40" id="iNumeroOficio" onkeypress="return letrasNumero(event);" maxlength="20"/></td>
 		</tr>
 		<tr id="trDistritos">

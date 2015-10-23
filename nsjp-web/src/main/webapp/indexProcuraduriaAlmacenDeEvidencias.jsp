@@ -471,7 +471,7 @@
 	
 		function dblClickRowBandejaResguardoTemporal(rowID)
 		{
-			$.newWindow({id:"iframewindowVisorAlmacen", statusBar: true, posx:200,posy:50,width:900,height:400,title:"Almacén ", type:"iframe"});
+			$.newWindow({id:"iframewindowVisorAlmacen", statusBar: true, posx:200,posy:50,width:900,height:400,title:"Almac&eacute;n ", type:"iframe"});
 		    $.updateWindowContent("iframewindowVisorAlmacen",'<iframe src="<%=request.getContextPath()%>/visorAlmacen.do" width="1140" height="400" />'); 
 		}
 	}

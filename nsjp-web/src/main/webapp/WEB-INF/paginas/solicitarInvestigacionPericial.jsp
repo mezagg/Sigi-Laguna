@@ -1,6 +1,6 @@
 <!-- 
 CASO DE USO
-Solicitar Investigación pericial
+Solicitar Investigaci&oacute;n pericial
 
 El sistema muestra el visor de elementos con las siguientes secciones de la pantalla: 
    - Solicitante  - Datos del usuario
@@ -10,14 +10,14 @@ El sistema muestra el visor de elementos con las siguientes secciones de la pant
 
  -->
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.solicitud.TiposSolicitudes" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Solicitar Investigación Pericial</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Solicitar Investigaci&oacute;n Pericial</title>
 	
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css" />
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/estilos.css" media="screen" />
@@ -76,7 +76,7 @@ El sistema muestra el visor de elementos con las siguientes secciones de la pant
 	});
 	
 	/**
-	* Carga el funcionario a mostrar en la tab de Avisar a Funcionario según el tipo de servicio solicitado
+	* Carga el funcionario a mostrar en la tab de Avisar a Funcionario seg&uacute;n el tipo de servicio solicitado
 	*/
 	function consultaFuncionario(){
 		
@@ -303,7 +303,7 @@ El sistema muestra el visor de elementos con las siguientes secciones de la pant
 					<table width="100%" border="0" height="90%">
 						<tr>
 							<td>
-								Número de Expediente:
+								N&uacute;mero de Expediente:
 							</td>
 							<td>
 								<input type="text" class="" size="50" maxlength="50" id="solInvPericialNumExpediente" disabled="disabled"/>
@@ -312,7 +312,7 @@ El sistema muestra el visor de elementos con las siguientes secciones de la pant
 						</tr>
 						<tr>
 							<td>
-								Número de Caso:
+								N&uacute;mero de Caso:
 							</td>
 							<td>
 								<input type="text" class="" size="50" maxlength="50" id="solInvPericialNumeroCaso" disabled="disabled"/>

@@ -433,7 +433,7 @@
 	<div class="content">
 		<table width="99.5%"  height="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFF00">
           <tr>
-            <td width="250" align="center" valign="middle" bgcolor="#F0F0E8"><img src="<%=request.getContextPath()%>/resources/images/PGJ-Yucatan.JPG" width="276" height="100" alt="Logo de la procuraduría" /></td>
+            <td width="250" align="center" valign="middle" bgcolor="#F0F0E8"><img src="<%=request.getContextPath()%>/resources/images/PGJ-Yucatan.JPG" width="276" height="100" alt="Logo de la procuradur&iacute;a" /></td>
             <td width="150" align="center" valign="middle" bgcolor="#F0F0E8"><img src="<%=request.getContextPath()%>/resources/images/logoJusticia2.JPG" width="89" height="100" alt="Logo del Sistema de Justicia Penal" /></td>
             <td width="150" align="center" valign="middle" bgcolor="#F0F0E8"><img src="<%=request.getContextPath()%>/resources/images/logo_mp.jpg" width="118" height="100" alt="Logo MP" /></td>
             <td width="296" align="center" bgcolor="#F0F0E8">&nbsp;</td>
@@ -444,9 +444,9 @@
                     <td width="168" height="40" colspan="2" align="center" bgcolor="#DFE0DA">
 						<table align="center" cellpadding="2" cellspacing="2">
 							<tr>
-								<td><a href="#"><img src="<%=request.getContextPath()%>/resources/images/btn_head_buscar.png" width="43" height="40" alt="Botón Buscar General" title="Buscar" /></a></td>
-								<td><a href="#"><img src="<%=request.getContextPath()%>/resources/images/btn_head_cerrarSesion.png" width="43" height="40" alt="Botón cerrar sesión" title="Cerrar Sesión"/></a></td>
-								<td><a href="#"><img src="<%=request.getContextPath()%>/resources/images/btn_head_ayuda.png" width="43" height="40" alt="Botón ayuda" title="Ayuda"/></a></td>
+								<td><a href="#"><img src="<%=request.getContextPath()%>/resources/images/btn_head_buscar.png" width="43" height="40" alt="Bot&oacute;n Buscar General" title="Buscar" /></a></td>
+								<td><a href="#"><img src="<%=request.getContextPath()%>/resources/images/btn_head_cerrarSesion.png" width="43" height="40" alt="Bot&oacute;n cerrar sesi&oacute;n" title="Cerrar Sesi&oacute;n"/></a></td>
+								<td><a href="#"><img src="<%=request.getContextPath()%>/resources/images/btn_head_ayuda.png" width="43" height="40" alt="Bot&oacute;n ayuda" title="Ayuda"/></a></td>
 							</tr>
 						</table>
 					</td>

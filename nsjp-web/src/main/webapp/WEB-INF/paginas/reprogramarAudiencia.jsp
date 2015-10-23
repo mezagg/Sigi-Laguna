@@ -196,7 +196,7 @@
 		jQuery("#gridTrasladoPJA").jqGrid({
 		    url:'<%= request.getContextPath()%>/consultarDetalleSolicitudDeAudiencia.do?tipoDeRespuesta=2&idAudiencia='+idAudiencia+'', 
 			datatype: "xml", 
-			colNames:['Centro de Detención','Imputado','Delito'], 
+			colNames:['Centro de Detenci&oacute;n','Imputado','Delito'], 
 			colModel:[ 	{name:'centroDetencion',index:'centroDetencion', width:200,align:'center'},
 			           	{name:'imputado',index:'imputado', width:200,align:'center'}, 
 						{name:'Delito',index:'delito', width:100,align:'center'}
@@ -237,7 +237,7 @@
 			controlSalas(fechaReal);
 		}
 		else{
-			alertDinamico("Seleccione un día hábil");
+			alertDinamico("Seleccione un d&iacute;a h&aacute;bil");
 		}
 	}
 
@@ -516,7 +516,7 @@
 			var horaInicio=idRow.substring(horaInicioPos1+1,horaInicioPos2);
 			
 
-			//tamaño en medias hrs. del espacio disponible
+			//tama&ntilde;o en medias hrs. del espacio disponible
 			var espacioPos1=idRow.indexOf("/",0);
 			var espacioPos2=idRow.indexOf("*",espacioPos2);
 			var espacioDisponible=idRow.substring(espacioPos1+1,espacioPos2);
@@ -545,7 +545,7 @@
 						deshabilitarHabilitarComponentes("horarioSala");
 					}
 					else{
-						alertDinamico("La duración estimada es mayor que el tiempo disponible para esta sala.\rIntente con otra sala");	
+						alertDinamico("La duraci&oacute;n estimada es mayor que el tiempo disponible para esta sala.\rIntente con otra sala");	
 					}
 				}
 				else{
@@ -554,7 +554,7 @@
 			}
 			else{
 				
-				alertDinamico("Seleccione una duración estimada para la audiencia");
+				alertDinamico("Seleccione una duraci&oacute;n estimada para la audiencia");
 			}
 				
 		}
@@ -633,7 +633,7 @@
 
 	function verificarTipoAudiencia(automatico){
 
-		//Si pulso automáticamente
+		//Si pulso autom&aacute;ticamente
 		if(automatico == true){
 			$("#gridSolicitudDeAudienciaJuecesPJENA").unbind('click');
 			multiselect=0;
@@ -660,7 +660,7 @@
 ///////////////////////////////////////CONTROLA LOS EVENTOS HABILITA O INHABILITA COMPONENETES//////////////////////////////////////////////////////////
 	/**
 	*Funcion para deshabilitar los botones de designar 
-	*Juez manualmente y automáticamente, Guardar y Designar Sala Temporal
+	*Juez manualmente y autom&aacute;ticamente, Guardar y Designar Sala Temporal
 	*/
 	function deshabilitarHabilitarComponentes(accion){
 
@@ -910,7 +910,7 @@
 					}
 					
 					if(mensaje == "fail"){
-						alertDinamico("La audiencia ya fue programada anteriormente por algún usuario");						
+						alertDinamico("La audiencia ya fue programada anteriormente por alg&uacute;n usuario");						
 					}
 					else if(mensaje == "salaOcupada"){
 						alertDinamico("Otro usuario acaba de programar una audiencia en esta sala y horario");
@@ -922,7 +922,7 @@
 					} else {								
 							
 								/*
-								*Guardamos la programación de la audiencia en las agendas de los Jueces
+								*Guardamos la programaci&oacute;n de la audiencia en las agendas de los Jueces
 								*La funcionalidad JAVS se en ecuentra en visorAudienciaPJENS
 								*/
 								guardarEventoAudiencia();
@@ -943,10 +943,10 @@
 		}else{
 
 			if(multiselect==1){
-				alertDinamico('Seleccione únicamente un juez del listado');
+				alertDinamico('Seleccione &uacute;nicamente un juez del listado');
 			}
 			else{
-				alertDinamico('Seleccione únicamente '+multiselect+' jueces del listado');
+				alertDinamico('Seleccione &uacute;nicamente '+multiselect+' jueces del listado');
 			}
 		}
 	}
@@ -956,7 +956,7 @@ function mensajeEstadoJAVS(idEvento){
 	switch (idEvento){
 		// Agenda
         case "<%=ConstantesGenerales.ERROR_AGENDAR_JAVS%>":
-            S_Mensaje = "Error al reagendar audiencia en servidor JAVS. No se agendó en el Sistema.";
+            S_Mensaje = "Error al reagendar audiencia en servidor JAVS. No se agend&oacute; en el Sistema.";
             break;
         case "<%=ConstantesGenerales.EXITO_AGENDAR_JAVS%>":
             S_Mensaje = "Audiencia reagendada correctamente en el Sistema y el servidor JAVS";
@@ -967,33 +967,33 @@ function mensajeEstadoJAVS(idEvento){
             break;
         case "<%=ConstantesGenerales.EXITO_AGENDAR_JAVS_SIN_ARCH_OUT%>":
         	S_Mensaje = "Audiencia reagendada correctamente en el Sistema y el servidor JAVS";
-            //S_Mensaje = "Audiencia agendada correctamente en servidor JAVS, error al crear archivo de recepción";
+            //S_Mensaje = "Audiencia agendada correctamente en servidor JAVS, error al crear archivo de recepci&oacute;n";
             break;
         case "<%=ConstantesGenerales.EXITO_AGENDAR_JAVS_SIN_ARCH_INOUT%>":
         	S_Mensaje = "Audiencia reagendada correctamente en el Sistema y el servidor JAVS";
-            //S_Mensaje = "Audiencia agendada correctamente en servidor JAVS, error al crear archivos de verificación";
+            //S_Mensaje = "Audiencia agendada correctamente en servidor JAVS, error al crear archivos de verificaci&oacute;n";
             break;
         case "<%=ConstantesGenerales.ERROR_PARAMETROS_CONEXION%>":
-            S_Mensaje = "Error al reagendar audiencia en servidor JAVS, parámetros de conexión incorrectos.</br>No se agendó en el Sistema.";
+            S_Mensaje = "Error al reagendar audiencia en servidor JAVS, par&aacute;metros de conexi&oacute;n incorrectos.</br>No se agend&oacute; en el Sistema.";
             break;
         case "<%=ConstantesGenerales.ERROR_ELEMENTOS_INSUFICIENTES%>":
-            S_Mensaje = "Error al reagendar audiencia en servidor JAVS, no hay elementos suficientes en la audiencia.</br>No se agendó en el Sistema.";
+            S_Mensaje = "Error al reagendar audiencia en servidor JAVS, no hay elementos suficientes en la audiencia.</br>No se agend&oacute; en el Sistema.";
             break;
         case "<%=ConstantesGenerales.ERROR_CREDENCIALES%>":
-            S_Mensaje = "Error al reagendar audiencia en servidor JAVS, credenciales de conexión incorrectas.</br>No se agendó en el Sistema.";
+            S_Mensaje = "Error al reagendar audiencia en servidor JAVS, credenciales de conexi&oacute;n incorrectas.</br>No se agend&oacute; en el Sistema.";
             break;
         case "<%=ConstantesGenerales.FALLO_CONEXION_WEB_SERVICE_JAVS%>":
-            S_Mensaje = "Error al reagendar audiencia en servidor JAVS, no hay conexión con el WS.</br>No se agendó en el Sistema.";
+            S_Mensaje = "Error al reagendar audiencia en servidor JAVS, no hay conexi&oacute;n con el WS.</br>No se agend&oacute; en el Sistema.";
             break;
 		// Consulta
         case "<%=ConstantesGenerales.FALLO_GENERAL%>":
-            S_Mensaje = "La audiencia esta programada en Sala JAVS, fallo al conectar con el servidor JAVS.</br>Vuelva a intentarlo más tarde";
+            S_Mensaje = "La audiencia esta programada en Sala JAVS, fallo al conectar con el servidor JAVS.</br>Vuelva a intentarlo m&aacute;s tarde";
             break;
         case "<%=ConstantesGenerales.FALLO_GENERAL_JAVS%>":
-            S_Mensaje = "La audiencia esta programada en Sala JAVS, fallo al conectar con el servidor JAVS.</br>Vuelva a intentarlo más tarde";
+            S_Mensaje = "La audiencia esta programada en Sala JAVS, fallo al conectar con el servidor JAVS.</br>Vuelva a intentarlo m&aacute;s tarde";
             break;
         case "<%=ConstantesGenerales.ERROR_CREDENCIALES_CONSULTA%>":
-        	S_Mensaje = "La audiencia esta programada en Sala JAVS, fallo al conectar con el servidor JAVS.</br>Error en credenciales, vuelva a intentarlo más tarde";
+        	S_Mensaje = "La audiencia esta programada en Sala JAVS, fallo al conectar con el servidor JAVS.</br>Error en credenciales, vuelva a intentarlo m&aacute;s tarde";
             break;
         case "<%=ConstantesGenerales.AUDIENCIA_PROCESO%>":
         	S_Mensaje = "La audiencia no fue reagendada, ya que esta programada en Sala JAVS y ya se esta llevando a cabo.</br>Se han actualizado los datos de la audiencia";
@@ -1002,7 +1002,7 @@ function mensajeEstadoJAVS(idEvento){
         	S_Mensaje = "La audiencia no fue reagendada, ya que esta programada en Sala JAVS y ya se llevo a cabo.</br>Se han actualizado los datos de la audiencia";
             break;
         case "<%=ConstantesGenerales.ERROR_ELIMINACION%>":
-            S_Mensaje = "La audiencia no fue reagendada. Ya que esta programada en Sala JAVS y no se logró reprogramar en el servidor JAVS";
+            S_Mensaje = "La audiencia no fue reagendada. Ya que esta programada en Sala JAVS y no se logr&oacute; reprogramar en el servidor JAVS";
             break;
         case "<%=ConstantesGenerales.EXITO_ELIMINACION%>":
             S_Mensaje = "La audiencia se reagendo correctamente en el Sistema y en el servidor JAVS";
@@ -1011,7 +1011,7 @@ function mensajeEstadoJAVS(idEvento){
             S_Mensaje = "La audiencia se reagendo correctamente en el Sistema y en el servidor JAVS";
             break;        
         case "<%=ConstantesGenerales.ERROR_SERVICIO_ELIMINACION%>":
-            S_Mensaje = "La audiencia no se logró reprogramar, fallo al conectar con el servidor JAVS.</br>Vuelva a intentarlo más tarde";
+            S_Mensaje = "La audiencia no se logr&oacute; reprogramar, fallo al conectar con el servidor JAVS.</br>Vuelva a intentarlo m&aacute;s tarde";
             break;
     }		
     return S_Mensaje;
@@ -1112,7 +1112,7 @@ function mensajeEstadoJAVS(idEvento){
 				var mensaje = $(xml).find('body').find('fechaActual').text();
 				
 				if(mensaje == "fallo"){
-					alertDinamico("No se logró guardar el evento en la agenda del juez");
+					alertDinamico("No se logr&oacute; guardar el evento en la agenda del juez");
 				}else{
 					
 				}	
@@ -1163,14 +1163,14 @@ function mensajeEstadoJAVS(idEvento){
 			    <td colspan="3" rowspan="7" ><table id="gridSolicitudDeAudienciaJuecesPJENA"></table></td>
 			  </tr>
 			  <tr>
-			    <td align="right" valign="bottom"><strong>Número de caso:</strong></td>
+			    <td align="right" valign="bottom"><strong>N&uacute;mero de caso:</strong></td>
 			    <td align="left" valign="bottom"><input type="text"
 			                        id="numCasoProgramarAudiencia"
 			                        style="width: 200px; border: 0; background: #DDD;"
 			                        readonly="readonly" /></td>
 			  </tr>
 			  <tr>
-			    <td align="right" valign="bottom"><strong>Número de
+			    <td align="right" valign="bottom"><strong>N&uacute;mero de
 			    Causa:</strong></td>
 			    <td align="left" valign="bottom"><input type="text"
 			                        id="numExpedienteProgramarAudiencia"
@@ -1192,7 +1192,7 @@ function mensajeEstadoJAVS(idEvento){
 			                        readonly="readonly" /></td>
 			  </tr>
 			  <tr>
-			    <td align="right" valign="bottom"><strong>Duración estimada de audiencia:</strong></td>
+			    <td align="right" valign="bottom"><strong>Duraci&oacute;n estimada de audiencia:</strong></td>
 			    <td align="left" valign="bottom">
 			     <select id="duracionEstimadaProgramarAudiencia" style="width:200px;">
                 	<option value="0" >-Seleccione-</option>
@@ -1234,7 +1234,7 @@ function mensajeEstadoJAVS(idEvento){
 			   		</strong>No Disponible
 			    </td>
 			    <td width="85">
-			    	<input type="text" size="4" style="width: 20px; border: 0; background: #CCCCCC;" readonly />Inhábil </td>
+			    	<input type="text" size="4" style="width: 20px; border: 0; background: #CCCCCC;" readonly />Inh&aacute;bil </td>
 			    <td colspan="3">&nbsp;</td>
 			  </tr>
 			  <tr>

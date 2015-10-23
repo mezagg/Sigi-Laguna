@@ -2,7 +2,7 @@
 
 <script type="text/javascript">
 
-	var diasSemana =["Lunes","Martes","Miércoles","Jueves","Viernes","Sábado","Domingo"];
+	var diasSemana =["Lunes","Martes","Mi&eacute;rcoles","Jueves","Viernes","S&aacute;bado","Domingo"];
 	var meses =["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
 	var diaActual='<%=(java.util.Calendar.getInstance().get(Calendar.DAY_OF_WEEK))%>';	
 
@@ -36,7 +36,7 @@
     }
 
 	/*
-	*Funcion para calcular el día de la semana
+	*Funcion para calcular el d&iacute;a de la semana
 	*/
     function calcularDia(){
 

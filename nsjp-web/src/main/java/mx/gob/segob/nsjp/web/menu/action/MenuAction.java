@@ -4,7 +4,7 @@
  * Compania            	: Ultrasist
  * Proyecto            	: NSJP              			Fecha:25/05/2012
  * Marca de cambio     	: N/A
- * Descripcion General   : Clase para la generación de menús
+ * Descripcion General   : Clase para la generacion de menus
  * Programa Dependiente  : N/A
  * Programa Subsecuente 	: N/A
  * Cond. de ejecucion    : N/A
@@ -63,7 +63,7 @@ public class MenuAction extends GenericAction {
 	private TurnoDelegate turnoDelegate;
 
 	/***
-	 * Método para discriminar el menu por su tipo de menu
+	 * Metodo para discriminar el menu por su tipo de menu
 	 * 
 	 * @param mapping
 	 * @param form
@@ -104,7 +104,7 @@ public class MenuAction extends GenericAction {
 	}
 
 	/***
-	 * Método para discriminar el menu por su tipo de menu
+	 * Metodo para discriminar el menu por su tipo de menu
 	 * 
 	 * @param mapping
 	 * @param form
@@ -223,7 +223,7 @@ public class MenuAction extends GenericAction {
 									+ eM.getcNombre() + " </a> ";
 								
 							}
-							// No está checado
+							// No esta checado
 					} else {
 						resp += " <li id='"
 								+ eM.getElementoMenuId()
@@ -267,7 +267,7 @@ public class MenuAction extends GenericAction {
 	}
 
 	/***
-	 * Método para obtener los menus hijos
+	 * Metodo para obtener los menus hijos
 	 * 
 	 * @param mapping
 	 * @param form
@@ -331,7 +331,7 @@ public class MenuAction extends GenericAction {
 	}
 
 	/***
-	 * Método para obtener los turnos como si fueran menú
+	 * Metodo para obtener los turnos como si fueran menu
 	 * 
 	 * @param mapping
 	 * @param form

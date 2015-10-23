@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <HTML>
 	<HEAD>
-		<!--  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<!--  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/estilos.css"/>	
 		<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/layout_complex.css"/>
 		<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/jquery-ui.css"/>
@@ -51,9 +51,9 @@
 	    		<PARAM name="Paths"			     value="<%=request.getParameter("RutaDirs")%>">
 	    		<PARAM name="Ancho"			     value="<%=request.getParameter("ancho")%>">
 	    		<PARAM name="Alto"			     value="<%=request.getParameter("alto")%>">--> 	    		 
-    			El navegador no soporta la ejecución del Applet
+    			El navegador no soporta la ejecuci&oacute;n del Applet
     	</applet> 
-    	<!-- Parámetros de prueba
+    	<!-- Par&aacute;metros de prueba
     	 <applet code="dibujo.AppletVista" archive="JAVS.jar,jsch-0.1.42.jar" WIDTH=1000 HEIGHT=300 >			
     			<PARAM name="Usuario"			 value="javstech">
 	    		<PARAM name="Password"			 value="AutoLogDR55">
@@ -61,7 +61,7 @@
 				<PARAM name="Audiencia"			 value="711">
     			<PARAM name="JVL"			 value="HOLA">
 	    		<PARAM name="Paths"			 value="/.JAVS/Sessions/01872778-7104-44a2-9a5e-7e3a3265a1bf,/.JAVS/Sessions/13bb12da-e6f8-4e82-ae74-ca7d9543aac2,/.JAVS/Sessions/14b72387-8f53-42a7-a37f-00f88b63b5b7,/.JAVS/Sessions/1aa2ea29-b978-410f-8066-3f7d20b29baa,/.JAVS/Sessions/50cdc23b-bd62-4e17-bda6-420bc9244262"> 
-    			El navegador no soporta la ejecución del Applet
+    			El navegador no soporta la ejecuci&oacute;n del Applet
     	</applet> -->
 	</BODY>
 </HTML>

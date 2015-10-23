@@ -9,13 +9,13 @@
 <%@page import=" mx.gob.segob.nsjp.dto.usuario.UsuarioDTO"%>
 <%@ page import="mx.gob.segob.nsjp.dto.configuracion.ConfiguracionDTO"%>
 <%@ page import="mx.gob.segob.nsjp.web.base.action.GenericAction"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Atención a Solicitudes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Atenci&oacute;n a Solicitudes</title>
 
 
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/jquery-ui.css" />
@@ -154,7 +154,7 @@
 				jQuery("#gridDetalleFrmPrincipal").jqGrid({ 
 					url:'<%=request.getContextPath()%>/consultarDocumentosPorAudiencia.do?idAudiencia='+idAudiencia,
 					datatype: "xml",
-					colNames:['Área del responsable','Fecha de la actividad','Nombre de la actividad','Tipo de documento','Nombre de Documento','Fecha del documento', 'Documento', 'Es Parcial'],
+					colNames:['&Aacute;rea del responsable','Fecha de la actividad','Nombre de la actividad','Tipo de documento','Nombre de Documento','Fecha del documento', 'Documento', 'Es Parcial'],
 					colModel:[ 	{name:'area',index:'da', width:200, align:'center'},
 								{name:'FechaActividad',index:'fechaActividad', width:170, align:'center', hidden:true},							
 								{name:'NombreActividad',index:'nombreActividad', width:400, align:'center', hidden:true},
@@ -368,7 +368,7 @@
 			jQuery("#gridSolTranscripcionAudienciaPJENC").jqGrid({
 				url:'<%=request.getContextPath()%>/consultarSolicitudesTransAudioVideoPorEstatus.do?idAudiencia='+idAudiencia+'&enumTipoSolicitud='+enumTipoSolicitud+'',
 				datatype: "xml", 
-				colNames:['Nombre','Institución','Ordenado','Atendido'], 
+				colNames:['Nombre','Instituci&oacute;n','Ordenado','Atendido'], 
 				colModel:[  {name:'NombreSol',index:'nombreSol', width:200, align:'center'},						
 				           	{name:'Institucion',index:'institucion', width:150, align:'center'}, 
 				           	{name:'Ordenado',index:'ordenado', width:70,align:'center'}, 
@@ -461,7 +461,7 @@
 		jQuery("#gridProbResponsablePJENC").jqGrid({ 
 			url:'<%=request.getContextPath()%>/consultarProbablesResponsablesPorVictimaYDelito.do?audienciaId='+idAudiencia+'',
 			datatype: "xml", 
-			colNames:['Nombre Probable Responsable','Nombre Víctima(s)','Delito(s)','Calidad Actual','Nueva Calidad'], 
+			colNames:['Nombre Probable Responsable','Nombre V&iacute;ctima(s)','Delito(s)','Calidad Actual','Nueva Calidad'], 
 			colModel:[  {name:'NombreImputado',index:'nombreImputado', width:200, align:'center'},						
 			           	{name:'NombreVictima',index:'nombreVictima', width:200, align:'center', cellattr: function (rowId, tv, rawObject, cm, rdata) { return 'style="white-space: normal;"';} }, 
 			           	{name:'Delito',index:'delito', width:120,align:'center', cellattr: function (rowId, tv, rawObject, cm, rdata) { return 'style="white-space: normal;"';} }, 
@@ -593,7 +593,7 @@
 	}
 
 	/* 	 
-	* Función que genera un Mandamiento y despues abre la pantalla de mandamiento judicial
+	* Funci&oacute;n que genera un Mandamiento y despues abre la pantalla de mandamiento judicial
 	*
 	*/
 	function generarMandamiento(){
@@ -613,7 +613,7 @@
 
 	
 	/* 	 
-	* Función que para Generar un Mandamiento despues de dar clic en el boton Generar Mandamiento judicial
+	* Funci&oacute;n que para Generar un Mandamiento despues de dar clic en el boton Generar Mandamiento judicial
 	*
 	*/
 	function abrirMandamientoJudicial(){
@@ -643,7 +643,7 @@
 	
 	
 	/*
-	*Funcion que consulta si el resolutivo ya tiene asociado un mandamiento, de ser así
+	*Funcion que consulta si el resolutivo ya tiene asociado un mandamiento, de ser as&iacute;
 	*verifica si tiene un archivo digital asociado y lo abre en formato pdf.
 	*si no abre la ventana para terminar de asociar el mandamiento.
 	*/
@@ -669,7 +669,7 @@
 				
     			if(idArchivoMandamiento != ""
     					&& idArchivoMandamiento != idArchivoImagenFunc){
-					//el documento ya está generado, consultarlo
+					//el documento ya est&aacute; generado, consultarlo
     				document.verMandamientoForm.archivoDigitalId.value = idArchivoMandamiento;
 					document.verMandamientoForm.documentoId.value = "";
 					document.verMandamientoForm.submit();
@@ -748,7 +748,7 @@
 	*/
 	function mostrarVentanaInvolucradosCausa(){
 		idWindowVisorMedidasCautelaresPJENC++;
-		// Este servicio tiene como parámetro de acción en ingresarMedidasCautelaresPJENC.jsp
+		// Este servicio tiene como par&aacute;metro de acci&oacute;n en ingresarMedidasCautelaresPJENC.jsp
 		// a flujoMedCautelar
 		var flujoMedCautelar = "dePJaSSPyPGJ";
 		$.newWindow({id:"iframewindowVisorMedidasCautelares"+idWindowVisorMedidasCautelaresPJENC, statusBar: true, posx:200,posy:50,width:970,height:480,title:"Visor de Medidas Cautelares", type:"iframe"});
@@ -786,7 +786,7 @@
 	
 	
 	/** 
-	* Funcion que realiza la carga del catálogo de tipos de mandamiento
+	* Funcion que realiza la carga del cat&aacute;logo de tipos de mandamiento
 	*/
 	function cargaTipoMandamiento() {
 		
@@ -807,7 +807,7 @@
 
 	
 	/** NO BORRAR SOLO QUITAR #tipoSentencia
-	* Funcion que realiza la carga del catálogo de tipos de sentencia
+	* Funcion que realiza la carga del cat&aacute;logo de tipos de sentencia
 	*/
 	function cargaTipoSentencia() {
 		
@@ -1049,8 +1049,8 @@
 	}
 
 	/**
-	* Función invocada una vez creado y almacenado en la base el archivo digital correspondiente al documento
-	* Se envía el mandamiento judicial a SSP
+	* Funci&oacute;n invocada una vez creado y almacenado en la base el archivo digital correspondiente al documento
+	* Se env&iacute;a el mandamiento judicial a SSP
 	*/
 	function documentoGeneradoSincrono(documentoId){
 		
@@ -1169,7 +1169,7 @@
 	
 		jQuery("#nombreImputado").val(jsonParam[index].nombreImputado);
 		jQuery("#tipoDeSentencia").val(jsonParam[index].tipoSentencia);
-		//Radio Buttons son 0-based por lo que el index de Sí = 0, index de No = 1
+		//Radio Buttons son 0-based por lo que el index de S&iacute; = 0, index de No = 1
 		if(jsonParam[index].esLesionado == 1){
 			jQuery("input:radio[name=bLesion]:nth(0)").attr("checked",true);		
 		} else if (jsonParam[index].esLesionado == 0){		
@@ -1191,7 +1191,7 @@
 		jsonParam[index].puntosPorAcumular = jQuery("#puntosPorAcumular").val();	
 		
 		if(jsonParam[index].tipoSentencia <= 0){
-			customAlert("Se debe seleccionar un tipo de sentencia.", "Validación");
+			customAlert("Se debe seleccionar un tipo de sentencia.", "Validaci&oacute;n");
 			return false;
 		}
 		
@@ -1200,7 +1200,7 @@
 		}
 		
 		if(jsonParam[index].puntosPorAcumular <= 0){
-			customAlert("Se debe ingresar el número de puntos a acumular.", "Validación");
+			customAlert("Se debe ingresar el n&uacute;mero de puntos a acumular.", "Validaci&oacute;n");
 			return false;
 		}
 		
@@ -1290,7 +1290,7 @@
 				},
 				"Cancelar":function() {
 					
-					customConfirm("¿Realmente desea salir?", "", cancelarAgregarInvolucrado);			
+					customConfirm("&iquest;Realmente desea salir?", "", cancelarAgregarInvolucrado);			
 				}
 			}
 		});
@@ -1340,7 +1340,7 @@
 	       	jQuery("#gridCatDelitosRDPPV").jqGrid({ 
 				url:'<%= request.getContextPath()%>/CargarDelitoAsociadosInvolucrado.do?idPR='+idProbable +'&idExpediente='+idExpediente, 
 				datatype: "xml",
-				colNames:['Delito','Forma de Participación','Víctima'], 
+				colNames:['Delito','Forma de Participaci&oacute;n','V&iacute;ctima'], 
 				colModel:[ 	{name:'Delito',index:'delito', width:250}, 
 							{name:'FormaParticipacion',index:'formaParticipacion',width:550, hidden:true},
 							{name:'Victima',index:'victima',width:250}					
@@ -1379,7 +1379,7 @@
 // 			mostrarVentanaMandamientoJudicial(rowid,null,false);
 			relacionarDelitoPersona(rowid,null,false);
 		}else{
-			customAlert("Por favor seleccione un renglón");
+			customAlert("Por favor seleccione un rengl&oacute;n");
 		} 
 	}
 	
@@ -1403,7 +1403,7 @@
 					}
 				},
 				"Cancelar":function() {
-					customConfirm("¿Realmente desea salir?", "", function(){
+					customConfirm("&iquest;Realmente desea salir?", "", function(){
 						$("#divRelacionarDP").dialog("close");
 					});			
 				}
@@ -1463,7 +1463,7 @@
 				<a href="#tabs-11" onclick="documentos()" id="linkDocs">Documentos</a>
 			</li>
 			<li id="acumulacion">
-				<a href="#tabAcumulacion-14">Acumulación</a>
+				<a href="#tabAcumulacion-14">Acumulaci&oacute;n</a>
 			</li>
 			
 		</ul>
@@ -2064,10 +2064,10 @@
 	      <tr>
 	        <td>&nbsp;</td>
 	        <td align="right">
-	        	<strong>¿Presenta Lesiones?:</strong>
+	        	<strong>&iquest;Presenta Lesiones?:</strong>
 	       	</td>
 	        <td>
-	        	<input type="radio" name="bLesion" value="1"> Sí
+	        	<input type="radio" name="bLesion" value="1"> S&iacute;
 				<input type="radio" name="bLesion" value="0" checked="checked"> No
 	        </td>
 	        <td>&nbsp;</td>

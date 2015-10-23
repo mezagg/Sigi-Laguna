@@ -2,14 +2,14 @@
 <%@ page import="mx.gob.segob.nsjp.comun.enums.institucion.Instituciones"%>
 <%@ page import="mx.gob.segob.nsjp.dto.configuracion.ConfInstitucionDTO"%>
 <%@ page import="mx.gob.segob.nsjp.dto.usuario.UsuarioDTO"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>    
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>    
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Registrar Funcionario</title>
 
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css" />
@@ -48,7 +48,7 @@
 	var claveOriginalFuncionario="";
 	//variable en donde se almacena el id del funcionario para poder registrar el usuario
 	var idFuncionario='<%=request.getParameter("idFuncionario")!=null?request.getParameter("idFuncionario"):""%>';
-	//variable global para manipular la pestaña de dar de alta un usuario segun de donde se mande a llamar
+	//variable global para manipular la pesta&ntilde;a de dar de alta un usuario segun de donde se mande a llamar
 	var administrador= '<%=request.getParameter("administrador")!=null?request.getParameter("administrador"):""%>';
 	//variable global que controla el estado del usuario
 	var comparaUsuario= '<%=request.getParameter("comparaUsuario")!=null?request.getParameter("comparaUsuario"):""%>';    	    
@@ -192,7 +192,7 @@
 			$("#fechaIngresoFuncionarioComplemento").hide();
 			
 			// Se checa el idFuncionario, de ser nulo, quiere decir que no se ha seleccionado alguno, 
-			// siendo así, se muestra en pantalla el grid de funcionarios que se pueden modificar
+			// siendo as&iacute;, se muestra en pantalla el grid de funcionarios que se pueden modificar
 		
 			if(idFuncionario!=null && parseInt(idFuncionario)>0){
 
@@ -203,7 +203,7 @@
 				$('#tabsconsultaprincipal-1').show();
 				$('#consultaFuncionarios').hide();
 		
-				//  Recuperación de datos generales del individuo
+				//  Recuperaci&oacute;n de datos generales del individuo
 		
 				$.ajax({
 				     type: 'POST',
@@ -216,8 +216,8 @@
 				});
 		   
 		   		// Se realiza el comparativo para verificar si el funcionario tiene un usuario asociado
-		   		// De no ser así, se despliega el tab de captura de usuario, y se permite realizar esta 		   	
-		   		// acción.
+		   		// De no ser as&iacute;, se despliega el tab de captura de usuario, y se permite realizar esta 		   	
+		   		// acci&oacute;n.
 		   
 				if(comparaUsuario=="false" || comparaUsuario==false){
 					$('#tabAlta').show();
@@ -429,7 +429,7 @@
 	
 
 	/**
-	*Funcion que escucha si el usuario seleccionó una area que tiene UIE, llama el llenado del combo
+	*Funcion que escucha si el usuario seleccion&oacute; una area que tiene UIE, llama el llenado del combo
 	*una sola vez, y despues solo lo muestra o lo oculta
 	*/	
 	function controlComboUIE(){
@@ -502,7 +502,7 @@
 	
 	
 	/**
-	 *Limpia todos los campos de esta página
+	 *Limpia todos los campos de esta p&aacute;gina
 	 */
 	function cleanDatosGenerales(){
 	
@@ -693,9 +693,9 @@
 			  	  }
 			  	});
 			}else{
-				// Al ingresar un funcionario, y ya está registrado el número de empleado
+				// Al ingresar un funcionario, y ya est&aacute; registrado el n&uacute;mero de empleado
 				if(parseInt(administrador)==1 || parseInt(administrador)==0 ){
-				 	alertDinamico("El número de empleado ingresado ya existe, verifique su información.");
+				 	alertDinamico("El n&uacute;mero de empleado ingresado ya existe, verifique su informaci&oacute;n.");
 				}				
 			}
 		}
@@ -782,8 +782,8 @@
 		    
 		    $('#datosGeneralesCbxAgencia').attr('selectedIndex',0);
 	
-			// El siguiente if, se utiliza para la asociación de la imagen al funcionario si es que 
-			// esté tiene una asociada, en caso contrario, se muestra la imagen default		
+			// El siguiente if, se utiliza para la asociaci&oacute;n de la imagen al funcionario si es que 
+			// est&eacute; tiene una asociada, en caso contrario, se muestra la imagen default		
 						
 		    if(idFuncionario!=0){
 			

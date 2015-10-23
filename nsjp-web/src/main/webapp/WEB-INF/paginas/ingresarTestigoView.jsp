@@ -1,5 +1,5 @@
-<%@page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@page import="mx.gob.segob.nsjp.dto.usuario.UsuarioDTO"%>
 <%@page import="mx.gob.segob.nsjp.dto.configuracion.ConfiguracionDTO"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.seguridad.Roles"%>
@@ -7,7 +7,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Ingresar Testigo</title>
 
 <!--	Hoja de estilo para los gadgets-->
@@ -625,7 +625,7 @@ DD P {
 					if(idindi!='null' && idindi!=0)
 					{
 						//debemos mostrar un confirm
-						customConfirm ("¿Está seguro que desea anular al testigo?", "", anularInvolucrado);
+						customConfirm ("&iquest;Est&aacute; seguro que desea anular al testigo?", "", anularInvolucrado);
 					}
 				}
 				
@@ -653,7 +653,7 @@ DD P {
 					    		    	   $(xml).find('cadena').each(function(){
 					    		    		   mensaje+= $(this).text()+ "<br/>";
 				            			   });
-					    		    	   mensaje+= "<br/>¿Está seguro de querer eliminarlo?";
+					    		    	   mensaje+= "<br/>&iquest;Est&aacute; seguro de querer eliminarlo?";
 					    		    	   customConfirm (mensaje, "", anularInvolucradoCnRelaciones);
 				    		    	   }
 								   }
@@ -663,17 +663,17 @@ DD P {
 				    		    	   if(parseInt($(xml).find('numRel').text())>-1)
 								   		{
 				    		    		   //Lista nula
-								   			customAlert("No se logró revisar si el involucrado tiene relaciones, intente más tarde");
+								   			customAlert("No se logr&oacute; revisar si el involucrado tiene relaciones, intente m&aacute;s tarde");
 								   		}
 				    		    	   else if(parseInt($(xml).find('numRel').text())>-2)
 									   {
 				    		    		   //ID no llego
-				    		    		   customAlert("Ocurrió un problema de conexión, intente más tarde");
+				    		    		   customAlert("Ocurri&oacute; un problema de conexi&oacute;n, intente m&aacute;s tarde");
 									   }
 				    		    	   else if(parseInt($(xml).find('numRel').text())>-3)
 									   {
 				    		    		   //excepcion
-				    		    		   customAlert("Ocurrió un problema al tratar de eliminar el involucrado, intente más tarde");
+				    		    		   customAlert("Ocurri&oacute; un problema al tratar de eliminar el involucrado, intente m&aacute;s tarde");
 									   }
 				    		      }
 				    	  }
@@ -694,18 +694,18 @@ DD P {
 									if(parseInt($(xml).find('banderaOp').text())==1)
 									{
 										window.parent.eliminarVictima(idindi);
-										window.parent.customAlert("Sé logró anular al testigo  con éxito");
+										window.parent.customAlert("S&eacute; logr&oacute; anular al testigo  con &eacute;xito");
 										cerrarCustomVentana();
 										//window.parent.cerrarVentanaVictima();
 									}
 									else if(parseInt($(xml).find('banderaOp').text())==0)
 									{
 										//se puede eliminar el objeto sin problemas
-										window.parent.customAlert("No se logró anular al testigo");
+										window.parent.customAlert("No se logr&oacute; anular al testigo");
 									}
 									else if(parseInt($(xml).find('banderaOp').text())==-1)
 									{
-										window.parent.customAlert("Ocurrión un error al tratar de anular al testigo,<br/>consulte a su administrador ");
+										window.parent.customAlert("Ocurri&oacute;n un error al tratar de anular al testigo,<br/>consulte a su administrador ");
 									}
 					    	  }
 					    });
@@ -781,7 +781,7 @@ DD P {
 	    			
 				}else{
 					//el testigo ya se habia ingresado y ya no se asocia a la audiencia
-					alertDinamico('Modificación exitosa');
+					alertDinamico('Modificaci&oacute;n exitosa');
 					 
 				}
 		    	//Si se llamo la ventana desde el grid de audiencia siguiente
@@ -815,7 +815,7 @@ DD P {
 		    	  data: 'involucradoId='+idInvolucradoMedioPrueba+'&idDatoPrueba='+idDatoPrueba+'&nombreMedio='+nombreMedio+'&apPat='+apPat+'&apMat='+apMat+'&numIde='+numIde+'&idMedioPruebaActuliza='+idMedioPruebaActuliza,				
 		    	  dataType: 'xml',
 		    	  success: function(xml){
-		    		  //Si se logró guardar el involucrado 
+		    		  //Si se logr&oacute; guardar el involucrado 
 						if(parseInt($(xml).find('code').text())==0){
 
 							idMedioPruebaActuliza = $(xml).find('body').text();
@@ -827,7 +827,7 @@ DD P {
 		    	});
 		}
 		else{
-			alertDinamico("Ingrese el nombre de la persona y el numero de identificación");
+			alertDinamico("Ingrese el nombre de la persona y el numero de identificaci&oacute;n");
 		}
 		
 	}
@@ -863,7 +863,7 @@ DD P {
 				return true;
 			}
 			else{
-				alertDinamico("Ingrese el nombre de la persona y el número de identificación");
+				alertDinamico("Ingrese el nombre de la persona y el n&uacute;mero de identificaci&oacute;n");
 				return false;
 			}
 		}
@@ -963,7 +963,7 @@ DD P {
 								<!-- Esta seccion es de PJ cuando hay datos de prueba -->
 									<td align="right">
 										<div id="divEtiNumIdeMedioPrueba" style="display: none;">
-											Núm. identificación:</div>
+											N&uacute;m. identificaci&oacute;n:</div>
 									</td>
 									<td>
 										<div id="divInputNumIdeMedioPrueba" style="display: none;">
@@ -1009,7 +1009,7 @@ DD P {
 									<dd>
 										<jsp:include page="ingresarMediosContactoView.jsp" />
 									</dd>
-									<dt>Documentos de Identificación</dt>
+									<dt>Documentos de Identificaci&oacute;n</dt>
 									<dd>
 										<jsp:include page="ingresarDocumentoIdentificacionView.jsp" />
 

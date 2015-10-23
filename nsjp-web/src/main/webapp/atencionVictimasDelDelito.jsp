@@ -6,11 +6,13 @@
 <%@ page import="mx.gob.segob.nsjp.comun.enums.institucion.Areas"%>
 <%@page import="mx.gob.segob.nsjp.dto.usuario.RolDTO"%>
 <%@page import="mx.gob.segob.nsjp.dto.usuario.UsuarioDTO"%>
+<%@page pageEncoding="UTF-8"%>
 <% 
 	UsuarioDTO usuario = (UsuarioDTO) request.getSession().getAttribute("KEY_SESSION_USUARIO_FIRMADO");
 	RolDTO rolDTO = usuario.getRolACtivo().getRol();
  %> 
 <html>
+    
 <head>
 	<%@ page import="mx.gob.segob.nsjp.comun.enums.institucion.Areas" %>
 	<%@ page import="mx.gob.segob.nsjp.comun.enums.solicitud.EstatusSolicitud" %>
@@ -957,7 +959,7 @@
 
 	<div id="dialog-logout" title="Cerrar Sesi&oacute;n">
 		<p align="center">
-			<span id="logout">¿Desea cerrar su sesi&oacute;n?</span>
+			<span id="logout">&iquest;Desea cerrar su sesi&oacute;n?</span>
 		</p>
 	</div>
 
@@ -973,11 +975,11 @@
 		<p align="center">
 			<table border="0">
 				<tr>
-					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contraseña para desbloquear.</td>
+					<td colspan="2">La sesi&oacute;n se ha bloqueado, introduce tu contrase&ntilde;a para desbloquear.</td>
 					
 				</tr>
 				<tr>
-					<td align="right"><label style="color:#4A5C68">Contraseña:</label></td>
+					<td align="right"><label style="color:#4A5C68">Contrase&ntilde;a:</label></td>
 					<td><input type="password" name="password" id="password" value="" maxlength="15" size="20"></td>
 				</tr>
 				<tr id="captchaJPG" >
@@ -1000,13 +1002,13 @@
 			</table>
 		</p>
 	</div>
-	<div id="dialogBlok" title="¡Su sesi&oacute;n est&aacute; a punto de caducar!">
+	<div id="dialogBlok" title="Â¡Su sesi&oacute;n est&aacute; a punto de caducar!">
 			<p>
 				<span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 50px 0;"></span>
 				La sesi&oacute;n se cerrar&aacute; en <span id="dialog-countdown" style="font-weight:bold"></span> segundos.
 			</p>
 
-			<p>¿Desea continuar con la sesi&oacute;n?</p>
+			<p>&iquest;Desea continuar con la sesi&oacute;n?</p>
 	</div>
 	
 	<div id="dialog-alarmPos" title="Alarma ">

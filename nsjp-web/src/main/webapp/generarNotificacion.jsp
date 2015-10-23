@@ -10,7 +10,7 @@
 
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Consultar Notificaciones</title>
         <!--Hoja de estilos de Layout-->
         <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/layout_complex.css" media="screen" />
@@ -47,9 +47,9 @@
                     <li>
                         <a style="cursor: pointer" onclick="seleccionarDestinatarios();">Seleccionar Destinatarios</a>
                         <a style="cursor: pointer">Guardado Parcial</a>
-                        <a style="cursor: pointer">Enviar Notificación</a>
+                        <a style="cursor: pointer">Enviar Notificaci&oacute;n</a>
                         <a style="cursor: pointer">Consultar Documentos</a>
-                        <a style="cursor: pointer">Imprimir Notificación</a>
+                        <a style="cursor: pointer">Imprimir Notificaci&oacute;n</a>
                     </li>
                 </ul>
                 <div id="destinatariosSistemaWrap" style="">

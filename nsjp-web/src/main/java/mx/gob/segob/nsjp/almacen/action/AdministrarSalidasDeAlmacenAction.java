@@ -18,7 +18,7 @@ import mx.gob.segob.nsjp.web.notificacion.action.Grid;
 
 import org.apache.log4j.Logger;
 import org.apache.struts.action.ActionForm;
-import org.apache.struts.action.ActionForward;
+import org.apache.struts.action.ActionForward; 
 import org.apache.struts.action.ActionMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -52,13 +52,13 @@ public class AdministrarSalidasDeAlmacenAction extends GenericAction {
                     new Grid<EvidenciaDTO>(0, evidenciasDto.size(), 10, evidenciasDto,
                     /**
                      * id
-                     * número de la evidencia,
-                     * información de la evidencia, ¿descripcion?
+                     * nï¿½mero de la evidencia,
+                     * informaciï¿½n de la evidencia, ï¿½descripcion?
                      * origen de la evidencia,
-                     * último eslabón asociado, ¿eslabonId?
-                     * número de eslabón,
-                     * tipo de eslabón,
-                     * almacén donde se encuentra la evidencia,
+                     * ï¿½ltimo eslabï¿½n asociado, ï¿½eslabonId?
+                     * nï¿½mero de eslabï¿½n,
+                     * tipo de eslabï¿½n,
+                     * almacï¿½n donde se encuentra la evidencia,
                      * estado de la evidencia.
                      */
                     "evidenciaId",

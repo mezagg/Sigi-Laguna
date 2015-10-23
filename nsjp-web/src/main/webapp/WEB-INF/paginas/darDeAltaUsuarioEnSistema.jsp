@@ -1,4 +1,6 @@
 
+<%@page pageEncoding="UTF-8"%>
+
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/comun.js?n=1"></script>
 	<script type="text/javascript">
 
@@ -49,13 +51,13 @@
 			alertDinamico("Se necesita seleccionar un rol principal");
 		}
 		else if($("#contrasena").val()==""){
-			alertDinamico("Favor de capturar la contraseña del usuario");
+			alertDinamico("Favor de capturar la contrase&ntilde;a del usuario");
 		}
 		else if($("#repetirContrasena").val()==""){
-			alertDinamico("Favor de confirmar la contraseña del usuario");
+			alertDinamico("Favor de confirmar la contrase&ntilde;a del usuario");
 		}	 			
 		else if($("#contrasena").val()!= $("#repetirContrasena").val()){
-			alertDinamico("La contraseña debe ser la misma en los dos campos, favor de verificar");  
+			alertDinamico("La contrase&ntilde;a debe ser la misma en los dos campos, favor de verificar");  
 	    }
 		else if(isContrasenia($('#contrasena').val())){
 
@@ -76,7 +78,7 @@
 					success: function(xml){						
 						idUsuario=$(xml).find("long").text();
 						if(idUsuario!=0){
-							alertDinamico("El registro del usuario se ha llevado con éxito");
+							alertDinamico("El registro del usuario se ha llevado con &eacute;xito");
 							$('#modificarUsuario').removeAttr('disabled');
 							$('#anularUsuario').removeAttr('disabled');						 				 			
 							$('#registrarUsuario,#nombreUsuario,#contrasena,#repetirContrasena,#rolSelection').attr('disabled', 'disabled');										 		
@@ -102,7 +104,7 @@
 					success: function(xml){
 						modificaC=$(xml).find("boolean").text();
 						if(modificaC=="true"){
-		 					alertDinamico("La modificación del usuario se ha llevado con éxito.");
+		 					alertDinamico("La modificaci&oacute;n del usuario se ha llevado con &eacute;xito.");
 						}
 						else{
 							alertDinamico("El nombre de usuario proporcionado ya esta asignado a otro funcionario,\n favor de ingresar otro");
@@ -114,14 +116,14 @@
 		}
 	}
 		
-//funcion validadora de contraseña. Regresa verdadero si cumple con requisitos o falso si no cumple
+//funcion validadora de contrase&ntilde;a. Regresa verdadero si cumple con requisitos o falso si no cumple
 function isContrasenia(theElement){
 	var s = theElement;
 	var resp = false;
 	var mPsw1=/^[A-Za-z0-9!@#$%^&*()_]{5,20}$/;
 	//Valida que tenga letras
 	var mPsw2=/[A-Za-z]/;
-	//Valida que tenga números
+	//Valida que tenga n&uacute;meros
 	var mPsw3=/[0-9]/;
 	
 	if (mPsw1.test(s))
@@ -134,17 +136,17 @@ function isContrasenia(theElement){
 			}
 			else
 			{
-				alertDinamico("La contraseña debe tener al menos un número, favor de verificar");
+				alertDinamico("La contrase&ntilde;a debe tener al menos un n&uacute;mero, favor de verificar");
 			}
 		}
 		else
 		{
-			alertDinamico("La contraseña debe tener al menos una letra, favor de verificar");
+			alertDinamico("La contrase&ntilde;a debe tener al menos una letra, favor de verificar");
 		}
 	}
 	else
 	{
-		alertDinamico("La contraseña debe tener como mínimo 5 y máximo 20 caracteres,\n favor de verificar");
+		alertDinamico("La contrase&ntilde;a debe tener como m&iacute;nimo 5 y m&aacute;ximo 20 caracteres,\n favor de verificar");
 	}
 	
 	return resp;
@@ -274,7 +276,7 @@ function gridRolesUsuario() {
 	}
 	
 	function buscarUsuario() {		
-		if(confirm("¿Est\u00E1 seguro que quiere anular al usuario?")) {
+		if(confirm("&iquest;Est\u00E1 seguro que quiere anular al usuario?")) {
 			var anulaUsu;			
 			$('#anularUsuario').attr('disabled', true);
 			var params = '&idUsuario=' + idUsuario;	
@@ -287,7 +289,7 @@ function gridRolesUsuario() {
 				success: function(xml) {
 					anulaUsu=$(xml).find("boolean").text();					
 					if (anulaUsu=="true") {						
-						customConfirm("El usuario tiene una sesion activa, ¿Deseas cerrarla?","Sesion Activa",anulaUsuario,function (){alertDinamico("El usuario no se anulo");});
+						customConfirm("El usuario tiene una sesion activa, &iquest;Deseas cerrarla?","Sesion Activa",anulaUsuario,function (){alertDinamico("El usuario no se anulo");});
 					}else{
 						anulaUsuario();
 					}						
@@ -357,7 +359,7 @@ function gridRolesUsuario() {
 	}
 	
 	/*
-		Método que valida que no se puedan seleccionar roles y subroles de la misma familia
+		M&eacute;todo que valida que no se puedan seleccionar roles y subroles de la misma familia
 	*/
 	function validarRoles(rolPadreId){
 	
@@ -365,7 +367,7 @@ function gridRolesUsuario() {
 		for (var i = 0; i < ids.length; i++) {
 	   		var seleccionado = jQuery("#gridRolesSeleccionados").getRowData(ids[i]);
     		if(rolPadreId == seleccionado.RolPadreId){
-				customAlert("No se puede seleccionar un rol de la misma jerarquía", "Asignación De Roles");
+				customAlert("No se puede seleccionar un rol de la misma jerarqu&iacute;a", "Asignaci&oacute;n De Roles");
 				return false;    		
     		}
 		}
@@ -444,12 +446,12 @@ function gridRolesUsuario() {
     <td align="left">
      	<input type="text" style="width: 75px;" id="nombreUsuario" onKeyUp="revisaLetras(event)" maxlength="30"/>
     </td>
-    <td align="right"><strong>Contraseña:</strong></td>
+    <td align="right"><strong>Contrase&ntilde;a:</strong></td>
     <td align="left"><strong>
     	<input type="password" id="contrasena" onKeyUp="habilitaBoton()" maxlength="20"/>
     	</strong>
     </td>
-    <td align="right"><strong>Repetir contraseña: </strong></td>
+    <td align="right"><strong>Repetir contrase&ntilde;a: </strong></td>
 	<td align="left"><strong>
 		<input type="password" id="repetirContrasena" onKeyUp="habilitaBoton()" maxlength="20"/>
 		</strong>

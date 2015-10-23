@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Ingresar juez manualmente</title>
 		
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css" />
@@ -275,7 +275,7 @@
 
 		  /**
 			  * Muestra u oculta los combo box's o cajas de texto dependiendo
-			  * de el país seleccionado tiene o no, entidades federativas.
+			  * de el pa&iacute;s seleccionado tiene o no, entidades federativas.
 			  * Esto para el domicilio.
 			  */	
 			  function hideControlsSeparacion(existenEntidadesSeparacion) {
@@ -411,7 +411,7 @@
 			
 			/**
 			* Si existe un cambio en el combo de paises se realiza la consulta de 
-			* entidades federativas, y si la consulta es NO vacía se leventa la 
+			* entidades federativas, y si la consulta es NO vac&iacute;a se leventa la 
 			* bandera para mostrar los combo box. Esto para el domicilio
 			*/ 	
 			function onSelectChangePaisSeparacion() {
@@ -426,7 +426,7 @@
 					async: false,									// la accion cargar estados y llena el combo con la consulta
 					type: 'POST',
 					url: '<%= request.getContextPath()%>/cargarEntFederativas.do',
-					data: 'glCatPaisId=' + selected.val(),	//Parametro para hacer la consulta de Entidades por Id del País
+					data: 'glCatPaisId=' + selected.val(),	//Parametro para hacer la consulta de Entidades por Id del Pa&iacute;s
 					dataType: 'xml',
 					success: function(xml){
 						$(xml).find('catEntidadesFed').each(function(){
@@ -766,7 +766,7 @@
 	<tr><td>&nbsp;</td></tr>
 								<tr><td width="50">&nbsp;</td>
 									<td width="165">Lista de derechos:</td>
-									<td width="199" align="right"><select><option>Conducir Vehiculo</option><option>Ejercer profesión Vehiculo</option></select></td>
+									<td width="199" align="right"><select><option>Conducir Vehiculo</option><option>Ejercer profesi&oacute;n Vehiculo</option></select></td>
 									<td width="96">&nbsp;</td>
 								</tr>
 								<tr>
@@ -900,7 +900,7 @@
 									<td width="40">Territorio:</td>
 									<td width="40"><select name="cmbProhibicion2"
 										id="cmbProhibicion2">
-											<option>Delegación ó Municipio</option>
+											<option>Delegaci&oacute;n &oacute; Municipio</option>
 											<option>Estado</option>
 											<option>Otro</option>
 									</select>
@@ -917,7 +917,7 @@
 									<td>Estado:</td>
 									<td><select name="cmbProhibicion3" id="cmbProhibicion3">
 											<option>Chiapas</option>
-											<option>México</option>
+											<option>M&eacute;xico</option>
 											<option>Puebla</option>
 									</select>
 									</td>
@@ -940,7 +940,7 @@
 	<div id="tabsconsultaprincipalDos-7" >
 			<table width="530px"><tr><td>&nbsp;</td></tr><tr><td colspan="2">&nbsp;&nbsp;Presentarse en:<select id="cmbInstitucion"><option>Defensoria</option></select></td></tr>
 					                			<tr><td colspan="2">Presentarse con:<select id="cmbEncargadoIns"><option>Juan Hernandez - Coordinador</option></select></td></tr>
-					                			<tr><td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Día(s):<input type="text" size="20" /></td></tr>
+					                			<tr><td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D&iacute;a(s):<input type="text" size="20" /></td></tr>
 					                    		<tr><td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hora:<input taype="text" size="20" /></td></tr>
 					                    		<tr><td width="81">&nbsp;</td>
 					                    		  <td width="437">&nbsp;</td>
@@ -957,7 +957,7 @@
 	<table width="530px">
 	<tr><td>&nbsp;</td></tr>
 								<tr><td width="50px">&nbsp;</td>
-									<td width="82">Víctimas:</td>
+									<td width="82">V&iacute;ctimas:</td>
 									<td width="282" align="right">Tipo de Prohibici&oacute;n:
 									</td>
 									<td><select name="cmbProhibicion" id="cmbProhibicion">

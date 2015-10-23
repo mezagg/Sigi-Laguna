@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
@@ -18,7 +18,7 @@
 	
 		jQuery( "#datosAdicionalesModal" ).dialog({
 
-			title: "Seleccionar Centro De Detención",
+			title: "Seleccionar Centro De Detenci&oacute;n",
 			buttons: {
 				"Continuar": function() {
 					asignarCentroDetencion();
@@ -33,12 +33,12 @@
 		var centroDetencionId = jQuery("#centroDetencionId").val(); 
 		var fechaDeIngreso = jQuery("#fechaDeIngreso").val();
 		if(centroDetencionId == "-1"){
-			customAlert("Debe seleccionar un <strong>Centro de Detención</strong>", "Validación");
+			customAlert("Debe seleccionar un <strong>Centro de Detenci&oacute;n</strong>", "Validaci&oacute;n");
 			return false;
 		}
 		
 		if(!esFecha(fechaDeIngreso)){
-			customAlert("Debe ingresar una <strong>Fecha de Ingreso</strong>", "Validación");
+			customAlert("Debe ingresar una <strong>Fecha de Ingreso</strong>", "Validaci&oacute;n");
 			return false;
 		}
 		
@@ -71,7 +71,7 @@
 	<table width="99%" border="0">
 		<tr>
 			<td align="right">
-				<strong>Centro de Detención:</strong>
+				<strong>Centro de Detenci&oacute;n:</strong>
 			</td>
 			<td align="left">
 				<html:select name="EnvioDocumentosReinsercionForm" property="cereso"

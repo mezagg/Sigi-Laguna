@@ -53,7 +53,7 @@ var reloadGridCaso = false;
 
 			if ($('#noCaso').val()==''){
 				if($('#noCaso').val()==''){
-					customAlert("Favor de ingresar un número de caso");
+					customAlert("Favor de ingresar un n&uacute;mero de caso");
 					validaCaso=false;
 				}
 					}else {
@@ -86,13 +86,13 @@ var reloadGridCaso = false;
     <td height="13" colspan="2" align="center">&nbsp;</td>
   </tr>
   <tr>
-    <td height="25" colspan="2" align="center">Número de Caso:
+    <td height="25" colspan="2" align="center">N&uacute;mero de Caso:
 		<input type="text" name="noCaso" id="noCaso" size="50" maxlength="50" />&nbsp;&nbsp;</td>
     </tr>
  
 
   <tr id="espacios" >
-    <td height="25" colspan="2" align="center">* Sólo se permiten numeros, letras y los caracteres especiales: "-","/" y "Y"</td>
+    <td height="25" colspan="2" align="center">* S&oacute;lo se permiten numeros, letras y los caracteres especiales: "-","/" y "Y"</td>
     </tr>
 
   <tr >

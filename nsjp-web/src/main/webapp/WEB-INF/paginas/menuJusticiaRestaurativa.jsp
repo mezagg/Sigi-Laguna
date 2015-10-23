@@ -179,14 +179,14 @@
 		function creaNuevoContactoDeUnaOrganizacion() {
 			
 			idWindowIngresarContactoDeUnaOrganizacion++;
-			$.newWindow({id:"iframewindow" + idWindowIngresarContactoDeUnaOrganizacion, statusBar: true, posx:250,posy:150,width:1050,height:620,title:"Ingresar contacto de una organización", type:"iframe"});
+			$.newWindow({id:"iframewindow" + idWindowIngresarContactoDeUnaOrganizacion, statusBar: true, posx:250,posy:150,width:1050,height:620,title:"Ingresar contacto de una organizaci&oacute;n", type:"iframe"});
 			$.updateWindowContent("iframewindow" + idWindowIngresarContactoDeUnaOrganizacion,'<iframe src="<%= request.getContextPath() %>/IngresarContactoDeUnaOrganizacion.do" width="1050" height="620" />');		
 		}
 		
 		function consultarContactoDeUnaOrganizacion() {
 			
 			idWindowConsultarContactoDeUnaOrganizacion++;
-			$.newWindow({id:"iframewindow" + idWindowConsultarContactoDeUnaOrganizacion, statusBar: true, posx:250,posy:150,width:1050,height:620,title:"Consultar contacto de una organización", type:"iframe"});
+			$.newWindow({id:"iframewindow" + idWindowConsultarContactoDeUnaOrganizacion, statusBar: true, posx:250,posy:150,width:1050,height:620,title:"Consultar contacto de una organizaci&oacute;n", type:"iframe"});
 			$.updateWindowContent("iframewindow" + idWindowConsultarContactoDeUnaOrganizacion,'<iframe src="<%= request.getContextPath() %>/ConsultarIndividuo.do?idInvolucrado=1001&idCalidad=CONTACTO_ORGANIZACION" width="1050" height="620" />');		
 		}
 
@@ -425,7 +425,7 @@
 			<div id="tabschild" class="tabs-bottom">
 				<ul>
 					<li><a href="#tabschild-1"><bean:message key="probableResponsable"/></a></li>
-					<li><a href="#tabschild-2">Víctima</a></li>
+					<li><a href="#tabschild-2">V&iacute;ctima</a></li>
 					
 				</ul>
 				<div id="tabschild-1">
@@ -464,7 +464,7 @@
 			<div id="tabschild2" class="tabs-bottom">
 				<ul>
 					<li><a href="#tabschild2-1"><bean:message key="probableResponsable"/></a></li>
-					<li><a href="#tabschild2-2">Víctima</a></li>
+					<li><a href="#tabschild2-2">V&iacute;ctima</a></li>
 					
 				</ul>
 				<div id="tabschild2-1">

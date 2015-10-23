@@ -1,5 +1,5 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.documento.EstatusMandamiento"%>
-<%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.solicitud.TipoMandamiento"%>
 
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/comun.js?n=1"></script>
@@ -101,7 +101,7 @@
 		</tr>
 		<tr>
 			<td>&nbsp;</td>
-			<!--  numeroExpediente equals numeroCaso, se dejo así, porque se factorizaron funciones comúnes a agentemp y
+			<!--  numeroExpediente equals numeroCaso, se dejo as&iacute;, porque se factorizaron funciones com&uacute;nes a agentemp y
 				  encargadoCausa en funcionesComunMandJudYMedCautelares.js -->
 			<td align="center"><input type="text" class="" size="30" maxlength="30" id="numeroExpediente" /></td>
 			<td>&nbsp;</td>

@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Modificar Testigo</title>
 
 	<link type="text/css" href="<%=request.getContextPath()%>/resources/css/ingresarIndividuo.css" rel="stylesheet" />
@@ -15,7 +15,7 @@
 		
 	<script type="text/javascript" charset="utf-8">
 	$(document).ready(function(){
-	    /*Inician llamados para creación de tabs*/
+	    /*Inician llamados para creaci&oacute;n de tabs*/
 		creaTab('Testigo','Testigo');
 	});	  
 	</script>
@@ -25,7 +25,7 @@
 		<table>
 			<tbody>
 				<tr>
-					<td>Condición: </td>
+					<td>Condici&oacute;n: </td>
 					<td id='tdTestigoCondicion'></td>
 				</tr>
 				<tr>
@@ -33,13 +33,13 @@
 					<td><input type="checkbox" id='chbTestigoMayorDeEdad'/></td>
 				</tr>
 				<tr>
-					<td>Está detenido ?  </td>
+					<td>Est&aacute; detenido ?  </td>
 					<td><input type="checkbox" id='chbTestigoEstaDetenido'/></td>
 				</tr>
 				<tr>
 					<td>Tipo de persona:  </td>
 					<td>
-						<input id='rbtTestigoPersonaFisica' type="radio" name="rbtTestigoTipoPersona" value="0">Física <input id='rbtTestigoPersonaMoral' type="radio" name="rbtTestigoTipoPersona" value="1">Moral<br/>
+						<input id='rbtTestigoPersonaFisica' type="radio" name="rbtTestigoTipoPersona" value="0">F&iacute;sica <input id='rbtTestigoPersonaMoral' type="radio" name="rbtTestigoTipoPersona" value="1">Moral<br/>
 				 	</td>
 				</tr>
 			</tbody>

@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@page import="mx.gob.segob.nsjp.comun.enums.documento.EstatusNotificacion"%>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Avisos de Auxilio</title>
 
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css" />
@@ -198,12 +198,12 @@
 			dataType: 'xml',
 			async: false,
 			success: function(xml){
-				alertDinamicoCerrar("El aviso se envió correctamente",3);	
+				alertDinamicoCerrar("El aviso se envi&oacute; correctamente",3);	
 			}
 		});
 	}
 
-	//Función para alertDinamicoCerrar
+	//Funci&oacute;n para alertDinamicoCerrar
 	function alertDinamicoCerrar(textoAlert,identificador){						
 		$("#divAlertTextoCerrar").html(textoAlert);
 	    $( "#dialog-AlertCerrar" ).dialog({

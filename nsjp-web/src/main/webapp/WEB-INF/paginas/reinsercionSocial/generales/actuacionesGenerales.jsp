@@ -18,7 +18,7 @@
 			var actividadRS = {
 				<%
 					// como no se puede acceder a las enumeraciones desde Javascript se
-					// copia la enumeración
+					// copia la enumeraci&oacute;n
 				
 					for (ConfActividadDocumento actividad : ConfActividadDocumento.values() ){
 						if(actividad != null 

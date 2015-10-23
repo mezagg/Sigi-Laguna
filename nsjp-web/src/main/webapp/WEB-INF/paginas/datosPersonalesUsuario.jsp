@@ -45,7 +45,7 @@
 	    </tr>
 	    <tr>
 	    	<td height="10%" align="center">
-				<a href="javascript:abreVentanaModificarContrasena();">Cambiar Contraseña</a>
+				<a href="javascript:abreVentanaModificarContrasena();">Cambiar Contrase&ntilde;a</a>
 			</td>
 	    </tr>
 	</table>
@@ -130,7 +130,7 @@
 	
 	function abreVentanaModificarContrasena(){
 		//window.parent.abreVentanaModificarContrasena();
-		$.newWindow({id:"iframewindowModificarPwdUsuario", statusBar: true, posx:400,posy:90,width:350,height:280,title:"Modificar Contraseña", type:"iframe"});
+		$.newWindow({id:"iframewindowModificarPwdUsuario", statusBar: true, posx:400,posy:90,width:350,height:280,title:"Modificar Contrase&ntilde;a", type:"iframe"});
 	    $.updateWindowContent("iframewindowModificarPwdUsuario",'<iframe src="<%=request.getContextPath()%>/cambiarContrasena.do?" width="350" height="280" />');
 	}
 	function cerrarVentanaModificarContrasena(){

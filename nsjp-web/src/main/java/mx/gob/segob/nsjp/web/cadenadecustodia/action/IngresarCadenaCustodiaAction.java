@@ -16,7 +16,7 @@
  * Proyecto                 	: N/A                                 Fecha: N/A
  * Modificacion           	: N/A
  *------------------------------------------------------------------------------
- */
+ */ 
 package mx.gob.segob.nsjp.web.cadenadecustodia.action;
 
 import java.io.IOException;
@@ -807,7 +807,7 @@ public class IngresarCadenaCustodiaAction extends GenericAction {
 						writer.print("<cell><![CDATA[<div style='background-color: #f2f2f2; color:#393939;'>"+"-"+" </div>]]></cell>");
 					}
 					
-					// Falta No. Eslabón y Tipo Eslabón
+					// Falta No. Eslabï¿½n y Tipo Eslabï¿½n
 				}
 				
 				writer.print("</row>");	
@@ -1467,39 +1467,39 @@ public class IngresarCadenaCustodiaAction extends GenericAction {
 						if(evidenciaDelegate.eliminarEvidencia(Long.parseLong(idEvidencia))){
 							//se elimino correctamente
 							log.info("eliminarEvdncDeCdnCstd:: La evidencia SE logro eliminar en la BD");
-							escribirRespuesta(response, "<bandera>1</bandera><mensajeOp>La evidencia se anuló exitosamente</mensajeOp>");
+							escribirRespuesta(response, "<bandera>1</bandera><mensajeOp>La evidencia se anulï¿½ exitosamente</mensajeOp>");
 						}
 						else{
 							//mandamos la bandera de error
 							log.info("eliminarEvdncDeCdnCstd:: La evidencia no se logro eliminar en la BD");
-							escribirRespuesta(response, "<bandera>-1</bandera><mensajeOp>La evidencia no se logró eliminar porque está en un eslabón</mensajeOp>");
+							escribirRespuesta(response, "<bandera>-1</bandera><mensajeOp>La evidencia no se logrï¿½ eliminar porque estï¿½ en un eslabï¿½n</mensajeOp>");
 						}
 					}
 					else{
 						//mandamos la bandera de error
 						log.info("eliminarEvdncDeCdnCstd:: La evidencia se encuentra en un eslabon de cadena de custodia");
-						escribirRespuesta(response, "<bandera>-1</bandera><mensajeOp>La evidencia no se logró eliminar porque está en un eslabón</mensajeOp>");
+						escribirRespuesta(response, "<bandera>-1</bandera><mensajeOp>La evidencia no se logrï¿½ eliminar porque estï¿½ en un eslabï¿½n</mensajeOp>");
 					}
 				}
 				else{
 					//mandamos la bandera igual a cero por los IDs invalidos
 					log.info("eliminarEvdncDeCdnCstd:: IDs INVALIDOS para realizar la eliminacion de la evidencia_CadCus");
-					escribirRespuesta(response, "<bandera>0</bandera><mensajeOp>No se logró eliminar la evidencia, verifique su selección</mensajeOp>");
+					escribirRespuesta(response, "<bandera>0</bandera><mensajeOp>No se logrï¿½ eliminar la evidencia, verifique su selecciï¿½n</mensajeOp>");
 				}
 			}
 			else
 			{
 				//mandamos la bandera igual a cero por los IDs invalidos
 				log.info("eliminarEvdncDeCdnCstd:: IDs INVALIDOS para realizar la eliminacion de la evidencia_CadCus");
-				escribirRespuesta(response, "<bandera>0</bandera><mensajeOp>No se logró eliminar la evidencia, verifique su selección</mensajeOp>");
+				escribirRespuesta(response, "<bandera>0</bandera><mensajeOp>No se logrï¿½ eliminar la evidencia, verifique su selecciï¿½n</mensajeOp>");
 			}
 			log.info("Termina ejecucion Action ngresarCadenaCustodiaAction - eliminarEvdncDeCdnCstd FIN");
 		}
 		catch(Exception ex)
 		{
 			log.error(ex.getMessage(), ex);
-			log.info("eliminarEvdncDeCdnCstd:: Ocurrió un ERROR en la BD al tratar de eliminar la evidencia");
-			escribirRespuesta(response, "<bandera>0</bandera><mensajeOp>Ocurrió un error al tratar de anular la evidencia, intente más tarde</mensajeOp>");
+			log.info("eliminarEvdncDeCdnCstd:: Ocurriï¿½ un ERROR en la BD al tratar de eliminar la evidencia");
+			escribirRespuesta(response, "<bandera>0</bandera><mensajeOp>Ocurriï¿½ un error al tratar de anular la evidencia, intente mï¿½s tarde</mensajeOp>");
 		}
 		return null;
 	}
@@ -1543,22 +1543,22 @@ public class IngresarCadenaCustodiaAction extends GenericAction {
 				{
 					//mandamos la bandera igual a cero porque no llego el ID del objeto
 					log.info("verificaObjEsEvidenciaNOEslabones:: el ID del objeto es igual o menor a CERO");
-					escribirRespuesta(response, "<bandera>0</bandera><mensajeOp>Ocurrió un error inesperado, <br/> favor de contactar a su administrador</mensajeOp>");
+					escribirRespuesta(response, "<bandera>0</bandera><mensajeOp>Ocurriï¿½ un error inesperado, <br/> favor de contactar a su administrador</mensajeOp>");
 				}
 			}
 			else
 			{
 				//mandamos la bandera igual a cero porque no llego el ID del objeto
 				log.info("verificaObjEsEvidenciaNOEslabones:: el ID del objeto no llego desde el front");
-				escribirRespuesta(response, "<bandera>0</bandera><mensajeOp>Ocurrió un error inesperado, <br/> favor de contactar a su administrador</mensajeOp>");
+				escribirRespuesta(response, "<bandera>0</bandera><mensajeOp>Ocurriï¿½ un error inesperado, <br/> favor de contactar a su administrador</mensajeOp>");
 			}
 			log.info("Termina ejecucion Action IngresarCadenaCustodiaAction - verificaObjEsEvdncNoEslbn FIN");
 		}
 		catch(Exception ex)
 		{
 			log.error(ex.getMessage(), ex);
-			log.info("verificaObjEsEvidenciaNOEslabones:: Ocurrió un ERROR en la BD al tratar de verificar el objeto");
-			escribirRespuesta(response, "<bandera>0</bandera><mensajeOp>Ocurrió un error inesperado, <br/> favor de contactar a su administrador</mensajeOp>");
+			log.info("verificaObjEsEvidenciaNOEslabones:: Ocurriï¿½ un ERROR en la BD al tratar de verificar el objeto");
+			escribirRespuesta(response, "<bandera>0</bandera><mensajeOp>Ocurriï¿½ un error inesperado, <br/> favor de contactar a su administrador</mensajeOp>");
 		}
 		return null;
 	}

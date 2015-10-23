@@ -2,7 +2,7 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.solicitud.TiposSolicitudes"%>
 <%@page import="mx.gob.segob.nsjp.web.reinsercionsocial.action.DatosGeneralesReinsercionAction"%>
 <%@ page contentType="text/html"%>
-<%@ page pageEncoding="ISO-8859-1"%>
+<%@ page pageEncoding="UTF-8"%>
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
@@ -58,7 +58,7 @@ function cargaGridSolsXAtndr(tipoSolicitud, idArea, estatus) {
 				estatus : estatus
 			},
 			datatype: "xml",
-			colNames:['No. Caso','Expediente', 'Folio','Estatus','Fecha Creación','Fecha Limite','Institución','Remitente'], 
+			colNames:['No. Caso','Expediente', 'Folio','Estatus','Fecha Creaci&oacute;n','Fecha Limite','Instituci&oacute;n','Remitente'], 
 			colModel:[ 	{name:'caso',index:'caso', width:150,hidden:true},
 			           	{name:'expediente',index:'expediente', width:180,align:'center'}, 
 						{name:'folio',index:'folio', width:100,align:'center'}, 

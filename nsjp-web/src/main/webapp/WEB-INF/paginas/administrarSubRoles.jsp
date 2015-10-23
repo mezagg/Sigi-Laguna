@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/jquery-ui.css" />
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/estilos.css" media="screen" />
@@ -29,7 +29,7 @@ function gridRoles(){
 	jQuery("#lstRoles").jqGrid({ 
 			url:'<%=request.getContextPath()%>/consultarCatalogoRoles.do', 
 			datatype: "xml", 
-			colNames:['Id No','Nombre Rol', 'Descripción','Acciones'], 
+			colNames:['Id No','Nombre Rol', 'Descripci&oacute;n','Acciones'], 
 			colModel:[ {name:'id',index:'id', width:5, hidden:true}, 
 			           {name:'nombre',index:'nombre', width:10}, 
 			           {name:'desc',index:'desc', width:10},
@@ -53,7 +53,7 @@ function gridRoles(){
 				jQuery("#"+subgrid_table_id).jqGrid({ 
 					url:'<%=request.getContextPath()%>/consultarCatalogoSubRoles.do?idRol='+ row_id,
 					datatype: "xml", 
-					colNames:['Id No','Nombre SubRol', 'Descripción','Acciones'], 
+					colNames:['Id No','Nombre SubRol', 'Descripci&oacute;n','Acciones'], 
 					colModel:[ {name:'id',index:'id', width:15, hidden:true}, 
 					           {name:'nombre',index:'nombre', width:30}, 
 					           {name:'desc',index:'desc', width:30},
@@ -147,7 +147,7 @@ function validaTexto (){
 			customAlert("No se adminten caracteres especiales tales como !@#$%^&*()_, favor de verificar","Error");	
 		}
 	}else{
-		customAlert ("El nombre y/o descripción del sub rol NO puede estar vacío y <br> El nombre NO puede ser mayor a 50 caracteres <br> La descripción NO puede ser mayor a 200 caracteres,<br>favor de verificar","Error");
+		customAlert ("El nombre y/o descripci&oacute;n del sub rol NO puede estar vac&iacute;o y <br> El nombre NO puede ser mayor a 50 caracteres <br> La descripci&oacute;n NO puede ser mayor a 200 caracteres,<br>favor de verificar","Error");
 	}
 	return resp;
 }
@@ -168,16 +168,16 @@ function guardarSubRol(id)
 				if (resp=='exito'){
 					if (op=='1'){
 						jQuery("#lstRoles_"+ id +"_t").trigger("reloadGrid");
-						customAlert("Sub rol agregado con éxito","Operación Exitosa");
+						customAlert("Sub rol agregado con &eacute;xito","Operaci&oacute;n Exitosa");
 						
 					}else if (op=='2'){
 						jQuery("#lstRoles_"+ rolPadre +"_t").trigger("reloadGrid");
-						customAlert("Sub rol modificado con éxito","Operación Exitosa");
+						customAlert("Sub rol modificado con &eacute;xito","Operaci&oacute;n Exitosa");
 						
 					}
 					
 				}else if (resp=='nombreVacio'){
-					customAlert ("El nombre del sub rol NO puede estar vacío, favor de verificar","Error");	
+					customAlert ("El nombre del sub rol NO puede estar vac&iacute;o, favor de verificar","Error");	
 				}else if (resp=='caracteresEspeciales'){
 					customAlert("No se adminten caracteres especiales tales como !@#$%^&*()_, favor de verificar","Error");		
 				}else if (resp=='nombreRepetido'){
@@ -191,7 +191,7 @@ function guardarSubRol(id)
 		});// Cierra Ajax
 	}//Cierra if (validaNombre(nameSubRol))
 	
-}// Cierra función
+}// Cierra funci&oacute;n
 // FIN Funciones para Agregar Nuevo Rol
 // Inicio Funciones para configurar un sub rol
 function configurarSubRol(id,idPadre){
@@ -359,15 +359,15 @@ function guardarConfSubRol(idRol){
 			success: function(xml){
 				var op=$(xml).find('boolean').text();
 				if (op=='true'){
-				customAlert("Configuración guardada con éxito","Operación Exitosa");
+				customAlert("Configuraci&oacute;n guardada con &eacute;xito","Operaci&oacute;n Exitosa");
 				}else{
-					customAlert("Error la configuración no fue guardada","Error");	
+					customAlert("Error la configuraci&oacute;n no fue guardada","Error");	
 				}
 				destruirArboles();
 			}
 		});
 	}
-//FIN Funciones para guardar configuración SubRol
+//FIN Funciones para guardar configuraci&oacute;n SubRol
 	
 </script>
 </head>
@@ -385,7 +385,7 @@ function guardarConfSubRol(idRol){
 					<td><input type="text" name="name" id="nameSubRol" value="" maxlength="50" size="20"></td>
 				</tr>
 				<tr>
-					<td align="right"><label style="color:#4A5C68">Descripción del sub Rol:</label></td>
+					<td align="right"><label style="color:#4A5C68">Descripci&oacute;n del sub Rol:</label></td>
 					<td><input type="text" name="dec" id="decSubRol" value="" maxlength="50" size="20"></td>
 				</tr>
 			</table>
@@ -393,12 +393,12 @@ function guardarConfSubRol(idRol){
 	</div>
 <!-- Fin Agregar Sub Rol -->
 <!-- Fin del Dialogos para Sub Rol -->
-<!-- Inicio del Dialogo para configuración de Sub Rol -->
+<!-- Inicio del Dialogo para configuraci&oacute;n de Sub Rol -->
 <div id="dialog-confSubRol" title="Configurar Sub Rol"  style="display: none;">
 <div id="tabsConfSubRol">
 	<ul>
-		<li><a href="#tabs-1">Menú Lateral Izquierdo</a></li>
-		<li><a href="#tabs-2">Menú Superior</a></li>
+		<li><a href="#tabs-1">Men&uacute; Lateral Izquierdo</a></li>
+		<li><a href="#tabs-2">Men&uacute; Superior</a></li>
 		<li><a href="#tabs-3">Actuaciones</a></li>
 	</ul>
 	<div id="tabs-1">
@@ -415,5 +415,5 @@ function guardarConfSubRol(idRol){
 	</div>
 </div>
 </div>
-<!-- Fin del Dialogo para configuración de Sub Rol -->
+<!-- Fin del Dialogo para configuraci&oacute;n de Sub Rol -->
 </html>

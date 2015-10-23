@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Audiencia - Caso</title>
 
 	<script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery-1.5.1.js"></script>
@@ -146,15 +146,15 @@
 							</tr>
 							<tr>
 								<td width="40"></td>
-								<td width="304">Juez. Armando Castañeda Tenango</td>
+								<td width="304">Juez. Armando Casta&ntilde;eda Tenango</td>
 							</tr>
 							<tr>
 								<td width="40"></td>
-								<td width="304">Juez. Cuauhtémoc Paredes Serrano</td>
+								<td width="304">Juez. Cuauht&eacute;moc Paredes Serrano</td>
 							</tr>
 							<tr>
 								<td width="40"></td>
-								<td width="304">Juez. Jorge Ignacio Fernández Ortíz</td>
+								<td width="304">Juez. Jorge Ignacio Fern&aacute;ndez Ort&iacute;z</td>
 							</tr>
 							<tr>
 							  <td></td>
@@ -173,7 +173,7 @@
 							      <td align="center" width="299"><b>Defensor</b></td>
 						        </tr>
 							    <tr>
-							      <td>Defensor. Armando Castañeda Tenango</td>
+							      <td>Defensor. Armando Casta&ntilde;eda Tenango</td>
 						        </tr>
 						      </table></td>
 						  </tr>
@@ -195,7 +195,7 @@
 				      <tr>
 				      	<td width="8%" >Fecha:</td>
 				        <td width="27%"><input type="text" id="txtFecha" value="10/05/2011" readonly="readonly"/></td>
-				        <td>Duración Estimada:</td>
+				        <td>Duraci&oacute;n Estimada:</td>
 				        <td><input type="text" id="txtDuracionAprox" value="30 min" readonly="readonly"/></td>
 			          </tr>
 				      <tr>

@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import mx.gob.segob.nsjp.comun.enums.audiencia.EstatusPermisosAudiencia;
 import mx.gob.segob.nsjp.delegate.audiencia.AudienciaDelegate;
-import mx.gob.segob.nsjp.delegate.configuracion.ConfiguracionDelegate;
+import mx.gob.segob.nsjp.delegate.configuracion.ConfiguracionDelegate; 
 import mx.gob.segob.nsjp.dto.audiencia.AudienciaJAVSTransporteDTO;
 import mx.gob.segob.nsjp.dto.audiencia.CatEstadoPermisoDTO;
 import mx.gob.segob.nsjp.dto.audiencia.PermisoAudienciaDTO;
@@ -100,7 +100,7 @@ public class PermisosAudienciaJavsAction extends GenericAction{
 					for (PermisoAudienciaDTO PA : PAsDto) {
 						writer.print("<row id='" + PA.getPermisoAudienciaId() +"'>");
 						
-						// Institución
+						// Instituciï¿½n
 						if(PA.getEsExterno()== null){
 							writer.print("<cell>"+ "-----" + "</cell>");
 						}
@@ -374,7 +374,7 @@ public class PermisosAudienciaJavsAction extends GenericAction{
 					for (PermisoAudienciaDTO PA : PAsDto) {
 						writer.print("<row id='" + PA.getPermisoAudienciaId() +"'>");
 						
-						// Institución
+						// Instituciï¿½n
 						if(PA.getEsExterno()== null){
 							writer.print("<cell>"+ "-----" + "</cell>");
 						}

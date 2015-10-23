@@ -1,10 +1,10 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.solicitud.EstatusSolicitud"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Administracion de Audiencia Informatica</title>
 	<link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jquery.windows-engine.css" />
 
@@ -184,7 +184,7 @@
 				$( "#generarDocumento" ).attr('disabled','disabled');
 				//Cierra la ventana del editor de documento				
 				$.closeWindow("iframewindowGenerarDocumento");
-				alertDinamico("Finaliza la Transcripción");
+				alertDinamico("Finaliza la Transcripci&oacute;n");
 				
 			}
 		});		
@@ -198,7 +198,7 @@
 	<ul>
 		<li><a href="#tabsconsultaprincipal-1">Generales</a></li>	
 		<li id="acumulacion">
-				<a href="#tabAcumulacion-14">Acumulación</a>
+				<a href="#tabAcumulacion-14">Acumulaci&oacute;n</a>
 		</li>
   	</ul>
   	<!--COMIENZA TAB Acumulacion-->
@@ -211,7 +211,7 @@
 		    <tr>
 		        <td width="22%" align="right"><strong>N&uacute;mero de Caso:</strong></td>
 		      <td width="25%" align="left"><input type="text" id="numCaso" style="width: 200px; border: 0; background: #DDD;"	readonly="readonly" /></td>
-		        <td width="26%" align="right"><strong>Institución:</strong></td>
+		        <td width="26%" align="right"><strong>Instituci&oacute;n:</strong></td>
 		        <td width="27%"><input type="text" id="institucionSolicitante" style="width: 200px; border: 0; background: #DDD;"	readonly="readonly" /></td>
 		    </tr>
 		    <tr>

@@ -5,7 +5,7 @@
 * Compania                    : Ultrasist                                                
 * Proyecto                      : NSJP                    Fecha: 07/03/2011 
 * Marca de cambio        : N/A                                                     
-* Descripcion General    : Integración xxxxxxxxxxx                      
+* Descripcion General    : Integraciï¿½n xxxxxxxxxxx                      
 * Programa Dependiente  :N/A                                                      
 * Programa Subsecuente :N/A                                                      
 * Cond. de ejecucion        :N/A                                                      
@@ -18,7 +18,7 @@
 * Modificacion           :N/A                                                           
 *------------------------------------------------------------------------------           
 */
-package mx.gob.segob.nsjp.web.caso.action;
+package mx.gob.segob.nsjp.web.caso.action; 
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -47,7 +47,7 @@ import org.apache.struts.action.ActionMapping;
 public class IngresarOrganizacionAction extends GenericAction{
 	private static final Logger log  = Logger.getLogger(IngresarOrganizacionAction.class);
 	/**
-	 * Método utilizado para realizar la consulta de los tipos de organizacion
+	 * Mï¿½todo utilizado para realizar la consulta de los tipos de organizacion
 	 * @param mapping
 	 * @param form
 	 * @param request
@@ -81,7 +81,7 @@ public class IngresarOrganizacionAction extends GenericAction{
 	//consultarCatalogosIngOrganizacion
 	
 	/**
-	 * Método utilizado para realizar la consulta de los catalogos no dependientes de los
+	 * Mï¿½todo utilizado para realizar la consulta de los catalogos no dependientes de los
 	 * distintos tipos de organizacion
 	 * @param mapping
 	 * @param form
@@ -144,7 +144,7 @@ public class IngresarOrganizacionAction extends GenericAction{
 	
 	
 	/**
-	 * Método utilizado para realizar la carga de Tipos de Dependencias
+	 * Mï¿½todo utilizado para realizar la carga de Tipos de Dependencias
 	 * 
 	 * @param mapping
 	 * @param form
@@ -178,7 +178,7 @@ public class IngresarOrganizacionAction extends GenericAction{
 	}
 	
 	/**
-	 * Método utilizado para realizar la carga de las organizaciones del sector publico
+	 * Mï¿½todo utilizado para realizar la carga de las organizaciones del sector publico
 	 * 
 	 * @param mapping
 	 * @param form

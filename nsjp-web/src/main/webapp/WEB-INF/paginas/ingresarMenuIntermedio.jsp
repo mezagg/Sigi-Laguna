@@ -916,10 +916,12 @@
 			}
 
                         $("#cbxAccionesTab").delegate('a','click',function(event) {
+                            console.log('acciones');
                               seleccionaActuacion($(this).selectable());
                         });
                         
                         $("#cbxOficiosTab").delegate('a','click',function(event) {
+                            console.log('acciones');
                               seleccionaActuacion($(this).selectable());
                         });
                 
@@ -1784,12 +1786,8 @@
                 $('#cbxAccionesTab').addClass("cargando");
                 $('#cbxOficiosTab').addClass("cargando");
                 $('#tapActuaciones').addClass("cargando");
-                var url = '';
-//                if(sinCatuie){
-                    url =  '<%= request.getContextPath()%>/cargarActuaciones.do?numeroExpediente='+numeroExpediente+'&sinCatuie='+sinCatuie;
-//                }else{
-//                    url =  '<%= request.getContextPath()%>/cargarActuaciones.do?numeroExpediente='+numeroExpediente;
-//                }
+                
+                var url =  '<%= request.getContextPath()%>/cargarActuaciones.do?numeroExpediente='+numeroExpediente+'&sinCatuie='+sinCatuie;
 		$.ajax({
 			type: 'POST',
 			url: url,
@@ -1797,25 +1795,30 @@
 			dataType: 'xml',
 			async: false,
 			success: function(xml){
-                            var bOficios = 0;
-                            var bAcciones = 0;
+                            var ofic = 0;
+                            var act = 0;
                             console.log("XML DE ACTUACIONES");
                             console.log(xml);
                             $(xml).find('entry').each(function(){
-                                var resp = $(this).find('respuesta').text();
-                                if(resp == "listaOficios"){
+                                var resp = $(this).find(':first-child').get( 0 );
+                               
+                                if($(resp).text() === "listaOficios"){
+                                    ofic = $(this).find('catActuaciones').size();
+                                    $('#ofic').empty();
+                                    $('#ofic').append(" (" + ofic +"): ");
                                     $(this).find('catActuaciones').each(function(){
-                                        bAcciones++;
-                                        $('#cbxAccionesTab').append('<li data-value="' + $(this).find('clave').text() + '"><img src="<%=request.getContextPath() %>/resources/images/oficio.jpg" width="30" height="30" align="absmiddle"/><a href="#" class="actuaciones" idselected="'+$(this).find('clave').text()+'">' + $(this).find('valor').text() + '</a></li>');
-//                                        $('#cbxAccionesTab').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
-                                   
+                                        
+                                        $('#cbxOficiosTab').append('<li data-value="' + $(this).find('clave').text() + '"><img src="<%=request.getContextPath() %>/resources/images/oficio.jpg" width="30" height="30" align="absmiddle"/><a href="#" class="actuaciones" idselected="'+$(this).find('clave').text()+'">' + $(this).find('valor').text() + '</a></li>');
+
                                     });
                                 }
-                                 if(resp == "listaActuaciones"){
+                                if($(resp).text() == "listaActuaciones"){
+                                    act = $(this).find('catActuaciones').size();
+                                    $('#act').empty();
+                                    $('#act').append(" (" + act +"): ");
                                     $(this).find('catActuaciones').each(function(){
-                                        bOficios++;
-//                                        $('#cbxOficiosTab').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
-                                          $('#cbxOficiosTab').append('<li data-value="' + $(this).find('clave').text() + '"><img src="<%=request.getContextPath() %>/resources/images/play.png" width="30" height="30" align="absmiddle"/><a href="#" idselected="'+$(this).find('clave').text()+'">' + $(this).find('valor').text() + '</a></li>');
+                                        
+                                        $('#cbxAccionesTab').append('<li data-value="' + $(this).find('clave').text() + '"><img src="<%=request.getContextPath() %>/resources/images/play.png" width="30" height="30" align="absmiddle"/><a href="#" idselected="'+$(this).find('clave').text()+'">' + $(this).find('valor').text() + '</a></li>');
                                     });
                                 }
                                  
@@ -1823,22 +1826,23 @@
                             $('#cbxAccionesTab').removeClass("cargando");
                             $('#cbxOficiosTab').removeClass("cargando");
                             $('#tapActuaciones').removeClass("cargando");
-                            if(bAcciones === 0){
-                                $( "#cbxAccionesTab" ).attr( "disabled", "disables" );
-                            }
-                            if(bOficios === 0){
-                                $( "#cbxOficiosTab" ).attr( "disabled", "disables" );
-                            }
+//                            if(act === 0){
+//                                $( "#cbxAccionesTab" ).attr( "disabled", "disables" );
+//                            }
+//                            if(ofic === 0){
+//                                $( "#cbxOficiosTab" ).attr( "disabled", "disables" );
+//                            }
 			},
                         error:function(){
                             alertDinamico("Error al obtener las actuaciones y oficios");
+                            $('#cbxAccionesTab').removeClass("cargando");
+                            $('#cbxOficiosTab').removeClass("cargando");
+                            $('#tapActuaciones').removeClass("cargando");
                         }
 		});
 	}
         
         $("input[name='rdActuaciones']").click(function(e) {
-                        console.log(e);
-                        console.log("ID: " + $(this).attr("id"));
                         var sinCatuie = $(':radio[name=rdActuaciones]:checked').val();
                         cargaActuaciones(sinCatuie);
         });
@@ -1945,6 +1949,9 @@
 	function seleccionaActuacion(a){
 		var selected = $(a);
                 var confActividadId = selected.attr('idselected');
+//                var actividadId = selected.attr('idselected');
+                console.log("ID " + confActividadId);
+                
 		if(isEmpty(confActividadId)){
 			return;
 		}
@@ -1961,10 +1968,10 @@
 		var banderaTres=false;
 		
 		var idParametro = '<%=Parametros.MUESTRA_ALERTS_ACTUACIONES.ordinal()%>';
-		
+		var url = '<%= request.getContextPath()%>/obtenerConfActividadDocumento.do?idConf='+confActividadId;
 		$.ajax({
 			type: 'POST',
-			url: '<%= request.getContextPath()%>/obtenerConfActividadDocumento.do?idConf='+confActividadId,
+			url: url,
 			data: '',
 			dataType: 'xml',
 			async: false,
@@ -2076,6 +2083,7 @@
 				if(confInstitucionId == '<%=Instituciones.PJ.getValorId()%>'){
 					nuevaSolicitudPJATP();
 				}else{
+                                    console.log("acaa");
 					//codigo para cambiar el estatus del expediente
 					registrarActividadExpediente(actividad,estatusId,0);
 	                $.newWindow({id:"iframewindowSolicitarAudiencia", statusBar: true, posx:20,posy:20,width:1030,height:570,title:"Solicitar Audiencia", type:"iframe"});
@@ -4879,11 +4887,11 @@
 		}
                 
                 
-                (function ($) {
+ (function ($) {
   jQuery.expr[':'].Contains = function(a,i,m){
       return (a.textContent || a.innerText || "").toUpperCase().indexOf(m[3].toUpperCase())>=0;
   };
- 
+
   function filterList(header, list) { 
     var form = $("<form>").attr({"class":"filterform","action":"#"}),
         input = $("<input>").attr({"class":"filterinput","type":"text","size":"80"});
@@ -4911,7 +4919,7 @@
 }(jQuery));
                 
                 
-	});
+});
 
 	</script>
 	
@@ -6065,7 +6073,7 @@
                                                  <tr>
                                                      <td id="tdCbxAccionesTab1" width="50%">
                                                          <div id="wrapA">
-                                                            Actuaciones:
+                                                            Actuaciones <span id='act'></span>
                                                             <div id="formA"></div>
                                                             <div class="clear"></div>
                                                          </div>
@@ -6073,7 +6081,7 @@
                                                      </td>
                                                      <td id="tdCbxOficiosTab1" width="100%">
                                                         <div id="wrapO">
-                                                            Oficios:
+                                                            Oficios <span id='ofic'></span>
                                                             <div id="formO"></div>
                                                             <div class="clear"></div>
                                                         </div>

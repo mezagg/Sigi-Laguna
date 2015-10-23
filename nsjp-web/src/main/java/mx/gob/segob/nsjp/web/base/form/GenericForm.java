@@ -5,7 +5,7 @@
  * Proyecto: NSJP 
  * Fecha: 29 Mar 2011 
  * Marca de cambio: N/A                                                     
- * Descripcion General: Form genérico del que deben extender todos los Forms de la aplicación y poder agrupar funcionalidad común (DRY).
+ * Descripcion General: Form genï¿½rico del que deben extender todos los Forms de la aplicaciï¿½n y poder agrupar funcionalidad comï¿½n (DRY).
  * Programa Dependiente: N/A                                                      
  * Programa Subsecuente: N/A                                                      
  * Cond. de ejecucion: N/A                                                      
@@ -29,3 +29,4 @@ import org.apache.struts.action.ActionForm;
 public class GenericForm extends ActionForm {
 
 }
+ 

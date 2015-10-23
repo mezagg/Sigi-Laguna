@@ -2,12 +2,12 @@
 <%@ page import="mx.gob.segob.nsjp.comun.enums.solicitud.TiposSolicitudes"%>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.actividad.CategoriasActividad"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Solicitud</title>
 
 <!--	Hoja de estilo para los gadgets-->
@@ -86,7 +86,7 @@
     	jQuery("#gridCatDelitosRDPTodosUAVD").jqGrid({ 
     		url:'<%= request.getContextPath()%>/ConsultarRelacionDelitosPorTodos.do?idExpediente='+idExpedienteop,
 			datatype: "xml",
-			colNames:[probableResponsableProp,'Delito','Forma de Participación','Víctima'], 
+			colNames:[probableResponsableProp,'Delito','Forma de Participaci&oacute;n','V&iacute;ctima'], 
 			colModel:[ 	{name:'Probable',index:'probable', width:250},
 			           	{name:'Delito',index:'delito', width:250}, 
 						{name:'FormaParticipacion',index:'formaParticipacion',width:250},
@@ -120,7 +120,7 @@
 	/*
 	*Funcion que oculta el renglon de caso, usado solo para sistema
 	*tradicional , usuario: agenteSistTrad, ya que los expedientes son 
-	*generados sin número de caso
+	*generados sin n&uacute;mero de caso
 	*/
 	function ocultaCaso(sistemaTradicional){
 
@@ -188,7 +188,7 @@
 	{
 		if(idRelacionDelito=="" || idRelacionDelito.length==0)
 		{
-			customAlert("Seleccione una relación en la tabla");
+			customAlert("Seleccione una relaci&oacute;n en la tabla");
 		}
 		else if($("#cbxTipoDeAyuda option:selected").val()==-1)
 		{

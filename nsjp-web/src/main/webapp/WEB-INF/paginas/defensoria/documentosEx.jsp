@@ -1,4 +1,4 @@
-<!--Inicia Pestaña de Documentos -->
+<!--Inicia Pesta&ntilde;a de Documentos -->
 	<table id="gridDocumentosExpediente"></table>
 	<div id="pagerDocumentosExpediente"></div>
-<!--Termina Pestaña de Documentos -->
+<!--Termina Pesta&ntilde;a de Documentos -->

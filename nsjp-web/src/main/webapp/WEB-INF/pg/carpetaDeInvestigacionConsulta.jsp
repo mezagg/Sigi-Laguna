@@ -6,7 +6,7 @@
 <%@page import="mx.gob.segob.nsjp.web.base.action.GenericAction"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.solicitud.EstatusSolicitud" %>
 <%@page import="mx.gob.segob.nsjp.comun.enums.institucion.Areas" %>
-<%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%@taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html" %>
 <%@taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic" %>
@@ -39,7 +39,7 @@
 	
 	function popUpTipoBusquedaModalXNumeroExpediente(){
 		
-		var titulo="Consulta por Número de Expediente";
+		var titulo="Consulta por N&uacute;mero de Expediente";
 		
 		$("#numeroExpediente").val("");
 		$("#divBusquedaExpediente").dialog("open");
@@ -51,7 +51,7 @@
 		  	width: 450,
 		  	height: 300,
 		  	maxWidth: 350,
-		  	buttons:{"Realizar búsqueda":function() {
+		  	buttons:{"Realizar b&uacute;squeda":function() {
 	  				consultaGeneralExpediente(3);
 		  			$(this).dialog("close");
 		  		},
@@ -125,9 +125,9 @@
 		var numeroExpediente = "";
 		var consultarCanalizacionesNoAtendidas = false;
 		
-		// selectorExpediente = 2 -> búsqueda por fechas
-		// selectorExpediente = 3 -> búsqueda por Número de Expediente
-		// selectorExpediente = cualquier otro valor -> búsqueda general
+		// selectorExpediente = 2 -> b&uacute;squeda por fechas
+		// selectorExpediente = 3 -> b&uacute;squeda por N&uacute;mero de Expediente
+		// selectorExpediente = cualquier otro valor -> b&uacute;squeda general
 		
 		if(selectorExpediente == 2){
 			fechaInicio= $('#fechaInicio').val();
@@ -194,14 +194,14 @@
 	
     function consultaExpedienteGrid(id) {
     	idWindowNuevaDenuncia++;
-		$.newWindow({id:"iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia, statusBar: true, posx:0,posy:0,width:1430,height:670,title:"Carpeta de investigación: ", type:"iframe"});
+		$.newWindow({id:"iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia, statusBar: true, posx:0,posy:0,width:1430,height:670,title:"Carpeta de investigaci&oacute;n: ", type:"iframe"});
 		$.updateWindowContent("iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia,'<iframe src="<%= request.getContextPath() %>/BusquedaExpediente.do?abreenPenal=abrPenal&ingresoDenuncia='+ingresoDenuncia +'&idNumeroExpediente='+id+'&pantallaSolicitada='+pantallaSolicitada+'" width="1430" height="670" />');
 		$("#" +"iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia + " .window-maximizeButton").click();		
 	}
     
     function consultaExpedienteGridConOpcionDeCambioUIE(id) {
     	idWindowNuevaDenuncia++;
-		$.newWindow({id:"iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia, statusBar: true, posx:0,posy:0,width:1430,height:670,title:"Carpeta de investigación: ", type:"iframe"});
+		$.newWindow({id:"iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia, statusBar: true, posx:0,posy:0,width:1430,height:670,title:"Carpeta de investigaci&oacute;n: ", type:"iframe"});
 		$.updateWindowContent("iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia,'<iframe src="<%= request.getContextPath() %>/BusquedaExpediente.do?abreenPenal=abrPenal&ingresoDenuncia='+ingresoDenuncia +'&idNumeroExpediente='+id+'&pantallaSolicitada='+pantallaSolicitada+'&esExpedienteNoAtendido=true'+'" width="1430" height="670" />');
 		$("#" +"iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia + " .window-maximizeButton").click();		
 	}
@@ -213,7 +213,7 @@
 	}
 	
     function tituloVentana(num){
-		$("#iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia+" div.window-titleBar-content").html("Carpeta de investigación: "+num);
+		$("#iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia+" div.window-titleBar-content").html("Carpeta de investigaci&oacute;n: "+num);
 	}
     function cambiarResponsableExpediente() {
 		customVentana("cambiarResponsableExpediente", "Cambiar Responsable A Expediente", "/cambiarResponsableExpediente.do?ampGeneral=1");
@@ -234,7 +234,7 @@
 		</div>
 	</div>
 
-	<!-- Comienza div para mostrar la ventana para ingresar el Número de Expediente -->
+	<!-- Comienza div para mostrar la ventana para ingresar el N&uacute;mero de Expediente -->
 	<div id="divBusquedaExpediente" style="display: none">
 		<table width="400" cellspacing="0" cellpadding="0" height="150">
 			<tr>
@@ -259,7 +259,7 @@
 			</tr>
 		</table>
 	</div>
-	<!-- Termina div para mostrar la ventana para ingresar el Número de Expediente -->	
+	<!-- Termina div para mostrar la ventana para ingresar el N&uacute;mero de Expediente -->	
 
 	<!-- Comienza div para mostrar la ventana para ingresar las fechas -->
 	<div id="busquedaFecha" style="display: none">

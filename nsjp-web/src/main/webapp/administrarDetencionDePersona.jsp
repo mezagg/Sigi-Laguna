@@ -1,8 +1,8 @@
 <%@page import="mx.gob.segob.nsjp.web.base.action.GenericAction"%>
 <%@page import="mx.gob.segob.nsjp.dto.configuracion.ConfiguracionDTO"%>
 <%@page import="mx.gob.segob.nsjp.web.login.action.LoginAction"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
 <%@page import="java.util.*" session="false" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -32,8 +32,8 @@
 	
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/bloqueaTecla.js?n=1"></script>
       
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Detención</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Detenci&oacute;n</title>
 		<!--ESTILOS PARA LAS TABS-->
 	<style>
 		#tabs { height: 670px; } 
@@ -56,10 +56,10 @@
 	<tr><td>&nbsp;</td></tr>
 	<tr>
 		<td align="center">
-			<strong>Selecciona el tipo de detención:</strong>
+			<strong>Selecciona el tipo de detenci&oacute;n:</strong>
 			<select id="tipoDetencion">
 				<option value="0">-Seleccione-</option>
-				<option value="3">Detención de Menor</option>
+				<option value="3">Detenci&oacute;n de Menor</option>
 				<option value="1">Flagrancia</option>
 				<option value="2">Falta Administrativa</option>
 			</select>
@@ -81,7 +81,7 @@
 					<table width="100%" border="0" height="90%">
 						<tr>
 							<td align="right">
-								Nombre Servidor Público:
+								Nombre Servidor P&uacute;blico:
 							</td>
 							<td>
 								<input type="text" class="" size="50" maxlength="50" id="solDeSSPNombre" disabled="disabled"/>
@@ -97,7 +97,7 @@
 						</tr>
 						<tr>
 							<td align="right">
-								Área Administrativa:
+								&Aacute;rea Administrativa:
 							</td>
 							<td>
 								<input type="text" size="50" maxlength="50" id="solDeSSPAreaAdmin" disabled="disabled"/>
@@ -105,7 +105,7 @@
 						</tr>
 						<tr>
 							<td align="right">
-								Fecha Elaboración:
+								Fecha Elaboraci&oacute;n:
 							</td>
 							<td>
 								<input type="text" size="50" maxlength="13"	id="solDeSSPFecha" disabled="disabled"/>
@@ -155,7 +155,7 @@
 				 <input type="button" id="btnCadCusNuevaCadCus" style="width: 250px;" value="Crear nueva cadena de custodia" class="btn_Generico"/><br/><br/>  
   				 <input type="button" id="btnCadCusRegEslabones" style="width: 250px;" value="Registrar eslabones" class="btn_Generico"/> <br/><br/>
   				 <input type="button" id="btnCadCusRepEvidencias" style="width: 250px;" style="width: 250px;" value="Reporte de evidencias" class="btn_Generico"/> <br/><br/>
-  				 <input type="button" id="btnCadCusElabOficio" style="width: 250px;" value="Elaborar oficio para fijación y preservación" class="btn_Generico"/><br/><br/>  
+  				 <input type="button" id="btnCadCusElabOficio" style="width: 250px;" value="Elaborar oficio para fijaci&oacute;n y preservaci&oacute;n" class="btn_Generico"/><br/><br/>  
    				 <input type="button" id="btnCadCusAdmDestino" style="width: 250px;" value="Administrar destino legal de evidencia" class="btn_Generico"/>
    				 
 				</div>
@@ -250,7 +250,7 @@
 	
 	
 </table>
-<div id="dialog-confirm" title="Confirmación: ">
+<div id="dialog-confirm" title="Confirmaci&oacute;n: ">
 		<p align="right"><span style="font-size: 25px;"> </span><br/><span style="font-size: 115px;" ></span></p>
 	</div>
 </body>
@@ -386,9 +386,9 @@
     			var errorCode;
 				errorCode=$(xml).find('response').find('code').text();
 				if(parseInt(errorCode)==0){	
-					/* TODO  temporalmente se harcodea el área y el puesto del funcionario se quitará cuando se resuelva la jerarquía organizacional*/
-					//$('#solDeSSPAreaAdmin').val( $(xml).find('usuarioDTO').find('area').find('nombre').first().text()+ " Seguridad Pública" );
-					$('#solDeSSPAreaAdmin').val("Seguridad Pública Estatal" );
+					/* TODO  temporalmente se harcodea el &aacute;rea y el puesto del funcionario se quitar&aacute; cuando se resuelva la jerarqu&iacute;a organizacional*/
+					//$('#solDeSSPAreaAdmin').val( $(xml).find('usuarioDTO').find('area').find('nombre').first().text()+ " Seguridad P&uacute;blica" );
+					$('#solDeSSPAreaAdmin').val("Seguridad P&uacute;blica Estatal" );
 					$('#solDeSSPNombre').val(
 							$(xml).find('usuarioDTO').find('funcionario').find('nombreFuncionario').first().text() + " " +
 							$(xml).find('usuarioDTO').find('funcionario').find('apellidoPaternoFuncionario').first().text() + " "+
@@ -603,7 +603,7 @@
 		
 		/* funcionalidad de Asentar registro de cadena de custodia*/
 		$("#btnCadCusNuevaCadCus").click(asentarRegCadenaCustodia);
-		/****** función de Asentar registro de cadena de custodia
+		/****** funci&oacute;n de Asentar registro de cadena de custodia
 		requiere un expediente para 
 		****/
 		function asentarRegCadenaCustodia()

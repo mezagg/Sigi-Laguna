@@ -77,12 +77,12 @@
 		  	  data: params,				
 		  	  dataType: 'xml',
 		  	  success: function(xml){
-		  		  alertDinamicoCerrar('Lugar de detención guardado de manera correcta');				  
+		  		  alertDinamicoCerrar('Lugar de detenci&oacute;n guardado de manera correcta');				  
 		  	  }
 		  	});
 	}
 	
-	//Función para alertDinamicoCerrar
+	//Funci&oacute;n para alertDinamicoCerrar
 	function alertDinamicoCerrar(textoAlert){						
 		$("#divAlertTextoCerrar").html(textoAlert);
 	    $( "#dialog-AlertCerrar" ).dialog({

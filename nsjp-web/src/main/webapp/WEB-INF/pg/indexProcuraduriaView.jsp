@@ -10,7 +10,7 @@
 <%@page import="mx.gob.segob.nsjp.dto.usuario.UsuarioDTO"%>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.seguridad.Roles" %>
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html" %>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic" %>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean" %>
@@ -189,7 +189,7 @@
 		//Grid de Solicitudes por atender
 		jQuery("#gridSolsXAtndr").jqGrid({ 
 			datatype: "xml", 
-			colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creación','Fecha Limite','Institución','Remitente'], 
+			colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creaci&oacute;n','Fecha Limite','Instituci&oacute;n','Remitente'], 
 			colModel:[ 	{name:'caso',index:'caso', width:180,hidden:true},
 			           	{name:'expediente',index:'expediente', width:180}, 
 						{name:'folio',index:'folio', width:100}, 
@@ -215,7 +215,7 @@
 		//Grid de Solicitudes generadas
 		jQuery("#gridSolsGeneradas").jqGrid({ 
 			datatype: "xml", 
-			colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creación','Fecha Limite','Institución','Destinatario'], 
+			colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creaci&oacute;n','Fecha Limite','Instituci&oacute;n','Destinatario'], 
 			colModel:[ 	{name:'caso',index:'caso', width:150,hidden:true},
 			           	{name:'expediente',index:'expediente', width:180}, 
 						{name:'folio',index:'folio', width:100}, 
@@ -276,7 +276,7 @@
 		ocultaMuestraGrids("gridDetalleFrmPrincipal");
 	}
 	
-	// Esta función es invocada también desde el menú intermedio, para recargar el grid
+	// Esta funci&oacute;n es invocada tambi&eacute;n desde el men&uacute; intermedio, para recargar el grid
 	function regresaGrid(){
 		jQuery("#gridDetalleFrmPrincipal").jqGrid('setGridParam', {url: contextoPagina + '/BusquedaCanalizadosRestaurativa.do?area=UI&actividad=ATENDER_CANALIZACION',datatype: "xml" });
 		$("#gridDetalleFrmPrincipal").trigger("reloadGrid");
@@ -284,7 +284,7 @@
 	}
     
     function tituloVentana(num){
-		$("#iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia+" div.window-titleBar-content").html("Carpeta de investigación: "+num);
+		$("#iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia+" div.window-titleBar-content").html("Carpeta de investigaci&oacute;n: "+num);
 	}
 
 	
@@ -318,8 +318,8 @@
 			gridSolServPericiales();
 		}
 		
-		// Agrupando funcionalidades comúnes
-		// ¿Existen más casos?
+		// Agrupando funcionalidades com&uacute;nes
+		// &iquest;Existen m&aacute;s casos?
 		if(parseInt(idGrid)==1 || parseInt(idGrid)==2){
 			$("#divGridEvidenciasNuevas").hide();
 			$("#divGridEvidenciasPendientes").hide();
@@ -455,7 +455,7 @@
 			jQuery("#gridEvidenciasNuevas").jqGrid({ 
 				url: contextoPagina + '/solicitudEvidenciasPorEstatus.do?estatus=1&areaSolicitante=3', 
 				datatype: "xml", 
-				colNames:['Folio','Número de caso','Número de expediente','Nombre del solicitante','Cadena de custodia','Objetos solicitados','Inicio de préstamo','Fin de préstamo','Fecha límite'], 
+				colNames:['Folio','N&uacute;mero de caso','N&uacute;mero de expediente','Nombre del solicitante','Cadena de custodia','Objetos solicitados','Inicio de pr&eacute;stamo','Fin de pr&eacute;stamo','Fecha l&iacute;mite'], 
 				colModel:[ 	{name:'Folio',index:'folio', width:100},
 				           	{name:'NumeroCaso',index:'numeroCaso', width:100},
 				           	{name:'NumeroExpediente',index:'numeroExpediente', width:100},
@@ -500,7 +500,7 @@
 			jQuery("#gridEvidenciasPendientes").jqGrid({ 
 				url: contextoPagina + '/solicitudEvidenciasPorEstatus.do?estatus=2&areaSolicitante=3', 
 				datatype: "xml", 
-				colNames:['Folio','Número de caso','Número de expediente','Nombre del solicitante','Cadena de custodia','Objetos solicitados','Inicio de préstamo','Fin de préstamo','Fecha límite','Ultima modificación'], 
+				colNames:['Folio','N&uacute;mero de caso','N&uacute;mero de expediente','Nombre del solicitante','Cadena de custodia','Objetos solicitados','Inicio de pr&eacute;stamo','Fin de pr&eacute;stamo','Fecha l&iacute;mite','Ultima modificaci&oacute;n'], 
 				colModel:[ 	{name:'Folio',index:'folio', width:100},
 				           	{name:'NumeroCaso',index:'numeroCaso', width:100},
 							{name:'NumeroExpediente',index:'numeroExpediente', width:100},
@@ -543,7 +543,7 @@
 			jQuery("#gridEvidenciasConcluidas").jqGrid({ 
 				url: contextoPagina + '/solicitudEvidenciasPorEstatus.do?estatus=3&areaSolicitante=3', 
 				datatype: "xml", 
-				colNames:['Folio','Número de caso','Número de expediente','Nombre del solicitante','Cadena de custodia','Objetos solicitados','Inicio de préstamo','Fin de préstamo','Fecha límite','Fecha de cierre' ], 
+				colNames:['Folio','N&uacute;mero de caso','N&uacute;mero de expediente','Nombre del solicitante','Cadena de custodia','Objetos solicitados','Inicio de pr&eacute;stamo','Fin de pr&eacute;stamo','Fecha l&iacute;mite','Fecha de cierre' ], 
 				colModel:[ 	{name:'Folio',index:'folio', width:100},
 				           	{name:'NumeroCaso',index:'numeroCaso', width:100},
 							{name:'NumeroExpediente',index:'numeroExpediente', width:100},
@@ -582,7 +582,7 @@
 		jQuery("#gridNuevoAvisoPosHechoDel").jqGrid({ 
 			url: contextoPagina + '/consultarAvisosNuevosPosiblesHechosDel.do?estatus=NO_ATENDIDA', 
 			datatype: "xml", 
-			colNames:['Lugar de los hechos','Tipo de delito', 'Fecha y Hora envío'], 
+			colNames:['Lugar de los hechos','Tipo de delito', 'Fecha y Hora env&iacute;o'], 
 			colModel:[ 	{name:'Lugar',index:'lugar', width:425},
 			           	{name:'Tipodelito',index:'tipodelito', width:125}, 
 						{name:'Fecha',index:'fecha', width:125}
@@ -610,7 +610,7 @@
 		jQuery("#gridAvisoAtnddPosHechoDel").jqGrid({ 
 			url: contextoPagina + '/consultarAvisosNuevosPosiblesHechosDel.do?estatus=ATENDIDA', 
 			datatype: "xml", 
-			colNames:['Lugar de los hechos','Tipo de delito', 'Fecha y Hora envío'], 
+			colNames:['Lugar de los hechos','Tipo de delito', 'Fecha y Hora env&iacute;o'], 
 			colModel:[ 		{name:'Lugar',index:'lugar', width:425},
 				           	{name:'Tipodelito',index:'tipodelito', width:205}, 
 							{name:'Fecha',index:'fecha', width:195}
@@ -758,7 +758,7 @@
 	*/
 	function dblClickRowBandejaAudiencias(rowID){
 		idWindowDetalleNotificacion++;
-		customVentana("iframewindowDetalleNotificacion"+idWindowDetalleNotificacion, "Atender Notificación", "/acarrearIdEvento.do", "?idEvento=" +rowID);	
+		customVentana("iframewindowDetalleNotificacion"+idWindowDetalleNotificacion, "Atender Notificaci&oacute;n", "/acarrearIdEvento.do", "?idEvento=" +rowID);	
 	}
 	
 	/*Funcion que acarrea el id del expediente, para devolverlo
@@ -894,7 +894,7 @@
 			jQuery("#gridDetalleSolAvisosDetencion").jqGrid({ 
 				url: contextoPagina + '/SolicitudesNoAtendidas.do', 
 				datatype: "xml", 
-				colNames:['Folio','Caso','Imputado:','Delito(s)','<bean:message key="agencia"/>','Fecha-Hora de detención','Fecha-Hora de aviso'], 
+				colNames:['Folio','Caso','Imputado:','Delito(s)','<bean:message key="agencia"/>','Fecha-Hora de detenci&oacute;n','Fecha-Hora de aviso'], 
 				colModel:[ 	{name:'folio',index:'2008', width:150, align:"center"},
 				           	{name:'caso',index:'2002', width:180, align:"center"},
 				           	{name:'imputado',index:'2009', width:200, align:"center"},
@@ -1052,7 +1052,7 @@
 	}
 	
 	/**	
-	* Función que abre el visor de medidas cautelares 
+	* Funci&oacute;n que abre el visor de medidas cautelares 
 	**/
 	function mostrarVentanaInvolucradosMedida(numeroExpediente){
 		idWindowVisorMedidasCautelares++;
@@ -1061,11 +1061,11 @@
 	}
 
 	/**	
-	* Función que abre el visor de mandamientos judiciales
+	* Funci&oacute;n que abre el visor de mandamientos judiciales
 	**/	
 	function mostrarVentanaInvolucradosMandamiento(numeroExpediente){
-		// Ojo -> Esta función se invoca desde el js funcionesComunMandJudYMedCautelares
-		// Ya se desarrollo para encargado causa, falta replicar cambios aquí
+		// Ojo -> Esta funci&oacute;n se invoca desde el js funcionesComunMandJudYMedCautelares
+		// Ya se desarrollo para encargado causa, falta replicar cambios aqu&iacute;
 	}
 	
 	function llamaraCambia(op,idAlerta){
@@ -1174,7 +1174,7 @@
 	
     /**
      * Permite consultar Evidencias asociadas al Almacen del cual es responsable 
-     * el usuario firmado en seción. Permite consultar evidencias en base al
+     * el usuario firmado en seci&oacute;n. Permite consultar evidencias en base al
      * estatus de la evidencia.
      **/
 		var cargaGridEvidencias=false;
@@ -1294,7 +1294,7 @@
 </div>
 <!--Termina div fechas-->
 
-	<!--Comienza div para mostrar la ventana para ingresar el número de expediente-->	
+	<!--Comienza div para mostrar la ventana para ingresar el n&uacute;mero de expediente-->	
 	<div id="divBusquedaExpediente" style="display: none">
 		<table width="400" cellspacing="0" cellpadding="0" height="150">
 			<tr>
@@ -1381,13 +1381,13 @@
 						<div id="pagerGridSolsGeneradas"></div>
 					</div>					
 					
-					<!--  Ojo: las funciones ligadas a mandamientos judiciales, están en el js funcionesComunMandJudYMedCautelares -->
+					<!--  Ojo: las funciones ligadas a mandamientos judiciales, est&aacute;n en el js funcionesComunMandJudYMedCautelares -->
 					<div id="divGridMandamientosJudiciales" style="display: none;">
 					 	<table id="gridMandamientosJudiciales"></table>
 						<div id="pagerGridMandamientosJudiciales"></div>
 					</div>
 					
-					<!--  Ojo: las funciones ligadas a medidas cautelares, están en el js funcionesComunMandJudYMedCautelares -->
+					<!--  Ojo: las funciones ligadas a medidas cautelares, est&aacute;n en el js funcionesComunMandJudYMedCautelares -->
 					<div id="divGridMedidasCautelares" style="display: none;">
 					 	<table id="gridMedidasCautelares"></table>
 						<div id="pagerGridMedidasCautelares"></div>

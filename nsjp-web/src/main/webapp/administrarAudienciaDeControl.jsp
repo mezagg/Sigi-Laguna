@@ -1,8 +1,8 @@
 <%@page import="mx.gob.segob.nsjp.web.base.action.GenericAction"%>
 <%@page import="mx.gob.segob.nsjp.dto.configuracion.ConfiguracionDTO"%>
 <%@page import="mx.gob.segob.nsjp.web.login.action.LoginAction"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
 <%@page import="java.util.*" session="false" %>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 
@@ -608,9 +608,9 @@ var sesionActiva = '<%= (request.getSession().getAttribute(LoginAction.KEY_SESSI
 	                 		<td width="168" height="40" colspan="2" align="center">
 								<table align="center" cellpadding="2" cellspacing="2">
 									<tr>
-										<td><a href="#"><img src="<%=request.getContextPath()%>/resources/images/btn_head_buscar.png" width="35" height="35" alt="Botón Buscar General" title="Buscar" /></a></td>
-										<td><a href="#"><img src="<%=request.getContextPath()%>/resources/images/btn_head_cerrarSesion.png" width="35" height="35" alt="Botón cerrar sesión" title="Cerrar Sesión"/></a></td>
-										<td><a href="#"><img src="<%=request.getContextPath()%>/resources/images/btn_head_ayuda.png" width="35" height="35" alt="Botón ayuda" title="Ayuda"/></a></td>
+										<td><a href="#"><img src="<%=request.getContextPath()%>/resources/images/btn_head_buscar.png" width="35" height="35" alt="Bot&oacute;n Buscar General" title="Buscar" /></a></td>
+										<td><a href="#"><img src="<%=request.getContextPath()%>/resources/images/btn_head_cerrarSesion.png" width="35" height="35" alt="Bot&oacute;n cerrar sesi&oacute;n" title="Cerrar Sesi&oacute;n"/></a></td>
+										<td><a href="#"><img src="<%=request.getContextPath()%>/resources/images/btn_head_ayuda.png" width="35" height="35" alt="Bot&oacute;n ayuda" title="Ayuda"/></a></td>
 									</tr>
 								</table>
 							</td>

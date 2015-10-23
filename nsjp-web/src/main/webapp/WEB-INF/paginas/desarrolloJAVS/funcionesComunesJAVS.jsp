@@ -2,7 +2,7 @@
 <%@page import="mx.gob.segob.nsjp.comun.enums.audiencia.EstatusAudiencia"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.audiencia.EstatusPermisosAudiencia"%>
 <%@page import="mx.gob.segob.nsjp.comun.enums.forma.Formas"%>
-<%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 	
 	<script type="text/javascript">
 	
@@ -37,13 +37,13 @@
 							customAlert("Fallo en el servicio de solicitud de Permisos de audiencia.");
 						}
 						else if(resultado=="<%=EstatusPermisosAudiencia.SIN_ASIGNAR.getValorId()%>"){
-							customAlert("Ya se realizó una solicitud anteriormente para esta audiencia, aún no ha sido atendida.");
+							customAlert("Ya se realiz&oacute; una solicitud anteriormente para esta audiencia, a&uacute;n no ha sido atendida.");
 						}
 						else if(resultado=="<%=EstatusPermisosAudiencia.CONCEDIDO.getValorId()%>"){
-							customAlert("Ya se realizó una solicitud anteriormente para esta audiencia, usted ya cuenta con permisos.");
+							customAlert("Ya se realiz&oacute; una solicitud anteriormente para esta audiencia, usted ya cuenta con permisos.");
 						}
 						else if(resultado=="<%=EstatusPermisosAudiencia.NUEVA_SOLICITUD.getValorId()%>"){
-							customAlert("Se generó correctamente la solicitud.");
+							customAlert("Se gener&oacute; correctamente la solicitud.");
 						}
 				}				    	
 			});							
@@ -74,21 +74,21 @@
 	}
 
 	/**
-	* Función para el control de leyendas para el verificación de permisos con los estados controlados
-	* en EstatusPermisoAudiencia -- íntimamente ligados con los valores de retorno del WS-JAVS
+	* Funci&oacute;n para el control de leyendas para el verificaci&oacute;n de permisos con los estados controlados
+	* en EstatusPermisoAudiencia -- &iacute;ntimamente ligados con los valores de retorno del WS-JAVS
 	**/
 	function leyendaVerificarSolicitudPermisoInternoAudiencia(resultado, audienciaId){
 		if(resultado=="<%=EstatusPermisosAudiencia.NO_ES_JAVS.getValorId()%>"){
 			customAlert("La audiencia no se ha llevado a cabo en una sala JAVS.");															
 		}
 		else if(resultado=="<%=EstatusPermisosAudiencia.FALLO.getValorId()%>"){
-			customAlert("Fallo en la verificación de permisos de la audiencia.");
+			customAlert("Fallo en la verificaci&oacute;n de permisos de la audiencia.");
 		}
 		else if(resultado=="<%=EstatusPermisosAudiencia.SIN_ASIGNAR.getValorId()%>"){
 			customAlert("No se ha atendido su solicitud de permisos de la audiencia.");
 		}
 		else if(resultado=="<%=EstatusPermisosAudiencia.CONCEDIDO.getValorId()%>"){
-			alertDinamicoConsulta("Verificación de permisos aceptada, se procede a conectarse con el WS.",audienciaId);
+			alertDinamicoConsulta("Verificaci&oacute;n de permisos aceptada, se procede a conectarse con el WS.",audienciaId);
 		}
 		else if(resultado=="<%=EstatusPermisosAudiencia.CANCELADO.getValorId()%>"){
 			customAlert("Usted no tiene permisos de descarga, favor de generar su solicitud de permiso nuevamente.");
@@ -140,7 +140,7 @@
 						alertDinamico(S_Mensaje);
 					}
 					else{
-						// Puede ser error de conexión WS
+						// Puede ser error de conexi&oacute;n WS
 						alertDinamico("Fallo al consultar la audiencia");
 					}
 				}
@@ -156,7 +156,7 @@
 		var S_Mensaje="";
 		switch (idEvento){
 			case "<%=ConstantesGenerales.AUDIENCIA_NO_ACTIVA%>":
-        		S_Mensaje = "La audiencia no se ha llevado a cabo aún";
+        		S_Mensaje = "La audiencia no se ha llevado a cabo a&uacute;n";
             	break;
 			case "<%=ConstantesGenerales.NO_ES_JAVS%>":
         		S_Mensaje = "La audiencia no se llevo a cabo en una sala JAVS";
@@ -168,13 +168,13 @@
                 S_Mensaje = "Se han actualizados las notas y los datos de la audiencia.</br>La audiencia se ha llevado a cabo";
                 break;
             case "<%=ConstantesGenerales.FALLO_GENERAL%>":
-                S_Mensaje = "Fallo al conectar con el servidor JAVS. Vuelva a intentarlo más tarde";
+                S_Mensaje = "Fallo al conectar con el servidor JAVS. Vuelva a intentarlo m&aacute;s tarde";
                 break;
             case "<%=ConstantesGenerales.FALLO_GENERAL_JAVS%>":
-            	S_Mensaje = "Fallo al conectar con el servidor JAVS. Vuelva a intentarlo más tarde";
+            	S_Mensaje = "Fallo al conectar con el servidor JAVS. Vuelva a intentarlo m&aacute;s tarde";
                 break;
             case "<%=ConstantesGenerales.ERROR_CREDENCIALES_CONSULTA%>":
-            	S_Mensaje = "Fallo al conectar con el servidor JAVS, credenciales incorrectas.</br> Vuelva a intentarlo más tarde";
+            	S_Mensaje = "Fallo al conectar con el servidor JAVS, credenciales incorrectas.</br> Vuelva a intentarlo m&aacute;s tarde";
                 break;
             case "<%=ConstantesGenerales.NO_HAY_AUDIENCIAS%>":
                 S_Mensaje = "La audiencia no esta agendada en Sala JAVS.";
@@ -253,7 +253,7 @@
 	}
 
 	/**
-	* Invocación del applet de descarga
+	* Invocaci&oacute;n del applet de descarga
 	**/
 	function invocacionPantallaApplet(Audiencia){
 		idApplet++;

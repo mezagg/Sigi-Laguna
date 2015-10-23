@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Ingresar Hechos</title>
 		<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css"/>
 		<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/jquery.easyaccordion.css" />	
@@ -264,7 +264,7 @@
 			            <nombreEntidad>Aguascalientes</nombreEntidad>
 			            <valorIdPais>
 			              <idCampo>10</idCampo>
-			              <valor>México</valor>
+			              <valor>M&eacute;xico</valor>
 			            </valorIdPais>
 			          </entidadFederativaDTO>
 			        </ciudadDTO>
@@ -277,7 +277,7 @@
 			            <nombreEntidad>Aguascalientes</nombreEntidad>
 			            <valorIdPais>
 			              <idCampo>10</idCampo>
-			              <valor>México</valor>
+			              <valor>M&eacute;xico</valor>
 			            </valorIdPais>
 			          </entidadFederativaDTO>
 			        </municipioDTO>
@@ -338,7 +338,7 @@
 				if(validaDatosIngresoHecho())
 				{
 					//guardare el hecho
-					var parametrosHechos=extraeDatosIngresarHechos();//obtengo la información a almacenar
+					var parametrosHechos=extraeDatosIngresarHechos();//obtengo la informaci&oacute;n a almacenar
 					//llamamos al action que guardara el nuevo Hecho
 					$.ajax({
 						async: false,
@@ -352,13 +352,13 @@
 								//Venismo de una insercion
 								if(parseInt($(xml).find('code').text())==0)
 								{
-									customAlert("Se guardó exitosamente el hecho");
+									customAlert("Se guard&oacute; exitosamente el hecho");
 									$("#btnGuardarHechos").attr("disabled","disabled");
 									window.parent.cargaIngresoHecho("Hecho",''+$(xml).find('hechoDTO').find('hechoId').text());
 								}
 								else
 								{
-									customAlert("Ocurrió un error al guardar el hecho");
+									customAlert("Ocurri&oacute; un error al guardar el hecho");
 								}
 							}
 							else
@@ -371,7 +371,7 @@
 				}
 				else
 				{
-					customAlert("Hay un dato inválido, favor de verificar");
+					customAlert("Hay un dato inv&aacute;lido, favor de verificar");
 				}
 			}
 			

@@ -61,7 +61,7 @@ function limpiarPopUpCorreo(){
 }
 
 /**
- * Limpia los campos de captura del popUp de teléfono
+ * Limpia los campos de captura del popUp de tel&eacute;fono
  */
 function limpiarPopUpTelefono(){
 	$('#cmbTipoTelefono').attr('selectedIndex',0);
@@ -199,17 +199,17 @@ function alertDinamicoMedios(textoAlert){
 	    <table>
 			<tbody>
 				<tr>
-					<td>Número telefónico:</td>
+					<td>N&uacute;mero telef&oacute;nico:</td>
 					<td><input type="button" id='btnAgregarTelefono' value="+"/>&nbsp;<input type="button" id='btnEliminarTelefono' value="-"/></td>
 				</tr>
 				<tr>
 					<td colspan="2">
 						<table id="tblTelefonos">
 							<tr id="tblTelefonosEncabezado">
-								<td>Tipo de teléfono</td>
-								<td>Código de País</td>
+								<td>Tipo de tel&eacute;fono</td>
+								<td>C&oacute;digo de Pa&iacute;s</td>
 								<td>Lada</td>
-								<td>Número telefónico</td>
+								<td>N&uacute;mero telef&oacute;nico</td>
 							</tr>
 						</table>	
 					</td>
@@ -223,14 +223,14 @@ function alertDinamicoMedios(textoAlert){
     	<table>
 			<tbody>
 				<tr>
-					<td>Correo electrónico</td>
+					<td>Correo electr&oacute;nico</td>
 					<td><input type="button" id='btnAgregarCorreo' value="+"/>&nbsp;<input type="button" id='btnEliminarCorreo' value="-"/></td>
 				</tr>
 				<tr>
 					<td colspan="2">
 						<table id="tblCorreos">
 							<tr id="tblCorreoEncabezado">
-								<td>Correo electrónico</td>
+								<td>Correo electr&oacute;nico</td>
 							</tr>
 						</table>	
 					</td>
@@ -242,10 +242,10 @@ function alertDinamicoMedios(textoAlert){
   </tr>
 </table>
 
-<div id="divTelefono" title="Nuevo Teléfono">
+<div id="divTelefono" title="Nuevo Tel&eacute;fono">
 	<table border="0" width="100%" class="fondoClaroAp">
 		<tr>
-			<td>Tipo de teléfono</td>
+			<td>Tipo de tel&eacute;fono</td>
 			<td>
 				<select id="cmbTipoTelefono">						
 					<option value="-1">-Seleccione-</option>
@@ -253,7 +253,7 @@ function alertDinamicoMedios(textoAlert){
 			</td>
 		</tr>
 		<tr>
-			<td>Código de País: </td>
+			<td>C&oacute;digo de Pa&iacute;s: </td>
 			<td><input type="text" size="8" maxlength="8" id="txtCvePais"/></td>
 		</tr>
 		<tr>
@@ -261,7 +261,7 @@ function alertDinamicoMedios(textoAlert){
 			<td><input type="text" size="8" maxlength="8" id="txtLada"/></td>
 		</tr>
 		<tr>
-			<td>Número telefónico:</td>
+			<td>N&uacute;mero telef&oacute;nico:</td>
 			<td><input type="text" size="15" maxlength="15" id="txtTelefono"/></td>
 		</tr>
 	</table>
@@ -270,7 +270,7 @@ function alertDinamicoMedios(textoAlert){
 <div id="divCorreo" title="Nuevo Correo">
 	<table border="0" width="100%" class="fondoClaroAp">
 		<tr>
-			<td>Correo electrónico:</td>
+			<td>Correo electr&oacute;nico:</td>
 			<td><input type="text" size="60" maxlength="60" id="txtCorreo"/></td>
 		</tr>
 		<tr>
@@ -282,7 +282,7 @@ function alertDinamicoMedios(textoAlert){
 <div id="divCorreo2" title="Nuevo Correo" style="display: none;">
 	<table border="0" width="100%" class="fondoClaroAp">
 		<tr>
-			<td align="right">Correo electrónico:</td>
+			<td align="right">Correo electr&oacute;nico:</td>
 			<td><input type="text" size="60" maxlength="60" id="txtCorreo2"/></td> 
 		</tr>
 		<tr>
@@ -292,13 +292,13 @@ function alertDinamicoMedios(textoAlert){
 	</table>
 </div>
 </div>
-<div id="divTelefono2" title="Nuevo Teléfono" style="display: none;">
+<div id="divTelefono2" title="Nuevo Tel&eacute;fono" style="display: none;">
 	<table border="0" width="100%" class="fondoClaroAp">
 		<p align="center">
 				</br><b>Los campos marcados con el s&iacute;mbolo (*) son obligatorios.</b></br></br>
 		</p>
 		<tr>
-			<td align="right">* Tipo de teléfono:</td>
+			<td align="right">* Tipo de tel&eacute;fono:</td>
 			<td>
 				<select id="cmbTipoTelefono1">						
 					<option value="-1">-Seleccione-</option>
@@ -306,7 +306,7 @@ function alertDinamicoMedios(textoAlert){
 			</td>
 		</tr>
 		<tr>
-			<td align="right">* Código de País:</td>
+			<td align="right">* C&oacute;digo de Pa&iacute;s:</td>
 			<td><input type="text" size="8" maxlength="8" id="txtCvePais1" onKeyPress="return solonumeros(event);" onblur="validaSoloNumeros(this);"/></td>
 		</tr>
 		<tr>
@@ -314,7 +314,7 @@ function alertDinamicoMedios(textoAlert){
 			<td><input type="text" size="8" maxlength="8" id="txtLada1" onKeyPress="return solonumeros(event);" onblur="validaSoloNumeros(this);"/></td>
 		</tr>
 		<tr>
-			<td align="right">* Número telefónico:</td>
+			<td align="right">* N&uacute;mero telef&oacute;nico:</td>
 			<td><input type="text" size="15" maxlength="15" id="txtTelefono1" onKeyPress="return solonumeros(event);" onblur="validaSoloNumeros(this);"/></td>
 		</tr>
 	</table>
@@ -335,7 +335,7 @@ function alertDinamicoMedios(textoAlert){
 <div id="divCorreo3" title="Nuevo Correo" style="display: none;">
 	<table border="0" width="100%" class="fondoClaroAp">
 		<tr>
-			<td>Correo electrónico:</td>
+			<td>Correo electr&oacute;nico:</td>
 			<td><input type="text" size="60" maxlength="60" id="txtCorreo3"/></td> 
 		</tr>
 		<tr>
@@ -345,10 +345,10 @@ function alertDinamicoMedios(textoAlert){
 	</table>
 </div>
 
-<div id="divTelefono3" title="Nuevo Teléfono" style="display: none;">
+<div id="divTelefono3" title="Nuevo Tel&eacute;fono" style="display: none;">
 	<table border="0" width="100%" class="fondoClaroAp">
 		<tr>
-			<td>Tipo de teléfono</td>
+			<td>Tipo de tel&eacute;fono</td>
 			<td>
 				<select id="cmbTipoTelefono3">						
 					<option value="-1">-Seleccione-</option>
@@ -356,7 +356,7 @@ function alertDinamicoMedios(textoAlert){
 			</td>
 		</tr>
 		<tr>
-			<td>Código de País:</td>
+			<td>C&oacute;digo de Pa&iacute;s:</td>
 			<td><input type="text" size="8" maxlength="8" id="txtCvePais3"/></td>
 		</tr>
 		<tr>
@@ -364,7 +364,7 @@ function alertDinamicoMedios(textoAlert){
 			<td><input type="text" size="8" maxlength="8" id="txtLada3"/></td>
 		</tr>
 		<tr>
-			<td>Número telefónico:</td>
+			<td>N&uacute;mero telef&oacute;nico:</td>
 			<td><input type="text" size="15" maxlength="15" id="txtTelefono3"/></td>
 		</tr>
 	</table>
@@ -396,12 +396,12 @@ var  y=0;
 
 
 /**
- * Función encargada de pintar los medios de contacto
+ * Funci&oacute;n encargada de pintar los medios de contacto
  */
 function pintaDatosContacto(xml){
 		 
 	$('#tblTelefonos').empty();
-	$('#tblTelefonos').append('<tr><td>Tipo de teléfono</td>&nbsp;<td>Código de País</td>&nbsp;<td>Lada</td>&nbsp;<td>Número telefónico</td></tr>');
+	$('#tblTelefonos').append('<tr><td>Tipo de tel&eacute;fono</td>&nbsp;<td>C&oacute;digo de Pa&iacute;s</td>&nbsp;<td>Lada</td>&nbsp;<td>N&uacute;mero telef&oacute;nico</td></tr>');
 	$(xml).find('TelefonoDTO').each(function(){
 
 		var tel = "";
@@ -410,7 +410,7 @@ function pintaDatosContacto(xml){
 	});
 
 	$('#tblCorreos').empty();
-	$('#tblCorreos').append('<tr><td>Dirección electrónica</td></tr>');
+	$('#tblCorreos').append('<tr><td>Direcci&oacute;n electr&oacute;nica</td></tr>');
 	$(xml).find('CorreoElectronicoDTO').each(function(){
 
 		var correo = "";
@@ -419,14 +419,14 @@ function pintaDatosContacto(xml){
 	});
 
 	//_______________________________________________
-	//Esta funcion era la que tenía originalmente 
+	//Esta funcion era la que ten&iacute;a originalmente 
 
 	// var telefono = new Telefono($(xml).find('telefonosDTO').find('idCampo').text(),$(xml).find('telefonosDTO').find('valor').text(),$(xml).find('telefonosDTO').find('codigoPais').text(),$(xml).find('telefonosDTO').find('codigoArea').text(),$(xml).find('telefonosDTO').find('numeroTelefonico').text());
 
 	//	lstTelefonos[idTelefono] = telefono;
 	//	idTelefono++;
 	//	$('#tblTelefonos').empty();
-	//	$('#tblTelefonos').append('<tr><td>Tipo de teléfono</td>&nbsp;<td>Código de País</td>&nbsp;<td>Lada</td>&nbsp;<td>Número telefónico</td></tr>');
+	//	$('#tblTelefonos').append('<tr><td>Tipo de tel&eacute;fono</td>&nbsp;<td>C&oacute;digo de Pa&iacute;s</td>&nbsp;<td>Lada</td>&nbsp;<td>N&uacute;mero telef&oacute;nico</td></tr>');
 	//	for(var i=0;i<lstTelefonos.length;i++){
 	//		var tel = lstTelefonos[i];
 	//		$('#tblTelefonos').append('<tr><td>'+ tel.nombreTipoTelefono +'</td>&nbsp;<td>'+tel.cvePais+'</td>&nbsp;<td>'+tel.lada+'</td>&nbsp;<td>'+tel.telefono+'</td></tr>');
@@ -434,7 +434,7 @@ function pintaDatosContacto(xml){
 }
 
 /**
- * Función encargada de deshabilitar el funcionamiento de la pagina
+ * Funci&oacute;n encargada de deshabilitar el funcionamiento de la pagina
  */
 function deshabilitaMediosContacto(){
 
@@ -505,7 +505,7 @@ $.ajax({
 //varTipo varPais varLada varTelefono
 $("#divTelefono2").dialog({ autoOpen: false, 
 	modal: true, 
-	title: 'Agregar teléfono', 
+	title: 'Agregar tel&eacute;fono', 
 	dialogClass: 'alert', 
 	width: 355 ,
 	height: 305,
@@ -535,7 +535,7 @@ $("#divTelefono2").dialog({ autoOpen: false,
 				//$(this).dialog("close")
 			}
 		}else{
-			alertDinamicoMedios('Ya se capturaron 30 teléfonos');
+			alertDinamicoMedios('Ya se capturaron 30 tel&eacute;fonos');
 			$(this).dialog("close");
 		}
 		},
@@ -575,7 +575,7 @@ function borraInfoTelefono(){
 
 jQuery("#list5").jqGrid({        
 	datatype: "xml",
-   	colNames:['idTipo','Tipo','Código País', 'Lada', 'Teléfono'],
+   	colNames:['idTipo','Tipo','C&oacute;digo Pa&iacute;s', 'Lada', 'Tel&eacute;fono'],
    	colModel:[
    	       {name:'idTipo',index:'tipo', width:55,editable:true,hidden:true}, 
    		{name:'tipo',index:'tipo', width:55,editable:true},  
@@ -592,7 +592,7 @@ jQuery("#list5").jqGrid({
     viewrecords: true,
     sortorder: "desc",
     multiselect: false,
-    caption:"Número de Teléfono",
+    caption:"N&uacute;mero de Tel&eacute;fono",
     editurl:"ingresarMediosContacto.jsp",
     toolbar: [true,"top"],
     
@@ -644,7 +644,7 @@ jQuery("#correos").jqGrid({
     viewrecords: true,
     sortorder: "desc",
     multiselect: false,
-    caption:"Correo Electrónico",
+    caption:"Correo Electr&oacute;nico",
     editurl:"ingresarMediosContacto.jsp",
     toolbar: [true,"top"],
     
@@ -733,7 +733,7 @@ function modificarTelefono(idrow){
 	    
 	$("#divTelefono3").dialog({ autoOpen: true, 
 		modal: true, 
-		title: 'Agregar teléfono', 
+		title: 'Agregar tel&eacute;fono', 
 		dialogClass: 'alert', 
 		width: 308.733 ,
 		height: 215.733,
@@ -753,7 +753,7 @@ function modificarTelefono(idrow){
 				}
 				else
 				{
-					alertDinamicoMedios("Favor de revisar su información");	
+					alertDinamicoMedios("Favor de revisar su informaci&oacute;n");	
 				}
 			},
 			"Cancelar":function() {

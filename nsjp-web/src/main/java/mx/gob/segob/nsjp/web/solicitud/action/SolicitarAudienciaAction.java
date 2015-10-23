@@ -19,7 +19,7 @@ import mx.gob.segob.nsjp.comun.enums.institucion.Instituciones;
 import mx.gob.segob.nsjp.comun.enums.solicitud.TiposSolicitudes;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
 import mx.gob.segob.nsjp.comun.util.PaginadorUtil;
-import mx.gob.segob.nsjp.delegate.actuaciones.ActuacionesDelegate;
+import mx.gob.segob.nsjp.delegate.actuaciones.ActuacionesDelegate; 
 import mx.gob.segob.nsjp.delegate.caso.CasoDelegate;
 import mx.gob.segob.nsjp.delegate.delito.DelitoDelegate;
 import mx.gob.segob.nsjp.delegate.involucrado.InvolucradoDelegate;
@@ -210,7 +210,7 @@ public class SolicitarAudienciaAction extends GenericAction {
 					involucradosToSend.addAll(involucradosVictimas);
 				}
 
-				// Consultar los Denunciantes que son víctimas
+				// Consultar los Denunciantes que son vï¿½ctimas
 				calidadDTO.setCalidades(Calidades.DENUNCIANTE);
 				calidadDTO.setCalidadId(Calidades.DENUNCIANTE.getValorId());
 				List<InvolucradoDTO> involucradosDenunciantesVictimas = involucradoDelegate
@@ -220,7 +220,7 @@ public class SolicitarAudienciaAction extends GenericAction {
 				if (involucradosDenunciantesVictimas != null
 						&& !involucradosDenunciantesVictimas.isEmpty()) {
 					for (InvolucradoDTO involucradoDTO : involucradosDenunciantesVictimas) {
-						// Validar si es víctima
+						// Validar si es vï¿½ctima
 						if (involucradoDTO.getCondicion()
 								.equals(new Short("1"))) {
 							involucradosToSend.add(involucradoDTO);
@@ -619,7 +619,7 @@ public class SolicitarAudienciaAction extends GenericAction {
 				expedienteDTO.setUsuario(usuarioFirmado);
 				
 				/**
-				 * Se agrega lo referente al envío de solicitud
+				 * Se agrega lo referente al envï¿½o de solicitud
 				 */
 				if (logger.isDebugEnabled()) {
 					logger.debug("**********************************forma.getDistrito() = "
@@ -738,7 +738,7 @@ public class SolicitarAudienciaAction extends GenericAction {
 					Long involucradoId = NumberUtils.toLong(id, 0L);
 
 					if (involucradoId.equals(0L)) {
-						logger.error("La lista de los id´s de imputados contiene un Id nulo");
+						logger.error("La lista de los idï¿½s de imputados contiene un Id nulo");
 						throw new NSJPNegocioException(
 								CodigoError.INFORMACION_PARAMETROS_ERRONEA);
 					}

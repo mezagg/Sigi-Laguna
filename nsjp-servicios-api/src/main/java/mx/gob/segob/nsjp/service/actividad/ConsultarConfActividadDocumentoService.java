@@ -66,9 +66,6 @@ public interface ConsultarConfActividadDocumentoService {
     List<ConfActividadDocumentoDTO> consultarConfActividadDocumento(
             UsuarioDTO usuario, ExpedienteDTO expedienteDto, Long idCategoriaActividad, Boolean sinCatUie)
             throws NSJPNegocioException;
-
-    List<ConfActividadDocumentoRolDTO> consultarConfActividadDocumento(UsuarioDTO usuarioDto, Long idRol, Boolean sinCatUie) throws NSJPNegocioException;
-
     /**
      * Consulta la Configuracion del la Actividad de Documento de acuerdo al id
      *
@@ -78,7 +75,7 @@ public interface ConsultarConfActividadDocumentoService {
     ConfActividadDocumentoDTO consultaConfActividadDocumentoPorId(Long idConfActividadDocumento) throws NSJPNegocioException;
 
     ConfActividadDocumentoDTO consultaConfActividadDocumentoPorId(Long idConfActividadDocumento, Boolean sinCauie) throws NSJPNegocioException;
-
+    
     /**
      * Consulta los estatus asociados a una Jerarquia Organizacional dentro de
      * la tabla de Configuracion de Actividades
@@ -135,7 +132,7 @@ public interface ConsultarConfActividadDocumentoService {
      */
     public ConfActividadDocumentoDTO consultaConfActividadDocumentoPorIdActividad(
             ConfActividadDocumentoDTO filtro) throws NSJPNegocioException;
-
+    
     /**
      * Consulta la configuraci&oacute;n de las actuaciones de acuerdo a los
      * par&aacute;metros proporcionados en el DTO.

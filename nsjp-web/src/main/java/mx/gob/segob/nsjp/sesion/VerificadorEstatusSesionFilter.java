@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import mx.gob.segob.nsjp.context.AppContext;
 import mx.gob.segob.nsjp.dto.usuario.FuncionDTO;
 import mx.gob.segob.nsjp.dto.usuario.UsuarioDTO;
-import mx.gob.segob.nsjp.web.base.action.GenericAction;
+import mx.gob.segob.nsjp.web.base.action.GenericAction; 
 import mx.gob.segob.nsjp.web.login.action.LoginAction;
 
 import org.apache.commons.logging.Log;
@@ -26,7 +26,7 @@ import org.springframework.context.ApplicationContext;
 
 /**
  * Filtro encargado de verificar el estatus de la sesion del usuario para
- * redireccionarlo a la página de cambio de contrasenia.
+ * redireccionarlo a la pï¿½gina de cambio de contrasenia.
  * 
  * @author IgnacioFO
  * 
@@ -133,7 +133,7 @@ public class VerificadorEstatusSesionFilter implements Filter {
 	}
 
 	/**
-	 * Método que maneja el caso de que la sesion es existente.
+	 * Mï¿½todo que maneja el caso de que la sesion es existente.
 	 * 
 	 * @param servletRequest
 	 * @param servletResponse
@@ -163,7 +163,7 @@ public class VerificadorEstatusSesionFilter implements Filter {
 		BloqueosNoRestringidos noRestringidos = BloqueosNoRestringidos
 				.getByValor(bloqueosNoRestringidos);
 		if (usuarioDTO != null && usuarioDTO.getIdUsuario() != null) {
-			//		 Inicia parte de autorizador de navegación - LOMG
+			//		 Inicia parte de autorizador de navegaciï¿½n - LOMG
 			if (url.endsWith(".do") || url.endsWith(".jsp")) {
 				if (eventDao.autorizarNavegacion(new FuncionDTO(url),usuarioDTO)) {
 						chain.doFilter(servletRequest, servletResponse);
@@ -173,7 +173,7 @@ public class VerificadorEstatusSesionFilter implements Filter {
 			} else {
 				chain.doFilter(servletRequest, servletResponse);
 			}
-			// Fin parte de autorizador de navegación - LOMG
+			// Fin parte de autorizador de navegaciï¿½n - LOMG
 		} else if (noRestringidos != null) {
 			//log.info("LA peticion es correcta no existe un usuario de sesion pero es parte del login.jsp");
 			chain.doFilter(servletRequest, servletResponse);

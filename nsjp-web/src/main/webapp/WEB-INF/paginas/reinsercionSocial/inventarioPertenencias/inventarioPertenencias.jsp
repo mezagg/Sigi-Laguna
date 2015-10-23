@@ -207,7 +207,7 @@
 			/*
 			*Funcion que aplica submit a la forma para abrir el documento solicitado
 			*id= id del documento seleccionado en el grid de documentos
-			*Así se obtenia anteriormente:
+			*As&iacute; se obtenia anteriormente:
 			*	
 			*document.frmDoc.documentoId.value = id;
 			*document.frmDoc.submit();
@@ -572,7 +572,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td align="right">Condición :</td>
+							<td align="right">Condici&oacute;n :</td>
 							<td align="left">
 								<html:select name="InventarioPertenenciasForm" property="condicionPertId" styleId="condicionPertId" styleClass="texto">
 									<option value="-1">SELECCIONE UNA OPCI&Oacute;N</option>
@@ -600,7 +600,7 @@
 	
 		<div id="dialogConfirmacionEliminarPertenencia" title="Confirmaci&oacute;n de eliminaci&oacute;n">
 			<p>La pertenencia seleccionada ser&aacute; eliminada de manera definitiva.</p>
-			<p>¿Desea eliminar la pertenencia?</p>
+			<p>&iquest;Desea eliminar la pertenencia?</p>
 		</div>
 		<div id="dialogValidarPertenencia" title="Error de validaci&oacute;n">
 			<p>Los siguientes datos de la pertenencia son requeridos:</p>
@@ -616,7 +616,7 @@
 			<p>El inventario de pertenencias ser&aacute; guardado de manera definitiva.<br/>
 			Lo cual implica que no se podr&aacute;n modificar las pertenencias asociadas al inventario.<br/>
 			Asimismo, se generar&aacute; el acuse de recibo de las pertenencias.<br/>
-			¿Desea guardar el inventario de pertenencias de manera definitiva y generar el recibo?</p>
+			&iquest;Desea guardar el inventario de pertenencias de manera definitiva y generar el recibo?</p>
 		</div>
 		<div id="dialog-cambioExito" title="Modificaci&oacute;n exitosa">
 			<p>La informaci&oacute;n se actualiz&oacute; con &eacute;xito</p>
