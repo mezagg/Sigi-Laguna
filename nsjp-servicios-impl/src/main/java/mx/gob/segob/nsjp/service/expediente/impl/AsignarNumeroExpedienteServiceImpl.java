@@ -302,7 +302,7 @@ public class AsignarNumeroExpedienteServiceImpl
 					CodigoError.INFORMACION_PARAMETROS_ERRONEA);
 		}
 		
-		//ObtenciÃ³n de Cadena de Busqueda
+		//Obtención de Cadena de Busqueda
 		String numeroExpediente = null;
 		String institucion = confInsDao.consultarInsitucionActual()
 				.getMonograma();
@@ -379,9 +379,9 @@ public class AsignarNumeroExpedienteServiceImpl
             throw new NSJPNegocioException(CodigoError.PARAMETROS_INSUFICIENTES);
         }
         
-        // OJO - VERIFICAR SI NO SE NECESITA EN ESTE FLUJO, LA CONDICIONAL DEL Nï¿½MERO DE EXPEDIENTE ALTERNO
-        // obtenerNumeroExpediente(); ï¿½ obtenerNumeroExpedienteAlterno();
-        // No se utiliza si es exclusivamente para defensorï¿½a - PUSH ATENTION -
+        // OJO - VERIFICAR SI NO SE NECESITA EN ESTE FLUJO, LA CONDICIONAL DEL N?MERO DE EXPEDIENTE ALTERNO
+        // obtenerNumeroExpediente(); ? obtenerNumeroExpedienteAlterno();
+        // No se utiliza si es exclusivamente para defensor?a - PUSH ATENTION -
 
 		// No se requiere un area en particular, dado a que es para toda
 		// defensoria - Sin embargo es simbolico
@@ -666,21 +666,21 @@ public class AsignarNumeroExpedienteServiceImpl
 	    		ConfInstitucion institucionActual = parametroDAO.consultarInsitucionActual();
 	    		logger.info("institucionActual:"+ institucionActual.getMonograma());
 	    		
-	        	//Si es Fiscalia y la configuraciï¿½n del Parametro Numero alterno 
+	        	//Si es Fiscalia y la configuraci?n del Parametro Numero alterno 
 	        	//esta prendida, se ejecuta dicho algoritmo.
 	        	//Caso contrario continua con la generacion normal
 	    		if (institucionActual.getConfInstitucionId().equals(Instituciones.PGJ.getValorId())) {
 	    			
-	    			// Si el expediente trae la jerarquï¿½a UI y tiene al menos un nï¿½mero de expediente
-	    			// asociado con jerarquï¿½a Policia Ministerial, se debe conservar el ï¿½ltimo nï¿½mero 
+	    			// Si el expediente trae la jerarqu?a UI y tiene al menos un n?mero de expediente
+	    			// asociado con jerarqu?a Policia Ministerial, se debe conservar el ?ltimo n?mero 
 	    			// de expediente, en caso contrario, es el flujo normal.
 	    			if(inputExpediente.getArea().getAreaId()==Areas.UNIDAD_INVESTIGACION.ordinal()){
 	
 	        			numeroExpediente = obtenerNumExpXExpIdAreaId(inputExpediente,new Long(Areas.COORDINACION_POLICIA_MINISTERIAL.ordinal()), anioCreacionDelExpediente);
 	
 	    			}
-	    			// Si el expediente trae la jerarquï¿½a Policia Mninisterial y tiene al menos un nï¿½mero 
-	    			// de expediente asociado con la jerarquï¿½a UI, se debe conservar el ï¿½ltimo nï¿½mero de
+	    			// Si el expediente trae la jerarqu?a Policia Mninisterial y tiene al menos un n?mero 
+	    			// de expediente asociado con la jerarqu?a UI, se debe conservar el ?ltimo n?mero de
 	    			// expediente, en caso contrario, es el flujo normal.
 	    			else if(inputExpediente.getArea().getAreaId()==Areas.COORDINACION_POLICIA_MINISTERIAL.ordinal()){
 	
@@ -875,6 +875,35 @@ public class AsignarNumeroExpedienteServiceImpl
         return expNuevo;
     }
     
+    @Override
+    @Transactional(isolation = Isolation.READ_COMMITTED)
+    public synchronized ExpedienteDTO asignarNumeroExpedienteSinCaso(TurnoDTO turno)
+            throws NSJPNegocioException {
+
+        logger.debug("turno en asignarNumeroExpediente(TurnoDTO turno):: " + turno);
+        if (turno.getUsuario() == null
+                || turno.getUsuario().getIdUsuario() == null) {
+            throw new NSJPNegocioException(CodigoError.PARAMETROS_INSUFICIENTES);
+        }
+
+        ExpedienteDTO expParam = new ExpedienteDTO();
+        expParam.setFechaApertura(new Date());
+        expParam.setUsuario(turno.getUsuario());
+        expParam.setArea(turno.getExpediente().getArea());
+        logger.debug("Antes de llamar a asignarNumeroExpediente(expParam)");
+        ExpedienteDTO expNuevo = asignarNumeroExpediente(expParam);
+        logger.debug("Despues de llamar a asignarNumeroExpediente(expParam)");
+
+        Turno tnoBD = this.turnoDao.read(turno.getTurnoId());
+        tnoBD.setExpediente(new Expediente(expNuevo.getExpedienteId()));
+        tnoBD.setUsuario(new Usuario(turno.getUsuario().getIdUsuario()));
+        tnoBD.setFechaAtencion(new Date());
+        tnoBD.setEstatus(new Valor(EstatusTurno.ATENDIDO.getValorId()));
+
+        this.turnoDao.update(tnoBD);
+        return expNuevo;
+    }
+    
     private FuncionarioDTO obtenerFuncionario(CatDiscriminanteDTO catDiscriminanteDTO) {
 		FuncionarioDTO funcionarioDTO = new FuncionarioDTO();
 		DepartamentoDTO departamento = new DepartamentoDTO();
@@ -942,7 +971,7 @@ public class AsignarNumeroExpedienteServiceImpl
 					&& parametro.getValor().equals("1")){
 	    		ConfInstitucion institucionActual = parametroDAO.consultarInsitucionActual();
 	    		
-	        	//Si es Fiscalia y la configuraciï¿½n del Parametro Numero alterno esta prendida, se ejecuta dicho algoritmo.
+	        	//Si es Fiscalia y la configuraci?n del Parametro Numero alterno esta prendida, se ejecuta dicho algoritmo.
 	        	//Caso contrario continua con la generacion normal
 	    		if (institucionActual.getConfInstitucionId().equals(Instituciones.PGJ.getValorId())) {
 					numeroExpediente = obtenerNumeroExpedienteAlternoUnidadVisitaduria(usuarioDTO, expDTO);

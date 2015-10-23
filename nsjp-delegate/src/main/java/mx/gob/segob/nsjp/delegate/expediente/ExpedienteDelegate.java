@@ -164,6 +164,25 @@ public interface ExpedienteDelegate {
             throws NSJPNegocioException;
 
     /**
+     * Genera un nuevo n&uacute;mero de expediente a partir de un turno sin generar un caso.<br>
+     * Al generar el n&uacute;mero guarda un expediente en la BD.
+     * 
+     * @param TurnoDTO
+     *            Obligatorios <b>turnoId, usuario.idUsuario,
+     *            expediente.area.areaId</b>.
+     * @return <ul>
+     *         <li>expedienteId</il>
+     *         <li>numeroExpediente</il>
+     *         <li>fechaApertura</il>
+     * 
+     *         </ul>
+     * @throws NSJPNegocioException
+     *             En caso de ocurrir alg&uacute;n error.
+     */
+    public ExpedienteDTO asignarNumeroExpedienteSinCaso(TurnoDTO turno)
+            throws NSJPNegocioException;
+    
+    /**
      * Ejecura la b&uacute;squeda de expedientes en base al filtro.
      * 
      * @param filtrosBusquedaExpediente
