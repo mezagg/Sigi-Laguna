@@ -187,7 +187,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
 
     @Autowired
     public ConfActividadDocumentoDelegate confActividadDocumentoDelegate;
-    
+
     @Autowired
     private ConsultarConfActividadDocumentoService consultarConfActividadDocumentoService;
 
@@ -1516,56 +1516,94 @@ public class AtencionTempranaPenalAction extends GenericAction {
             String idCategoria = request.getParameter("idCategoria");
             log.debug("ID DE LA CATEGORIA=" + idCategoria);
 
-            //String numeroExpediente = request.getParameter("numeroExpediente");
+            String numeroExpediente = request.getParameter("numeroExpediente");
             String sinCatuie = request.getParameter("sinCatuie");
-            //Long numeroExpedienteId = NumberUtils.toLong(request.getParameter("numeroExpedienteId"), 0);
-           // log.debug("ejecutando MetodoAction cargarActuaciones numeroExpediente ###" + numeroExpediente);
+            Long numeroExpedienteId = NumberUtils.toLong(request.getParameter("numeroExpedienteId"), 0);
+            log.debug("ejecutando MetodoAction cargarActuaciones numeroExpediente ###" + numeroExpediente);
             //Codigo que implementa la funcionalidad de sub rol y filtra sus actuaciones
             UsuarioDTO usuarioDTO = super.getUsuarioFirmado(request);
             log.info("ACA ESTA EL USUARIO");
             log.info(usuarioDTO);
+
+            RolDTO rolDTO = null;
+            List<ConfActividadDocumentoDTO> listConfActividadDocumentoDTOs = new ArrayList<ConfActividadDocumentoDTO>();
+            if (usuarioDTO.getRolACtivo() != null && usuarioDTO.getRolACtivo().getRol() != null && usuarioDTO.getRolACtivo().getRol().getRolPadre() != null) {
+                rolDTO = usuarioDTO.getRolACtivo().getRol();
+                rolDTO = rolDelegate.consultarRol(rolDTO);
+                if (rolDTO.getConfActividadDocumentoDTO() != null && rolDTO.getConfActividadDocumentoDTO().size() > 0) {
+                    listConfActividadDocumentoDTOs = rolDTO.getConfActividadDocumentoDTO();
+                }
+            }
+            //fin
+            ExpedienteDTO expedienteDto = super.getExpedienteTrabajo(request, numeroExpediente);
+            if (expedienteDto == null) {
+                expedienteDto = new ExpedienteDTO();
+                if (numeroExpediente != null && !numeroExpediente.trim().isEmpty()) {
+                    expedienteDto.setNumeroExpediente(numeroExpediente);
+                }
+            }
+
+            if (expedienteDto.getNumeroExpedienteId() == null
+                    || (expedienteDto.getNumeroExpedienteId() != null && numeroExpedienteId.longValue() > 0
+                    && expedienteDto.getNumeroExpedienteId().longValue() != numeroExpedienteId.longValue())) {
+                expedienteDto.setNumeroExpedienteId(numeroExpedienteId);
+            }
 
             UsuarioDTO usuario = super.getUsuarioFirmado(request);
             Map<String, List> listas = new HashMap<String, List>();
             List<CatalogoDTO> listaCatalogo = new ArrayList<CatalogoDTO>();
             List<CatalogoDTO> listaOficio = new ArrayList<CatalogoDTO>();
 
-            List<ConfActividadDocumentoRolDTO> listActividadDocumentoDTOs = new ArrayList<ConfActividadDocumentoRolDTO>();
+            List<ConfActividadDocumentoDTO> listActividadDocumentoDTOs = new ArrayList<ConfActividadDocumentoDTO>();
             log.info("ACA ESTA !sinCatuie" + sinCatuie);
-            log.info("USUARIO ");
-            log.info(usuario);
-            log.info("USUARIO rol: " + usuario.getRolACtivo().getRol().getRolId());
-
-            if (usuario.getRolACtivo().getRol().getRolId() != null) {
-                listActividadDocumentoDTOs = confActividadDocumentoDelegate.consultarConfActividadDocumento(usuario, usuario.getRolACtivo().getRol().getRolId(), "0".equals(sinCatuie));
+            if (idCategoria == null) {
+                log.debug("ENTRA A ID DE LA CATEGORIA NULA:::::::idCategoria=" + idCategoria);
+                listActividadDocumentoDTOs = confActividadDocumentoDelegate.consultarConfActividadDocumento(usuario, expedienteDto, null, "0".equals(sinCatuie));
+            } else {
+                log.debug("ENTRA A ID DE LA CATEGORIA NO NULA::::idCategoria=" + idCategoria);
+                listActividadDocumentoDTOs = confActividadDocumentoDelegate.consultarConfActividadDocumento(usuario, expedienteDto, Long.parseLong(idCategoria), "0".equals(sinCatuie));
             }
 
+//            log.info("USUARIO rol: " + usuario.getRolACtivo().getRol().getRolId());
             log.debug("ejecutando MetodoAction cargarActuaciones lista respuesta tamano" + listActividadDocumentoDTOs.size());
             log.debug("ejecutando MetodoAction cargarActuaciones lista respuesta " + listActividadDocumentoDTOs);
             listaCatalogo = new ArrayList<CatalogoDTO>();
             listaOficio = new ArrayList<CatalogoDTO>();
             //Codigo que implementa la funcionalidad de sub rol y filtra sus actuaciones
 
-            for (ConfActividadDocumentoRolDTO confActividadDocumentoRolDTO : listActividadDocumentoDTOs) {
-                CatalogoDTO catalogo = new CatalogoDTO();
+            if (rolDTO != null && listConfActividadDocumentoDTOs != null && listConfActividadDocumentoDTOs.size() > 0) {
+                for (ConfActividadDocumentoDTO confActividadDocumentoDTO : listActividadDocumentoDTOs) {
+                    CatalogoDTO catalogo = new CatalogoDTO();
+                    for (ConfActividadDocumentoDTO confActividadDocumentoDTO2 : listConfActividadDocumentoDTOs) {
+                        if (confActividadDocumentoDTO.getConfActividadDocumentoId().compareTo(confActividadDocumentoDTO2.getConfActividadDocumentoId()) == 0) {
+                            catalogo.setClave(confActividadDocumentoDTO.getConfActividadDocumentoId());
+                            catalogo.setValor(confActividadDocumentoDTO.getNombreActividad());
+                            //El tipo documento con id 86 es de tipo oficio
+                            if (confActividadDocumentoDTO.getTipoDocumentoId().toString().equals("89")) {
+                                listaOficio.add(catalogo);
+                            } else {
+                                listaCatalogo.add(catalogo);
+                            }
+                            log.debug("ejecutando MetodoAction cargarActuaciones actuaciones de BD:" + confActividadDocumentoDTO.getNombreActividad());
+                        }
+                    }
 
-//                catalogo.setClave(confActividadDocumentoRolDTO.getConfActividadDocumentoRolId());
-                catalogo.setClave(confActividadDocumentoRolDTO.getTipoActividadId());
-                catalogo.setValor(confActividadDocumentoRolDTO.getNombreActividad());
-                //El tipo documento con id 86 es de tipo oficio
-                if (confActividadDocumentoRolDTO.getTipoDocumentoId() != null) {
-                    if (confActividadDocumentoRolDTO.getTipoDocumentoId().toString().equals("89")) {
+                }
+            } else {
+                for (ConfActividadDocumentoDTO confActividadDocumentoDTO : listActividadDocumentoDTOs) {
+                    CatalogoDTO catalogo = new CatalogoDTO();
+                    catalogo.setClave(confActividadDocumentoDTO.getConfActividadDocumentoId());
+                    catalogo.setValor(confActividadDocumentoDTO.getNombreActividad());
+                    if (confActividadDocumentoDTO.getTipoDocumentoId().toString().equals("89")) {
                         listaOficio.add(catalogo);
                     } else {
                         listaCatalogo.add(catalogo);
                     }
+                    log.debug("ejecutando MetodoAction cargarActuaciones actuaciones de BD:" + confActividadDocumentoDTO.getNombreActividad());
                 }
-
-                log.debug("ejecutando MetodoAction cargarActuaciones actuaciones de BD:" + confActividadDocumentoRolDTO.getNombreActividad());
-
             }
-
             //Fin
+
             listas.put("listaOficios", listaOficio);
             listas.put("listaActuaciones", listaCatalogo);
 //            converter.alias("listaCatalogo", java.util.List.class);
@@ -4303,74 +4341,22 @@ public class AtencionTempranaPenalAction extends GenericAction {
             ActionForm form, HttpServletRequest request,
             HttpServletResponse response) throws IOException {
         try {
-            
-              String idAct = request.getParameter("idActividad");
-            
-            ConfActividadDocumentoRolDTO confActividadDocumentoRolDTO = null;
-            if (idAct != null && !idAct.equals("")) {
-                ConfActividadDocumentoRolDTO filtro = new ConfActividadDocumentoRolDTO();
+            log.info("ejecutando Action AtencionTempranaPenalAction en metodo obtenerConfActividadDocumento");
+            String idConf = request.getParameter("idConf");
+            String idAct = request.getParameter(PARAM_ID_ACTIVIDAD);
+            log.info("numExpedienteid====" + idConf);
+            ConfActividadDocumentoDTO confActividadDocumentoDTO = null;
+            if (idConf != null && !idConf.equals("")) {
+                confActividadDocumentoDTO = confActividadDocumentoDelegate.consultaConfActividadDocumentoPorId(Long.parseLong(idConf));
+            } else if (idAct != null && !idAct.trim().isEmpty()) {
+                ConfActividadDocumentoDTO filtro = new ConfActividadDocumentoDTO();
                 filtro.setTipoActividadId(Long.parseLong(idAct));
-                confActividadDocumentoRolDTO = confActividadDocumentoService.consultaConfActividadDocumentoRolPorIdActividad(filtro);
-            } 
+                confActividadDocumentoDTO = confActividadDocumentoDelegate.consultaConfActividadDocumentoPorIdActividad(filtro);
+            }
             String xml = null;
             PrintWriter pw = null;
-            converter.alias("confActividadDocumentoRolDTO", ConfActividadDocumentoRolDTO.class);
-            xml = converter.toXML(confActividadDocumentoRolDTO);
-            response.setContentType("text/xml");
-            pw = response.getWriter();
-            pw.print(xml);
-            pw.flush();
-            pw.close();
-        } catch (Exception e) {
-            log.error(e.getMessage(), e);
-        }
-        return null;
-            
-            
-//            log.info("ejecutando Action AtencionTempranaPenalAction en metodo obtenerConfActividadDocumento");
-//            String idConf = request.getParameter("idConf");
-//            String idAct = request.getParameter(PARAM_ID_ACTIVIDAD);
-//            log.info("numExpedienteid====" + idConf);
-//            ConfActividadDocumentoDTO confActividadDocumentoDTO = null;
-//            if (idConf != null && !idConf.equals("")) {
-//                confActividadDocumentoDTO = confActividadDocumentoDelegate.consultaConfActividadDocumentoPorId(Long.parseLong(idConf));
-//            } else if (idAct != null && !idAct.trim().isEmpty()) {
-//                ConfActividadDocumentoDTO filtro = new ConfActividadDocumentoDTO();
-//                filtro.setTipoActividadId(Long.parseLong(idAct));
-//                confActividadDocumentoDTO = confActividadDocumentoDelegate.consultaConfActividadDocumentoPorIdActividad(filtro);
-//            }
-//            String xml = null;
-//            PrintWriter pw = null;
-//            converter.alias("confActividadDocumentoDTO", ConfActividadDocumentoDTO.class);
-//            xml = converter.toXML(confActividadDocumentoDTO);
-//            response.setContentType("text/xml");
-//            pw = response.getWriter();
-//            pw.print(xml);
-//            pw.flush();
-//            pw.close();
-//        } catch (Exception e) {
-//            log.error(e.getMessage(), e);
-//        }
-//        return null;
-    }
-    
-    public ActionForward obtenerConfActividadDocumentoRol(ActionMapping mapping,
-            ActionForm form, HttpServletRequest request,
-            HttpServletResponse response) throws IOException {
-        try {
-
-            String idAct = request.getParameter("idActividad");
-            
-            ConfActividadDocumentoRolDTO confActividadDocumentoRolDTO = null;
-            if (idAct != null && !idAct.equals("")) {
-                ConfActividadDocumentoRolDTO filtro = new ConfActividadDocumentoRolDTO();
-                filtro.setTipoActividadId(Long.parseLong(idAct));
-                confActividadDocumentoRolDTO = confActividadDocumentoService.consultaConfActividadDocumentoRolPorIdActividad(filtro);
-            } 
-            String xml = null;
-            PrintWriter pw = null;
-            converter.alias("confActividadDocumentoRolDTO", ConfActividadDocumentoRolDTO.class);
-            xml = converter.toXML(confActividadDocumentoRolDTO);
+            converter.alias("confActividadDocumentoDTO", ConfActividadDocumentoDTO.class);
+            xml = converter.toXML(confActividadDocumentoDTO);
             response.setContentType("text/xml");
             pw = response.getWriter();
             pw.print(xml);

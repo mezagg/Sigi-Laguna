@@ -59,8 +59,6 @@ public interface ConfActividadDocumentoDelegate {
      * datos.
      * </ol>
      */
-    List<ConfActividadDocumentoRolDTO> consultarConfActividadDocumento(UsuarioDTO usuario, Long idRol, Boolean sinCatUie) throws NSJPNegocioException;
-
     List<ConfActividadDocumentoDTO> consultarConfActividadDocumento(
             UsuarioDTO usuario, ExpedienteDTO expedienteDto, Long idCategoriaActividad)
             throws NSJPNegocioException;

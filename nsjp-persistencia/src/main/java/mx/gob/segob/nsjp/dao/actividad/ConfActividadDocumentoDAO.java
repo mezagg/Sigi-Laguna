@@ -39,10 +39,9 @@ public interface ConfActividadDocumentoDAO extends
      */
     List<ConfActividadDocumento> consultarConfActividadDocumento(
             Long jerarquiaOrganizacionalId, NumeroExpediente numeroExpediente, Long idCategoriaActidad);
-
-    List<ConfActividadDocumentoRol> consultarActividadRol(Long idRol);
     
-    List<ConfActividadDocumentoRol> consultarActividadCatUie( Long idRol, Long catUIE);
+    List<ConfActividadDocumento> consultarConfActividadDocumento(
+            Long jerarquiaOrganizacionalId, NumeroExpediente numeroExpediente, Long idCategoriaActidad, Long catUIE);
     /**
      * Consulta la Configuracion del la Actividad de Documento de acuerdo a Tipo
      * Actividad
@@ -97,5 +96,4 @@ public interface ConfActividadDocumentoDAO extends
 
     Long consultarCatUieIdFuncionario(Long catDiscriminanteId);
 
-    List<ConfActividadDocumento> consultarConfActividadDocumentoCatUie(Long jerarquiaOrganizacionalId, NumeroExpediente numeroExpediente, Long idCategoriaActidad, Long catUie);
 }

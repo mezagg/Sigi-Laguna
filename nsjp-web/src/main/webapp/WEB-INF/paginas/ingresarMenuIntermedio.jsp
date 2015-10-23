@@ -1787,7 +1787,7 @@
                 $('#cbxOficiosTab').addClass("cargando");
                 $('#tapActuaciones').addClass("cargando");
                 
-                var url =  '<%= request.getContextPath()%>/cargarActuaciones.do?sinCatuie='+sinCatuie;
+                var url =  '<%= request.getContextPath()%>/cargarActuaciones.do?numeroExpediente='+numeroExpediente+'&sinCatuie='+sinCatuie;
 		$.ajax({
 			type: 'POST',
 			url: url,
@@ -1843,8 +1843,6 @@
 	}
         
         $("input[name='rdActuaciones']").click(function(e) {
-                        console.log(e);
-                        console.log("ID: " + $(this).attr("id"));
                         var sinCatuie = $(':radio[name=rdActuaciones]:checked').val();
                         cargaActuaciones(sinCatuie);
         });
@@ -1950,11 +1948,11 @@
                 
 	function seleccionaActuacion(a){
 		var selected = $(a);
-//                var confActividadId = selected.attr('idselected');
-                var actividadId = selected.attr('idselected');
-                console.log("ID " + actividadId);
+                var confActividadId = selected.attr('idselected');
+//                var actividadId = selected.attr('idselected');
+                console.log("ID " + confActividadId);
                 
-		if(isEmpty(actividadId)){
+		if(isEmpty(confActividadId)){
 			return;
 		}
 		var actividad=0;
@@ -1970,8 +1968,7 @@
 		var banderaTres=false;
 		
 		var idParametro = '<%=Parametros.MUESTRA_ALERTS_ACTUACIONES.ordinal()%>';
-//		var url = '<%= request.getContextPath()%>/obtenerConfActividadDocumento.do?idConf='+confActividadId;
-                var url = '<%= request.getContextPath()%>/obtenerConfActividadDocumento.do?idActividad='+actividadId;
+		var url = '<%= request.getContextPath()%>/obtenerConfActividadDocumento.do?idConf='+confActividadId;
 		$.ajax({
 			type: 'POST',
 			url: url,
@@ -1979,12 +1976,12 @@
 			dataType: 'xml',
 			async: false,
 			success: function(xml){
-				actividad=$(xml).find('confActividadDocumentoRolDTO').find('tipoActividadId').text();
-				formaID=$(xml).find('confActividadDocumentoRolDTO').find('formaId').text();
-				titulo=$(xml).find('confActividadDocumentoRolDTO').find('nombreDocumento').text();
-				usaeditor=$(xml).find('confActividadDocumentoRolDTO').find('usaEditor').text();
-				estatusId=$(xml).find('confActividadDocumentoRolDTO').find('estadoCambioExpediente').find('idCampo').text();
-				nombreActividad=$(xml).find('confActividadDocumentoRolDTO').find('nombreActividad').text();
+				actividad=$(xml).find('confActividadDocumentoDTO').find('tipoActividadId').text();
+				formaID=$(xml).find('confActividadDocumentoDTO').find('formaId').text();
+				titulo=$(xml).find('confActividadDocumentoDTO').find('nombreDocumento').text();
+				usaeditor=$(xml).find('confActividadDocumentoDTO').find('usaEditor').text();
+				estatusId=$(xml).find('confActividadDocumentoDTO').find('estadoCambioExpediente').find('idCampo').text();
+				nombreActividad=$(xml).find('confActividadDocumentoDTO').find('nombreActividad').text();
 			}
 		});
 		
@@ -2027,7 +2024,7 @@
 			despliegaMensaje(0, textoUno, textoDos, textoTres, tituloConfirm, selected, confActividadId, actividad, formaID, 
 			titulo, usaeditor, estatusId, habilitarTurno, validaDelitoGrave);
 		}else{
-			ejecutaActuacion(selected, actividadId, actividad, formaID, titulo, usaeditor, estatusId, habilitarTurno, validaDelitoGrave);
+			ejecutaActuacion(selected, confActividadId, actividad, formaID, titulo, usaeditor, estatusId, habilitarTurno, validaDelitoGrave);
 		}
 	}
 	
@@ -4896,7 +4893,6 @@
   };
 
   function filterList(header, list) { 
-       console.log("si paso por filterList");
     var form = $("<form>").attr({"class":"filterform","action":"#"}),
         input = $("<input>").attr({"class":"filterinput","type":"text","size":"80"});
     $(form).append(input).appendTo(header);
