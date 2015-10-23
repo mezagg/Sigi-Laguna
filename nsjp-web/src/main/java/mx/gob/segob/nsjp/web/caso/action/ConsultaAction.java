@@ -362,7 +362,7 @@ public class ConsultaAction extends GenericAction{
 			turno.setTurnoId(Long.parseLong(idTurno));
 			turno.setExpediente(expedienteDTO);
 			turno.setUsuario(super.getUsuarioFirmado(request));
-			expedienteDTO = expedienteDelegate.asignarNumeroExpediente(turno);
+			expedienteDTO = expedienteDelegate.asignarNumeroExpedienteSinCaso(turno);
 			expedienteDTO.setConsulta(false);
 			super.setExpedienteTrabajo(request, expedienteDTO);
 			converter.alias("expedienteDTO", ExpedienteDTO.class);
