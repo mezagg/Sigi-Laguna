@@ -6084,7 +6084,7 @@
                                                      </td>
                                                      <td id="tdCbxOficiosTab1" width="100%">
                                                         <div id="wrapA">
-                                                            <div> </div>
+                                                            <div> <p>&nbsp;&nbsp;&nbsp;</p></div>
                                                             Oficios <span id='ofic'></span>
                                                             <div class="clear"></div>
                                                         </div>

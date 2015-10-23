@@ -2329,16 +2329,16 @@ function muestraDivInformativoCanalizacion()
                                                  <tr>
                                                      <td id="tdCbxAccionesTab1" width="50%">
                                                          <div id="wrapA">
-                                                            Actuaciones <span id='act'></span>
                                                             <div id="formA"></div>
+                                                            Actuaciones <span id='act'></span>
                                                             <div class="clear"></div>
                                                          </div>
                                          
                                                      </td>
                                                      <td id="tdCbxOficiosTab1" width="100%">
-                                                        <div id="wrapO">
+                                                        <div id="wrapA">
+                                                            <div> <p>&nbsp;&nbsp;&nbsp;</p></div>
                                                             Oficios <span id='ofic'></span>
-                                                            <div id="formO"></div>
                                                             <div class="clear"></div>
                                                         </div>
                                                      </td>
