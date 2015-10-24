@@ -33,6 +33,24 @@ INSERT INTO ElementoMenu(ElementoMenuPadre_id,cNombre,cComando,cIdHTML,cClassHTM
 	FROM ElementoMenu
 	WHERE cNombre='Bienes Asegurados';
 
+Insert into RolElementoMenu(ElementoMenu_id,Rol_id)
+	SELECT ElementoMenu_id,
+	7
+	FROM ElementoMenu
+	WHERE cNombre='Bienes Asegurados';
+
+Insert into RolElementoMenu(ElementoMenu_id,Rol_id)
+	SELECT ElementoMenu_id,
+	7
+	FROM ElementoMenu
+	WHERE cNombre='Para enajenar hoy';
+
+Insert into RolElementoMenu(ElementoMenu_id,Rol_id)
+	SELECT ElementoMenu_id,
+	7
+	FROM ElementoMenu
+	WHERE cNombre='Para enajenar por fecha';
+
 --CREACIÓN DE NUEVO CAMPO Boolean como bandera de enajenado
 
 ALTER TABLE Objeto
