@@ -69,3 +69,7 @@ insert into ModuloFuncion ( Modulo_id, Funcion_id)
 		Funcion_id
 	from funcion
 	where cNombreFuncion like '%consultarBienesPorEnajenar%';
+
+--PARAMETRO DIAS PARA ENAJENAR
+INSERT INTO Parametro (cClave,cValor,cDescripcion)
+values('DIAS_PARA_ENAJENAR','90','Días requeridos para enajenar un bien asegurado')
