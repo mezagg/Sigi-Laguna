@@ -27,25 +27,9 @@ import mx.gob.segob.nsjp.dto.cadenadecustoria.CadenaDeCustodiaDTO;
 import mx.gob.segob.nsjp.dto.catalogo.ValorDTO;
 import mx.gob.segob.nsjp.dto.elemento.CalidadDTO;
 import mx.gob.segob.nsjp.dto.evidencia.EvidenciaDTO;
+import mx.gob.segob.nsjp.dto.expediente.ExpedienteDTO;
 import mx.gob.segob.nsjp.dto.objeto.ObjetoDTO;
-import mx.gob.segob.nsjp.model.Aeronave;
-import mx.gob.segob.nsjp.model.Animal;
-import mx.gob.segob.nsjp.model.Arma;
-import mx.gob.segob.nsjp.model.Calidad;
-import mx.gob.segob.nsjp.model.DocumentoOficial;
-import mx.gob.segob.nsjp.model.Embarcacion;
-import mx.gob.segob.nsjp.model.EquipoComputo;
-import mx.gob.segob.nsjp.model.Explosivo;
-import mx.gob.segob.nsjp.model.Joya;
-import mx.gob.segob.nsjp.model.Numerario;
-import mx.gob.segob.nsjp.model.Objeto;
-import mx.gob.segob.nsjp.model.ObjetoPericial;
-import mx.gob.segob.nsjp.model.ObraArte;
-import mx.gob.segob.nsjp.model.Sustancia;
-import mx.gob.segob.nsjp.model.Telefonia;
-import mx.gob.segob.nsjp.model.Valor;
-import mx.gob.segob.nsjp.model.Vegetal;
-import mx.gob.segob.nsjp.model.Vehiculo;
+import mx.gob.segob.nsjp.model.*;
 import mx.gob.segob.nsjp.service.archivo.impl.transform.ArchivoDigitalTransformer;
 import mx.gob.segob.nsjp.service.expediente.impl.transform.ExpedienteTransformer;
 import mx.gob.segob.nsjp.service.solicitud.impl.transform.ConfInstitucionTransformer;
@@ -77,6 +61,7 @@ public class ObjetoTransformer {
         	destino.setAlmacen(AlmacenTransformer.transformarAlmacen(src.getAlmacen()));
         
         if (src != null) {
+
         	if (src instanceof Vehiculo) {
 
                 destino = VehiculoTransformer
@@ -203,6 +188,12 @@ public class ObjetoTransformer {
             if(src.getRelacionHechoVal() != null){
             	destino.setRelacionHechoVal(new ValorDTO(src.getRelacionHechoVal().getValorId(),src.getRelacionHechoVal().getValor()));
     		}
+
+            if( src.getExpediente() != null){
+                ExpedienteDTO expedienteDTO = ExpedienteTransformer.transformaExpediente(src.getExpediente());
+
+                destino.setExpedienteDTO(expedienteDTO);
+            }
         }
 
         return destino;

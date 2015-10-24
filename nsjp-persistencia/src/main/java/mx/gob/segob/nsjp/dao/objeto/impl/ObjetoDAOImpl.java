@@ -161,7 +161,7 @@ public class ObjetoDAOImpl extends GenericDaoHibernateImpl<Objeto, Long>
         DateUtils.sumarDias(c, diasParaEnajenar*-1);
         
         final StringBuffer queryString = new StringBuffer();
-        queryString.append("from Objeto o WHERE o.enajenado = 0 ")
+        queryString.append("from Objeto o WHERE o.enajenado = 0 and o.expediente.expedienteId is not null ")
                 .append("AND CONVERT (nvarchar, o.fechaCreacionElemento, 112) <= :fechaParaEnajenar");
                 
         logger.debug("queryString :: " + queryString);

@@ -118,7 +118,7 @@ public class ConsultarBienesPorEnajenarAction extends GenericAction {
                                 }else{
                                     writer.print("<cell>-</cell>");	
                                 }                                
-				writer.print("<cell>" + 000 + "</cell>");	
+				writer.print("<cell>" + objetoDTO.getExpedienteDTO().getExpedienteId() + "</cell>");
                                 Calendar c=Calendar.getInstance();
                                 c.setTime(objetoDTO.getFechaCreacionElemento());
                                 DateUtils.sumarDias(c, diasParaEnajenar);
