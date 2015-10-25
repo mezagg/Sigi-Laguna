@@ -319,5 +319,15 @@ public interface ObjetoDelegate {
                            Date fecha,Integer diasParaEnajenar)
 			throws NSJPNegocioException;
 
+        /**
+     * M&eacute;todo que obtiene los bienes por enajenar en determinada fecha
+     * @param fecha
+     * @param diasParaEnajenar
+     * @return Lista de Bienes
+     * @throws NSJPNegocioException
+     */
+	void enajenarBienes(String idsBienes)
+			throws NSJPNegocioException;
+    
 }
 

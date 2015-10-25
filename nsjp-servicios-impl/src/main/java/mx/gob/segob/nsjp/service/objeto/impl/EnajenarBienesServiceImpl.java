@@ -13,8 +13,7 @@ import mx.gob.segob.nsjp.dto.objeto.ObjetoDTO;
 import mx.gob.segob.nsjp.model.NumeroExpediente;
 import mx.gob.segob.nsjp.model.Objeto;
 import mx.gob.segob.nsjp.model.Parametro;
-import mx.gob.segob.nsjp.service.expediente.BuscarExpedienteService;
-import mx.gob.segob.nsjp.service.objeto.ConsultarBienesPorEnajenarService;
+import mx.gob.segob.nsjp.service.objeto.EnajenarBienesService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,11 +23,11 @@ import org.apache.log4j.Logger;
 
 @Service
 @Transactional
-public class ConsultarBienesPorEnajenarServiceImpl implements
-		      ConsultarBienesPorEnajenarService{
+public class EnajenarBienesServiceImpl implements
+		      EnajenarBienesService{
 
     private static final Logger log = Logger
-			.getLogger(ConsultarBienesPorEnajenarService.class);
+			.getLogger(EnajenarBienesService.class);
 
 	@Autowired
 	private ObjetoDAO objetoDAO;
@@ -57,6 +56,11 @@ public class ConsultarBienesPorEnajenarServiceImpl implements
 			}
 		}
 	return objetosDTO;	
+    }
+
+    @Override
+    public void enajenarBienes(String idsBienes) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

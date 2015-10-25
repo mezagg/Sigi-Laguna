@@ -49,10 +49,10 @@ import mx.gob.segob.nsjp.dto.objeto.VegetalDTO;
 import mx.gob.segob.nsjp.dto.objeto.VehiculoDTO;
 import mx.gob.segob.nsjp.service.objeto.AdministrarPertenenciasDetenidoService;
 import mx.gob.segob.nsjp.service.objeto.AsociarObjetoAlmacenService;
-import mx.gob.segob.nsjp.service.objeto.ConsultarBienesPorEnajenarService;
 import mx.gob.segob.nsjp.service.objeto.ConsultarObjetoEstudioService;
 import mx.gob.segob.nsjp.service.objeto.ConsultarObjetosNoEvidenciaService;
 import mx.gob.segob.nsjp.service.objeto.ConsultarObjetosPorTipoConFolioDeCustodiaService;
+import mx.gob.segob.nsjp.service.objeto.EnajenarBienesService;
 import mx.gob.segob.nsjp.service.objeto.IngresarAeronaveService;
 import mx.gob.segob.nsjp.service.objeto.IngresarAnimalService;
 import mx.gob.segob.nsjp.service.objeto.IngresarArmaService;
@@ -132,7 +132,7 @@ public class ObjetoDelegateImpl implements ObjetoDelegate {
 	@Autowired
 	private ConsultarObjetoEstudioService consultarObjetoEstudioService;
 	@Autowired
-	private ConsultarBienesPorEnajenarService consultarBienesPorEnajenarService;
+	private EnajenarBienesService enajenarBienesService;
 	
 	@Override
 	public Long ingresarVehiculo(VehiculoDTO vehiculoDto)
@@ -326,7 +326,14 @@ public class ObjetoDelegateImpl implements ObjetoDelegate {
         public List<ObjetoDTO> consultarBienesPorEnajenar(
                            Date fecha,Integer diasParaEnajenar)
 			throws NSJPNegocioException{
-            return consultarBienesPorEnajenarService.consultarBienesPorEnajenar(fecha,diasParaEnajenar);
+            return enajenarBienesService.consultarBienesPorEnajenar(fecha,diasParaEnajenar);
+        }
+        
+        @Override        
+        public void enajenarBienes(
+                           String idsBienes)
+			throws NSJPNegocioException{
+            enajenarBienesService.enajenarBienes(idsBienes);
         }
 	
 }

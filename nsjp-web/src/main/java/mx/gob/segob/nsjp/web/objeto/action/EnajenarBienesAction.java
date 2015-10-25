@@ -58,11 +58,11 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @author Cuauhtemoc Paredes
  * 
  */
-public class ConsultarBienesPorEnajenarAction extends GenericAction {
+public class EnajenarBienesAction extends GenericAction {
 
 	/* Log de clase */
 	private static final Logger log = Logger
-			.getLogger(ConsultarBienesPorEnajenarAction.class);
+			.getLogger(EnajenarBienesAction.class);
 
 	@Autowired
 	private ObjetoDelegate objetoDelegate;
@@ -137,4 +137,21 @@ public class ConsultarBienesPorEnajenarAction extends GenericAction {
 		}
 		return null;
 	}
+        
+        public ActionForward enajenarBienes(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws IOException {
+		try {
+	
+			log.info("ejecutando Action enajenar");
+			
+			String ids = request.getParameter("idsBienes");
+                        objetoDelegate.enajenarBienes(ids);
+			
+		} catch (Exception e) {
+			log.error(e.getMessage(), e);
+		}
+		return null;
+	}
+
 }

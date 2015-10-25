@@ -24,8 +24,8 @@ import java.util.Date;
 import java.util.List;
 import mx.gob.segob.nsjp.dto.objeto.ObjetoDTO;
 
-public interface ConsultarBienesPorEnajenarService {
+public interface EnajenarBienesService {
 
 	List<ObjetoDTO> consultarBienesPorEnajenar(Date fecha,Integer diasParaEnajenar);
-
+        void enajenarBienes(String idsBienes);
 }
