@@ -5,11 +5,15 @@ import java.util.Date;
 import java.util.List;
 import mx.gob.segob.nsjp.comun.enums.configuracion.Parametros;
 
+import mx.gob.segob.nsjp.dao.expediente.NumeroExpedienteDAO;
 import mx.gob.segob.nsjp.dao.objeto.ObjetoDAO;
 import mx.gob.segob.nsjp.dao.parametro.ParametroDAO;
+import mx.gob.segob.nsjp.dto.expediente.ExpedienteDTO;
 import mx.gob.segob.nsjp.dto.objeto.ObjetoDTO;
+import mx.gob.segob.nsjp.model.NumeroExpediente;
 import mx.gob.segob.nsjp.model.Objeto;
 import mx.gob.segob.nsjp.model.Parametro;
+import mx.gob.segob.nsjp.service.expediente.BuscarExpedienteService;
 import mx.gob.segob.nsjp.service.objeto.ConsultarBienesPorEnajenarService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +32,10 @@ public class ConsultarBienesPorEnajenarServiceImpl implements
 
 	@Autowired
 	private ObjetoDAO objetoDAO;
-        @Autowired
+	@Autowired
 	private ParametroDAO parametroDAO;
+	@Autowired
+	private NumeroExpedienteDAO numeroExpedienteDAO;
 
     @Override
     public List<ObjetoDTO> consultarBienesPorEnajenar(Date fecha,Integer diasParaEnajenar) {
@@ -38,8 +44,17 @@ public class ConsultarBienesPorEnajenarServiceImpl implements
 	lista = objetoDAO.consultarBienesPorEnajenar(fecha,diasParaEnajenar);
         List<ObjetoDTO> objetosDTO=new ArrayList<ObjetoDTO>();
 		for (Objeto obj : lista) {
-                        ObjetoDTO objDTO=ObjetoTransformer.transformarObjeto(obj);
-			if(objDTO!=null)objetosDTO.add(objDTO);
+			ObjetoDTO objDTO=ObjetoTransformer.transformarObjeto(obj);
+
+			if(objDTO!=null && objDTO.getExpedienteDTO() != null && objDTO.getExpedienteDTO().getExpedienteId() != null ) {
+
+				ExpedienteDTO expedienteDTO = objDTO.getExpedienteDTO();
+				NumeroExpediente numeroExpediente = numeroExpedienteDAO.obtenerNumeroExpedienteXExpediente(expedienteDTO.getExpedienteId());
+				if( numeroExpediente != null) {
+					objDTO.getExpedienteDTO().setNumeroExpediente(numeroExpediente.getNumeroExpediente());
+					objetosDTO.add(objDTO);
+				}
+			}
 		}
 	return objetosDTO;	
     }
