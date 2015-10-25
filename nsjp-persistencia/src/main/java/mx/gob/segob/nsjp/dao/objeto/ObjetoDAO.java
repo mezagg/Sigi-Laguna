@@ -71,6 +71,18 @@ public interface ObjetoDAO extends GenericDao<Objeto, Long>{
      */
     public Boolean existenEslabonesPorIdObjeto(Long idObjeto);
 	
-    
+    /**
+     * Consulta los bienes asegurados que no han sido asegurados
+     * @param fecha
+     * @param diasParaEnajenar
+     * @return
+     */
     public List<Objeto> consultarBienesPorEnajenar(Date fecha,Integer diasParaEnajenar);
+   
+    /**
+     * Marca los bienes asegurados como bienes enajenados
+     * @param idsBienes
+     * @return
+     */
+    public boolean enajenarBienes(List<Long> idsBienes);
 }

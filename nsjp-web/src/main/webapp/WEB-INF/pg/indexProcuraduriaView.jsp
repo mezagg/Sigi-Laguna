@@ -252,7 +252,7 @@
                 jQuery("#gridBienesPorEnajenar").jqGrid({ 
 			datatype: "xml", 
                          multiselect:true,
-			colNames:[Tipo','Descripción', 'Cantidad','Número Expediente','Fecha para enajenar','Fecha Aseguramiento'], 
+			colNames:['Tipo','Descripción', 'Cantidad','Número Expediente','Fecha para enajenar','Fecha Aseguramiento'], 
 			colModel:[ 	{name:'tipo',index:'tipo', width:80},
 			           	{name:'descripcion',index:'descripcion', width:150}, 
                                         {name:'cantidad',index:'cantidad', width:80}, 
@@ -1324,15 +1324,23 @@
             var rowKey = grid.getGridParam("selrow");
 
             if (!rowKey)
-                alert("No rows are selected");
+                alert("No hay bienes seleccionados.");
             else {
                 var selectedIDs = grid.getGridParam("selarrrow");
                 var result = "";
                 for (var i = 0; i < selectedIDs.length; i++) {
                     result += selectedIDs[i] + ",";
                 }
-
-                alert(result);
+                	
+	  	$.ajax({
+                        type: 'POST',
+	                url: '<%=request.getContextPath()%>/enajenarBienes.do?idsBienes='+result,
+                        data: '',
+                        dataType: 'xml',
+	  		async: false,
+                        success: function(xml){
+                            }
+	  		});
             }                
         }
 </script>

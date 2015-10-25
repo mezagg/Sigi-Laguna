@@ -64,11 +64,21 @@ UPDATE Objeto SET Enajenado=0;
 insert into Funcion ( cDescripcionFuncion, cNombreFuncion )
 values ( '/consultarBienesPorEnajenar.do', '/consultarBienesPorEnajenar.do' );
 
+insert into Funcion ( cDescripcionFuncion, cNombreFuncion )
+values ( '/enajenarBienes.do', '/enajenarBienes.do' );
+
 insert into ModuloFuncion ( Modulo_id, Funcion_id)
 	SELECT 2, 
 		Funcion_id
 	from funcion
 	where cNombreFuncion like '%consultarBienesPorEnajenar%';
+
+
+insert into ModuloFuncion ( Modulo_id, Funcion_id)
+	SELECT 2, 
+		Funcion_id
+	from funcion
+	where cNombreFuncion like '%enajenarBienes%';	
 
 --PARAMETRO DIAS PARA ENAJENAR
 INSERT INTO Parametro (cClave,cValor,cDescripcion)

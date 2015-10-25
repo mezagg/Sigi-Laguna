@@ -153,7 +153,7 @@ public class ObjetoDAOImpl extends GenericDaoHibernateImpl<Objeto, Long>
 		return (idTotalEslabones != null && idTotalEslabones >0 ? true: false);
     }
     
-    @SuppressWarnings("unchecked")
+    @Override
     public List<Objeto> consultarBienesPorEnajenar(Date fecha,Integer diasParaEnajenar) {
         SimpleDateFormat formato= new SimpleDateFormat("yyyyMMdd");
         Calendar c=Calendar.getInstance();
@@ -170,5 +170,16 @@ public class ObjetoDAOImpl extends GenericDaoHibernateImpl<Objeto, Long>
         return query.setMaxResults(100).list();
     }
     
+    @Override
+    public boolean enajenarBienes(List<Long> idsBienes){
+        StringBuffer query = new StringBuffer();
+        query.append(" UPDATE Objeto SET enajenado = 1 WHERE elementoId IN (:idsBienes) ");
+        
+        int  res = super.getSession().createQuery(query.toString()).setParameterList("idsBienes", idsBienes).executeUpdate();
+        if(res == 0){
+        	return Boolean.FALSE;
+        }
+        return Boolean.TRUE;
+    }
 
 }

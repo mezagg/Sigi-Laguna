@@ -3,6 +3,7 @@ package mx.gob.segob.nsjp.service.objeto.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.StringTokenizer;
 import mx.gob.segob.nsjp.comun.enums.configuracion.Parametros;
 
 import mx.gob.segob.nsjp.dao.expediente.NumeroExpedienteDAO;
@@ -60,7 +61,11 @@ public class EnajenarBienesServiceImpl implements
 
     @Override
     public void enajenarBienes(String idsBienes) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        StringTokenizer st=new StringTokenizer(idsBienes, ",");
+        List<Long> ids = new ArrayList<Long>();
+        while(st.hasMoreTokens())
+            ids.add(new Long(st.nextToken()));
+        objetoDAO.enajenarBienes(ids);
     }
 
 }
