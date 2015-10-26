@@ -1786,7 +1786,8 @@
                 $('#cbxAccionesTab').addClass("cargando");
                 $('#cbxOficiosTab').addClass("cargando");
                 $('#tapActuaciones').addClass("cargando");
-                
+                var ofic;
+                var act;
                 var url =  '<%= request.getContextPath()%>/cargarActuaciones.do?numeroExpediente='+numeroExpediente+'&sinCatuie='+sinCatuie;
 		$.ajax({
 			type: 'POST',
@@ -1795,8 +1796,6 @@
 			dataType: 'xml',
 			async: false,
 			success: function(xml){
-                            var ofic = 0;
-                            var act = 0;
                             console.log("XML DE ACTUACIONES");
                             console.log(xml);
                             $(xml).find('entry').each(function(){
@@ -1804,21 +1803,15 @@
                                
                                 if($(resp).text() === "listaOficios"){
                                     ofic = $(this).find('catActuaciones').size();
-                                    $('#ofic').empty();
-                                    $('#ofic').append(" (" + ofic +"): ");
                                     $(this).find('catActuaciones').each(function(){
-                                        
-                                        $('#cbxOficiosTab').append('<li data-value="' + $(this).find('clave').text() + '"><img src="<%=request.getContextPath() %>/resources/images/oficio.jpg" width="30" height="30" align="absmiddle"/><a href="#" class="actuaciones" idselected="'+$(this).find('clave').text()+'">' + $(this).find('valor').text() + '</a></li>');
+                                        $('#cbxOficiosTab').append('<li data-value="' + $(this).find('clave').text() + '"><img src="<%=request.getContextPath() %>/resources/images/oficio.jpg" width="15" height="15" align="absmiddle"/><a href="#" class="actuaciones" idselected="'+$(this).find('clave').text()+'">' + $(this).find('valor').text() + '</a></li>');
 
                                     });
                                 }
                                 if($(resp).text() == "listaActuaciones"){
                                     act = $(this).find('catActuaciones').size();
-                                    $('#act').empty();
-                                    $('#act').append(" (" + act +"): ");
                                     $(this).find('catActuaciones').each(function(){
-                                        
-                                        $('#cbxAccionesTab').append('<li data-value="' + $(this).find('clave').text() + '"><img src="<%=request.getContextPath() %>/resources/images/play.png" width="30" height="30" align="absmiddle"/><a href="#" idselected="'+$(this).find('clave').text()+'">' + $(this).find('valor').text() + '</a></li>');
+                                        $('#cbxAccionesTab').append('<li data-value="' + $(this).find('clave').text() + '"><img src="<%=request.getContextPath() %>/resources/images/play.png" width="15" height="15" align="absmiddle"/><a href="#" idselected="'+$(this).find('clave').text()+'">' + $(this).find('valor').text() + '</a></li>');
                                     });
                                 }
                                  
@@ -1826,12 +1819,12 @@
                             $('#cbxAccionesTab').removeClass("cargando");
                             $('#cbxOficiosTab').removeClass("cargando");
                             $('#tapActuaciones').removeClass("cargando");
-//                            if(act === 0){
-//                                $( "#cbxAccionesTab" ).attr( "disabled", "disables" );
-//                            }
-//                            if(ofic === 0){
-//                                $( "#cbxOficiosTab" ).attr( "disabled", "disables" );
-//                            }
+                            if(act === 0 && ofic === 0){
+                            console.log("rdbConUaei checked");
+                                $("#rdbConUaei").attr('checked', true);
+                                $("#rdbSinUaei").attr('checked',false);
+                                cargaActuaciones(0);
+                            }
 			},
                         error:function(){
                             alertDinamico("Error al obtener las actuaciones y oficios");
@@ -4892,19 +4885,30 @@
       return (a.textContent || a.innerText || "").toUpperCase().indexOf(m[3].toUpperCase())>=0;
   };
 
-  function filterList(header, list) { 
+  function filterList(header, list1, list2) { 
     var form = $("<form>").attr({"class":"filterform","action":"#"}),
         input = $("<input>").attr({"class":"filterinput","type":"text","size":"80"});
     $(form).append(input).appendTo(header);
  
     $(input).change( function () {
         var filter = $(this).val();
+       
+                                    
         if(filter) {
-            $matches = $(list).find('a:Contains(' + filter + ')').parent();
-            $('li', list).not($matches).slideUp();
-            $matches.slideDown();
+            $matches1 = $(list1).find('a:Contains(' + filter + ')').parent();
+            $('#ofic').empty();
+            $('#ofic').append(" (" + $matches1.size() +"): ");
+            $matches2 = $(list2).find('a:Contains(' + filter + ')').parent();
+            $('#act').empty();
+            $('#act').append(" (" + $matches2.size() +"): ");
+            
+            $('li', list1).not($matches1).slideUp();
+            $('li', list2).not($matches2).slideUp();
+            $matches1.slideDown();
+            $matches2.slideDown();
         } else {
-            $(list).find("li").slideDown();
+            $(list1).find("li").slideDown();
+            $(list2).find("li").slideDown();
         }
         return false;
     }).keyup( function () {
@@ -4913,8 +4917,7 @@
   }
  
   $(function () {
-    filterList($("#formO"), $("#cbxOficiosTab"));
-    filterList($("#formA"), $("#cbxAccionesTab"));
+    filterList($("#formA"), $("#cbxOficiosTab"), $("#cbxAccionesTab"));
   });
 }(jQuery));
                 
@@ -6073,16 +6076,16 @@
                                                  <tr>
                                                      <td id="tdCbxAccionesTab1" width="50%">
                                                          <div id="wrapA">
-                                                            Actuaciones <span id='act'></span>
                                                             <div id="formA"></div>
+                                                            Actuaciones <span id='act'></span>
                                                             <div class="clear"></div>
                                                          </div>
                                          
                                                      </td>
                                                      <td id="tdCbxOficiosTab1" width="100%">
-                                                        <div id="wrapO">
+                                                        <div id="wrapA">
+                                                            <div> <p>&nbsp;&nbsp;&nbsp;</p></div>
                                                             Oficios <span id='ofic'></span>
-                                                            <div id="formO"></div>
                                                             <div class="clear"></div>
                                                         </div>
                                                      </td>
