@@ -82,12 +82,13 @@ public class EnajenarBienesAction extends GenericAction {
 	
 			log.info("ejecutando Action consultar bienes por enajenar");
 			SimpleDateFormat formato= new SimpleDateFormat("dd/MM/yyyy");
-			String fecha = request.getParameter("fecha");
+			String fecha = request.getParameter("fechaEnajenar");
 			Integer diasParaEnajenar=new Integer(parametroDelegate.consultarParametro(Parametros.DIAS_PARA_ENAJENAR).getValor());
 			List<ObjetoDTO> objetoDTOs = objetoDelegate.consultarBienesPorEnajenar(DateUtils.obtener(fecha),diasParaEnajenar);
 						
 			response.setContentType("text/xml; charset=UTF-8");
 			response.setHeader("Cache-Control", "no-cache");
+                       
 			PrintWriter writer = response.getWriter();
 			
 			writer.print("<rows>");
@@ -142,7 +143,7 @@ public class EnajenarBienesAction extends GenericAction {
 			HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
 		try {
-	
+                        String fecha = request.getParameter("fechaEnajenar");
 			log.info("ejecutando Action enajenar");
 			
 			String ids = request.getParameter("idsBienes");

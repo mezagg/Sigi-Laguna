@@ -1314,7 +1314,7 @@
                 var anio = fecha.getFullYear();
                 var hoy=dia+'/'+mes+'/'+anio;
                         
-                jQuery("#gridBienesPorEnajenar").jqGrid('setGridParam', {url: contextoPagina + '/consultarBienesPorEnajenar.do?fecha='+hoy,datatype: "xml" });
+                jQuery("#gridBienesPorEnajenar").jqGrid('setGridParam', {url: '<%=request.getContextPath()%>/consultarBienesPorEnajenar.do?fechaEnajenar='+hoy,datatype: "xml" });
 		$("#gridBienesPorEnajenar").trigger("reloadGrid");
 		ocultaMuestraGrids("gridBienesPorEnajenar");
 	}
@@ -1331,18 +1331,19 @@
                 for (var i = 0; i < selectedIDs.length; i++) {
                     result += selectedIDs[i] + ",";
                 }
-                	
-	  	$.ajax({
+                 var settings = {
                         type: 'POST',
 	                url: '<%=request.getContextPath()%>/enajenarBienes.do?idsBienes='+result,
                         data: '',
-                        dataType: 'xml',
-	  		async: false,
-                        success: function(xml){
-                            }
-	  		});
-            }                
-        }
+	  		async: false
+	  		};
+
+                $.ajax(settings).done(function(result) 
+                {
+                  consultaPorEnajenarHoy()
+                });
+                }    
+    }
 </script>
 <!-- Div para mostrar la ventana modal para elegir la fecha de consulta para mandamientos judiciales y medidas cautelares -->
 <div id="busquedaFecha" style="display: none">
@@ -1486,7 +1487,7 @@
                          <table id="gridEvidenciaAlmacenExpediente"></table>
                          <div id="paginadorEvidenciaAlmacenExpediente"></div>
                     </div>
-                                        <div id="divGridBienesPorEnajenar" style="display: none;">
+                                        <div id="divGridBienesPorEnajenar" style="display: none;">                                       
                                             <input id="enajenarButton" type="button" value="Enajenar" class="btn_Generico" onclick="enajenarBienes()"/>
 					 	<table id="gridBienesPorEnajenar"></table>
 						<div id="pagerGridBienesPorEnajenar"></div>
