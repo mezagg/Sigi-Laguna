@@ -450,16 +450,16 @@
 			 ocultaMuestraTabVisor("tabTabsVisitaduria",0);
 			 	
 			 $("#tapActuaciones").one("click", function() {
-				 cargaActuaciones();
+				 cargaActuaciones(1);
 			 });
 			 
-			 $("#tapActuaciones").click(function() {
-				 cargarRelacionesRegistradas();
-				 $('#cbxCategoriaRelacion').attr('selectedIndex', 0);
-				 $('#cbxTipoRelacion').attr('selectedIndex', 0);
-				 $('#cbxPrimerElemento').attr('selectedIndex', 0);
-				 $('#cbxSegundoElemento').attr('selectedIndex', 0);
-			 });
+//			 $("#tapActuaciones").click(function() {
+//				 cargarRelacionesRegistradas();
+//				 $('#cbxCategoriaRelacion').attr('selectedIndex', 0);
+//				 $('#cbxTipoRelacion').attr('selectedIndex', 0);
+//				 $('#cbxPrimerElemento').attr('selectedIndex', 0);
+//				 $('#cbxSegundoElemento').attr('selectedIndex', 0);
+//			 });
 
 			// opcion uno es para la pantalla de Atencion temprana penal
 			if(pantallaSolicitada==ATPENAL){
@@ -1796,21 +1796,21 @@
 			dataType: 'xml',
 			async: false,
 			success: function(xml){
-                            console.log("XML DE ACTUACIONES");
-                            console.log(xml);
+//                            console.log("XML DE ACTUACIONES");
+//                            console.log(xml);
                             $(xml).find('entry').each(function(){
                                 var resp = $(this).find(':first-child').get( 0 );
                                
                                 if($(resp).text() === "listaOficios"){
-                                    ofic = $(this).find('catActuaciones').size();
-                                    $(this).find('catActuaciones').each(function(){
+                                    ofic = $(this).find('catActuaciones');
+                                    ofic.each(function(){
                                         $('#cbxOficiosTab').append('<li data-value="' + $(this).find('clave').text() + '"><img src="<%=request.getContextPath() %>/resources/images/oficio.jpg" width="15" height="15" align="absmiddle"/><a href="#" class="actuaciones" idselected="'+$(this).find('clave').text()+'">' + $(this).find('valor').text() + '</a></li>');
 
                                     });
                                 }
                                 if($(resp).text() == "listaActuaciones"){
-                                    act = $(this).find('catActuaciones').size();
-                                    $(this).find('catActuaciones').each(function(){
+                                    act = $(this).find('catActuaciones');
+                                    act.each(function(){
                                         $('#cbxAccionesTab').append('<li data-value="' + $(this).find('clave').text() + '"><img src="<%=request.getContextPath() %>/resources/images/play.png" width="15" height="15" align="absmiddle"/><a href="#" idselected="'+$(this).find('clave').text()+'">' + $(this).find('valor').text() + '</a></li>');
                                     });
                                 }
@@ -1819,11 +1819,16 @@
                             $('#cbxAccionesTab').removeClass("cargando");
                             $('#cbxOficiosTab').removeClass("cargando");
                             $('#tapActuaciones').removeClass("cargando");
-                            if(act === 0 && ofic === 0){
-                            console.log("rdbConUaei checked");
-                                $("#rdbConUaei").attr('checked', true);
-                                $("#rdbSinUaei").attr('checked',false);
-                                cargaActuaciones(0);
+                            if(act.size() === 0 && ofic.size() === 0){ 
+                                if(sinCatuie === 1){
+                                    $("#rdbConUaei").attr('checked', true);
+                                    $("#rdbSinUaei").attr('checked',false);
+                                    $("#rdbSinUaei").attr("disabled", true);
+                                    cargaActuaciones(0);
+                                }else if(sinCatuie === 0) {
+                                    $("#rdbConUaei").attr("disabled", true);
+                                    alertDinamico("No existe ninguna Actuación.");	
+                                }
                             }
 			},
                         error:function(){
@@ -6061,11 +6066,10 @@
                                                 <tr>
                                                     <td>
                                                         <span id="actuacionesUie">Mostrar Actuaciones:
-                                                            <span id="conUaei"> 
+                                                            <span > 
                                                                 <input type="radio" id="rdbConUaei" value="0" name="rdActuaciones"/>Todas
                                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                            </span>
-                                                            <span id="sinUaei">
+                                                            
                                                                 <input type="radio" id="rdbSinUaei" value="1" name="rdActuaciones" checked="checked" />Unidad Especializada 
                                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                             </span>				

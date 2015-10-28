@@ -303,7 +303,6 @@
                 <value>mx.gob.segob.nsjp.model.PermisoSolicitud</value> 
                                 
                 <value>mx.gob.segob.nsjp.model.ConfActividadUIE</value>
-                <value>mx.gob.segob.nsjp.model.ConfActividadDocumentoRol</value>
             </list>
         </property>
     </bean>
