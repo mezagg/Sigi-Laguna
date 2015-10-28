@@ -82,7 +82,7 @@ public enum BloqueosNoRestringidos {
 	  UI_ICONS_FFD27A_256X240	("UI-ICONS_FFD27A_256X240.PNG"),
 	  COMUN	("COMUN.JS"),
 	  JQUERY_UI("JQUERY-UI.CSS"),
-	  JQUERY_UI_1_8_11_CUSTOM ("JQUERY-UI-1.8.11.CUSTOM.CSS");
+	  UI_THEME ("UI-");
 	  	
 private String valor;
 private final static Map<String, BloqueosNoRestringidos> hash = new HashMap<String, BloqueosNoRestringidos>();

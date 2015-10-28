@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html> 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Ingresar juez manualmente</title>
 		
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css" />
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/estilos.css" media="screen" />
-	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/ui-lightness/jquery-ui-1.8.11.custom.css" />
+	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/south-street/jquery-ui-1.8.10.custom.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/jqgrid/ui.jqgrid.css" />
 	<script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery-1.5.1.js"></script>
 	<script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery-ui-1.8.10.custom.js"></script>
@@ -420,7 +420,7 @@
 				var existenEntidadesSeparacion = "no";
 					
 						
-				cleanAllCombosSeparacion();							//Limpia todos los combo box´s		
+				cleanAllCombosSeparacion();							//Limpia todos los combo boxï¿½s		
 				hideControlsSeparacion(existenEntidadesSeparacion);				//Si la opcion seleccionada no contiene entidades federativas se esconden los cbx's
 				$.ajax({
 					async: false,									// la accion cargar estados y llena el combo con la consulta
@@ -490,7 +490,7 @@
 
 			/**
 			* Si existe un cambio en el combo de Ciudade, delegacion, o tipo de asentamiento
-			* se realiza la consulta de por medio de esos tres id´s 
+			* se realiza la consulta de por medio de esos tres idï¿½s 
 			*/ 	
 			function onSelectChangeCiudadMunicipioTipoAsentamientoSeparacion() {
 
