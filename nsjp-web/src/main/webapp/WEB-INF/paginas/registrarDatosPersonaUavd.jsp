@@ -206,14 +206,7 @@ var resRad;
 		});
                 
                 $("#tapActuaciones").one("click", function() {
-                $('#tdCbxAgentesCoorJAR').hide();
-                $('#tdCbxAgentesCoorJAR1').hide();
-                $('#cbxAgentesCoorUI').hide();
-                $('#tdCbxAgentesCoorUI1').hide();
-                $('#idAsignarAgenteMp').hide();
-                $('#idAsignarFacilitador').hide();
-                $('#idReasignarFacilitador').hide();
-                    cargaActuaciones();
+                    cargaActuaciones(1);
 		});               
  
                 //seteamos los listener de los radios para la relacion de Delitos por Person o por Delito
@@ -664,21 +657,21 @@ function popopAsistencia(rowid){
 			dataType: 'xml',
 			async: false,
 			success: function(xml){
-                            console.log("XML DE ACTUACIONES");
-                            console.log(xml);
+//                            console.log("XML DE ACTUACIONES");
+//                            console.log(xml);
                             $(xml).find('entry').each(function(){
                                 var resp = $(this).find(':first-child').get( 0 );
                                
                                 if($(resp).text() === "listaOficios"){
-                                    ofic = $(this).find('catActuaciones').size();
-                                    $(this).find('catActuaciones').each(function(){
+                                    ofic = $(this).find('catActuaciones');
+                                    ofic.each(function(){
                                         $('#cbxOficiosTab').append('<li data-value="' + $(this).find('clave').text() + '"><img src="<%=request.getContextPath() %>/resources/images/oficio.jpg" width="15" height="15" align="absmiddle"/><a href="#" class="actuaciones" idselected="'+$(this).find('clave').text()+'">' + $(this).find('valor').text() + '</a></li>');
 
                                     });
                                 }
-                                if($(resp).text() == "listaActuaciones"){
-                                    act = $(this).find('catActuaciones').size();
-                                    $(this).find('catActuaciones').each(function(){
+                                if($(resp).text() === "listaActuaciones"){
+                                    act = $(this).find('catActuaciones');
+                                    act.each(function(){
                                         $('#cbxAccionesTab').append('<li data-value="' + $(this).find('clave').text() + '"><img src="<%=request.getContextPath() %>/resources/images/play.png" width="15" height="15" align="absmiddle"/><a href="#" idselected="'+$(this).find('clave').text()+'">' + $(this).find('valor').text() + '</a></li>');
                                     });
                                 }
@@ -687,11 +680,16 @@ function popopAsistencia(rowid){
                             $('#cbxAccionesTab').removeClass("cargando");
                             $('#cbxOficiosTab').removeClass("cargando");
                             $('#tapActuaciones').removeClass("cargando");
-                            if(act === 0 && ofic === 0){
-                            console.log("rdbConUaei checked");
-                                $("#rdbConUaei").attr('checked', true);
-                                $("#rdbSinUaei").attr('checked',false);
-                                cargaActuaciones(0);
+                            if(act.size() === 0 && ofic.size() === 0){ 
+                                if(sinCatuie === 1){
+                                    $("#rdbConUaei").attr('checked', true);
+                                    $("#rdbSinUaei").attr('checked',false);
+                                    $("#rdbSinUaei").attr("disabled", true);
+                                    cargaActuaciones(0);
+                                }else if(sinCatuie === 0) {
+                                    $("#rdbConUaei").attr("disabled", true);
+                                    alertDinamico("No existe ninguna Actuación.");	
+                                }
                             }
 			},
                         error:function(){

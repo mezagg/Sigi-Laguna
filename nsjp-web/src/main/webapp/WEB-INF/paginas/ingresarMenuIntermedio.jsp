@@ -1808,7 +1808,7 @@
 
                                     });
                                 }
-                                if($(resp).text() == "listaActuaciones"){
+                                if($(resp).text() === "listaActuaciones"){
                                     act = $(this).find('catActuaciones');
                                     act.each(function(){
                                         $('#cbxAccionesTab').append('<li data-value="' + $(this).find('clave').text() + '"><img src="<%=request.getContextPath() %>/resources/images/play.png" width="15" height="15" align="absmiddle"/><a href="#" idselected="'+$(this).find('clave').text()+'">' + $(this).find('valor').text() + '</a></li>');
