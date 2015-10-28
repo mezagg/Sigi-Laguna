@@ -1781,6 +1781,7 @@
 	*Funcion que realiza la carga del combo de Actuaciones
 	*/
 	function cargaActuaciones(sinCatuie) {
+        console.log('cargaActuaciones');
 		$('#cbxAccionesTab').empty();
                 $('#cbxOficiosTab').empty();
                 $('#cbxAccionesTab').addClass("cargando");
@@ -1821,11 +1822,13 @@
                             $('#tapActuaciones').removeClass("cargando");
                             if(act.size() === 0 && ofic.size() === 0){ 
                                 if(sinCatuie === 1){
+                                console.log('pasar a todas');
                                     $("#rdbConUaei").attr('checked', true);
                                     $("#rdbSinUaei").attr('checked',false);
                                     $("#rdbSinUaei").attr("disabled", true);
                                     cargaActuaciones(0);
                                 }else if(sinCatuie === 0) {
+                                console.log('pasar 2');
                                     $("#rdbConUaei").attr("disabled", true);
                                     alertDinamico("No existe ninguna Actuación.");	
                                 }
@@ -1840,9 +1843,9 @@
 		});
 	}
         
-        $("input[name='rdActuaciones']").click(function(e) {
-                        var sinCatuie = $(':radio[name=rdActuaciones]:checked').val();
-                        cargaActuaciones(sinCatuie);
+        $("input[name='rdActuaciones']").change(function() {
+            var sinCatuie = $(':radio[name=rdActuaciones]:checked').val();
+            cargaActuaciones(sinCatuie);
         });
 	
 	/*

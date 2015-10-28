@@ -818,10 +818,10 @@ function popopAsistencia(rowid){
 			ejecutaActuacion(selected, confActividadId, actividad, formaID, titulo, usaeditor, estatusId, habilitarTurno, validaDelitoGrave);
 		}
 	}
-        
-        $("input[name='rdActuaciones']").click(function(e) {
-                        var sinCatuie = $(':radio[name=rdActuaciones]:checked').val();
-                        cargaActuaciones(sinCatuie);
+            
+        $("input[name='rdActuaciones']").change(function() {
+            var sinCatuie = $(':radio[name=rdActuaciones]:checked').val();
+            cargaActuaciones(sinCatuie);
         });
         
         function validarReporte(){
@@ -2312,11 +2312,10 @@ function muestraDivInformativoCanalizacion()
                                                 <tr>
                                                     <td>
                                                         <span id="actuacionesUie">Mostrar Actuaciones:
-                                                            <span id="conUaei"> 
+                                                            <span> 
                                                                 <input type="radio" id="rdbConUaei" value="0" name="rdActuaciones"/>Todas
                                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                            </span>
-                                                            <span id="sinUaei">
+                                                            
                                                                 <input type="radio" id="rdbSinUaei" value="1" name="rdActuaciones" checked="checked" />Unidad Especializada 
                                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                             </span>				
