@@ -1821,13 +1821,11 @@
                             $('#tapActuaciones').removeClass("cargando");
                             if(act.size() === 0 && ofic.size() === 0){ 
                                 if(sinCatuie === 1){
-                                console.log('pasar a todas');
                                     $("#rdbConUaei").attr('checked', true);
                                     $("#rdbSinUaei").attr('checked',false);
                                     $("#rdbSinUaei").attr("disabled", true);
                                     cargaActuaciones(0);
                                 }else if(sinCatuie === 0) {
-                                console.log('pasar 2');
                                     $("#rdbConUaei").attr("disabled", true);
                                     alertDinamico("No existe ninguna Actuación.");	
                                 }
