@@ -1781,7 +1781,6 @@
 	*Funcion que realiza la carga del combo de Actuaciones
 	*/
 	function cargaActuaciones(sinCatuie) {
-        console.log('cargaActuaciones');
 		$('#cbxAccionesTab').empty();
                 $('#cbxOficiosTab').empty();
                 $('#cbxAccionesTab').addClass("cargando");
