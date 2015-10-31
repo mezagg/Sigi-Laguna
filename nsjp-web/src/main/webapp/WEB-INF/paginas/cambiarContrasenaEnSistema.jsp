@@ -12,7 +12,7 @@
 	href="<%=request.getContextPath()%>/resources/css/jquery-ui.css" />
 
 <link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/css/ui-lightness/jquery-ui-1.8.11.custom.css" />
+	href="<%=request.getContextPath()%>/resources/css/south-street/jquery-ui-1.8.10.custom.css" />
 
 
 

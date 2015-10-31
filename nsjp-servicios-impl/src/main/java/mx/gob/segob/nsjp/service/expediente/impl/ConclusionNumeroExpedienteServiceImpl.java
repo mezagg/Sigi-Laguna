@@ -66,7 +66,7 @@ public class ConclusionNumeroExpedienteServiceImpl implements
         ConclusionNumeroExpediente conNumeroEx = conclusionNumeroExpedienteDAO.obtenerConclusionNumeroExpediente(idNumeroExpe);
         ConclusionNumeroExpedienteDTO  dto = new ConclusionNumeroExpedienteDTO();
 
-        if (dto != null) {
+        if (conNumeroEx != null) {
             dto.setFechaConclusion(conNumeroEx.getFechaConclusion());
             dto.setNumeroExpediente(conNumeroEx.getNumeroExpediente().getNumeroExpedienteId());
             dto.setTipoConclusion(ValorTransformer.transformar(conNumeroEx.getTipoConclusion()));

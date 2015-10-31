@@ -39,12 +39,12 @@
 <link rel="stylesheet" type="text/css" media="screen"
 	href="<%=request.getContextPath()%>/resources/css/jqgrid/ui.jqgrid.css" />
 <link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/css/ui-lightness/jquery-ui-1.8.11.custom.css" />
+	href="<%=request.getContextPath()%>/resources/css/south-street/jquery-ui-1.8.10.custom.css" />
 <link rel="stylesheet" type="text/css" 
 	href="<%=request.getContextPath()%>/resources/css/jquery.zweatherfeed.css" />
 
-<!--COMIENZAN SCRIPTS-->
-
+<!--COMIENZAN SCRIPTS--> 
+ 
 <!--jquery-->
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/resources/js/jquery-1.5.1.js"></script>
@@ -86,7 +86,7 @@
 	var tiempoActiva = '<%=((ConfiguracionDTO) request.getSession().getAttribute(GenericAction.KEY_SESSION_CONFIGURACION_GLOBAL)).getTiempoBloqueoSesion()%>';
 	estaSesionActiva();
 
-	//Variable para controlar los id´s de las ventanas
+	//Variable para controlar los idï¿½s de las ventanas
 	//de solicitud de transcripcion de audiencia
 	var idWindowTranscripcionAdudiencia=1;
 	
@@ -747,7 +747,7 @@
 			</table>
 		</p>
 	</div>
-	<div id="dialogBlok" title="¡Su sesi&oacute;n est&aacute; a punto de caducar!">
+	<div id="dialogBlok" title="ï¿½Su sesi&oacute;n est&aacute; a punto de caducar!">
 			<p>
 				<span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 50px 0;"></span>
 				La sesi&oacute;n se cerrar&aacute; en <span id="dialog-countdown" style="font-weight:bold"></span> segundos.

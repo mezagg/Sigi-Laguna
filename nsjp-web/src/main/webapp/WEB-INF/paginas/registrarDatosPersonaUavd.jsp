@@ -30,15 +30,15 @@
 <!--<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/re //sources/css/multiselect/style.css" />-->
 <!--<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/res //ources/css/multiselect/prettify.css" />-->
 <!--  <link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/multiselect/jquery-ui.css" />-->
-<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/ui-lightness/jquery-ui-1.8.11.custom.css" />
+<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/south-street/jquery-ui-1.8.10.custom.css" />
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css" />
 <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/jquery.windows-engine.css"/>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/layout_complex.css" media="screen" />
 
 <!--<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css" />-->
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/estilos.css" media="screen" />
-<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/ui-lightness/jquery-ui-1.8.11.custom.css" />
-<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/ui-lightness/jquery-ui-1.8.11.custom.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/south-street/jquery-ui-1.8.10.custom.css" />
+<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/south-street/jquery-ui-1.8.10.custom.css" />
 <link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/jqgrid/ui.jqgrid.css" />
 <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/jquery.windows-engine.css" />
 
@@ -206,14 +206,7 @@ var resRad;
 		});
                 
                 $("#tapActuaciones").one("click", function() {
-                $('#tdCbxAgentesCoorJAR').hide();
-                $('#tdCbxAgentesCoorJAR1').hide();
-                $('#cbxAgentesCoorUI').hide();
-                $('#tdCbxAgentesCoorUI1').hide();
-                $('#idAsignarAgenteMp').hide();
-                $('#idAsignarFacilitador').hide();
-                $('#idReasignarFacilitador').hide();
-                    cargaActuaciones();
+                    cargaActuaciones(1);
 		});               
  
                 //seteamos los listener de los radios para la relacion de Delitos por Person o por Delito
@@ -664,21 +657,21 @@ function popopAsistencia(rowid){
 			dataType: 'xml',
 			async: false,
 			success: function(xml){
-                            console.log("XML DE ACTUACIONES");
-                            console.log(xml);
+//                            console.log("XML DE ACTUACIONES");
+//                            console.log(xml);
                             $(xml).find('entry').each(function(){
                                 var resp = $(this).find(':first-child').get( 0 );
                                
                                 if($(resp).text() === "listaOficios"){
-                                    ofic = $(this).find('catActuaciones').size();
-                                    $(this).find('catActuaciones').each(function(){
+                                    ofic = $(this).find('catActuaciones');
+                                    ofic.each(function(){
                                         $('#cbxOficiosTab').append('<li data-value="' + $(this).find('clave').text() + '"><img src="<%=request.getContextPath() %>/resources/images/oficio.jpg" width="15" height="15" align="absmiddle"/><a href="#" class="actuaciones" idselected="'+$(this).find('clave').text()+'">' + $(this).find('valor').text() + '</a></li>');
 
                                     });
                                 }
-                                if($(resp).text() == "listaActuaciones"){
-                                    act = $(this).find('catActuaciones').size();
-                                    $(this).find('catActuaciones').each(function(){
+                                if($(resp).text() === "listaActuaciones"){
+                                    act = $(this).find('catActuaciones');
+                                    act.each(function(){
                                         $('#cbxAccionesTab').append('<li data-value="' + $(this).find('clave').text() + '"><img src="<%=request.getContextPath() %>/resources/images/play.png" width="15" height="15" align="absmiddle"/><a href="#" idselected="'+$(this).find('clave').text()+'">' + $(this).find('valor').text() + '</a></li>');
                                     });
                                 }
@@ -687,11 +680,16 @@ function popopAsistencia(rowid){
                             $('#cbxAccionesTab').removeClass("cargando");
                             $('#cbxOficiosTab').removeClass("cargando");
                             $('#tapActuaciones').removeClass("cargando");
-                            if(act === 0 && ofic === 0){
-                            console.log("rdbConUaei checked");
-                                $("#rdbConUaei").attr('checked', true);
-                                $("#rdbSinUaei").attr('checked',false);
-                                cargaActuaciones(0);
+                            if(act.size() === 0 && ofic.size() === 0){ 
+                                if(sinCatuie === 1){
+                                    $("#rdbConUaei").attr('checked', true);
+                                    $("#rdbSinUaei").attr('checked',false);
+                                    $("#rdbSinUaei").attr("disabled", true);
+                                    cargaActuaciones(0);
+                                }else if(sinCatuie === 0) {
+                                    $("#rdbConUaei").attr("disabled", true);
+                                    alertDinamico("No existe ninguna Actuación.");	
+                                }
                             }
 			},
                         error:function(){
@@ -820,10 +818,10 @@ function popopAsistencia(rowid){
 			ejecutaActuacion(selected, confActividadId, actividad, formaID, titulo, usaeditor, estatusId, habilitarTurno, validaDelitoGrave);
 		}
 	}
-        
-        $("input[name='rdActuaciones']").click(function(e) {
-                        var sinCatuie = $(':radio[name=rdActuaciones]:checked').val();
-                        cargaActuaciones(sinCatuie);
+            
+        $("input[name='rdActuaciones']").change(function() {
+            var sinCatuie = $(':radio[name=rdActuaciones]:checked').val();
+            cargaActuaciones(sinCatuie);
         });
         
         function validarReporte(){
@@ -2314,11 +2312,10 @@ function muestraDivInformativoCanalizacion()
                                                 <tr>
                                                     <td>
                                                         <span id="actuacionesUie">Mostrar Actuaciones:
-                                                            <span id="conUaei"> 
+                                                            <span> 
                                                                 <input type="radio" id="rdbConUaei" value="0" name="rdActuaciones"/>Todas
                                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                            </span>
-                                                            <span id="sinUaei">
+                                                            
                                                                 <input type="radio" id="rdbSinUaei" value="1" name="rdActuaciones" checked="checked" />Unidad Especializada 
                                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                             </span>				
