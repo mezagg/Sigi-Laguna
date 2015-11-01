@@ -83,3 +83,9 @@ insert into ModuloFuncion ( Modulo_id, Funcion_id)
 --PARAMETRO DIAS PARA ENAJENAR
 INSERT INTO Parametro (cClave,cValor,cDescripcion)
 values('DIAS_PARA_ENAJENAR','90','Días requeridos para enajenar un bien asegurado')
+
+--CREACIÓN DE NUEVO CAMPO Id documento de enajenación
+
+ALTER TABLE Objeto ADD docEnajenacion_id decimal(18, 0)  NULL;
+ALTER TABLE Objeto ADD CONSTRAINT fk07_obje_documento FOREIGN KEY (docEnajenacion_id) REFERENCES Documento (Documento_id);
+
