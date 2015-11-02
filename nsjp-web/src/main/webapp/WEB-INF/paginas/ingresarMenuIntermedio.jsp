@@ -1475,8 +1475,6 @@
 			
 			consultarConclusion();
                       
-		
-                
 		//Termina funcion on ready del documento
 		
 		/*
@@ -3661,34 +3659,6 @@
 		}
 		
 		
-		function revisaEsDelitoGraveUno(idRadio)
-		{
-			//recuperamos el valor de la columna gravedad del delito
-			var ret = jQuery("#gridCatDelitos").jqGrid('getRowData',idRadio);
-			var retDos = jQuery("#gridDelitosAgraviados").jqGrid('getRowData',idRadio);
-			var isGrave="No";
-			var delitos=<%=(String)request.getSession().getAttribute("delitosXML")%>;
-			var delitosXML=$(''+delitos);
-			//mostramos los botones correspondientes dependiento del tipo de delito
-			if(ret.Gravedad!=null)
-			{
-				isGrave=ret.Gravedad;
-			}
-			else
-			{
-				isGrave=retDos.Gravedad;
-			}
-			if(isGrave=="No")
-			{
-				//revisamos que no exista un delito grave NO seleccionado
-				if(existeDelitoGraveEnGrid())
-				{
-					//se le indica al usuario que seleccione un delito grave como principal
-					customAlert("Si no hay reincidencia por parte del Probable Part&iacute;cipe,\n se debe canalizar al Centro de Justicia Restaurativa.");
-				}
-			}
-		}
-		
 		function revisaEsDelitoGrave(idRadio)
 		{
 			//recuperamos el valor de la columna gravedad del delito
@@ -3743,62 +3713,7 @@
 				});
 			}
 		}
-		
-		/*
-		* Funcion que recorre el grid de delitos agraviados para revisar si existe 
-		*un delito grave que no fue seleccionado como principal, de existir regresa true en 
-		*caso contrario regresa false
-		*/
-		function existeDelitoGraveEnGrid()
-		{
-			var bandera=false;
-			//obtenemos los ID's de los renglones del Grid
-			var arrayIDs = new Array() ;
-			var arrayIDs=jQuery("#gridDelitosAgraviados").getDataIDs();
-			//barremos el grid para revisar si hay por lo menos un delito marcado como grave
-			for (i=0;i<arrayIDs.length;i++)
-			{
-				//revisamos el checkbox del renglon i-esimo para ver si es grave
-				var isGrave=jQuery("#gridDelitosAgraviados").jqGrid('getRowData',arrayIDs[i]);
-				if(isGrave.Gravedad=="Yes")
-				{
-					bandera=true;
-				}
-			} 
-			return bandera;
-		}
-		
-		
-		/*
-		*Funcion para saber si se selecciono un delito como principal
-		*/
-		function existeUnDelitoPrincipalGraveSeleccionado()
-		{
-			var bandera=0;
-			//obtengo el ID del rdb del delito seleccionado
-			var idRdb="";
-			idRdb=$('input[name=gridDelitos]:checked').attr('id');
-			if(idRdb!=null)
-			{
-				idRdb=idRdb.split('_')[1];
-				if(idRdb!="")
-				{
-					var resp=jQuery("#gridDelitosAgraviados").jqGrid('getRowData',idRdb);
-					if(resp.Gravedad=="Yes")
-					{
-						//prendemos la badnera al encontrar un radio seleccionado
-						bandera=1;	
-					}
-				}	
-			}
-			else
-			{
-				alertDinamico("Debe seleccionar un delito principal para poder guardar");	
-				bandera=2;
-			}
-			return bandera;
-		}
-		
+                
 		function mostraDivGenerarOficioCanalizacion(idDiv)
 		{
 			$("#divCanalizaAUI,#divCanalizaAIE,#btnCanalizaAJR").hide();
@@ -3900,167 +3815,7 @@
 			return true;
 		}
 		
-		/*
-		* Funcion que revisa que exista un delito grave en el grid de delitos denunciados 
-		*/		
-		function existeUnDelitoPrincipalEnGrid()
-		{			
-			var idRdb="";
-			var bandera1=0;
-			var bandera2=1;
-			
-			idRdb=$('input[name=gridDelitos]:checked').attr('id');
-			if(idRdb!=null)
-			{
-				idRdb=idRdb.split('_')[1];
-				if(idRdb!="")
-				{
-					var resp=jQuery("#gridDelitosAgraviados").jqGrid('getRowData',idRdb);
-					if(resp.Gravedad=="No")
-					{
-						//prendemos la bandera al encontrar un radio seleccionado
-						bandera1=1;	
-					}
-				}	
-			}
-			else
-			{				
-				bandera1=0;
-			}
-			
-			var arrayIDs = jQuery("#gridDelitosAgraviados").getDataIDs();
-			
-			for (i=0;i<arrayIDs.length;i++)
-			{								
-				var row = jQuery("#gridDelitosAgraviados").jqGrid('getRowData',arrayIDs[i]);
-			
-				if(row.GravedadFormateada=="Si") bandera2=0; 
-			} 					
-			
-			if(bandera2==1 && bandera1==0)
-			return 0;
-			else return 1;
-		}
 
-		
-		/*
-		*Funcion para asociar los delitos del grid de agraviados con el 
-		*expediente
-		*/
-		function guardarDelitosAgraviadosExp()
-		{
-			//obtenemos los ID's de los renglones del Grid de Agraviados
-			var arrayIDs = new Array() ;
-			var arrayIDs=jQuery("#gridDelitosAgraviados").getDataIDs();			
-			
-			//validamos que haya delitos en el grid de agraviados
-			if(arrayIDs.length<1)
-			{
-				alertDinamico("Debe agregar al menos un delito agraviado");
-				return;
-			}
-			
-			//validamos si no hay un delito grave, que al menos exista un delito principal
-			if(parseInt(existeUnDelitoPrincipalEnGrid())==0){
-				alertDinamico("Debe seleccionar un delito principal");	
-				return;
-			}
-			
-			//revisamos que si hay un delito grave se haya seleccionado
-			if(existeDelitoGraveEnGrid())
-			{
-				if(parseInt(existeUnDelitoPrincipalGraveSeleccionado())==0)
-				{
-					alertDinamico("Debe seleccionar un delito grave como principal");
-					return;
-				}	
-			}
-			//obtenemos el ID del delito principal
-			var idDelPrincipal=$('input[name=gridDelitos]:checked').attr('id').split('_')[1];
-			var nombreDelPrincipal=jQuery("#gridDelitosAgraviados").jqGrid('getRowData',idDelPrincipal).Tipo;
-			var delitosNormales="";			
-			//barremos el grid para generar la cadena de IDs de los delitos normales
-			for (i=0;i<arrayIDs.length;i++)
-			{
-				if(arrayIDs[i]!=idDelPrincipal)
-				{
-					var retd = jQuery("#gridDelitosAgraviados").jqGrid('getRowData',arrayIDs[i]);
-					if(delitosNormales.length>0)
-					{
-						delitosNormales=delitosNormales+","+retd.Tipo;//arrayIDs[i];
-					}
-					else
-					{
-						delitosNormales=""+retd.Tipo;//arrayIDs[i];
-					}
-				}
-			} 
-			//ahora mandamos los delitos al back-end
-			var params="delitos="+nombreDelPrincipal+"-"+delitosNormales+"&numExp="+numeroExpediente;
-                  $.ajax({
-	       	  url: '<%= request.getContextPath()%>/guardarDelitosAgraviadosATP.do',
-	    	  dataType: 'xml',
-	    	  Type: 'POST',
-	    	  data:params,
-	    	  async: false,
-	    	  success: function(xml){
-	    		  if(parseInt($(xml).find('code').text())==0)
-	    		  {
-	    			  isDelitoSaved=true;
-	    			//mostramos las leyendas de canalizacion debajo del grid
-	    			  if(existeDelitoGraveEnGrid())
-	    			  {
-	    				  if(pantallaSolicitada!=AGENTE_MP){
-	      					  $("#leyendaUnDelitoGrave").show();
-	      					  $("#leyendaNingunDelitoGrave").hide();  
-	    				  }else{
-	    					  $("#leyendaUnDelitoGrave,#leyendaNingunDelitoGrave").hide();
-	    				  }
-	    			  }
-	    			  else
-	    			  {
-	    				  $("#leyendaUnDelitoGrave").hide();
-	    				  $("#leyendaNingunDelitoGrave").show();
-	    			  }
-	    			  //lanzamos la consulta de actividades que depende de los delitos almacenados
-	    			  	$.ajax({
-				       	  url: '<%= request.getContextPath()%>/consultarActividadesPorDelitosDelExpediente.do',
-				    	  dataType: 'xml',
-				    	  Type: 'POST',
-				    	  data:params,
-				    	  async: false,
-				    	  success: function(xml){
-				    		  if(parseInt($(xml).find('code').text())==0)
-				    		  {
-				    			  $("#actividadesXDelitosDelExpediente").empty();
-				    			  var actividades="";
-				    			  //barremos las activiades y generamos el html para ser pintado
-				    			  //debajo del anuncio de canalizacion
-				    			  $(xml).find('ValorDTO').each(function(){
-				    				  actividades = actividades + $(this).find('valor').text()+"<br/>";
-					    	      });
-				    			  $("#actividadesXDelitosDelExpediente").html(actividades);
-				    		  }  			    		
-						  }
-	    				});
-	    				
-	    			  if (typeof cargaGridDelitosAgraviados == 'function' ){
-	    				  cargaGridDelitosAgraviados();
-	    			  }
-	    			  
-	    			  //fin de la consulta de actividades que depende de los delitos almacenados
-	    			  alertDinamico("Se guardaron exitosamente los delitos seleccionados");
-	    		  }	 
-	    		  else
-	    		  {
-	    			  isDelitoSaved=false;
-	    			  alertDinamico("Ocurrió un error al tratar de guardar los delitos agraviados");
-	    		  }   			    		
-			  }
-	    	});
-		}
-		
-		
 		/*
 		*Funcion para mostrar las actividades sugeridas dependiendo de los delitos en el expediente 
 		*cuando se consulta un expediente
@@ -4925,7 +4680,7 @@
     filterList($("#formA"), $("#cbxOficiosTab"), $("#cbxAccionesTab"));
   });
 }(jQuery));
-                
+         
                 
 });
 
@@ -5376,9 +5131,250 @@
 		  }
                   
                   
+                 /*
+		*Funcion para saber si se selecciono un delito como principal
+		*/
+		function existeUnDelitoPrincipalGraveSeleccionado()
+		{
+			var bandera=0;
+			//obtengo el ID del rdb del delito seleccionado
+			var idRdb="";
+			idRdb=$('input[name=gridDelitos]:checked').attr('id');
+			if(idRdb!=null)
+			{
+				idRdb=idRdb.split('_')[1];
+				if(idRdb!="")
+				{
+					var resp=jQuery("#gridDelitosAgraviados").jqGrid('getRowData',idRdb);
+					if(resp.Gravedad=="Yes")
+					{
+						//prendemos la badnera al encontrar un radio seleccionado
+						bandera=1;	
+					}
+				}	
+			}
+			else
+			{
+				alertDinamico("Debe seleccionar un delito principal para poder guardar");	
+				bandera=2;
+			}
+			return bandera;
+		}
+                  
+                  
+                /*
+		* Funcion que recorre el grid de delitos agraviados para revisar si existe 
+		*un delito grave que no fue seleccionado como principal, de existir regresa true en 
+		*caso contrario regresa false
+		*/
+		function existeDelitoGraveEnGrid()
+		{
+			var bandera=false;
+			//obtenemos los ID's de los renglones del Grid
+			var arrayIDs = new Array() ;
+			var arrayIDs=jQuery("#gridDelitosAgraviados").getDataIDs();
+			//barremos el grid para revisar si hay por lo menos un delito marcado como grave
+			for (i=0;i<arrayIDs.length;i++)
+			{
+				//revisamos el checkbox del renglon i-esimo para ver si es grave
+				var isGrave=jQuery("#gridDelitosAgraviados").jqGrid('getRowData',arrayIDs[i]);
+				if(isGrave.Gravedad=="Yes")
+				{
+					bandera=true;
+				}
+			} 
+			return bandera;
+		}
+                  
+                
+                  
+               /*
+		* Funcion que revisa que exista un delito grave en el grid de delitos denunciados 
+		*/		
+		function existeUnDelitoPrincipalEnGrid()
+		{			
+			var idRdb="";
+			var bandera1=0;
+			var bandera2=1;
+			
+			idRdb=$('input[name=gridDelitos]:checked').attr('id');
+			if(idRdb!=null)
+			{
+				idRdb=idRdb.split('_')[1];
+				if(idRdb!="")
+				{
+					var resp=jQuery("#gridDelitosAgraviados").jqGrid('getRowData',idRdb);
+					if(resp.Gravedad=="No")
+					{
+						//prendemos la bandera al encontrar un radio seleccionado
+						bandera1=1;	
+					}
+				}	
+			}
+			else
+			{				
+				bandera1=0;
+			}
+			
+			var arrayIDs = jQuery("#gridDelitosAgraviados").getDataIDs();
+			
+			for (i=0;i<arrayIDs.length;i++)
+			{								
+				var row = jQuery("#gridDelitosAgraviados").jqGrid('getRowData',arrayIDs[i]);
+			
+				if(row.GravedadFormateada=="Si") bandera2=0; 
+			} 					
+			
+			if(bandera2==1 && bandera1==0)
+			return 0;
+			else return 1;
+		}     
 
- 
-                   
+          /*
+		*Funcion para asociar los delitos del grid de agraviados con el 
+		*expediente
+		*/
+		function guardarDelitosAgraviadosExp()
+		{
+			//obtenemos los ID's de los renglones del Grid de Agraviados
+			var arrayIDs = new Array() ;
+			var arrayIDs=jQuery("#gridDelitosAgraviados").getDataIDs();			
+			
+			//validamos que haya delitos en el grid de agraviados
+			if(arrayIDs.length<1)
+			{
+				alertDinamico("Debe agregar al menos un delito agraviado");
+				return;
+			}
+			
+			//validamos si no hay un delito grave, que al menos exista un delito principal
+			if(parseInt(existeUnDelitoPrincipalEnGrid())==0){
+				alertDinamico("Debe seleccionar un delito principal");	
+				return;
+			}
+			
+			//revisamos que si hay un delito grave se haya seleccionado
+			if(existeDelitoGraveEnGrid())
+			{
+				if(parseInt(existeUnDelitoPrincipalGraveSeleccionado())==0)
+				{
+					alertDinamico("Debe seleccionar un delito grave como principal");
+					return;
+				}	
+			}
+			//obtenemos el ID del delito principal
+			var idDelPrincipal=$('input[name=gridDelitos]:checked').attr('id').split('_')[1];
+			var nombreDelPrincipal=jQuery("#gridDelitosAgraviados").jqGrid('getRowData',idDelPrincipal).Tipo;
+			var delitosNormales="";			
+			//barremos el grid para generar la cadena de IDs de los delitos normales
+			for (i=0;i<arrayIDs.length;i++)
+			{
+				if(arrayIDs[i]!=idDelPrincipal)
+				{
+					var retd = jQuery("#gridDelitosAgraviados").jqGrid('getRowData',arrayIDs[i]);
+					if(delitosNormales.length>0)
+					{
+						delitosNormales=delitosNormales+","+retd.Tipo;//arrayIDs[i];
+					}
+					else
+					{
+						delitosNormales=""+retd.Tipo;//arrayIDs[i];
+					}
+				}
+			} 
+			//ahora mandamos los delitos al back-end
+			var params="delitos="+nombreDelPrincipal+"-"+delitosNormales+"&numExp="+numeroExpediente;
+                  $.ajax({
+	       	  url: '<%= request.getContextPath()%>/guardarDelitosAgraviadosATP.do',
+	    	  dataType: 'xml',
+	    	  Type: 'POST',
+	    	  data:params,
+	    	  async: false,
+	    	  success: function(xml){
+	    		  if(parseInt($(xml).find('code').text())==0)
+	    		  {
+	    			  isDelitoSaved=true;
+	    			//mostramos las leyendas de canalizacion debajo del grid
+	    			  if(existeDelitoGraveEnGrid())
+	    			  {
+	    				  if(pantallaSolicitada!=AGENTE_MP){
+	      					  $("#leyendaUnDelitoGrave").show();
+	      					  $("#leyendaNingunDelitoGrave").hide();  
+	    				  }else{
+	    					  $("#leyendaUnDelitoGrave,#leyendaNingunDelitoGrave").hide();
+	    				  }
+	    			  }
+	    			  else
+	    			  {
+	    				  $("#leyendaUnDelitoGrave").hide();
+	    				  $("#leyendaNingunDelitoGrave").show();
+	    			  }
+	    			  //lanzamos la consulta de actividades que depende de los delitos almacenados
+	    			  	$.ajax({
+				       	  url: '<%= request.getContextPath()%>/consultarActividadesPorDelitosDelExpediente.do',
+				    	  dataType: 'xml',
+				    	  Type: 'POST',
+				    	  data:params,
+				    	  async: false,
+				    	  success: function(xml){
+				    		  if(parseInt($(xml).find('code').text())==0)
+				    		  {
+				    			  $("#actividadesXDelitosDelExpediente").empty();
+				    			  var actividades="";
+				    			  //barremos las activiades y generamos el html para ser pintado
+				    			  //debajo del anuncio de canalizacion
+				    			  $(xml).find('ValorDTO').each(function(){
+				    				  actividades = actividades + $(this).find('valor').text()+"<br/>";
+					    	      });
+				    			  $("#actividadesXDelitosDelExpediente").html(actividades);
+				    		  }  			    		
+						  }
+	    				});
+	    				
+	    			  if (typeof cargaGridDelitosAgraviados == 'function' ){
+	    				  cargaGridDelitosAgraviados();
+	    			  }
+	    			  
+	    			  //fin de la consulta de actividades que depende de los delitos almacenados
+	    			  alertDinamico("Se guardaron exitosamente los delitos seleccionados");
+	    		  }	 
+	    		  else
+	    		  {
+	    			  isDelitoSaved=false;
+	    			  alertDinamico("Ocurrió un error al tratar de guardar los delitos agraviados");
+	    		  }   			    		
+			  }
+	    	});
+		}
+                
+          function revisaEsDelitoGraveUno(idRadio)
+		{
+			//recuperamos el valor de la columna gravedad del delito
+			var ret = jQuery("#gridCatDelitos").jqGrid('getRowData',idRadio);
+			var retDos = jQuery("#gridDelitosAgraviados").jqGrid('getRowData',idRadio);
+			var isGrave="No";
+			var delitos=<%=(String)request.getSession().getAttribute("delitosXML")%>;
+			var delitosXML=$(''+delitos);
+			//mostramos los botones correspondientes dependiento del tipo de delito
+			if(ret.Gravedad!=null)
+			{
+				isGrave=ret.Gravedad;
+			}
+			else
+			{
+				isGrave=retDos.Gravedad;
+			}
+			if(isGrave=="No")
+			{
+				//revisamos que no exista un delito grave NO seleccionado
+				if(existeDelitoGraveEnGrid())
+				{
+					//se le indica al usuario que seleccione un delito grave como principal
+					customAlert("Si no hay reincidencia por parte del Probable Part&iacute;cipe,\n se debe canalizar al Centro de Justicia Restaurativa.");
+				}
+			}
+		}
+                
 	</script>	
 </head>
 
