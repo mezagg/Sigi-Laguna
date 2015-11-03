@@ -4,11 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Registrar Datos Persona</title>
+<title>Registrar Datos Persona</title> 
 
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css" />
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/estilos.css" media="screen" />
-	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/ui-lightness/jquery-ui-1.8.11.custom.css" />
+	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/south-street/jquery-ui-1.8.10.custom.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/jqgrid/ui.jqgrid.css" />
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery.weekcalendar.css" />
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/demo.css" />
@@ -43,10 +43,10 @@
 
 <!--css ultrasist-->
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/estilos.css" media="screen" />
-
+ 
 <!--css para widgets -->
 <link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/multiselect/jquery-ui.css" />
-<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/ui-lightness/jquery-ui-1.8.11.custom.css" />
+<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/south-street/jquery-ui-1.8.10.custom.css" />
 
 <!-- css multiselect-->
 <link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/multiselect/jquery.multiselect.css" />
@@ -602,7 +602,7 @@ function recuperaDatosDatosGenerales(idCalidad)
 		var existenEntidades = "no";
 			
 				
-		cleanAllCombos();							//Limpia todos los combo box´s		
+		cleanAllCombos();							//Limpia todos los combo boxï¿½s		
 		hideControls(existenEntidades);				//Si la opcion seleccionada no contiene entidades federativas se esconden los cbx's
 		$.ajax({
 			async: false,									// la accion cargar estados y llena el combo con la consulta
@@ -676,7 +676,7 @@ function recuperaDatosDatosGenerales(idCalidad)
 
 	/**
 	* Si existe un cambio en el combo de Ciudade, delegacion, o tipo de asentamiento
-	* se realiza la consulta de por medio de esos tres id´s 
+	* se realiza la consulta de por medio de esos tres idï¿½s 
 	*/ 	
 	function onSelectChangeCiudadMunicipioTipoAsentamiento() {
 

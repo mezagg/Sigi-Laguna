@@ -13,7 +13,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
+  
 <!--COMIENZA CSS DEL DOCUMENTO-->
 	
 	<link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jquery.windows-engine.css" />	
@@ -22,7 +22,7 @@
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/treeview/jquery.treeview.css" />
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/estilos.css" media="screen" />
 	<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/jqgrid/ui.jqgrid.css" />
-	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/ui-lightness/jquery-ui-1.8.11.custom.css" />
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/south-street/jquery-ui-1.8.10.custom.css" />
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/jquery.zweatherfeed.css" />	
 	
 <!--COMIENZAN SCRIPTS-->
@@ -709,7 +709,7 @@
 			</table>
 		</p>
 	</div>
-	<div id="dialogBlok" title="¡Su sesi&oacute;n est&aacute; a punto de caducar!">
+	<div id="dialogBlok" title="ï¿½Su sesi&oacute;n est&aacute; a punto de caducar!">
 			<p>
 				<span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 50px 0;"></span>
 				La sesi&oacute;n se cerrar&aacute; en <span id="dialog-countdown" style="font-weight:bold"></span> segundos.

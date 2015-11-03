@@ -34,9 +34,9 @@
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/estilos.css" media="screen" />
 	<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/jqgrid/ui.jqgrid.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/jquery.easyaccordion.css" />				
-	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/ui-lightness/jquery-ui-1.8.11.custom.css" />
+	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/south-street/jquery-ui-1.8.10.custom.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/multiselect/jquery.multiselect.css" />
-    
+     
 	<script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery-1.5.1.js"></script>
 	<script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery-ui-1.8.10.custom.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jqgrid/i18n/grid.locale-es.js"></script>
@@ -117,38 +117,38 @@
 		});	
 		//Para la organizacion
 		$("#nombreOrg").bind("keyup blur" , function () {
-			validarCampo(/[^a-zA-Z áéíóúÁÉÍÓÚäëïöüÄËÏÖÜÑñ&]/g , $(this).val()) == true ?
+			validarCampo(/[^a-zA-Z ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½&]/g , $(this).val()) == true ?
 			$(this).removeClass("error") :  $(this).addClass("error");
 		});	
 		
 		//Nombre
 		$("#nombre").bind("keyup blur" , function () {
-			validarCampo(/[^a-zA-Z áéíóúÁÉÍÓÚäëïöüÄËÏÖÜÑñ]/g , $(this).val()) == true ?
+			validarCampo(/[^a-zA-Z ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]/g , $(this).val()) == true ?
 			$(this).removeClass("error") :  $(this).addClass("error");
 		});
 		//Apellido paterno
 		$("#apellido").bind("keyup blur" , function () {
-			validarCampo(/[^a-zA-Z áéíóúÁÉÍÓÚäëïöüÄËÏÖÜÑñ]/g , $(this).val()) == true ?
+			validarCampo(/[^a-zA-Z ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]/g , $(this).val()) == true ?
 			$(this).removeClass("error") :  $(this).addClass("error");
 		});	
 		//Apellido materno
 		$("#apellidoMat").bind("keyup blur" , function () {
-			validarCampo(/[^a-zA-Z áéíóúÁÉÍÓÚäëïöüÄËÏÖÜÑñ]/g , $(this).val()) == true ?
+			validarCampo(/[^a-zA-Z ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]/g , $(this).val()) == true ?
 			$(this).removeClass("error") :  $(this).addClass("error");
 		});	
 		//Nombre
 		$("#nombreFun").bind("keyup blur" , function () {
-			validarCampo(/[^a-zA-Z áéíóúÁÉÍÓÚäëïöüÄËÏÖÜÑñ]/g , $(this).val()) == true ?
+			validarCampo(/[^a-zA-Z ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]/g , $(this).val()) == true ?
 			$(this).removeClass("error") :  $(this).addClass("error");
 		});
 		//Apellido paterno funcionario
 		$("#apellidoFun").bind("keyup blur" , function () {
-			validarCampo(/[^a-zA-Z áéíóúÁÉÍÓÚäëïöüÄËÏÖÜÑñ]/g , $(this).val()) == true ?
+			validarCampo(/[^a-zA-Z ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]/g , $(this).val()) == true ?
 			$(this).removeClass("error") :  $(this).addClass("error");
 		});	
 		//Apellido Materno Funcionario
 		$("#apellidoMatFun").bind("keyup blur" , function () {
-			validarCampo(/[^a-zA-Z áéíóúÁÉÍÓÚäëïöüÄËÏÖÜÑñ]/g , $(this).val()) == true ?
+			validarCampo(/[^a-zA-Z ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]/g , $(this).val()) == true ?
 			$(this).removeClass("error") :  $(this).addClass("error");
 		});	
 		
@@ -326,7 +326,7 @@
 							 				if(esConsulta == "1"){
 												abrirVisorExpediente(idNumeroExpediente,idExpediente, numeroExpediente, parseInt(idArea));
 											}else{//No tiene permisos para visualizar el expediente
-												customAlert("Usted no es el dueño del expediente,<br> y no cuenta con permisos para consultarlo.","");
+												customAlert("Usted no es el dueï¿½o del expediente,<br> y no cuenta con permisos para consultarlo.","");
 											}	 
 						 					
 						 				}
@@ -350,7 +350,7 @@
  			   
  		}
 	
-	//Función que genera un nuevo n&uacute;mero de expediente para la UI en el mismo expediente
+	//Funciï¿½n que genera un nuevo n&uacute;mero de expediente para la UI en el mismo expediente
 		function nuevoNumeroExpediente(id){
 				
 			var idExpediente="0";
@@ -397,18 +397,18 @@
 				mensaje = mensaje + "<br /> - N&uacute;mero de expediente"
 				
 			//Nombre Fun
-			if(validarCampo(/[^a-zA-Z áéíóúÁÉÍÓÚäëïöüÄËÏÖÜÑñ]/g , $("#nombreFun").val()) == false)
+			if(validarCampo(/[^a-zA-Z ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]/g , $("#nombreFun").val()) == false)
 				mensaje = mensaje + "<br /> - Nombre del funcionario"
 			//Apellido paterno funcionario
-			if(validarCampo(/[^a-zA-Z áéíóúÁÉÍÓÚäëïöüÄËÏÖÜÑñ]/g , $("#apellidoFun").val()) == false)
+			if(validarCampo(/[^a-zA-Z ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]/g , $("#apellidoFun").val()) == false)
 				mensaje = mensaje + "<br /> - Apellido paterno del funcionario"
 			//Apellido Materno Funcionario
-			if(validarCampo(/[^a-zA-Z áéíóúÁÉÍÓÚäëïöüÄËÏÖÜÑñ]/g , $("#apellidoMatFun").val()) == false)
+			if(validarCampo(/[^a-zA-Z ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]/g , $("#apellidoMatFun").val()) == false)
 				mensaje = mensaje + "<br /> - Apellido materno del funcionario"
 				
 				if($(':radio[name=RadioGroupTipoPersona]:checked').val() == 2){
 					//Para la organizacion
-					if(validarCampo(/[^a-zA-Z áéíóúÁÉÍÓÚäëïöüÄËÏÖÜÑñ&]/g , $("#nombreOrg").val()) == false)
+					if(validarCampo(/[^a-zA-Z ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½&]/g , $("#nombreOrg").val()) == false)
 						mensaje = mensaje + "<br /> - Nombre de la organizaci&oacute;n"
 					$("#nombre").val("");
 					$("#apellido").val("");
@@ -420,20 +420,20 @@
 					
 				}else{
 					//Nombre
-					if(validarCampo(/[^a-zA-Z áéíóúÁÉÍÓÚäëïöüÄËÏÖÜÑñ]/g , $("#nombre").val()) == false)
+					if(validarCampo(/[^a-zA-Z ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]/g , $("#nombre").val()) == false)
 						mensaje = mensaje + "<br /> - Nombre del involucrado"
 					//Apellido paterno
-					if(validarCampo(/[^a-zA-Z áéíóúÁÉÍÓÚäëïöüÄËÏÖÜÑñ]/g , $("#apellido").val()) == false)
+					if(validarCampo(/[^a-zA-Z ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]/g , $("#apellido").val()) == false)
 						mensaje = mensaje + "<br /> - Apellido paterno del involucrado"
 					//Apellido materno
-					if(validarCampo(/[^a-zA-Z áéíóúÁÉÍÓÚäëïöüÄËÏÖÜÑñ]/g , $("#apellidoMat").val()) == false)
+					if(validarCampo(/[^a-zA-Z ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]/g , $("#apellidoMat").val()) == false)
 						mensaje = mensaje + "<br /> - Apellido materno del involucrado"			
 						
 					$("#nombreOrg").val("");
 					$("#nombreOrg").removeClass("error");
 
 				}
-				//Validar fecha de creación del expediente:inicio y fin
+				//Validar fecha de creaciï¿½n del expediente:inicio y fin
 				if( $("#idFechaDateLapso").val() != "" || $("#idFechaDateLapso2").val() != ""){
 					resp = validaCamposFechaConMensaje($("#idFechaDateLapso").val(), $("#idFechaDateLapso2").val());
 					if(resp != "")
@@ -503,7 +503,7 @@
 		function validaCamposCaso(){
 			if ($('#noCaso').val()==''){
 				if($('#noCaso').val()==''){
-					customAlert("Favor de ingresar un número de caso");
+					customAlert("Favor de ingresar un nï¿½mero de caso");
 					datosCorrectos=false;
 				}
 			}else {
@@ -561,7 +561,7 @@
 		function validaCamposExpedienteATP(){
 			if ($('#noExpedienteATP').val()==''){
 				if($('#noExpedienteATP').val()==''){
-					customAlert("Favor de ingresar un Número de Expediente");
+					customAlert("Favor de ingresar un Nï¿½mero de Expediente");
 					datosCorrectos=false;
 				}
 				}else {
@@ -750,7 +750,7 @@
 		
 		
 		/**
-		* Permite consultar un expediente de atención temprana administrativa
+		* Permite consultar un expediente de atenciï¿½n temprana administrativa
 		**/
 		function consultaExpedienteDeAtencionTemAdm(numeroExpediente, idNumeroExpediente) {
 			$.newWindow({id:"iframewindowRegistraDatosPersona", statusBar: true, posx:200,posy:50,width:1140,height:450,title:"Expediente:  "+numeroExpediente, type:"iframe"});

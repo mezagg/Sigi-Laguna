@@ -11,7 +11,7 @@
 		</table>	
 	</div> 
 
-
+ 
 	<!-- dialogos para las alarmas -->
 	<div id="dialog-alarm" title="Alarma ">
 		<p align="center">
@@ -50,7 +50,7 @@
 			</table>
 		</p>
 	</div>
-	<div id="dialogBlok" title="¡Su sesi&oacute;n est&aacute; a punto de caducar!">
+	<div id="dialogBlok" title="ï¿½Su sesi&oacute;n est&aacute; a punto de caducar!">
 			<p>
 				<span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 50px 0;"></span>
 				La sesi&oacute;n se cerrar&aacute; en <span id="dialog-countdown" style="font-weight:bold"></span> segundos.
