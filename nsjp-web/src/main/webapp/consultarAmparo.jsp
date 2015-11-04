@@ -1,6 +1,28 @@
-        <script type="text/javascript">
+<script type="text/javascript">
         var idNumeroExpediente='<%= request.getParameter("idNumeroExpediente")%>';
+       
+        /*
+      	*Funcion que permite averidguar si existen amparos en un expediente
+      	*/
+      	function existenAmparosEnExpediente()
+      	{
+      		var param="numeroExpediente="+numeroExpediente;
+      		$.ajax({
+      			type: 'POST',
+      			url: '<%= request.getContextPath()%>/consultarAmparosPorExpediente.do?idNumeroExpediente='+ idNumeroExpediente,
+      			data: param,
+      			dataType: 'xml',
+      			async: true,
+      			success: function(xml){
+  					if(parseInt($(xml).find('row').length) >0)
+  						$("#lblAmparos").html("Si")
+  					else
+  						$("#lblAmparos").html("No")
 
+      			}
+      		});
+      	}
+        
          function consultarAmparosPorExpediente(){
              jQuery("#gridAmparos").jqGrid({
                   url:'<%=request.getContextPath()%>'+'/consultarAmparosPorExpediente.do?idNumeroExpediente='+ idNumeroExpediente,
@@ -69,38 +91,13 @@
         	 }
             
 		}
-         
- 		
-
-      	/*
-      	*Funcion que permite averidguar si existen amparos en un expediente
-      	*/
-      	function existenAmparosEnExpediente()
-      	{
-      		var param="numeroExpediente="+numeroExpediente;
-      		$.ajax({
-      			type: 'POST',
-      			url: '<%= request.getContextPath()%>/consultarAmparosPorExpediente.do?idNumeroExpediente='+ idNumeroExpediente,
-      			data: param,
-      			dataType: 'xml',
-      			async: true,
-      			success: function(xml){
-  					if(parseInt($(xml).find('row').length) >0)
-  						$("#lblAmparos").html("Si")
-  					else
-  						$("#lblAmparos").html("No")
-
-      			}
-      		});
-      	}
-      	
+                
       	function modificaAmparo(id){
       		$.newWindow({id:"iframewindowRegistrarAmparo", statusBar: true, posx:20,posy:20,width:550,height:500,title:"Actualiza Amparo", type:"iframe", confirmarCierreVentana:true});
             $.updateWindowContent("iframewindowRegistrarAmparo",
             	'<iframe src="<%= request.getContextPath() %>/registrarAmparo.jsp?idNumeroExpediente=' + idNumeroExpediente + '&idExpedienteSoli='+ idExpediente + '&numeroGeneralCaso=' +numeroGeneralCaso+ '&idAmparo=' +id +'"    width="550" height="500" />');
-      	}
-         		
-        </script>
+      	}  		
+</script>
 
 	<table border="0" summary="Consulta informaci&oacute;n de amparos">
 	  <tr>
