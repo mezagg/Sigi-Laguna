@@ -676,5 +676,11 @@ public class DocumentoDelegateImpl implements DocumentoDelegate {
 			FuncionarioDTO funcionarioDTO) throws NSJPNegocioException {
 		return adjuntarArchivoDigitalAExpedienteService.adjuntarDocumento( documentoDTO,funcionarioDTO);
 	}
+        
+        @Override
+	public Long guardarOficioEnajenacion(DocumentoDTO documentoDTO)
+			throws NSJPNegocioException {
+		return guardarDocumentoService.guardarOficioEnajenacion(documentoDTO);
+	}
 	
 }

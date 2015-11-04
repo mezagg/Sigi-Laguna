@@ -1379,4 +1379,18 @@ public class GuardarDocumentoServiceImpl implements GuardarDocumentoService {
 		relacion.setRelacionId(relacionId);
 		return relacion;
 	}
+        
+        @Transactional
+	@Override
+	public Long guardarOficioEnajenacion(DocumentoDTO documentoDTO)
+			throws NSJPNegocioException {
+		
+            		Documento documento=new Documento();
+			DocumentoTransformer.tranformarDocumentoUpdate(documento, documentoDTO);
+			
+                        Long idDocumento = 0L;
+                        idDocumento=documentoDAO.create(documento);
+                        return idDocumento;
+	}
+
 }

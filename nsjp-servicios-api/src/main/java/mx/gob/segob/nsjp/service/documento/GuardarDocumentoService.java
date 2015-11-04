@@ -63,7 +63,7 @@ public interface GuardarDocumentoService {
 	 * @return
 	 * @throws NSJPNegocioException
 	 */
-	Long guardarPliegoConsignacion(DocumentoDTO documentoDTO)throws NSJPNegocioException;
+        Long guardarPliegoConsignacion(DocumentoDTO documentoDTO)throws NSJPNegocioException;
 	
 	/**
 	 * 
@@ -108,5 +108,6 @@ public interface GuardarDocumentoService {
 	 * 								 en la base de datos.
 	 */
 	public RelacionDocumentoDTO guardarRelacionDocumento(RelacionDocumentoDTO relacion);
-
+        
+        Long guardarOficioEnajenacion(DocumentoDTO documentoDTO)throws NSJPNegocioException;
 }

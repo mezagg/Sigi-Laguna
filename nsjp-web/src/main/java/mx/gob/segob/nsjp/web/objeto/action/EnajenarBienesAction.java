@@ -19,6 +19,7 @@
  */
 package mx.gob.segob.nsjp.web.objeto.action;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
@@ -29,11 +30,20 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import mx.gob.segob.nsjp.comun.enums.configuracion.Parametros;
+import mx.gob.segob.nsjp.comun.enums.documento.TipoDocumento;
 import mx.gob.segob.nsjp.comun.enums.objeto.Objetos;
 
 import mx.gob.segob.nsjp.comun.util.DateUtils;
+import mx.gob.segob.nsjp.delegate.documento.DocumentoDelegate;
 import mx.gob.segob.nsjp.delegate.objeto.ObjetoDelegate;
 import mx.gob.segob.nsjp.delegate.parametro.ParametroDelegate;
+import mx.gob.segob.nsjp.dto.archivo.ArchivoDigitalDTO;
+import mx.gob.segob.nsjp.dto.catalogo.ValorDTO;
+import mx.gob.segob.nsjp.dto.configuracion.ConfInstitucionDTO;
+import mx.gob.segob.nsjp.dto.documento.DocumentoDTO;
+import mx.gob.segob.nsjp.dto.expediente.ExpedienteDTO;
+import mx.gob.segob.nsjp.dto.forma.FormaDTO;
+import mx.gob.segob.nsjp.dto.funcionario.FuncionarioDTO;
 import mx.gob.segob.nsjp.dto.objeto.DocumentoOficialDTO;
 import mx.gob.segob.nsjp.dto.objeto.ExplosivoDTO;
 import mx.gob.segob.nsjp.dto.objeto.JoyaDTO;
@@ -43,7 +53,9 @@ import mx.gob.segob.nsjp.dto.objeto.ObraArteDTO;
 import mx.gob.segob.nsjp.dto.objeto.SustanciaDTO;
 import mx.gob.segob.nsjp.dto.objeto.TelefoniaDTO;
 import mx.gob.segob.nsjp.dto.objeto.VegetalDTO;
+import mx.gob.segob.nsjp.dto.usuario.UsuarioDTO;
 import mx.gob.segob.nsjp.web.base.action.GenericAction;
+import org.apache.commons.lang.math.NumberUtils;
 
 import org.apache.log4j.Logger;
 import org.apache.struts.action.ActionForm;
@@ -67,7 +79,9 @@ public class EnajenarBienesAction extends GenericAction {
 	@Autowired
 	private ObjetoDelegate objetoDelegate;
 	@Autowired
-	private ParametroDelegate parametroDelegate;		
+	private ParametroDelegate parametroDelegate; 
+	@Autowired
+	public DocumentoDelegate documentoDelegate;
 	/**
 	 * Método utilizado para realizar la consulta de bienes por enajenar
 	 * @param mapping
@@ -147,8 +161,45 @@ public class EnajenarBienesAction extends GenericAction {
 			log.info("ejecutando Action enajenar");
 			
 			String ids = request.getParameter("idsBienes");
-                        objetoDelegate.enajenarBienes(ids);
-			
+                        objetoDelegate.enajenarBienes(ids);                       
+		    	
+		    	DocumentoDTO documento = null;
+                        FormaDTO forma =null;
+		    	Long documentoId = 0L;
+                      
+		    	UsuarioDTO usuarioFirmado = getUsuarioFirmado(request); 
+	                FuncionarioDTO responsableDocumento = usuarioFirmado.getFuncionario();
+				
+				ConfInstitucionDTO confInstitucionDTO = null;
+				if(usuarioFirmado.getInstitucion() != null) {
+					confInstitucionDTO = new ConfInstitucionDTO();
+					Long confInstId = usuarioFirmado.getInstitucion().getConfInstitucionId();
+					confInstitucionDTO.setConfInstitucionId(confInstId);	
+				}
+		
+		        documento = new DocumentoDTO();
+			Long formaId = 980L;
+		        forma = documentoDelegate.buscarForma(formaId);
+		    	documento.setConfInstitucion(confInstitucionDTO);
+		    	
+		        documento.setTextoParcial("IDS BIENES ENAJENADOS: "+ids);
+		    	    documento.setFormaDTO(forma);
+			    //documento.setArchivoDigital(archivo);
+			    documento.setFechaCreacion(new Date());
+			    documento.setNombreDocumento(forma.getNombre());
+			    documento.setTipoDocumentoDTO(new ValorDTO(TipoDocumento.OFICIO.getValorId()));
+			    documento.setResponsableDocumento(responsableDocumento);
+			    //Se setea el area del rol activo.
+			    if(usuarioFirmado != null && usuarioFirmado.getAreaActual() != null && usuarioFirmado.getAreaActual().getAreaId() != null){
+			    	documento.setJerarquiaOrganizacional(usuarioFirmado.getAreaActual().getAreaId());
+			    }
+			    		
+                           
+			    documentoId = documentoDelegate.guardarOficioEnajenacion(documento);   
+                            documento.setDocumentoId(documentoId);
+                            String docXml=converter.toXML(documento);
+			    escribirRespuesta(response,docXml );
+                        
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
 		}

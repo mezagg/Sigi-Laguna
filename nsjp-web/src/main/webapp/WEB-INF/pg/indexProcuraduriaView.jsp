@@ -1334,13 +1334,16 @@
                  var settings = {
                         type: 'POST',
 	                url: '<%=request.getContextPath()%>/enajenarBienes.do?idsBienes='+result,
-                        data: '',
+                        data: 'xml',
 	  		async: false
 	  		};
 
                 $.ajax(settings).done(function(result) 
                 {
-                  consultaPorEnajenarHoy()
+                  consultaPorEnajenarHoy();
+                  var narrativa=$(result).find('textoParcial').text();
+                  $.newWindow({id:"iframewindowOficioActuaciones", statusBar: true, posx:200,posy:50,width:1140,height:400,title:"Oficio de enajenación de bienes", type:"iframe", confirmarCierreVentana:false});
+                  $.updateWindowContent("iframewindowOficioActuaciones",'<iframe src="<%=request.getContextPath()%>/consultarOficioEnajenacion.do?narrativa='+narrativa+'" width="1140" height="400" />');
                 });
                 }    
     }
