@@ -180,7 +180,7 @@ public class EnajenarBienesAction extends GenericAction {
 				}
 		
 		        documento = new DocumentoDTO();
-			Long formaId = 980L;
+			Long formaId = 978L;
 		        forma = documentoDelegate.buscarForma(formaId);
 		    	documento.setConfInstitucion(confInstitucionDTO);
 		    	String textoParcial="IDS BIENES ENAJENADOS: "+ids;
