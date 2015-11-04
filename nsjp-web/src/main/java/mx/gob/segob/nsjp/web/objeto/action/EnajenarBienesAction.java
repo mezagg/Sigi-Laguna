@@ -23,9 +23,11 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -181,8 +183,17 @@ public class EnajenarBienesAction extends GenericAction {
 			Long formaId = 980L;
 		        forma = documentoDelegate.buscarForma(formaId);
 		    	documento.setConfInstitucion(confInstitucionDTO);
-		    	
-		        documento.setTextoParcial("IDS BIENES ENAJENADOS: "+ids);
+		    	String textoParcial="IDS BIENES ENAJENADOS: "+ids;
+                        
+                         StringTokenizer st=new StringTokenizer(ids, ",");
+                         while(st.hasMoreTokens()){
+                             ObjetoDTO oDTO=new ObjetoDTO(new Long(st.nextToken()));
+                             oDTO.setConsultarArchivoDigital(Boolean.TRUE);
+                             ObjetoDTO obDTO=objetoDelegate.obtenerObjeto(oDTO);
+                             textoParcial+="\n"+obDTO.getDescripcion();
+                         }
+                         documento.setTextoParcial(textoParcial);
+                             
 		    	    documento.setFormaDTO(forma);
 			    //documento.setArchivoDigital(archivo);
 			    documento.setFechaCreacion(new Date());
