@@ -109,5 +109,5 @@ public interface GuardarDocumentoService {
 	 */
 	public RelacionDocumentoDTO guardarRelacionDocumento(RelacionDocumentoDTO relacion);
         
-        Long guardarOficioEnajenacion(DocumentoDTO documentoDTO)throws NSJPNegocioException;
+        Long guardarOficioEnajenacion(DocumentoDTO documentoDTO,String ids)throws NSJPNegocioException;
 }

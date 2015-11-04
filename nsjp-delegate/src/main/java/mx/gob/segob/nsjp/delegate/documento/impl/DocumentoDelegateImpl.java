@@ -678,9 +678,9 @@ public class DocumentoDelegateImpl implements DocumentoDelegate {
 	}
         
         @Override
-	public Long guardarOficioEnajenacion(DocumentoDTO documentoDTO)
+	public Long guardarOficioEnajenacion(DocumentoDTO documentoDTO,String ids)
 			throws NSJPNegocioException {
-		return guardarDocumentoService.guardarOficioEnajenacion(documentoDTO);
+		return guardarDocumentoService.guardarOficioEnajenacion(documentoDTO,ids);
 	}
 	
 }

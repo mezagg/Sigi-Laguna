@@ -181,5 +181,16 @@ public class ObjetoDAOImpl extends GenericDaoHibernateImpl<Objeto, Long>
         }
         return Boolean.TRUE;
     }
+    
+    public boolean asignaOficioEnajenacion(Long idDoc,List<Long> idsBienes){
+        StringBuffer query = new StringBuffer();
+        query.append(" UPDATE Objeto SET docEnajenacion.documentoId = "+idDoc+" WHERE elementoId IN (:idsBienes) ");
+        
+        int  res = super.getSession().createQuery(query.toString()).setParameterList("idsBienes", idsBienes).executeUpdate();
+        if(res == 0){
+        	return Boolean.FALSE;
+        }
+        return Boolean.TRUE;
+    }
 
 }

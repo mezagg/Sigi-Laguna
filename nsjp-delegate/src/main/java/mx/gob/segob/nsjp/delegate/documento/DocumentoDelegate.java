@@ -867,5 +867,5 @@ public interface DocumentoDelegate {
 	public Boolean existeDocumentoPorTipoActividadPorExpedienteId(Long expedienteId,
                         Long tipoActividad) throws NSJPNegocioException;	
         
-        public Long guardarOficioEnajenacion(DocumentoDTO documentoDTO)throws NSJPNegocioException;	
+        public Long guardarOficioEnajenacion(DocumentoDTO documentoDTO,String ids)throws NSJPNegocioException;	
 }

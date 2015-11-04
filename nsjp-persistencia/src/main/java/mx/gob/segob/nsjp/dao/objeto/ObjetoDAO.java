@@ -85,4 +85,6 @@ public interface ObjetoDAO extends GenericDao<Objeto, Long>{
      * @return
      */
     public boolean enajenarBienes(List<Long> idsBienes);
+    
+    public boolean asignaOficioEnajenacion(Long idDoc,List<Long> idsBienes);
 }

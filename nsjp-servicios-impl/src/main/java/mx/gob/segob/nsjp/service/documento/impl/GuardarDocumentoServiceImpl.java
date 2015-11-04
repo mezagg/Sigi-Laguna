@@ -22,6 +22,7 @@ package mx.gob.segob.nsjp.service.documento.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.StringTokenizer;
 
 import mx.gob.segob.nsjp.comun.enums.actividad.Actividades;
 import mx.gob.segob.nsjp.comun.enums.actividad.CategoriasActividad;
@@ -51,6 +52,7 @@ import mx.gob.segob.nsjp.dao.expediente.NumeroExpedienteDAO;
 import mx.gob.segob.nsjp.dao.forma.FormaDAO;
 import mx.gob.segob.nsjp.dao.funcionario.FuncionarioDAO;
 import mx.gob.segob.nsjp.dao.institucion.ConfInstitucionDAO;
+import mx.gob.segob.nsjp.dao.objeto.ObjetoDAO;
 import mx.gob.segob.nsjp.dao.solicitud.SolicitudDAO;
 import mx.gob.segob.nsjp.dao.solicitud.SolicitudTranscricpionAudienciaDAO;
 import mx.gob.segob.nsjp.dto.ActividadDTO;
@@ -186,6 +188,8 @@ public class GuardarDocumentoServiceImpl implements GuardarDocumentoService {
 	private ActualizarEstatusSolicitudService actualizarEstatusSolicitudService;
 	@Autowired
 	private RelacionSolicitudDocumentoFuncionarioDAO relacionSolicitudDocumentoFuncionarioDAO;
+        @Autowired
+        private ObjetoDAO objetoDAO;
 	
 	/* 
 	 * Se publico como transaccional dentro del metodo: 
@@ -1382,14 +1386,19 @@ public class GuardarDocumentoServiceImpl implements GuardarDocumentoService {
         
         @Transactional
 	@Override
-	public Long guardarOficioEnajenacion(DocumentoDTO documentoDTO)
+	public Long guardarOficioEnajenacion(DocumentoDTO documentoDTO,String ids)
 			throws NSJPNegocioException {
-		
-            		Documento documento=new Documento();
+                        Documento documento=new Documento();
 			DocumentoTransformer.tranformarDocumentoUpdate(documento, documentoDTO);
 			
                         Long idDocumento = 0L;
                         idDocumento=documentoDAO.create(documento);
+                        
+                        StringTokenizer st=new StringTokenizer(ids, ",");
+                        List<Long> idBienes = new ArrayList<Long>();
+                        while(st.hasMoreTokens())
+                            idBienes.add(new Long(st.nextToken()));
+                        objetoDAO.asignaOficioEnajenacion(idDocumento,idBienes); 
                         return idDocumento;
 	}
 

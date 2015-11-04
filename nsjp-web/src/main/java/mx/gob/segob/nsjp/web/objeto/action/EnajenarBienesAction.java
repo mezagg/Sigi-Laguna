@@ -195,7 +195,7 @@ public class EnajenarBienesAction extends GenericAction {
 			    }
 			    		
                            
-			    documentoId = documentoDelegate.guardarOficioEnajenacion(documento);   
+			    documentoId = documentoDelegate.guardarOficioEnajenacion(documento,ids);   
                             documento.setDocumentoId(documentoId);
                             String docXml=converter.toXML(documento);
 			    escribirRespuesta(response,docXml );
