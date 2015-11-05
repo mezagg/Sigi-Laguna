@@ -28,7 +28,7 @@
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/multiselect/jquery.multiselect.css" />
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/multiselect/style.css" />
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/multiselect/prettify.css" />
-	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/jquery.zweatherfeed.css" />	
+	<!--link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/jquery.zweatherfeed.css" /-->	 	
 		
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery-1.5.1.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/timer/jquery.idletimeout.js"></script>
@@ -43,7 +43,7 @@
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jqgrid/jquery.jqGrid.js"></script>
 	<script src="<%=request.getContextPath()%>/js/prettify.js"></script>
 	<script src="<%=request.getContextPath()%>/js/jquery.multiselect.js"></script>
-	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.zweatherfeed.js"></script>
+	<!--script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.zweatherfeed.js"></script-->
 	<script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery.blockUI.js"></script>			
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/sesion.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/comun.js?n=1"></script>
@@ -292,7 +292,7 @@
 			//carga del grid por default
 			$("#divGridSolsXAtndr").hide();
 			$('#divGridAvisosAuxilio').hide();
-			$('#test').weatherfeed(['MXDF0132']);
+			//$('#test').weatherfeed(['MXDF0132']);
 
 			//crea el arbol para traslados
 			$("#seccion6treePJENC,#apoyoFiscaliaSSPPolicia,#seccion8treePJENC,#seccion9treePJENC").treeview();

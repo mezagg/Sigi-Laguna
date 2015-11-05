@@ -17,7 +17,7 @@
 			}
 		);
 		
-		$('#test').weatherfeed(['MXDF0132']);
+		////$('#test').weatherfeed(['MXDF0132']);
 		
 		$("#accordionmenuderprincipal").accordion( "option", "icons", null );
 	});

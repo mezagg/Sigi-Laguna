@@ -252,7 +252,7 @@
 		createInnerLayout();
 
 		//$('#avisosDetencion').click();
-		$('#test').weatherfeed(['MXDF0132']);
+		//$('#test').weatherfeed(['MXDF0132']);
 
 		var ambiente='<%=((ConfiguracionDTO) request.getSession().getAttribute(GenericAction.KEY_SESSION_CONFIGURACION_GLOBAL)).getAmbiente()%>';
 		if(ambiente == undefined || ambiente == "undefined"){

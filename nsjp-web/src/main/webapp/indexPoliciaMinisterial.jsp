@@ -21,7 +21,7 @@
 	<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/jqgrid/ui.jqgrid.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/jquery.easyaccordion.css" />				
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/south-street/jquery-ui-1.8.10.custom.css" />
-	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/jquery.zweatherfeed.css" />
+	<!--link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/jquery.zweatherfeed.css" /-->	 
 	
 	<style type="text/css">
 			dd p{line-height:120%}
@@ -51,7 +51,7 @@
 	<script type="text/javascript" src="<%= request.getContextPath() %>/resources/js/jqgrid/i18n/grid.locale-es.js"></script>
 	<script type="text/javascript" src="<%= request.getContextPath() %>/resources/js/jqgrid/jquery.jqGrid.js"></script>
 	<script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery.easyAccordion.js"></script>
-	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.zweatherfeed.js"></script>
+	<!--script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.zweatherfeed.js"></script-->
 	<script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery.blockUI.js"></script>			
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/sesion.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/comun.js?n=1"></script>
@@ -229,7 +229,7 @@
 		$("#divGridAudiencias").css("display", "none");
 		//seleccionamos el renglon del grid
 		$("#expediente001").click(seleccionFila);
-		$('#test').weatherfeed(['MXDF0132']);
+		//$('#test').weatherfeed(['MXDF0132']);
 		
 		var ambiente='<%=((ConfiguracionDTO) request.getSession().getAttribute(GenericAction.KEY_SESSION_CONFIGURACION_GLOBAL)).getAmbiente()%>';
 		if(ambiente == undefined || ambiente == "undefined"){

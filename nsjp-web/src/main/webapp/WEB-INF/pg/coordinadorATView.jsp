@@ -73,7 +73,7 @@
 		 $("#gview_gridSolsGeneradas .ui-jqgrid-bdiv").css('height', '400px');
 		 $("#gview_gridSolsXAtndr .ui-jqgrid-bdiv").css('height', '400px');
 		 $("#gview_gridExpCompartidos .ui-jqgrid-bdiv").css('height', '400px');
-		 $('#test').weatherfeed(['MXDF0132']);
+		 //$('#test').weatherfeed(['MXDF0132']);
 		 	 
 		restablecerPantallas();		 
 	});
