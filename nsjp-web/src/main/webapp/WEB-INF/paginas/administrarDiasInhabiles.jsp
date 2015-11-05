@@ -67,7 +67,7 @@
 				     gridview: true, 
 				     caption: "Administracion de d&iacute;as inh&aacute;biles", 
 				     sortorder: "desc", 
-				     editurl: "http://localhost:8080/nsjp-web/administrarDiasInhabiles.jsp"
+				     editurl: "<%=request.getContextPath()%>/administrarDiasInhabiles.jsp"
 				    
 			}); 
 
