@@ -159,6 +159,16 @@ var resRad;
 		$("#btnAgregarNotaEvaluacion").click(guardaNotaEvaluacion);
                 $("#ingresarHechos").click(ingresarHechos);
                 
+                $('#tdCbxAgentesCoorUI').hide();
+		$('#tdCbxAgentesCoorUI1').hide();
+			 
+		$('#tdCbxAgentesCoorJAR').hide();
+		$('#tdCbxAgentesCoorJAR1').hide();
+                
+                $('#idAsignarAgenteMp').hide();
+		$("#idAsignarFacilitador").hide();
+		$("#idReasignarFacilitador").hide();
+                
 //		$("#cbxAccionesTabTS").change(seleccionaActuacionTrabajoSocial);
 //		$("#cbxAccionesTabJ").change(seleccionaActuacionJuridico);
                 
@@ -303,7 +313,6 @@ var resRad;
 			cargaActuaciones();
                         ocultaMuestraTabVisor("tabTabsAudiencias",0);
 		}else{
-                    console.log("acaa");
 			cargaComboFuncionariosXArea(areaId);
 		}
 		//cargaGridOpciones();
@@ -317,7 +326,7 @@ var resRad;
 		}
                 
                 
-	
+});
 
 	 function ocultaFuncionarios(){
 
@@ -2260,7 +2269,7 @@ function muestraDivInformativoCanalizacion()
                         
            
  
- });       
+     
 </script>
 <body>
     
