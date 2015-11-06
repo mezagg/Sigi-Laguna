@@ -315,7 +315,7 @@ public interface FuncionarioDAO extends GenericDao<Funcionario, Long> {
      * @param idUsuario
      * @return Funcionario
      */
-    public Funcionario consultarFuncionarioXIdUsuario(Long idUsuario);
+    public Funcionario consultarFuncionarioXIdUsuario(Long idUsuario) throws Exception;
 
     /**
      * Enable JC. Obtiene todos los subordinados de UAVD. Desarrollado para

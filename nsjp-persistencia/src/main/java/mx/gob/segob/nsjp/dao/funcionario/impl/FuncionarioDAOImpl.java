@@ -1357,7 +1357,7 @@ public class FuncionarioDAOImpl extends
     }
 
     @Override
-    public Funcionario consultarFuncionarioXIdUsuario(Long idUsuario) {
+    public Funcionario consultarFuncionarioXIdUsuario(Long idUsuario) throws Exception{
         Funcionario fun = null;
 
         try {
@@ -1372,7 +1372,7 @@ public class FuncionarioDAOImpl extends
             fun = (Funcionario) query.uniqueResult();
 
         } catch (Exception e) {
-            log.error("Error al tratar de obtener el funcionario, FuncionarioDAOImpl : consultarFuncionarioXIdUsuario ", e);
+            throw  new Exception("Error al tratar de obtener el funcionario, FuncionarioDAOImpl : consultarFuncionarioXIdUsuario" ,e);
         }
 
         return fun;
