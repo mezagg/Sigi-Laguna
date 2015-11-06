@@ -326,6 +326,19 @@ var resRad;
 		}
                 
                 
+                $("input[name='rdActuaciones']").change(function() {
+                    var sinCatuie = $(':radio[name=rdActuaciones]:checked').val();
+                    cargaActuaciones(sinCatuie);
+                });
+                
+                $("#cbxAccionesTab").delegate('a','click',function(event) {
+                    seleccionaActuacion($(this).selectable());
+                });
+                        
+                $("#cbxOficiosTab").delegate('a','click',function(event) {
+                    seleccionaActuacion($(this).selectable());
+                });
+                
 });
 
 	 function ocultaFuncionarios(){
@@ -639,13 +652,7 @@ function popopAsistencia(rowid){
 		$.updateWindowContent("iframewindowModificarProbResponsable" + idWindowIngresarProbResponsable,'<iframe src="<%= request.getContextPath() %>/IngresarProbResponsable.do?idProbableResponsable='+id +'&calidadInv=PROBABLE_RESPONSABLE&numeroExpediente='+numeroExpediente +'&detenido='+muestraDetenido+'&isUavd='+1+'" width="1100" height="530" />');			
 	}
         
-        $("#cbxAccionesTab").delegate('a','click',function(event) {
-             seleccionaActuacion($(this).selectable());
-        });
-                        
-        $("#cbxOficiosTab").delegate('a','click',function(event) {
-             seleccionaActuacion($(this).selectable());
-        });
+       
 	
 	/*
 	*Funcion que realiza la carga del combo de Actuaciones
@@ -828,10 +835,7 @@ function popopAsistencia(rowid){
 		}
 	}
             
-        $("input[name='rdActuaciones']").change(function() {
-            var sinCatuie = $(':radio[name=rdActuaciones]:checked').val();
-            cargaActuaciones(sinCatuie);
-        });
+       
         
         function validarReporte(){
             if(validaTipoExpedienteReporte !=null && (validaTipoExpedienteReporte == "1" || validaTipoExpedienteReporte==1)) {

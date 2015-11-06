@@ -915,16 +915,6 @@
 				$('#tabschild-op').hide();
 			}
 
-                        $("#cbxAccionesTab").delegate('a','click',function(event) {
-                            console.log('acciones');
-                              seleccionaActuacion($(this).selectable());
-                        });
-                        
-                        $("#cbxOficiosTab").delegate('a','click',function(event) {
-                            console.log('acciones');
-                              seleccionaActuacion($(this).selectable());
-                        });
-                
 			//cargamos el combo para las actuaciones de policia ministerial
 			$("#cbxAccionesTab9").dblclick(function(e){
 				seleccionaActuacionPolMin();
@@ -1475,10 +1465,22 @@
 			
 			consultarConclusion();
                         
+                 $("input[name='rdActuaciones']").change(function() {
+                    var sinCatuie = $(':radio[name=rdActuaciones]:checked').val();
+                    cargaActuaciones(sinCatuie);
+                });   
+                
+                $("#cbxAccionesTab").delegate('a','click',function(event) {
+                    console.log('acciones');
+                    seleccionaActuacion($(this).selectable());
+                });
                         
-                        
+                $("#cbxOficiosTab").delegate('a','click',function(event) {
+                    console.log('acciones');
+                    seleccionaActuacion($(this).selectable());
+                });
            });             
-                      
+                         
 		//Termina funcion on ready del documento
 		
 		/*
@@ -1842,10 +1844,7 @@
 		});
 	}
         
-        $("input[name='rdActuaciones']").change(function() {
-            var sinCatuie = $(':radio[name=rdActuaciones]:checked').val();
-            cargaActuaciones(sinCatuie);
-        });
+        
 	
 	/*
 	*Funcion que realiza la carga del combo de Actuaciones de policia ministerial

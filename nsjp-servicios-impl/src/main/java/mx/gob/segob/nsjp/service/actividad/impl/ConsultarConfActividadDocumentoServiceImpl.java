@@ -91,33 +91,31 @@ public class ConsultarConfActividadDocumentoServiceImpl implements
      * {@inheritDoc}
      */
     @Override
-    public List<ConfActividadDocumentoDTO> consultarConfActividadDocumento(
+     public List<ConfActividadDocumentoDTO> consultarConfActividadDocumento(
             UsuarioDTO usuarioDto, ExpedienteDTO expedienteDto, Long idCategoriaActividad)
             throws NSJPNegocioException {
-        if (usuarioDto == null || usuarioDto.getIdUsuario() == null || expedienteDto == null
-                || (expedienteDto.getNumeroExpediente() == null && expedienteDto.getNumeroExpedienteId() == null)) {
+        if(usuarioDto == null || usuarioDto.getIdUsuario() == null ||expedienteDto == null ||
+          (expedienteDto.getNumeroExpediente() == null && expedienteDto.getNumeroExpedienteId() == null)){
             throw new NSJPNegocioException(CodigoError.PARAMETROS_INSUFICIENTES);
         }
         Long jerarquiaOrgId = null;
-        Long discriminante = null;
-        Long catUIE = null;
         if (usuarioDto.getRolACtivo() != null
-                && usuarioDto.getRolACtivo().getRol() != null
-                && usuarioDto.getRolACtivo().getRol().getJerarquiaOrganizacionalDTO() != null
-                && usuarioDto.getRolACtivo().getRol().getJerarquiaOrganizacionalDTO().getJerarquiaOrganizacionalId() != null) {
-            jerarquiaOrgId = usuarioDto.getRolACtivo().getRol().getJerarquiaOrganizacionalDTO().getJerarquiaOrganizacionalId();
+        		&& usuarioDto.getRolACtivo().getRol() != null
+        		&& usuarioDto.getRolACtivo().getRol().getJerarquiaOrganizacionalDTO() != null
+        		&& usuarioDto.getRolACtivo().getRol().getJerarquiaOrganizacionalDTO().getJerarquiaOrganizacionalId() != null){
+        	jerarquiaOrgId = usuarioDto.getRolACtivo().getRol().getJerarquiaOrganizacionalDTO().getJerarquiaOrganizacionalId();        	
         }
         Usuario usuario = UsuarioTransformer.transformarDTO(usuarioDto);
         List<ConfActividadDocumentoDTO> configuracionesDto = Collections.emptyList();
-        if (usuario.getFuncionario() == null
-                || usuario.getFuncionario().getArea() == null) {
+        if(usuario.getFuncionario() == null ||
+                usuario.getFuncionario().getArea() == null){
             usuario = usuarioDao.read(usuarioDto.getIdUsuario());
         }
         NumeroExpediente numeroExpediente;
-        if (expedienteDto.getNumeroExpedienteId() != null && expedienteDto.getNumeroExpedienteId() > 0) {
-            numeroExpediente = NumeroExpedienteDAO.read(expedienteDto.getNumeroExpedienteId());
-        } else {
-            numeroExpediente = NumeroExpedienteDAO.obtenerNumeroExpediente(expedienteDto.getNumeroExpediente(), null);
+        if(expedienteDto.getNumeroExpedienteId() != null && expedienteDto.getNumeroExpedienteId() > 0){
+        	numeroExpediente = NumeroExpedienteDAO.read(expedienteDto.getNumeroExpedienteId());
+        }else{
+        	numeroExpediente = NumeroExpedienteDAO.obtenerNumeroExpediente(expedienteDto.getNumeroExpediente(),null);
         }
         
         if (numeroExpediente == null) {
@@ -128,25 +126,18 @@ public class ConsultarConfActividadDocumentoServiceImpl implements
             throw new NSJPNegocioException(CodigoError.PARAMETROS_INSUFICIENTES);
         }
         Funcionario funcionario = usuario.getFuncionario();
-        if (jerarquiaOrgId == null) {
-            jerarquiaOrgId = funcionario.getArea().getJerarquiaOrganizacionalId();
+        if (jerarquiaOrgId == null){
+        	jerarquiaOrgId = funcionario.getArea().getJerarquiaOrganizacionalId();
         }
-        discriminante = funcionario.getDiscriminante().getCatDiscriminanteId();
-        if (discriminante != null) {
-            catUIE = confActividadDocumentoDao.consultarCatUieIdFuncionario(discriminante);
-            logger.info("EL CATUIE DEL USUARIO ES: " + catUIE);
-        }
-        List<ConfActividadDocumento> configuraciones = null;
-        if (catUIE != null) {
-//            configuraciones = confActividadDocumentoDao.consultarConfActividadDocumentoCatUie(jerarquiaOrgId, numeroExpediente, idCategoriaActividad, catUIE);
-        } else {
-            configuraciones = confActividadDocumentoDao.consultarConfActividadDocumento(jerarquiaOrgId, numeroExpediente, idCategoriaActividad);
-        }
-        if (configuraciones != null & !configuraciones.isEmpty()) {
+        List<ConfActividadDocumento> configuraciones =
+                confActividadDocumentoDao.
+                consultarConfActividadDocumento(
+                jerarquiaOrgId, numeroExpediente, idCategoriaActividad);
+        if(!configuraciones.isEmpty()){
             configuracionesDto = new LinkedList<ConfActividadDocumentoDTO>();
             for (ConfActividadDocumento confActividadDocumento : configuraciones) {
-                ConfActividadDocumentoDTO configuracionDto
-                        = ConfActividadDocumentoTransformer.
+                ConfActividadDocumentoDTO configuracionDto =
+                        ConfActividadDocumentoTransformer.
                         transformarConfActividadDocumento(confActividadDocumento);
                 configuracionesDto.add(configuracionDto);
             }
