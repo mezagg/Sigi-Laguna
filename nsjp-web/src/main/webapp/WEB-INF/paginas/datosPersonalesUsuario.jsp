@@ -20,7 +20,7 @@
 	    </tr>
 	    <tr>
 			<td height="10%" align="center">
-				<input align="middle" id="txtNombreUsuario" type="text" class="transpa" style="width:100%; border:0;  text-align:center" readonly="readonly"/>
+                            <span id="txtNombreUsuario" ></span>	
 			</td>
 	    </tr>
 	    <tr>
@@ -30,7 +30,7 @@
 	    </tr>
 	    <tr>
 			<td height="10%">
-				<input align="middle" id="txtAreaUsuario" type="text" class="transpa" style="width:100%; border: 0;  text-align:center" readonly="readonly"/>
+                            <span id="txtAreaUsuario" ></span>		
 			</td>
 	    </tr>
 	     <tr id="trTituloAgencia">
@@ -40,9 +40,13 @@
 	    </tr>
 	    <tr id="trContenidoAgencia">
 			<td height="10%">
-				<input align="middle" id="txtAgenciaUsuario" type="text" class="transpa" style="width:100%; border: 0;  text-align:center" readonly="readonly"/>
-			</td>
+                            <span id="txtAgenciaUsuario" ></span>	
+                           </td>
 	    </tr>
+           
+	    <tr>
+                <td height="10" align="center">&nbsp;</td>
+             </tr>    
 	    <tr>
 	    	<td height="10%" align="center">
 				<a href="javascript:abreVentanaModificarContrasena();">Cambiar Contrase&ntilde;a</a>
@@ -98,8 +102,8 @@
 				}
 			}
 		});
-		$('#txtNombreUsuario').val(nombreFuncionario+" "+apaterFuncionario+" "+amaterFuncionario);
-		$('#txtAreaUsuario').val(areaFuncionario);
+		$('#txtNombreUsuario').append(nombreFuncionario+" "+apaterFuncionario+" "+amaterFuncionario);
+		$('#txtAreaUsuario').append(areaFuncionario);
 		$.ajax({
 		     type: 'POST',
 		     url: '<%=request.getContextPath()%>/obtenerNombreAgencia.do',
@@ -111,7 +115,8 @@
 					 
 					 if(parseInt($(xml).find('idInstitucion').text())==1 || parseInt($(xml).find('idInstitucion').text())==3)
 					 {
-					    $('#txtAgenciaUsuario').val($(xml).find('nombreAgencia').text());
+					   // $('#txtAgenciaUsuario').val($(xml).find('nombreAgencia').text());
+                                           $('#txtAgenciaUsuario').append($(xml).find('nombreAgencia').text());
 					 }
 					 else
 					 {

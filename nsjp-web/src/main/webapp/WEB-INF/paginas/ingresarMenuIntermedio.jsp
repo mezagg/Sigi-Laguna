@@ -932,7 +932,6 @@
 			
 			//llenamos los combos de UI e IE de la pestaña de Acciones
 			cargaInstitucionesExternas();
-			cargaUnidadesInvestigacion();
 			mostraDivGenerarOficioCanalizacion(0);
 			
 			$("#btnGenerarAcciones").click(muestraDivInformativoCanalizacion);
@@ -3595,34 +3594,8 @@
 		    $.updateWindowContent("iframewindowGenerarDocumento"+idWindowPantallaActuaciones,'<iframe src="<%= request.getContextPath() %>/generarDocumentoSinCaso.do?idWindowPantallaActuaciones='+idWindowPantallaActuaciones+'" width="1140" height="400" />');
 		}
 		
-		function cargaUnidadesInvestigacion(){
-			$.ajax({
-		    	type: 'POST',
-		    	url: '<%= request.getContextPath()%>/consultarUnidadesEspecializadas.do',
-		    	data: '',
-		    	dataType: 'xml',
-		    	async: true,
-		    	success: function(xml){
-		    		$('#cbxCanalizaAUI').empty();
-		    		$('#cbxCanalizaAUI').append('<option value="-1" selected="selected">-Seleccione-</option>');
-		    		$(xml).find('departamentos').each(function(){
-						$('#cbxCanalizaAUI').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
-					});
-		    		
-					$("#cbxCanalizaAUI").multiselect({ 
-						multiple: false, 
-						header: "Seleccione", 
-						position: { 
-							my: 'top', 
-							at: 'top' 
-						},
-						selectedList: 1 
-					});
-					
-		    	}
-		    	});
-		}
 		
+                
 		function cargaInstitucionesExternas(){
                         $.ajax({
 		    	type: 'POST',
