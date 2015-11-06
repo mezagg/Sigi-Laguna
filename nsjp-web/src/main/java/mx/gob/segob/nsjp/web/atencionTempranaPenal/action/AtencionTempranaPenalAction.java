@@ -1558,10 +1558,18 @@ public class AtencionTempranaPenalAction extends GenericAction {
             log.info("ACA ESTA !sinCatuie" + sinCatuie);
             if (idCategoria == null) {
                 log.debug("ENTRA A ID DE LA CATEGORIA NULA:::::::idCategoria=" + idCategoria);
-                listActividadDocumentoDTOs = confActividadDocumentoDelegate.consultarConfActividadDocumento(usuario, expedienteDto, null, "0".equals(sinCatuie));
+                if (sinCatuie != null) {
+                     listActividadDocumentoDTOs = confActividadDocumentoDelegate.consultarConfActividadDocumento(usuario, expedienteDto, null, "0".equals(sinCatuie));
+                }else{
+                    listActividadDocumentoDTOs=confActividadDocumentoDelegate.consultarConfActividadDocumento(usuario, expedienteDto, null);
+                }
             } else {
                 log.debug("ENTRA A ID DE LA CATEGORIA NO NULA::::idCategoria=" + idCategoria);
-                listActividadDocumentoDTOs = confActividadDocumentoDelegate.consultarConfActividadDocumento(usuario, expedienteDto, Long.parseLong(idCategoria), "0".equals(sinCatuie));
+                if (sinCatuie != null) {
+                     listActividadDocumentoDTOs = confActividadDocumentoDelegate.consultarConfActividadDocumento(usuario, expedienteDto, Long.parseLong(idCategoria), "0".equals(sinCatuie));
+                }else{
+                    listActividadDocumentoDTOs=confActividadDocumentoDelegate.consultarConfActividadDocumento(usuario, expedienteDto, Long.parseLong(idCategoria)); 
+                } 
             }
 
 //            log.info("USUARIO rol: " + usuario.getRolACtivo().getRol().getRolId());
@@ -1579,11 +1587,16 @@ public class AtencionTempranaPenalAction extends GenericAction {
                             catalogo.setClave(confActividadDocumentoDTO.getConfActividadDocumentoId());
                             catalogo.setValor(confActividadDocumentoDTO.getNombreActividad());
                             //El tipo documento con id 86 es de tipo oficio
-                            if (confActividadDocumentoDTO.getTipoDocumentoId().toString().equals("89")) {
-                                listaOficio.add(catalogo);
+                            if (sinCatuie != null) {
+                                if (confActividadDocumentoDTO.getTipoDocumentoId().toString().equals("89")) {
+                                    listaOficio.add(catalogo);
+                                } else {
+                                    listaCatalogo.add(catalogo);
+                                }
                             } else {
                                 listaCatalogo.add(catalogo);
                             }
+
                             log.debug("ejecutando MetodoAction cargarActuaciones actuaciones de BD:" + confActividadDocumentoDTO.getNombreActividad());
                         }
                     }
@@ -1594,23 +1607,34 @@ public class AtencionTempranaPenalAction extends GenericAction {
                     CatalogoDTO catalogo = new CatalogoDTO();
                     catalogo.setClave(confActividadDocumentoDTO.getConfActividadDocumentoId());
                     catalogo.setValor(confActividadDocumentoDTO.getNombreActividad());
-                    if (confActividadDocumentoDTO.getTipoDocumentoId().toString().equals("89")) {
-                        listaOficio.add(catalogo);
+                    if (sinCatuie != null) {
+                        if (confActividadDocumentoDTO.getTipoDocumentoId().toString().equals("89")) {
+                            listaOficio.add(catalogo);
+                        } else {
+                            listaCatalogo.add(catalogo);
+                        }
                     } else {
                         listaCatalogo.add(catalogo);
                     }
+
                     log.debug("ejecutando MetodoAction cargarActuaciones actuaciones de BD:" + confActividadDocumentoDTO.getNombreActividad());
                 }
             }
-            //Fin
 
-            listas.put("listaOficios", listaOficio);
-            listas.put("listaActuaciones", listaCatalogo);
-//            converter.alias("listaCatalogo", java.util.List.class);
-            converter.alias("listas", java.util.List.class);
-            converter.alias("catActuaciones", CatalogoDTO.class);
-//            String xml = converter.toXML(listaOficio);
-            String xml = converter.toXML(listas);
+            String xml = null;
+            //Fin
+            if (sinCatuie != null) {
+                listas.put("listaOficios", listaOficio);
+                listas.put("listaActuaciones", listaCatalogo);
+                converter.alias("listas", java.util.List.class);
+                converter.alias("catActuaciones", CatalogoDTO.class);
+                xml = converter.toXML(listas);
+            } else {
+                converter.alias("listaCatalogo", java.util.List.class);
+		converter.alias("catActuaciones", CatalogoDTO.class);
+		xml = converter.toXML(listaCatalogo);
+            }
+
             log.info("ESTE ES EL XML:");
             log.info(xml);
             response.setContentType("text/xml");
