@@ -30,103 +30,69 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional
 public class RegistrarDetencionPersonaServiceImpl implements
-		RegistrarDetencionPersonaService {
+        RegistrarDetencionPersonaService {
 
-	@Autowired
-	private DetencionDAO detencionDAO;
-	@Autowired
-	private IngresarIndividuoService ingresarIndividuoService;
-	@Autowired
-	private IngresarLugarService ingresarLugarService;
-	@Autowired
-	private AsignarNumeroExpedienteService asignarNumeroExpedienteService;
-	@Autowired
-	private DefensoriaClienteService defensoriaClienteService;
-	@Autowired
-	private InvolucradoDAO invoDao;
-	@Autowired
-	private IngresarDomicilioService ingresarDomService;
-	
-	@SuppressWarnings("unused")
-	public Long registrarDetencionPersonaService(DetencionDTO detencion,
-			CasoDTO caso) throws NSJPNegocioException {
+    @Autowired
+    private DetencionDAO detencionDAO;
+    @Autowired
+    private IngresarIndividuoService ingresarIndividuoService;
+    @Autowired
+    private IngresarLugarService ingresarLugarService;
+    @Autowired
+    private AsignarNumeroExpedienteService asignarNumeroExpedienteService;
+    @Autowired
+    private DefensoriaClienteService defensoriaClienteService;
+    @Autowired
+    private InvolucradoDAO invoDao;
+    @Autowired
+    private IngresarDomicilioService ingresarDomService;
 
-		ExpedienteDTO expedienteDTO = new ExpedienteDTO();
-		expedienteDTO.setFechaApertura(Calendar.getInstance().getTime());
-		expedienteDTO.setCasoDTO(caso);
-		expedienteDTO = asignarNumeroExpedienteService
-				.asignarNumeroExpediente(expedienteDTO);
+    public DetencionDTO recibirDetenido(DetencionDTO detencion, CasoDTO caso)
+            throws NSJPNegocioException {
 
-		detencion.getInvolucradoDTO().setExpedienteDTO(expedienteDTO);
-		Long idIndividuo = ingresarIndividuoService.ingresarIndividuo(detencion
-				.getInvolucradoDTO());
-		detencion.getInvolucradoDTO().setElementoId(idIndividuo);
+        if (detencion.getInvolucradoDTO().getElementoId() != null) {
+            ExpedienteDTO expedienteDTO = new ExpedienteDTO();
+            expedienteDTO.setFechaApertura(Calendar.getInstance().getTime());
+            expedienteDTO.setCasoDTO(caso);
+            expedienteDTO = asignarNumeroExpedienteService.asignarNumeroExpediente(expedienteDTO);
+            detencion.getInvolucradoDTO().setExpedienteDTO(expedienteDTO);
 
-		if (false /* aqui se valida el IPH */) {
-			// se da de alta el iph
-		} else {
-			if (detencion.getLugarDetencionDTO() != null) {
-				LugarDTO lugar = ingresarLugarService.ingresarLugar(detencion
-						.getLugarDetencionDTO());
-				detencion.setLugarDetencionDTO(lugar);
-			} else {
+            Long idIndividuo = ingresarIndividuoService.ingresarIndividuo(detencion.getInvolucradoDTO());
+            detencion.getInvolucradoDTO().setElementoId(idIndividuo);
+        } else {
 
-			}
-		}
-		Long idDetencion = detencionDAO.create(DetencionTransformer
-				.transformarDetencion(detencion));
-		defensoriaClienteService.enviarAvisoDetencion(detencion, null, caso,null,null,null);
+        }
 
-		return idDetencion;
-	}
+        if (detencion.getLugarDetencionDTO() != null) {
+            LugarDTO lugar = ingresarLugarService.ingresarLugar(detencion.getLugarDetencionDTO());
+            detencion.setLugarDetencionDTO(lugar);
+        } else {
 
-	public DetencionDTO recibirDetenido(DetencionDTO detencion, CasoDTO caso)
-			throws NSJPNegocioException {
+        }
 
-		if(detencion.getInvolucradoDTO().getElementoId() != null){
-			ExpedienteDTO expedienteDTO = new ExpedienteDTO();
-			expedienteDTO.setFechaApertura(Calendar.getInstance().getTime());
-			expedienteDTO.setCasoDTO(caso);
-			expedienteDTO = asignarNumeroExpedienteService.asignarNumeroExpediente(expedienteDTO);
-			detencion.getInvolucradoDTO().setExpedienteDTO(expedienteDTO);
-			
-			Long idIndividuo = ingresarIndividuoService.ingresarIndividuo(detencion.getInvolucradoDTO());
-			detencion.getInvolucradoDTO().setElementoId(idIndividuo);
-		}else{
-			
-		}
+        Long idDetencion = detencionDAO.create(DetencionTransformer.transformarDetencion(detencion));
 
-		if (detencion.getLugarDetencionDTO() != null) {
-			LugarDTO lugar = ingresarLugarService.ingresarLugar(detencion.getLugarDetencionDTO());
-			detencion.setLugarDetencionDTO(lugar);
-		} else {
+        defensoriaClienteService.enviarAvisoDetencion(detencion, null, caso, null, null, null);
 
-		}
-
-		Long idDetencion = detencionDAO.create(DetencionTransformer.transformarDetencion(detencion));
-
-		
-		defensoriaClienteService.enviarAvisoDetencion(detencion, null, caso,null,null,null);
-
-		return 	DetencionTransformer.transformarDetencion(detencionDAO.read(idDetencion));
-	}
+        return DetencionTransformer.transformarDetencion(detencionDAO.read(idDetencion));
+    }
 
     @Override
     public void eliminarInvolucrado(InvolucradoDTO invo2Del)
             throws NSJPNegocioException {
-        if (invo2Del.getElementoId()==null) {
+        if (invo2Del.getElementoId() == null) {
             throw new NSJPNegocioException(CodigoError.PARAMETROS_INSUFICIENTES);
         }
-       Involucrado invoPojo = this.invoDao.read(invo2Del.getElementoId());
-       invoPojo.setEsActivo(Boolean.FALSE);
-       this.invoDao.update(invoPojo);
-        
+        Involucrado invoPojo = this.invoDao.read(invo2Del.getElementoId());
+        invoPojo.setEsActivo(Boolean.FALSE);
+        this.invoDao.update(invoPojo);
+
     }
 
     @Override
     public Long registrarLugarDetencion(DetencionDTO detencion)
             throws NSJPNegocioException {
-        
+
         Detencion detFromBD = this.detencionDAO.read(detencion.getDetencionId());
         Long idLugar = null;
         if (detencion.getLugarDetencionDTO() instanceof DomicilioDTO) {
@@ -139,20 +105,21 @@ public class RegistrarDetencionPersonaServiceImpl implements
         return idLugar;
     }
 
-    
     /**
-     * M&eacute;todo que lleva a cabo el registro de una nueva detenci&oacute;n dentro de la
-     * base de datos.
-     * @param detencion - El DTO con la informaci&oacute;n que se va a persistir dentro de la BD.
-     * @return detencion - La detenci&oacute;n enviada como par&aacute;metro con su identificador de 
-     * 					   BD asignado.
+     * M&eacute;todo que lleva a cabo el registro de una nueva detenci&oacute;n
+     * dentro de la base de datos.
+     *
+     * @param detencion - El DTO con la informaci&oacute;n que se va a persistir
+     * dentro de la BD.
+     * @return detencion - La detenci&oacute;n enviada como par&aacute;metro con
+     * su identificador de BD asignado.
      */
     @Override
-    public DetencionDTO registrarDetencion(DetencionDTO detencion){
-    	
-    	Long idDetencion = detencionDAO.create(DetencionTransformer.transformarDetencion(detencion));
-    	detencion.setDetencionId(idDetencion);
-    	return detencion;
-    	
+    public DetencionDTO registrarDetencion(DetencionDTO detencion) {
+
+        Long idDetencion = detencionDAO.create(DetencionTransformer.transformarDetencion(detencion));
+        detencion.setDetencionId(idDetencion);
+        return detencion;
+
     }
 }
