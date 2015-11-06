@@ -213,5 +213,10 @@ public enum Parametros {
     SUBJECT_EMAIL_CON_RES_AUD,
     CONTENT_EMAIL_CON_RES_AUD,
     SUBJECT_EMAIL_SOLICITUD_AUD,
-    CONTENT_EMAIL_SOLICITUD_AUD;
+    CONTENT_EMAIL_SOLICITUD_AUD,
+    
+    /**
+     * Valor para obtener el número de días necesarios para enajenar un bien asegurado
+     */
+    DIAS_PARA_ENAJENAR;
 }

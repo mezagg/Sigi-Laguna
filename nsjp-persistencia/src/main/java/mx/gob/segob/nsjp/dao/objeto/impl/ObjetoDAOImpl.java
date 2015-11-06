@@ -19,9 +19,13 @@
  */
 package mx.gob.segob.nsjp.dao.objeto.impl;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import mx.gob.segob.nsjp.comun.enums.relacion.Relaciones;
+import mx.gob.segob.nsjp.comun.util.DateUtils;
 import mx.gob.segob.nsjp.comun.util.tl.PaginacionThreadHolder;
 import mx.gob.segob.nsjp.dao.base.impl.GenericDaoHibernateImpl;
 import mx.gob.segob.nsjp.dao.objeto.ObjetoDAO;
@@ -147,6 +151,46 @@ public class ObjetoDAOImpl extends GenericDaoHibernateImpl<Objeto, Long>
 		idTotalEslabones = (Long) query.uniqueResult();
 		
 		return (idTotalEslabones != null && idTotalEslabones >0 ? true: false);
+    }
+    
+    @Override
+    public List<Objeto> consultarBienesPorEnajenar(Date fecha,Integer diasParaEnajenar) {
+        SimpleDateFormat formato= new SimpleDateFormat("yyyyMMdd");
+        Calendar c=Calendar.getInstance();
+        c.setTime(fecha);
+        DateUtils.sumarDias(c, diasParaEnajenar*-1);
+        
+        final StringBuffer queryString = new StringBuffer();
+        queryString.append("from Objeto o WHERE o.enajenado = 0 and o.expediente.expedienteId is not null ")
+                .append("AND CONVERT (nvarchar, o.fechaCreacionElemento, 112) <= :fechaParaEnajenar");
+                
+        logger.debug("queryString :: " + queryString);
+        Query query = super.getSession().createQuery(queryString.toString());
+	query.setParameter("fechaParaEnajenar", formato.format(c.getTime()));
+        return query.setMaxResults(100).list();
+    }
+    
+    @Override
+    public boolean enajenarBienes(List<Long> idsBienes){
+        StringBuffer query = new StringBuffer();
+        query.append(" UPDATE Objeto SET enajenado = 1 WHERE elementoId IN (:idsBienes) ");
+        
+        int  res = super.getSession().createQuery(query.toString()).setParameterList("idsBienes", idsBienes).executeUpdate();
+        if(res == 0){
+        	return Boolean.FALSE;
+        }
+        return Boolean.TRUE;
+    }
+    
+    public boolean asignaOficioEnajenacion(Long idDoc,List<Long> idsBienes){
+        StringBuffer query = new StringBuffer();
+        query.append(" UPDATE Objeto SET docEnajenacion.documentoId = "+idDoc+" WHERE elementoId IN (:idsBienes) ");
+        
+        int  res = super.getSession().createQuery(query.toString()).setParameterList("idsBienes", idsBienes).executeUpdate();
+        if(res == 0){
+        	return Boolean.FALSE;
+        }
+        return Boolean.TRUE;
     }
 
 }
