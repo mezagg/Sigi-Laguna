@@ -56,7 +56,7 @@
 	
 	<!--Hojas de estilos para los componentes UI de Jquery-->
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css"/>
-	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/ui-lightness/jquery-ui-1.8.11.custom.css" />	
+	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/south-street/jquery-ui-1.8.10.custom.css" />	
 	
 	<!--Hoja de estilos para el grid-->
 	<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/jqgrid/ui.jqgrid.css" />
@@ -922,7 +922,6 @@
 			
 			//llenamos los combos de UI e IE de la pestaña de Acciones
 			cargaInstitucionesExternas();
-			cargaUnidadesInvestigacion();
 			mostraDivGenerarOficioCanalizacion(0);
 			
 			$("#btnGenerarAcciones").click(muestraDivInformativoCanalizacion);
@@ -3594,34 +3593,8 @@
 		    $.updateWindowContent("iframewindowGenerarDocumento"+idWindowPantallaActuaciones,'<iframe src="<%= request.getContextPath() %>/generarDocumentoSinCaso.do?idWindowPantallaActuaciones='+idWindowPantallaActuaciones+'" width="1140" height="400" />');
 		}
 		
-		function cargaUnidadesInvestigacion(){
-			$.ajax({
-		    	type: 'POST',
-		    	url: '<%= request.getContextPath()%>/consultarUnidadesEspecializadas.do',
-		    	data: '',
-		    	dataType: 'xml',
-		    	async: true,
-		    	success: function(xml){
-		    		$('#cbxCanalizaAUI').empty();
-		    		$('#cbxCanalizaAUI').append('<option value="-1" selected="selected">-Seleccione-</option>');
-		    		$(xml).find('departamentos').each(function(){
-						$('#cbxCanalizaAUI').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
-					});
-		    		
-					$("#cbxCanalizaAUI").multiselect({ 
-						multiple: false, 
-						header: "Seleccione", 
-						position: { 
-							my: 'top', 
-							at: 'top' 
-						},
-						selectedList: 1 
-					});
-					
-		    	}
-		    	});
-		}
 		
+                
 		function cargaInstitucionesExternas(){
                         $.ajax({
 		    	type: 'POST',

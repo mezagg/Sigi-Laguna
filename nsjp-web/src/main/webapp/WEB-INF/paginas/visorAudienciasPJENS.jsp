@@ -2741,7 +2741,7 @@
 			scrollrows : true,
 			viewrecords: true,
 			sortorder: "desc",
-			editurl: "http://localhost:8080/nsjp-web/encargadoSala.jsp",
+			editurl: "<%=request.getContextPath()%>/encargadoSala.jsp",
 			loadComplete: function(){				
 				var registros =jQuery("#gridAudienciasResolutivosPJENS").jqGrid('getDataIDs'); 
 				var total = registros.length;

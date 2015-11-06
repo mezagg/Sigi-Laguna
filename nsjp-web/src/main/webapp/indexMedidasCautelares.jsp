@@ -277,7 +277,7 @@ body,td,th {
 
         //cargaGrid(<%=mx.gob.segob.nsjp.comun.enums.documento.EstatusMedida.NO_ATENDIDA.getValorId()%>);
 
-        $('#test').weatherfeed(['MXDF0132']);
+        //$('#test').weatherfeed(['MXDF0132']);
         
       //llenamos el grid de incumplidas del dia anterior
 			

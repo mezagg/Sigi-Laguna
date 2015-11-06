@@ -248,7 +248,7 @@
 		$("#divGridMandamientosJudiciales").hide();
 		$("#divGridMedidasCautelares").hide();
 		
-		$('#test').weatherfeed(['MXDF0132']);
+		//$('#test').weatherfeed(['MXDF0132']);
 				
 		restablecerPantallas();		
 		

@@ -221,7 +221,7 @@
 		// BIND layout events to close-buttons to make them functional
 		outerLayout.addCloseBtn("#west-closer", "west");
 		outerLayout.addCloseBtn("#east-closer", "east");
-		$('#test').weatherfeed(['MXDF0132']);
+		//$('#test').weatherfeed(['MXDF0132']);
 		createInnerLayout ();
 					
 		var ambiente='<%=((ConfiguracionDTO) request.getSession().getAttribute(GenericAction.KEY_SESSION_CONFIGURACION_GLOBAL)).getAmbiente()%>';

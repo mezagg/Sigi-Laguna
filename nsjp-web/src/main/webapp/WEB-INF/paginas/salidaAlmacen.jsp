@@ -40,7 +40,7 @@
 
             <script type="text/javascript">
 
-                var CONTEXT_ROOT = '/<%= request.getContextPath()%>'; //nsjp-web
+                var CONTEXT_ROOT = '<%= request.getContextPath()%>'; //nsjp-web
                 var idExpediente ="";
 
                 var reloadGrid=false;

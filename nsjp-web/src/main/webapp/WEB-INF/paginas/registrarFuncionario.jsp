@@ -107,7 +107,7 @@
 			cargaRegiones();
 			cargaPuestos();
 			cargaTipoEspecialidad();
-			cargaFuncionarios();				
+			//cargaFuncionarios();				
 			$("#idFechaDate").attr("disabled","disabled");
 			$("#idFechaIngreso").hide();
 			$("#fechaIngresoFuncionario").hide();		
@@ -139,7 +139,7 @@
 			cargaRegiones();
 			cargaPuestos();
 			cargaTipoEspecialidad();
-			cargaFuncionarios();				
+			//cargaFuncionarios();				
 			$("#idFechaDate").attr("disabled","disabled");
 			$("#idFechaIngreso").hide();
 			$("#fechaIngresoFuncionario").hide();		
@@ -183,7 +183,7 @@
 			cargaRegiones();
 			cargaPuestos();
 			cargaTipoEspecialidad();
-			cargaFuncionarios();
+			//cargaFuncionarios();
 			//Funciones agregadas para UIE
 			$("#cbxAreasDeNegocio").change(controlComboUIE);
 			$("#idFechaDate").attr("disabled","disabled");

@@ -266,7 +266,7 @@ public class IngresarIndividuoServiceImpl implements IngresarIndividuoService {
 				involucrado.setSituacionJuridica(new Valor(
 						SituacionJuridica.INDICIADO.getValorId()));
 		}else{
-			Valor situacionJuridica = valorDAO.read(new Long(situacionJuridicaDTO.getValor()));
+			Valor situacionJuridica = valorDAO.read(new Long(situacionJuridicaDTO.getIdCampo()));
 			involucrado.setSituacionJuridica(situacionJuridica);
 		}
 
