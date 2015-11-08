@@ -19,14 +19,14 @@
  */
 package mx.gob.segob.nsjp.web.objeto.action;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpServletRequest;
@@ -36,7 +36,9 @@ import mx.gob.segob.nsjp.comun.enums.documento.TipoDocumento;
 import mx.gob.segob.nsjp.comun.enums.objeto.Objetos;
 
 import mx.gob.segob.nsjp.comun.util.DateUtils;
+import mx.gob.segob.nsjp.comun.util.HTMLUtils;
 import mx.gob.segob.nsjp.delegate.documento.DocumentoDelegate;
+import mx.gob.segob.nsjp.delegate.fecha.ObtenerFechaActualDelegate;
 import mx.gob.segob.nsjp.delegate.objeto.ObjetoDelegate;
 import mx.gob.segob.nsjp.delegate.parametro.ParametroDelegate;
 import mx.gob.segob.nsjp.dto.archivo.ArchivoDigitalDTO;
@@ -57,7 +59,6 @@ import mx.gob.segob.nsjp.dto.objeto.TelefoniaDTO;
 import mx.gob.segob.nsjp.dto.objeto.VegetalDTO;
 import mx.gob.segob.nsjp.dto.usuario.UsuarioDTO;
 import mx.gob.segob.nsjp.web.base.action.GenericAction;
-import org.apache.commons.lang.math.NumberUtils;
 
 import org.apache.log4j.Logger;
 import org.apache.struts.action.ActionForm;
@@ -84,6 +85,9 @@ public class EnajenarBienesAction extends GenericAction {
 	private ParametroDelegate parametroDelegate; 
 	@Autowired
 	public DocumentoDelegate documentoDelegate;
+        @Autowired
+	public ObtenerFechaActualDelegate obFechaDelegate;
+        
 	/**
 	 * Método utilizado para realizar la consulta de bienes por enajenar
 	 * @param mapping
@@ -180,18 +184,29 @@ public class EnajenarBienesAction extends GenericAction {
 				}
 		
 		        documento = new DocumentoDTO();
-			Long formaId = 980L;
+			Long formaId = 982L;
 		        forma = documentoDelegate.buscarForma(formaId);
 		    	documento.setConfInstitucion(confInstitucionDTO);
-		    	String textoParcial="IDS BIENES ENAJENADOS: "+ids;
-                        
+		    	
+                        String listaBienes="<ul>";
                          StringTokenizer st=new StringTokenizer(ids, ",");
                          while(st.hasMoreTokens()){
                              ObjetoDTO oDTO=new ObjetoDTO(new Long(st.nextToken()));
                              oDTO.setConsultarArchivoDigital(Boolean.TRUE);
                              ObjetoDTO obDTO=objetoDelegate.obtenerObjeto(oDTO);
-                             textoParcial+="\n"+obDTO.getDescripcion();
+                             listaBienes+="<li>"+obDTO.getDescripcion()+"</li>";
                          }
+                         listaBienes+="</ul>";
+                         Map<String,Object> parametrosExtra = new HashMap<String,Object> ();
+                         parametrosExtra.put("listaObjetos", listaBienes);
+                         Calendar f=Calendar.getInstance();
+                         int hora=f.get(Calendar.HOUR_OF_DAY);
+                         int min=f.get(Calendar.MINUTE);
+                         String horaDia=hora+":";
+                         String minDia=min<10?"0"+min:""+min;
+                         parametrosExtra.put("horaActual", horaDia+minDia);
+                         parametrosExtra.put("fechaActual", obFechaDelegate.obtenerFechaActual());
+                         String textoParcial=HTMLUtils.reemplazarParametrosExtra(forma.getCuerpo(), parametrosExtra);
                          documento.setTextoParcial(textoParcial);
                              
 		    	    documento.setFormaDTO(forma);

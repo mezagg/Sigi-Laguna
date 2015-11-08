@@ -215,7 +215,7 @@ var config = {
 			//height:'355.6mm',
 			//width:'215.9mm'
 	};			
-	$("#editor1").val('<%= request.getParameter("narrativa")%>');
+	$("#editor1").val(window.parent.narrativa);
 	
 	
 	//cargaTiposNarrativa();
