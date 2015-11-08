@@ -118,4 +118,12 @@ SELECT Valor_id,
 	<br />
 	&nbsp;</p>'
 FROM VALOR
-WHERE cValor='Oficio' and CampoCatalogo_id=68
+WHERE cValor='Oficio' and CampoCatalogo_id=68;
+
+--Para determinar el valor de forma_id en el metodo enajenarBienes de la clase EnajenarBienesAction, Long formaId = xyzL;
+select Valor_id
+from Valor
+WHERE cValor='Oficio' and CampoCatalogo_id=68;
+
+select Forma_Id from forma
+where TipoForma_val = 1611 and cDescForma like 'Oficio enaje%';
