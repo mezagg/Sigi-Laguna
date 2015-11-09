@@ -17,6 +17,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
  * Usuario entity. @author MyEclipse Persistence Tools
@@ -25,6 +27,8 @@ import javax.persistence.UniqueConstraint;
 @Table(name = "Usuario", uniqueConstraints = {
 		@UniqueConstraint(columnNames = "iClaveFuncionario"),
 		@UniqueConstraint(columnNames = "cClaveUsuario") })
+@Cache(usage=CacheConcurrencyStrategy.READ_ONLY, region="valor")
+
 public class Usuario implements java.io.Serializable {
 
 	// Fields

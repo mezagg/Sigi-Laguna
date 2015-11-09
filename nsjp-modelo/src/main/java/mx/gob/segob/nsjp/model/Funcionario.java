@@ -21,12 +21,16 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 import mx.gob.segob.nsjp.model.ssp.InformePolicialHomologado;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 /**
  * Funcionario entity. @author MyEclipse Persistence Tools
  */
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "Funcionario")
+@Cache(usage=CacheConcurrencyStrategy.READ_ONLY, region="valor")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Funcionario implements java.io.Serializable {
 

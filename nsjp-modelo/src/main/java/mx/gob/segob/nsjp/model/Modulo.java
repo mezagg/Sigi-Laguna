@@ -21,6 +21,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.persistence.JoinColumn;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
  * @author LuisMG
@@ -28,6 +30,8 @@ import javax.persistence.JoinColumn;
  */
 @Entity
 @Table(name = "Modulo", uniqueConstraints = @UniqueConstraint(columnNames = "cNombreModulo"))
+@Cache(usage=CacheConcurrencyStrategy.READ_ONLY, region="valor")
+
 public class Modulo implements Serializable {
 
 	/**
