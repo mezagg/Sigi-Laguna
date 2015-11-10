@@ -13,7 +13,7 @@ select * from JerarquiaOrganizacional where JerarquiaOrganizacional_id = 74
 Update ConfActividadDocumento set JerarquiaOrganizacional_id=44  where JerarquiaOrganizacional_id=74
 
 --3 Se inserta la jo
-insert into (jerarquiaresponsable_id, cabreviatura, cnombre, tipojerarquia_val)
+insert into JerarquiaOrganizacional (jerarquiaresponsable_id, cabreviatura, cnombre, tipojerarquia_val)
 values (1,'UIADO','Unidad de Investigación de Delitos Cometidos por Adolescentes',2015);	
 
 --4 Se registra la actuación
