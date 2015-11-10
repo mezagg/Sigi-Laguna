@@ -91,7 +91,7 @@ public class ConsultarPermisosAudienciaServiceImpl implements ConsultarPermisosA
    	
    	@SuppressWarnings("null")
 	public List<BitacoraDescargaDTO> buscarBitacoraDescargaPorAudiencia(Long audiencia, Long discriminanteId) throws NSJPNegocioException{
-   		if(audiencia == null || audiencia.equals(0L) || discriminanteId!=null || discriminanteId.equals(0L)){
+   		if(audiencia == null || audiencia.equals(0L) || discriminanteId ==null || discriminanteId.equals(0L)){
    			throw new NSJPNegocioException(CodigoError.PARAMETROS_INSUFICIENTES);
    		}
    		

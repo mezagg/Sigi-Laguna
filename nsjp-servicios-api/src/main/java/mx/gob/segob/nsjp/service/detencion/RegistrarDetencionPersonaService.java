@@ -7,9 +7,6 @@ import mx.gob.segob.nsjp.dto.involucrado.InvolucradoDTO;
 
 public interface RegistrarDetencionPersonaService {
 
-    public Long registrarDetencionPersonaService(DetencionDTO detencion,
-            CasoDTO caso) throws NSJPNegocioException;
-
     public DetencionDTO recibirDetenido(DetencionDTO detencion, CasoDTO caso)
             throws NSJPNegocioException;
 

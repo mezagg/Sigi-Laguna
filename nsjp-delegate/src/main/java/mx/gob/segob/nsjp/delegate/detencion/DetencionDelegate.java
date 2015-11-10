@@ -53,13 +53,6 @@ public interface DetencionDelegate {
     DetencionDTO consultarDetencion(Long idInvolucrado, String expediente)
             throws NSJPNegocioException;
 
-    /**
-     * Registra una detenci&oacute;n 
-     * @param detencion informaci&oacute;n de la detenci&oacute;n
-     * @return identificador de la nueva detenci&oacute;n
-     * @throws NSJPNegocioException
-     */
-    Long registrarDetencionDePersona(DetencionDTO detencion, CasoDTO caso)throws NSJPNegocioException;
 
     /**
      * Registra una recepcion de detenido

@@ -62,12 +62,6 @@ public class DetencionDelegateImpl implements DetencionDelegate {
                 expediente);
     }
 
-    public Long registrarDetencionDePersona(DetencionDTO detencion, CasoDTO caso)
-            throws NSJPNegocioException {
-        return registrarDetencionPersonaService
-                .registrarDetencionPersonaService(detencion, caso);
-    }
-
     public DetencionDTO recibirDetenido(DetencionDTO detencion, CasoDTO caso)
             throws NSJPNegocioException {
         return registrarDetencionPersonaService
