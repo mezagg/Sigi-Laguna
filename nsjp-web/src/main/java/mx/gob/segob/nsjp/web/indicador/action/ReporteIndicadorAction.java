@@ -150,30 +150,41 @@ public class ReporteIndicadorAction extends GenericAction {
             //Nombre de las Columnas
             List<String> nombreParametros = indicador.getParametros();
 
-            //
-            if (tipoIndicador.equals(Indicadores.INDICADOR_70.getIndicadorId()) || 
-                    tipoIndicador.equals(Indicadores.INDICADOR_64.getIndicadorId()) || 
-                    tipoIndicador.equals(Indicadores.INDICADOR_65.getIndicadorId()) || 
-                    tipoIndicador.equals(Indicadores.INDICADOR_66.getIndicadorId()) || 
-                    tipoIndicador.equals(Indicadores.INDICADOR_67.getIndicadorId())) {
-                try {
-                    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-                    fechaInicial = fechaInicial.replace('/', '-');
-                    fechaFin = fechaInicial.replace('/', '-');
+            if (tipoIndicador.equals(Indicadores.INDICADOR_70.getIndicadorId())
+                    || tipoIndicador.equals(Indicadores.INDICADOR_64.getIndicadorId())
+                    || tipoIndicador.equals(Indicadores.INDICADOR_65.getIndicadorId())
+                    || tipoIndicador.equals(Indicadores.INDICADOR_66.getIndicadorId())
+                    || tipoIndicador.equals(Indicadores.INDICADOR_67.getIndicadorId())
+                    || tipoIndicador.equals(Indicadores.INDICADOR_68.getIndicadorId())
+                    || tipoIndicador.equals(Indicadores.INDICADOR_69.getIndicadorId())
+                    || tipoIndicador.equals(Indicadores.INDICADOR_89.getIndicadorId())
+                    || tipoIndicador.equals(Indicadores.INDICADOR_90.getIndicadorId())
+                    || tipoIndicador.equals(Indicadores.INDICADOR_91.getIndicadorId())
+                    || tipoIndicador.equals(Indicadores.INDICADOR_84.getIndicadorId())
+                    || tipoIndicador.equals(Indicadores.INDICADOR_85.getIndicadorId())
+                    || tipoIndicador.equals(Indicadores.INDICADOR_86.getIndicadorId())
+                    || tipoIndicador.equals(Indicadores.INDICADOR_87.getIndicadorId())
+                    || tipoIndicador.equals(Indicadores.INDICADOR_88.getIndicadorId())
+                    || tipoIndicador.equals(Indicadores.INDICADOR_80.getIndicadorId())
+                    || tipoIndicador.equals(Indicadores.INDICADOR_71.getIndicadorId())
+                    || tipoIndicador.equals(Indicadores.INDICADOR_73.getIndicadorId())
+                    || tipoIndicador.equals(Indicadores.INDICADOR_74.getIndicadorId())
+                    || tipoIndicador.equals(Indicadores.INDICADOR_75.getIndicadorId())
+                    || tipoIndicador.equals(Indicadores.INDICADOR_76.getIndicadorId())
+                    || tipoIndicador.equals(Indicadores.INDICADOR_77.getIndicadorId())
+                    || tipoIndicador.equals(Indicadores.INDICADOR_78.getIndicadorId())
+                    || tipoIndicador.equals(Indicadores.INDICADOR_79.getIndicadorId())
+                    || tipoIndicador.equals(Indicadores.INDICADOR_72.getIndicadorId())) {
 
-                    Date dInicial = (Date) sdf.parse(fechaInicial);
-                    Date dFinal = (Date) sdf.parse(fechaFin);
+                Date dInicial = DateUtils.obtener(fechaInicial);
+                Date dFinal = DateUtils.obtener(fechaFin);
 
-                    SimpleDateFormat mdyFormat = new SimpleDateFormat("MM-dd-yyyy");
+                fechaInicial = DateUtils.formatearBD120(dInicial);
+                fechaFin = DateUtils.formatearBD120(dFinal);
 
-                    fechaInicial = mdyFormat.format(dInicial);
-                    fechaFin = mdyFormat.format(dFinal);
+                valores.put(nombreParametros.get(0).toString(), fechaInicial);
+                valores.put(nombreParametros.get(1).toString(), fechaFin);
 
-                    valores.put(nombreParametros.get(0).toString(), fechaInicial);
-                    valores.put(nombreParametros.get(1).toString(), fechaFin);
-                } catch (ParseException ex) {
-                    LOGGER.error(ex.getMessage(), ex);
-                }
             } else {
                 valores.put(nombreParametros.get(0).toString(), fechaInicial);
                 valores.put(nombreParametros.get(1).toString(), fechaFin);
