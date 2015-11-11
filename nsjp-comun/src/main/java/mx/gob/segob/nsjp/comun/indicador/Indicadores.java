@@ -53,7 +53,7 @@ public enum Indicadores {
 			"  " +
 			" IF (@cClaveDelito>0) BEGIN " +
 			" SELECT  @query = @query + ' AND CD.cClaveDelito = '''+@cClaveDelito+'''' END"+
-			" SELECT  @query = @query +' AND convert(date, E.dFechaCreacion, 103) between convert(date,'''+:fechaIncio+''',103) AND  convert(date,'''+:fechaFin+''',103) " +
+			" SELECT  @query = @query +' AND convert(date, E.dFechaCreacion, 103) between convert(date,'''+:fechaIncio+''',103) AND  convert(date,'''+:fechaFin+''',103)' " +
 			" SELECT  @query = @query +' group by  CD.cClaveDelito,CD.cNombre' exec (@query)",
 			1, 2, -1, //X,Y,Serie (-1 no requiere la serie) 
 			"Delito", "Número de Delitos",
