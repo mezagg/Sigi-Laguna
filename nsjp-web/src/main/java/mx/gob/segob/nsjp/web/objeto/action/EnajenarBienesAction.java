@@ -184,21 +184,114 @@ public class EnajenarBienesAction extends GenericAction {
 				}
 		
 		        documento = new DocumentoDTO();
-			Long formaId = 982L;
+			Long formaId = 983L;
 		        forma = documentoDelegate.buscarForma(formaId);
 		    	documento.setConfInstitucion(confInstitucionDTO);
 		    	
-                        String listaBienes="<ul>";
+                        String listaVehiculos="",listaSemovientes="",listaBienesMuebles="",listaJoyas="",listaDinero="";
                          StringTokenizer st=new StringTokenizer(ids, ",");
                          while(st.hasMoreTokens()){
                              ObjetoDTO oDTO=new ObjetoDTO(new Long(st.nextToken()));
                              oDTO.setConsultarArchivoDigital(Boolean.TRUE);
                              ObjetoDTO obDTO=objetoDelegate.obtenerObjeto(oDTO);
-                             listaBienes+="<li>"+obDTO.getDescripcion()+"</li>";
+                            
+                            if(obDTO.getIdTipoObjeto() == Objetos.VEHICULO.getValorId()){
+                                    listaVehiculos+="<tr><td>"+obDTO.getDescripcion()+"</td><td>"
+                                            +obDTO.getAlmacen().getNombreAlmacen()+"</td><td>"
+                                            +obDTO.getDescripcion()+"</td><td>"
+                                            +obDTO.getDescripcion()+"</td><td>"
+                                            +obDTO.getExpedienteDTO().getNumeroExpediente()+"</td><td>"
+                                            +"</tr>";
+                                    
+                            }
+                            /*if(elemento instanceof EquipoComputo){
+                                    EquipoComputo loObjeto = (EquipoComputo)elemento;
+                                    cadena = cadena + "Equipo de Cómputo" + SEPARADOR;
+                                    cadena = (loObjeto.getTipoEquipo() != null ? cadena + loObjeto.getTipoEquipo().getValor() + SEPARADOR:cadena);    			  
+                            }
+                            if(elemento instanceof Arma){
+                                    Arma loObjeto = (Arma)elemento;   			  
+                                    cadena = cadena + "Arma" + SEPARADOR;
+                                    cadena = (loObjeto.getTipoArma() != null ? cadena + loObjeto.getTipoArma().getValor() + SEPARADOR:cadena);
+                            }
+                            if(elemento instanceof Explosivo){
+                                    Explosivo loObjeto = (Explosivo)elemento;
+                                    cadena = cadena + "Explosivo" + SEPARADOR;
+                                    cadena = (loObjeto.getTipoExplosivo() != null ? cadena + loObjeto.getTipoExplosivo().getValor() + SEPARADOR:cadena);
+                            }
+                            if(elemento instanceof Aeronave){
+                                    Aeronave loObjeto = (Aeronave)elemento;    			  
+                                    cadena = cadena + "Aeronave" + SEPARADOR;
+                                    cadena = (loObjeto.getTipoAeroNave() != null ? cadena + loObjeto.getTipoAeroNave().getValor() + SEPARADOR:cadena);
+                            }*/
+                            if(obDTO.getIdTipoObjeto() == Objetos.ANIMAL.getValorId()){
+                                    listaVehiculos+="<tr><td>"+obDTO.getDescripcion()+"</td><td>"
+                                            +obDTO.getAlmacen().getNombreAlmacen()+"</td><td>"
+                                            +obDTO.getDescripcion()+"</td><td>"
+                                            +obDTO.getDescripcion()+"</td><td>"
+                                            +obDTO.getExpedienteDTO().getNumeroExpediente()+"</td><td>"
+                                            +obDTO.getDescripcion()+"</td><td>"
+                                            +obDTO.getDescripcion()+"</td><td>"
+                                            +"</tr>";
+                            }
+                            /*if(elemento instanceof DocumentoOficial){
+                                    DocumentoOficial loObjeto = (DocumentoOficial)elemento;
+                                    cadena = cadena + "Documento Oficial" + SEPARADOR;
+                                    cadena = (loObjeto.getTipoDocumento() != null ? cadena + loObjeto.getTipoDocumento().getValor() + SEPARADOR:cadena);
+                            }
+                            if(elemento instanceof Embarcacion){
+                                    Embarcacion loObjeto = (Embarcacion)elemento;
+                                    cadena = cadena + "Embarcación" + SEPARADOR;
+                                    cadena = (loObjeto.getTipoEmbarcacion() != null ? cadena + loObjeto.getTipoEmbarcacion().getValor() + SEPARADOR:cadena);
+                            }*/
+                            if(obDTO.getIdTipoObjeto() == Objetos.JOYA.getValorId()){
+                                    listaVehiculos+="<tr><td>"+obDTO.getDescripcion()+"</td><td>"
+                                            +obDTO.getAlmacen().getNombreAlmacen()+"</td><td>"
+                                            +obDTO.getDescripcion()+"</td><td>"
+                                            +obDTO.getDescripcion()+"</td><td>"
+                                            +obDTO.getExpedienteDTO().getNumeroExpediente()+"</td><td>"
+                                            +obDTO.getDescripcion()+"</td><td>"
+                                            +obDTO.getDescripcion()+"</td><td>"
+                                            +"</tr>";
+                            }
+                            if(obDTO.getIdTipoObjeto() == Objetos.NUMERARIO.getValorId()){
+                                    listaVehiculos+="<tr><td>"+obDTO.getDescripcion()+"</td><td>"
+                                            +obDTO.getAlmacen().getNombreAlmacen()+"</td><td>"
+                                            +obDTO.getDescripcion()+"</td><td>"
+                                            +obDTO.getDescripcion()+"</td><td>"
+                                            +obDTO.getExpedienteDTO().getNumeroExpediente()+"</td><td>"
+                                            +obDTO.getDescripcion()+"</td><td>"
+                                            +"</tr>";
+                            }
+                            /*if(elemento instanceof ObraArte){
+                                    ObraArte loObjeto = (ObraArte)elemento;    			  
+                                    cadena = cadena + "Obra de Arte" + SEPARADOR;
+                                    cadena = (loObjeto.getTipoObraArte() != null ? cadena + loObjeto.getTipoObraArte().getValor() + SEPARADOR:cadena);
+                            }
+                            if(elemento instanceof Sustancia){
+                                    Sustancia loObjeto = (Sustancia)elemento;
+                                    cadena = cadena + "Sustancia" + SEPARADOR;
+                                    cadena = (loObjeto.getTipoSustancia() != null ? cadena + loObjeto.getTipoSustancia().getValor() + SEPARADOR:cadena);
+                            }
+                            if(elemento instanceof Telefonia){
+                                    Telefonia loObjeto = (Telefonia)elemento;
+                                    cadena = cadena + "Equipo Telefónico" + SEPARADOR;
+                                    cadena = (loObjeto.getTipoTelefono() != null ? cadena + loObjeto.getTipoTelefono().getValor() + SEPARADOR:cadena);
+                            }
+                            if(elemento instanceof Vegetal){
+                                    Vegetal loObjeto = (Vegetal)elemento;
+                                    cadena = cadena + "Vegetal" + SEPARADOR;
+                                    cadena = (loObjeto.getTipoVegetal() != null ? cadena + loObjeto.getTipoVegetal().getValor() + SEPARADOR:cadena);
+                            }*/
+		  
                          }
-                         listaBienes+="</ul>";
+                         
                          Map<String,Object> parametrosExtra = new HashMap<String,Object> ();
-                         parametrosExtra.put("listaObjetos", listaBienes);
+                         parametrosExtra.put("Vehiculos", listaVehiculos);
+                         parametrosExtra.put("Semovientes", listaSemovientes);
+                         parametrosExtra.put("BienesMuebles", listaBienesMuebles);
+                         parametrosExtra.put("Dinero", listaDinero);
+                         parametrosExtra.put("Joyas", listaJoyas);
                          Calendar f=Calendar.getInstance();
                          int hora=f.get(Calendar.HOUR_OF_DAY);
                          int min=f.get(Calendar.MINUTE);
