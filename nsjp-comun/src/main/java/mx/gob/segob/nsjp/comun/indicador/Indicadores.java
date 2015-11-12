@@ -53,7 +53,7 @@ public enum Indicadores {
 			"  " +
 			" IF (@cClaveDelito>0) BEGIN " +
 			" SELECT  @query = @query + ' AND CD.cClaveDelito = '''+@cClaveDelito+'''' END"+
-			" SELECT  @query = @query +' AND convert(date, E.dFechaCreacion, 103) between convert(date,'''+:fechaIncio+''',103) AND  convert(date,'''+:fechaFin+''',103) " +
+			" SELECT  @query = @query +' AND convert(date, E.dFechaCreacion, 103) between convert(date,'''+:fechaIncio+''',103) AND  convert(date,'''+:fechaFin+''',103)' " +
 			" SELECT  @query = @query +' group by  CD.cClaveDelito,CD.cNombre' exec (@query)",
 			1, 2, -1, //X,Y,Serie (-1 no requiere la serie) 
 			"Delito", "Número de Delitos",
@@ -960,7 +960,7 @@ public enum Indicadores {
 			Arrays.asList("fechaIncio","fechaFin"),
 			Arrays.asList("Estatus Carpeta Investigación","Cantidad"),
 			"declare @ld_fechaIni date " +
-			"declare @ld_fechaFin date" +
+			"declare @ld_fechaFin date " +
 
 			"set @ld_fechaIni = ''+:fechaIncio+'' " + 
 			"set @ld_fechaFin = ''+:fechaFin+'' " +
@@ -968,7 +968,7 @@ public enum Indicadores {
 			"select v.cValor 'Estatus Carpeta Investigación', count(*) 'Cantidad' " +
 			"from NumeroExpediente ne, Valor v " +
 			"where ne.Estatus_val = v.Valor_id " +
-			"and convert(date, ne.dFechaApertura, 103) between convert(date, @ld_fechaIni, 103) and convert(date, @ld_fechaFin), 103) " +
+			"and convert(date, ne.dFechaApertura, 103) between convert(date, @ld_fechaIni, 103) and convert(date, @ld_fechaFin, 103) " +
 			"and ne.JerarquiaOrganizacional_id = 10 " +
 			"group by v.cValor ",
 			1, -1, -1, //X,Y (-1 Datos compartidos),Serie (-1 Se define una nueva serie)
@@ -1082,8 +1082,8 @@ public enum Indicadores {
 			PGJ,
 			Arrays.asList("fechaIncio","fechaFin"),
 			Arrays.asList("Entidad Federativa","Delito","Modalidad","Cantidad"),
-			"declare @ld_fechaIni date" +
-			"declare @ld_fechaFin date" +
+			"declare @ld_fechaIni date " +
+			"declare @ld_fechaFin date " +
 
 			"set @ld_fechaIni = ''+:fechaIncio+'' " + 
 			"set @ld_fechaFin = ''+:fechaFin+'' " +
@@ -1316,7 +1316,7 @@ public enum Indicadores {
 			PGJ,
 			Arrays.asList("fechaIncio","fechaFin"),
 			Arrays.asList("Delito","Principal","Cantidad"),
-			"declare @ld_fechaIni date" +
+			"declare @ld_fechaIni date " +
 			"declare @ld_fechaFin date " +
 
 			"set @ld_fechaIni = ''+:fechaIncio+'' " + 
@@ -1396,8 +1396,8 @@ public enum Indicadores {
 			PGJ,
 			Arrays.asList("fechaIncio","fechaFin"),
 			Arrays.asList("Categoría","Delito","Delitos Principales", "Delitos no principales", "Total"),
-			"declare @ld_fechaIni date" +
-			"declare @ld_fechaFin date" +
+			"declare @ld_fechaIni date " +
+			"declare @ld_fechaFin date " +
 
 			"set @ld_fechaIni = ''+:fechaIncio+'' " + 
 			"set @ld_fechaFin = ''+:fechaFin+'' " +
@@ -1821,7 +1821,7 @@ public enum Indicadores {
 			"											on [DelitoPersona].[Victima_id] = [Persona].[Persona_id]" +
 			"												left outer join [dbo].[NombreDemografico] [NombreDemografico]" +
 			"												on [Persona].[Persona_id] = [NombreDemografico].[Persona_id]" +
-			" where (convert(date,[Expediente].[dFechaCreacion],103) between convert(date, @ld_fechaIni, 103) and convert(date, @ld_fechaFin, 103)) and " +
+			" where (convert(datetime,[Expediente].[dFechaCreacion],103) between convert(datetime, @ld_fechaIni, 103) and convert(datetime, @ld_fechaFin, 103)) and " +
 			"	([NumeroExpediente].[JerarquiaOrganizacional_id] = 10) and " +
 			"   ([Delito].[bEsPrincipal] = 1) " +
 			"group by [NombreDemografico].[cSexo], [NombreDemografico].[iEdadAproximada]," +
@@ -1836,8 +1836,8 @@ public enum Indicadores {
 			PGJ,
 			Arrays.asList("fechaIncio","fechaFin"),
 			Arrays.asList("Sexo", "Edad Aproximada", "Escolaridad", "Ocupacion", "Nacionalidad", "Total"),
-			"declare @ld_fechaIni date" +
-			"declare @ld_fechaFin date" +
+			"declare @ld_fechaIni date " +
+			"declare @ld_fechaFin date " +
 			"set @ld_fechaIni = ''+:fechaIncio+'' " + 
 			"set @ld_fechaFin = ''+:fechaFin+'' " +
 			" select [NombreDemografico].[cSexo] as Sexo, " +
@@ -1869,7 +1869,7 @@ public enum Indicadores {
 			"											on [DelitoPersona].[Victima_id] = [Persona].[Persona_id]" +
 			"												left outer join [dbo].[NombreDemografico] [NombreDemografico]" +
 			"												on [Persona].[Persona_id] = [NombreDemografico].[Persona_id]" +
-			" where (convert(date,[Expediente].[dFechaCreacion],103) between convert(date, @ld_fechaIni, 103) and convert(date, @ld_fechaFin, 103)) and " +
+			" where (convert(datetime,[Expediente].[dFechaCreacion],103) between convert(datetime, @ld_fechaIni, 103) and convert(datetime, @ld_fechaFin, 103)) and " +
 			"	([NumeroExpediente].[JerarquiaOrganizacional_id] = 10) and " +
 			"   ([Delito].[bEsPrincipal] = 1) " +
 			"group by [NombreDemografico].[cSexo], [NombreDemografico].[iEdadAproximada]," +
