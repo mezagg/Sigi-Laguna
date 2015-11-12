@@ -14,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
  * Delito entity. @author MyEclipse Persistence Tools
@@ -21,6 +23,8 @@ import javax.persistence.Table;
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "Delito")
+
+@Cache(usage=CacheConcurrencyStrategy.READ_ONLY, region="valor")
 public class Delito implements java.io.Serializable {
 
     // Fields

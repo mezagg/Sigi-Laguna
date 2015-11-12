@@ -1,4 +1,3 @@
-use [coa-pgsaltillocurso]
 
 --INSERT PARA TODAS LASFORMAS DE ADOLESCENTES, considerando TipoForma_val = 1611 q es Oficio
 SELECT * FROM Forma 

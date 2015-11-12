@@ -15,6 +15,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
  * Involucrado entity. @author MyEclipse Persistence Tools
@@ -24,6 +26,8 @@ import javax.persistence.Table;
 @Table(name = "Involucrado")
 @Inheritance(strategy = InheritanceType.JOINED)
 @PrimaryKeyJoinColumn(name = "Involucrado_id")
+
+@Cache(usage=CacheConcurrencyStrategy.READ_ONLY, region="valor")
 public class Involucrado extends Persona {
 
     // Fields

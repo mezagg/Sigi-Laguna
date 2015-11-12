@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
  * DefensaInvolucrado entity. @author MyEclipse Persistence Tools<br>
@@ -17,6 +19,8 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "DefensaInvolucrado")
+
+@Cache(usage=CacheConcurrencyStrategy.READ_ONLY, region="valor")
 public class DefensaInvolucrado implements java.io.Serializable {
 
     // Fields

@@ -30,7 +30,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "Funcionario")
-@Cache(usage=CacheConcurrencyStrategy.READ_ONLY, region="valor")
+@Cache(usage=CacheConcurrencyStrategy.READ_WRITE, region="valor")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Funcionario implements java.io.Serializable {
 
