@@ -8394,6 +8394,20 @@
 	parameter="consultaTiposSolsXArea">
 	</action>
 	
+        <action path="/consultarBienesPorEnajenar"
+	type="mx.gob.segob.nsjp.web.objeto.action.EnajenarBienesAction"
+	name=""
+	parameter="consultarBienesPorEnajenar">
+	</action>
+        
+        <action path="/enajenarBienes"
+	type="mx.gob.segob.nsjp.web.objeto.action.EnajenarBienesAction"
+	name=""
+	parameter="enajenarBienes">
+	</action>
+        
+        <action path="/consultarOficioEnajenacion" forward="/WEB-INF/paginas/oficioBienesEnajenadosView.jsp" />/>
+        
 	<action path="/consultarDetalleSolicitudBandeja" forward="/WEB-INF/paginas/detalleSolsXAtndrUIView.jsp" />
 	<action path="/consultarDetalleSolicitudBandejaGen" forward="/WEB-INF/paginas/detalleSolsGeneradasView.jsp" />
 	

@@ -88,7 +88,7 @@
 	var pantallaSolicitada   = 3;
 	//Se cambia el valor de 3 a 4, dado que la busqueda expedientes(modulo) la hacia como coordiandorAmp en lugar de amp
 	var	pantallaSolicitadaCD = 3;
-	
+	var narrativa;
 	//Al consultar Evidencias con retraso el combo solo habilita los tipos de Eslabon asosciados a un amp
 	var visualizaTipoEslabon = 'amp';
 	var rolActivo = '<%=rolActivo%>';
@@ -247,6 +247,32 @@
 		$("#divGridSolsGeneradas").hide();
 		$("#divGridMandamientosJudiciales").hide();
 		$("#divGridMedidasCautelares").hide();
+                
+                //Grid bienes asegurados por enajenar
+                jQuery("#gridBienesPorEnajenar").jqGrid({ 
+			datatype: "xml", 
+                         multiselect:true,
+			colNames:['Tipo','Descripción', 'Cantidad','Número Expediente','Fecha para enajenar','Fecha Aseguramiento'], 
+			colModel:[ 	{name:'tipo',index:'tipo', width:80},
+			           	{name:'descripcion',index:'descripcion', width:150}, 
+                                        {name:'cantidad',index:'cantidad', width:80}, 
+					{name:'expediente',index:'expediente', width:80}, 
+					{name:'fechaParaEnajenar',index:'fechaParaEnajenar', width:120},
+					{name:'fechaCreacion',index:'fechaCreacion', width:120}
+				],
+			pager: jQuery('#pagerGridBienesPorEnajenar'),
+			rowNum:10,
+			rowList:[10,20,30,40,50,60,70,80,90,100],
+			autowidth: true,
+			shrinkToFit: true,
+			sortname: 'tipo',
+			viewrecords: true,
+			sortorder: "descripcion"/*,
+			ondblClickRow: function(rowid) {
+					dblClickRowBandejaSolicitudesGen(rowid);
+					}*/
+		}).navGrid('#pagerGridBienesPorEnajenar',{edit:false,add:false,del:false});
+
 		
 		//$('#test').weatherfeed(['MXDF0132']);
 				
@@ -304,6 +330,7 @@
 		ajustarGridAlCentro($("#gridMandamientosJudiciales"));
 		ajustarGridAlCentro($("#gridMedidasCautelares"));
 		ajustarGridAlCentro($("#gridEvidenciaAlmacenExpediente"));
+                ajustarGridAlCentro($("#gridBienesPorEnajenar"));
 	}
 
 	function ocultaMuestraGridsAlertas(idGrid)
@@ -358,7 +385,8 @@
 		$("#divGridDetalleSolAvisosDetencion").hide();
 		$("#divGridMedidasCautelares").hide();
 		$("#divGridMandamientosJudiciales").hide();		
-		$("#divGridDetalleEvidencia").hide();		
+		$("#divGridDetalleEvidencia").hide();	
+                $("#divGridBienesPorEnajenar").hide();
 		
 		switch (nombreGrid){
 			case "divGridAvisosDetencion":
@@ -412,6 +440,9 @@
         	case "gridEvidenciaAlmacenExpediente":
         		$("#divGridDetalleEvidencia").show();
         		break;
+                case "gridBienesPorEnajenar":
+        		$("#divGridBienesPorEnajenar").show();
+        		break;        
 	    }		
 
 		restablecerPantallas();
@@ -691,6 +722,7 @@
 		$("#divGridSolsGeneradas").hide();
 		$("#divGridMandamientosJudiciales").hide();
 		$("#divGridMedidasCautelares").hide();
+                $("#divGridBienesPorEnajenar").hide();
 	}
 
 	function activaUno() {
@@ -742,6 +774,7 @@
 		$("#divGridEvaluarDocumentos").hide();
 		$("#divGridNotificaciones").hide();
 		$("#divGridSolsXAtndr").hide();
+                $("#divGridBienesPorEnajenar").hide();
 		gridSolServPericiales();
 	}
 	
@@ -1270,6 +1303,103 @@
 			$("#gridExpCompartidos").setGridWidth($("#mainContent").width() - 5, true);
 	}
 
+function consultaPorEnajenarFecha(){
+		$('#fecha').val('');
+		var dates =	$("#fecha").datepicker(
+			{
+				dateFormat: 'dd/mm/yy',
+				yearRange: '1900:2100',
+				changeMonth: true,
+				changeYear: true,
+				numberOfMonths: 1,
+				onSelect: function( selectedDate ) {
+					var option = this.id == "fechaInicio" ? "minDate" : "maxDate",
+					instance = $( this ).data( "datepicker" ),
+					date = $.datepicker.parseDate(
+					instance.settings.dateFormat ||
+					$.datepicker._defaults.dateFormat,
+					selectedDate, instance.settings );
+					dates.not( this ).datepicker( "option", option, date );
+				},
+				showOn: "button",
+				buttonImage:  contextoPagina + "/resources/images/date.png",
+				buttonImageOnly: true			
+			}
+		);
+		
+		//abre la ventana de detalle de la persona
+		$("#busquedaFecha").dialog("open");
+		$("#busquedaFecha").dialog({ autoOpen: true, 
+	  		modal: true, 
+	  		title: 'Buscar por Fecha', 
+	  		dialogClass: 'alert',
+	  		width: 380,
+	  		height: 260,
+	  		maxWidth: 1000,
+	  		buttons:{"Aceptar":function() {
+                                                alert('La fecha es:'+$('#fechaInicio').val());
+	  					/*validaCamposFecha($("#fechaInicio").val(), $("#fechaFin").val());
+	  					
+	  					if(validaFecha==true){
+			  				gridAudiencias(false);
+			  				ocultaMuestraGrids('gridAudiencias');
+		  					$(this).dialog("close");
+				  		}*/
+	  				},
+	  				"Cancelar":function() {
+		  				$(this).dialog("close");
+	  				}
+	  		}
+	  	});
+				
+	}
+
+        /*
+	*Funcion para realizar la consulta del grid de bienes por enajenar
+	*/
+	function consultaPorEnajenarHoy()
+	{		
+                var fecha=new Date();
+                var dia = fecha.getDate()<10?'0'+fecha.getDate():''+fecha.getDate();
+                var mes = fecha.getMonth()+1<10?'0'+(fecha.getMonth()+1):''+(fecha.getMonth()+1);
+                var anio = fecha.getFullYear();
+                var hoy=dia+'/'+mes+'/'+anio;
+                        
+                jQuery("#gridBienesPorEnajenar").jqGrid('setGridParam', {url: '<%=request.getContextPath()%>/consultarBienesPorEnajenar.do?fechaEnajenar='+hoy,datatype: "xml" });
+		$("#gridBienesPorEnajenar").trigger("reloadGrid");
+		ocultaMuestraGrids("gridBienesPorEnajenar");
+	}
+        
+        function enajenarBienes() {
+            var grid = $("#gridBienesPorEnajenar");
+            var rowKey = grid.getGridParam("selrow");
+
+            if (!rowKey)
+                alert("No hay bienes seleccionados.");
+            else {
+                var selectedIDs = grid.getGridParam("selarrrow");
+                var result = "";
+                for (var i = 0; i < selectedIDs.length; i++) {
+                    result += selectedIDs[i] + ",";
+                }
+                 var settings = {
+                        type: 'POST',
+	                url: '<%=request.getContextPath()%>/enajenarBienes.do?idsBienes='+result,
+                        data: 'xml',
+	  		async: false
+	  		};
+
+                $.ajax(settings).done(function(result) 
+                {
+                  consultaPorEnajenarHoy();
+                  narrativa=$(result).find('textoParcial').text();
+                  $.newWindow({id:"iframewindowOficioActuaciones", statusBar: true, posx:200,posy:50,width:1140,height:400,title:"Oficio de enajenación de bienes", type:"iframe", confirmarCierreVentana:false});
+                  $.updateWindowContent("iframewindowOficioActuaciones",'<iframe src="<%=request.getContextPath()%>/consultarOficioEnajenacion.do?narrativa='+narrativa+'" width="1140" height="400" />');
+                });
+                }    
+    }
+    
+    
 </script>
 <!-- Div para mostrar la ventana modal para elegir la fecha de consulta para mandamientos judiciales y medidas cautelares -->
 <div id="busquedaFecha" style="display: none">
@@ -1413,7 +1543,11 @@
                          <table id="gridEvidenciaAlmacenExpediente"></table>
                          <div id="paginadorEvidenciaAlmacenExpediente"></div>
                     </div>
-					
+                                        <div id="divGridBienesPorEnajenar" style="display: none;">                                       
+                                            <input id="enajenarButton" type="button" value="Enajenar" class="btn_Generico" onclick="enajenarBienes()"/>
+					 	<table id="gridBienesPorEnajenar"></table>
+						<div id="pagerGridBienesPorEnajenar"></div>
+					</div>	
 					<table width="100%">
 					<tr valign="top">
 						<td width="100%" valign="top">

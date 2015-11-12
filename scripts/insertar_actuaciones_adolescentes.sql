@@ -1,4 +1,4 @@
-use [coa-pgsaltillocurso]
+
 ----------------------------------------------- **COMPROBAR SI YA ESTA REGISTRADA LA ACTUACION** --------------------------------------------------
 select * from valor where cvalor like '%SOLICITUD DE VIDEOGRABACION%' -- Nos interesa el campocatalogo_id = 69 ya q es el tipoActividad 
 select * from Forma where cNombre LIKE '%SOLICITUD DE VIDEOGRABACION%'   
@@ -12,9 +12,18 @@ select * from JerarquiaOrganizacional where JerarquiaOrganizacional_id = 74
 -- **NOTA: SE REALIZO UPDATE DE LA JO PARA REALIZAR PRUEBAS SE ASIGNO LA JO 44(Atención Temprana Penal) A LAS ACTUACIONES
 Update ConfActividadDocumento set JerarquiaOrganizacional_id=44  where JerarquiaOrganizacional_id=74
 
+insert into ConfActividadUIE
+select 2,Valor_id,1 from  Valor where CampoCatalogo_id=69 and Valor_id between 
+99325 and 99340;
+
+insert into ConfActividadUIE
+select 48,Valor_id,1 from  Valor where CampoCatalogo_id=69 and Valor_id between 
+99325 and 99340;
+
+
 --3 Se inserta la jo
-insert into JerarquiaOrganizacional (jerarquiaresponsable_id, cabreviatura, cnombre, tipojerarquia_val)
-values (1,'UIADO','Unidad de Investigación de Delitos Cometidos por Adolescentes',2015);	
+insert into JerarquiaOrganizacional (JerarquiaOrganizacional_id, jerarquiaresponsable_id, cabreviatura, cnombre, tipojerarquia_val)
+values (74, 1,'UIADO','Unidad de Investigación de Delitos Cometidos por Adolescentes',2015);	
 
 --4 Se registra la actuación
 insert into ConfActividadDocumento (igrupoactividad, busaeditor, tipoactividad_val, tipodocumento_val, JerarquiaOrganizacional_id, 

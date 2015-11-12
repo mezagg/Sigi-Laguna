@@ -11,12 +11,12 @@
         memoryStoreEvictionPolicy="LRU" statistics="true">
         <persistence strategy="localTempSwap" /-->
         
-    <defaultCache maxElementsInMemory="10000"
+    <defaultCache maxElementsInMemory="50000"
               eternal="false"
               timeToIdleSeconds="300"
               timeToLiveSeconds="600"
-              diskSpoolBufferSizeMB="30"
-              maxElementsOnDisk="10000"
+              diskSpoolBufferSizeMB="50"
+              maxElementsOnDisk="50000"
               diskExpiryThreadIntervalSeconds="120"
               memoryStoreEvictionPolicy="LRU" >
     </defaultCache>

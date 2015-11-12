@@ -368,9 +368,9 @@ public class ExpedienteDAOImpl extends
 						//FILTRO DE LA JERARQUIA ORGANIZACIONAL
 						if (filtroExpedienteDTO.getIdActividad().equals(Actividades.RECIBIR_CANALIZACION_JAR.getValorId())) {
 							queryString.append("ne.jerarquiaOrganizacional = ");
-							if(filtroExpedienteDTO.getEstatusMenuCoorJAr()!=null && 
-									(filtroExpedienteDTO.getEstatusMenuCoorJAr().equals(EstatusMenuJAR.ASIGNADOS.getValorId()) ||
-											filtroExpedienteDTO.getEstatusMenuCoorJAr().equals(EstatusMenuJAR.PROPIOS.getValorId())
+							if(filtroExpedienteDTO.getestatusMenuCoorJAR()!=null && 
+									(filtroExpedienteDTO.getestatusMenuCoorJAR().equals(EstatusMenuJAR.ASIGNADOS.getValorId()) ||
+											filtroExpedienteDTO.getestatusMenuCoorJAR().equals(EstatusMenuJAR.PROPIOS.getValorId())
 											)){
 								 queryString.append(Areas.JUSTICIA_ALTERNATIVA_RESTAURATIVA.ordinal()+" ");
 							 }else {
@@ -381,7 +381,7 @@ public class ExpedienteDAOImpl extends
 							//.append(filtroExpedienteDTO.getIdArea()).append(", ").append(Areas.COORDINACION_POLICIA_MINISTERIAL.ordinal())
 							.append(filtroExpedienteDTO.getIdArea())
 							.append(")");
-						}else if (filtroExpedienteDTO.getIdActividad().equals(Actividades.RECIBIR_CANALIZACION_UI.getValorId())&& filtroExpedienteDTO.getEstatusMenuCoorJAr()!=null &&filtroExpedienteDTO.getEstatusMenuCoorJAr().equals(EstatusMenuJAR.PROPIOS_UI.getValorId())) {
+						}else if (filtroExpedienteDTO.getIdActividad().equals(Actividades.RECIBIR_CANALIZACION_UI.getValorId())&& filtroExpedienteDTO.getestatusMenuCoorJAR()!=null &&filtroExpedienteDTO.getestatusMenuCoorJAR().equals(EstatusMenuJAR.PROPIOS_UI.getValorId())) {
 							queryString.append("ne.jerarquiaOrganizacional IN (")
 							.append(Areas.UNIDAD_INVESTIGACION.ordinal())
 							.append(")");
@@ -425,13 +425,13 @@ public class ExpedienteDAOImpl extends
 						}
 				
 						//FILTRO POR EL FUNCIONARIO RESPONSABLE 
-						if(filtroExpedienteDTO.getEstatusMenuCoorJAr() != null && filtroExpedienteDTO.getEstatusMenuCoorJAr().equals(EstatusMenuJAR.PROPIOS.getValorId())){
+						if(filtroExpedienteDTO.getestatusMenuCoorJAR() != null && filtroExpedienteDTO.getestatusMenuCoorJAR().equals(EstatusMenuJAR.PROPIOS.getValorId())){
 							filtroExpedienteDTO.setIdFuncionario(filtroExpedienteDTO.getUsuario().getFuncionario().getClaveFuncionario());
 						}
 						
-						if(filtroExpedienteDTO.getEstatusMenuCoorJAr() != null 
+						if(filtroExpedienteDTO.getestatusMenuCoorJAR() != null 
 								&& filtroExpedienteDTO.getIdFuncionario() != null 
-								&& filtroExpedienteDTO.getEstatusMenuCoorJAr().equals(EstatusMenuJAR.PROPIOS.getValorId())){
+								&& filtroExpedienteDTO.getestatusMenuCoorJAR().equals(EstatusMenuJAR.PROPIOS.getValorId())){
 							queryString.append(" AND ").append("ne.funcionario.claveFuncionario=").append(filtroExpedienteDTO.getIdFuncionario());
 						}else if(filtroExpedienteDTO.getIdFuncionario() != null){
 							if(filtroExpedienteDTO.getIdArea()!=null &&
@@ -519,10 +519,10 @@ public class ExpedienteDAOImpl extends
 				queryString.append(" ").append(pag.getDirOrd());
 			}
 		}
-		if(filtroExpedienteDTO.getEstatusMenuCoorJAr()!=null && 
-				(filtroExpedienteDTO.getEstatusMenuCoorJAr().equals(EstatusMenuJAR.ASIGNADOS.getValorId())||
-						filtroExpedienteDTO.getEstatusMenuCoorJAr().equals(EstatusMenuJAR.PORASIGNAR.getValorId())||
-						filtroExpedienteDTO.getEstatusMenuCoorJAr().equals(EstatusMenuJAR.PROPIOS.getValorId())						
+		if(filtroExpedienteDTO.getestatusMenuCoorJAR()!=null && 
+				(filtroExpedienteDTO.getestatusMenuCoorJAR().equals(EstatusMenuJAR.ASIGNADOS.getValorId())||
+						filtroExpedienteDTO.getestatusMenuCoorJAR().equals(EstatusMenuJAR.PORASIGNAR.getValorId())||
+						filtroExpedienteDTO.getestatusMenuCoorJAR().equals(EstatusMenuJAR.PROPIOS.getValorId())						
 						)){
 			
 			List<NumeroExpediente> lista=super.ejecutarQueryPaginado(queryString, null);
@@ -1927,10 +1927,10 @@ public class ExpedienteDAOImpl extends
 					
 				
 				
-				if(filtroExpedienteDTO.getEstatusMenuCoorJAr()!=null && 
-						(filtroExpedienteDTO.getEstatusMenuCoorJAr().equals(EstatusMenuJAR.ASIGNADOS.getValorId())||
-								filtroExpedienteDTO.getEstatusMenuCoorJAr().equals(EstatusMenuJAR.PORASIGNAR.getValorId())||
-								filtroExpedienteDTO.getEstatusMenuCoorJAr().equals(EstatusMenuJAR.PROPIOS.getValorId())						
+				if(filtroExpedienteDTO.getestatusMenuCoorJAR()!=null && 
+						(filtroExpedienteDTO.getestatusMenuCoorJAR().equals(EstatusMenuJAR.ASIGNADOS.getValorId())||
+								filtroExpedienteDTO.getestatusMenuCoorJAR().equals(EstatusMenuJAR.PORASIGNAR.getValorId())||
+								filtroExpedienteDTO.getestatusMenuCoorJAR().equals(EstatusMenuJAR.PROPIOS.getValorId())						
 								)){
 					
 					List<NumeroExpediente> lista=super.ejecutarQueryPaginado(queryString, null);

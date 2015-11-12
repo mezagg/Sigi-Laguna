@@ -167,7 +167,7 @@ public class ExpedienteDAOImplTest extends BaseTestPersistencia<ExpedienteDAO> {
 		//filtroExpedienteDTO.setAnio(2012L);
 		filtroExpedienteDTO.setIdDiscriminante(1L);
 		//filtroExpedienteDTO.setIdFuncionario(254L);
-		filtroExpedienteDTO.setEstatusMenuCoorJAr(2L);
+		filtroExpedienteDTO.setestatusMenuCoorJAR(2L);
 		//filtroExpedienteDTO.setExpedientesAsignados(true);
 		//filtroExpedienteDTO.setIdJerarquiaRemitos(44L);
 		
@@ -532,7 +532,7 @@ public void testBuscadorDeExpedientesAReasignarPMQueryNativo() {
 public void testConsultarExpedientesActividadAreaAnioJarAsignados(){
 	FiltroExpedienteDTO filtroExpedienteDTO = new FiltroExpedienteDTO();
 	filtroExpedienteDTO.setIdDiscriminante(1L);
-	filtroExpedienteDTO.setEstatusMenuCoorJAr(2L);
+	filtroExpedienteDTO.setestatusMenuCoorJAR(2L);
 	List<NumeroExpediente>  lista = daoServcice.consultarExpedientesActividadAreaJarAsignados(filtroExpedienteDTO);
 	for (NumeroExpediente elemento : lista) {
 		logger.info("Expediente ID" + elemento.getExpediente().getExpedienteId());		

@@ -11,7 +11,7 @@
 	</parent>
 
 	<properties>
-		<nsjp.version.codigo>v 1.63</nsjp.version.codigo>
+		<nsjp.version.codigo>v 1.7</nsjp.version.codigo>
 		<project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
 	</properties>
 

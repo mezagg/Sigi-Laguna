@@ -1,0 +1,1 @@
+alter table nombreDemografico add [edoFisico_val] [decimal](18, 0) NULL,[edoConsciencia_val] [decimal](18, 0) NULL,[edoInconsciente_val] [decimal](18, 0) NULL

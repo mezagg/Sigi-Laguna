@@ -31,7 +31,8 @@ public class Objeto extends Elemento {
     private String descripcion;
     private String nombreObjeto;
     private Valor relacionHechoVal;
-
+    private boolean enajenado;
+    private Documento docEnajenacion;
     /**
      * Relación con la institución que lo presenta a la audiencia.
      */
@@ -155,4 +156,24 @@ public class Objeto extends Elemento {
 	public void setRelacionHechoVal(Valor relacionHechoVal) {
 		this.relacionHechoVal = relacionHechoVal;
 	}
+        
+        @Column(name = "enajenado")
+        public boolean isEnajenado() {
+        return enajenado;
+        }
+
+        public void setEnajenado(boolean enajenado) {
+            this.enajenado = enajenado;
+        }
+        
+       
+        @ManyToOne(fetch = FetchType.LAZY)
+        @JoinColumn(name = "docEnajenacion_id")	
+	public Documento getDocEnajenacion() {
+		return docEnajenacion;
+	}
+
+	public void setDocEnajenacion(Documento docEnajenacion) {
+		this.docEnajenacion = docEnajenacion;
+	}            
 }

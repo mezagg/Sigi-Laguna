@@ -25,6 +25,7 @@ import javax.persistence.UniqueConstraint;
 @Table(name = "Usuario", uniqueConstraints = {
 		@UniqueConstraint(columnNames = "iClaveFuncionario"),
 		@UniqueConstraint(columnNames = "cClaveUsuario") })
+
 public class Usuario implements java.io.Serializable {
 
 	// Fields

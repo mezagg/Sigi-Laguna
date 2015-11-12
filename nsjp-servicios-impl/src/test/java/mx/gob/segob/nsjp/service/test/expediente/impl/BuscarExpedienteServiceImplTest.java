@@ -381,7 +381,7 @@ public class BuscarExpedienteServiceImplTest extends
 		//filtrosBusqueda.setAnio(2013L);
 		filtrosBusqueda.setIdActividad(Actividades.GENERAR_DENUNCIA_EN_PM.getValorId());
 		filtrosBusqueda.setIdArea(new Long(Areas.COORDINACION_POLICIA_MINISTERIAL.ordinal()));
-		filtrosBusqueda.setEstatusMenuCoorJAr(EstatusExpediente.ABIERTO.getValorId());
+		filtrosBusqueda.setestatusMenuCoorJAR(EstatusExpediente.ABIERTO.getValorId());
 		filtrosBusqueda.setEstatus(EstatusExpediente.ABIERTO.getValorId());
 
 		

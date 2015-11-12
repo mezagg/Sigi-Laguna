@@ -16,12 +16,16 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
  * Forma entity. @author MyEclipse Persistence Tools
  */
 @Entity
 @Table(name = "Forma")
+
+@Cache(usage=CacheConcurrencyStrategy.READ_ONLY, region="valor")
 public class Forma implements java.io.Serializable {
 
     // Fields

@@ -96,7 +96,6 @@ import mx.gob.segob.nsjp.model.AvisoDesignacion;
 import mx.gob.segob.nsjp.model.BitacoraEstatusNumExpediente;
 import mx.gob.segob.nsjp.model.BitacoraPermisoExpediente;
 import mx.gob.segob.nsjp.model.CatDiscriminante;
-import mx.gob.segob.nsjp.model.Causa;
 import mx.gob.segob.nsjp.model.ConfInstitucion;
 import mx.gob.segob.nsjp.model.Delito;
 import mx.gob.segob.nsjp.model.Documento;
@@ -1319,25 +1318,25 @@ public class BuscarExpedienteServiceImpl implements BuscarExpedienteService {
             filtroExpedienteDTO.setIdFuncionario(claveFuncionario);
 
             if (rolAsociado == Roles.COORDINADORJAR && filtroExpedienteDTO.getIdActividad().equals(Actividades.RECIBIR_CANALIZACION_JAR.getValorId())
-                    && filtroExpedienteDTO.getEstatusMenuCoorJAr() != null
-                    && filtroExpedienteDTO.getEstatusMenuCoorJAr().equals(EstatusMenuJAR.ASIGNADOS.getValorId())) {
+                    && filtroExpedienteDTO.getestatusMenuCoorJAR() != null
+                    && filtroExpedienteDTO.getestatusMenuCoorJAR().equals(EstatusMenuJAR.ASIGNADOS.getValorId())) {
                 expsRespuesta = expedienteDAO.consultarExpedientesActividadAreaJarAsignados(filtroExpedienteDTO);
             } else {
                 expsRespuesta = expedienteDAO.consultarExpedientesActividadAreaAnio(filtroExpedienteDTO);
             }
         }
 
-        if (filtroExpedienteDTO.getEstatusMenuCoorJAr() != null) {
+        if (filtroExpedienteDTO.getestatusMenuCoorJAR() != null) {
             List<NumeroExpediente> listaAlterna = expsRespuesta;
             expsRespuesta = new ArrayList<NumeroExpediente>();
             for (NumeroExpediente numeroExpediente : listaAlterna) {
                 boolean op = true;
-                if (filtroExpedienteDTO.getEstatusMenuCoorJAr().equals(EstatusMenuJAR.PORASIGNAR.getValorId())) {
+                if (filtroExpedienteDTO.getestatusMenuCoorJAR().equals(EstatusMenuJAR.PORASIGNAR.getValorId())) {
                     Expediente expediente = expedienteDAO.buscarUltimoNumeroPorExpedienteIdAreaId(numeroExpediente.getExpediente().getExpedienteId(), Areas.JUSTICIA_ALTERNATIVA_RESTAURATIVA.parseLong());
                     if (expediente != null) {
                         op = false;
                     }
-                } else if (filtroExpedienteDTO.getEstatusMenuCoorJAr().equals(EstatusMenuJAR.ASIGNADOS.getValorId())) {
+                } else if (filtroExpedienteDTO.getestatusMenuCoorJAR().equals(EstatusMenuJAR.ASIGNADOS.getValorId())) {
                     op = false;
                     Expediente expediente = expedienteDAO.buscarUltimoNumeroPorExpedienteIdAreaId(numeroExpediente.getExpediente().getExpedienteId(), Areas.JUSTICIA_ALTERNATIVA_RESTAURATIVA.parseLong());
                     if (expediente != null) {
@@ -1347,7 +1346,7 @@ public class BuscarExpedienteServiceImpl implements BuscarExpedienteService {
                         }
 
                     }
-                } else if (filtroExpedienteDTO.getEstatusMenuCoorJAr().equals(EstatusMenuJAR.PROPIOS.getValorId())) {
+                } else if (filtroExpedienteDTO.getestatusMenuCoorJAR().equals(EstatusMenuJAR.PROPIOS.getValorId())) {
                     op = false;
                     Expediente expediente = expedienteDAO.buscarUltimoNumeroPorExpedienteIdAreaId(numeroExpediente.getExpediente().getExpedienteId(), Areas.JUSTICIA_ALTERNATIVA_RESTAURATIVA.parseLong());
                     if (expediente != null) {
@@ -1370,10 +1369,10 @@ public class BuscarExpedienteServiceImpl implements BuscarExpedienteService {
             PaginadorUtil.obtenerPaginacionManual(expsDTO);
             return expsDTO;
         }
-        if (filtroExpedienteDTO.getEstatusMenuCoorJAr() != null
-                && (filtroExpedienteDTO.getEstatusMenuCoorJAr().equals(EstatusMenuJAR.ASIGNADOS.getValorId())
-                || filtroExpedienteDTO.getEstatusMenuCoorJAr().equals(EstatusMenuJAR.PORASIGNAR.getValorId())
-                || filtroExpedienteDTO.getEstatusMenuCoorJAr().equals(EstatusMenuJAR.PROPIOS.getValorId()))) {
+        if (filtroExpedienteDTO.getestatusMenuCoorJAR() != null
+                && (filtroExpedienteDTO.getestatusMenuCoorJAR().equals(EstatusMenuJAR.ASIGNADOS.getValorId())
+                || filtroExpedienteDTO.getestatusMenuCoorJAR().equals(EstatusMenuJAR.PORASIGNAR.getValorId())
+                || filtroExpedienteDTO.getestatusMenuCoorJAR().equals(EstatusMenuJAR.PROPIOS.getValorId()))) {
             expsRespuesta = paginacionManualJAR(expsRespuesta);
         }
         for (NumeroExpediente numeroExpediente : expsRespuesta) {
