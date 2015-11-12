@@ -1893,7 +1893,10 @@ public class ExpedienteDAOImpl extends
 					queryString.append(Areas.JUSTICIA_ALTERNATIVA_RESTAURATIVA.ordinal()+" ");
 					queryString.append(" AND ").append("ac.tipoActividad=").append(Actividades.RECIBIR_CANALIZACION_JAR.getValorId());
 					if(filtroExpedienteDTO.getIdDiscriminante()!= null && filtroExpedienteDTO.getIdDiscriminante()>0){
-						queryString.append(" AND e.discriminante.catDiscriminanteId=").append(filtroExpedienteDTO.getIdDiscriminante());
+						//queryString.append(" AND e.discriminante.catDiscriminanteId=").append(filtroExpedienteDTO.getIdDiscriminante());
+                                                queryString.append(" AND e.discriminante.catDiscriminanteId in (");
+                                                queryString.append( "select cf.catDiscriminante.catDiscriminanteId from ConfUsuarioCatDiscriminante cf where cf.usuario.usuarioId = ");
+                                                queryString.append( filtroExpedienteDTO.getUsuario().getIdUsuario() ).append(") ") ;
 					}					    
 					queryString.append(" GROUP BY ne.numeroExpedienteId, ac.tipoActividad ");
 				queryString.append(")");
