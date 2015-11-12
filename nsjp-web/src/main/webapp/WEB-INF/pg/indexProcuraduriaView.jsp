@@ -88,7 +88,7 @@
 	var pantallaSolicitada   = 3;
 	//Se cambia el valor de 3 a 4, dado que la busqueda expedientes(modulo) la hacia como coordiandorAmp en lugar de amp
 	var	pantallaSolicitadaCD = 3;
-	
+	var narrativa;
 	//Al consultar Evidencias con retraso el combo solo habilita los tipos de Eslabon asosciados a un amp
 	var visualizaTipoEslabon = 'amp';
 	var rolActivo = '<%=rolActivo%>';
@@ -1303,6 +1303,57 @@
 			$("#gridExpCompartidos").setGridWidth($("#mainContent").width() - 5, true);
 	}
 
+function consultaPorEnajenarFecha(){
+		$('#fecha').val('');
+		var dates =	$("#fecha").datepicker(
+			{
+				dateFormat: 'dd/mm/yy',
+				yearRange: '1900:2100',
+				changeMonth: true,
+				changeYear: true,
+				numberOfMonths: 1,
+				onSelect: function( selectedDate ) {
+					var option = this.id == "fechaInicio" ? "minDate" : "maxDate",
+					instance = $( this ).data( "datepicker" ),
+					date = $.datepicker.parseDate(
+					instance.settings.dateFormat ||
+					$.datepicker._defaults.dateFormat,
+					selectedDate, instance.settings );
+					dates.not( this ).datepicker( "option", option, date );
+				},
+				showOn: "button",
+				buttonImage:  contextoPagina + "/resources/images/date.png",
+				buttonImageOnly: true			
+			}
+		);
+		
+		//abre la ventana de detalle de la persona
+		$("#busquedaFecha").dialog("open");
+		$("#busquedaFecha").dialog({ autoOpen: true, 
+	  		modal: true, 
+	  		title: 'Buscar por Fecha', 
+	  		dialogClass: 'alert',
+	  		width: 380,
+	  		height: 260,
+	  		maxWidth: 1000,
+	  		buttons:{"Aceptar":function() {
+                                                alert('La fecha es:'+$('#fechaInicio').val());
+	  					/*validaCamposFecha($("#fechaInicio").val(), $("#fechaFin").val());
+	  					
+	  					if(validaFecha==true){
+			  				gridAudiencias(false);
+			  				ocultaMuestraGrids('gridAudiencias');
+		  					$(this).dialog("close");
+				  		}*/
+	  				},
+	  				"Cancelar":function() {
+		  				$(this).dialog("close");
+	  				}
+	  		}
+	  	});
+				
+	}
+
         /*
 	*Funcion para realizar la consulta del grid de bienes por enajenar
 	*/
@@ -1341,12 +1392,14 @@
                 $.ajax(settings).done(function(result) 
                 {
                   consultaPorEnajenarHoy();
-                  var narrativa=$(result).find('textoParcial').text();
+                  narrativa=$(result).find('textoParcial').text();
                   $.newWindow({id:"iframewindowOficioActuaciones", statusBar: true, posx:200,posy:50,width:1140,height:400,title:"Oficio de enajenación de bienes", type:"iframe", confirmarCierreVentana:false});
                   $.updateWindowContent("iframewindowOficioActuaciones",'<iframe src="<%=request.getContextPath()%>/consultarOficioEnajenacion.do?narrativa='+narrativa+'" width="1140" height="400" />');
                 });
                 }    
     }
+    
+    
 </script>
 <!-- Div para mostrar la ventana modal para elegir la fecha de consulta para mandamientos judiciales y medidas cautelares -->
 <div id="busquedaFecha" style="display: none">
