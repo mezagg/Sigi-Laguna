@@ -495,7 +495,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
                     filtroExpedienteDTO.setIdActividad(Actividades.RECIBIR_CANALIZACION_JAR.getValorId());
                     filtroExpedienteDTO.setIdArea(new Long(Areas.ATENCION_TEMPRANA_PG_PENAL.ordinal()));
                     if (menuCoorJAR != null) {
-                        filtroExpedienteDTO.setEstatusMenuCoorJAr(Long.parseLong(menuCoorJAR));
+                        filtroExpedienteDTO.setestatusMenuCoorJAR(Long.parseLong(menuCoorJAR));
                     }
 
                 }
@@ -516,7 +516,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
                     // de expedientes asignados y no asignados
                     filtroExpedienteDTO.setExpedientesAsignados(expsAsignados);
                     if (menuUI != null && menuUI.equals("1")) {
-                        filtroExpedienteDTO.setEstatusMenuCoorJAr(EstatusMenuJAR.PROPIOS_UI.getValorId());
+                        filtroExpedienteDTO.setestatusMenuCoorJAR(EstatusMenuJAR.PROPIOS_UI.getValorId());
                     }
                 }
             } else if (area.equals("PM")) {

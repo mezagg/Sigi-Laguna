@@ -22,7 +22,6 @@ package mx.gob.segob.nsjp.dto.expediente;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -50,7 +49,7 @@ public class FiltroExpedienteDTO extends FiltroCasoDTO {
 	private UsuarioDTO usuario;
 	private Boolean expedientesAsignados;
 	private Long estatus;
-	private Long estatusMenuCoorJAr;
+	private Long estatusMenuCoorJAR;
 	private List<Long> estatusNumeroExpediente;
 	//Objeto utilizado para la consulta de numeros de expedientes de atpenal en unidad de investigacion y opcional para policia minister
 	private Long filtroEspecificoDeAreaRolActual;
@@ -237,17 +236,17 @@ public class FiltroExpedienteDTO extends FiltroCasoDTO {
 	}
 
 	/**
-	 * @return the estatusMenuCoorJAr
+	 * @return the estatusMenuCoorJAR
 	 */
-	public Long getEstatusMenuCoorJAr() {
-		return estatusMenuCoorJAr;
+	public Long getestatusMenuCoorJAR() {
+		return estatusMenuCoorJAR;
 	}
 
 	/**
-	 * @param estatusMenuCoorJAr the estatusMenuCoorJAr to set
+	 * @param estatusMenuCoorJAR the estatusMenuCoorJAR to set
 	 */
-	public void setEstatusMenuCoorJAr(Long estatusMenuCoorJAr) {
-		this.estatusMenuCoorJAr = estatusMenuCoorJAr;
+	public void setestatusMenuCoorJAR(Long estatusMenuCoorJAR) {
+		this.estatusMenuCoorJAR = estatusMenuCoorJAR;
 	}
 
 	/**
