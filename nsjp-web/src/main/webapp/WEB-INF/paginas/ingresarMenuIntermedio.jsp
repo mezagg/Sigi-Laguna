@@ -449,9 +449,7 @@
 			 $('#idsNumerosDelExpediente').hide();
 			 ocultaMuestraTabVisor("tabTabsVisitaduria",0);
 			 	
-			 $("#tapActuaciones").one("click", function() {
-				 cargaActuaciones(1);
-			 });
+			 
 			 
 //			 $("#tapActuaciones").click(function() {
 //				 cargarRelacionesRegistradas();
@@ -1478,6 +1476,10 @@
                     console.log('acciones');
                     seleccionaActuacion($(this).selectable());
                 });
+                
+                $("#tapActuaciones").one("click", function() {
+				 cargaActuaciones(1);
+			 });
            });             
                          
 		//Termina funcion on ready del documento

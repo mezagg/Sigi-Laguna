@@ -47,7 +47,7 @@ public class ConfUsuarioCatDiscriminante implements Serializable {
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Usuario_id", nullable = false)
+    @JoinColumn(name = "Usuario_id", nullable = false, insertable = false, updatable = false)
     public Usuario getUsuario() {
         return usuario;
     }
@@ -57,7 +57,7 @@ public class ConfUsuarioCatDiscriminante implements Serializable {
     }
     
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "catDiscriminante_id", nullable = false)
+    @JoinColumn(name = "catDiscriminante_id", nullable = false, insertable = false, updatable = false)
     public CatDiscriminante getCatDiscriminante() {
         return catDiscriminante;
     }
