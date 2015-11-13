@@ -191,3 +191,109 @@ WHERE cValor='Oficio' and CampoCatalogo_id=68;
 
 select Forma_Id from forma
 where TipoForma_val = 1611 and cDescForma like 'Oficio enaje%';
+
+--Actualización de la forma para oficio enajenación
+UPDATE Forma 
+SET cCuerpo='<p style="text-align: right;"><span style="font-size:12px;"><span style="font-family: arial,helvetica,sans-serif;">&lt;ciudad&gt;, &lt;estado&gt; &lt;fechaActual&gt;</span></span></p>
+	<p><span style="font-size:12px;"><span style="font-family: arial,helvetica,sans-serif;">OFICIO DE ENAJENACI&Oacute;N DE BIENES</span></span></p>
+	<p>&nbsp;</p>
+    <p>
+		<span style="font-size:12px;"><span style="font-family: arial,helvetica,sans-serif;">El d&iacute;a de hoy, &lt;fechaActual&gt; siendo las &lt;horaActual&gt; horas se enajenaron los siguientes bienes:</span></span></p>
+		<br />
+	<p><span style="font-size:12px;"><span style="font-family: arial,helvetica,sans-serif;">VEH&Iacute;CULOS</span></p>	
+	<table style="border: 1px solid black; width:100%">
+		<tr>
+			<th>Descripci&oacute;n</th>
+			<th>Ubicaci&oacute;n</th> 
+			<th>Fecha de notificaci&oacute;n</th>
+			<th>D&iacute;as transcurridos</th>
+			<th>No. Oficio</th>
+		</tr>
+		&lt;Vehiculos&gt;
+	</table>
+	<br />
+	<br />
+	<p><span style="font-size:12px;"><span style="font-family: arial,helvetica,sans-serif;">SEMOVIENTES</span></p>	
+	<table style="border: 1px solid black; width:100%">
+		<tr>
+			<th>Descripci&oacute;n</th>
+			<th>Ubicaci&oacute;n</th> 
+			<th>Fecha de notificaci&oacute;n</th>
+			<th>D&iacute;as transcurridos</th>
+			<th>No. Oficio</th>
+			<th>Color</th>
+			<th>Cantidad</th>						
+		</tr>
+		&lt;Semovientes&gt;
+	</table>
+	<br />
+	<br />
+	<p><span style="font-size:12px;"><span style="font-family: arial,helvetica,sans-serif;">BIENES MUEBLES</span></p>	
+	<table style="border: 1px solid black; width:100%">
+		<tr>
+			<th>Descripci&oacute;n</th>
+			<th>Ubicaci&oacute;n</th> 
+			<th>Fecha de notificaci&oacute;n</th>
+			<th>D&iacute;as transcurridos</th>
+			<th>No. Oficio</th>
+			<th>Cantidad</th>						
+		</tr>
+		&lt;BienesMuebles&gt;
+	</table>
+	<br />
+	<br />
+	<p><span style="font-size:12px;"><span style="font-family: arial,helvetica,sans-serif;">VALORES</span></p>	
+	<br />
+	<p><span style="font-size:11px;"><span style="font-family: arial,helvetica,sans-serif;">Dinero</span></p>	
+	<table style="border: 1px solid black; width:100%">
+		<tr>
+			<th>Descripci&oacute;n</th>
+			<th>Ubicaci&oacute;n</th> 
+			<th>Fecha de notificaci&oacute;n</th>
+			<th>D&iacute;as transcurridos</th>
+			<th>No. Oficio</th>
+			<th>Procedencia</th>
+		</tr>
+		&lt;Dinero&gt;
+	</table>
+	<br />
+	<p><span style="font-size:11px;"><span style="font-family: arial,helvetica,sans-serif;">Joyas</span></p>	
+	<table style="border: 1px solid black; width:100%">
+		<tr>
+			<th>Descripci&oacute;n</th>
+			<th>Ubicaci&oacute;n</th> 
+			<th>Fecha de notificaci&oacute;n</th>
+			<th>D&iacute;as transcurridos</th>
+			<th>No. Oficio</th>
+			<th>Kilataje</th>
+			<th>Aval&uacute;o Monetario</th>						
+		</tr>
+		&lt;Joyas&gt;
+	</table>
+	<br />
+	<p><span style="font-size:11px;"><span style="font-family: arial,helvetica,sans-serif;">Obras de Arte</span></p>	
+	<table style="border: 1px solid black; width:100%">
+		<tr>
+			<th>Descripci&oacute;n</th>
+			<th>Ubicaci&oacute;n</th> 
+			<th>Fecha de notificaci&oacute;n</th>
+			<th>D&iacute;as transcurridos</th>
+			<th>No. Oficio</th>
+			<th>Aval&uacute;o Monetario</th>						
+		</tr>
+		&lt;Obras de Arte&gt;
+	</table>
+	<br />
+	<br />	
+	<p><span style="font-size:12px;"><span style="font-family: arial,helvetica,sans-serif;">OTROS</span></p>	
+	<table style="border: 1px solid black; width:100%">
+		<tr>
+			<th>Descripci&oacute;n</th>
+			<th>Ubicaci&oacute;n</th> 
+			<th>Fecha de notificaci&oacute;n</th>
+			<th>D&iacute;as transcurridos</th>
+			<th>No. Oficio</th>
+		</tr>
+		&lt;Otros&gt;
+	</table>'
+where TipoForma_val = 1611 and cDescForma like 'Oficio enaje%';

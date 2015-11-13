@@ -41,13 +41,12 @@ import mx.gob.segob.nsjp.delegate.documento.DocumentoDelegate;
 import mx.gob.segob.nsjp.delegate.fecha.ObtenerFechaActualDelegate;
 import mx.gob.segob.nsjp.delegate.objeto.ObjetoDelegate;
 import mx.gob.segob.nsjp.delegate.parametro.ParametroDelegate;
-import mx.gob.segob.nsjp.dto.archivo.ArchivoDigitalDTO;
 import mx.gob.segob.nsjp.dto.catalogo.ValorDTO;
 import mx.gob.segob.nsjp.dto.configuracion.ConfInstitucionDTO;
 import mx.gob.segob.nsjp.dto.documento.DocumentoDTO;
-import mx.gob.segob.nsjp.dto.expediente.ExpedienteDTO;
 import mx.gob.segob.nsjp.dto.forma.FormaDTO;
 import mx.gob.segob.nsjp.dto.funcionario.FuncionarioDTO;
+import mx.gob.segob.nsjp.dto.objeto.AnimalDTO;
 import mx.gob.segob.nsjp.dto.objeto.DocumentoOficialDTO;
 import mx.gob.segob.nsjp.dto.objeto.ExplosivoDTO;
 import mx.gob.segob.nsjp.dto.objeto.JoyaDTO;
@@ -188,102 +187,97 @@ public class EnajenarBienesAction extends GenericAction {
 		        forma = documentoDelegate.buscarForma(formaId);
 		    	documento.setConfInstitucion(confInstitucionDTO);
 		    	
-                        String listaVehiculos="",listaSemovientes="",listaBienesMuebles="",listaJoyas="",listaDinero="";
+                        String listaVehiculos="",listaSemovientes="",listaBienesInmuebles="",listaBienesMuebles="",listaJoyas="",
+                                listaDinero="",listaObras="",listaOtros="";
                          StringTokenizer st=new StringTokenizer(ids, ",");
                          while(st.hasMoreTokens()){
                              ObjetoDTO oDTO=new ObjetoDTO(new Long(st.nextToken()));
                              oDTO.setConsultarArchivoDigital(Boolean.TRUE);
                              ObjetoDTO obDTO=objetoDelegate.obtenerObjeto(oDTO);
-                            
-                            if(obDTO.getIdTipoObjeto() == Objetos.VEHICULO.getValorId()){
-                                    listaVehiculos+="<tr><td>"+obDTO.getDescripcion()+"</td><td>"
-                                            +obDTO.getAlmacen().getNombreAlmacen()+"</td><td>"
-                                            +obDTO.getDescripcion()+"</td><td>"
-                                            +obDTO.getDescripcion()+"</td><td>"
-                                            +obDTO.getExpedienteDTO().getNumeroExpediente()+"</td><td>"
-                                            +"</tr>";
-                                    
+                            String descripcion=obDTO.getDescripcion()!=null?obDTO.getDescripcion():"NA";
+                            String ubicacion=obDTO.getAlmacen()!=null?obDTO.getAlmacen().getNombreAlmacen():"NA";
+                            String expediente=obDTO.getExpedienteDTO()!=null?obDTO.getExpedienteDTO().getNumeroExpediente():"NA";
+                            if(obDTO.getIdTipoObjeto() == Objetos.VEHICULO.getValorId()
+                                    || obDTO.getIdTipoObjeto() == Objetos.EMBARCACION.getValorId()
+                                    || obDTO.getIdTipoObjeto() == Objetos.AERONAVE.getValorId()){
+                                    listaVehiculos+="<tr><td>"+descripcion+"</td><td>"
+                                            +ubicacion+"</td><td>"
+                                            +"NA</td><td>"
+                                            +"NA</td><td>"
+                                            +expediente+"</td><td>"
+                                            +"</tr>";                                    
                             }
-                            /*if(elemento instanceof EquipoComputo){
-                                    EquipoComputo loObjeto = (EquipoComputo)elemento;
-                                    cadena = cadena + "Equipo de Cómputo" + SEPARADOR;
-                                    cadena = (loObjeto.getTipoEquipo() != null ? cadena + loObjeto.getTipoEquipo().getValor() + SEPARADOR:cadena);    			  
-                            }
-                            if(elemento instanceof Arma){
-                                    Arma loObjeto = (Arma)elemento;   			  
-                                    cadena = cadena + "Arma" + SEPARADOR;
-                                    cadena = (loObjeto.getTipoArma() != null ? cadena + loObjeto.getTipoArma().getValor() + SEPARADOR:cadena);
-                            }
-                            if(elemento instanceof Explosivo){
-                                    Explosivo loObjeto = (Explosivo)elemento;
-                                    cadena = cadena + "Explosivo" + SEPARADOR;
-                                    cadena = (loObjeto.getTipoExplosivo() != null ? cadena + loObjeto.getTipoExplosivo().getValor() + SEPARADOR:cadena);
-                            }
-                            if(elemento instanceof Aeronave){
-                                    Aeronave loObjeto = (Aeronave)elemento;    			  
-                                    cadena = cadena + "Aeronave" + SEPARADOR;
-                                    cadena = (loObjeto.getTipoAeroNave() != null ? cadena + loObjeto.getTipoAeroNave().getValor() + SEPARADOR:cadena);
-                            }*/
-                            if(obDTO.getIdTipoObjeto() == Objetos.ANIMAL.getValorId()){
-                                    listaVehiculos+="<tr><td>"+obDTO.getDescripcion()+"</td><td>"
-                                            +obDTO.getAlmacen().getNombreAlmacen()+"</td><td>"
-                                            +obDTO.getDescripcion()+"</td><td>"
-                                            +obDTO.getDescripcion()+"</td><td>"
-                                            +obDTO.getExpedienteDTO().getNumeroExpediente()+"</td><td>"
-                                            +obDTO.getDescripcion()+"</td><td>"
-                                            +obDTO.getDescripcion()+"</td><td>"
+                            else if(obDTO.getIdTipoObjeto() == Objetos.EQUIPO_DE_COMPUTO.getValorId()
+                                    || obDTO.getIdTipoObjeto() == Objetos.EQUIPO_TELEFONICO.getValorId()
+                                    || obDTO.getIdTipoObjeto() == Objetos.EXPLOSIVO.getValorId()
+                                    || obDTO.getIdTipoObjeto() == Objetos.ARMA.getValorId()
+                                    || obDTO.getIdTipoObjeto() == Objetos.SUSTANCIA.getValorId()
+                                    || obDTO.getIdTipoObjeto() == Objetos.DOCUMENTO_OFICIAL.getValorId()){
+                                    listaBienesMuebles+="<tr><td>"+descripcion+"</td><td>"
+                                            +ubicacion+"</td><td>"
+                                            +"NA</td><td>"
+                                            +"NA</td><td>"
+                                            +expediente+"</td><td>"
+                                            +"NA</td><td>"
+                                            +"NA</td><td>"
                                             +"</tr>";
                             }
-                            /*if(elemento instanceof DocumentoOficial){
-                                    DocumentoOficial loObjeto = (DocumentoOficial)elemento;
-                                    cadena = cadena + "Documento Oficial" + SEPARADOR;
-                                    cadena = (loObjeto.getTipoDocumento() != null ? cadena + loObjeto.getTipoDocumento().getValor() + SEPARADOR:cadena);
-                            }
-                            if(elemento instanceof Embarcacion){
-                                    Embarcacion loObjeto = (Embarcacion)elemento;
-                                    cadena = cadena + "Embarcación" + SEPARADOR;
-                                    cadena = (loObjeto.getTipoEmbarcacion() != null ? cadena + loObjeto.getTipoEmbarcacion().getValor() + SEPARADOR:cadena);
-                            }*/
-                            if(obDTO.getIdTipoObjeto() == Objetos.JOYA.getValorId()){
-                                    listaVehiculos+="<tr><td>"+obDTO.getDescripcion()+"</td><td>"
-                                            +obDTO.getAlmacen().getNombreAlmacen()+"</td><td>"
-                                            +obDTO.getDescripcion()+"</td><td>"
-                                            +obDTO.getDescripcion()+"</td><td>"
-                                            +obDTO.getExpedienteDTO().getNumeroExpediente()+"</td><td>"
-                                            +obDTO.getDescripcion()+"</td><td>"
-                                            +obDTO.getDescripcion()+"</td><td>"
+                            else if(obDTO.getIdTipoObjeto() == Objetos.ANIMAL.getValorId()){
+                                        listaSemovientes+="<tr><td>"+descripcion+"</td><td>"
+                                            +ubicacion+"</td><td>"
+                                            +"NA</td><td>"
+                                            +"NA</td><td>"
+                                            +expediente+"</td><td>"
+                                            +"NA</td><td>"
+                                            +"NA</td><td>"
                                             +"</tr>";
                             }
-                            if(obDTO.getIdTipoObjeto() == Objetos.NUMERARIO.getValorId()){
-                                    listaVehiculos+="<tr><td>"+obDTO.getDescripcion()+"</td><td>"
-                                            +obDTO.getAlmacen().getNombreAlmacen()+"</td><td>"
-                                            +obDTO.getDescripcion()+"</td><td>"
-                                            +obDTO.getDescripcion()+"</td><td>"
-                                            +obDTO.getExpedienteDTO().getNumeroExpediente()+"</td><td>"
-                                            +obDTO.getDescripcion()+"</td><td>"
+                            else if(obDTO.getIdTipoObjeto() == Objetos.VEGETAL.getValorId()){
+                                    listaSemovientes+="<tr><td>"+descripcion+"</td><td>"
+                                            +ubicacion+"</td><td>"
+                                            +"NA</td><td>"
+                                            +"NA</td><td>"
+                                            +expediente+"</td><td>"
+                                            +"NA</td><td>"
+                                            +((VegetalDTO)obDTO).getCantidad()+"</td><td>"
                                             +"</tr>";
                             }
-                            /*if(elemento instanceof ObraArte){
-                                    ObraArte loObjeto = (ObraArte)elemento;    			  
-                                    cadena = cadena + "Obra de Arte" + SEPARADOR;
-                                    cadena = (loObjeto.getTipoObraArte() != null ? cadena + loObjeto.getTipoObraArte().getValor() + SEPARADOR:cadena);
+                            else if(obDTO.getIdTipoObjeto() == Objetos.JOYA.getValorId()){
+                                    listaJoyas+="<tr><td>"+descripcion+"</td><td>"
+                                            +ubicacion+"</td><td>"
+                                            +"NA</td><td>"
+                                            +"NA</td><td>"
+                                            +expediente+"</td><td>"
+                                            +"NA</td><td>"
+                                            +"NA</td><td>"
+                                            +"</tr>";
                             }
-                            if(elemento instanceof Sustancia){
-                                    Sustancia loObjeto = (Sustancia)elemento;
-                                    cadena = cadena + "Sustancia" + SEPARADOR;
-                                    cadena = (loObjeto.getTipoSustancia() != null ? cadena + loObjeto.getTipoSustancia().getValor() + SEPARADOR:cadena);
+                            else if(obDTO.getIdTipoObjeto() == Objetos.OBRA_DE_ARTE.getValorId()){
+                                    listaObras+="<tr><td>"+descripcion+"</td><td>"
+                                            +ubicacion+"</td><td>"
+                                            +"NA</td><td>"
+                                            +"NA</td><td>"
+                                            +expediente+"</td><td>"
+                                            +"NA</td><td>"
+                                            +"</tr>";
                             }
-                            if(elemento instanceof Telefonia){
-                                    Telefonia loObjeto = (Telefonia)elemento;
-                                    cadena = cadena + "Equipo Telefónico" + SEPARADOR;
-                                    cadena = (loObjeto.getTipoTelefono() != null ? cadena + loObjeto.getTipoTelefono().getValor() + SEPARADOR:cadena);
+                            else if(obDTO.getIdTipoObjeto() == Objetos.NUMERARIO.getValorId()){
+                                    listaDinero+="<tr><td>"+descripcion+"</td><td>"
+                                            +ubicacion+"</td><td>"
+                                            +"NA</td><td>"
+                                            +"NA</td><td>"
+                                            +expediente+"</td><td>"
+                                            +"NA</td><td>"
+                                            +"</tr>";
                             }
-                            if(elemento instanceof Vegetal){
-                                    Vegetal loObjeto = (Vegetal)elemento;
-                                    cadena = cadena + "Vegetal" + SEPARADOR;
-                                    cadena = (loObjeto.getTipoVegetal() != null ? cadena + loObjeto.getTipoVegetal().getValor() + SEPARADOR:cadena);
-                            }*/
-		  
+                            else{
+                                listaOtros+="<tr><td>"+descripcion+"</td><td>"
+                                            +ubicacion+"</td><td>"
+                                            +"NA</td><td>"
+                                            +"NA</td><td>"
+                                            +expediente+"</td><td>"
+                                            +"</tr>";
+                            }
                          }
                          
                          Map<String,Object> parametrosExtra = new HashMap<String,Object> ();
@@ -292,6 +286,8 @@ public class EnajenarBienesAction extends GenericAction {
                          parametrosExtra.put("BienesMuebles", listaBienesMuebles);
                          parametrosExtra.put("Dinero", listaDinero);
                          parametrosExtra.put("Joyas", listaJoyas);
+                         parametrosExtra.put("Obras", listaObras);
+                         parametrosExtra.put("Otros", listaOtros);
                          Calendar f=Calendar.getInstance();
                          int hora=f.get(Calendar.HOUR_OF_DAY);
                          int min=f.get(Calendar.MINUTE);
