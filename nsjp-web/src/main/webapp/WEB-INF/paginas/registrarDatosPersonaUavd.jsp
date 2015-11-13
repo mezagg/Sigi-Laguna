@@ -215,10 +215,7 @@ var resRad;
         		$('#tapDelitoYRelaciones').removeClass("cargando");
 		});
                 
-                $("#tapActuaciones").one("click", function() {
-                    cargaActuaciones(1);
-		});               
- 
+                       
                 //seteamos los listener de los radios para la relacion de Delitos por Person o por Delito
 		$("#rdbMenuInterRelDelXPersona").bind("click",ocultaMuestraTblsRelacionarDelitos);
 		$("#rdbMenuInterRelDelXDelito").bind("click",ocultaMuestraTblsRelacionarDelitos);
@@ -338,6 +335,10 @@ var resRad;
                 $("#cbxOficiosTab").delegate('a','click',function(event) {
                     seleccionaActuacion($(this).selectable());
                 });
+                
+                $("#tapActuaciones").one("click", function() {
+                    cargaActuaciones(1);
+		}); 
                 
 });
 
