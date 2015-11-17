@@ -74,49 +74,7 @@
 
 </head>
 <script type="text/javascript">
-    
-   (function ($) {
-  jQuery.expr[':'].Contains = function(a,i,m){
-      return (a.textContent || a.innerText || "").toUpperCase().indexOf(m[3].toUpperCase())>=0;
-  };
-
-  function filterList(header, list1, list2) { 
-    var form = $("<form>").attr({"class":"filterform","action":"#"}),
-        input = $("<input>").attr({"class":"filterinput","type":"text","size":"80"});
-    $(form).append(input).appendTo(header);
- 
-    $(input).change( function () {
-        var filter = $(this).val();
-       
-                                    
-        if(filter) {
-            $matches1 = $(list1).find('a:Contains(' + filter + ')').parent();
-            $('#ofic').empty();
-            $('#ofic').append(" (" + $matches1.size() +"): ");
-            $matches2 = $(list2).find('a:Contains(' + filter + ')').parent();
-            $('#act').empty();
-            $('#act').append(" (" + $matches2.size() +"): ");
             
-            $('li', list1).not($matches1).slideUp();
-            $('li', list2).not($matches2).slideUp();
-            $matches1.slideDown();
-            $matches2.slideDown();
-        } else {
-            $(list1).find("li").slideDown();
-            $(list2).find("li").slideDown();
-        }
-        return false;
-    }).keyup( function () {
-        $(this).change();
-       });
-  }
- 
-  $(function () {
-    filterList($("#formO"), $("#cbxOficiosTab"));
-    filterList($("#formA"), $("#cbxAccionesTab"));
-  });
-}(jQuery));
-             
 var resRad;
         var msjProbableResponsableProp = '<bean:message key="msjProbableResponsable"/>';
 	var valorVacio = "<div style=\"background-color: #f2f2f2; color:#393939;\"> </div>";
@@ -931,6 +889,48 @@ function popopAsistencia(rowid){
 			else
 				alertDinamico("No existen delito(s) registrado(s) en el expediente");
 		}
+                
+(function ($) {
+  jQuery.expr[':'].Contains = function(a,i,m){
+      return (a.textContent || a.innerText || "").toUpperCase().indexOf(m[3].toUpperCase())>=0;
+  };
+
+  function filterList(header, list1, list2) { 
+    var form = $("<form>").attr({"class":"filterform","action":"#"}),
+        input = $("<input>").attr({"class":"filterinput","type":"text","size":"80"});
+    $(form).append(input).appendTo(header);
+ 
+    $(input).change( function () {
+        var filter = $(this).val();
+       
+                                    
+        if(filter) {
+            $matches1 = $(list1).find('a:Contains(' + filter + ')').parent();
+            $('#ofic').empty();
+            $('#ofic').append(" (" + $matches1.size() +"): ");
+            $matches2 = $(list2).find('a:Contains(' + filter + ')').parent();
+            $('#act').empty();
+            $('#act').append(" (" + $matches2.size() +"): ");
+            
+            $('li', list1).not($matches1).slideUp();
+            $('li', list2).not($matches2).slideUp();
+            $matches1.slideDown();
+            $matches2.slideDown();
+        } else {
+            $(list1).find("li").slideDown();
+            $(list2).find("li").slideDown();
+        }
+        return false;
+    }).keyup( function () {
+        $(this).change();
+       });
+  }
+ 
+  $(function () {
+    filterList($("#formA"), $("#cbxOficiosTab"), $("#cbxAccionesTab"));
+  });
+}(jQuery));
+ 
                 
         function ejecutaActuacion(selected, confActividadId, actividad, formaID, titulo, usaeditor, estatusId, habilitarTurno, validaDelitoGrave){
 		if( actividad=='<%= Actividades.GENERAR_QUERELLA.getValorId() %>' || actividad=='<%= Actividades.GENERAR_DENUNCIA_EN_ATP.getValorId() %>'){
@@ -2271,9 +2271,7 @@ function muestraDivInformativoCanalizacion()
 			// $("#gview_gridDetalleFrmPrincipalTres .ui-jqgrid-bdiv").css('height', '200px');	
 
 			}
-                        
            
- 
      
 </script>
 <body>
