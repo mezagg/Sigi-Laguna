@@ -65,7 +65,7 @@
 	
 	<!--ESTILOS PARA LAS TABS-->
 	<style>
-}
+
 	#tabs { height: 770px; } 
 	.tabs-bottom { position: relative; } 
 	
@@ -3246,13 +3246,13 @@
 
 		var indice;
 		
-		$('#gridsTd').append('<tr><div id="div1">');
+		$('#gridsTd').append('<tr>');
 		$('#gridsTd').append('<td><table width="10" id="gridHorarios" border="0"></table></td>');
 		for (indice=0;indice<numeroDeSalas;indice++){
 			salaId = identiSala[indice];
 			$('#gridsTd').append('<td><table width="10" id="gridSalasPJENA'+salaId+'" border="0"></table></td>');
 		}
-		$('#gridsTd').append('</div></tr>');
+		$('#gridsTd').append('</tr>');
 	}
 
 
@@ -6026,8 +6026,25 @@
 				<!--<table width="1100" class="back_generales" border="0" cellspacing="0" cellpadding="0">-->
                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                 <tr> 
-                                    <td width="38%"></td>
-                                    <td width="16%">
+                                    <td width="30%"></td>
+                                    <td width="20%">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <strong>
+								<input type="text" size="4" style="width: 20px; border: 0; background: #669933;" readonly />
+							</strong>Disponible
+                                                </td>
+                                                <td>
+                                                     <strong>
+								<input type="text" size="4" style="width: 20px; border: 0; background: red;" readonly />
+							</strong>No Disponible       
+                                                </td>
+                                                <td>
+                                                    <input type="text" size="4" style="width: 20px; border: 0; background: #CCCCCC;" readonly />Inh&aacute;bil        
+                                                </td>
+                                            </tr>        
+                                        </table>    
                                     </td>
                                     <td width="30%">
                                         <strong>Asignar Juez:</strong>
@@ -6047,10 +6064,10 @@
                                                 </tr>
                                         </table>
 				    </td>
-                                    <td width="16%"></td>
+                                    <td width="20%"></td>
                                 </tr>
                                 <tr>
-                                    <td width="38%">
+                                    <td width="30%">
                                         <table>
                                             <tr>
                                                 <td align="right" valign="bottom">
@@ -6141,7 +6158,7 @@
                                             </tr>    
                                         </table>
                                     </td>
-                                    <td width="16%">
+                                    <td width="20%">
                                         <table>
                                             <tr>
                                                 <td align="center">
@@ -6153,11 +6170,8 @@
                                             </tr>
                                             <tr>
                                                 <td align="center">
-                                                    <table id="gridAgendaPJENA"></table>
-                                                </td>
-                                                <td>
-                                                            
-                                                </td>
+                                                    <table id="gridAgendaPJENA"></table>        
+                                                </td> 
                                             </tr>
                                         </table>
                                     </td>
@@ -6165,7 +6179,7 @@
                                         <table id="gridSolicitudDeAudienciaJuecesPJENA"></table>
                                         <div id="divGridSolicitudDeAudienciaJuecesPJENA"></div>         
                                     </td>
-                                    <td width="16%">
+                                    <td width="20%">
                                         <table id="gridsImputadosAudiencia" ></table>
                                         <div id="pagerinv"></div>      
                                     </td>    
