@@ -65,6 +65,7 @@
 	
 	<!--ESTILOS PARA LAS TABS-->
 	<style>
+
 	#tabs { height: 770px; } 
 	.tabs-bottom { position: relative; } 
 	
@@ -3246,10 +3247,10 @@
 		var indice;
 		
 		$('#gridsTd').append('<tr>');
-		$('#gridsTd').append('<td><table width="100%" id="gridHorarios" border="0"></table></td>');
+		$('#gridsTd').append('<td><table width="10" id="gridHorarios" border="0"></table></td>');
 		for (indice=0;indice<numeroDeSalas;indice++){
 			salaId = identiSala[indice];
-			$('#gridsTd').append('<td><table width="100%" id="gridSalasPJENA'+salaId+'" border="0"></table></td>');
+			$('#gridsTd').append('<td><table width="10" id="gridSalasPJENA'+salaId+'" border="0"></table></td>');
 		}
 		$('#gridsTd').append('</tr>');
 	}
@@ -6023,230 +6024,184 @@
 			<div id="tabschild-1">
 			
 				<!--<table width="1100" class="back_generales" border="0" cellspacing="0" cellpadding="0">-->
-				<table width="1100" border="0" cellspacing="0" cellpadding="0">
-					<tr>
-						<td width="258">&nbsp;</td>
-						<td width="178">&nbsp;</td>
-						<td colspan="3" align="center" valign="bottom">
-							<input type="button" class="btn_Generico" value="<<" id="btnAtrasMes" onClick="atrasAdelanteMes('atras');"/>
-							<input type="text" id="mes" disabled="disabled" style="width: 70px"/>
-							<input type="text" id="anio" disabled="disabled" style="width: 70px" />
-							<input type="button" class="btn_Generico" value=">>" id="btnAdelanteMes" onClick="atrasAdelanteMes('adelante');"/>
-						</td>
-						<td width="100" nowrap="nowrap">
-							<strong>Asignar Juez:</strong> 
-						</td>
-					 	<td colspan="2">
-							<table width="100%" cellpadding="1" cellspacing="1">
-								<tr>
-									<td colspan="2">
-										<input type="checkbox" value="true" name="juezSustituto" id="juezSustituto"/> Juez sustituto
-									</td> 
-								</tr>
-								<tr>
-									<td width="111">
-										<input type="button" class="btn_Generico" value="Manualmente" id="btnAsignarJuezManual" onclick="controlJueces(false);"/>
-									</td>
-									<td width="125">
-										<input type="button" class="btn_Generico" value="Autom&aacute;ticamente" id="btnAsignarJuezAuto" onclick="controlJueces(true);"/>
-									</td>
-								</tr>
-							</table>
-						</td>
-					</tr>
-		  			<tr>
-		    			<td align="right" valign="bottom">
-		    				<strong>Tipo de audiencia a programar:</strong>
-		    			</td>
-					    <td>
-							<select id="tipoAudienciaProgramarAudiencia" style="width:200px;"></select>
-					    </td>
-		    			<td colspan="3" rowspan="7" align="center" valign="bottom">
-		    				<table id="gridAgendaPJENA"></table>
-		    			</td>
-		    			<td colspan="3" rowspan="7">
-		    				<table id="gridSolicitudDeAudienciaJuecesPJENA"></table>
-		    				<div id="divGridSolicitudDeAudienciaJuecesPJENA"></div>
-		    			</td>
-		  			</tr>
-		  			<tr>
-		    			<td align="right" valign="bottom">
-		    				<strong>N&uacute;mero de Caso:</strong>
-		    			</td>
-		    			<td align="left" valign="bottom">
-		    				<input type="text" id="numCasoProgramarAudiencia" style="width: 200px; border: 0; background: #DDD;" readonly="readonly" />
-		    			</td>
-		  			</tr>
-		  			<tr>
-		    			<td align="right" valign="bottom">
-		    				<strong>N&uacute;mero de Causa:</strong>
-		    			</td>
-		    			<td align="left" valign="bottom">
-		    				<input type="text" id="numExpedienteProgramarAudiencia" style="width: 200px; border: 0; background: #DDD;" readonly="readonly"/>
-		    			</td>
-		  			</tr>
-					<tr>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr> 
+                                    <td width="30%"></td>
+                                    <td width="20%">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <strong>
+								<input type="text" size="4" style="width: 20px; border: 0; background: #669933;" readonly />
+							</strong>Disponible
+                                                </td>
+                                                <td>
+                                                     <strong>
+								<input type="text" size="4" style="width: 20px; border: 0; background: red;" readonly />
+							</strong>No Disponible       
+                                                </td>
+                                                <td>
+                                                    <input type="text" size="4" style="width: 20px; border: 0; background: #CCCCCC;" readonly />Inh&aacute;bil        
+                                                </td>
+                                            </tr>        
+                                        </table>    
+                                    </td>
+                                    <td width="30%">
+                                        <strong>Asignar Juez:</strong>
+                                        <table width="100%" cellpadding="1" cellspacing="1">
+                                                <tr>
+                                                        <td colspan="2">
+                                                                <input type="checkbox" value="true" name="juezSustituto" id="juezSustituto"/> Juez sustituto
+                                                        </td> 
+                                                </tr>
+                                                <tr>
+                                                        <td width="111">
+                                                                <input type="button" class="btn_Generico" value="Manualmente" id="btnAsignarJuezManual" onclick="controlJueces(false);"/>
+                                                        </td>
+                                                        <td width="125">
+                                                                <input type="button" class="btn_Generico" value="Autom&aacute;ticamente" id="btnAsignarJuezAuto" onclick="controlJueces(true);"/>
+                                                        </td>
+                                                </tr>
+                                        </table>
+				    </td>
+                                    <td width="20%"></td>
+                                </tr>
+                                <tr>
+                                    <td width="30%">
+                                        <table>
+                                            <tr>
+                                                <td align="right" valign="bottom">
+                                                    <strong>Tipo de audiencia a programar:</strong>
+                                                </td>
+                                                <td>
+                                                    <select id="tipoAudienciaProgramarAudiencia" style="width:200px;"></select>
+                                                </td>     
+                                            </tr>
+                                            <tr>
+                                                <td align="right" valign="bottom">
+                                                        <strong>N&uacute;mero de Caso:</strong>
+                                                </td>
+                                                <td align="left" valign="bottom">
+                                                        <input type="text" id="numCasoProgramarAudiencia" style="width: 200px; border: 0; background: #DDD;" readonly="readonly" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right" valign="bottom">
+                                                        <strong>N&uacute;mero de Causa:</strong>
+                                                </td>
+                                                <td align="left" valign="bottom">
+                                                        <input type="text" id="numExpedienteProgramarAudiencia" style="width: 200px; border: 0; background: #DDD;" readonly="readonly"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
 						<td align="right" valign="bottom">
 							<strong>Fecha l&iacute;mite de audiencia:</strong>
 						</td>
 						<td align="left" valign="bottom">
 							<input type="text" id="fechaLimiteProgramarAudiencia" style="width: 200px; border: 0; background: #DDD;" readonly="readonly" />
 						</td>
-					</tr>
-					<tr>
+                                            </tr>
+                                            <tr>
 						<td align="right" valign="bottom">
 							<strong>Fecha Seleccionada:</strong>
 						</td>
 						<td align="left" valign="bottom">
 							<input type="text" id="fechaSeleccionadaAudiencia" style="width: 200px; border: 0; background: #DDD;" readonly="readonly" />
 						</td>
-					</tr>
-		  			<tr>
+                                            </tr>
+                                            <tr>
 						<td align="right" valign="bottom">
 							<strong>Duraci&oacute;n estimada de audiencia:</strong>
 						</td>
-		    			<td align="left" valign="bottom">
-							<select id="duracionEstimadaProgramarAudiencia" style="width:200px;">
-							   	<option value="0" >-Seleccione-</option>
-			                	<option value="30">30 min.</option>
-			                	<option value="60">1 hr. </option>
-			                	<option value="90">1 hr. 30 min.</option>
-			                	<option value="120">2 hrs.</option>
-			                	<option value="150">2 hrs. 30 min.</option>
-			                	<option value="180">3 hrs.</option>
-			                	<option value="210">3 hrs. 30 min.</option>
-			                	<option value="240">4 hrs.</option>
-			                	<option value="270">4 hrs. 30 min.</option>
-			                	<option value="300">5 hrs.</option>
-			                	<option value="330">5 hrs. 30 min</option>
-			                	<option value="360">6 hrs.</option>
-			                	<option value="420">7 hrs.</option>
-			                	<option value="480">8 hrs.</option>
-			                	<option value="540">9 hrs.</option>
-			                	<option value="600">10 hrs.</option>
-			                	<option value="660">11 hrs.</option>
-			                	<option value="720">12 hrs.</option>
-			                	<option value="780">13 hrs.</option>
-			                	<option value="840">14 hrs.</option>
-							</select>
+                                                <td align="left" valign="bottom">
+                                                    <select id="duracionEstimadaProgramarAudiencia" style="width:200px;">
+							<option value="0" >-Seleccione-</option>
+                                                        <option value="30">30 min.</option>
+                                                        <option value="60">1 hr. </option>
+                                                        <option value="90">1 hr. 30 min.</option>
+                                                        <option value="120">2 hrs.</option>
+                                                        <option value="150">2 hrs. 30 min.</option>
+                                                        <option value="180">3 hrs.</option>
+                                                        <option value="210">3 hrs. 30 min.</option>
+                                                        <option value="240">4 hrs.</option>
+                                                        <option value="270">4 hrs. 30 min.</option>
+                                                        <option value="300">5 hrs.</option>
+                                                        <option value="330">5 hrs. 30 min</option>
+                                                        <option value="360">6 hrs.</option>
+                                                        <option value="420">7 hrs.</option>
+                                                        <option value="480">8 hrs.</option>
+                                                        <option value="540">9 hrs.</option>
+                                                        <option value="600">10 hrs.</option>
+                                                        <option value="660">11 hrs.</option>
+                                                        <option value="720">12 hrs.</option>
+                                                        <option value="780">13 hrs.</option>
+                                                        <option value="840">14 hrs.</option>
+                                                    </select>
 		    				<!--<input type="text" id="duracionEstimadaProgramarAudiencia" style="width: 170px; border: 0; background: #DDD;" readonly="readonly" />-->
-	     				</td>
-					</tr>
-					<tr>
-						<td align="right">
-							<strong>Sala seleccionada:</strong>
-						</td>
-						<td>
-							<input type="text" id="txtSalaSeleccionada" style="width: 200px; border: 0; background: #DDD;" readonly="readonly" />
-						</td>
-					</tr>
-					<tr>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                    <td align="right">
+                                                            <strong>Sala seleccionada:</strong>
+                                                    </td>
+                                                    <td>
+                                                            <input type="text" id="txtSalaSeleccionada" style="width: 200px; border: 0; background: #DDD;" readonly="readonly" />
+                                                    </td>
+                                            </tr>
+                                            <tr>
 						<td height="30" align="right">
 							<strong>Hora de inicio:</strong>
 						</td>
 						<td>
 							<input type="text" id="txtHoraInicioSeleccionada" style="width: 200px; border: 0; background: #DDD;" readonly="readonly" />
 						</td>
-						<td width="102">
-							<strong>
-								<input type="text" size="4" style="width: 20px; border: 0; background: #669933;" readonly />
-							</strong>Disponible
-						</td>
-						<td width="123">
-							<strong>
-								<input type="text" size="4" style="width: 20px; border: 0; background: red;" readonly />
-							</strong>No Disponible
-						</td>
-						<td width="85">
-							<input type="text" size="4" style="width: 20px; border: 0; background: #CCCCCC;" readonly />Inh&aacute;bil
-						</td>
-						<td colspan="3">&nbsp;</td>
-					</tr>
-					<tr>
-						<td colspan="6">
-						<table id="gridsTd" width="105px"></table>
-						</td><td colspan="2">
-							<table id="gridsImputadosAudiencia" ></table>
-							<div id="pagerinv"></div>
-						</td>
-					</tr>
-					<tr>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-						<td colspan="3">&nbsp;</td>
-						<td colspan="3">&nbsp;</td>
-					</tr>
-		 			<tr>
-					    <td>&nbsp;</td>
-					    <td>&nbsp;</td>
-					    <td colspan="3" align="center">
-							<input type="button" id="btnGuardarAudiencia" class="btn_Generico" value="Guardar"  onclick="validaGuardarAudiencia();"/>
-					    </td>
-		    			<td colspan="3" align="left">
-		    				<input type="button" class="btn_Generico" id="btnDesignar" onclick="mostrarAsignarSalaTemporalPJENA();" value="Designar Sala Temporal" />
-		    			</td>
-		  			</tr>
-		  			<tr>
-                           <td colspan="7">&nbsp;</td>
-					</tr>
-					<tr>
-                           <td colspan="7">&nbsp;</td>
-					</tr>
-					
-				</table>
-				
-			</div>
-			<!--Termina Sub Tab para audiencia  -->
-				
-			<!--Comienza Sub Tab para imputados -->
-			<div id="tabschild-2">
-				<table border="0" cellspacing="0" cellpadding="0">
-			        <tr>
-			            <td>
-			            	<div id="divGridImputado1">
-								<table id="gridImputado1"></table>
-								<div id="paginadorGridImputado1"></div>
-							</div>
-			            </td>
-			        </tr>
-			        <tr>
-			            <td>&nbsp;</td>
-			        </tr>
+                                            </tr>    
+                                        </table>
+                                    </td>
+                                    <td width="20%">
+                                        <table>
+                                            <tr>
+                                                <td align="center">
+                                                    <input type="button" class="btn_Generico" value="<<" id="btnAtrasMes" onClick="atrasAdelanteMes('atras');"/>
+                                                    <input type="text" id="mes" disabled="disabled" style="width: 70px"/>
+                                                    <input type="text" id="anio" disabled="disabled" style="width: 70px" />
+                                                    <input type="button" class="btn_Generico" value=">>" id="btnAdelanteMes" onClick="atrasAdelanteMes('adelante');"/>
+                                                </td>        
+                                            </tr>
+                                            <tr>
+                                                <td align="center">
+                                                    <table id="gridAgendaPJENA"></table>        
+                                                </td> 
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td width="30%" align="center">
+                                        <table id="gridSolicitudDeAudienciaJuecesPJENA"></table>
+                                        <div id="divGridSolicitudDeAudienciaJuecesPJENA"></div>         
+                                    </td>
+                                    <td width="20%">
+                                        <table id="gridsImputadosAudiencia" ></table>
+                                        <div id="pagerinv"></div>      
+                                    </td>    
+                                </tr>
 			    </table>
-			</div>
-			<!--Termina Sub Tab para imputados -->
-			
-			<!--Comienzan  Sub Tabs para la ceja de individualizacion -->
-			<div id="tabschild-8">
-				<table border="0" cellspacing="0" cellpadding="0">
-			        <tr>
-			            <td>
-							<div id="divGridVictima1">
-								<table id="gridVictima1"></table>
-								<div id="paginadorGridVictima1"></div>
-							</div>
-			            </td>
-			        </tr>
-			        <tr>
-			            <td>&nbsp;</td>
-			        </tr>
-			    </table>
-			</div>
-			
-			<div id="tabschild-9">
-				<table border="0" cellspacing="0" cellpadding="0">
-			        <tr>
-			            <td>
-							<div id="divGridDenunciante1">
-								<table id="gridDenunciante1"></table>
-								<div id="paginadorGridDenunciante1"></div>
-							</div>
-			            </td>
-			        </tr>
-			        <tr>
-			            <td>&nbsp;</td>
-			        </tr>
-			    </table>
+                            <table id="gridsTd" width="105px"></table>  
+                            <table>
+                                <tr>
+                                    <td align="right" width="50%">
+                                        <input type="button" id="btnGuardarAudiencia" class="btn_Generico" value="Guardar"  onclick="validaGuardarAudiencia();"/>
+                                    </td>
+                                    <td align="left" width="50%">
+                                        <input type="button" class="btn_Generico" id="btnDesignar" onclick="mostrarAsignarSalaTemporalPJENA();" value="Designar Sala Temporal" />
+                                    </td>
+                                </tr>  
+                                <tr>
+                                    <td width="25%" height="20px"></td>
+                                    <td width="25%" height="20px"></td>
+                                    <td width="25%" height="20px"></td>
+                                    <td width="25%" height="20px"></td>
+                                </tr>
+                            </table>
 			</div>
 			
 			<!--Comienza Sub Tab para Testigo -->

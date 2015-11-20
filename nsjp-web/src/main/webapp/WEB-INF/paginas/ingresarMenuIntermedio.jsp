@@ -5384,7 +5384,7 @@
 			<li class="tabTabsDocs"><a href="#tabs-11" onclick="documentos()" id="tabDocumentos">Documentos</a></li>
 			<li class="tabTabsAcciones"><a href="#tabs-7" id="tapActuaciones">Actuaciones</a></li>
 			<li class="tabTabsPeri"><a href="#tabs-8" onclick="cargaGridsPericiales()" id="tapPericiales">Periciales</a></li> <!--onclick : gridPericiales() -->
-			<li class="tabTabsPolMin"><a href="#tabs-9" onclick="cargaGridPoliciaMinisterial()" id="tapPoliciaMinister">Policía ministerial</a></li>
+			<li class="tabTabsPolMin"><a href="#tabs-9" onclick="cargaGridPoliciaMinisterial()" id="tapPoliciaMinister">Policía Investigadora</a></li>
 			<li class="tabTabsCadCus"><a href="#tabs-10" onclick="gridCustodia()">Cadena de custodia</a></li>
 			<li class="tabTabsAudiencias"><a href="#tabs-12" onclick="cargaGridJudiaciales()">Judiciales</a></li>
 			<li class="tabTabsNotas"><a href="#tabs-5" id="tapNotas">Notas</a></li>
