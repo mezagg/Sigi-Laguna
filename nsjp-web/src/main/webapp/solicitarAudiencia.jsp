@@ -115,7 +115,7 @@
 			*Funcion que consulta los tribunales asignadas a un Distrito
 			*/
 			function consultarTribunalesXDistrito(distritoId){
-				
+//				bloquearPantalla(true, "Solicitando conección con PJ"); 
 				$.ajax({
 					type: 'POST',
 				    url: '<%=request.getContextPath()%>/consultarTribunalesXDistritoId.do?distritoId='+distritoId+'',
@@ -123,7 +123,7 @@
 				    dataType: 'xml',
 				    async: false,
 				    success: function(xml){
-
+//                                                desbloquearPantalla();
 					    	var contTribunales=0;
 					    	$(xml).find('listaDiscriminantes').find('catDiscriminante').each(function(){
 								$('#tribunal').append('<option value="' + $(this).find('catDiscriminanteId').text() + '">' + $(this).find('clave').text()+"-"+ $(this).find('nombre').text() + '</option>');
@@ -138,7 +138,12 @@
 									cargaDestinatario();
 								});
 							}
-					}
+                                    }
+//                                    ,
+//                                    error: function (xhr, ajaxOptions, thrownError) {
+//                                        desbloquearPantalla();
+//                                        customAlert("Error al conectarse con la instancia de PJ");
+//                                    }
 				});
 			}
 
