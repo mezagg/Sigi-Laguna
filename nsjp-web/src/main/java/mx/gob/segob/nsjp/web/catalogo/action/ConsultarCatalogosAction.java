@@ -2919,8 +2919,8 @@ public class ConsultarCatalogosAction extends GenericAction{
 	 */
 	public ActionForward consultarDiscriminantesXDistrito(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
-			throws IOException {
-		try {
+			throws Exception {
+//		try {
 	
 			log.info("EJECUTANDO ACTION CONSULTAR DISCRIMINANTES X DISTRITO");
 			
@@ -2940,9 +2940,9 @@ public class ConsultarCatalogosAction extends GenericAction{
 			pw.print(xml);
 			pw.flush();
 			pw.close();
-		} catch (Exception e) {
-			log.error(e.getMessage(), e);
-		}
+//		} catch (Exception e) {
+//			log.error(e.getMessage(), e);
+//		}
 		return null;
 	}
 	
