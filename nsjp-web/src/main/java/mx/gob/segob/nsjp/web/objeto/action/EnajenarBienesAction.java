@@ -41,13 +41,12 @@ import mx.gob.segob.nsjp.delegate.documento.DocumentoDelegate;
 import mx.gob.segob.nsjp.delegate.fecha.ObtenerFechaActualDelegate;
 import mx.gob.segob.nsjp.delegate.objeto.ObjetoDelegate;
 import mx.gob.segob.nsjp.delegate.parametro.ParametroDelegate;
-import mx.gob.segob.nsjp.dto.archivo.ArchivoDigitalDTO;
 import mx.gob.segob.nsjp.dto.catalogo.ValorDTO;
 import mx.gob.segob.nsjp.dto.configuracion.ConfInstitucionDTO;
 import mx.gob.segob.nsjp.dto.documento.DocumentoDTO;
-import mx.gob.segob.nsjp.dto.expediente.ExpedienteDTO;
 import mx.gob.segob.nsjp.dto.forma.FormaDTO;
 import mx.gob.segob.nsjp.dto.funcionario.FuncionarioDTO;
+import mx.gob.segob.nsjp.dto.objeto.AnimalDTO;
 import mx.gob.segob.nsjp.dto.objeto.DocumentoOficialDTO;
 import mx.gob.segob.nsjp.dto.objeto.ExplosivoDTO;
 import mx.gob.segob.nsjp.dto.objeto.JoyaDTO;
@@ -188,17 +187,107 @@ public class EnajenarBienesAction extends GenericAction {
 		        forma = documentoDelegate.buscarForma(formaId);
 		    	documento.setConfInstitucion(confInstitucionDTO);
 		    	
-                        String listaBienes="<ul>";
+                        String listaVehiculos="",listaSemovientes="",listaBienesInmuebles="",listaBienesMuebles="",listaJoyas="",
+                                listaDinero="",listaObras="",listaOtros="";
                          StringTokenizer st=new StringTokenizer(ids, ",");
                          while(st.hasMoreTokens()){
                              ObjetoDTO oDTO=new ObjetoDTO(new Long(st.nextToken()));
                              oDTO.setConsultarArchivoDigital(Boolean.TRUE);
                              ObjetoDTO obDTO=objetoDelegate.obtenerObjeto(oDTO);
-                             listaBienes+="<li>"+obDTO.getDescripcion()+"</li>";
+                            String descripcion=obDTO.getDescripcion()!=null?obDTO.getDescripcion():"NA";
+                            String ubicacion=obDTO.getAlmacen()!=null?obDTO.getAlmacen().getNombreAlmacen():"NA";
+                            String expediente=obDTO.getExpedienteDTO()!=null?obDTO.getExpedienteDTO().getNumeroExpediente():"NA";
+                            if(obDTO.getIdTipoObjeto() == Objetos.VEHICULO.getValorId()
+                                    || obDTO.getIdTipoObjeto() == Objetos.EMBARCACION.getValorId()
+                                    || obDTO.getIdTipoObjeto() == Objetos.AERONAVE.getValorId()){
+                                    listaVehiculos+="<tr><td>"+descripcion+"</td><td>"
+                                            +ubicacion+"</td><td>"
+                                            +"NA</td><td>"
+                                            +"NA</td><td>"
+                                            +expediente+"</td><td>"
+                                            +"</tr>";                                    
+                            }
+                            else if(obDTO.getIdTipoObjeto() == Objetos.EQUIPO_DE_COMPUTO.getValorId()
+                                    || obDTO.getIdTipoObjeto() == Objetos.EQUIPO_TELEFONICO.getValorId()
+                                    || obDTO.getIdTipoObjeto() == Objetos.EXPLOSIVO.getValorId()
+                                    || obDTO.getIdTipoObjeto() == Objetos.ARMA.getValorId()
+                                    || obDTO.getIdTipoObjeto() == Objetos.SUSTANCIA.getValorId()
+                                    || obDTO.getIdTipoObjeto() == Objetos.DOCUMENTO_OFICIAL.getValorId()){
+                                    listaBienesMuebles+="<tr><td>"+descripcion+"</td><td>"
+                                            +ubicacion+"</td><td>"
+                                            +"NA</td><td>"
+                                            +"NA</td><td>"
+                                            +expediente+"</td><td>"
+                                            +"NA</td><td>"
+                                            +"NA</td><td>"
+                                            +"</tr>";
+                            }
+                            else if(obDTO.getIdTipoObjeto() == Objetos.ANIMAL.getValorId()){
+                                        listaSemovientes+="<tr><td>"+descripcion+"</td><td>"
+                                            +ubicacion+"</td><td>"
+                                            +"NA</td><td>"
+                                            +"NA</td><td>"
+                                            +expediente+"</td><td>"
+                                            +"NA</td><td>"
+                                            +"NA</td><td>"
+                                            +"</tr>";
+                            }
+                            else if(obDTO.getIdTipoObjeto() == Objetos.VEGETAL.getValorId()){
+                                    listaSemovientes+="<tr><td>"+descripcion+"</td><td>"
+                                            +ubicacion+"</td><td>"
+                                            +"NA</td><td>"
+                                            +"NA</td><td>"
+                                            +expediente+"</td><td>"
+                                            +"NA</td><td>"
+                                            +((VegetalDTO)obDTO).getCantidad()+"</td><td>"
+                                            +"</tr>";
+                            }
+                            else if(obDTO.getIdTipoObjeto() == Objetos.JOYA.getValorId()){
+                                    listaJoyas+="<tr><td>"+descripcion+"</td><td>"
+                                            +ubicacion+"</td><td>"
+                                            +"NA</td><td>"
+                                            +"NA</td><td>"
+                                            +expediente+"</td><td>"
+                                            +"NA</td><td>"
+                                            +"NA</td><td>"
+                                            +"</tr>";
+                            }
+                            else if(obDTO.getIdTipoObjeto() == Objetos.OBRA_DE_ARTE.getValorId()){
+                                    listaObras+="<tr><td>"+descripcion+"</td><td>"
+                                            +ubicacion+"</td><td>"
+                                            +"NA</td><td>"
+                                            +"NA</td><td>"
+                                            +expediente+"</td><td>"
+                                            +"NA</td><td>"
+                                            +"</tr>";
+                            }
+                            else if(obDTO.getIdTipoObjeto() == Objetos.NUMERARIO.getValorId()){
+                                    listaDinero+="<tr><td>"+descripcion+"</td><td>"
+                                            +ubicacion+"</td><td>"
+                                            +"NA</td><td>"
+                                            +"NA</td><td>"
+                                            +expediente+"</td><td>"
+                                            +"NA</td><td>"
+                                            +"</tr>";
+                            }
+                            else{
+                                listaOtros+="<tr><td>"+descripcion+"</td><td>"
+                                            +ubicacion+"</td><td>"
+                                            +"NA</td><td>"
+                                            +"NA</td><td>"
+                                            +expediente+"</td><td>"
+                                            +"</tr>";
+                            }
                          }
-                         listaBienes+="</ul>";
+                         
                          Map<String,Object> parametrosExtra = new HashMap<String,Object> ();
-                         parametrosExtra.put("listaObjetos", listaBienes);
+                         parametrosExtra.put("Vehiculos", listaVehiculos);
+                         parametrosExtra.put("Semovientes", listaSemovientes);
+                         parametrosExtra.put("BienesMuebles", listaBienesMuebles);
+                         parametrosExtra.put("Dinero", listaDinero);
+                         parametrosExtra.put("Joyas", listaJoyas);
+                         parametrosExtra.put("Obras", listaObras);
+                         parametrosExtra.put("Otros", listaOtros);
                          Calendar f=Calendar.getInstance();
                          int hora=f.get(Calendar.HOUR_OF_DAY);
                          int min=f.get(Calendar.MINUTE);

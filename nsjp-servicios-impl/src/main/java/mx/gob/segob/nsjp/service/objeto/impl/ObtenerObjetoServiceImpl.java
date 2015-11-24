@@ -24,10 +24,12 @@ import java.util.List;
 
 import mx.gob.segob.nsjp.comun.enums.excepciones.CodigoError;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
+import mx.gob.segob.nsjp.dao.expediente.NumeroExpedienteDAO;
 import mx.gob.segob.nsjp.dao.objeto.ObjetoDAO;
 import mx.gob.segob.nsjp.dto.catalogo.ValorDTO;
 import mx.gob.segob.nsjp.dto.expediente.ExpedienteDTO;
 import mx.gob.segob.nsjp.dto.objeto.ObjetoDTO;
+import mx.gob.segob.nsjp.model.NumeroExpediente;
 import mx.gob.segob.nsjp.model.Objeto;
 import mx.gob.segob.nsjp.service.objeto.ObtenerObjetoService;
 import mx.gob.segob.nsjp.service.objeto.impl.transform.ObjetoTransformer;
@@ -52,7 +54,8 @@ public class ObtenerObjetoServiceImpl implements ObtenerObjetoService {
             .getLogger(ObtenerObjetoServiceImpl.class);
     @Autowired
     private ObjetoDAO objetoDao;
-
+    @Autowired
+    private NumeroExpedienteDAO numeroExpedienteDao;
     /*
      * (non-Javadoc)
      * 
@@ -77,6 +80,15 @@ public class ObtenerObjetoServiceImpl implements ObtenerObjetoService {
         	resp.setFotoDelElemento(null);
         }
 
+        if(resp!=null && resp.getExpedienteDTO() != null && resp.getExpedienteDTO().getExpedienteId() != null ) {
+            ExpedienteDTO expedienteDTO = resp.getExpedienteDTO();
+	    NumeroExpediente numeroExpediente = numeroExpedienteDao.obtenerNumeroExpedienteXExpediente(expedienteDTO.getExpedienteId());
+				if( numeroExpediente != null) {
+                                    resp.getExpedienteDTO().setNumeroExpediente(numeroExpediente.getNumeroExpediente());
+                                }
+        }
+			
+        
         if (logger.isDebugEnabled()) {
             logger.debug("Tipo Objeto :: " + resp.getTipoObjeto()
                     + " con descripción :: " + resp.getDescripcion());
