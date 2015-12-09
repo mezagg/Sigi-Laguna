@@ -183,7 +183,7 @@ public class EnajenarBienesAction extends GenericAction {
 				}
 		
 		        documento = new DocumentoDTO();
-			Long formaId = 983L;
+			Long formaId = 10978L;
 		        forma = documentoDelegate.buscarForma(formaId);
 		    	documento.setConfInstitucion(confInstitucionDTO);
 		    	
