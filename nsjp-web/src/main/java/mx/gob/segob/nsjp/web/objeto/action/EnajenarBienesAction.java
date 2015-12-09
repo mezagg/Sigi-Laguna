@@ -1,6 +1,6 @@
 /**
  * Nombre del Programa 		: ConsultarBienesPorEnajenarAction.java
- * Autor                     : Adriana Sánchez
+ * Autor                     : Adriana S·nchez
  * Compania                  : Draconiantech
  * Proyecto                  : NSJP                    Fecha: 19 Oct 2015
  * Marca de cambio        	: N/A
@@ -88,7 +88,7 @@ public class EnajenarBienesAction extends GenericAction {
 	public ObtenerFechaActualDelegate obFechaDelegate;
         
 	/**
-	 * Método utilizado para realizar la consulta de bienes por enajenar
+	 * MÈtodo utilizado para realizar la consulta de bienes por enajenar
 	 * @param mapping
 	 * @param form
 	 * @param request
