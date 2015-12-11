@@ -426,6 +426,72 @@ public class EnajenarBienesAction extends GenericAction {
                 titleCell.setCellStyle(styles.get("titulo"));
             }
             
+            //SEMOVIENTES
+            renglones=0;
+            sheet = wb.createSheet("SEMOVIENTES");        
+            sheet.setFitToPage(true);
+            sheet.setHorizontallyCenter(true);   
+
+            ubiRow = sheet.createRow(renglones++);
+            ubiRow.setHeightInPoints(26);
+            ubiCell=ubiRow.createCell(14);
+            ubiCell.setCellValue("DATOS DE UBICACION");
+            ubiCell.setCellStyle(styles.get("gris"));
+            sheet.addMergedRegion(CellRangeAddress.valueOf("$O$1:$P$1"));
+
+            titleRow = sheet.createRow(renglones++);
+            titleRow.setHeightInPoints(26);
+            String[]encabSemov={"Nº","A.C.","A.P.P.","FECHA DE ASEGURAMIENTO","TIPO DE SEMOVIENTE","DESCRIPCION","CANTIDAD","COLOR","CONDICIONES FISICAS",
+                "DELITO","EJERCIO ACCION PENAL SI/NO","ESTADO ACTUAL DEL OBJETO EN EL PROCESO","UBICACION","FECHA","OFICIO"};
+            Integer[]anchoSemov={6,10,10,14,24,38,16,16,28,20,16,20,18,18,18};
+            for (int i = 0; i < encabSemov.length; i++) {            
+                sheet.setColumnWidth(i+1, anchoSemov[i]*256);
+                Cell titleCell = titleRow.createCell(i+1);            
+                titleCell.setCellValue(encabSemov[i]);
+                titleCell.setCellStyle(styles.get("titulo"));
+            }
+            
+            //VALORES
+            renglones=0;
+            sheet = wb.createSheet("VALORES");        
+            sheet.setFitToPage(true);
+            sheet.setHorizontallyCenter(true);   
+
+            ubiRow = sheet.createRow(renglones++);
+            ubiRow.setHeightInPoints(26);
+            ubiCell=ubiRow.createCell(9);
+            ubiCell.setCellValue("SECCION DINERO");
+            ubiCell.setCellStyle(styles.get("gris"));
+            sheet.addMergedRegion(CellRangeAddress.valueOf("$J$1:$M$1"));
+            
+            ubiCell=ubiRow.createCell(13);
+            ubiCell.setCellValue("SECCION JOYAS");
+            ubiCell.setCellStyle(styles.get("azul"));
+            sheet.addMergedRegion(CellRangeAddress.valueOf("$N$1:$R$1"));
+            
+            ubiCell=ubiRow.createCell(18);
+            ubiCell.setCellValue("SECCION OBRAS DE ARTE");
+            ubiCell.setCellStyle(styles.get("verde"));
+            sheet.addMergedRegion(CellRangeAddress.valueOf("$S$1:$U$1"));
+
+            ubiCell=ubiRow.createCell(21);
+            ubiCell.setCellValue("DATOS DE UBICACION");
+            ubiCell.setCellStyle(styles.get("grisObs"));
+            sheet.addMergedRegion(CellRangeAddress.valueOf("$V$1:$X$1"));
+
+            titleRow = sheet.createRow(renglones++);
+            titleRow.setHeightInPoints(26);
+            String[]encabVals={"Nº","A.C.","A.P.P.","FECHA DE ASEGURAMIENTO","TIPO DE VALOR","DELITO","EJERCIO ACCION PENAL SI/NO","ESTADO ACTUAL DEL OBJETO EN EL PROCESO",
+                "CANTIDAD TOTAL","TIPO","DENOMINACION","PROCEDENCIA","CANTIDAD","TIPO DE JOYA","MATERIAL","KILATAJE","AVALUO MONETARIO",
+                "CANTIDAD","TIPO DE OBRA","DESCRIPCION FISICA","UBICACION FISICA / CIUDAD","FECHA","OFICIO"};
+            Integer[]anchoVals={5,8,8,14,12,15,16,22,10,14,14,14,8,14,10,10,12,8,11,22,16,12,12};
+            for (int i = 0; i < encabVals.length; i++) {            
+                sheet.setColumnWidth(i+1, anchoVals[i]*256);
+                Cell titleCell = titleRow.createCell(i+1);            
+                titleCell.setCellValue(encabVals[i]);
+                titleCell.setCellStyle(styles.get("titulo"));
+            }
+            
             //VEHICULOS
             renglones=0;
             sheet = wb.createSheet("VEHICULOS");        
@@ -452,7 +518,7 @@ public class EnajenarBienesAction extends GenericAction {
                 titleCell.setCellStyle(styles.get("titulo"));
             }
             
-            int noInm=2,noVeh=2;
+            int noInm=2,noVeh=2,noSemov=2,noVals=2;
             StringTokenizer st=new StringTokenizer(ids, ",");
             Sheet hojaActual=null;
             Row renActual=null;
@@ -502,7 +568,41 @@ public class EnajenarBienesAction extends GenericAction {
                     celActual = renActual.createCell(17); celActual.setCellValue(expediente); celActual.setCellStyle(styles.get("normal")); 
                     celActual = renActual.createCell(18); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
                     celActual = renActual.createCell(19); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
-                }            
+                }else if(obDTO.getIdTipoObjeto() == Objetos.ANIMAL.getValorId()
+                        ||obDTO.getIdTipoObjeto() == Objetos.VEGETAL.getValorId()){
+                    hojaActual=wb.getSheet("SEMOVIENTES");
+                    renActual = hojaActual.createRow(noSemov++);
+                    renActual.setHeightInPoints(26);
+                    celActual = renActual.createCell(1); celActual.setCellValue(noSemov-2); celActual.setCellStyle(styles.get("normal"));
+                    celActual = renActual.createCell(2); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
+                    celActual = renActual.createCell(3); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
+                    celActual = renActual.createCell(4); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
+                    celActual = renActual.createCell(5); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
+                    celActual = renActual.createCell(6); celActual.setCellValue(descripcion); celActual.setCellStyle(styles.get("normal"));
+                    celActual = renActual.createCell(7); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
+                    celActual = renActual.createCell(8); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
+                    celActual = renActual.createCell(9); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
+                    celActual = renActual.createCell(10); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
+                    celActual = renActual.createCell(11); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
+                    celActual = renActual.createCell(12); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
+                    celActual = renActual.createCell(13); celActual.setCellValue(ubicacion); celActual.setCellStyle(styles.get("normal"));
+                    celActual = renActual.createCell(14); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));                    
+                    celActual = renActual.createCell(15); celActual.setCellValue(expediente); celActual.setCellStyle(styles.get("normal"));
+                }else if(obDTO.getIdTipoObjeto() == Objetos.JOYA.getValorId()
+                        || obDTO.getIdTipoObjeto() == Objetos.OBRA_DE_ARTE.getValorId()
+                        || obDTO.getIdTipoObjeto() == Objetos.NUMERARIO.getValorId()){
+                    hojaActual=wb.getSheet("VALORES");
+                    renActual = hojaActual.createRow(noVals++);
+                    renActual.setHeightInPoints(26);
+                    celActual = renActual.createCell(1); celActual.setCellValue(noVals-2); celActual.setCellStyle(styles.get("normal"));
+                    celActual = renActual.createCell(2); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
+                    for(int i=3;i<21;i++)
+                        celActual = renActual.createCell(i); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
+                    celActual = renActual.createCell(21); celActual.setCellValue(ubicacion); celActual.setCellStyle(styles.get("normal"));
+                    celActual = renActual.createCell(22); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));                    
+                    celActual = renActual.createCell(23); celActual.setCellValue(expediente); celActual.setCellStyle(styles.get("normal")); 
+                }
+                                  
                                  
             }                
         
@@ -548,6 +648,30 @@ public class EnajenarBienesAction extends GenericAction {
         style.setFillForegroundColor(HSSFColor.GREY_25_PERCENT.index);
         style.setFillPattern(CellStyle.SOLID_FOREGROUND);
         styles.put("gris", style);
+        
+        style = wb.createCellStyle();
+        style.setAlignment(CellStyle.ALIGN_CENTER);
+        style.setVerticalAlignment(CellStyle.VERTICAL_CENTER);
+        style.setFont(grisFont);
+        style.setFillForegroundColor(HSSFColor.GREY_40_PERCENT.index);
+        style.setFillPattern(CellStyle.SOLID_FOREGROUND);
+        styles.put("grisObs", style);
+        
+        style = wb.createCellStyle();
+        style.setAlignment(CellStyle.ALIGN_CENTER);
+        style.setVerticalAlignment(CellStyle.VERTICAL_CENTER);
+        style.setFont(grisFont);
+        style.setFillForegroundColor(HSSFColor.PALE_BLUE.index);
+        style.setFillPattern(CellStyle.SOLID_FOREGROUND);
+        styles.put("azul", style);
+        
+        style = wb.createCellStyle();
+        style.setAlignment(CellStyle.ALIGN_CENTER);
+        style.setVerticalAlignment(CellStyle.VERTICAL_CENTER);
+        style.setFont(grisFont);
+        style.setFillForegroundColor(HSSFColor.LIGHT_GREEN.index);
+        style.setFillPattern(CellStyle.SOLID_FOREGROUND);
+        styles.put("verde", style);
 
         Font normalFont = wb.createFont();
         normalFont.setFontName("Century Gothic");
