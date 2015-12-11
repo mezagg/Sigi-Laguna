@@ -19,21 +19,34 @@
  */
 package mx.gob.segob.nsjp.web.objeto.action;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
+import javax.servlet.ServletOutputStream;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import mx.gob.segob.nsjp.comun.constants.ConstantesGenerales;
+import static mx.gob.segob.nsjp.comun.constants.ConstantesGenerales.CONTENT_TYPE_XLS;
+import static mx.gob.segob.nsjp.comun.constants.ConstantesGenerales.ENCABEZADO_ATTACH_FILE_NAME;
+import static mx.gob.segob.nsjp.comun.constants.ConstantesGenerales.ENCABEZADO_CACHE_CONTROL;
+import static mx.gob.segob.nsjp.comun.constants.ConstantesGenerales.ENCABEZADO_CONTENT_DISPOSITION;
+import static mx.gob.segob.nsjp.comun.constants.ConstantesGenerales.ENCABEZADO_NOCACHE;
+import static mx.gob.segob.nsjp.comun.constants.ConstantesGenerales.ENCABEZADO_PRAGMA;
+import static mx.gob.segob.nsjp.comun.constants.ConstantesGenerales.EXTENSION_XLS;
 import mx.gob.segob.nsjp.comun.enums.configuracion.Parametros;
 import mx.gob.segob.nsjp.comun.enums.documento.TipoDocumento;
 import mx.gob.segob.nsjp.comun.enums.objeto.Objetos;
+import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
+import mx.gob.segob.nsjp.comun.indicador.Indicadores;
 
 import mx.gob.segob.nsjp.comun.util.DateUtils;
 import mx.gob.segob.nsjp.comun.util.HTMLUtils;
@@ -58,8 +71,22 @@ import mx.gob.segob.nsjp.dto.objeto.TelefoniaDTO;
 import mx.gob.segob.nsjp.dto.objeto.VegetalDTO;
 import mx.gob.segob.nsjp.dto.usuario.UsuarioDTO;
 import mx.gob.segob.nsjp.web.base.action.GenericAction;
+import net.sf.jasperreports.engine.JRException;
+import org.apache.commons.lang.math.NumberUtils;
 
 import org.apache.log4j.Logger;
+import org.apache.poi.hssf.usermodel.HSSFCellStyle;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.hssf.util.HSSFColor;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.Font;
+import org.apache.poi.ss.usermodel.IndexedColors;
+import org.apache.poi.ss.usermodel.PrintSetup;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
@@ -168,7 +195,7 @@ public class EnajenarBienesAction extends GenericAction {
 			String ids = request.getParameter("idsBienes");
                         objetoDelegate.enajenarBienes(ids);                       
 		    	
-		    	DocumentoDTO documento = null;
+		    	/*DocumentoDTO documento = null;
                         FormaDTO forma =null;
 		    	Long documentoId = 0L;
                       
@@ -183,7 +210,7 @@ public class EnajenarBienesAction extends GenericAction {
 				}
 		
 		        documento = new DocumentoDTO();
-			Long formaId = 10978L;
+			Long formaId = 983L;
 		        forma = documentoDelegate.buscarForma(formaId);
 		    	documento.setConfInstitucion(confInstitucionDTO);
 		    	
@@ -313,12 +340,251 @@ public class EnajenarBienesAction extends GenericAction {
 			    documentoId = documentoDelegate.guardarOficioEnajenacion(documento,ids);   
                             documento.setDocumentoId(documentoId);
                             String docXml=converter.toXML(documento);
-			    escribirRespuesta(response,docXml );
-                        
+                            ByteArrayOutputStream baos = this.generarReporteJasperExcel();
+                            
+                             this.escribirReporteExcel(response, baos,String.valueOf("Adrianaaa"));
+           
+			    //escribirRespuesta(response,docXml );
+                        */
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
 		}
 		return null;
 	}
+        
+        
+        public ActionForward generarReporte(ActionMapping mapping, ActionForm form,
+            HttpServletRequest request, HttpServletResponse response)
+            throws IOException {
+
+        try {
+            String ids = request.getParameter("idsBienes");
+            ByteArrayOutputStream baos = this.generarReporteExcel(ids);                      
+            this.escribirReporteExcel(response, baos,String.valueOf("Reporte Bienes Enajenados"));
+            
+        } catch (JRException e) {
+        	 log.error(e.getMessage(), e);
+		}
+        return null;
+    }
+
+        
+        private ByteArrayOutputStream generarReporteExcel(String ids) throws JRException {
+    	ByteArrayOutputStream baos = null;
+        try {            
+            int renglones = 0;
+
+            Workbook wb = new HSSFWorkbook();
+            Map<String, CellStyle> styles = createStyles(wb);
+
+            //BIENES MUEBLES
+            Sheet sheet = wb.createSheet("MUEBLES");        
+            sheet.setFitToPage(true);
+            sheet.setHorizontallyCenter(true);    	                
+        
+            Row ubiRow = sheet.createRow(renglones++);
+            ubiRow.setHeightInPoints(26);
+            Cell ubiCell=ubiRow.createCell(18);
+            ubiCell.setCellValue("DATOS DE UBICACION");
+            ubiCell.setCellStyle(styles.get("gris"));
+            sheet.addMergedRegion(CellRangeAddress.valueOf("$S$1:$T$1"));
+
+            Row titleRow = sheet.createRow(renglones++);
+            titleRow.setHeightInPoints(26);
+            String[]encabMuebles={"Nº","A.C.","A.P.P.","FECHA DE ASEGURAMIENTO","TIPO DE OBJETO","DESCRIPCION","CANTIDAD","MARCA","MODELO",
+                "SERIE","COLOR","CAPACIDAD","CONDICIONES FISICAS","DELITO","EJERCIO ACCION PENAL SI/NO","ESTADO ACTUAL OBJETO EN EL PROCESO","UBICACIÓN","FECHA","OFICIO"};
+            Integer[]anchoMuebles={6,9,9,14,14,13,8,15,15,15,15,15,15,15,15,19,18,15,15};
+            for (int i = 0; i < encabMuebles.length; i++) {            
+                sheet.setColumnWidth(i+1, anchoMuebles[i]*256);
+                Cell titleCell = titleRow.createCell(i+1);            
+                titleCell.setCellValue(encabMuebles[i]);
+                titleCell.setCellStyle(styles.get("titulo"));
+            }
+
+            //BIENES INMUEBLES
+            renglones=0;
+            sheet = wb.createSheet("INMUEBLES");        
+            sheet.setFitToPage(true);
+            sheet.setHorizontallyCenter(true);   
+
+            ubiRow = sheet.createRow(renglones++);
+            ubiRow.setHeightInPoints(26);
+            ubiCell=ubiRow.createCell(13);
+            ubiCell.setCellValue("DATOS DE UBICACION");
+            ubiCell.setCellStyle(styles.get("gris"));
+            sheet.addMergedRegion(CellRangeAddress.valueOf("$N$1:$O$1"));
+
+            titleRow = sheet.createRow(renglones++);
+            titleRow.setHeightInPoints(26);
+            String[]encabInmuebles={"Nº","A.C.","A.P.P.","FECHA DE ASEGURAMIENTO","TIPO INMUEBLE","UBICACION","MUNICIPIO","SUPERFICIE","DESCRIPCION FISICA",
+                "DELITO","EJERCIO ACCION PENAL SI/NO","ESTADO ACTUAL DEL OBJETO EN EL PROCESO","FECHA","OFICIO"};
+            Integer[]anchoInmuebles={6,9,9,14,16,37,28,28,37,24,20,22,16,16};
+            for (int i = 0; i < encabInmuebles.length; i++) {            
+                sheet.setColumnWidth(i+1, anchoInmuebles[i]*256);
+                Cell titleCell = titleRow.createCell(i+1);            
+                titleCell.setCellValue(encabInmuebles[i]);
+                titleCell.setCellStyle(styles.get("titulo"));
+            }
+            
+            //VEHICULOS
+            renglones=0;
+            sheet = wb.createSheet("VEHICULOS");        
+            sheet.setFitToPage(true);
+            sheet.setHorizontallyCenter(true);   
+
+            ubiRow = sheet.createRow(renglones++);
+            ubiRow.setHeightInPoints(26);
+            ubiCell=ubiRow.createCell(16);
+            ubiCell.setCellValue("DATOS DE UBICACION");
+            ubiCell.setCellStyle(styles.get("gris"));
+            sheet.addMergedRegion(CellRangeAddress.valueOf("$Q$1:$T$1"));
+
+            titleRow = sheet.createRow(renglones++);
+            titleRow.setHeightInPoints(26);
+            String[]encabVehiculos={"Nº","A.C.","A.P.P.","FECHA DE ASEGURAMIENTO","MARCA","TIPO","MODELO","N° DE SERIE","COLOR","PROCEDENCIA",
+                "CONDICIONES FISICAS","DELITO","EJERCIO ACCION PENAL SI/NO","ESTADO ACTUAL DEL OBJETO EN EL PROCESO","UBICACION","FECHA",
+                "N° DE OFICIO","PERSONA A QUIEN SE ENTREGO","PERSONA QUE AUTORIZO"};
+            Integer[]anchoVehiculos={6,8,8,16,14,14,8,13,12,12,12,12,14,20,10,10,10,18,19};
+            for (int i = 0; i < encabVehiculos.length; i++) {            
+                sheet.setColumnWidth(i+1, anchoVehiculos[i]*256);
+                Cell titleCell = titleRow.createCell(i+1);            
+                titleCell.setCellValue(encabVehiculos[i]);
+                titleCell.setCellStyle(styles.get("titulo"));
+            }
+            
+            int noInm=2,noVeh=2;
+            StringTokenizer st=new StringTokenizer(ids, ",");
+            Sheet hojaActual=null;
+            Row renActual=null;
+            Cell celActual=null;
+            while(st.hasMoreTokens()){
+                ObjetoDTO oDTO=new ObjetoDTO(new Long(st.nextToken()));
+                oDTO.setConsultarArchivoDigital(Boolean.TRUE);
+                ObjetoDTO obDTO=objetoDelegate.obtenerObjeto(oDTO);
+                String descripcion=obDTO.getDescripcion()!=null?obDTO.getDescripcion():"NA";
+                String ubicacion=obDTO.getAlmacen()!=null?obDTO.getAlmacen().getNombreAlmacen():"NA";
+                String expediente=obDTO.getExpedienteDTO()!=null?obDTO.getExpedienteDTO().getNumeroExpediente():"NA";
+                if(obDTO.getIdTipoObjeto() == Objetos.EQUIPO_DE_COMPUTO.getValorId()
+                                    || obDTO.getIdTipoObjeto() == Objetos.EQUIPO_TELEFONICO.getValorId()
+                                    || obDTO.getIdTipoObjeto() == Objetos.EXPLOSIVO.getValorId()
+                                    || obDTO.getIdTipoObjeto() == Objetos.ARMA.getValorId()
+                                    || obDTO.getIdTipoObjeto() == Objetos.SUSTANCIA.getValorId()
+                                    || obDTO.getIdTipoObjeto() == Objetos.DOCUMENTO_OFICIAL.getValorId()){
+                    hojaActual=wb.getSheet("INMUEBLES");
+                    renActual = hojaActual.createRow(noInm++);
+                    renActual.setHeightInPoints(26);
+                    celActual = renActual.createCell(1); celActual.setCellValue(noInm-2); celActual.setCellStyle(styles.get("normal"));
+                    celActual = renActual.createCell(6); celActual.setCellValue(ubicacion); celActual.setCellStyle(styles.get("normal"));
+                    celActual = renActual.createCell(9); celActual.setCellValue(descripcion); celActual.setCellStyle(styles.get("normal"));
+                    celActual = renActual.createCell(14); celActual.setCellValue(expediente); celActual.setCellStyle(styles.get("normal"));                    
+                }else if(obDTO.getIdTipoObjeto() == Objetos.VEHICULO.getValorId()
+                                    || obDTO.getIdTipoObjeto() == Objetos.EMBARCACION.getValorId()
+                                    || obDTO.getIdTipoObjeto() == Objetos.AERONAVE.getValorId()){
+                    hojaActual=wb.getSheet("VEHICULOS");
+                    renActual = hojaActual.createRow(noVeh++);
+                    renActual.setHeightInPoints(26);
+                    celActual = renActual.createCell(1); celActual.setCellValue(noVeh-2); celActual.setCellStyle(styles.get("normal"));
+                    celActual = renActual.createCell(2); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
+                    celActual = renActual.createCell(3); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
+                    celActual = renActual.createCell(4); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
+                    celActual = renActual.createCell(5); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
+                    celActual = renActual.createCell(6); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
+                    celActual = renActual.createCell(7); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
+                    celActual = renActual.createCell(8); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
+                    celActual = renActual.createCell(9); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
+                    celActual = renActual.createCell(10); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
+                    celActual = renActual.createCell(11); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
+                    celActual = renActual.createCell(12); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
+                    celActual = renActual.createCell(13); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
+                    celActual = renActual.createCell(14); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));                    
+                    celActual = renActual.createCell(15); celActual.setCellValue(ubicacion); celActual.setCellStyle(styles.get("normal"));
+                    celActual = renActual.createCell(16); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
+                    celActual = renActual.createCell(17); celActual.setCellValue(expediente); celActual.setCellStyle(styles.get("normal")); 
+                    celActual = renActual.createCell(18); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
+                    celActual = renActual.createCell(19); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
+                }            
+                                 
+            }                
+        
+      
+		baos = new ByteArrayOutputStream();
+		wb.write(baos);
+		log.info("Escritura Exitosa!!");
+	} catch (Exception e) {
+            log.info(e.getMessage(), e);
+	}
+    	return baos;
+    }
+        
+        private static Map<String, CellStyle> createStyles(Workbook wb){
+        Map<String, CellStyle> styles = new HashMap<String, CellStyle>();
+        CellStyle style;
+        short borderColor = IndexedColors.GREY_50_PERCENT.getIndex();
+        
+        //Titulo    
+        Font titleFont = wb.createFont();
+        titleFont.setFontName("Century Gothic");
+        titleFont.setFontHeightInPoints((short)8);
+        titleFont.setBoldweight(Font.BOLDWEIGHT_BOLD);
+        style = wb.createCellStyle();
+        style.setAlignment(CellStyle.ALIGN_CENTER);
+        style.setVerticalAlignment(CellStyle.VERTICAL_CENTER);
+        style.setWrapText(true);
+        style.setFont(titleFont);
+        style.setBorderBottom(HSSFCellStyle.BORDER_THIN);
+        style.setBorderTop(HSSFCellStyle.BORDER_THIN);
+        style.setBorderLeft(HSSFCellStyle.BORDER_THIN);
+        style.setBorderRight(HSSFCellStyle.BORDER_THIN);
+        styles.put("titulo", style);
+        
+        Font grisFont = wb.createFont();
+        grisFont.setFontName("Century Gothic");
+        grisFont.setFontHeightInPoints((short)9);
+        grisFont.setBoldweight(Font.BOLDWEIGHT_BOLD);
+        style = wb.createCellStyle();
+        style.setAlignment(CellStyle.ALIGN_CENTER);
+        style.setVerticalAlignment(CellStyle.VERTICAL_CENTER);
+        style.setFont(grisFont);
+        style.setFillForegroundColor(HSSFColor.GREY_25_PERCENT.index);
+        style.setFillPattern(CellStyle.SOLID_FOREGROUND);
+        styles.put("gris", style);
+
+        Font normalFont = wb.createFont();
+        normalFont.setFontName("Century Gothic");
+        normalFont.setFontHeightInPoints((short)8);
+        style = wb.createCellStyle();
+        style.setAlignment(CellStyle.ALIGN_CENTER);
+        style.setVerticalAlignment(CellStyle.VERTICAL_CENTER);
+        style.setWrapText(true);
+        style.setFont(normalFont);
+        style.setBorderBottom(HSSFCellStyle.BORDER_THIN);
+        style.setBorderTop(HSSFCellStyle.BORDER_THIN);
+        style.setBorderLeft(HSSFCellStyle.BORDER_THIN);
+        style.setBorderRight(HSSFCellStyle.BORDER_THIN);
+        styles.put("normal", style);
+        return styles;
+    }
+
+        private void escribirReporteExcel(HttpServletResponse response,
+            ByteArrayOutputStream baos, String fileName) {
+        try {
+        	
+        	String fileNameWihtoutSpaces = fileName.replace(' ', '_');
+            response.setContentType(CONTENT_TYPE_XLS);
+            response.setHeader(ENCABEZADO_CONTENT_DISPOSITION,
+            		ENCABEZADO_ATTACH_FILE_NAME
+                    + fileNameWihtoutSpaces + EXTENSION_XLS);
+            response.setHeader(ENCABEZADO_CACHE_CONTROL, 
+            		ENCABEZADO_NOCACHE);
+            response.setHeader(ENCABEZADO_PRAGMA,
+            		ENCABEZADO_NOCACHE);
+            response.setContentLength(baos.size());
+            ServletOutputStream sos = response.getOutputStream();
+            baos.writeTo(sos);
+            sos.flush();
+        } catch (IOException e) {
+            log.error(e.getMessage(), e);
+        }
+    }
 
 }
