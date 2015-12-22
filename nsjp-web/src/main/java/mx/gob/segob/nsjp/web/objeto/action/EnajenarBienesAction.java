@@ -367,7 +367,7 @@ public class EnajenarBienesAction extends GenericAction {
 
             ubiRow = sheet.createRow(renglones++);
             ubiRow.setHeightInPoints(26);
-            ubiCell=ubiRow.createCell(14);
+            ubiCell=ubiRow.createCell(12);
             ubiCell.setCellValue("DATOS DE UBICACION");
             ubiCell.setCellStyle(styles.get("gris"));
             sheet.addMergedRegion(CellRangeAddress.valueOf("$O$1:$P$1"));
@@ -431,7 +431,7 @@ public class EnajenarBienesAction extends GenericAction {
                     celActual = renActual.createCell(1); celActual.setCellValue(noOtros-2); celActual.setCellStyle(styles.get("normal"));
                 }
                 
-                for(int j=0;j<valores.length;j++){                  
+                for(int j=0;j<valores.length&&valores[j]!=null;j++){                  
                     celActual = renActual.createCell(j+2); celActual.setCellValue(valores[j]); celActual.setCellStyle(styles.get("normal")); 
                 }    
             }                
