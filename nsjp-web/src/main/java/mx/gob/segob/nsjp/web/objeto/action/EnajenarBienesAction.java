@@ -604,8 +604,22 @@ public class EnajenarBienesAction extends GenericAction {
             DocumentoOficialDTO doc=(DocumentoOficialDTO)obDTO;
         }else if(obDTO.getIdTipoObjeto() == Objetos.ANIMAL.getValorId()){
             AnimalDTO animal = (AnimalDTO)obDTO;
+            celdas[0]=ac;celdas[1]=app;celdas[2]="NA";
+            celdas[3]=animal.getTipoAnimal()!=null?animal.getTipoAnimal().getValor():tipo;
+            celdas[4]=descripcion;
+            celdas[5]="NA";
+            celdas[6]="NA";celdas[7]=animal.getEstadoAnimal();
+            celdas[8]=delito;celdas[9]=ejercioAP;
+            celdas[10]="NA";celdas[11]=ubicacion;celdas[12]=fecha;celdas[13]=expediente;
         }else if(obDTO.getIdTipoObjeto() == Objetos.VEGETAL.getValorId()){
-            VegetalDTO vegetal = (VegetalDTO)obDTO;     
+            VegetalDTO vegetal = (VegetalDTO)obDTO;   
+            celdas[0]=ac;celdas[1]=app;celdas[2]="NA";
+            celdas[3]=vegetal.getTipoVegetal()!=null?vegetal.getTipoVegetal().getValor():tipo;
+            celdas[4]=descripcion;
+            celdas[5]=vegetal.getCantidad()!=null?vegetal.getCantidad().toString():"NA";
+            celdas[6]="NA";celdas[7]="NA";
+            celdas[8]=delito;celdas[9]=ejercioAP;
+            celdas[10]="NA";celdas[11]=ubicacion;celdas[12]=fecha;celdas[13]=expediente;            
         }else if(obDTO.getIdTipoObjeto() == Objetos.JOYA.getValorId()){
             JoyaDTO joya = (JoyaDTO)obDTO;
             celdas[0]=ac;celdas[1]=app;
