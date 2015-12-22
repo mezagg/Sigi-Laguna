@@ -359,7 +359,32 @@ public class EnajenarBienesAction extends GenericAction {
                 titleCell.setCellStyle(styles.get("titulo"));
             }
             
-            int noInm=2,noVeh=2,noSemov=2,noVals=2;
+            //OTROS
+            renglones=0;
+            sheet = wb.createSheet("OTROS");        
+            sheet.setFitToPage(true);
+            sheet.setHorizontallyCenter(true);   
+
+            ubiRow = sheet.createRow(renglones++);
+            ubiRow.setHeightInPoints(26);
+            ubiCell=ubiRow.createCell(14);
+            ubiCell.setCellValue("DATOS DE UBICACION");
+            ubiCell.setCellStyle(styles.get("gris"));
+            sheet.addMergedRegion(CellRangeAddress.valueOf("$O$1:$P$1"));
+
+            titleRow = sheet.createRow(renglones++);
+            titleRow.setHeightInPoints(26);
+            String[]encabOtros={"Nº","A.C.","A.P.P.","FECHA DE ASEGURAMIENTO","TIPO","DESCRIPCION",
+                "DELITO","EJERCIO ACCION PENAL SI/NO","ESTADO ACTUAL DEL OBJETO EN EL PROCESO","UBICACION","FECHA","OFICIO"};
+            Integer[]anchoOtros={6,10,10,14,24,38,20,16,20,18,18,18};
+            for (int i = 0; i < encabOtros.length; i++) {            
+                sheet.setColumnWidth(i+1, anchoOtros[i]*256);
+                Cell titleCell = titleRow.createCell(i+1);            
+                titleCell.setCellValue(encabOtros[i]);
+                titleCell.setCellStyle(styles.get("titulo"));
+            }
+            
+            int noInm=2,noVeh=2,noSemov=2,noVals=2,noOtros=2;
             StringTokenizer st=new StringTokenizer(ids, ",");
             Sheet hojaActual=null;
             Row renActual=null;
@@ -399,6 +424,11 @@ public class EnajenarBienesAction extends GenericAction {
                     renActual = hojaActual.createRow(noVals++);
                     renActual.setHeightInPoints(26);
                     celActual = renActual.createCell(1); celActual.setCellValue(noVals-2); celActual.setCellStyle(styles.get("normal"));
+                }else{
+                    hojaActual=wb.getSheet("OTROS");
+                    renActual = hojaActual.createRow(noOtros++);
+                    renActual.setHeightInPoints(26);
+                    celActual = renActual.createCell(1); celActual.setCellValue(noOtros-2); celActual.setCellStyle(styles.get("normal"));
                 }
                 
                 for(int j=0;j<valores.length;j++){                  
@@ -611,6 +641,11 @@ public class EnajenarBienesAction extends GenericAction {
             for(int i=11;i<19;i++)
                 celdas[i]="-";
             celdas[19]=ubicacion;celdas[20]=fecha;celdas[21]=expediente;
+        }else{
+             celdas[0]=ac;celdas[1]=app;celdas[2]="NA";
+             celdas[3]=tipo;celdas[4]=descripcion;
+             celdas[5]=delito;celdas[6]=ejercioAP;
+             celdas[7]="NA";celdas[8]=ubicacion;celdas[9]=fecha;celdas[10]=expediente;            
         }
         return celdas;
     } 
