@@ -384,7 +384,7 @@ public class EnajenarBienesAction extends GenericAction {
                 titleCell.setCellStyle(styles.get("titulo"));
             }
             
-            int noInm=2,noVeh=2,noSemov=2,noVals=2,noOtros=2;
+            int noMueb=2,noVeh=2,noSemov=2,noVals=2,noOtros=2;
             StringTokenizer st=new StringTokenizer(ids, ",");
             Sheet hojaActual=null;
             Row renActual=null;
@@ -400,10 +400,10 @@ public class EnajenarBienesAction extends GenericAction {
                                     || obDTO.getIdTipoObjeto() == Objetos.ARMA.getValorId()
                                     || obDTO.getIdTipoObjeto() == Objetos.SUSTANCIA.getValorId()
                                     || obDTO.getIdTipoObjeto() == Objetos.DOCUMENTO_OFICIAL.getValorId()){
-                    hojaActual=wb.getSheet("INMUEBLES");
-                    renActual = hojaActual.createRow(noInm++);
+                    hojaActual=wb.getSheet("MUEBLES");
+                    renActual = hojaActual.createRow(noMueb++);
                     renActual.setHeightInPoints(26);       
-                    celActual = renActual.createCell(1); celActual.setCellValue(noInm-2); celActual.setCellStyle(styles.get("normal"));
+                    celActual = renActual.createCell(1); celActual.setCellValue(noMueb-2); celActual.setCellStyle(styles.get("normal"));
                 }else if(obDTO.getIdTipoObjeto() == Objetos.VEHICULO.getValorId() 
                         || obDTO.getIdTipoObjeto() == Objetos.EMBARCACION.getValorId()
                         || obDTO.getIdTipoObjeto() == Objetos.AERONAVE.getValorId()){
@@ -592,16 +592,60 @@ public class EnajenarBienesAction extends GenericAction {
             celdas[16]="NA";celdas[17]="NA";
         }else if(obDTO.getIdTipoObjeto()==Objetos.EQUIPO_TELEFONICO.getValorId()){
             //EquipoTelefonicoDTO emb=(EquipoTelefonicoDTO)obDTO;
+            for(int i=0;i<18;i++)
+                celdas[i]="NA";
+
         }else if(obDTO.getIdTipoObjeto() == Objetos.EQUIPO_DE_COMPUTO.getValorId()){
             EquipoComputoDTO eqCom=(EquipoComputoDTO)obDTO;
+            celdas[0]=ac;celdas[1]=app;celdas[2]="NA";
+            celdas[3]=eqCom.getTipoEquipo()!=null?eqCom.getTipoEquipo().getValor():tipo;
+            celdas[4]=descripcion;celdas[5]="NA";
+            celdas[6]=eqCom.getMarca()!=null?eqCom.getMarca().getValor():"NA";
+            celdas[7]=eqCom.getModelo()!=null?eqCom.getModelo():"NA";
+            celdas[8]=eqCom.getNoSerie()!=null?eqCom.getNoSerie():"NA";
+            celdas[9]=eqCom.getColor()!=null?eqCom.getColor().getValor():"NA";
+            celdas[10]="NA";celdas[11]="NA";
+            celdas[12]=delito;celdas[13]=ejercioAP;
+            celdas[14]="NA";celdas[15]=ubicacion;celdas[16]=fecha;celdas[17]=expediente;
         }else if(obDTO.getIdTipoObjeto() == Objetos.EXPLOSIVO.getValorId()){
             ExplosivoDTO exp = (ExplosivoDTO)obDTO;
+            celdas[0]=ac;celdas[1]=app;celdas[2]="NA";
+            celdas[3]=exp.getTipoExplosivo()!=null?exp.getTipoExplosivo().getValor():tipo;
+            celdas[4]=descripcion;celdas[5]=exp.getCantidad()!=null?exp.getCantidad().toString():"NA";
+            celdas[6]="NA";celdas[7]="NA";celdas[8]="NA";
+            celdas[9]="NA";
+            celdas[10]="NA";celdas[11]="NA";
+            celdas[12]=delito;celdas[13]=ejercioAP;
+            celdas[14]="NA";celdas[15]=ubicacion;celdas[16]=fecha;celdas[17]=expediente;
         }else if(obDTO.getIdTipoObjeto() == Objetos.ARMA.getValorId()){
             ArmaDTO arma = (ArmaDTO)obDTO; 
+            celdas[0]=ac;celdas[1]=app;celdas[2]="NA";
+            celdas[3]=arma.getTipoArma()!=null?arma.getTipoArma().getValor():tipo;
+            celdas[4]=descripcion;celdas[5]="NA";
+            celdas[6]=arma.getMarca()!=null?arma.getMarca().getValor():"NA";
+            celdas[7]=arma.getModelo()!=null?arma.getModelo():"NA";
+            celdas[8]=arma.getMatricula()!=null?arma.getMatricula():"NA";
+            celdas[9]="NA";celdas[10]="NA";celdas[11]="NA";
+            celdas[12]=delito;celdas[13]=ejercioAP;
+            celdas[14]="NA";celdas[15]=ubicacion;celdas[16]=fecha;celdas[17]=expediente;
         }else if(obDTO.getIdTipoObjeto() == Objetos.SUSTANCIA.getValorId()){
             SustanciaDTO sustancia = (SustanciaDTO)obDTO;
+            celdas[0]=ac;celdas[1]=app;celdas[2]="NA";
+            celdas[3]=sustancia.getTipoSustancia()!=null?sustancia.getTipoSustancia().getValor():tipo;
+            celdas[4]=descripcion;celdas[5]=sustancia.getCantidad()!=null?sustancia.getCantidad().toString():"NA";
+            celdas[6]="NA";celdas[7]="NA";celdas[8]="NA";celdas[9]="NA";
+            celdas[10]="NA";celdas[11]="NA";
+            celdas[12]=delito;celdas[13]=ejercioAP;
+            celdas[14]="NA";celdas[15]=ubicacion;celdas[16]=fecha;celdas[17]=expediente;
         }else if(obDTO.getIdTipoObjeto() == Objetos.DOCUMENTO_OFICIAL.getValorId()){
             DocumentoOficialDTO doc=(DocumentoOficialDTO)obDTO;
+            celdas[0]=ac;celdas[1]=app;celdas[2]="NA";
+            celdas[3]=doc.getTipoDocumento()!=null?doc.getTipoDocumento().getValor():tipo;
+            celdas[4]=descripcion;celdas[5]=doc.getCantidad()!=null?doc.getCantidad().toString():"NA";
+            celdas[6]="NA";celdas[7]="NA";celdas[8]="NA";celdas[9]="NA";
+            celdas[10]="NA";celdas[11]="NA";
+            celdas[12]=delito;celdas[13]=ejercioAP;
+            celdas[14]="NA";celdas[15]=ubicacion;celdas[16]=fecha;celdas[17]=expediente;
         }else if(obDTO.getIdTipoObjeto() == Objetos.ANIMAL.getValorId()){
             AnimalDTO animal = (AnimalDTO)obDTO;
             celdas[0]=ac;celdas[1]=app;celdas[2]="NA";
