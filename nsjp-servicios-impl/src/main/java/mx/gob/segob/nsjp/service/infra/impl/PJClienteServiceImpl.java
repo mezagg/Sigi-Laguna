@@ -148,7 +148,7 @@ public class PJClienteServiceImpl implements PJClienteService {
 		try {
 			ep = new URL(confInsDao.read(Instituciones.PJ.getValorId())
 					.getUrlInst()
-					+ "/SolicitarAudienciaBasicoExporterImplService?wsdl");
+					+ "SolicitarAudienciaBasicoExporterImplService?wsdl");
 
 			final QName SERVICE_NAME = new QName(
 					"http://impl.ws.service.nsjp.segob.gob.mx/",
@@ -261,7 +261,6 @@ public class PJClienteServiceImpl implements PJClienteService {
 			toSend.setCasoWSDTO(casoWSDTO);
 			logger.info("###CASO: " + casoWSDTO.getNumeroGeneralCaso() + "-"
 					+ casoWSDTO.getFechaApertura());
-			
 			
 			final Long resp = port.registrarSolicitudAudienciaBasico(toSend);
 			logger.info(" Respuesta: " + resp);
