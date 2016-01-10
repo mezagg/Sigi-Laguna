@@ -88,7 +88,7 @@
 	var pantallaSolicitada   = 3;
 	//Se cambia el valor de 3 a 4, dado que la busqueda expedientes(modulo) la hacia como coordiandorAmp en lugar de amp
 	var	pantallaSolicitadaCD = 3;
-	var narrativa;
+	var idsBienes;
 	//Al consultar Evidencias con retraso el combo solo habilita los tipos de Eslabon asosciados a un amp
 	var visualizaTipoEslabon = 'amp';
 	var rolActivo = '<%=rolActivo%>';
@@ -1382,6 +1382,7 @@ function consultaPorEnajenarFecha(){
                 for (var i = 0; i < selectedIDs.length; i++) {
                     result += selectedIDs[i] + ",";
                 }
+                idsBienes=result;
                  var settings = {
                         type: 'POST',
 	                url: '<%=request.getContextPath()%>/enajenarBienes.do?idsBienes='+result,
@@ -1391,10 +1392,9 @@ function consultaPorEnajenarFecha(){
 
                 $.ajax(settings).done(function(result) 
                 {
-                  consultaPorEnajenarHoy();
-                  narrativa=$(result).find('textoParcial').text();
-                  $.newWindow({id:"iframewindowOficioActuaciones", statusBar: true, posx:200,posy:50,width:1140,height:400,title:"Oficio de enajenación de bienes", type:"iframe", confirmarCierreVentana:false});
-                  $.updateWindowContent("iframewindowOficioActuaciones",'<iframe src="<%=request.getContextPath()%>/consultarOficioEnajenacion.do?narrativa='+narrativa+'" width="1140" height="400" />');
+                  consultaPorEnajenarHoy();                  
+                  $.newWindow({id:"iframewindowOficioEnajenacion", statusBar: true, posx:200,posy:50,width:114,height:40,title:"Oficio de enajenación de bienes", type:"iframe", confirmarCierreVentana:false});
+                  $.updateWindowContent("iframewindowOficioEnajenacion",'<iframe src="<%=request.getContextPath()%>/consultarOficioEnajenacion.do?idsBienes='+idsBienes+'" width="114" height="40" />');
                 });
                 }    
     }

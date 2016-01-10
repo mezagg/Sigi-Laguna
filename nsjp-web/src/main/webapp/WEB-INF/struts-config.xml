@@ -8406,8 +8406,11 @@
 	parameter="enajenarBienes">
 	</action>
         
-        <action path="/consultarOficioEnajenacion" forward="/WEB-INF/paginas/oficioBienesEnajenadosView.jsp" />/>
-        
+	<action path="/consultarOficioEnajenacion"
+				type="mx.gob.segob.nsjp.web.objeto.action.EnajenarBienesAction"
+				name=""				
+				parameter="generarReporte">									
+	</action>
 	<action path="/consultarDetalleSolicitudBandeja" forward="/WEB-INF/paginas/detalleSolsXAtndrUIView.jsp" />
 	<action path="/consultarDetalleSolicitudBandejaGen" forward="/WEB-INF/paginas/detalleSolsGeneradasView.jsp" />
 	
@@ -9140,9 +9143,7 @@
 				validate="false">									
 	</action>	
 		
-	<action path="/visorbuscarInvolucradosAudienciaPorCausa"   forward="/WEB-INF/paginas/visorbuscarInvolucradosAudienciaPorCausa.jsp"/>
-	
-	
+	<action path="/visorbuscarInvolucradosAudienciaPorCausa"   forward="/WEB-INF/paginas/visorbuscarInvolucradosAudienciaPorCausa.jsp"/>	
 	<!--Inician acciones de almacen -->
 	<action path="/consultarSolicitudesDeAlmacen"
 			type="mx.gob.segob.nsjp.almacen.action.AdministrarAlmacenAction"

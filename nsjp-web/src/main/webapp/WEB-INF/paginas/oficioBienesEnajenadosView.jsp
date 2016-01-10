@@ -1,235 +1,57 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ page import="mx.gob.segob.nsjp.comun.enums.expediente.OrigenExpediente"%>
-<%@ page import="mx.gob.segob.nsjp.dto.configuracion.ConfiguracionDTO"%>
-<%@ page import="mx.gob.segob.nsjp.web.base.action.GenericAction"%>
-<%@page import="mx.gob.segob.nsjp.dto.usuario.UsuarioDTO"%>
-<%@page import="mx.gob.segob.nsjp.dto.configuracion.ConfiguracionDTO"%>
-<%@page import="mx.gob.segob.nsjp.comun.enums.seguridad.Roles"%>
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Ingresar narrativa</title>
-	   <script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery-1.5.1.js"></script>
-		<script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery-ui-1.8.10.custom.js"></script>
-		<script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery.easyAccordion.js"></script>
-		<script type="text/javascript" src="<%= request.getContextPath() %>/resources/js/jquery.windows-engine.js"></script>
-   	   <!--Scripts necesarios para la ejecucion del editor-->
-	   <script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/ckeditor/ckeditor.js"></script>
-	   <script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/ckeditor/adapters/jquery.js"></script>
-	   <script type="text/javascript" src="<%=request.getContextPath()%>/js/bloqueaTecla.js?n=1"></script>
-	   <script type="text/javascript" src="<%=request.getContextPath()%>/js/comun.js?n=1"></script>
-	   	   
-<%
-	UsuarioDTO usuario = (UsuarioDTO) request.getSession().getAttribute("KEY_SESSION_USUARIO_FIRMADO");
+	<title>Indicadores</title>
 	
-	Long rolId = 0L;
-	Boolean esCoordinadorAmpGeneral = false;
+	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css" />
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/estilos.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/ui-lightness/jquery-ui-1.8.11.custom.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/jqgrid/ui.jqgrid.css" />
+	<!--css para ventanas-->
+	<link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jquery.windows-engine.css" />	
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/layout_complex.css" media="screen" />
+	
+	<script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery-1.5.1.js"></script>
+	<script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery-ui-1.8.10.custom.js"></script>	
+	<script type="text/javascript" 	src="<%=request.getContextPath()%>/resources/js/jqgrid/i18n/grid.locale-es.js"></script>
+	<script type="text/javascript" 	src="<%=request.getContextPath()%>/resources/js/jqgrid/jquery.jqGrid.js"></script>
 
-	if (usuario != null && usuario.getRolACtivo() != null
-			&& usuario.getRolACtivo().getRol() != null
-			&& usuario.getRolACtivo().getRol().getRolId() != null) {
-		rolId = usuario.getRolACtivo().getRol().getRolId();
-	}
+	<!--para controlar las ventanas-->
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.windows-engine.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.layout-1.3.0.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/layout_complex.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/js/bloqueaTecla.js?n=1"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/wdCalendar/Plugins/jquery.ui.datepicker-es.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/wdCalendar/Plugins/jquery.ui.timepicker.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/js/comun.js?n=1"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/js/bloqueaTecla.js?n=1"></script>
+	
+	<script type="text/javascript">
 
-	if (rolId.equals(Roles.COORDINADORAMPGENERAL.getValorId())) {
-		esCoordinadorAmpGeneral = true;
-	}
-
-%>   	   
-	   <script type="text/javascript">
-			
-			var esCoordinadorAmpGeneral = <%=esCoordinadorAmpGeneral%>; 
-	 		var idRolActivo = <%=rolId%>;
-
-
-			jQuery().ready(function(){				
-				
-				
-				if(idRolActivo == '<%=Roles.PROCURADOR.getValorId()%>' || idRolActivo == '<%=Roles.SUBPROCURADOR.getValorId()%>' ||
-						   idRolActivo == '<%=Roles.DIRECTOR_GENERAL.getValorId()%>' || idRolActivo == '<%=Roles.DIRECTOR_UI.getValorId()%>' || 
-						   idRolActivo == '<%=Roles.COORDINADORAMPGENERAL.getValorId()%>'){
-							
-		    				$(":enabled").attr('disabled','disabled');
-		    				$('input[type="submit"]').hide();
-		    				$('input[type="button"]').hide();
-		    				$("#editor1").attr('disabled','disabled');
-							
-				}
-				
-			});
-
-			function guarda() {
-				var recuperaTextoNarrativa=$('.jquery_ckeditor').val();
-				window.parent.$("#textNarrativa").val(recuperaTextoNarrativa);
-			}
-			
-			function recuperaNarrativa()
-			{
-				return $('.jquery_ckeditor').val();
-			}
-			
-			function recuperaNarrativaBD()
-			{
-				var lsNarrativa="";
-				lsNarrativa="gsNarrativa="+$('.jquery_ckeditor').val();
-	  			return lsNarrativa;
-			}
-			
-			//Funcion que refleja los datos de textoNarrativa a la ventana padre
-		 	function espejoDatos(){
-		     	
-		 		var valorCampoTextoNarrativa;
-		 		
-		 		valorCampoTextoNarrativa=$("#txtDescripcion").val();
-		 		        		
-		 		//llama a la funcion que escribe los datos en la ventana padre
-		 		window.parent.imprimeDatosPadreNarrativa(valorCampoTextoNarrativa);
-		 	}    
-				
-			/*
-			*Funcion que habilita los botones
-			*/
-			function onSelectChangeRdbs()
-			{
-			  if($("#rdbGenerarFicha").attr('checked'))
-			  {
-			  	$("#btnIdentificarElem").attr('disabled','disabled');
-			  	$("#btnGenerarFicha").attr('disabled','');
-			  }
-			  else if($("#rdbIdentificarElem").attr('checked'))
-			  {
-			     $("#btnIdentificarElem").attr('disabled','');
-			  	 $("#btnGenerarFicha").attr('disabled','disabled');
-			  }
-			}
-					
-			/*
-			* Funcion que manda llamar el action que atiende el guardado de una Narrativa
-			*/
-			function guardarNarrativa() {
-				$.ajax({
-			    	  type: 'POST',
-			    	  url: '<%= request.getContextPath()%>/GuardarNarrativa.do',
-			    	  data: 'tipoNarrativa='+$("#cbxTipoNarrativa option:selected").val()+'&texto='+$("#txtDescripcion").val()+'&numeroExpediente=000001',
-			    	  dataType: 'xml',
-			    	  success: function(xml){
-				    	  var option;
-			    		  $(xml).find('tipos').each(function(){
-							$('#cbxTipoNarrativa').append('<option value="' + $(this).find('cNombre').text() + '">' + $(this).find('cDescripcion').text() + '</option>');
-						   });
-			    	  }
-			    	});
-			}
-				
-		
-			
-		    /**
-		    *Funcion que obtiene el texto seleccionado del textarea de descripcion
-		    */    
-		    function getTextSub() 
-		    { 
-		       var textoSeleccionado="";
-		       //IE support
-				if (document.selection)
-				{
-				   $("#txtDescripcion").focus();
-				   sel = document.selection.createRange();
-				   textoSeleccionado=sel.text;
-			    }
-		        //MOZILLA/NETSCAPE support
-		        else if ($("#txtDescripcion")[0].selectionStart || $("#txtDescripcion")[0].selectionStart == "0")
-		        {
-		 		    var startPos = $("#txtDescripcion")[0].selectionStart;
-		 			var endPos = $("#txtDescripcion")[0].selectionEnd;
-					textoSeleccionado=$("#txtDescripcion").val().substr(startPos, endPos - startPos);
-			    }
-			    if(textoSeleccionado!="")
-			    {
-				   customAlert(textoSeleccionado);
-				}
-		    }  
-
-		    function closeIt(){
-		        window.close();
-		        }
-		</script>
-		
-		<!-- Estilo para el cuerpo del documento-->
-		<style>
-		   body{
-		       font-size: 10px;
-		   }
-		</style>
+	var ejecutaDODinamico="";
+	var etiquetaAgencia = '<bean:message key="agencia"/>';
+	
+	$(document).ready(function() {
+                $("#imagenReporteDiv").css("display","block");
+                urlReporte='<%= request.getContextPath()%>/generarReporteEnajenacion.do?idsBienes='+window.parent.idsBienes;   	
+        	$("#imagenReporte").attr("src",urlReporte);		
+	});
+	</script>
 </head>
 <body>
-	<br/><br/>
-      <textarea class="jquery_ckeditor" cols="150" id="editor1" name="editor1" rows="10" ></textarea>
-   <br/>
-	<!--input type="button" id="guardarNarraTiva" name="guardar" value="Guardar" class="btn_Generico"/-->
+
+<table width="829"  height="416" border="0">
+  	<tr>
+		<td width="547"> 
+    		<div id="imagenReporteDiv">
+	    		<iframe id="imagenReporte" src="" style="display: none;" width="100%" height="100%" scrolling="auto">&nbsp;iframe</iframe>
+    		</div>
+    	</td>
+  	</tr>
+</table>	
 </body>
 </html>
-
-<script type="text/javascript">
-
-var btnCodigoHTMLckEditor = '-';
-/**
- * Verificamos si el administrador es quien esta usando el editor, activamos el boton
- *codigo HTML
- */
-if(idRolActivo == '<%=Roles.ADMINISTRADOR.getValorId()%>'){
-	btnCodigoHTMLckEditor = "";
-	btnCodigoHTMLckEditor = 'Source';	
-}
-
-
-var config = {					
-		toolbar:
-			[
-	 			[btnCodigoHTMLckEditor,'-','Cut','Copy','Paste','-','Undo','Redo','-','Find','Replace','-','RemoveFormat','SelectAll'],
-				['Bold','Italic','Underline','Strike','-','Subscript','Superscript'],
-				['NumberedList','BulletedList','-','Outdent','Indent'],
-				['Table','HorizontalRule'],
-				'/',
-				['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
-				['Styles','Format','Font','FontSize','TextColor','BGColor','-','Image','PageBreak','Maximize', 'ShowBlocks']
-/*
-[ 'Source', '-', 'Save', 'NewPage', 'Preview', '-', 'Templates' ],
-[ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Print', 'SpellChecker','Scayt' ],
-[ 'Undo', 'Redo', '-', 'Find', 	'Replace', '-',	'SelectAll', 'RemoveFormat' ],
-[ 'Form', 'Checkbox', 'Radio', 	'TextField', 'Textarea', 'Select', 'Button', 'ImageButton',	'HiddenField' ],
-'/',
-[ 'Bold', 'Italic', 'Underline', 'Strike', '-', 'Subscript', 'Superscript' ],
-[ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent',	'Blockquote', 'CreateDiv' ],
-[ 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ],
-[ 'BidiLtr', 'BidiRtl' ],
-[ 'Link', 'Unlink', 'Anchor' ],
-[ 'Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe' ],
-'/',
-[ 'Styles', 'Format', 'Font','FontSize' ],
-[ 'TextColor', 'BGColor' ],
-[ 'Maximize', 'ShowBlocks', '-', 'About' ] */
-			], 
-			//Oficio
-			//height:'355.6mm',
-			//width:'215.9mm'
-	};			
-	$("#editor1").val(window.parent.narrativa);
-	
-	
-	//cargaTiposNarrativa();
-   	//enableControls('0');
-   	config.width = '742px';
-       config.height = '1050px';
-	$('.jquery_ckeditor').ckeditor(config);
-	
-	$('#guardarNarraTiva').click(guarda);	
-	// $("#cbxTipoNarrativa").change(onSelectChangeTipo);
-    $("#rdbIdentificarElem").change(onSelectChangeRdbs);
-    $("#rdbGenerarFicha").change(onSelectChangeRdbs);
-    $("#btnIdentificarElem").click(getTextSub);
-    $("#btnIdentificarElem").attr('disabled', 'disabled');
-    $("#btnGenerarFicha").attr('disabled', 'disabled');
-    $("#btnGuardarNarrativa").click(guardarNarrativa);
-</script>

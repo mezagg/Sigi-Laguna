@@ -1644,6 +1644,7 @@ Fin solicitar audiencia
 <bean name="/consultaTiposSolsXArea" class="mx.gob.segob.nsjp.web.hecho.action.PosibleHechoDelictivoAction"/>
 <bean name="/consultarBienesPorEnajenar" class="mx.gob.segob.nsjp.web.objeto.action.EnajenarBienesAction"/>
 <bean name="/enajenarBienes" class="mx.gob.segob.nsjp.web.objeto.action.EnajenarBienesAction"/>
+<bean name="/consultarOficioEnajenacion" class="mx.gob.segob.nsjp.web.objeto.action.EnajenarBienesAction"/>
 <!--<bean name="/consultarAudienciasPJEstadoYNoCaso" class="mx.gob.segob.nsjp.web.defensor.action.AudienciasDefensorAction"/>-->
 <!--  FIN ACCIONES UNIDAD DE INVESTIGACION -->
 
