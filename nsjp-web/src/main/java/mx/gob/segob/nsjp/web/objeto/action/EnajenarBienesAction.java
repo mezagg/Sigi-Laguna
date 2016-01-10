@@ -34,7 +34,6 @@ import javax.servlet.ServletOutputStream;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import mx.gob.segob.nsjp.comun.constants.ConstantesGenerales;
 import static mx.gob.segob.nsjp.comun.constants.ConstantesGenerales.CONTENT_TYPE_XLS;
 import static mx.gob.segob.nsjp.comun.constants.ConstantesGenerales.ENCABEZADO_ATTACH_FILE_NAME;
 import static mx.gob.segob.nsjp.comun.constants.ConstantesGenerales.ENCABEZADO_CACHE_CONTROL;
@@ -43,24 +42,20 @@ import static mx.gob.segob.nsjp.comun.constants.ConstantesGenerales.ENCABEZADO_N
 import static mx.gob.segob.nsjp.comun.constants.ConstantesGenerales.ENCABEZADO_PRAGMA;
 import static mx.gob.segob.nsjp.comun.constants.ConstantesGenerales.EXTENSION_XLS;
 import mx.gob.segob.nsjp.comun.enums.configuracion.Parametros;
-import mx.gob.segob.nsjp.comun.enums.documento.TipoDocumento;
 import mx.gob.segob.nsjp.comun.enums.objeto.Objetos;
-import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
-import mx.gob.segob.nsjp.comun.indicador.Indicadores;
 
 import mx.gob.segob.nsjp.comun.util.DateUtils;
-import mx.gob.segob.nsjp.comun.util.HTMLUtils;
 import mx.gob.segob.nsjp.delegate.documento.DocumentoDelegate;
 import mx.gob.segob.nsjp.delegate.fecha.ObtenerFechaActualDelegate;
 import mx.gob.segob.nsjp.delegate.objeto.ObjetoDelegate;
 import mx.gob.segob.nsjp.delegate.parametro.ParametroDelegate;
-import mx.gob.segob.nsjp.dto.catalogo.ValorDTO;
-import mx.gob.segob.nsjp.dto.configuracion.ConfInstitucionDTO;
-import mx.gob.segob.nsjp.dto.documento.DocumentoDTO;
-import mx.gob.segob.nsjp.dto.forma.FormaDTO;
-import mx.gob.segob.nsjp.dto.funcionario.FuncionarioDTO;
+import mx.gob.segob.nsjp.dto.catalogo.CatDelitoDTO;
+import mx.gob.segob.nsjp.dto.objeto.AeronaveDTO;
 import mx.gob.segob.nsjp.dto.objeto.AnimalDTO;
+import mx.gob.segob.nsjp.dto.objeto.ArmaDTO;
 import mx.gob.segob.nsjp.dto.objeto.DocumentoOficialDTO;
+import mx.gob.segob.nsjp.dto.objeto.EmbarcacionDTO;
+import mx.gob.segob.nsjp.dto.objeto.EquipoComputoDTO;
 import mx.gob.segob.nsjp.dto.objeto.ExplosivoDTO;
 import mx.gob.segob.nsjp.dto.objeto.JoyaDTO;
 import mx.gob.segob.nsjp.dto.objeto.NumerarioDTO;
@@ -69,10 +64,9 @@ import mx.gob.segob.nsjp.dto.objeto.ObraArteDTO;
 import mx.gob.segob.nsjp.dto.objeto.SustanciaDTO;
 import mx.gob.segob.nsjp.dto.objeto.TelefoniaDTO;
 import mx.gob.segob.nsjp.dto.objeto.VegetalDTO;
-import mx.gob.segob.nsjp.dto.usuario.UsuarioDTO;
+import mx.gob.segob.nsjp.dto.objeto.VehiculoDTO;
 import mx.gob.segob.nsjp.web.base.action.GenericAction;
 import net.sf.jasperreports.engine.JRException;
-import org.apache.commons.lang.math.NumberUtils;
 
 import org.apache.log4j.Logger;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
@@ -82,7 +76,6 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Font;
 import org.apache.poi.ss.usermodel.IndexedColors;
-import org.apache.poi.ss.usermodel.PrintSetup;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -193,159 +186,7 @@ public class EnajenarBienesAction extends GenericAction {
 			log.info("ejecutando Action enajenar");
 			
 			String ids = request.getParameter("idsBienes");
-                        objetoDelegate.enajenarBienes(ids);                       
-		    	
-		    	/*DocumentoDTO documento = null;
-                        FormaDTO forma =null;
-		    	Long documentoId = 0L;
-                      
-		    	UsuarioDTO usuarioFirmado = getUsuarioFirmado(request); 
-	                FuncionarioDTO responsableDocumento = usuarioFirmado.getFuncionario();
-				
-				ConfInstitucionDTO confInstitucionDTO = null;
-				if(usuarioFirmado.getInstitucion() != null) {
-					confInstitucionDTO = new ConfInstitucionDTO();
-					Long confInstId = usuarioFirmado.getInstitucion().getConfInstitucionId();
-					confInstitucionDTO.setConfInstitucionId(confInstId);	
-				}
-		
-		        documento = new DocumentoDTO();
-			Long formaId = 983L;
-		        forma = documentoDelegate.buscarForma(formaId);
-		    	documento.setConfInstitucion(confInstitucionDTO);
-		    	
-                        String listaVehiculos="",listaSemovientes="",listaBienesInmuebles="",listaBienesMuebles="",listaJoyas="",
-                                listaDinero="",listaObras="",listaOtros="";
-                         StringTokenizer st=new StringTokenizer(ids, ",");
-                         while(st.hasMoreTokens()){
-                             ObjetoDTO oDTO=new ObjetoDTO(new Long(st.nextToken()));
-                             oDTO.setConsultarArchivoDigital(Boolean.TRUE);
-                             ObjetoDTO obDTO=objetoDelegate.obtenerObjeto(oDTO);
-                            String descripcion=obDTO.getDescripcion()!=null?obDTO.getDescripcion():"NA";
-                            String ubicacion=obDTO.getAlmacen()!=null?obDTO.getAlmacen().getNombreAlmacen():"NA";
-                            String expediente=obDTO.getExpedienteDTO()!=null?obDTO.getExpedienteDTO().getNumeroExpediente():"NA";
-                            if(obDTO.getIdTipoObjeto() == Objetos.VEHICULO.getValorId()
-                                    || obDTO.getIdTipoObjeto() == Objetos.EMBARCACION.getValorId()
-                                    || obDTO.getIdTipoObjeto() == Objetos.AERONAVE.getValorId()){
-                                    listaVehiculos+="<tr><td>"+descripcion+"</td><td>"
-                                            +ubicacion+"</td><td>"
-                                            +"NA</td><td>"
-                                            +"NA</td><td>"
-                                            +expediente+"</td><td>"
-                                            +"</tr>";                                    
-                            }
-                            else if(obDTO.getIdTipoObjeto() == Objetos.EQUIPO_DE_COMPUTO.getValorId()
-                                    || obDTO.getIdTipoObjeto() == Objetos.EQUIPO_TELEFONICO.getValorId()
-                                    || obDTO.getIdTipoObjeto() == Objetos.EXPLOSIVO.getValorId()
-                                    || obDTO.getIdTipoObjeto() == Objetos.ARMA.getValorId()
-                                    || obDTO.getIdTipoObjeto() == Objetos.SUSTANCIA.getValorId()
-                                    || obDTO.getIdTipoObjeto() == Objetos.DOCUMENTO_OFICIAL.getValorId()){
-                                    listaBienesMuebles+="<tr><td>"+descripcion+"</td><td>"
-                                            +ubicacion+"</td><td>"
-                                            +"NA</td><td>"
-                                            +"NA</td><td>"
-                                            +expediente+"</td><td>"
-                                            +"NA</td><td>"
-                                            +"NA</td><td>"
-                                            +"</tr>";
-                            }
-                            else if(obDTO.getIdTipoObjeto() == Objetos.ANIMAL.getValorId()){
-                                        listaSemovientes+="<tr><td>"+descripcion+"</td><td>"
-                                            +ubicacion+"</td><td>"
-                                            +"NA</td><td>"
-                                            +"NA</td><td>"
-                                            +expediente+"</td><td>"
-                                            +"NA</td><td>"
-                                            +"NA</td><td>"
-                                            +"</tr>";
-                            }
-                            else if(obDTO.getIdTipoObjeto() == Objetos.VEGETAL.getValorId()){
-                                    listaSemovientes+="<tr><td>"+descripcion+"</td><td>"
-                                            +ubicacion+"</td><td>"
-                                            +"NA</td><td>"
-                                            +"NA</td><td>"
-                                            +expediente+"</td><td>"
-                                            +"NA</td><td>"
-                                            +((VegetalDTO)obDTO).getCantidad()+"</td><td>"
-                                            +"</tr>";
-                            }
-                            else if(obDTO.getIdTipoObjeto() == Objetos.JOYA.getValorId()){
-                                    listaJoyas+="<tr><td>"+descripcion+"</td><td>"
-                                            +ubicacion+"</td><td>"
-                                            +"NA</td><td>"
-                                            +"NA</td><td>"
-                                            +expediente+"</td><td>"
-                                            +"NA</td><td>"
-                                            +"NA</td><td>"
-                                            +"</tr>";
-                            }
-                            else if(obDTO.getIdTipoObjeto() == Objetos.OBRA_DE_ARTE.getValorId()){
-                                    listaObras+="<tr><td>"+descripcion+"</td><td>"
-                                            +ubicacion+"</td><td>"
-                                            +"NA</td><td>"
-                                            +"NA</td><td>"
-                                            +expediente+"</td><td>"
-                                            +"NA</td><td>"
-                                            +"</tr>";
-                            }
-                            else if(obDTO.getIdTipoObjeto() == Objetos.NUMERARIO.getValorId()){
-                                    listaDinero+="<tr><td>"+descripcion+"</td><td>"
-                                            +ubicacion+"</td><td>"
-                                            +"NA</td><td>"
-                                            +"NA</td><td>"
-                                            +expediente+"</td><td>"
-                                            +"NA</td><td>"
-                                            +"</tr>";
-                            }
-                            else{
-                                listaOtros+="<tr><td>"+descripcion+"</td><td>"
-                                            +ubicacion+"</td><td>"
-                                            +"NA</td><td>"
-                                            +"NA</td><td>"
-                                            +expediente+"</td><td>"
-                                            +"</tr>";
-                            }
-                         }
-                         
-                         Map<String,Object> parametrosExtra = new HashMap<String,Object> ();
-                         parametrosExtra.put("Vehiculos", listaVehiculos);
-                         parametrosExtra.put("Semovientes", listaSemovientes);
-                         parametrosExtra.put("BienesMuebles", listaBienesMuebles);
-                         parametrosExtra.put("Dinero", listaDinero);
-                         parametrosExtra.put("Joyas", listaJoyas);
-                         parametrosExtra.put("Obras", listaObras);
-                         parametrosExtra.put("Otros", listaOtros);
-                         Calendar f=Calendar.getInstance();
-                         int hora=f.get(Calendar.HOUR_OF_DAY);
-                         int min=f.get(Calendar.MINUTE);
-                         String horaDia=hora+":";
-                         String minDia=min<10?"0"+min:""+min;
-                         parametrosExtra.put("horaActual", horaDia+minDia);
-                         parametrosExtra.put("fechaActual", obFechaDelegate.obtenerFechaActual());
-                         String textoParcial=HTMLUtils.reemplazarParametrosExtra(forma.getCuerpo(), parametrosExtra);
-                         documento.setTextoParcial(textoParcial);
-                             
-		    	    documento.setFormaDTO(forma);
-			    //documento.setArchivoDigital(archivo);
-			    documento.setFechaCreacion(new Date());
-			    documento.setNombreDocumento(forma.getNombre());
-			    documento.setTipoDocumentoDTO(new ValorDTO(TipoDocumento.OFICIO.getValorId()));
-			    documento.setResponsableDocumento(responsableDocumento);
-			    //Se setea el area del rol activo.
-			    if(usuarioFirmado != null && usuarioFirmado.getAreaActual() != null && usuarioFirmado.getAreaActual().getAreaId() != null){
-			    	documento.setJerarquiaOrganizacional(usuarioFirmado.getAreaActual().getAreaId());
-			    }
-			    		
-                           
-			    documentoId = documentoDelegate.guardarOficioEnajenacion(documento,ids);   
-                            documento.setDocumentoId(documentoId);
-                            String docXml=converter.toXML(documento);
-                            ByteArrayOutputStream baos = this.generarReporteJasperExcel();
-                            
-                             this.escribirReporteExcel(response, baos,String.valueOf("Adrianaaa"));
-           
-			    //escribirRespuesta(response,docXml );
-                        */
+                        objetoDelegate.enajenarBienes(ids);                       		    			    	
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
 		}
@@ -426,6 +267,72 @@ public class EnajenarBienesAction extends GenericAction {
                 titleCell.setCellStyle(styles.get("titulo"));
             }
             
+            //SEMOVIENTES
+            renglones=0;
+            sheet = wb.createSheet("SEMOVIENTES");        
+            sheet.setFitToPage(true);
+            sheet.setHorizontallyCenter(true);   
+
+            ubiRow = sheet.createRow(renglones++);
+            ubiRow.setHeightInPoints(26);
+            ubiCell=ubiRow.createCell(14);
+            ubiCell.setCellValue("DATOS DE UBICACION");
+            ubiCell.setCellStyle(styles.get("gris"));
+            sheet.addMergedRegion(CellRangeAddress.valueOf("$O$1:$P$1"));
+
+            titleRow = sheet.createRow(renglones++);
+            titleRow.setHeightInPoints(26);
+            String[]encabSemov={"Nº","A.C.","A.P.P.","FECHA DE ASEGURAMIENTO","TIPO DE SEMOVIENTE","DESCRIPCION","CANTIDAD","COLOR","CONDICIONES FISICAS",
+                "DELITO","EJERCIO ACCION PENAL SI/NO","ESTADO ACTUAL DEL OBJETO EN EL PROCESO","UBICACION","FECHA","OFICIO"};
+            Integer[]anchoSemov={6,10,10,14,24,38,16,16,28,20,16,20,18,18,18};
+            for (int i = 0; i < encabSemov.length; i++) {            
+                sheet.setColumnWidth(i+1, anchoSemov[i]*256);
+                Cell titleCell = titleRow.createCell(i+1);            
+                titleCell.setCellValue(encabSemov[i]);
+                titleCell.setCellStyle(styles.get("titulo"));
+            }
+            
+            //VALORES
+            renglones=0;
+            sheet = wb.createSheet("VALORES");        
+            sheet.setFitToPage(true);
+            sheet.setHorizontallyCenter(true);   
+
+            ubiRow = sheet.createRow(renglones++);
+            ubiRow.setHeightInPoints(26);
+            ubiCell=ubiRow.createCell(9);
+            ubiCell.setCellValue("SECCION DINERO");
+            ubiCell.setCellStyle(styles.get("gris"));
+            sheet.addMergedRegion(CellRangeAddress.valueOf("$J$1:$M$1"));
+            
+            ubiCell=ubiRow.createCell(13);
+            ubiCell.setCellValue("SECCION JOYAS");
+            ubiCell.setCellStyle(styles.get("azul"));
+            sheet.addMergedRegion(CellRangeAddress.valueOf("$N$1:$R$1"));
+            
+            ubiCell=ubiRow.createCell(18);
+            ubiCell.setCellValue("SECCION OBRAS DE ARTE");
+            ubiCell.setCellStyle(styles.get("verde"));
+            sheet.addMergedRegion(CellRangeAddress.valueOf("$S$1:$U$1"));
+
+            ubiCell=ubiRow.createCell(21);
+            ubiCell.setCellValue("DATOS DE UBICACION");
+            ubiCell.setCellStyle(styles.get("grisObs"));
+            sheet.addMergedRegion(CellRangeAddress.valueOf("$V$1:$X$1"));
+
+            titleRow = sheet.createRow(renglones++);
+            titleRow.setHeightInPoints(26);
+            String[]encabVals={"Nº","A.C.","A.P.P.","FECHA DE ASEGURAMIENTO","TIPO DE VALOR","DELITO","EJERCIO ACCION PENAL SI/NO","ESTADO ACTUAL DEL OBJETO EN EL PROCESO",
+                "CANTIDAD TOTAL","TIPO","DENOMINACION","PROCEDENCIA","CANTIDAD","TIPO DE JOYA","MATERIAL","KILATAJE","AVALUO MONETARIO",
+                "CANTIDAD","TIPO DE OBRA","DESCRIPCION FISICA","UBICACION FISICA / CIUDAD","FECHA","OFICIO"};
+            Integer[]anchoVals={5,8,8,14,12,15,16,22,10,14,14,14,8,14,10,10,12,8,11,22,16,12,12};
+            for (int i = 0; i < encabVals.length; i++) {            
+                sheet.setColumnWidth(i+1, anchoVals[i]*256);
+                Cell titleCell = titleRow.createCell(i+1);            
+                titleCell.setCellValue(encabVals[i]);
+                titleCell.setCellStyle(styles.get("titulo"));
+            }
+            
             //VEHICULOS
             renglones=0;
             sheet = wb.createSheet("VEHICULOS");        
@@ -452,7 +359,32 @@ public class EnajenarBienesAction extends GenericAction {
                 titleCell.setCellStyle(styles.get("titulo"));
             }
             
-            int noInm=2,noVeh=2;
+            //OTROS
+            renglones=0;
+            sheet = wb.createSheet("OTROS");        
+            sheet.setFitToPage(true);
+            sheet.setHorizontallyCenter(true);   
+
+            ubiRow = sheet.createRow(renglones++);
+            ubiRow.setHeightInPoints(26);
+            ubiCell=ubiRow.createCell(12);
+            ubiCell.setCellValue("DATOS DE UBICACION");
+            ubiCell.setCellStyle(styles.get("gris"));
+            sheet.addMergedRegion(CellRangeAddress.valueOf("$O$1:$P$1"));
+
+            titleRow = sheet.createRow(renglones++);
+            titleRow.setHeightInPoints(26);
+            String[]encabOtros={"Nº","A.C.","A.P.P.","FECHA DE ASEGURAMIENTO","TIPO","DESCRIPCION",
+                "DELITO","EJERCIO ACCION PENAL SI/NO","ESTADO ACTUAL DEL OBJETO EN EL PROCESO","UBICACION","FECHA","OFICIO"};
+            Integer[]anchoOtros={6,10,10,14,24,38,20,16,20,18,18,18};
+            for (int i = 0; i < encabOtros.length; i++) {            
+                sheet.setColumnWidth(i+1, anchoOtros[i]*256);
+                Cell titleCell = titleRow.createCell(i+1);            
+                titleCell.setCellValue(encabOtros[i]);
+                titleCell.setCellStyle(styles.get("titulo"));
+            }
+            
+            int noMueb=2,noVeh=2,noSemov=2,noVals=2,noOtros=2;
             StringTokenizer st=new StringTokenizer(ids, ",");
             Sheet hojaActual=null;
             Row renActual=null;
@@ -461,49 +393,47 @@ public class EnajenarBienesAction extends GenericAction {
                 ObjetoDTO oDTO=new ObjetoDTO(new Long(st.nextToken()));
                 oDTO.setConsultarArchivoDigital(Boolean.TRUE);
                 ObjetoDTO obDTO=objetoDelegate.obtenerObjeto(oDTO);
-                String descripcion=obDTO.getDescripcion()!=null?obDTO.getDescripcion():"NA";
-                String ubicacion=obDTO.getAlmacen()!=null?obDTO.getAlmacen().getNombreAlmacen():"NA";
-                String expediente=obDTO.getExpedienteDTO()!=null?obDTO.getExpedienteDTO().getNumeroExpediente():"NA";
+                String valores[]=preparaObjeto(obDTO);
                 if(obDTO.getIdTipoObjeto() == Objetos.EQUIPO_DE_COMPUTO.getValorId()
                                     || obDTO.getIdTipoObjeto() == Objetos.EQUIPO_TELEFONICO.getValorId()
                                     || obDTO.getIdTipoObjeto() == Objetos.EXPLOSIVO.getValorId()
                                     || obDTO.getIdTipoObjeto() == Objetos.ARMA.getValorId()
                                     || obDTO.getIdTipoObjeto() == Objetos.SUSTANCIA.getValorId()
                                     || obDTO.getIdTipoObjeto() == Objetos.DOCUMENTO_OFICIAL.getValorId()){
-                    hojaActual=wb.getSheet("INMUEBLES");
-                    renActual = hojaActual.createRow(noInm++);
-                    renActual.setHeightInPoints(26);
-                    celActual = renActual.createCell(1); celActual.setCellValue(noInm-2); celActual.setCellStyle(styles.get("normal"));
-                    celActual = renActual.createCell(6); celActual.setCellValue(ubicacion); celActual.setCellStyle(styles.get("normal"));
-                    celActual = renActual.createCell(9); celActual.setCellValue(descripcion); celActual.setCellStyle(styles.get("normal"));
-                    celActual = renActual.createCell(14); celActual.setCellValue(expediente); celActual.setCellStyle(styles.get("normal"));                    
-                }else if(obDTO.getIdTipoObjeto() == Objetos.VEHICULO.getValorId()
-                                    || obDTO.getIdTipoObjeto() == Objetos.EMBARCACION.getValorId()
-                                    || obDTO.getIdTipoObjeto() == Objetos.AERONAVE.getValorId()){
+                    hojaActual=wb.getSheet("MUEBLES");
+                    renActual = hojaActual.createRow(noMueb++);
+                    renActual.setHeightInPoints(26);       
+                    celActual = renActual.createCell(1); celActual.setCellValue(noMueb-2); celActual.setCellStyle(styles.get("normal"));
+                }else if(obDTO.getIdTipoObjeto() == Objetos.VEHICULO.getValorId() 
+                        || obDTO.getIdTipoObjeto() == Objetos.EMBARCACION.getValorId()
+                        || obDTO.getIdTipoObjeto() == Objetos.AERONAVE.getValorId()){
                     hojaActual=wb.getSheet("VEHICULOS");
                     renActual = hojaActual.createRow(noVeh++);
                     renActual.setHeightInPoints(26);
                     celActual = renActual.createCell(1); celActual.setCellValue(noVeh-2); celActual.setCellStyle(styles.get("normal"));
-                    celActual = renActual.createCell(2); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
-                    celActual = renActual.createCell(3); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
-                    celActual = renActual.createCell(4); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
-                    celActual = renActual.createCell(5); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
-                    celActual = renActual.createCell(6); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
-                    celActual = renActual.createCell(7); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
-                    celActual = renActual.createCell(8); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
-                    celActual = renActual.createCell(9); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
-                    celActual = renActual.createCell(10); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
-                    celActual = renActual.createCell(11); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
-                    celActual = renActual.createCell(12); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
-                    celActual = renActual.createCell(13); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
-                    celActual = renActual.createCell(14); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));                    
-                    celActual = renActual.createCell(15); celActual.setCellValue(ubicacion); celActual.setCellStyle(styles.get("normal"));
-                    celActual = renActual.createCell(16); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
-                    celActual = renActual.createCell(17); celActual.setCellValue(expediente); celActual.setCellStyle(styles.get("normal")); 
-                    celActual = renActual.createCell(18); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
-                    celActual = renActual.createCell(19); celActual.setCellValue("NA"); celActual.setCellStyle(styles.get("normal"));
-                }            
-                                 
+                }else if(obDTO.getIdTipoObjeto() == Objetos.ANIMAL.getValorId()
+                        ||obDTO.getIdTipoObjeto() == Objetos.VEGETAL.getValorId()){
+                    hojaActual=wb.getSheet("SEMOVIENTES");
+                    renActual = hojaActual.createRow(noSemov++);
+                    renActual.setHeightInPoints(26);
+                    celActual = renActual.createCell(1); celActual.setCellValue(noSemov-2); celActual.setCellStyle(styles.get("normal"));                    
+                }else if(obDTO.getIdTipoObjeto() == Objetos.JOYA.getValorId()
+                        || obDTO.getIdTipoObjeto() == Objetos.OBRA_DE_ARTE.getValorId()
+                        || obDTO.getIdTipoObjeto() == Objetos.NUMERARIO.getValorId()){
+                    hojaActual=wb.getSheet("VALORES");
+                    renActual = hojaActual.createRow(noVals++);
+                    renActual.setHeightInPoints(26);
+                    celActual = renActual.createCell(1); celActual.setCellValue(noVals-2); celActual.setCellStyle(styles.get("normal"));
+                }else{
+                    hojaActual=wb.getSheet("OTROS");
+                    renActual = hojaActual.createRow(noOtros++);
+                    renActual.setHeightInPoints(26);
+                    celActual = renActual.createCell(1); celActual.setCellValue(noOtros-2); celActual.setCellStyle(styles.get("normal"));
+                }
+                
+                for(int j=0;j<valores.length&&valores[j]!=null;j++){                  
+                    celActual = renActual.createCell(j+2); celActual.setCellValue(valores[j]); celActual.setCellStyle(styles.get("normal")); 
+                }    
             }                
         
       
@@ -548,6 +478,30 @@ public class EnajenarBienesAction extends GenericAction {
         style.setFillForegroundColor(HSSFColor.GREY_25_PERCENT.index);
         style.setFillPattern(CellStyle.SOLID_FOREGROUND);
         styles.put("gris", style);
+        
+        style = wb.createCellStyle();
+        style.setAlignment(CellStyle.ALIGN_CENTER);
+        style.setVerticalAlignment(CellStyle.VERTICAL_CENTER);
+        style.setFont(grisFont);
+        style.setFillForegroundColor(HSSFColor.GREY_40_PERCENT.index);
+        style.setFillPattern(CellStyle.SOLID_FOREGROUND);
+        styles.put("grisObs", style);
+        
+        style = wb.createCellStyle();
+        style.setAlignment(CellStyle.ALIGN_CENTER);
+        style.setVerticalAlignment(CellStyle.VERTICAL_CENTER);
+        style.setFont(grisFont);
+        style.setFillForegroundColor(HSSFColor.PALE_BLUE.index);
+        style.setFillPattern(CellStyle.SOLID_FOREGROUND);
+        styles.put("azul", style);
+        
+        style = wb.createCellStyle();
+        style.setAlignment(CellStyle.ALIGN_CENTER);
+        style.setVerticalAlignment(CellStyle.VERTICAL_CENTER);
+        style.setFont(grisFont);
+        style.setFillForegroundColor(HSSFColor.LIGHT_GREEN.index);
+        style.setFillPattern(CellStyle.SOLID_FOREGROUND);
+        styles.put("verde", style);
 
         Font normalFont = wb.createFont();
         normalFont.setFontName("Century Gothic");
@@ -586,5 +540,172 @@ public class EnajenarBienesAction extends GenericAction {
             log.error(e.getMessage(), e);
         }
     }
+        
+    private String[] preparaObjeto(ObjetoDTO obDTO){
+        String celdas[]=new String[22];
+        String descripcion=obDTO.getDescripcion()!=null?obDTO.getDescripcion():"NA";
+        String ubicacion=obDTO.getAlmacen()!=null?obDTO.getAlmacen().getNombreAlmacen():"NA";
+        String expediente=obDTO.getExpedienteDTO()!=null?obDTO.getExpedienteDTO().getNumeroExpediente():"NA";
+        CatDelitoDTO delitoDTO=obDTO.getExpedienteDTO().getDelitoPrincipal()!=null?obDTO.getExpedienteDTO().getDelitoPrincipal().getCatDelitoDTO():null;
+        String fecha=obDTO.getFechaRecepcion()!=null?obDTO.getFechaRecepcion().toString():"NA";
+        String delito="NA",ejercioAP="NA";
+        if(delitoDTO!=null){
+            delito=delitoDTO.getNombre();
+            if(delitoDTO.getEsAccionPenPriv()!=null)
+                ejercioAP=delitoDTO.getEsAccionPenPriv()?"SI":"NO";            
+            else
+                ejercioAP="NA";
+        }
+        String ac="NA";
+        String app="NA";
+        String tipo=obDTO.getTipoObjeto().getNombreEntity();
+        if(obDTO.getIdTipoObjeto()==Objetos.VEHICULO.getValorId()){
+            VehiculoDTO veh=(VehiculoDTO)obDTO;
+            celdas[0]=ac;celdas[1]=app;
+            celdas[2]=veh.getFechaRecuperado()!=null?veh.getFechaRecuperado().toString():"NA";
+            celdas[3]=veh.getValorByMarcaVal()!=null?veh.getValorByMarcaVal().getValor():"NA";            
+            celdas[4]=veh.getValorByTipoVehiculo()!=null?veh.getValorByTipoVehiculo().getValor():tipo;
+            celdas[5]=veh.getModelo().toString();celdas[6]=veh.getNoSerie();
+            celdas[7]=veh.getValorByColorVal()!=null?veh.getValorByColorVal().getValor():"NA";
+            celdas[8]="NA";celdas[9]="NA";celdas[10]=delito;celdas[11]=ejercioAP;
+            celdas[12]="NA";celdas[13]=ubicacion;celdas[14]=fecha;celdas[15]=expediente;
+            celdas[16]="NA";celdas[17]="NA";
+        }else if(obDTO.getIdTipoObjeto()==Objetos.EMBARCACION.getValorId()){
+            EmbarcacionDTO emb=(EmbarcacionDTO)obDTO;
+            celdas[0]=ac;celdas[1]=app;celdas[2]="NA";
+            celdas[3]=emb.getMarca()!=null?emb.getMarca().getValor():"NA";            
+            celdas[4]=emb.getTipoEmbarcacion()!=null?emb.getTipoEmbarcacion().getValor():tipo;
+            celdas[5]="NA";
+            celdas[7]=emb.getColor()!=null?emb.getColor().getValor():"NA";
+            celdas[8]="NA";celdas[9]="NA";celdas[10]=delito;celdas[11]=ejercioAP;
+            celdas[12]="NA";celdas[13]=ubicacion;celdas[14]=fecha;celdas[15]=expediente;
+            celdas[16]="NA";celdas[17]="NA";
+        }else if(obDTO.getIdTipoObjeto()==Objetos.AERONAVE.getValorId()){
+            AeronaveDTO aern=(AeronaveDTO)obDTO;
+            celdas[0]=ac;celdas[1]=app;celdas[2]="NA";
+            celdas[3]=aern.getMarca()!=null?aern.getMarca().getValor():"NA";            
+            celdas[4]=aern.getTipoAeroNave()!=null?aern.getTipoAeroNave().getValor():tipo;
+            celdas[5]="NA";
+            celdas[7]=aern.getColor()!=null?aern.getColor().getValor():"NA";
+            celdas[8]="NA";celdas[9]="NA";celdas[10]=delito;celdas[11]=ejercioAP;
+            celdas[12]="NA";celdas[13]=ubicacion;celdas[14]=fecha;celdas[15]=expediente;
+            celdas[16]="NA";celdas[17]="NA";
+        }else if(obDTO.getIdTipoObjeto()==Objetos.EQUIPO_TELEFONICO.getValorId()){
+            //EquipoTelefonicoDTO emb=(EquipoTelefonicoDTO)obDTO;
+            for(int i=0;i<18;i++)
+                celdas[i]="NA";
+
+        }else if(obDTO.getIdTipoObjeto() == Objetos.EQUIPO_DE_COMPUTO.getValorId()){
+            EquipoComputoDTO eqCom=(EquipoComputoDTO)obDTO;
+            celdas[0]=ac;celdas[1]=app;celdas[2]="NA";
+            celdas[3]=eqCom.getTipoEquipo()!=null?eqCom.getTipoEquipo().getValor():tipo;
+            celdas[4]=descripcion;celdas[5]="NA";
+            celdas[6]=eqCom.getMarca()!=null?eqCom.getMarca().getValor():"NA";
+            celdas[7]=eqCom.getModelo()!=null?eqCom.getModelo():"NA";
+            celdas[8]=eqCom.getNoSerie()!=null?eqCom.getNoSerie():"NA";
+            celdas[9]=eqCom.getColor()!=null?eqCom.getColor().getValor():"NA";
+            celdas[10]="NA";celdas[11]="NA";
+            celdas[12]=delito;celdas[13]=ejercioAP;
+            celdas[14]="NA";celdas[15]=ubicacion;celdas[16]=fecha;celdas[17]=expediente;
+        }else if(obDTO.getIdTipoObjeto() == Objetos.EXPLOSIVO.getValorId()){
+            ExplosivoDTO exp = (ExplosivoDTO)obDTO;
+            celdas[0]=ac;celdas[1]=app;celdas[2]="NA";
+            celdas[3]=exp.getTipoExplosivo()!=null?exp.getTipoExplosivo().getValor():tipo;
+            celdas[4]=descripcion;celdas[5]=exp.getCantidad()!=null?exp.getCantidad().toString():"NA";
+            celdas[6]="NA";celdas[7]="NA";celdas[8]="NA";
+            celdas[9]="NA";
+            celdas[10]="NA";celdas[11]="NA";
+            celdas[12]=delito;celdas[13]=ejercioAP;
+            celdas[14]="NA";celdas[15]=ubicacion;celdas[16]=fecha;celdas[17]=expediente;
+        }else if(obDTO.getIdTipoObjeto() == Objetos.ARMA.getValorId()){
+            ArmaDTO arma = (ArmaDTO)obDTO; 
+            celdas[0]=ac;celdas[1]=app;celdas[2]="NA";
+            celdas[3]=arma.getTipoArma()!=null?arma.getTipoArma().getValor():tipo;
+            celdas[4]=descripcion;celdas[5]="NA";
+            celdas[6]=arma.getMarca()!=null?arma.getMarca().getValor():"NA";
+            celdas[7]=arma.getModelo()!=null?arma.getModelo():"NA";
+            celdas[8]=arma.getMatricula()!=null?arma.getMatricula():"NA";
+            celdas[9]="NA";celdas[10]="NA";celdas[11]="NA";
+            celdas[12]=delito;celdas[13]=ejercioAP;
+            celdas[14]="NA";celdas[15]=ubicacion;celdas[16]=fecha;celdas[17]=expediente;
+        }else if(obDTO.getIdTipoObjeto() == Objetos.SUSTANCIA.getValorId()){
+            SustanciaDTO sustancia = (SustanciaDTO)obDTO;
+            celdas[0]=ac;celdas[1]=app;celdas[2]="NA";
+            celdas[3]=sustancia.getTipoSustancia()!=null?sustancia.getTipoSustancia().getValor():tipo;
+            celdas[4]=descripcion;celdas[5]=sustancia.getCantidad()!=null?sustancia.getCantidad().toString():"NA";
+            celdas[6]="NA";celdas[7]="NA";celdas[8]="NA";celdas[9]="NA";
+            celdas[10]="NA";celdas[11]="NA";
+            celdas[12]=delito;celdas[13]=ejercioAP;
+            celdas[14]="NA";celdas[15]=ubicacion;celdas[16]=fecha;celdas[17]=expediente;
+        }else if(obDTO.getIdTipoObjeto() == Objetos.DOCUMENTO_OFICIAL.getValorId()){
+            DocumentoOficialDTO doc=(DocumentoOficialDTO)obDTO;
+            celdas[0]=ac;celdas[1]=app;celdas[2]="NA";
+            celdas[3]=doc.getTipoDocumento()!=null?doc.getTipoDocumento().getValor():tipo;
+            celdas[4]=descripcion;celdas[5]=doc.getCantidad()!=null?doc.getCantidad().toString():"NA";
+            celdas[6]="NA";celdas[7]="NA";celdas[8]="NA";celdas[9]="NA";
+            celdas[10]="NA";celdas[11]="NA";
+            celdas[12]=delito;celdas[13]=ejercioAP;
+            celdas[14]="NA";celdas[15]=ubicacion;celdas[16]=fecha;celdas[17]=expediente;
+        }else if(obDTO.getIdTipoObjeto() == Objetos.ANIMAL.getValorId()){
+            AnimalDTO animal = (AnimalDTO)obDTO;
+            celdas[0]=ac;celdas[1]=app;celdas[2]="NA";
+            celdas[3]=animal.getTipoAnimal()!=null?animal.getTipoAnimal().getValor():tipo;
+            celdas[4]=descripcion;
+            celdas[5]="NA";
+            celdas[6]="NA";celdas[7]=animal.getEstadoAnimal();
+            celdas[8]=delito;celdas[9]=ejercioAP;
+            celdas[10]="NA";celdas[11]=ubicacion;celdas[12]=fecha;celdas[13]=expediente;
+        }else if(obDTO.getIdTipoObjeto() == Objetos.VEGETAL.getValorId()){
+            VegetalDTO vegetal = (VegetalDTO)obDTO;   
+            celdas[0]=ac;celdas[1]=app;celdas[2]="NA";
+            celdas[3]=vegetal.getTipoVegetal()!=null?vegetal.getTipoVegetal().getValor():tipo;
+            celdas[4]=descripcion;
+            celdas[5]=vegetal.getCantidad()!=null?vegetal.getCantidad().toString():"NA";
+            celdas[6]="NA";celdas[7]="NA";
+            celdas[8]=delito;celdas[9]=ejercioAP;
+            celdas[10]="NA";celdas[11]=ubicacion;celdas[12]=fecha;celdas[13]=expediente;            
+        }else if(obDTO.getIdTipoObjeto() == Objetos.JOYA.getValorId()){
+            JoyaDTO joya = (JoyaDTO)obDTO;
+            celdas[0]=ac;celdas[1]=app;
+            celdas[2]="NA";celdas[3]=tipo;
+            celdas[4]=delito;celdas[5]=ejercioAP;
+            celdas[6]="NA";
+            for(int i=7;i<11;i++)
+                celdas[i]="-";            
+            celdas[11]=joya.getCantidad()!=null?joya.getCantidad().toString():"NA";
+            celdas[12]=joya.getTipoJoya()!=null?joya.getTipoJoya().getValor():"NA";
+            celdas[13]=joya.getMaterial();celdas[14]="NA";celdas[15]="NA";
+            for(int i=16;i<19;i++)
+                celdas[i]="-";
+            celdas[19]=ubicacion;celdas[20]=fecha;celdas[21]=expediente;
+        }else if(obDTO.getIdTipoObjeto() == Objetos.OBRA_DE_ARTE.getValorId()){
+            ObraArteDTO obra = (ObraArteDTO)obDTO;
+            celdas[0]=ac;celdas[1]=app;
+            celdas[2]="NA";celdas[3]=tipo;
+            celdas[4]=delito;celdas[5]=ejercioAP;
+            celdas[6]="NA";
+            for(int i=7;i<16;i++)
+                celdas[i]="-";
+            celdas[16]=obra.getCantidad()!=null?obra.getCantidad().toString():"NA";
+            celdas[17]=obra.getTipoObraArte()!=null?obra.getTipoObraArte().getValor():"NA";celdas[18]=obra.getDescripcion();
+            celdas[19]=ubicacion;celdas[20]=fecha;celdas[21]=expediente;
+        }else if(obDTO.getIdTipoObjeto() == Objetos.NUMERARIO.getValorId()){
+            NumerarioDTO num = (NumerarioDTO)obDTO;
+            celdas[0]=ac;celdas[1]=app;
+            celdas[2]="NA";celdas[3]=tipo;
+            celdas[4]=delito;celdas[5]=ejercioAP;
+            celdas[6]="NA";celdas[7]=num.getCantidad()!=null?num.getCantidad().toString():"NA";
+            celdas[8]="NA";celdas[9]=num.getMoneda();celdas[10]="NA";
+            for(int i=11;i<19;i++)
+                celdas[i]="-";
+            celdas[19]=ubicacion;celdas[20]=fecha;celdas[21]=expediente;
+        }else{
+             celdas[0]=ac;celdas[1]=app;celdas[2]="NA";
+             celdas[3]=tipo;celdas[4]=descripcion;
+             celdas[5]=delito;celdas[6]=ejercioAP;
+             celdas[7]="NA";celdas[8]=ubicacion;celdas[9]=fecha;celdas[10]=expediente;            
+        }
+        return celdas;
+    } 
 
 }
