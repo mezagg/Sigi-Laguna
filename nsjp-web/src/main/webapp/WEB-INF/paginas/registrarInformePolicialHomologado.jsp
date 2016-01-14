@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Realizar Informe Policial Homologado</title>
-<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/css/jquery/jquery-ui-1.8.10.custom.css" rel="stylesheet" />	
+<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/css/jquery/jquery-ui-1.8.11.custom.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/css/jquery/jqgrid/ui.jqgrid.css" />
 
 <!-- CSS INTERNA PARA EL ELEMENTO TITULO Y BODY -->

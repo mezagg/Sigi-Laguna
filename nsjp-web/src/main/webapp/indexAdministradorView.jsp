@@ -45,7 +45,7 @@ response.setDateHeader("Expires", 0);
 	
 	<!--estilo del grid-->
 	<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/jqgrid/ui.jqgrid.css" />
-		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/south-street/jquery-ui-1.8.10.custom.css" />	
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/south-street/jquery-ui-1.8.10.custom.css" />
 	 
 <!--COMIENZAN SCRIPTS-->
 	

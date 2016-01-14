@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <resourceExtensions />
+    <wildcardResourcePatterns>
+      <entry name="!?*.java" />
+      <entry name="!?*.form" />
+      <entry name="!?*.class" />
+      <entry name="!?*.groovy" />
+      <entry name="!?*.scala" />
+      <entry name="!?*.flex" />
+      <entry name="!?*.kt" />
+      <entry name="!?*.clj" />
+      <entry name="!?*.aj" />
+    </wildcardResourcePatterns>
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="false">
+        <processorPath useClasspath="true" />
+      </profile>
+      <profile default="false" name="Annotation profile for nsjp-wsclient" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="nsjp-wsclient" />
+      </profile>
+      <profile default="false" name="Annotation profile for nsjp-delegate" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="nsjp-delegate" />
+      </profile>
+      <profile default="false" name="Annotation profile for nsjp-ws" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="nsjp-ws" />
+      </profile>
+      <profile default="false" name="Annotation profile for nsjp-servicios-api" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="nsjp-servicios-api" />
+      </profile>
+      <profile default="false" name="Annotation profile for nsjp-web" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="nsjp-web" />
+      </profile>
+      <profile default="false" name="Annotation profile for nsjp-persistencia" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="nsjp-persistencia" />
+      </profile>
+      <profile default="false" name="Annotation profile for nsjp-servicios-impl" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="nsjp-servicios-impl" />
+      </profile>
+      <profile default="false" name="Annotation profile for nsjp-dto" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="nsjp-dto" />
+      </profile>
+      <profile default="false" name="Annotation profile for nsjp-modelo" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="nsjp-modelo" />
+      </profile>
+      <profile default="false" name="Annotation profile for nsjp-comun" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="nsjp-comun" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="nsjp" target="1.6" />
+      <module name="nsjp-comun" target="1.6" />
+      <module name="nsjp-delegate" target="1.6" />
+      <module name="nsjp-dto" target="1.6" />
+      <module name="nsjp-modelo" target="1.6" />
+      <module name="nsjp-persistencia" target="1.6" />
+      <module name="nsjp-servicios-api" target="1.6" />
+      <module name="nsjp-servicios-impl" target="1.6" />
+      <module name="nsjp-web" target="1.6" />
+      <module name="nsjp-ws" target="1.6" />
+      <module name="nsjp-wsclient" target="1.6" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

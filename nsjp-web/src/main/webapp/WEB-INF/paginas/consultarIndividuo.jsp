@@ -26,7 +26,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Consultar Individuo</title>
 
-<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/css/jquery/jquery-ui-1.8.10.custom.css" rel="stylesheet" />	
+<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/css/jquery/jquery-ui-1.8.11.custom.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/css/jquery/jqgrid/ui.jqgrid.css" />
 <link type="text/css" href="<%=request.getContextPath()%>/resources/css/consultarVictima.css" rel="stylesheet" />
 

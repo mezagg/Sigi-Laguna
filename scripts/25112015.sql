@@ -39,9 +39,17 @@ CREATE TABLE [dbo].[Region](
 
 GO
 
-
+-----GM
 ALTER TABLE [dbo].[CatDiscriminante]  WITH CHECK ADD  CONSTRAINT [FK_CatDiscriminante_Region] FOREIGN KEY([region_id])
 REFERENCES [dbo].[Region] ([region_id])
+GO
+
+
+ALTER TABLE [dbo].[CatDistrito]  WITH CHECK ADD  CONSTRAINT [FK_CatDistrito_Region] FOREIGN KEY([region_id])
+REFERENCES [dbo].[Region] ([region_id])
+GO
+
+ALTER TABLE [dbo].[CatDistrito] CHECK CONSTRAINT [FK_CatDistrito_Region]
 GO
 
 ALTER TABLE [dbo].[CatDiscriminante] CHECK CONSTRAINT [FK_CatDiscriminante_Region]
@@ -54,22 +62,14 @@ GO
 ALTER TABLE [dbo].[CatDiscriminante] CHECK CONSTRAINT [fk01_CatDiscriminante_CatDistrito]
 GO
 
-ALTER TABLE [dbo].[CatDistrito]  WITH CHECK ADD  CONSTRAINT [FK_CatDistrito_Region] FOREIGN KEY([region_id])
-REFERENCES [dbo].[Region] ([region_id])
-GO
-
-ALTER TABLE [dbo].[CatDistrito] CHECK CONSTRAINT [FK_CatDistrito_Region]
-GO
 
 
-/*
 
 ALTER TABLE [dbo].[Region]
 ADD [entidadFederativa_id] [decimal](18, 0) NULL;
 GO
 
- */
-
+ 
 ALTER TABLE [dbo].[Region]  WITH CHECK ADD  CONSTRAINT [FK_Region_EntidadFederativa] FOREIGN KEY([entidadFederativa_id])
 REFERENCES [dbo].[EntidadFederativa] ([entidadFederativa_id])
 GO
@@ -146,13 +146,17 @@ insert into [dbo].[CatDiscriminante] ( [bOpUIE], [cClaveDiscriminante], [catDist
 values ( '0', '038', '4', '1', 'COORDINACION DE ADOLESCENTES', '1');
 
 insert into [dbo].[CatUIEspecializada] ( [cAcronimo], [cClaveUIE], [cNombreUIE])
-values ( 'UA', '40', 'UNIDAD DE ADOLESCENTES');
+values ( 'UA', '43', 'UNIDAD DE ADOLESCENTES');
+
+select * from CatUIEspecializada
 
 insert into [dbo].[CatAreasNegocio] ( [ConfInstitucion_id], [bEsEspecializada], [cNombre])
 values ( '1', '1', 'UNIDAD DE ADOLESCENTES');
 
-insert into JerarquiaOrganizacional (jerarquiaresponsable_id, cabreviatura, cnombre, tipojerarquia_val)
-values (1,'UIADO','Unidad de Investigación de Delitos Cometidos por Adolescentes',2015);	
+select * from JerarquiaOrganizacional
+
+insert into JerarquiaOrganizacional (JerarquiaOrganizacional_id, jerarquiaresponsable_id, cabreviatura, cnombre, tipojerarquia_val, Domicilio_id)
+values (74, 1,'UIADO','Unidad de Investigación de Delitos Cometidos por Adolescentes',2015,null);	
 
 
 insert into [Funcion] ( [cDescripcionFuncion], [cNombreFuncion] )

@@ -33,7 +33,7 @@ body {
 	padding:0;
 	border:0;			
 	width:100%;
-	BACKGROUND:#e4f2e5; 
+	BACKGROUND:#ffffff; 
 	min-width:800px;
 	font-size:14px;
 	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -332,8 +332,9 @@ img {
 	vertical-align: top;
 }
 .pleca_bottom {
-	background-image: url(../images/pleca_bottom.png);
-	background-repeat: repeat-x;
+	/*background-image: url(../images/pleca_bottom.png);
+	background-repeat: repeat-x;*/
+        background-image: url(south-street/images/ui-bg_highlight-soft_25_67b021_1x100.png)
 }
 .back_izq_gral {
 	background-image: url(../images/back_izq_gral.png);
