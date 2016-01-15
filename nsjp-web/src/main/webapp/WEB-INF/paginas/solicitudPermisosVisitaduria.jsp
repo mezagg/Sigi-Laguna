@@ -153,7 +153,7 @@ function gridSolicitud(){
 <table id="tabgrid" align="center"></table>
 <div id="pagerGrid"></div>
 <input type="button" value="Enviar Solicitud"
-			onclick="enviarSolicitud()" class="btn_Generico"/>
+			onclick="enviarSolicitud()" class="ui-button ui-corner-all ui-widget"/>
 </div>
 
 <div id="confirmaSolicitud" style="display: none">

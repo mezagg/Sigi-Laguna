@@ -535,7 +535,7 @@
 	  </tr>
 	  <tr>
 	    <td colspan="2">
-	    	<div align="center"><input type="button" id="btnGuardar" value="Modificar datos" class="btn_Generico"/></div>
+	    	<div align="center"><input type="button" id="btnGuardar" value="Modificar datos" class="ui-button ui-corner-all ui-widget"/></div>
 	    </td>
 	  </tr>
 	</table>	

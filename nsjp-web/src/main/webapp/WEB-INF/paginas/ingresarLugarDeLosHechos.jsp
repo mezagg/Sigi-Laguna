@@ -301,7 +301,7 @@
 					<tr>
 						<td colspan="8" align="center">
 							<div id="boton2">
-								<input type="button" value="Enviar"  id="botonGuarda" onclick="guardarDatosLugar();" class="btn_Generico"/>
+								<input type="button" value="Enviar"  id="botonGuarda" onclick="guardarDatosLugar();" class="ui-button ui-corner-all ui-widget"/>
 							</div>
 						</td>
 					</tr>

@@ -765,7 +765,7 @@
 											</select>
 										</td>
 									    <td>
-											<input type="button" value= "Guardar" id="btnGuardarEstatusMedidaCautelarJud" class="btn_Generico" onclick="generarDocumentoDeCambioEstatusDeMedidaCautelar();"/>
+											<input type="button" value= "Guardar" id="btnGuardarEstatusMedidaCautelarJud" class="ui-button ui-corner-all ui-widget" onclick="generarDocumentoDeCambioEstatusDeMedidaCautelar();"/>
 										</td>
 									</tr>
 										
@@ -774,7 +774,7 @@
 												
 										</td>
 									    <td>
-											<input type="button" value= "Adjuntar documento" id="btnAdjuntarDocAMedidaCautelarJud" class="btn_Generico" onclick="abreVentanaAdjuntarDocumentoAMedidaCautelar();"/>	
+											<input type="button" value= "Adjuntar documento" id="btnAdjuntarDocAMedidaCautelarJud" class="ui-button ui-corner-all ui-widget" onclick="abreVentanaAdjuntarDocumentoAMedidaCautelar();"/>	
 										</td>
 									</tr>
 									
@@ -839,7 +839,7 @@
 					<table id="iMedidaCautelarWorkSheet" width="100%"  border="0">
 						<tr valign="top">
 							<td align="center">
-								<input type="button" value="Generar medida cautelar" id="guardarMedida" class="btn_Generico"/>
+								<input type="button" value="Generar medida cautelar" id="guardarMedida" class="ui-button ui-corner-all ui-widget"/>
 							</td>
 						</tr>
 					</table>

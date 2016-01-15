@@ -271,7 +271,7 @@
         <td align="right"></td>
         <td>
         	
-			<input type="button" value="Ver Medio Prueba" id="verMedioPrueba" onclick="verMedioDePrueba();" class="btn_Generico">
+			<input type="button" value="Ver Medio Prueba" id="verMedioPrueba" onclick="verMedioDePrueba();" class="ui-button ui-corner-all ui-widget">
 		</td>
         <td align="right"><strong>Aceptado:</strong></td>
         <td>

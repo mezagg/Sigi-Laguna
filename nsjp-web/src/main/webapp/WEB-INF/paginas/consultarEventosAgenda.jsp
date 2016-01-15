@@ -40,4 +40,4 @@
   </tr>
 </table>
 
-<!--<center><input type="button" name="asignaEvento" id="asignaEvento" value="Asignar Evento" class="btn_Generico"/></center>-->
+<!--<center><input type="button" name="asignaEvento" id="asignaEvento" value="Asignar Evento" class="ui-button ui-corner-all ui-widget"/></center>-->

@@ -380,8 +380,8 @@
 						</tr>
 						<tr>
 							<td colspan="2" align="center">
-								<input type="button" id="solServPericialAddCadenaCustodia" value="Agregar Evidencia" class="btn_Generico"/>
-								<input type="button" id="solServPericialDelCadenaCustodia" value="Eliminar Evidencia" class="btn_Generico"/>
+								<input type="button" id="solServPericialAddCadenaCustodia" value="Agregar Evidencia" class="ui-button ui-corner-all ui-widget"/>
+								<input type="button" id="solServPericialDelCadenaCustodia" value="Eliminar Evidencia" class="ui-button ui-corner-all ui-widget"/>
 							</td>
 						</tr>
 						<tr>
@@ -405,7 +405,7 @@
 				        </tr>
 						<tr>
 							<td align="left">
-								<input type="button" id="btnEnviarSolicitud" value="Enviar Solicitud" class="btn_Generico"/>
+								<input type="button" id="btnEnviarSolicitud" value="Enviar Solicitud" class="ui-button ui-corner-all ui-widget"/>
 							</td>
 						</tr>
 				  	</table>

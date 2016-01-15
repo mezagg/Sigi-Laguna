@@ -370,7 +370,7 @@
   	<tr><td>&nbsp;</td></tr>
     <tr>
   		<td colspan="2" align="center">        
-    		<input type="button" value="Relacionar Elementos" id="btnRelacionarElementos" onClick="validarRelacion()" class="btn_Generico"/>
+    		<input type="button" value="Relacionar Elementos" id="btnRelacionarElementos" onClick="validarRelacion()" class="ui-button ui-corner-all ui-widget"/>
     	</td>
   	</tr>
    	<tr><td>&nbsp;</td></tr>  
@@ -383,7 +383,7 @@
 	<tr>
 		<td>
 			<div align="center">
-				<input type="button" value="Anular Relaciones" id="btnAnularRelaciones" onClick="anularRelaciones()" class="btn_Generico"/>
+				<input type="button" value="Anular Relaciones" id="btnAnularRelaciones" onClick="anularRelaciones()" class="ui-button ui-corner-all ui-widget"/>
 			</div>
 		</td>
 	</tr>

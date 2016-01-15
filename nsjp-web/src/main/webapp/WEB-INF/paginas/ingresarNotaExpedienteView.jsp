@@ -176,7 +176,7 @@
 				<input class="texto" type="text" id="idNotaNombre" onkeypress="return letrasNumero(event);" maxlength="100"/>
 			</td>
 			<td align="right"">
-				<input type="button" id="guardarNarraTiva" name="guardar" value="Guardar" class="btn_Generico"/>
+				<input type="button" id="guardarNarraTiva" name="guardar" value="Guardar" class="ui-button ui-corner-all ui-widget"/>
 			</td>
 		</tr>
 		<tr>

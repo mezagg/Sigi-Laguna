@@ -219,11 +219,11 @@
 						<input type="hidden" id="idExpediente" name="idExpediente" />
 						<input type="hidden" id="idNumExpediente" name="idNumExpediente"/>
 						<input type="hidden" id="idcaso" name="idcaso"/>
-						<input type="button" id="btnbuscarCasoExpediente" value="Buscar Causa" class="btn_Generico">
+						<input type="button" id="btnbuscarCasoExpediente" value="Buscar Causa" class="ui-button ui-corner-all ui-widget">
 					</td>
 			        
 			        <td colspan="1" align="center">
-						<input type="button" id="btnAgregarExpediente" value="Acumular Causa" class="btn_Generico">
+						<input type="button" id="btnAgregarExpediente" value="Acumular Causa" class="ui-button ui-corner-all ui-widget">
 						
 			       	</td>
 			       	

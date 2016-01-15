@@ -562,8 +562,8 @@ if(id!=null){
 	<center>
 		<textarea class="jquery_ckeditor" name="Motivo" cols="70" rows="5" id="Motivo"></textarea>
 		<br/>
-		<input type="button" name="button" id="btnGuardar" value="Guardar" class="btn_Generico"/> &nbsp;
-		<input type="button" name="button" id="btnGenera" value="Generar Acuse de Atenci&oacute;n" class="btn_Generico"/>
+		<input type="button" name="button" id="btnGuardar" value="Guardar" class="ui-button ui-corner-all ui-widget"/> &nbsp;
+		<input type="button" name="button" id="btnGenera" value="Generar Acuse de Atenci&oacute;n" class="ui-button ui-corner-all ui-widget"/>
 		</center>
 	</div>
 	<div id="tabsconsultaprincipal-4">

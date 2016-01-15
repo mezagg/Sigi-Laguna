@@ -153,7 +153,7 @@
 				</tr>
 				<tr>
 					<td align="center" colspan="6">
-						<div id="boton" ><input type="button" value="Generar Acta"  id="botonGenerarActa" onclick="generaOficioActa();"	class="btn_Generico"/> </div>
+						<div id="boton" ><input type="button" value="Generar Acta"  id="botonGenerarActa" onclick="generaOficioActa();"	class="ui-button ui-corner-all ui-widget"/> </div>
 					</td>
 				</tr>
 			</table>
@@ -176,7 +176,7 @@
 					<td align="right" height="25">C&oacute;digo Postal:</td>
 					<td height="25"><input type="text" id="codigoPostal" size="8"
 						maxlength="5" /> <input type="button" value="Enviar"
-						id="codigoPostalButton" class="btn_Generico"/></td>
+						id="codigoPostalButton" class="ui-button ui-corner-all ui-widget"/></td>
 					<td align="right" height="25">N&uacute;mero Ext.:</td>
 					<td width="53" height="25" align="left"><input type="text"
 						id="areaNumeroExterior" size="8" maxlength="8" /></td>
@@ -257,7 +257,7 @@
 				</tr>
 				<tr>
 					<td align="center" colspan="6">
-						<div id="boton2"><input type="button" value="Guardar"  id="botonGuarda" onclick="guardarDatosCiudadano();"	class="btn_Generico"/></div>
+						<div id="boton2"><input type="button" value="Guardar"  id="botonGuarda" onclick="guardarDatosCiudadano();"	class="ui-button ui-corner-all ui-widget"/></div>
 					</td>
 				</tr>
 			</table>

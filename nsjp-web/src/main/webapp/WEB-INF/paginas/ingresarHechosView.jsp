@@ -848,8 +848,8 @@
 				</span>
 			</td>
 			<td align="right">
-					 <input type="button" value="Modificar" id="btnModificarHechos"  class="btn_Generico"/>
-					 <input type="button" value="Guardar" id="btnGuardarHechos" class="btn_Generico"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					 <input type="button" value="Modificar" id="btnModificarHechos"  class="ui-button ui-corner-all ui-widget"/>
+					 <input type="button" value="Guardar" id="btnGuardarHechos" class="ui-button ui-corner-all ui-widget"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			</td>
 		</tr>
 	</table>
@@ -887,7 +887,7 @@
 			                        <tr valign="top">
 			                          <td width="20px">&nbsp;</td>
 			                          <td align="left" height="18px">
-			                              <input type="submit" id="ingresarTiempoEspecificamentePResponsable" value="Espec&iacute;ficamente" class="btn_Generico"/>
+			                              <input type="submit" id="ingresarTiempoEspecificamentePResponsable" value="Espec&iacute;ficamente" class="ui-button ui-corner-all ui-widget"/>
 			                          </td>
 			                          <td width="55%" rowspan="3">
 			                            <div id="divEspecifico" style="display: block;">
@@ -905,13 +905,13 @@
 			                        <tr valign="top">
 			                        <td width="20px">&nbsp;</td>
 			                          <td align="left" height="18px">
-			                              <input style="width:112px" type="submit" id="ingresarTiempoLapsoPResponsable" value="Lapso" class="btn_Generico"/>
+			                              <input style="width:112px" type="submit" id="ingresarTiempoLapsoPResponsable" value="Lapso" class="ui-button ui-corner-all ui-widget"/>
 			                          </td>
 			                        </tr>
 			                        <tr valign="top">
 			                        <td width="20px">&nbsp;</td>
 			                          <td align="left" height="18px">
-			                              <input style="width:112px" type="submit" id="ingresarTiempoOtroPResponsable" value="Otro" class="btn_Generico"/>
+			                              <input style="width:112px" type="submit" id="ingresarTiempoOtroPResponsable" value="Otro" class="ui-button ui-corner-all ui-widget"/>
 			                          </td>
 			                        </tr>
 	

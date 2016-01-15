@@ -123,12 +123,12 @@ function checkboxListenerResponsable(){
 		<table width="350" border="0" cellspacing="5" cellpadding="0" bgcolor="#EEEEEE">
 			<tr>
 				<td width="100%" align="left">
-					<input type="button" id="btnSolTRaslado" value="Digitalizar documento" class="btn_Generico"/>
+					<input type="button" id="btnSolTRaslado" value="Digitalizar documento" class="ui-button ui-corner-all ui-widget"/>
 				</td>
 			</tr>
 			<tr>
 				<td width="100%" align=""left"">
-					<input type="button" id="btnSolCopiaAudioVideo" value="Verificar formato de audio y video" class="btn_Generico"/>
+					<input type="button" id="btnSolCopiaAudioVideo" value="Verificar formato de audio y video" class="ui-button ui-corner-all ui-widget"/>
 				</td>
 			</tr>
 		</table>
@@ -137,12 +137,12 @@ function checkboxListenerResponsable(){
 		<table width="350" border="0" cellspacing="5" cellpadding="0" bgcolor="#EEEEEE">
 			<tr>
 				<td width="100%" align=""left"">
-					<input type="button" id="btnSolTRaslado" value="Registrar recurso" class="btn_Generico"/>
+					<input type="button" id="btnSolTRaslado" value="Registrar recurso" class="ui-button ui-corner-all ui-widget"/>
 				</td>
 			</tr>
 			<tr>
 				<td width="100%" align=""left"">
-					<input type="button" id="btnSolCopiaAudioVideo" value="Dar seguimiento a recurso" class="btn_Generico"/>
+					<input type="button" id="btnSolCopiaAudioVideo" value="Dar seguimiento a recurso" class="ui-button ui-corner-all ui-widget"/>
 				</td>
 			</tr>
 		</table>
@@ -151,17 +151,17 @@ function checkboxListenerResponsable(){
 		<table width="350" border="0" cellspacing="5" cellpadding="0" bgcolor="#EEEEEE">
 			<tr>
 				<td width="100%" align=""left"">
-					<input type="button" id="btnSolTRaslado" value="Audiencia" class="btn_Generico"/>
+					<input type="button" id="btnSolTRaslado" value="Audiencia" class="ui-button ui-corner-all ui-widget"/>
 				</td>
 			</tr>
 			<tr>
 				<td width="100%" align=""left"">
-					<input type="button" id="btnSolCopiaAudioVideo" value="Audio y Video" class="btn_Generico"/>
+					<input type="button" id="btnSolCopiaAudioVideo" value="Audio y Video" class="ui-button ui-corner-all ui-widget"/>
 				</td>
 			</tr>
 			<tr>
 				<td width="100%" align=""left"">
-					<input type="button" id="btnSolCopiaAudioVideo" value="Transcripci&oacute;n de Audiencia" class="btn_Generico"/>
+					<input type="button" id="btnSolCopiaAudioVideo" value="Transcripci&oacute;n de Audiencia" class="ui-button ui-corner-all ui-widget"/>
 				</td>
 			</tr>
 		</table>
@@ -212,7 +212,7 @@ function checkboxListenerResponsable(){
 							</td>
 						</tr>
 						<tr>
-						<td colspan="2" align="right"><input type="button" value="Asignar Sala" class="btn_Generico"/>
+						<td colspan="2" align="right"><input type="button" value="Asignar Sala" class="ui-button ui-corner-all ui-widget"/>
 						</td>
 						</tr>	
 					</table>

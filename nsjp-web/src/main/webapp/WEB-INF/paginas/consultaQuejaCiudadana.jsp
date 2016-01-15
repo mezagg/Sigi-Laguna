@@ -313,7 +313,7 @@
 
 <table width="100%">
 	<tr>
-		<td align="right""><input class="back_button" type="button"
+		<td align="right""><input class="ui-button ui-corner-all ui-widget" type="button"
 			onclick="guardaQejaCiudadana()" value="Guardar"
 			style="display: none;"></td>
 	</tr>
@@ -369,7 +369,7 @@
 
 				<td width="133"><input name="" type="button"
 					id="cQNumInvolucradoComparaBoton" value="Validar Funcionario"
-					onclick="consultaFuncionarioExistente()" class="btn_Generico"/></td>
+					onclick="consultaFuncionarioExistente()" class="ui-button ui-corner-all ui-widget"/></td>
 				<td><input type="text" id="cQNomInvolucradoExiste" size="30"/></td>
 			</tr>
 			<tr align="right">
@@ -377,7 +377,7 @@
 				<td><input type="text" id="cQNumExpedienteCompara" /></td>
 				<td><input type="button"
 					id="cQNumExpedienteComparaBoton" value="Validar Expediente"
-					onclick="consultadeExpedienteExistente()" class="btn_Generico"/></td>
+					onclick="consultadeExpedienteExistente()" class="ui-button ui-corner-all ui-widget"/></td>
 				<td><input type="text" id="cQNumExpedienteExiste" size="30"/></td>
 			</tr>
 	        <tr>
@@ -401,7 +401,7 @@
 						</select>
 					</td>
 					<td>
-						<input name="" type="button" id="btnCerrarQueja" value="Cerrar Queja" onclick="cerrarQueja(); " class="btn_Generico"/>
+						<input name="" type="button" id="btnCerrarQueja" value="Cerrar Queja" onclick="cerrarQueja(); " class="ui-button ui-corner-all ui-widget"/>
 					</td>
 				</tr>
 			</table>

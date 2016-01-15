@@ -180,7 +180,7 @@
 									</select>
 									<hr></hr>
 									<br></br>
-									<input name="consultar" id="consultar" type="button" value="Consultar" size="30" class="btn_Generico"/>
+									<input name="consultar" id="consultar" type="button" value="Consultar" size="30" class="ui-button ui-corner-all ui-widget"/>
 								</form>
 								<table id="tblConsultaIndividuo"></table>
 								<div id="pager" class="scroll" style="text-align:center;"></div>  

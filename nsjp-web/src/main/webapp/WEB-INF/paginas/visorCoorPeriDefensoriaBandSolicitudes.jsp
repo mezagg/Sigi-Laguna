@@ -234,7 +234,7 @@
 			</tr>
 			<tr>
 				<td colspan="2" align="right">
-					<input type="button" id="btnGuardar" value="Guardar" class="btn_Generico"/>
+					<input type="button" id="btnGuardar" value="Guardar" class="ui-button ui-corner-all ui-widget"/>
 				</td>
 			</tr>
 		</table>
@@ -298,7 +298,7 @@
 				<tr>
 					<td>Servicios Periciales: </td>
 					<td>
-						<input type="button" id="btnPeritoExterno" value="Solicitar Perito Externo" class="btn_Generico"/>
+						<input type="button" id="btnPeritoExterno" value="Solicitar Perito Externo" class="ui-button ui-corner-all ui-widget"/>
 					</td>
 				</tr>
 			</table>
@@ -309,9 +309,9 @@
 				<tr>
 					<td width="25%">&nbsp;</td>
 					<td width="25%">
-						<input type="button" id="btnConsultar" value="Consultar" class="btn_Generico"/>
+						<input type="button" id="btnConsultar" value="Consultar" class="ui-button ui-corner-all ui-widget"/>
 					</td>
-					<td width="25%"><input type="button" id="btnNuevoPerito" value="Nuevo Perito" class="btn_Generico"/></td>
+					<td width="25%"><input type="button" id="btnNuevoPerito" value="Nuevo Perito" class="ui-button ui-corner-all ui-widget"/></td>
 					<td width="25%">&nbsp;</td>
 				</tr>
 			</table>
@@ -326,7 +326,7 @@
 		 	</tr>
 		 </table>
 		</div>
-		<input type="button" id="btnGuardar" value="Guardar" class="btn_Generico"/>
+		<input type="button" id="btnGuardar" value="Guardar" class="ui-button ui-corner-all ui-widget"/>
   </div>
   <div id="tabsconsultaprincipal-2" style="height: 400">
   	<table width="600">
@@ -365,7 +365,7 @@
   		</tr>
   		<tr>
 			<td colspan="2" align="right">
-				<input type="button" id="btnGuardar" value="Guardar" class="btn_Generico"/>
+				<input type="button" id="btnGuardar" value="Guardar" class="ui-button ui-corner-all ui-widget"/>
 			</td>
 		</tr>
   	</table>
@@ -378,7 +378,7 @@
 			<td width="25%">
 				&nbsp;
 			</td>
-			<td width="25%"><input type="button" id="btnEnviarNotificacion" value="Enviar Notificaci&oacute;n" class="btn_Generico"/></td>
+			<td width="25%"><input type="button" id="btnEnviarNotificacion" value="Enviar Notificaci&oacute;n" class="ui-button ui-corner-all ui-widget"/></td>
 			<td width="25%">&nbsp;</td>
 		</tr>
 	</table>

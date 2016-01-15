@@ -583,7 +583,7 @@
 		              <table id="iMedidaAlternaWorkSheet" width="100%"  border="0">
 		                <tr valign="top">
 		                    <td align="center">
-		                        <input type="button" value="Continuar Medida Alterna" id="guardarMedida" class="btn_Generico"/>
+		                        <input type="button" value="Continuar Medida Alterna" id="guardarMedida" class="ui-button ui-corner-all ui-widget"/>
 		                    </td>
 		                </tr>
 		              </table>
@@ -592,7 +592,7 @@
 		              <table id="iMedidaAlternaConsulta" width="100%"  border="0">
 		                <tr valign="top">
 		                    <td align="center">
-		                        <input type="button" value="Consultar Documento Digital" id="consultaMedida" class="btn_Generico"/>
+		                        <input type="button" value="Consultar Documento Digital" id="consultaMedida" class="ui-button ui-corner-all ui-widget"/>
 		                    </td>
 		                </tr>
 		              </table>

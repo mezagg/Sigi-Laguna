@@ -111,13 +111,13 @@
 	</tr>
 	<tr>
 		<td align="right" colspan="2">
-			<div id="boton2"><input type="button" value="Agendar Cita"  id="botonGuarda"	class="btn_Generico"/></div>
+			<div id="boton2"><input type="button" value="Agendar Cita"  id="botonGuarda"	class="ui-button ui-corner-all ui-widget"/></div>
 		</td>
 		<td align="center">
-			<div id="boton" ><input type="button" value="Elaborar Evaluaci&oacute;n"  id="botonGenerarActa" class="btn_Generico"/> </div>
+			<div id="boton" ><input type="button" value="Elaborar Evaluaci&oacute;n"  id="botonGenerarActa" class="ui-button ui-corner-all ui-widget"/> </div>
 		</td>
 		<td align="left" colspan="3">
-			<div id="boton3"><input type="button" value="Solicitar Apoyo de &#10; Instituci&oacute;n Externa"  id="btnSolApoyoIE"	class="btn_Generico"/></div>
+			<div id="boton3"><input type="button" value="Solicitar Apoyo de &#10; Instituci&oacute;n Externa"  id="btnSolApoyoIE"	class="ui-button ui-corner-all ui-widget"/></div>
 		</td>
 	</tr>
 </table>

@@ -52,7 +52,7 @@
 					
 				</tr>
 				<tr>
-					<td ><input value="Ver Lista de Pruebas Periciales" type="button" class="btn_Generico"/></td>
+					<td ><input value="Ver Lista de Pruebas Periciales" type="button" class="ui-button ui-corner-all ui-widget"/></td>
 					<td ></td>
 				</tr>
 				<tr>

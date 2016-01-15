@@ -205,7 +205,7 @@
 				</div>
 				<div id="tabsconsultaprincipal-3">
 					<jsp:include page="/WEB-INF/paginas/ingresarNarrativaView.jsp" flush="true"></jsp:include>
-					<input type="button" id="btnGuardar" value="Guardar" class="btn_Generico"/>
+					<input type="button" id="btnGuardar" value="Guardar" class="ui-button ui-corner-all ui-widget"/>
 				</div>
 				<div id="tabsconsultaprincipal-4">
 				  	<table width="600">
@@ -224,7 +224,7 @@
 				  		</tr>
 				  		<tr>
 							<td colspan="2" align="right">
-								<input type="button" id="btnGuardar" value="Guardar" class="btn_Generico"/>
+								<input type="button" id="btnGuardar" value="Guardar" class="ui-button ui-corner-all ui-widget"/>
 							</td>
 						</tr>
 				  	</table>

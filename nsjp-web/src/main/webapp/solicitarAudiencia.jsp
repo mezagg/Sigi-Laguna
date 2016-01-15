@@ -294,10 +294,10 @@
 				<table cellspacing="5" border="0">
 					<tr>
 						<td colspan="5" align="right">
-							<input type="button" id="btnAdjuntarDocumento" value="Adjuntar documentos"  class="back_button"/>
+							<input type="button" id="btnAdjuntarDocumento" value="Adjuntar documentos"  class="ui-button ui-corner-all ui-widget"/>
 						</td>
 						<td align="right">
-							<input type="button" id="btnEnviarSolicitud" value="Enviar Solicitud" class="back_button"/>
+							<input type="button" id="btnEnviarSolicitud" value="Enviar Solicitud" class="ui-button ui-corner-all ui-widget"/>
 						</td>
 					</tr>
 					<tr>

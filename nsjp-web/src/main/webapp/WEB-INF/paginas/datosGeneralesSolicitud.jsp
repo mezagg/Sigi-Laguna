@@ -1178,7 +1178,7 @@
 				      	<table width="400px" border="0" cellpadding="0" cellspacing="0" class="linea_derecha_gris">
 				          <tr>
 				            <td width="21" height="109">&nbsp;</td>
-				            <td width="60"><img id=iVictimaCmpFoto alt=foto	src="<%=request.getContextPath()%>/resources/images/img_denunciante.png"></td>
+				            <td width="60"><img id=iVictimaCmpFoto alt=foto	src="<%=request.getContextPath()%>/resources/images/foto.png"></td>
 				            <td width="276">
 				            	<table align="center" width="200px">
 					                <tr>
@@ -1281,7 +1281,7 @@
 		            <tr>
 		                <td width="10" height="109">&nbsp;</td>
 		                <td width="4">&nbsp;</td>
-		                <td width="123"><IMG id=iVictimaCmpFoto alt=foto src="<%= request.getContextPath() %>/resources/images/img_denunciante.png"></td>
+		                <td width="123"><IMG id=iVictimaCmpFoto alt=foto src="<%= request.getContextPath() %>/resources/images/foto.png"></td>
 		                
 		           </tr>
 		          </table>
@@ -1348,7 +1348,7 @@
 					<tr>
 						<td align="right">
 							<input type="button" id="btnGuardar" value="Guardar" onclick="guardaMotivo()" class="btn_guardar" />
-							<input type="button" id="btnGenera" value="Generar Acuse de Atenci&oacute;n" onclick="guardado()" disabled="disabled" class="btn_Generico"/>
+							<input type="button" id="btnGenera" value="Generar Acuse de Atenci&oacute;n" onclick="guardado()" disabled="disabled" class="ui-button ui-corner-all ui-widget"/>
 						</td>	
 					</tr>
 				</table>				

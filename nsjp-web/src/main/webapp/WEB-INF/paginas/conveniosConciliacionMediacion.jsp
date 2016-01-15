@@ -182,7 +182,7 @@ function grid(){
 <div id="divGridConvenio" >
 <table id="gridConvenio" align="center"></table>
 <div id="pagerGrid"></div>
-<input type="button" value="Guardar" align="right" class="btn_Generico"/> 
+<input type="button" value="Guardar" align="right" class="ui-button ui-corner-all ui-widget"/> 
 </div>
 
 

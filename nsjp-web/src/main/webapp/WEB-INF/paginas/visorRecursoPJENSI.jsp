@@ -150,7 +150,7 @@
 		  <td><input type="text" id="documento"
 				style="width: 150px; border: 0; background: #DDD;"
 				readonly="readonly"  />
-		    <input type="button" value="Ver" id="verDocumento" class="btn_Generico"/></td>
+		    <input type="button" value="Ver" id="verDocumento" class="ui-button ui-corner-all ui-widget"/></td>
   </tr>
 		<tr>
 		  <td align="right">&nbsp;</td>
@@ -160,7 +160,7 @@
   </tr>
 		<tr>
 		  <td align="right">&nbsp;</td>
-		  <td colspan="2" align="center"><input type="button" value="Dictar Acuerdo" id="dictarAcuerdoBoton" class="btn_Generico"/></td>
+		  <td colspan="2" align="center"><input type="button" value="Dictar Acuerdo" id="dictarAcuerdoBoton" class="ui-button ui-corner-all ui-widget"/></td>
 		  <td>&nbsp;</td>
   </tr>
 		<tr>

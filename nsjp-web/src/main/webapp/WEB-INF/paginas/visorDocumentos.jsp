@@ -1362,7 +1362,7 @@
 				<div id="paginadorInvolucradosCausa"></div>
 			</div>
 			<div id="divBotonNuevaMedidaCautelar">
-				<input type="button" align="right" value="Agregar Medida Cautelar" id="crearMedida" onclick="agregarMedidaCautelar();" class="btn_Generico"/>
+				<input type="button" align="right" value="Agregar Medida Cautelar" id="crearMedida" onclick="agregarMedidaCautelar();" class="ui-button ui-corner-all ui-widget"/>
 			</div>
 		</div>
 		

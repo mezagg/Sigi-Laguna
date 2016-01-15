@@ -132,7 +132,7 @@
   		</td>
 	</tr>
 	<tr>
-  		<td colspan="4" align="center"><input type="button" id="registrarSolicitudAsociada" value="Registrar solicitud ciudadana asociada al expediente o caso seleccionado" onclick="muestraSolicitudAsociada()" disabled="disabled" class="btn_Generico"></td>
+  		<td colspan="4" align="center"><input type="button" id="registrarSolicitudAsociada" value="Registrar solicitud ciudadana asociada al expediente o caso seleccionado" onclick="muestraSolicitudAsociada()" disabled="disabled" class="ui-button ui-corner-all ui-widget"></td>
 	</tr>
 	<tr>
   		<td colspan="4" align="right">&nbsp;</td>
@@ -141,7 +141,7 @@
 		<td colspan="4" align="center"><span>En caso de no contar con informaci&oacute;n de un caso o expediente, puede registrar directamente la solicitud: </span></br>
     	</br>
     	</br>
-    	<input type="button" id="registrarNuevaSolicitudCiudadana" value="Registrar nueva solicitud ciudadana de defensor" onclick="muestrasolicitud()" class="btn_Generico"></td>
+    	<input type="button" id="registrarNuevaSolicitudCiudadana" value="Registrar nueva solicitud ciudadana de defensor" onclick="muestrasolicitud()" class="ui-button ui-corner-all ui-widget"></td>
 	</tr>
 	</table>
 	<center>

@@ -146,7 +146,7 @@
 		<table width="25%" cellpadding="0" cellspacing="0" id="tblProbableResponsable">
 			<tr>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a id="nuevoProbResponsable"><input type="button" value='<bean:message key="ingProbaleResponsable"/>' class="btn_Generico"/></a>
+				<a id="nuevoProbResponsable"><input type="button" value='<bean:message key="ingProbaleResponsable"/>' class="ui-button ui-corner-all ui-widget"/></a>
 				</td>
 			</tr>
 		</table>
@@ -155,7 +155,7 @@
 		<table width="25%" cellpadding="0" cellspacing="0" id="tblTestigo">
 			<tr>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a id="nuevoTestigo"><input type="button" value="Ingresar Testigo" class="btn_Generico"/></a>
+				<a id="nuevoTestigo"><input type="button" value="Ingresar Testigo" class="ui-button ui-corner-all ui-widget"/></a>
 				</td>
 			</tr>
 		</table>

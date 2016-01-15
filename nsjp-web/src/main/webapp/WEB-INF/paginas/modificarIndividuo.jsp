@@ -182,6 +182,6 @@
 		</div>
 	</div>
 	<br/>
-	<input type="button" value="Guardar" class="btn_Generico"/>
+	<input type="button" value="Guardar" class="ui-button ui-corner-all ui-widget"/>
 </body>
 </html>

@@ -1437,10 +1437,10 @@ function cargaCondicion() {
 			    <td width="258">&nbsp;</td>
 			    <td width="178">&nbsp;</td>
 			   
-			    <td colspan="3" align="center" valign="bottom"><input type="button" value="<<" id="btnAtrasMes" onClick="atrasAdelanteMes('atras');" class="btn_Generico"/>
+			    <td colspan="3" align="center" valign="bottom"><input type="button" value="<<" id="btnAtrasMes" onClick="atrasAdelanteMes('atras');" class="ui-button ui-corner-all ui-widget"/>
 			      <input type="text" id="mes" disabled="disabled" style="width: 70px"/>
 			      <input type="text" id="anio" disabled="disabled" style="width: 70px" />
-			    <input type="button" value=">>" id="btnAdelanteMes" onClick="atrasAdelanteMes('adelante'); class="btn_Generico""/></td>
+			    <input type="button" value=">>" id="btnAdelanteMes" onClick="atrasAdelanteMes('adelante'); class="ui-button ui-corner-all ui-widget""/></td>
 			    <td width="100" nowrap="nowrap"><strong>Asignar Juez:</strong> 
 			    	
 			    </td>
@@ -1453,8 +1453,8 @@ function cargaCondicion() {
 			    			</td> 
 			    		</tr>
 			    		<tr>
-			    			<td width="111"><input type="button" value="Manualmente" id="btnAsignarJuezManual" onclick="controlJueces(false);" class="btn_Generico"/></td>
-			    			<td width="125"><input type="button" value="Autom&aacute;ticamente" id="btnAsignarJuezAuto" onclick="controlJueces(true);" class="btn_Generico"/></td>
+			    			<td width="111"><input type="button" value="Manualmente" id="btnAsignarJuezManual" onclick="controlJueces(false);" class="ui-button ui-corner-all ui-widget"/></td>
+			    			<td width="125"><input type="button" value="Autom&aacute;ticamente" id="btnAsignarJuezAuto" onclick="controlJueces(true);" class="ui-button ui-corner-all ui-widget"/></td>
 			    		</tr>
 			    	</table>
 			    
@@ -1552,9 +1552,9 @@ function cargaCondicion() {
 			    <td>&nbsp;</td>
 			    <td>&nbsp;</td>
 			    <td colspan="3" align="center">
-					<input type="button" id="btnGuardarAudiencia" value="Guardar"  onclick="guardarAudiencia();" class="btn_Generico"/>
+					<input type="button" id="btnGuardarAudiencia" value="Guardar"  onclick="guardarAudiencia();" class="ui-button ui-corner-all ui-widget"/>
 			    </td>
-			    <td colspan="3" align="left"><input type="button" id="btnDesignar" onclick="mostrarAsignarSalaTemporalPJENA();" value="Designar Sala Temporal" style="display: none;" class="btn_Generico"/></td>
+			    <td colspan="3" align="left"><input type="button" id="btnDesignar" onclick="mostrarAsignarSalaTemporalPJENA();" value="Designar Sala Temporal" style="display: none;" class="ui-button ui-corner-all ui-widget"/></td>
 			  </tr>
 			</table>
 			</br>
@@ -1572,7 +1572,7 @@ function cargaCondicion() {
 						<div id="divGridInvolucradosCausaPJENC">
 							<table id="gridInvolucradosCausaPJENC"></table>
 							<div id="paginadorInvolucradosCausa"></div>
-							<input type="button" value="Generar Medida Alterna" onclick="mostrarVentanaMedidasAlternativas()" class="btn_Generico"/>
+							<input type="button" value="Generar Medida Alterna" onclick="mostrarVentanaMedidasAlternativas()" class="ui-button ui-corner-all ui-widget"/>
 						</div>
 					</td>
 				</tr>
@@ -1664,7 +1664,7 @@ function cargaCondicion() {
   </tr>
   
 </table>
-<input name="" type="button" value="Guardar Objeto" onclick="guardaObjeto()" class="btn_Generico"/></td><td><table id="gridSolObjetos"></table>
+<input name="" type="button" value="Guardar Objeto" onclick="guardaObjeto()" class="ui-button ui-corner-all ui-widget"/></td><td><table id="gridSolObjetos"></table>
 					<div id="pagerGridSolObjetos" style="width: 300"></div></td></tr> </table>
 		
 		</div>

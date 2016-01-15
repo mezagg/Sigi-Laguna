@@ -136,7 +136,7 @@
 	   <tr>
 	     <td align="center">       
 	     	<br/>
-	     	<input type="button" name="btnGuardar" id="btnGuardar" value="Reasignar Unidad de Investigaci&oacute;n Especializada" class="btn_Generico">
+	     	<input type="button" name="btnGuardar" id="btnGuardar" value="Reasignar Unidad de Investigaci&oacute;n Especializada" class="ui-button ui-corner-all ui-widget">
 	     </td>
 	   </tr>
 	</table>

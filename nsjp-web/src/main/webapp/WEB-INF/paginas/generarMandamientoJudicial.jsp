@@ -646,7 +646,7 @@
 						<div id="pagerGridSelecRelDelPerGenManJud"></div>
 					</td>
 					<td align="center"><input type="button" id="pasarIzqDer"
-						value='&gt;&gt;' class="btn_Generico"
+						value='&gt;&gt;' class="ui-button ui-corner-all ui-widget"
 						onclick="agregarRelacionDelitoPersona();"></td>
 					<td colspan="2" align="center">
 						<table id="gridRelDelPerGenManJud" border="0">
@@ -662,7 +662,7 @@
 					<td>&nbsp;</td>
 					<td align="right"><input type="button" id="generarMandamiento"
 						value='<bean:message key="mandamiento.judicial.generarMandamiento"/>'
-						class="btn_Generico" onclick="generarMandamientoJudicial();">
+						class="ui-button ui-corner-all ui-widget" onclick="generarMandamientoJudicial();">
 					</td>
 				</tr>
 			</table>

@@ -680,7 +680,7 @@
 						type="text" id="mes" disabled="disabled" style="width: 70px" /> <input
 						type="text" id="anio" disabled="disabled" style="width: 70px" />
 						<input type="button" value=">>" id="btnAdelanteMes"
-						onClick="atrasAdelanteMes('adelante');" class="btn_Generico"/>
+						onClick="atrasAdelanteMes('adelante');" class="ui-button ui-corner-all ui-widget"/>
 					</td>
 					<td width="181" nowrap="nowrap">&nbsp;</td>
 					<td width="199">&nbsp;</td>
@@ -734,7 +734,7 @@
 				<tr>
 					<td colspan="2" align="center"><input type="button"
 						id="btnRegistrarActividad" 
-						value="Registrar actividad" class="btn_Generico"/></td>
+						value="Registrar actividad" class="ui-button ui-corner-all ui-widget"/></td>
 				</tr>
 				<tr>
 					<td>&nbsp;</td>

@@ -614,7 +614,7 @@ Cada una se dirige a un funcionario diferente.
 							</td>
 							<td colspan="2">
 								<input type="text" size="50" maxlength="50" id="solServPericialCadenaCustodia"/>
-								<input type="button" id="solServPericialConsCadenaCustodia" value="Consultar" onclick="gridCadenaCustodiaInicial()" class="btn_Generico"/>
+								<input type="button" id="solServPericialConsCadenaCustodia" value="Consultar" onclick="gridCadenaCustodiaInicial()" class="ui-button ui-corner-all ui-widget"/>
 							</td>
 				          <td>Recomendaciones:</td>
 				          							
@@ -642,8 +642,8 @@ Cada una se dirige a un funcionario diferente.
 						</tr>
 						<tr>
 							<td colspan="2" align="right">
-								<input type="button" id="solServPericialAddCadenaCustodia" value="Agregar Evidencia" class="btn_Generico"/>
-								<input type="button" id="solServPericialDelCadenaCustodia" value="Eliminar Evidencia" class="btn_Generico"/>
+								<input type="button" id="solServPericialAddCadenaCustodia" value="Agregar Evidencia" class="ui-button ui-corner-all ui-widget"/>
+								<input type="button" id="solServPericialDelCadenaCustodia" value="Eliminar Evidencia" class="ui-button ui-corner-all ui-widget"/>
 							</td>
 						</tr>
 					</table>
@@ -667,7 +667,7 @@ Cada una se dirige a un funcionario diferente.
 				        </tr>
 						<tr>
 							<td align="left">
-								<input type="button" id="btnEnviarSolicitud" value="Enviar Solicitud" class="btn_Generico">
+								<input type="button" id="btnEnviarSolicitud" value="Enviar Solicitud" class="ui-button ui-corner-all ui-widget">
 							</td>
 						</tr>
 				    </table>

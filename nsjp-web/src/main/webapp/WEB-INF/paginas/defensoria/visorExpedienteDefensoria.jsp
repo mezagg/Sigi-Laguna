@@ -2472,7 +2472,7 @@
 				<div style="width: 1042px; height: 490px;" class="back_hechos">
 					<table width="25%" cellpadding="0" cellspacing="0" id="tblDefendido" style="padding: .5cm;">
 <!-- 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoDefendido"><input type="button" class="btn_Generico" id="btnNuevoDefendido" value=""/></a></td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoDefendido"><input type="button" class="ui-button ui-corner-all ui-widget" id="btnNuevoDefendido" value=""/></a></td>
 						</tr> -->
  					</table>
 				</div>
@@ -2481,7 +2481,7 @@
 				<div style="width: 1042px; height: 490px;" class="back_hechos">
 					<table width="25%" cellpadding="0" cellspacing="0" id="tblSolicitante" style="padding: .5cm;">
 	 					<tr>
-							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoSolicitante"><input type="button" class="btn_Generico" id="btnNuevoSolicitante" value=""/></a></td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoSolicitante"><input type="button" class="ui-button ui-corner-all ui-widget" id="btnNuevoSolicitante" value=""/></a></td>
 						</tr>
 					</table>
 				</div>
@@ -2490,7 +2490,7 @@
 				<div style="width: 1042px; height: 490px;" class="back_hechos">
 					<table width="25%" cellpadding="0" cellspacing="0" id="tblDenunciante" style=" padding: .5cm;">
 						<tr  vAlign="Top" >
-							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="crearDenunciante"><input type="button" class="btn_Generico" value="Ingresar Denunciante"/></a></td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="crearDenunciante"><input type="button" class="ui-button ui-corner-all ui-widget" value="Ingresar Denunciante"/></a></td>
 						</tr>
 					</table>
 				</div>
@@ -2499,7 +2499,7 @@
 				<div style="width: 1042px; height: 490px;" class="back_hechos">
 					<table width="25%" cellpadding="0" cellspacing="0" id="tblVictima" style="padding: .5cm;">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevaVictima"><input type="button" class="btn_Generico" value="Ingresar V&iacute;ctima"/></a></td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevaVictima"><input type="button" class="ui-button ui-corner-all ui-widget" value="Ingresar V&iacute;ctima"/></a></td>
 						</tr>
 					</table>
 				</div>
@@ -2508,7 +2508,7 @@
 				<div style="width: 1042px; height: 490px;" class="back_hechos">
 					<table width="25%" cellpadding="0" cellspacing="0" id="tblProbableResponsable" style="padding: .5cm;">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoProbResponsable"><input type="button" class="btn_Generico" id="btnNuevoProbResponsable" value=""/></a></td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoProbResponsable"><input type="button" class="ui-button ui-corner-all ui-widget" id="btnNuevoProbResponsable" value=""/></a></td>
 						</tr>
 					</table>
 				</div>
@@ -2517,7 +2517,7 @@
 				<div style="width: 1042px; height: 490px;" class="back_hechos">
 					<table width="25%" cellpadding="0" cellspacing="0" id="tblTestigo" style="padding: .5cm;">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoTestigo"><input type="button" class="btn_Generico" value="Ingresar Testigo"/></a></td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoTestigo"><input type="button" class="ui-button ui-corner-all ui-widget" value="Ingresar Testigo"/></a></td>
 						</tr>
 					</table>
 				</div>
@@ -2526,7 +2526,7 @@
 				<div style="width: 1042px; height: 490px;" class="back_hechos">
 					<table width="25%" cellpadding="0" cellspacing="0" id="tblTraductor" style="padding: .5cm;">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoTraductor"><input type="button" class="btn_Generico" value="Ingresar Traductor"/></a></td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoTraductor"><input type="button" class="ui-button ui-corner-all ui-widget" value="Ingresar Traductor"/></a></td>
 						</tr>
 					</table>
 				</div>
@@ -2535,7 +2535,7 @@
 				<div style="width: 1042px; height: 490px;" class="back_hechos" style="padding: .5cm;">
 					<table width="25%" cellpadding="0" cellspacing="0" id="tblQuienDetuvo">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="quienDetuvo"><input type="button" class="btn_Generico" value="Ingresar Qui&eacute;n Detuvo"/></a></td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="quienDetuvo"><input type="button" class="ui-button ui-corner-all ui-widget" value="Ingresar Qui&eacute;n Detuvo"/></a></td>
 						</tr>
 					</table>
 				</div>	
@@ -2573,7 +2573,7 @@
 			<div id="tabschild4-1">
 				<table width="25%" cellpadding="0" cellspacing="0" id="tblEquipoComputo">
 					<tr>
-						<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoEquipoDeComputo" class="btn_Generico" value="Ingreso nuevo"/></td>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoEquipoDeComputo" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 					</tr>
 				</table>
 				<table id="gridObjsEquipoComputo"></table>
@@ -2584,7 +2584,7 @@
 			<div id="tabschild4-2">
 				<table width="25%" cellpadding="0" cellspacing="0" id="tblEquipoTelefonico">
 					<tr>
-						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoEquipoTelefonico" class="btn_Generico" value="Ingreso nuevo"/></td>
+						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoEquipoTelefonico" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 					</tr>
 				</table>
 				<table id="gridObjsEquipoTelefonico" width="600px"></table>
@@ -2595,7 +2595,7 @@
 			<div id="tabschild4-3">
 				<table width="25%" cellpadding="0" cellspacing="0" id="tblArma">
 					<tr>
-						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaArma" class="btn_Generico" value="Ingreso nuevo"/></td>
+						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaArma" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 					</tr>
 				</table>
 				<table id="gridObjsArma" width="600px"></table>
@@ -2606,7 +2606,7 @@
 			<div id="tabschild4-4">
 				<table width="25%" cellpadding="0" cellspacing="0" id="tblExplosivos">
 					<tr>
-						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoExplosivo" class="btn_Generico" value="Ingreso nuevo"/></td>
+						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoExplosivo" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 					</tr>
 				</table>
 				<table id="gridObjsExplosivo" width="600px"></table>
@@ -2617,7 +2617,7 @@
 			<div id="tabschild4-5">
 				<table width="25%" cellpadding="0" cellspacing="0" id="tblSustancia">
 					<tr>
-						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaSustancia" class="btn_Generico" value="Ingreso nuevo"/></td>
+						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaSustancia" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 					</tr>
 				</table>
 				<table id="gridObjsSustancia" width="600px"></table>
@@ -2628,7 +2628,7 @@
 			<div id="tabschild4-6">
 				<table width="25%" cellpadding="0" cellspacing="0" id="tblAnimal">
 					<tr>
-						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoAnimal" class="btn_Generico" value="Ingreso nuevo"/></td>
+						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoAnimal" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 					</tr>
 				</table>
 				<table id="gridObjsAnimal" width="600px"></table>
@@ -2639,7 +2639,7 @@
 			<div id="tabschild4-7">
 				<table width="25%" cellpadding="0" cellspacing="0" id="tblVehiculos">
 					<tr>
-						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoVehiculo" class="btn_Generico" value="Ingreso nuevo"/></td>
+						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoVehiculo" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 					</tr>
 				</table>
 				<table id="gridObjsVehiculo" width="470px"></table>
@@ -2650,7 +2650,7 @@
 			<div id="tabschild4-8">
 				<table width="25%" cellpadding="0" cellspacing="0" id="tblAeronave">
 					<tr>
-						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaAeronave" class="btn_Generico" value="Ingreso nuevo"/></td>
+						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaAeronave" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 					</tr>
 				</table>
 				<table id="gridObjsAeronave" width="600px"></table>
@@ -2661,7 +2661,7 @@
 			<div id="tabschild4-9">
 				<table width="25%" cellpadding="0" cellspacing="0" id="tblEmbarcacion">
 					<tr>
-						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaEmbarcacion" class="btn_Generico" value="Ingreso nuevo"/></td>
+						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaEmbarcacion" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 					</tr>
 				</table>
 				<table id="gridObjsEmbarcacion" width="600px"></table>
@@ -2672,7 +2672,7 @@
 			<div id="tabschild4-11">
 				<table width="25%" cellpadding="0" cellspacing="0" id="tblNumerario">
 					<tr>
-						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoNumerario" class="btn_Generico" value="Ingreso nuevo"/></td>
+						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoNumerario" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 					</tr>
 				</table>
 				<table id="gridObjsNumerario" width="600px"></table>
@@ -2683,7 +2683,7 @@
 			<div id="tabschild4-12">
 				<table width="25%" cellpadding="0" cellspacing="0" id="tblVegetal">
 					<tr>
-						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoVegetal" class="btn_Generico" value="Ingreso nuevo"/></td>
+						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoVegetal" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 					</tr>
 				</table>
 				<table id="gridObjsVegetal" width="600px"></table>
@@ -2694,7 +2694,7 @@
 			<div id="tabschild4-13">
 				<table width="25%" cellpadding="0" cellspacing="0" id="tblDocOficial">
 					<tr>
-						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoDocumentoOficial" class="btn_Generico" value="Ingreso nuevo"/></td>
+						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoDocumentoOficial" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 					</tr>
 				</table>
 				<table id="gridObjsDocumentoOficial" width="600px"></table>
@@ -2705,7 +2705,7 @@
 			<div id="tabschild4-14">
 				<table width="25%" cellpadding="0" cellspacing="0" id="tblJoya">
 					<tr>
-						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaJoya" class="btn_Generico" value="Ingreso nuevo"/></td>
+						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaJoya" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 					</tr>
 				</table>
 				<table id="gridObjsJoya" width="600px"></table>
@@ -2716,7 +2716,7 @@
 			<div id="tabschild4-15">
 				<table width="25%" cellpadding="0" cellspacing="0" id="tblObraArte">
 					<tr>
-						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaObraDeArte" class="btn_Generico" value="Ingreso nuevo"/></td>
+						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaObraDeArte" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 					</tr>
 				</table>
 				<table id="gridObjsObraDeArte" width="600px"></table>
@@ -2727,7 +2727,7 @@
 			<div id="tabschild4-16">
 				<table width="25%" cellpadding="0" cellspacing="0" id="tblOtros">
 					<tr>
-						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoOtros" class="btn_Generico" value="Ingreso nuevo"/></td>
+						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoOtros" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 					</tr>
 				</table>
 				<table id="gridObjsOtros" width="600px"></table>
@@ -2738,7 +2738,7 @@
 			<div id="tabschild4-17">
 				<table width="25%" cellpadding="0" cellspacing="0" id="tblPericial">
 					<tr>
-						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoPericial" class="btn_Generico" value="Ingreso nuevo"/></td>
+						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoPericial" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 					</tr>
 				</table>
 				<table id="gridObjsPericial" width="600px"></table>
@@ -2796,7 +2796,7 @@
 	<div id="tabsconsultaprincipal-11" style="height: 600px !important;">
 		<table width="25%" cellpadding="0" cellspacing="0" id="tablaNotasExpediente">
 			<tr>
-				<td>&nbsp;&nbsp;&nbsp;<input type="button" class="btn_Generico" value="Generar Nota"  id="botonGuardarNotas" onclick="notaExpediente(0);" /></td>
+				<td>&nbsp;&nbsp;&nbsp;<input type="button" class="ui-button ui-corner-all ui-widget" value="Generar Nota"  id="botonGuardarNotas" onclick="notaExpediente(0);" /></td>
 			</tr>
 		</table>
 	</div>

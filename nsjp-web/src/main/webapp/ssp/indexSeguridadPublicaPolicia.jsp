@@ -504,7 +504,7 @@
 			,	onresize:				"innerLayout.resizeAll"	// resize INNER LAYOUT when center pane resizes	
 			,	minWidth:				200
 			,	minHeight:				200
-			,	onresize_end:			function () { $("#gridElaborarOficioResolutivoJuez").setGridWidth($("#mainContent").width() - 10, true); }
+			,	onresize_end:			function () { $("#gridElaborarOficioResolutivoJuez").setGridWidth($("#mainContent").width() - 5, true); }
 			}
 		};
 						

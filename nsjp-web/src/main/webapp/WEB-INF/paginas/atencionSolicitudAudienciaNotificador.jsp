@@ -394,7 +394,7 @@
 								<td width="30%" align="right"><strong>Numero de Caso:</strong></td>
 								<td width="70%"><input type="text" id="numCasoNotifDetalle" style="width:200px; border: 0; background:#DDD;" readonly="readonly"/></td>
 								<td align="right">
-									<input type="button" id="btnAdjuntarDocumento" value="Adjuntar documento"  class="back_button"/>					
+									<input type="button" id="btnAdjuntarDocumento" value="Adjuntar documento"  class="ui-button ui-corner-all ui-widget"/>					
 								</td>
 							</tr>
 							<tr>

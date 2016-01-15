@@ -278,7 +278,7 @@
 				</tr>
 				<tr>
 					<td colspan="2"></td>
-					<td align="center" colspan="4"><button value="Guardar" class="btn_Generico">Guardar</button></td>
+					<td align="center" colspan="4"><button value="Guardar" class="ui-button ui-corner-all ui-widget">Guardar</button></td>
 					<td colspan="2">&nbsp;</td>
 				</tr>
 				

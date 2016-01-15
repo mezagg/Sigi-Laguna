@@ -109,8 +109,8 @@
 	  </tr>
 	  <tr>
 		<td align="right">
-			<input type="button" value="Aceptar" class="btn_Generico" id="btnAceptarSolDefensor" onclick="confirmarSolicitudDeDefensor();"/>
-			<input type="button" value="Cancelar" class="btn_Generico" id="btnCancelarSolDefensor" onclick="cancelarSolicitudDeDefensor();"/>
+			<input type="button" value="Aceptar" class="ui-button ui-corner-all ui-widget" id="btnAceptarSolDefensor" onclick="confirmarSolicitudDeDefensor();"/>
+			<input type="button" value="Cancelar" class="ui-button ui-corner-all ui-widget" id="btnCancelarSolDefensor" onclick="cancelarSolicitudDeDefensor();"/>
 		</td>
 	  </tr>
 	</table>

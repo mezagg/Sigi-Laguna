@@ -182,7 +182,7 @@
 			        <td align="right">&nbsp;</td>
 			        
 			        <td colspan="3" align="center">
-						<input type="button" id="btnAgenerarExhorto" value="Agregar Exhorto" class="btn_Generico">
+						<input type="button" id="btnAgenerarExhorto" value="Agregar Exhorto" class="ui-button ui-corner-all ui-widget">
 						<!--<input type="submit" id="consultarMandamiento" value="Consultar Mandamiento" />-->
 			       	</td>
 			       	

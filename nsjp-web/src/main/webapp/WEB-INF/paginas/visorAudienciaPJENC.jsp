@@ -1614,7 +1614,7 @@
 					<td colspan="2">&nbsp;</td>
 					<td>&nbsp;</td>
 					<td colspan="2" align="center"><input type="submit"
-						name="ordenar" id="ordenar" value="Ordenar" class="btn_Generico"></td>
+						name="ordenar" id="ordenar" value="Ordenar" class="ui-button ui-corner-all ui-widget"></td>
 					<td align="right">&nbsp;</td>
 					<td colspan="2">&nbsp;</td>
 					<td>&nbsp;</td>
@@ -1737,7 +1737,7 @@
 					<td>&nbsp;</td>
 					<td>&nbsp;</td>
 					<td colspan="3"><input type="submit" id="guardar"
-						value="Guardar" onclick="actualizarSituacionJuridica();" class="btn_Generico"/>
+						value="Guardar" onclick="actualizarSituacionJuridica();" class="ui-button ui-corner-all ui-widget"/>
 					</td>
 					<td width="74">&nbsp;</td>
 					<td>&nbsp;</td>
@@ -1847,11 +1847,11 @@
 			        <td align="right">&nbsp;</td>
 			        
 	  		        <td align="center">
-	  		        	<input type="button" id="btnGenerarMandamiento" value="Generar Mandamiento Judicial" class="btn_Generico"/>
+	  		        	<input type="button" id="btnGenerarMandamiento" value="Generar Mandamiento Judicial" class="ui-button ui-corner-all ui-widget"/>
 	  		        </td>
 			        
 			        <td colspan="3" align="center">
-						<input type="button" id="btnAdminMediCaute" value="Administrar medidas cautelares" class="btn_Generico">
+						<input type="button" id="btnAdminMediCaute" value="Administrar medidas cautelares" class="ui-button ui-corner-all ui-widget">
 						<!--<input type="submit" id="consultarMandamiento" value="Consultar Mandamiento" />-->
 			       	</td>
 			   
@@ -1874,7 +1874,7 @@
 		<table border="0" cellpadding="2">
 			<tr>
 				<td align="left">
-					<input type="button" id="btnAdjuntarDocumento" value="Adjuntar documento"  class="back_button"/>					
+					<input type="button" id="btnAdjuntarDocumento" value="Adjuntar documento"  class="ui-button ui-corner-all ui-widget"/>					
 				</td>
 			</tr>
 		</table>

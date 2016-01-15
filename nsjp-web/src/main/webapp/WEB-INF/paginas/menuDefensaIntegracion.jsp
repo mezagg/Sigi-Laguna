@@ -3169,7 +3169,7 @@
 					            <tr>
 					                <td width="10" height="109">&nbsp;</td>
 					                <td width="4">&nbsp;</td>
-					                <td width="123"><IMG id=iVictimaCmpFoto alt=foto src="<%= request.getContextPath() %>/resources/images/img_denunciante.png"></td>
+					                <td width="123"><IMG id=iVictimaCmpFoto alt=foto src="<%= request.getContextPath() %>/resources/images/foto.png"></td>
 					            </tr>
          					 </table>
         			   </TD>
@@ -3340,25 +3340,25 @@
 				    <td ><select name="acciones" id="cbxAcciones">
 				    	<option>- Seleccione</option>				      				     
 				      	</select></td>
-				    <td><input type="button" value="Cambiar etapa del expediente" id="cambiarEtapaDelExpediente" onClick="cambiarEtapaExpediente();" class="btn_Generico"/></td>
+				    <td><input type="button" value="Cambiar etapa del expediente" id="cambiarEtapaDelExpediente" onClick="cambiarEtapaExpediente();" class="ui-button ui-corner-all ui-widget"/></td>
 				  </tr>
 				  <tr>
 				    <td>&nbsp;</td>
 				    <td>&nbsp;</td>
 				    <td>&nbsp;</td>
-				    <td><input type="button" value="Teor&iacute;a del caso/Escritos de prueba" id="teoriaDelCaso" onClick="abreTeoria();" class="btn_Generico"/></td>
+				    <td><input type="button" value="Teor&iacute;a del caso/Escritos de prueba" id="teoriaDelCaso" onClick="abreTeoria();" class="ui-button ui-corner-all ui-widget"/></td>
 				  </tr>
 				  <tr id="btnRelacionExpedienteCaso">
 				    <td>&nbsp;</td>
 				    <td>&nbsp;</td>
 				    <td>&nbsp;</td>
-				    <td><input type="button" value="Relacionar expediente a caso" id="relacionarExpediente" onClick="relacionarExpedienteACaso();" class="btn_Generico"/></td>
+				    <td><input type="button" value="Relacionar expediente a caso" id="relacionarExpediente" onClick="relacionarExpedienteACaso();" class="ui-button ui-corner-all ui-widget"/></td>
 				  </tr>
 				  <tr>
 				    <td>&nbsp;</td>
 				    <td>&nbsp;</td>
 				    <td>&nbsp;</td>
-				    <td><input type="button" value="Adjuntar documento" id="btnAdjuntarDocumento" onClick="abreVentanaAdjuntarDocumento('1');" class="btn_Generico"/></td>
+				    <td><input type="button" value="Adjuntar documento" id="btnAdjuntarDocumento" onClick="abreVentanaAdjuntarDocumento('1');" class="ui-button ui-corner-all ui-widget"/></td>
 				  </tr>
 				</table>  
 			
@@ -3369,7 +3369,7 @@
 			<div id="tabsconsultaprincipal-10">
 				<table width="25%" cellpadding="0" cellspacing="0" id="tablaNotasExpediente">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;<input type="button" class="btn_modificar" value="Generar Nota"  id="botonGuardarNotas" onclick="notaExpediente(0);" class="btn_Generico"/></td>
+							<td>&nbsp;&nbsp;&nbsp;<input type="button" class="btn_modificar" value="Generar Nota"  id="botonGuardarNotas" onclick="notaExpediente(0);" class="ui-button ui-corner-all ui-widget"/></td>
 						</tr>
 				</table>
 			</div>
@@ -3419,7 +3419,7 @@
 									</td>
 								</tr>
 							</table>
-						<input type="button" disabled="disabled" value="Elaborar Solicitud" id="botonGeneraSolicitud" class="btn_Generico"/>  -->
+						<input type="button" disabled="disabled" value="Elaborar Solicitud" id="botonGeneraSolicitud" class="ui-button ui-corner-all ui-widget"/>  -->
 				</div>
 				<!--Termina Pesta&ntilde;a de audiencia -->
 				
@@ -3502,7 +3502,7 @@
 							<div id="tabschild4-1">
 								<table width="25%" cellpadding="0" cellspacing="0" id="tblEquipoComputo">
 									<tr>
-										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoEquipoDeComputo" value="Ingreso nuevo" class="btn_Generico"/></td>
+										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoEquipoDeComputo" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
 									</tr>
 								</table>
 							</div>
@@ -3512,7 +3512,7 @@
 							<div id="tabschild4-2">
 								<table width="25%" cellpadding="0" cellspacing="0" id="tblEquipoTelefonico">
 									<tr>
-										<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoEquipoTelefonico" value="Ingreso nuevo" class="btn_Generico"/></td>
+										<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoEquipoTelefonico" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
 									</tr>
 								</table>
 							</div>
@@ -3522,7 +3522,7 @@
 							<div id="tabschild4-3">
 								<table width="25%" cellpadding="0" cellspacing="0" id="tblArma">
 									<tr>
-										<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaArma" value="Ingreso nuevo" class="btn_Generico"/></td>
+										<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaArma" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
 									</tr>
 								</table>
 							</div>
@@ -3532,7 +3532,7 @@
 							<div id="tabschild4-4">
 								<table width="25%" cellpadding="0" cellspacing="0" id="tblExplosivo">
 									<tr>
-										<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoExplosivo" value="Ingreso nuevo" class="btn_Generico"/></td>
+										<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoExplosivo" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
 									</tr>
 									<tr>
 										<td class="noSub">&nbsp;&nbsp;&nbsp;<a>Explosivos 1</a></td>
@@ -3548,7 +3548,7 @@
 							<div id="tabschild4-5">
 								<table width="25%" cellpadding="0" cellspacing="0" id="tblSustancia">
 									<tr>
-										<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaSustancia" value="Ingreso nuevo" class="btn_Generico"/></td>
+										<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaSustancia" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
 									</tr>
 									<tr>
 										<td class="noSub">&nbsp;&nbsp;&nbsp;<a>Sustancia 1</a></td>
@@ -3564,7 +3564,7 @@
 							<div id="tabschild4-6">
 								<table width="25%" cellpadding="0" cellspacing="0" id="tblAnimal">
 									<tr>
-										<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoAnimal" value="Ingreso nuevo" class="btn_Generico"/></td>
+										<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoAnimal" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
 									</tr>
 									<tr>
 										<td class="noSub">&nbsp;&nbsp;&nbsp;<a>Animal 1</a></td>
@@ -3580,7 +3580,7 @@
 							<div id="tabschild4-7">
 								<table width="25%" cellpadding="0" cellspacing="0" id="tblVehiculos">
 									<tr>
-										<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoVehiculo" value="Ingreso nuevo" class="btn_Generico"/></td>
+										<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoVehiculo" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
 									</tr>
 								</table>
 							</div>
@@ -3590,7 +3590,7 @@
 							<div id="tabschild4-8">
 								<table width="25%" cellpadding="0" cellspacing="0" id="tblAeronave">
 									<tr>
-										<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaAeronave" value="Ingreso nuevo" class="btn_Generico"/></td>
+										<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaAeronave" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
 									</tr>
 									<tr>
 										<td class="noSub">&nbsp;&nbsp;&nbsp;<a>Aeronave 1</a></td>
@@ -3606,7 +3606,7 @@
 							<div id="tabschild4-9">
 								<table width="25%" cellpadding="0" cellspacing="0" id="tblEmbarcacion">
 									<tr>
-										<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaEmbarcacion" value="Ingreso nuevo" class="btn_Generico"/></td>
+										<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaEmbarcacion" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
 									</tr>
 									<tr>
 										<td class="noSub">&nbsp;&nbsp;&nbsp;<a>Embarcaci&oacute;n 1</a></td>
@@ -3622,7 +3622,7 @@
 							<div id="tabschild4-11">
 								<table width="25%" cellpadding="0" cellspacing="0" id="tblNumerario">
 									<tr>
-										<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoNumerario" value="Ingreso nuevo" class="btn_Generico"/></td>
+										<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoNumerario" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
 									</tr>
 									<tr>
 										<td class="noSub">&nbsp;&nbsp;&nbsp;<a>Numerario 1</a></td>
@@ -3638,7 +3638,7 @@
 							<div id="tabschild4-12">
 								<table width="25%" cellpadding="0" cellspacing="0" id="tblVegetal">
 									<tr>
-										<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoVegetal" value="Ingreso nuevo" class="btn_Generico"/></td>
+										<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoVegetal" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
 									</tr>
 									<tr>
 										<td class="noSub">&nbsp;&nbsp;&nbsp;<a>Vegetal 1</a></td>
@@ -3654,7 +3654,7 @@
 							<div id="tabschild4-13">
 								<table width="25%" cellpadding="0" cellspacing="0" id="tblDocOficial">
 									<tr>
-										<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoDocumentoOficial" value="Ingreso nuevo" class="btn_Generico"/></td>
+										<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoDocumentoOficial" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
 									</tr>
 									<tr>
 										<td class="noSub">&nbsp;&nbsp;&nbsp;<a>Documento oficial 1</a></td>
@@ -3670,7 +3670,7 @@
 							<div id="tabschild4-14">
 								<table width="25%" cellpadding="0" cellspacing="0" id="tblJoya">
 									<tr>
-										<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaJoya" value="Ingreso nuevo" class="btn_Generico"/></td>
+										<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaJoya" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
 									</tr>
 									<tr>
 										<td class="noSub">&nbsp;&nbsp;&nbsp;<a>Joya 1</a></td>
@@ -3686,7 +3686,7 @@
 							<div id="tabschild4-15">
 								<table width="25%" cellpadding="0" cellspacing="0" id="tblObraArte">
 									<tr>
-										<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaObraDeArte" value="Ingreso nuevo" class="btn_Generico"/></td>
+										<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaObraDeArte" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
 									</tr>
 									<tr>
 										<td class="noSub">&nbsp;&nbsp;&nbsp;<a>Obra de arte 1</a></td>
@@ -3776,7 +3776,7 @@
 							 <% if(idEtapa.longValue() == EtapasExpediente.TECNICA.getValorId().longValue()){ %>
 								<table width="25%" cellpadding="0" cellspacing="0" id="tblDenunciante">
 									<tr>
-										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="crearDenunciante"><input type="button" value="Ingresar Denunciante" class="btn_Generico"/></a></td>
+										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="crearDenunciante"><input type="button" value="Ingresar Denunciante" class="ui-button ui-corner-all ui-widget"/></a></td>
 									</tr>
 								</table>
 								<%} %>
@@ -3787,7 +3787,7 @@
 							<div id="tabschild-2">
 								<table width="25%" cellpadding="0" cellspacing="0" id="tblVictima">
 									<tr>
-										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevaVictima"><input type="button" value="Ingresar V&iacute;ctima" class="btn_Generico"/></a></td>
+										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevaVictima"><input type="button" value="Ingresar V&iacute;ctima" class="ui-button ui-corner-all ui-widget"/></a></td>
 									</tr>
 								</table>
 							</div>
@@ -3797,7 +3797,7 @@
 							<div id="tabschild-3">
 								<table width="25%" cellpadding="0" cellspacing="0" id="tblProbableResponsable">
 									<tr>
-										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoProbResponsable"><input type="button" value='<bean:message key="ingProbaleResponsable"/>' class="btn_Generico"/></a></td>
+										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoProbResponsable"><input type="button" value='<bean:message key="ingProbaleResponsable"/>' class="ui-button ui-corner-all ui-widget"/></a></td>
 									</tr>
 								</table>
 							</div>
@@ -3807,7 +3807,7 @@
 							<div id="tabschild-4">
 								<table width="25%" cellpadding="0" cellspacing="0" id="tblTestigo">
 									<tr>
-										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoTestigo"><input type="button" value="Ingresar Testigo" class="btn_Generico"/></a></td>
+										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoTestigo"><input type="button" value="Ingresar Testigo" class="ui-button ui-corner-all ui-widget"/></a></td>
 									</tr>
 								</table>
 							</div>
@@ -3817,7 +3817,7 @@
 							<div id="tabschild-5">
 								<table width="25%" cellpadding="0" cellspacing="0" id="tblTraductor">
 									<tr>
-										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoTraductor"><input type="button" value="Ingresar Traductor - Interprete" class="btn_Generico"/></a></td>
+										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoTraductor"><input type="button" value="Ingresar Traductor - Interprete" class="ui-button ui-corner-all ui-widget"/></a></td>
 									</tr>
 								</table>
 							</div>
@@ -3827,7 +3827,7 @@
 							<div id="tabschild-6">
 								<table width="25%" cellpadding="0" cellspacing="0" id="tblQuienDetuvo">
 									<tr>
-										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="quienDetuvo"><input type="button" value="Ingresar Quien Detuvo" class="btn_Generico"/></a></td>
+										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="quienDetuvo"><input type="button" value="Ingresar Quien Detuvo" class="ui-button ui-corner-all ui-widget"/></a></td>
 									</tr>
 								</table>
 							</div>
@@ -3845,7 +3845,7 @@
 										            	<tr>
 										                	<td width="10" height="109">&nbsp;</td>
 										                	<td width="4">&nbsp;</td>
-										                	<td width="123"><IMG id=iVictimaCmpFoto alt=foto src="<%= request.getContextPath() %>/resources/images/img_denunciante.png"></td>
+										                	<td width="123"><IMG id=iVictimaCmpFoto alt=foto src="<%= request.getContextPath() %>/resources/images/foto.png"></td>
 										                </tr>
 							         				 </table>
 							        			 </TD>
@@ -3926,7 +3926,7 @@
 							 <% if(idEtapa.longValue() == EtapasExpediente.CONCILIACION_Y_MEDIACION.getValorId().longValue()){ %>	
 								<table width="25%" cellpadding="0" cellspacing="0" id="tblDenunciante">
 								<tr>
-									<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="crearDenunciante"><input type="button" value="Ingresar Solicitante de Justicia Restaurativa" class="btn_Generico"/></a></td>
+									<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="crearDenunciante"><input type="button" value="Ingresar Solicitante de Justicia Restaurativa" class="ui-button ui-corner-all ui-widget"/></a></td>
 								</tr>
 								</table>	
 							<% } %>	

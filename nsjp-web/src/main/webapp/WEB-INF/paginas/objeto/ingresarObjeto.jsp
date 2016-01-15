@@ -27,7 +27,7 @@
         	</select>
         </td>
         <td width="20%">
-        	<input name="btnModificarEquipoComputo" type="button" value="Modificar" class="btn_Generico"s>
+        	<input name="btnModificarEquipoComputo" type="button" value="Modificar" class="ui-button ui-corner-all ui-widget"s>
         </td>
       </tr>
       <tr>

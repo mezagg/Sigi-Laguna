@@ -828,7 +828,7 @@ function cargaGridDocumentosDigitalesAmbos(){
 		            <td align="right">&nbsp;</td>
 		            <td align="left" valign="middle">
 		            	<div id="divButtonBuscarPerito">
-		            		<input type="button" id="buttonBuscarPeritoPorNombre" value="Buscar" class="btn_Generico" onclick="obtenerParametrosYcargarGridPeritos();">
+		            		<input type="button" id="buttonBuscarPeritoPorNombre" value="Buscar" class="ui-button ui-corner-all ui-widget" onclick="obtenerParametrosYcargarGridPeritos();">
 		            	</div>
 		            </td>
 		        </tr>
@@ -836,8 +836,8 @@ function cargaGridDocumentosDigitalesAmbos(){
 		            <td align="left">&nbsp;</td>
 		            <td align="left">&nbsp;</td>
 		            <td align="right">            
-		            	<input type="button" id="guardarListaPeritos" value="Enviar Asignaci&oacute;n" class="btn_Generico" onclick="enviarSolicitudDesignarPerito();" />
-		            	<!--   <input type="button" id="btnGenerarOficio" value="Generar Oficio" class="btn_Generico" /> -->	            
+		            	<input type="button" id="guardarListaPeritos" value="Enviar Asignaci&oacute;n" class="ui-button ui-corner-all ui-widget" onclick="enviarSolicitudDesignarPerito();" />
+		            	<!--   <input type="button" id="btnGenerarOficio" value="Generar Oficio" class="ui-button ui-corner-all ui-widget" /> -->	            
 					</td>
 		        </tr>
 		        <!--tr>

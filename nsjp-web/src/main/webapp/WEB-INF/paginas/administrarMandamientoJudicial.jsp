@@ -864,7 +864,7 @@
 						<td width="5%">&nbsp;</td>
 						<td>&nbsp;</td>
 						<td>
-							<input type="button" style="display: none;" value= "Adjuntar Documento" id="btnAdjuntarDocAMandamientoJud" class="btn_Generico" onclick="abreVentanaAdjuntarDocumentoAMandamiento();"/>
+							<input type="button" style="display: none;" value= "Adjuntar Documento" id="btnAdjuntarDocAMandamientoJud" class="ui-button ui-corner-all ui-widget" onclick="abreVentanaAdjuntarDocumentoAMandamiento();"/>
 						</td>
 					</tr>
 					<tr>
@@ -927,7 +927,7 @@
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 						<td align="center"><input type="button" id="guardarAdmin"
-							value="Guardar" class="btn_Generico"
+							value="Guardar" class="ui-button ui-corner-all ui-widget"
 							onclick="administrarMandamientosPersona();" /></td>
 					</tr>
 				</table>

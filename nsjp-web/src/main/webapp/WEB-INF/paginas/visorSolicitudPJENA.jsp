@@ -156,7 +156,7 @@
 			</td>
 			<td></td>
 			<td>
-				<input type="button" value="Atender Solicitud" id="atenderSolicitud" style="display: none;" class="btn_Generico"/>
+				<input type="button" value="Atender Solicitud" id="atenderSolicitud" style="display: none;" class="ui-button ui-corner-all ui-widget"/>
 			</td>
 		</tr>
 		<tr>

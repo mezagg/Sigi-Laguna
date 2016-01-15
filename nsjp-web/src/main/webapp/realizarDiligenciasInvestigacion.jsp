@@ -166,7 +166,7 @@
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td colspan="3" align="center"><input type="button" value="Registrar" id="registrar" class="btn_Generico"/></td>
+    <td colspan="3" align="center"><input type="button" value="Registrar" id="registrar" class="ui-button ui-corner-all ui-widget"/></td>
     <td>&nbsp;</td>
   </tr>
   <tr>

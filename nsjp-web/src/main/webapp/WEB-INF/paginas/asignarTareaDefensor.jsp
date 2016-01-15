@@ -219,7 +219,7 @@ border: 0;
  <tr><td><input type="text" id="divFecha" name="divFecha"></td></tr>
  <tr><td>Hora</td></tr>
  <tr> <td> <input type="text" id="divHora"></td>  </tr>
- <tr> <td> <input type="button" value="Asignar" onclick="asignarCargaTrabajo()" class="btn_Generico"></td>  </tr>
+ <tr> <td> <input type="button" value="Asignar" onclick="asignarCargaTrabajo()" class="ui-button ui-corner-all ui-widget"></td>  </tr>
  </table> </td>
 <td width="50%"><div id="nabtabgrid2"> <table id="tabgridActividad" align="center"></table></div></td>
   </tr>
@@ -227,7 +227,7 @@ border: 0;
 
 <!--<center>
 	
-	<input type="button" value="Seleccionar abogado para defensa" onclick="designarAbogadoDefensorCoordinador()" class="btn_Generico">
+	<input type="button" value="Seleccionar abogado para defensa" onclick="designarAbogadoDefensorCoordinador()" class="ui-button ui-corner-all ui-widget">
 </center>
 --><script type="text/javascript">
 

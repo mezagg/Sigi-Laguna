@@ -463,8 +463,8 @@ function gridRolesUsuario() {
     	<div id="pagerRolesUsuario"></div>
     </td>   
     <td>
-	    <input type="button" id="pasar" value=">>" onclick="addRowRigthToLeft();" class="btn_Generico"> <br/>
-		<input type="button" id="pasarD" value="<<" onclick="addRowLeftToRigth();" class="btn_Generico">
+	    <input type="button" id="pasar" value=">>" onclick="addRowRigthToLeft();" class="ui-button ui-corner-all ui-widget"> <br/>
+		<input type="button" id="pasarD" value="<<" onclick="addRowLeftToRigth();" class="ui-button ui-corner-all ui-widget">
     </td>
     <td valign="top" colspan="2">
 		<table id="gridRolesSeleccionados" width="450px"></table>
@@ -500,9 +500,9 @@ function gridRolesUsuario() {
   </tr>
   <tr>
     <td colspan="6" align="center">
-    	<input type="button" value="Registrar usuario" id="registrarUsuario" disabled="disabled" class="btn_Generico" onclick="validaCampos()" />
-    	<input type="button" value="Modificar usuario" id=modificarUsuario disabled="disabled"  class="btn_Generico" onclick="desbloquea()"/>
-    	<input type="button" value="Anular usuario" id="anularUsuario" disabled="disabled"  class="btn_Generico" onclick="buscarUsuario()"/>
+    	<input type="button" value="Registrar usuario" id="registrarUsuario" disabled="disabled" class="ui-button ui-corner-all ui-widget" onclick="validaCampos()" />
+    	<input type="button" value="Modificar usuario" id=modificarUsuario disabled="disabled"  class="ui-button ui-corner-all ui-widget" onclick="desbloquea()"/>
+    	<input type="button" value="Anular usuario" id="anularUsuario" disabled="disabled"  class="ui-button ui-corner-all ui-widget" onclick="buscarUsuario()"/>
     </td>
   </tr>
 </table>

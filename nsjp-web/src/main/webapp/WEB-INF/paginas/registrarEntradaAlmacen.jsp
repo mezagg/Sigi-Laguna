@@ -180,7 +180,7 @@ function gridSolicitud(){
 <table id="tabgrid" align="center"></table>
 <div id="pagerGrid"></div>
 <input type="button" value="Confir que sale del grid"
-			onclick="confirmaSolicitud()" class="btn_Generico"/>
+			onclick="confirmaSolicitud()" class="ui-button ui-corner-all ui-widget"/>
 </div>
 
 <div id="confirmaSolicitud" style="display: none">

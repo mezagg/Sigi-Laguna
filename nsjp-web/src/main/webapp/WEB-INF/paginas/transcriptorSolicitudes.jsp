@@ -245,10 +245,10 @@
 		        <td align="center">&nbsp;</td>
 		        <td align="center">
 		            <div>
-		                <input type="button" id="generarDocumento" value="Generar Documento" class="btn_Generico"/>
+		                <input type="button" id="generarDocumento" value="Generar Documento" class="ui-button ui-corner-all ui-widget"/>
 		            </div>
 		            <div>
-		                <input type="button" id="verDocumento" value="Ver Documento" class="btn_Generico"/>
+		                <input type="button" id="verDocumento" value="Ver Documento" class="ui-button ui-corner-all ui-widget"/>
 		            </div>
 		        </td>
 		        <td align="center">&nbsp;</td>

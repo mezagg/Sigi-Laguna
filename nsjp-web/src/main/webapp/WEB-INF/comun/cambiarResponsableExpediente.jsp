@@ -540,7 +540,7 @@
 					</span>
 				</td>
 				<td width="20%" valign="top">
-					<input type="button" name="btnBuscar" id="btnBuscar" value="Buscar" onclick="buscar();" class="btn_Generico" style="margin-left: 20px; display: none;" />				
+					<input type="button" name="btnBuscar" id="btnBuscar" value="Buscar" onclick="buscar();" class="ui-button ui-corner-all ui-widget" style="margin-left: 20px; display: none;" />				
 				</td>
 			</tr>
 		</table>
@@ -556,8 +556,8 @@
 					<table id="gridNuevoResponsable"></table>
 					<div id="pagerGridNuevoResponsable"></div>
 					<div style="width: 100%; text-align: center; padding-top: 10px; padding-bottom: 10px;">
-						<input type="button" name="btnReasinar" id="btnReasignar" value="Reasignar A Funcionario" onclick="reasignarAFuncionario();" class="btn_Generico" />
-						<input type="button" name="btnCancelar" id="btnCancelar" value="Cancelar" onclick="cancelarReasignacion();" class="btn_Generico" />
+						<input type="button" name="btnReasinar" id="btnReasignar" value="Reasignar A Funcionario" onclick="reasignarAFuncionario();" class="ui-button ui-corner-all ui-widget" />
+						<input type="button" name="btnCancelar" id="btnCancelar" value="Cancelar" onclick="cancelarReasignacion();" class="ui-button ui-corner-all ui-widget" />
 					</div>					
 			</div>
 			<div id="tabs-2">

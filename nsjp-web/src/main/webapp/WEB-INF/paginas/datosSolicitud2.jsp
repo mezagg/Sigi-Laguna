@@ -59,7 +59,7 @@
 	<tr id="trAliasTxt">
 		<td align="right">Alias:</td>
 		<td><input type="text" tabindex="6" size="20" maxlength="50" id="newItem"
-			name="newItem" /> <input type="button" id="add" value="Agrega Alias" class="btn_Generico"/>
+			name="newItem" /> <input type="button" id="add" value="Agrega Alias" class="ui-button ui-corner-all ui-widget"/>
 		</td>
 	</tr>
 	<tr>
@@ -125,7 +125,7 @@
    <tr >
     <td width="203"  colspan="2">
     <center>
-    <input type="button" value="Guardar" id="iBtnGuardar" class="btn_Generico"/></center></td>
+    <input type="button" value="Guardar" id="iBtnGuardar" class="ui-button ui-corner-all ui-widget"/></center></td>
   
     
   </tr>

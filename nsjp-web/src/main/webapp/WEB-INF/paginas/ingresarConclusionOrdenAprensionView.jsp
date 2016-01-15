@@ -308,7 +308,7 @@
 		</tr>
 		<tr>
 			<td align="right">
-				<input type="button" id="btnGenerar" value="Generar" class="btn_Generico"/>
+				<input type="button" id="btnGenerar" value="Generar" class="ui-button ui-corner-all ui-widget"/>
 			</td>
 		</tr>
 	</table>

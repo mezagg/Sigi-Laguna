@@ -424,7 +424,7 @@
 				  		</tr>
 				  		<tr>
 							<td  colspan="2" align="center">
-								<input type="button" id="btnEnviarSolicitud" value="Enviar Autorizacion" class="btn_Generico">
+								<input type="button" id="btnEnviarSolicitud" value="Enviar Autorizacion" class="ui-button ui-corner-all ui-widget">
 							</td>
 						</tr>
 				  	</table>

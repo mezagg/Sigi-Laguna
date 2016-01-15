@@ -206,8 +206,8 @@
 <body>
 	<table border="0" cellspacing="0" cellpadding="0" align="center">
 	<tr>
-		<td align="right""><input class="back_button" type="button" id="botonCerrar" onclick="cerrarInspeccion()" value="Concluir Inspecci&oacute;n">
-							<input class="back_button" type="button" onclick="guardaInspeccion()" value="Guardar"> 
+		<td align="right""><input class="ui-button ui-corner-all ui-widget" type="button" id="botonCerrar" onclick="cerrarInspeccion()" value="Concluir Inspecci&oacute;n">
+							<input class="ui-button ui-corner-all ui-widget" type="button" onclick="guardaInspeccion()" value="Guardar"> 
 		</td>
 	</tr>
     <tr>
@@ -260,7 +260,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td align="center""><input class="back_button" type="button" onclick="visorMultas()" value="Asociar Multa/Sanci&oacute;n a Inspecci&oacute;"> </td>
+		<td align="center""><input class="ui-button ui-corner-all ui-widget" type="button" onclick="visorMultas()" value="Asociar Multa/Sanci&oacute;n a Inspecci&oacute;"> </td>
 	</tr>
 	<tr>
 		<td>&nbsp;&nbsp;&nbsp;

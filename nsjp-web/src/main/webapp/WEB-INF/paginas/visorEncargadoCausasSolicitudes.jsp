@@ -275,7 +275,7 @@ No
 				      </tr>
 				      <tr>
 				        <td colspan="2" align="center">&nbsp;</td>
-				        <td align="center"><input id="btnGuardar" type="button" value="Guardar" class="btn_Generico"/></td>
+				        <td align="center"><input id="btnGuardar" type="button" value="Guardar" class="ui-button ui-corner-all ui-widget"/></td>
 				        <td>&nbsp;</td>
 				      </tr>
 				      <tr>
@@ -300,7 +300,7 @@ No
 				</td>
 			</tr>
 			<tr>
-			  <td ><input type="button" value="Designar Autom&aacute;ticamente" class="btn_Generico"/></td>
+			  <td ><input type="button" value="Designar Autom&aacute;ticamente" class="ui-button ui-corner-all ui-widget"/></td>
 			  <td >&nbsp;</td>
 			  <td  valign="top"></td>
   </tr>
@@ -323,7 +323,7 @@ No
 			  <td  valign="top">&nbsp;</td>
   </tr>
 			<tr>
-			  <td  align="center"><input type="button" value="Designar Autom&aacute;ticamente" class="btn_Generico"/></td>
+			  <td  align="center"><input type="button" value="Designar Autom&aacute;ticamente" class="ui-button ui-corner-all ui-widget"/></td>
 			  <td ></td>
 			  <td  valign="top">&nbsp;</td>
   </tr>

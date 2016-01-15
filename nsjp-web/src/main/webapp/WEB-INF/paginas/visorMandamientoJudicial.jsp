@@ -192,7 +192,7 @@
 				<div id="paginadorInvolucradosCausa"></div>
 			</div>
 			<div id="divBotonNuevaMandamientoJudicial">
-				<input type="button" align="right" value="Agregar Mandamiento Judicial" id="crearMandamiento" onclick="agregarMandamientoJudicial();" class="btn_Generico"/>
+				<input type="button" align="right" value="Agregar Mandamiento Judicial" id="crearMandamiento" onclick="agregarMandamientoJudicial();" class="ui-button ui-corner-all ui-widget"/>
 			</div>
 		</div>
 	</div>

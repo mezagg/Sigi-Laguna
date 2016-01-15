@@ -186,12 +186,12 @@
 							</tr>
 							<tr>
 								<td align="left"><input id="btnAdminDatosInd" type="button"
-									value="Administrar Datos Individuo" class="btn_Generico"/>
+									value="Administrar Datos Individuo" class="ui-button ui-corner-all ui-widget"/>
 								</td>
 							</tr>
 							<tr>
 								<td align="left"><input id="btnSolDefensor" type="button"
-									value="Solicitar Defensor" class="btn_Generico"/>
+									value="Solicitar Defensor" class="ui-button ui-corner-all ui-widget"/>
 								</td>
 							</tr>
 						</table>
@@ -205,7 +205,7 @@
 						<!-- <div id="pagerDos2" width="300"></div>-->
 					</td>
 					<td >&nbsp;</td>
-					<td align="center"><input type="button" value="Ver Notificaciones" onclick="mostrarGridEntregados();" class="btn_Generico"></td>
+					<td align="center"><input type="button" value="Ver Notificaciones" onclick="mostrarGridEntregados();" class="ui-button ui-corner-all ui-widget"></td>
 					<td>
 						<table width="282"><tr><td align="center">Notificaciones</td></tr></table>
 						<table id="gridDetalleAsuntos"></table>
@@ -241,7 +241,7 @@
 					</tr>
 					<tr></tr>
 					<tr>
-						<td align="center" colspan="3"><input type="button" value="Solicitar" style="width: 200px;" class="btn_Generico"/></td>
+						<td align="center" colspan="3"><input type="button" value="Solicitar" style="width: 200px;" class="ui-button ui-corner-all ui-widget"/></td>
 					</tr>
 				</table>
 			</td>
@@ -265,7 +265,7 @@
 					</tr>
 					<tr></tr>
 					<tr>
-						<td align="center" colspan="3"><input type="button" value="Solicitar" style="width: 200px;" class="btn_Generico"/></td>
+						<td align="center" colspan="3"><input type="button" value="Solicitar" style="width: 200px;" class="ui-button ui-corner-all ui-widget"/></td>
 					</tr>
 				</table>
 			</td>
@@ -340,7 +340,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td align="center"><input type="button" value="Generar Documento" class="btn_Generico"/>
+					<td align="center"><input type="button" value="Generar Documento" class="ui-button ui-corner-all ui-widget"/>
 					</td>
 				</tr>
 			</table>

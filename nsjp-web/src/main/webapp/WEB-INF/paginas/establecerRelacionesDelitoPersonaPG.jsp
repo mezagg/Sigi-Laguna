@@ -728,7 +728,7 @@
   </tr>
   <tr>
     <td align="center" valign="top"><input name="button2" type="button"
-			class="btn_Generico"
+			class="ui-button ui-corner-all ui-widget"
 			id="pasar" onclick="addRowRigthToLeft();" value="&gt;&gt;" /></td>
   </tr>
   <tr>
@@ -736,7 +736,7 @@
   </tr>
   <tr>
     <td align="center" valign="top"><input name="button3" type="button"
-			class="btn_Generico"
+			class="ui-button ui-corner-all ui-widget"
 			id="pasarD"  onclick="addRowLeftToRigth();" value="&lt;&lt;" /></td>
   </tr>
   <tr>
@@ -752,7 +752,7 @@
     <td>&nbsp;</td>
     <td align="center">
     	<input name="button" type="button"
-			class="btn_Generico" id="btnGuardarDelitosAg" onclick="guardarDelitosAgraviadosExp();"
+			class="ui-button ui-corner-all ui-widget" id="btnGuardarDelitosAg" onclick="guardarDelitosAgraviadosExp();"
 			value="Guardar Delitos" />
 	</td>
   </tr>
@@ -843,7 +843,7 @@
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td colspan="3" align="center" valign="middle"><input name="button4" type="button" class="btn_Generico"
+    <td colspan="3" align="center" valign="middle"><input name="button4" type="button" class="ui-button ui-corner-all ui-widget"
 			id="btnGuardarRelacionesDelitoPersona"
 			onclick="guardarRelacionesDelitoPersona();"
 			value="Relacionar Delito Personas" /></td>

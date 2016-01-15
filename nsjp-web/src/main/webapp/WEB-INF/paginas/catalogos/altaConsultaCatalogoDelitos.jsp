@@ -800,9 +800,9 @@
 	  <tr>
 	    <td>&nbsp;</td>
 	    <td>
-	    	<input type="submit" id="guardarDelitoBtn" value="Guardar" onclick="guardarDelito();" class="btn_Generico"/>
-	    	<input type="submit" id="modificarDelitoBtn" value="Modificar" onclick="desbloquearTodosLosElementos();" class="btn_Generico"/>
-	    	<input type="submit" id="eliminarDelitoBtn" value="Eliminar" onclick="eliminarDelito();" class="btn_Generico"/>
+	    	<input type="submit" id="guardarDelitoBtn" value="Guardar" onclick="guardarDelito();" class="ui-button ui-corner-all ui-widget"/>
+	    	<input type="submit" id="modificarDelitoBtn" value="Modificar" onclick="desbloquearTodosLosElementos();" class="ui-button ui-corner-all ui-widget"/>
+	    	<input type="submit" id="eliminarDelitoBtn" value="Eliminar" onclick="eliminarDelito();" class="ui-button ui-corner-all ui-widget"/>
 	    </td>
 	    <td colspan="4">&nbsp;</td>
 	    <td>&nbsp;</td>

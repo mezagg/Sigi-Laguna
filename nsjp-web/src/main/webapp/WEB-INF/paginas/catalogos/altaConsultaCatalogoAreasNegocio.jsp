@@ -448,9 +448,9 @@
 	  <tr>
 	    <td>&nbsp;</td>
 	    <td colspan="5">
-			<input type="submit" id="guardarAreaNegocioBtn" value="Guardar" onclick="guardarCatAreaNegocio();" class="btn_Generico"/>
-		    <input type="submit" id="modificarAreaNegocioBtn" value="Modificar" onclick="desbloquearTodosLosElementos();" class="btn_Generico"/>
-		    <input type="submit" id="eliminarAreaNegocioBtn" value="Eliminar" onclick="eliminarCatAreaNegocio();" class="btn_Generico"/>	
+			<input type="submit" id="guardarAreaNegocioBtn" value="Guardar" onclick="guardarCatAreaNegocio();" class="ui-button ui-corner-all ui-widget"/>
+		    <input type="submit" id="modificarAreaNegocioBtn" value="Modificar" onclick="desbloquearTodosLosElementos();" class="ui-button ui-corner-all ui-widget"/>
+		    <input type="submit" id="eliminarAreaNegocioBtn" value="Eliminar" onclick="eliminarCatAreaNegocio();" class="ui-button ui-corner-all ui-widget"/>	
 		</td>
 	    <td>&nbsp;</td>
 	  </tr>

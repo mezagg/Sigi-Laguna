@@ -730,7 +730,7 @@
 			<td width="149" align="center">
 				<input type="button" value="Agregar Destinatario"
 			style="display: none;" id="agregarDestinatarioBoton"
-			class="btn_Generico" />
+			class="ui-button ui-corner-all ui-widget" />
 			</td>
 			<td width="150" align="center">
 				<!--<input type="button" value="Guardar" id="guardar" />-->
@@ -813,10 +813,10 @@
 					<table>
 						<tr>
 							<td>
-								<!--<input type="button" value="Generar Acta" onclick="abrirPDF()" id="botonGeneraActa" style="display: none;" disabled="disabled" class="btn_Generico">-->
+								<!--<input type="button" value="Generar Acta" onclick="abrirPDF()" id="botonGeneraActa" style="display: none;" disabled="disabled" class="ui-button ui-corner-all ui-widget">-->
 							</td>
 							<td>
-								<!--<input type="button" value="Adjuntar Documento" id="botonAdjuntarDocumento" style="display: none;" disabled="disabled" class="btn_Generico">-->
+								<!--<input type="button" value="Adjuntar Documento" id="botonAdjuntarDocumento" style="display: none;" disabled="disabled" class="ui-button ui-corner-all ui-widget">-->
 							</td>
 						</tr>
 					</table>

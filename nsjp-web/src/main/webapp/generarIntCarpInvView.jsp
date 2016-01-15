@@ -121,10 +121,10 @@
                         	
                         	<tr>
                         		<td>
-                        			<input type="button" value="Realizar apuntes y notas" id="btnIntCarpetaApuntesNotas" class="btn_Generico"/>
+                        			<input type="button" value="Realizar apuntes y notas" id="btnIntCarpetaApuntesNotas" class="ui-button ui-corner-all ui-widget"/>
                         		</td>
                         		<td>
-                        			<input type="button" value="Salir" id="btnIntCarpetaDenunciasAsigSalir" class="btn_Generico"/>
+                        			<input type="button" value="Salir" id="btnIntCarpetaDenunciasAsigSalir" class="ui-button ui-corner-all ui-widget"/>
                         		</td>
                         	</tr>
                         </table>

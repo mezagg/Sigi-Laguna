@@ -125,7 +125,7 @@
 				style=" border: 0; background: #DDD;"
 				readonly="readonly"  size="50" />
     </strong><strong>
-      <input type="button" value="Ver" id="verDocumento" onclick="abrirPDF(1)" class="btn_Generico"/>
+      <input type="button" value="Ver" id="verDocumento" onclick="abrirPDF(1)" class="ui-button ui-corner-all ui-widget"/>
     </strong></td>
     <td>&nbsp;</td>
   </tr>
@@ -142,7 +142,7 @@
 				style=" border: 0; background: #DDD;"
 				readonly="readonly" size="50" />
     </strong><strong>
-      <input type="button" value="Ver" id="verDocumento2"  onclick="abrirPDF(1)" class="btn_Generico"/>
+      <input type="button" value="Ver" id="verDocumento2"  onclick="abrirPDF(1)" class="ui-button ui-corner-all ui-widget"/>
     </strong></td>
     <td>&nbsp;</td>
   </tr>
@@ -237,7 +237,7 @@
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td colspan="2" align="center"><input type="button" value="Guardar" id="guardarBitacora" disabled="disabled" class="btn_Generico"/></td>
+    <td colspan="2" align="center"><input type="button" value="Guardar" id="guardarBitacora" disabled="disabled" class="ui-button ui-corner-all ui-widget"/></td>
     <td>&nbsp;</td>
   </tr>
 </table>

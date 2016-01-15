@@ -1033,7 +1033,7 @@
 			        </td>
 			      </tr>
 			      <tr>
-			        <td colspan="2"><input type="submit" id="buscarCausa" value="Buscar Causa" tabindex="2" class="btn_Generico" class="btn_Generico"
+			        <td colspan="2"><input type="submit" id="buscarCausa" value="Buscar Causa" tabindex="2" class="ui-button ui-corner-all ui-widget" class="ui-button ui-corner-all ui-widget"
 			        /></td>
 			        <td colspan="2" align="center">
 			            <div id="divDatosSolicitante">
@@ -1071,9 +1071,9 @@
 			        </td>
 			      </tr>
 			      <tr>
-			        <td><input type="submit" id="limpiar" value="Limpiar " onclick="limpiarCampoCausa();" tabindex="5" class="btn_Generico"
+			        <td><input type="submit" id="limpiar" value="Limpiar " onclick="limpiarCampoCausa();" tabindex="5" class="ui-button ui-corner-all ui-widget"
 			        /></td>
-			        <td><input type="submit" id="validarCausa" value="Aceptar" onclick="validarNumeroCausa();" tabindex="4" class="btn_Generico"
+			        <td><input type="submit" id="validarCausa" value="Aceptar" onclick="validarNumeroCausa();" tabindex="4" class="ui-button ui-corner-all ui-widget"
 			        /></td>
 			        <td align="right">
 			            <div id="divApellidoPat"><strong>Apellido Paterno:</strong></div>
@@ -1124,9 +1124,9 @@
 			      </tr>
 			      <tr>
 			        <td colspan="2">
-			        	<input type="submit" id="cancelar" value="Cancelar" onclick="confirmaCancelar();" class="btn_Generico"
+			        	<input type="submit" id="cancelar" value="Cancelar" onclick="confirmaCancelar();" class="ui-button ui-corner-all ui-widget"
 			        	/>
-			        	<input type="submit" id="enviarSolicitud" value="Enviar Solicitud" onclick="enviarSolicitud();" class="btn_Generico"
+			        	<input type="submit" id="enviarSolicitud" value="Enviar Solicitud" onclick="enviarSolicitud();" class="ui-button ui-corner-all ui-widget"
 			        	/></td>
 			        <td colspan="2" rowspan="3">&nbsp;</td>
 			        <td colspan="2" rowspan="3">&nbsp;</td>

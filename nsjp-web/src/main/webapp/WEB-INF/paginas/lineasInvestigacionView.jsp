@@ -405,8 +405,8 @@
         	<table  border=1; cellspacing="5" align="center" width="1124px">
             	<tr id="seccionDeBotones">
                 	<td align="center" style="vertical-align: top">
-                    	<input name="btnNuevaLineaDeInv" type="button" id="btnNuevaLineaDeInv" value="Ingresar nueva l&iacute;nea de investigaci&oacute;n" class="btn_Generico">                    	
-                        <input name="btnHipotesis" type="button" id="btnHipotesis" value="Hip&oacute;tesis" class="btn_Generico">
+                    	<input name="btnNuevaLineaDeInv" type="button" id="btnNuevaLineaDeInv" value="Ingresar nueva l&iacute;nea de investigaci&oacute;n" class="ui-button ui-corner-all ui-widget">                    	
+                        <input name="btnHipotesis" type="button" id="btnHipotesis" value="Hip&oacute;tesis" class="ui-button ui-corner-all ui-widget">
 
                     </td>
               </tr>
@@ -431,7 +431,7 @@
 									  <tr>
 									    <td width="92%"><h3>Hip&oacute;tesis:</h3></td>
 									    <td width="8%"><span style="vertical-align: top">
-									      <input name="btnGuardarHipotesis" type="button" id="btnGuardarHipotesis" value="Guardar" class="btn_Generico">
+									      <input name="btnGuardarHipotesis" type="button" id="btnGuardarHipotesis" value="Guardar" class="ui-button ui-corner-all ui-widget">
 									    </span></td>
 								      </tr>
 									  <tr>
@@ -447,7 +447,7 @@
 									      <tr>
 									        <td width="92%"><h3>T&iacute;tulo de la l&iacute;nea de investigaci&oacute;n</h3></td>
 									        <td width="8%"><span style="vertical-align: top">
-									          <input name="btnGuardarLineaDeInv" type="button" id="btnGuardarLineaDeInv" value="Guardar" class="btn_Generico">
+									          <input name="btnGuardarLineaDeInv" type="button" id="btnGuardarLineaDeInv" value="Guardar" class="ui-button ui-corner-all ui-widget">
 									          </span></td>
 								          </tr>
 									      <tr>
@@ -473,7 +473,7 @@
 									      <tr>
 									        <td width="92%"><h3>Comentario asociado a la l&iacute;nea de investigaci&oacute;n <label id="lblNumeroDeLinea"></label>:</h3></td>
 									        <td width="8%"><span style="vertical-align: top">
-									          <input name="btnGuardarLineaDeInv" type="button" id="btnGuardarComentario" value="Guardar" class="btn_Generico">
+									          <input name="btnGuardarLineaDeInv" type="button" id="btnGuardarComentario" value="Guardar" class="ui-button ui-corner-all ui-widget">
 									          </span></td>
 								          </tr>									      
 									      <tr>

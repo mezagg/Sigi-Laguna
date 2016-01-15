@@ -118,7 +118,7 @@
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td colspan="2" align="center"><input type="button" value="Enviar Aviso" id="enviarAviso" class="btn_Generico"/></td>
+    <td colspan="2" align="center"><input type="button" value="Enviar Aviso" id="enviarAviso" class="ui-button ui-corner-all ui-widget"/></td>
     <td>&nbsp;</td>
   </tr>
   <tr>

@@ -102,7 +102,7 @@
 				      </tr>
 				      <tr>
 				      	<td>&nbsp;</td>
-				      	<td align="center"><input id="btnGuardar" type="button" value="Guardar" class="btn_Generico"/></td>
+				      	<td align="center"><input id="btnGuardar" type="button" value="Guardar" class="ui-button ui-corner-all ui-widget"/></td>
 				      </tr>
 					</table>	
 				</td>

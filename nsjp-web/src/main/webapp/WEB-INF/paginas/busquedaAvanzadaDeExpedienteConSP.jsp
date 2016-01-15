@@ -861,7 +861,7 @@
 	
 	  <tr>
 	    <td width="57%">&nbsp;</td>
-	    <td width="43%" align="right"><input type="button" name="buscarExpediente" value="Buscar" id="buscarExpediente" class="btn_Generico"/></td>
+	    <td width="43%" align="right"><input type="button" name="buscarExpediente" value="Buscar" id="buscarExpediente" class="ui-button ui-corner-all ui-widget"/></td>
 	  </tr>
 	  <tr>
 	    <td valign="top"><fieldset>

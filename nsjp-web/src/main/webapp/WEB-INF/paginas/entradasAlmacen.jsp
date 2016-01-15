@@ -194,7 +194,7 @@ function grid(){
 	</tr>
 	<tr>
 		<td align="left"><input type="text" id="numCarpetaPJ"></td>
-		<td align="right"><input type="button" value="Buscar" onclick="tipoBusqueda();" class="btn_Generico"></td>
+		<td align="right"><input type="button" value="Buscar" onclick="tipoBusqueda();" class="ui-button ui-corner-all ui-widget"></td>
 	</tr>
 </table>
 
@@ -209,7 +209,7 @@ function grid(){
 <div id="nabtabgrid" >
 <table id="tabgrid" align="center"></table>
 <div id="pagerGrid"></div>
-<input type="button" value="Registrar Entradas al Almac&eacute;n" onclick="lanzaRegistrarEntradasAlmacen()" class="btn_Generico">
+<input type="button" value="Registrar Entradas al Almac&eacute;n" onclick="lanzaRegistrarEntradasAlmacen()" class="ui-button ui-corner-all ui-widget">
 </div>
 
 

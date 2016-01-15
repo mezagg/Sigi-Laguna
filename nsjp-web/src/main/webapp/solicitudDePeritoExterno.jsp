@@ -194,7 +194,7 @@
 						</tr>
 						<tr>
 							<td colspan="2" align="right">
-								<input type="button" id="btnGuardar" value="Guardar" class="btn_Generico"/>
+								<input type="button" id="btnGuardar" value="Guardar" class="ui-button ui-corner-all ui-widget"/>
 							</td>
 						</tr>
 					</table>
@@ -219,7 +219,7 @@
 						</tr>
 						<tr>
 							<td colspan="2" align="right">
-								<input type="button" id="btnGuardar" value="Guardar" class="btn_Generico"/>
+								<input type="button" id="btnGuardar" value="Guardar" class="ui-button ui-corner-all ui-widget"/>
 							</td>
 						</tr>
 					</table>
@@ -279,7 +279,7 @@
 											</tr>
 											<tr>
 												<td colspan="2">
-													<input type="button" maxlength="50" id="btnAddPerito" value="Agregar Perito" class="btn_Generico"/>
+													<input type="button" maxlength="50" id="btnAddPerito" value="Agregar Perito" class="ui-button ui-corner-all ui-widget"/>
 												</td>
 											</tr>
 										</table>
@@ -300,7 +300,7 @@
 											</tr>
 											<tr>
 												<td colspan="2">
-													<input type="button" maxlength="50" id="btnAddPerito" value="Agregar Perito" class="btn_Generico"/>
+													<input type="button" maxlength="50" id="btnAddPerito" value="Agregar Perito" class="ui-button ui-corner-all ui-widget"/>
 												</td>
 											</tr>
 										</table>
@@ -334,7 +334,7 @@
 				  		</tr>
 				  		<tr>
 							<td colspan="2" align="right">
-								<input type="button" id="btnGuardar" value="Guardar" class="btn_Generico"/>
+								<input type="button" id="btnGuardar" value="Guardar" class="ui-button ui-corner-all ui-widget"/>
 							</td>
 						</tr>
 				  	</table>
@@ -344,7 +344,7 @@
 	</tr>
 	<tr>
 		<td align="center">
-			<input type="button" id="btnEnviarSolicitud" value="Enviar Solicitud" class="btn_Generico"/>
+			<input type="button" id="btnEnviarSolicitud" value="Enviar Solicitud" class="ui-button ui-corner-all ui-widget"/>
 		</td>
 	</tr>
 </table>

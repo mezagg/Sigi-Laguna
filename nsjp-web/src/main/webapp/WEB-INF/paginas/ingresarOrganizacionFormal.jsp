@@ -131,7 +131,7 @@
         </td>
       </tr>
       <tr>
-        <td height="35"><input id="btnIngOrgFormalDatosRep" type="button" value="Ingresar Representante Legal" class="btn_Generico"/></td>
+        <td height="35"><input id="btnIngOrgFormalDatosRep" type="button" value="Ingresar Representante Legal" class="ui-button ui-corner-all ui-widget"/></td>
         <td height="35" colspan="3">
         	<!-- <input id="txtIngOrgFormalDatosRep" title="Escribir Datos del Representante" type="text" size="55" maxlength="150"/> -->
         	&nbsp;

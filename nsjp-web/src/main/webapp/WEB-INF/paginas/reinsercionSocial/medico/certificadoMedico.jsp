@@ -266,11 +266,11 @@
 		</tr>
 			<tr>
 				<td align="right">
-					<input type="button" id="btn_modificar" value="Modificar" class="btn_Generico" onclick="modificarDatos('modificar');" />
-					<input type="button" id="btn_guardar" value="Guardar" class="btn_Generico" onclick="modificarDatos('guardar');" style="display: none;" />
+					<input type="button" id="btn_modificar" value="Modificar" class="ui-button ui-corner-all ui-widget" onclick="modificarDatos('modificar');" />
+					<input type="button" id="btn_guardar" value="Guardar" class="ui-button ui-corner-all ui-widget" onclick="modificarDatos('guardar');" style="display: none;" />
 				</td>
 				<td align="left">									
-					<input type="button" id="btn_cancelar" value="Cancelar" class="btn_Generico" onclick="modificarDatos('cancelar');" style="display: none;" />
+					<input type="button" id="btn_cancelar" value="Cancelar" class="ui-button ui-corner-all ui-widget" onclick="modificarDatos('cancelar');" style="display: none;" />
 				</td>
 			</tr>
 	</table>
@@ -296,7 +296,7 @@
 	<table border="0">
 		<tr>
 			<td>
-				<input type="button" name="finalizarSolicitud" id="finalizarSolicitud" value="Finalizar Solicitud" class="btn_Generico" onClick="actualizarEstatusSolicitud(<%=EstatusSolicitud.CERRADA.getValorId()%>);" />
+				<input type="button" name="finalizarSolicitud" id="finalizarSolicitud" value="Finalizar Solicitud" class="ui-button ui-corner-all ui-widget" onClick="actualizarEstatusSolicitud(<%=EstatusSolicitud.CERRADA.getValorId()%>);" />
 			</td>
 		</tr>
 	</table>

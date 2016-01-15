@@ -105,7 +105,7 @@
 	  <td align="center">&nbsp;</td>
 	</tr>
 	<tr>
-	  <td align="center"><input name="buscarAlias" id="buscarAlias" type="button" value="Buscar" size="30" class="btn_Generico"/></td>
+	  <td align="center"><input name="buscarAlias" id="buscarAlias" type="button" value="Buscar" size="30" class="ui-button ui-corner-all ui-widget"/></td>
 	</tr>
 	<tr>
 	  <td valign="middle" align="center">

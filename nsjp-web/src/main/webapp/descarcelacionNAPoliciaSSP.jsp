@@ -153,7 +153,7 @@
 						</tr>
 						<tr>
 							<td colspan="2" align="right">
-								<input type="button" id="btnGuardar" value="Guardar" class="btn_Generico"/>
+								<input type="button" id="btnGuardar" value="Guardar" class="ui-button ui-corner-all ui-widget"/>
 							</td>
 						</tr>
 					</table>
@@ -210,7 +210,7 @@
 						</tr>
 						<tr>
 							<td colspan="2" align="right">
-								<input type="button" id="btnGuardar" value="Enviar Solicitud" class="btn_Generico"/>
+								<input type="button" id="btnGuardar" value="Enviar Solicitud" class="ui-button ui-corner-all ui-widget"/>
 							</td>
 						</tr>
 					</table>
@@ -220,7 +220,7 @@
 				<div id="tabsconsultaprincipal-3">
 				
 					<jsp:include page="/WEB-INF/paginas/ingresarNarrativaView.jsp" flush="true"></jsp:include>
-					<input type="button" id="btnGuardar" value="Guardar" align="top" class="btn_Generico"/>
+					<input type="button" id="btnGuardar" value="Guardar" align="top" class="ui-button ui-corner-all ui-widget"/>
 					
 				</div>
 				<div id="tabsconsultaprincipal-4">
@@ -232,8 +232,8 @@
 						</tr>
 						<tr>
 							<td align="center">
-								<input type="button" id="btnGuardar" value="Guardar" class="btn_Generico"/>
-								<input type="button" id="btnGuardar" value="Enviar Solicitud" class="btn_Generico"/>
+								<input type="button" id="btnGuardar" value="Guardar" class="ui-button ui-corner-all ui-widget"/>
+								<input type="button" id="btnGuardar" value="Enviar Solicitud" class="ui-button ui-corner-all ui-widget"/>
 							</td>
 						</tr>
 					</table>

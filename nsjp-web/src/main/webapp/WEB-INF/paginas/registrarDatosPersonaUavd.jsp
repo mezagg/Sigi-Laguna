@@ -2314,9 +2314,9 @@ function muestraDivInformativoCanalizacion()
 							
 						</select></td>
 						<td>
-						<button value="Asignar a Agente MP" id="idAsignarAgenteMp" class="btn_Generico" onclick="asignarAgenteMP()">Asignar a Agente MP</button>
-						<button value="Asignar a Facilitador" id="idAsignarFacilitador" class="btn_Generico" onclick="asignarFacilitador()">Asignar a Facilitador</button>
-						<button value="Reasignar a Facilitador" id="idReasignarFacilitador" class="btn_Generico" onclick="asignarFacilitador()">Reasignar a Facilitador</button>						
+						<button value="Asignar a Agente MP" id="idAsignarAgenteMp" class="ui-button ui-corner-all ui-widget" onclick="asignarAgenteMP()">Asignar a Agente MP</button>
+						<button value="Asignar a Facilitador" id="idAsignarFacilitador" class="ui-button ui-corner-all ui-widget" onclick="asignarFacilitador()">Asignar a Facilitador</button>
+						<button value="Reasignar a Facilitador" id="idReasignarFacilitador" class="ui-button ui-corner-all ui-widget" onclick="asignarFacilitador()">Reasignar a Facilitador</button>						
 						</td>
 					</tr>
 					<tr id="trActuaciones">
@@ -2366,22 +2366,22 @@ function muestraDivInformativoCanalizacion()
 								<table>
 									<tr>
 										<td>
-												<button value="Adjuntar documento" id="btnReasignarUIEExpediente" class="btn_Generico" onclick="abreVentanaReasignarUIEExpediente()" style="display: none">Reasignar Unidad de Investigaci&oacute;n</button>
+												<button value="Adjuntar documento" id="btnReasignarUIEExpediente" class="ui-button ui-corner-all ui-widget" onclick="abreVentanaReasignarUIEExpediente()" style="display: none">Reasignar Unidad de Investigaci&oacute;n</button>
 										</td>
 									</tr>
 									<tr>
 										<td>
-												<!--<button value="Adjuntar documento" id="btnAdjuntarDocumento" class="btn_Generico" onclick="abreVentanaAdjuntarDocumentoAExpediente()" style="width: 100%;">Adjuntar documento</button>-->
+												<!--<button value="Adjuntar documento" id="btnAdjuntarDocumento" class="ui-button ui-corner-all ui-widget" onclick="abreVentanaAdjuntarDocumentoAExpediente()" style="width: 100%;">Adjuntar documento</button>-->
 										</td>
 									</tr>
 									<tr>
 										<td>
-												<!--  <button value="Elaborar teoria del caso" id="idTeoriaCaso" class="btn_Generico" onclick="abreTeoria()" style="width: 100%; ">Elaborar teor&iacute;a del caso</button>-->
+												<!--  <button value="Elaborar teoria del caso" id="idTeoriaCaso" class="ui-button ui-corner-all ui-widget" onclick="abreTeoria()" style="width: 100%; ">Elaborar teor&iacute;a del caso</button>-->
 										</td>
 									</tr>
 									<!-- <tr id="idbotoncarpeta" style="display: none;">
 										<td>
-											<button value="Enviar de Investigacion" class="btn_Generico" onclick="lanzaCarpetaInvestigacionDefensoria()">Enviar carpeta de investigaci&oacute;n</button>
+											<button value="Enviar de Investigacion" class="ui-button ui-corner-all ui-widget" onclick="lanzaCarpetaInvestigacionDefensoria()">Enviar carpeta de investigaci&oacute;n</button>
 										</td>
 									</tr> -->
 								</table>
@@ -2437,7 +2437,7 @@ function muestraDivInformativoCanalizacion()
 					<div style="width: 1042px; height: 490px;" class="back_hechos">
 						<table    border="0" cellspacing="0" cellpadding="0" id="tableHecho" class="back_hechos" style="padding: .5cm; " >
 							<tr valign="top">
-								<td valign="top"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="ingresarHechos" value="Ingreso Hecho" class="btn_Generico"/></td>
+								<td valign="top"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="ingresarHechos" value="Ingreso Hecho" class="ui-button ui-corner-all ui-widget"/></td>
 							</tr>
 						</table>
 					</div>
@@ -2582,7 +2582,7 @@ function muestraDivInformativoCanalizacion()
 				<div id="tabsconsultaprincipal-5">
 					<table width="25%" cellpadding="0" cellspacing="0" id="tablaNotasExpediente">
 							<tr>
-								<td>&nbsp;&nbsp;&nbsp;<input type="button" class="btn_Generico" value="Generar Nota"  id="botonGuardarNotas" onclick="notaExpediente(0);" /></td>
+								<td>&nbsp;&nbsp;&nbsp;<input type="button" class="ui-button ui-corner-all ui-widget" value="Generar Nota"  id="botonGuardarNotas" onclick="notaExpediente(0);" /></td>
 							</tr>
 					</table>
 				</div>

@@ -634,7 +634,7 @@
 			        <td colspan="4" align="center">&nbsp;</td>
 	           </tr>
 			      <tr>
-			        <td colspan="4" align="center"><input type="button"  class="btn_Generico" value="Buscar funcionario"  id="btnBuscarFuncionarios" /></td>
+			        <td colspan="4" align="center"><input type="button"  class="ui-button ui-corner-all ui-widget" value="Buscar funcionario"  id="btnBuscarFuncionarios" /></td>
 		           </tr>
 		        </table>
 	      <br>
@@ -663,7 +663,7 @@
 				      <select id="cbxNombresAMPVis"  name="unidadInvestigacion" style="width: 182px;">
 				        <option value="0">- Seleccione -</option>
 		            </select></td>
-				    <td width="22%"><input type="button"  class="btn_Generico" value="Asignar Auditor&iacute;a"  id="boton" /></td>
+				    <td width="22%"><input type="button"  class="ui-button ui-corner-all ui-widget" value="Asignar Auditor&iacute;a"  id="boton" /></td>
 			      </tr>
 			</table>				
 	</div>		

@@ -140,8 +140,8 @@
 <body>
 	<table border="0" cellspacing="0" cellpadding="0" align="center">
 	<tr>
-		<td align="right"><input class="back_button" type="button" id="botonSaldar" onclick="saldarMulta()" value="Saldar Multa">
-						  <input class="back_button" type="button" onclick="guardaMulta()" value="Guardar"> 
+		<td align="right"><input class="ui-button ui-corner-all ui-widget" type="button" id="botonSaldar" onclick="saldarMulta()" value="Saldar Multa">
+						  <input class="ui-button ui-corner-all ui-widget" type="button" onclick="guardaMulta()" value="Guardar"> 
 	  	</td>
 	</tr>
     <tr>

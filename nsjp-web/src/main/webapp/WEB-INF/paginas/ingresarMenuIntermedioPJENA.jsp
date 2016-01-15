@@ -203,7 +203,7 @@
 		function cargarMenu(){
 			$('#tblProbableResponsable').empty();
 			//$('#tblProbableResponsable').append('<tr><td class="noSub">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoProbResponsable">Ingreso nuevo</a></td></tr>');
-			$('#tblProbableResponsable').append('<tr><td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoProbResponsable" value="Ingreso nuevo" class="btn_Generico"/></td></tr>');
+			$('#tblProbableResponsable').append('<tr><td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoProbResponsable" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td></tr>');
 			$('#tblProbableResponsable').append('<tr><td class="noSub">&nbsp;&nbsp;&nbsp;<a id="consultarProbResponsableUno">Prob. Responsable Uno</a></td></tr>');
 			$.ajax({
 		    	  type: 'POST',
@@ -230,7 +230,7 @@
 		function cargarMenuVictima(){
 			$('#tblVictima').empty();
 			//$('#tblVictima').append('<tr><td class="noSub">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevaVictima">Ingreso nuevo</a></td></tr>');
-			$('#tblVictima').append('<tr><td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaVictima" value="Ingreso nuevo" class="btn_Generico"/></td></tr>');
+			$('#tblVictima').append('<tr><td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaVictima" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td></tr>');
 			$('#tblVictima').append('<tr><td class="noSub">&nbsp;&nbsp;&nbsp;<a id="consultaVictimaDos">Victima uno</a></td></tr>');
 			$.ajax({
 		    	  type: 'POST',
@@ -254,7 +254,7 @@
 //		function cargarMenuDenunciante(){
 //			$('#tblDenunciante').empty();
 //			//$('#tblDenunciante').append('<tr><td class="noSub">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="crearDenunciante">Ingreso nuevo</a></td></tr>');
-//			$('#tblDenunciante').append('<tr><td >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="crearDenunciante" value="Ingreso nuevo" class="btn_Generico"/></td></tr>');
+//			$('#tblDenunciante').append('<tr><td >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="crearDenunciante" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td></tr>');
 //			$('#tblDenunciante').append('<tr><td class="noSub">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="consultarDenuncianteUno">Denunciante uno</a></td></tr>');
 //			$.ajax({
 //		    	  type: 'POST',
@@ -277,7 +277,7 @@
 				//Carga el menu de denunciante con la consulta y un boton para agregar 
 		function cargarMenuDenunciante(){
 			$('#tblDenunciante').empty();
-			$('#tblDenunciante').append('<tr><td ><input type="button" id="crearDenunciante" value="Ingreso nuevo" class="btn_Generico"/></td></tr>');
+			$('#tblDenunciante').append('<tr><td ><input type="button" id="crearDenunciante" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td></tr>');
 			$('#tblDenunciante').append('<tr><td class="noSub">&nbsp;&nbsp;&nbsp;<a id="consultarDenuncianteUno">Denunciante uno</a></td></tr>');
 			$.ajax({
 		    	  type: 'POST',
@@ -301,7 +301,7 @@
 		function cargarMenuTestigo(){
 			$('#tblTestigo').empty();
 			//$('#tblTestigo').append('<tr><td class="noSub">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoTestigo">Ingreso nuevo</a></td></tr>');
-			$('#tblTestigo').append('<tr><td>&nbsp;&nbsp;<input type="button" id="nuevoTestigo" value="Ingreso nuevo" class="btn_Generico"/></td></tr>');
+			$('#tblTestigo').append('<tr><td>&nbsp;&nbsp;<input type="button" id="nuevoTestigo" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td></tr>');
 			$('#tblTestigo').append('<tr><td class="noSub">&nbsp;&nbsp;&nbsp;<a id="consultaTestigo">Testigo uno</a></td></tr>');
 			$.ajax({
 		    	  type: 'POST',
@@ -325,7 +325,7 @@
 		function cargarMenuTraductor(){
 			$('#tblTraductor').empty();
 			//$('#tblTraductor').append('<tr><td class="noSub">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoTraductor">Ingreso nuevo</a></td></tr>');
-			$('#tblTraductor').append('<tr><td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoTraductor" value="Ingreso nuevo" class="btn_Generico"/></td></tr>');
+			$('#tblTraductor').append('<tr><td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoTraductor" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td></tr>');
 			$('#tblTraductor').append('<tr><td class="noSub">&nbsp;&nbsp;&nbsp;<a id="consultarTraductorUno">Traductor uno</a></td></tr>');
 			$.ajax({
 		    	  type: 'POST',
@@ -348,7 +348,7 @@
 		function cargarMenuQuienDetuvo(){
 			$('#tblQuienDetuvo').empty();
 			//$('#tblQuienDetuvo').append('<tr><td class="noSub">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Ingreso nuevo</a></td></tr>');
-			$('#tblQuienDetuvo').append('<tr><td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoTraductor" value="Ingreso nuevo" class="btn_Generico"/></td></tr>');
+			$('#tblQuienDetuvo').append('<tr><td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoTraductor" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td></tr>');
 			$('#tblQuienDetuvo').append('<tr><td class="noSub">&nbsp;&nbsp;&nbsp;<a>Quien detuvo uno</a></td></tr>');
 			$.ajax({
 		    	  type: 'POST',
@@ -1108,7 +1108,7 @@ if(abrePenal=="abrPenal"){""
 				<div id="tabschild3-1">
 					<table width="25%" cellpadding="0" cellspacing="0">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="ingresarHechos" value="Ingreso Hecho" class="btn_Generico"/></td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="ingresarHechos" value="Ingreso Hecho" class="ui-button ui-corner-all ui-widget"/></td>
 						</tr>
 					</table>
 				</div>
@@ -1145,7 +1145,7 @@ if(abrePenal=="abrPenal"){""
 				<div id="tabschild4-1">
 					<table width="25%" cellpadding="0" cellspacing="0">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoEquipoDeComputo" value="Ingreso nuevo" class="btn_Generico"/></td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoEquipoDeComputo" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
 						</tr>
 						<tr>
 							<td class="noSub">&nbsp;&nbsp;&nbsp;<a>Equipo C&oacute;mputo 1</a></td>
@@ -1160,7 +1160,7 @@ if(abrePenal=="abrPenal"){""
 				<div id="tabschild4-2">
 					<table width="25%" cellpadding="0" cellspacing="0">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoEquipoTelefonico" value="Ingreso nuevo" class="btn_Generico"/></td>
+							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoEquipoTelefonico" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
 						</tr>
 						<tr>
 							<td class="noSub">&nbsp;&nbsp;&nbsp;<a>Equipo telef&oacute;nico 1</a></td>
@@ -1175,7 +1175,7 @@ if(abrePenal=="abrPenal"){""
 				<div id="tabschild4-3">
 					<table width="25%" cellpadding="0" cellspacing="0">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaArma" value="Ingreso nuevo" class="btn_Generico"/></td>
+							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaArma" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
 						</tr>
 						<tr>
 							<td class="noSub">&nbsp;&nbsp;&nbsp;<a>Arma 1</a></td>
@@ -1190,7 +1190,7 @@ if(abrePenal=="abrPenal"){""
 				<div id="tabschild4-4">
 					<table width="25%" cellpadding="0" cellspacing="0">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoExplosivo" value="Ingreso nuevo" class="btn_Generico"/></td>
+							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoExplosivo" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
 						</tr>
 						<tr>
 							<td class="noSub">&nbsp;&nbsp;&nbsp;<a>Explosivos 1</a></td>
@@ -1205,7 +1205,7 @@ if(abrePenal=="abrPenal"){""
 				<div id="tabschild4-5">
 					<table width="25%" cellpadding="0" cellspacing="0">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaSustancia" value="Ingreso nuevo" class="btn_Generico"/></td>
+							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaSustancia" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
 						</tr>
 						<tr>
 							<td class="noSub">&nbsp;&nbsp;&nbsp;<a>Sustancia 1</a></td>
@@ -1220,7 +1220,7 @@ if(abrePenal=="abrPenal"){""
 				<div id="tabschild4-6">
 					<table width="25%" cellpadding="0" cellspacing="0">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoAnimal" value="Ingreso nuevo" class="btn_Generico"/></td>
+							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoAnimal" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
 						</tr>
 						<tr>
 							<td class="noSub">&nbsp;&nbsp;&nbsp;<a>Animal 1</a></td>
@@ -1235,7 +1235,7 @@ if(abrePenal=="abrPenal"){""
 				<div id="tabschild4-7">
 					<table width="25%" cellpadding="0" cellspacing="0">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoVehiculo" value="Ingreso nuevo" class="btn_Generico"/></td>
+							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoVehiculo" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
 						</tr>
 						<tr>
 							<td class="noSub">&nbsp;&nbsp;&nbsp;<a>Veh&iacute;culo 1</a></td>
@@ -1250,7 +1250,7 @@ if(abrePenal=="abrPenal"){""
 				<div id="tabschild4-8">
 					<table width="25%" cellpadding="0" cellspacing="0">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaAeronave" value="Ingreso nuevo" class="btn_Generico"/></td>
+							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaAeronave" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
 						</tr>
 						<tr>
 							<td class="noSub">&nbsp;&nbsp;&nbsp;<a>Aeronave 1</a></td>
@@ -1265,7 +1265,7 @@ if(abrePenal=="abrPenal"){""
 				<div id="tabschild4-9">
 					<table width="25%" cellpadding="0" cellspacing="0">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaEmbarcacion" value="Ingreso nuevo" class="btn_Generico"/></td>
+							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaEmbarcacion" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
 						</tr>
 						<tr>
 							<td class="noSub">&nbsp;&nbsp;&nbsp;<a>Embarcaci&oacute;n 1</a></td>
@@ -1280,7 +1280,7 @@ if(abrePenal=="abrPenal"){""
 				<div id="tabschild4-11">
 					<table width="25%" cellpadding="0" cellspacing="0">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoNumerario" value="Ingreso nuevo" class="btn_Generico"/></td>
+							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoNumerario" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
 						</tr>
 						<tr>
 							<td class="noSub">&nbsp;&nbsp;&nbsp;<a>Numerario 1</a></td>
@@ -1295,7 +1295,7 @@ if(abrePenal=="abrPenal"){""
 				<div id="tabschild4-12">
 					<table width="25%" cellpadding="0" cellspacing="0">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoVegetal" value="Ingreso nuevo" class="btn_Generico"/></td>
+							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoVegetal" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
 						</tr>
 						<tr>
 							<td class="noSub">&nbsp;&nbsp;&nbsp;<a>Vegetal 1</a></td>
@@ -1310,7 +1310,7 @@ if(abrePenal=="abrPenal"){""
 				<div id="tabschild4-13">
 					<table width="25%" cellpadding="0" cellspacing="0">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoDocumentoOficial" value="Ingreso nuevo" class="btn_Generico"/></td>
+							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoDocumentoOficial" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
 						</tr>
 						<tr>
 							<td class="noSub">&nbsp;&nbsp;&nbsp;<a>Documento oficial 1</a></td>
@@ -1325,7 +1325,7 @@ if(abrePenal=="abrPenal"){""
 				<div id="tabschild4-14">
 					<table width="25%" cellpadding="0" cellspacing="0">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaJoya" value="Ingreso nuevo" class="btn_Generico"/></td>
+							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaJoya" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
 						</tr>
 						<tr>
 							<td class="noSub">&nbsp;&nbsp;&nbsp;<a>Joya 1</a></td>
@@ -1340,7 +1340,7 @@ if(abrePenal=="abrPenal"){""
 				<div id="tabschild4-15">
 					<table width="25%" cellpadding="0" cellspacing="0">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaObraDeArte" value="Ingreso nuevo" class="btn_Generico"/></td>
+							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaObraDeArte" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
 						</tr>
 						<tr>
 							<td class="noSub">&nbsp;&nbsp;&nbsp;<a>Obra de arte 1</a></td>
@@ -1569,13 +1569,13 @@ if(abrePenal=="abrPenal"){""
 			  </tr>
 			  <tr>
 			    <td align="left">
-			    	<input type="button" name="btnAccDenuncia" id="btnAccDenuncia" value="Denuncia" onclick="generarDocumentoSinCaso();" class="btn_Generico"/>
+			    	<input type="button" name="btnAccDenuncia" id="btnAccDenuncia" value="Denuncia" onclick="generarDocumentoSinCaso();" class="ui-button ui-corner-all ui-widget"/>
 			    </td>
 			    <td>&nbsp;</td>
 			  </tr>
 			  <tr>
 			    <td align="left">
-					<input type="button" name="btnAccCapturarEntrevista" id="CapturarEntrevista" value="CapturarEntrevista" class="btn_Generico"/>
+					<input type="button" name="btnAccCapturarEntrevista" id="CapturarEntrevista" value="CapturarEntrevista" class="ui-button ui-corner-all ui-widget"/>
 			   	</td>
 			    <td>&nbsp;</td>
 			  </tr>
@@ -1596,7 +1596,7 @@ if(abrePenal=="abrPenal"){""
 			    <td>&nbsp;</td>
 			  </tr>
 			  <tr>
-			    <td><input type="button" value="Canalizar a Justicia &#10; restaurativa" id="btnCanalizaAJR" class="btn_Generico"/></td>
+			    <td><input type="button" value="Canalizar a Justicia &#10; restaurativa" id="btnCanalizaAJR" class="ui-button ui-corner-all ui-widget"/></td>
 			    <td>&nbsp;</td>
 			  </tr>
 			  <tr>
@@ -1619,7 +1619,7 @@ if(abrePenal=="abrPenal"){""
 			    			</td>
 			    		</tr>
 			    		<tr>
-				    		<td colspan="2"><input type="button" id="btnGenerarAcciones" value="Generar" class="btn_Generico"/></td>
+				    		<td colspan="2"><input type="button" id="btnGenerarAcciones" value="Generar" class="ui-button ui-corner-all ui-widget"/></td>
 			    		</tr>
 			    	</table>
 			    </td>
@@ -1659,44 +1659,44 @@ if(abrePenal=="abrPenal"){""
 			  </tr>
 			  <tr>
 			    <td align="left">
-			    	<input type="button" name="btnAccDenuncia" id="btnAccDenuncia" value="Denuncia" onclick="generarDocumentoSinCaso();" class="btn_Generico"/>
+			    	<input type="button" name="btnAccDenuncia" id="btnAccDenuncia" value="Denuncia" onclick="generarDocumentoSinCaso();" class="ui-button ui-corner-all ui-widget"/>
 			    </td>
 			    <td></td>
 			  </tr>
 			   <tr>
 			    <td align="left">
-			    	<input type="button" name="btnAccDenuncia" id="btnAccDenuncia" value="Oficio de Cumplimiento de Acuerdo" class="btn_Generico"/>
+			    	<input type="button" name="btnAccDenuncia" id="btnAccDenuncia" value="Oficio de Cumplimiento de Acuerdo" class="ui-button ui-corner-all ui-widget"/>
 			    </td>
 			    <td></td>
 			  </tr>
 			   <tr>
 			    <td align="left">
-			    	<input type="button" name="btnAccDenuncia" id="btnAccDenuncia" value="Convenio de Justicia Alternativa" class="btn_Generico"/>
+			    	<input type="button" name="btnAccDenuncia" id="btnAccDenuncia" value="Convenio de Justicia Alternativa" class="ui-button ui-corner-all ui-widget"/>
 			    </td>
 			    <td></td>
 			  </tr>
 			  <tr>
 			    <td align="left">
-			    	</br><input type="button" name="btnAccDenuncia" id="btnTestigo" value="Testimonio" class="btn_Generico"/>
+			    	</br><input type="button" name="btnAccDenuncia" id="btnTestigo" value="Testimonio" class="ui-button ui-corner-all ui-widget"/>
 			    </td>
 			    <td></td>
 			  </tr>
 			  
 			  <tr>
 			    <td align="left">
-			    	</br> <input type="button" name="btnAccDenuncia" id="btnDeclaraciones" value="Declaraciones" class="btn_Generico"/>
+			    	</br> <input type="button" name="btnAccDenuncia" id="btnDeclaraciones" value="Declaraciones" class="ui-button ui-corner-all ui-widget"/>
 			    </td>
 			    <td></td>
 			  </tr>
 			   <tr>
 			    <td align="left">
-			    	</br><input type="button" name="btnAccDenuncia" id="btnRecurso" value="Recursos" class="btn_Generico"/>
+			    	</br><input type="button" name="btnAccDenuncia" id="btnRecurso" value="Recursos" class="ui-button ui-corner-all ui-widget"/>
 			    </td>
 			    <td></td>
 			  </tr>
 			  <tr>
 			    <td align="left">
-					<!--<input type="button" name="btnAccCapturarEntrevista" id="CapturarEntrevista" value="CapturarEntrevista" class="btn_Generico"/>-->
+					<!--<input type="button" name="btnAccCapturarEntrevista" id="CapturarEntrevista" value="CapturarEntrevista" class="ui-button ui-corner-all ui-widget"/>-->
 			   	</td>
 			    <td>&nbsp;</td>
 			  </tr><!--
@@ -1717,7 +1717,7 @@ if(abrePenal=="abrPenal"){""
 			    <td>&nbsp;</td>
 			  </tr>
 			  <tr>
-			    <td><input type="button" value="Canalizar a Justicia &#10; restaurativa" id="btnCanalizaAJR" class="btn_Generico"/></td>
+			    <td><input type="button" value="Canalizar a Justicia &#10; restaurativa" id="btnCanalizaAJR" class="ui-button ui-corner-all ui-widget"/></td>
 			    <td>&nbsp;</td>
 			  </tr>
 			  <tr>
@@ -1740,7 +1740,7 @@ if(abrePenal=="abrPenal"){""
 			    			</td>
 			    		</tr>
 			    		<tr>
-				    		<td colspan="2"><input type="button" id="btnGenerarAcciones" value="Generar" class="btn_Generico"/></td>
+				    		<td colspan="2"><input type="button" id="btnGenerarAcciones" value="Generar" class="ui-button ui-corner-all ui-widget"/></td>
 			    		</tr>
 			    	</table>
 			    </td>
@@ -1766,46 +1766,46 @@ if(abrePenal=="abrPenal"){""
 			    <td align="left">
 			    	
 			    </td>
-			    <td><input type="button" name="btnAccDenuncia" id="btnAcc" value="Audio y Video" class="btn_Generico"/></td>
+			    <td><input type="button" name="btnAccDenuncia" id="btnAcc" value="Audio y Video" class="ui-button ui-corner-all ui-widget"/></td>
 			  </tr>
 			  <tr>
 			    <td align="left">
 			    	
 			    </td>
-			    <td></br><input type="button" name="btnAccDenuncia" id="btnTestigo" value="Audiencia" class="btn_Generico"/></td>
+			    <td></br><input type="button" name="btnAccDenuncia" id="btnTestigo" value="Audiencia" class="ui-button ui-corner-all ui-widget"/></td>
 			  </tr>
 			  
 			  <tr>
 			    <td align="left">
 			    	
 			    </td>
-			    <td></br> <input type="button" name="btnAccDenuncia" id="btnDeclaraciones" value="Ayuda a Unidad de Atenci&oacute;n a V&iacute;ctimas del Delito " class="btn_Generico"/></td>
+			    <td></br> <input type="button" name="btnAccDenuncia" id="btnDeclaraciones" value="Ayuda a Unidad de Atenci&oacute;n a V&iacute;ctimas del Delito " class="ui-button ui-corner-all ui-widget"/></td>
 			  </tr>
 			   <tr>
 			    <td align="left">
 			    	
 			    </td>
-			    <td></br><input type="button" name="btnAccDenuncia" id="btnRecurso" value="Transcripcion de Audiencia" class="btn_Generico"/></td>
+			    <td></br><input type="button" name="btnAccDenuncia" id="btnRecurso" value="Transcripcion de Audiencia" class="ui-button ui-corner-all ui-widget"/></td>
 			  </tr>
 			  <tr>
 			    <td align="left">
 			    	
 			    </td>
-			    <td></br><input type="button" name="btnAccDenuncia" id="btnRecurso" value="Servicios Periciales" class="btn_Generico"/></td>
-			  </tr>
-			 
-			  <tr>
-			    <td align="left">
-			    	
-			    </td>
-			    <td></br><input type="button" name="btnAccDenuncia" id="btnRecurso" value="Investigaci&oacute;n Ministerial " class="btn_Generico"/></td>
+			    <td></br><input type="button" name="btnAccDenuncia" id="btnRecurso" value="Servicios Periciales" class="ui-button ui-corner-all ui-widget"/></td>
 			  </tr>
 			 
 			  <tr>
 			    <td align="left">
 			    	
 			    </td>
-			    <td></br><input type="button" name="btnAccDenuncia" id="btnRecurso" value="Apoyo Pericial" class="btn_Generico"/></td>
+			    <td></br><input type="button" name="btnAccDenuncia" id="btnRecurso" value="Investigaci&oacute;n Ministerial " class="ui-button ui-corner-all ui-widget"/></td>
+			  </tr>
+			 
+			  <tr>
+			    <td align="left">
+			    	
+			    </td>
+			    <td></br><input type="button" name="btnAccDenuncia" id="btnRecurso" value="Apoyo Pericial" class="ui-button ui-corner-all ui-widget"/></td>
 			  </tr>
 			</table>
 					

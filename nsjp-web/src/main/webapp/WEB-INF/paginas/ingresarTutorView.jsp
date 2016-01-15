@@ -442,8 +442,8 @@
 							<table width="100%" >
 								<tr valign="top">
 									<td align="center">
-										<input type="button" value="Guardar" id="iTutorBtnGuardar" class="btn_Generico"/>
-										<input type="button" value="Modificar Datos" id="iTutorBtnModificarDatos" class="btn_Generico"/>
+										<input type="button" value="Guardar" id="iTutorBtnGuardar" class="ui-button ui-corner-all ui-widget"/>
+										<input type="button" value="Modificar Datos" id="iTutorBtnModificarDatos" class="ui-button ui-corner-all ui-widget"/>
 									</td>
 								</tr>
 							</table>

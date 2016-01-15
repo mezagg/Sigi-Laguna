@@ -340,10 +340,10 @@ var formaId;
 							</tr>
 							<tr>
 								<td align="right">
-									<input type="button" value="Registrar" id="registroDetenido" class="btn_Generico"/>
+									<input type="button" value="Registrar" id="registroDetenido" class="ui-button ui-corner-all ui-widget"/>
 								</td>
 								<td>
-									<input type="button" value="Elaborar hoja de ingreso" id="elaborarHojaIngreso" class="btn_Generico"/>
+									<input type="button" value="Elaborar hoja de ingreso" id="elaborarHojaIngreso" class="ui-button ui-corner-all ui-widget"/>
 								</td>
 							</tr>
 							<tr>

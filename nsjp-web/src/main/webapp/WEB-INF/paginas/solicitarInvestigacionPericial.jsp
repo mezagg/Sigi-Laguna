@@ -366,9 +366,9 @@ El sistema muestra el visor de elementos con las siguientes secciones de la pant
 	</tr>
 	<tr>
 		<td align="center" colspan="5">
-			<input type="button" id="btnGuardar" value="Guardar" class="btn_Generico"/>
+			<input type="button" id="btnGuardar" value="Guardar" class="ui-button ui-corner-all ui-widget"/>
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<input type="button" id="btnEnviarSolicitud" value="Enviar Solicitud" class="btn_Generico"/>
+			<input type="button" id="btnEnviarSolicitud" value="Enviar Solicitud" class="ui-button ui-corner-all ui-widget"/>
 		</td>
 	</tr>
 </table>

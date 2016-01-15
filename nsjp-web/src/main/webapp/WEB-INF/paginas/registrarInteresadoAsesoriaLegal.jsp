@@ -867,7 +867,7 @@
 			</td>
  -->			<td>
  <!-- 				 @deprecated -->
-<!-- 				 <input type="button" class="btn_Generico" value="Generar Acta" id="generarActa" /> --> 
+<!-- 				 <input type="button" class="ui-button ui-corner-all ui-widget" value="Generar Acta" id="generarActa" /> --> 
 				 <input type="button" class="btn_guardar" value="Guardar" id="btnGuardar" />
 				 <input type="button" class="btn_modificar" value="Modificar" id="btnModificar" />
 			</td>
@@ -927,7 +927,7 @@
 					<td valign="top">
 						<table width="100%" border="0">
 							<tr>
-								<td colspan="2" align="center" class="btn_Generico">Informaci&oacute;n del Defensor</td>
+								<td colspan="2" align="center" class="ui-button ui-corner-all ui-widget">Informaci&oacute;n del Defensor</td>
 							</tr>
 							<tr>
 								<td width="35%">Correo Electr&oacute;nico:</td>
@@ -948,8 +948,8 @@
 				</tr>
 				<tr>
 					<td width="50%" align="center">
-						<input type="button" id="asignarDefensor" value="Seleccionar abogado para asesoria" onClick="designarAbogadoDefensorCoordinador()" class="btn_Generico"/>
-						<input type="button" id="reasignarDefensor" value="Seleccionar abogado a reasignar" onClick="reasignarAbogadoDefensor()" class="btn_Generico" style="display:none"/>
+						<input type="button" id="asignarDefensor" value="Seleccionar abogado para asesoria" onClick="designarAbogadoDefensorCoordinador()" class="ui-button ui-corner-all ui-widget"/>
+						<input type="button" id="reasignarDefensor" value="Seleccionar abogado a reasignar" onClick="reasignarAbogadoDefensor()" class="ui-button ui-corner-all ui-widget" style="display:none"/>
 					</td>
 					<td>
 					</td>

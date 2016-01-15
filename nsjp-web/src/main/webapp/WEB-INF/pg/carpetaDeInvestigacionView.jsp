@@ -1027,7 +1027,7 @@
 						<tr><td>&nbsp;</td></tr>
 						<tr>
 							<td align="center">
-								<input id="btnAsignar" class="btn_Generico" type="button" value="Autoasignar Expedientes" onclick="asignarExps();">
+								<input id="btnAsignar" class="ui-button ui-corner-all ui-widget" type="button" value="Autoasignar Expedientes" onclick="asignarExps();">
 							</td>
 						</tr>
 					</table>

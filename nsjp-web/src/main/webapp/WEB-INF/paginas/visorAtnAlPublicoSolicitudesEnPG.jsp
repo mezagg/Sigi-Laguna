@@ -575,7 +575,7 @@
 			      	<td align="right">
 			      	</td>
 			      	<td align="right">
-			      		<input type="button" id="btnSolTranscripcion" value="Solicitar Transcripci&oacute;n" onclick="enviaTranscripcion();" class="btn_Generico"/>
+			      		<input type="button" id="btnSolTranscripcion" value="Solicitar Transcripci&oacute;n" onclick="enviaTranscripcion();" class="ui-button ui-corner-all ui-widget"/>
 			      	</td>
 			      </tr>
 				 <tr>

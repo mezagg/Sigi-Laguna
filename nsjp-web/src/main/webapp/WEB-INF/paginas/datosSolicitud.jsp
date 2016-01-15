@@ -136,7 +136,7 @@
    <tr >
     <td width="203"  colspan="2">
     <center>
-    <input type="button" value="Guardar" id="iBtnGuardar" class="btn_Generico"/></td>
+    <input type="button" value="Guardar" id="iBtnGuardar" class="ui-button ui-corner-all ui-widget"/></td>
   </center>
     
   </tr>

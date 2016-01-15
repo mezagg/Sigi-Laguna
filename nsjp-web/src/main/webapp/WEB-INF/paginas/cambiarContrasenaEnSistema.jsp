@@ -240,10 +240,10 @@ function isContraseniaUpdate(theElement){
 	</tr>
 	<tr>
 		<td width="50%" align="center"><input type="button"
-			value="Modificar" id="btnModifcarPassword" class="btn_Generico"
+			value="Modificar" id="btnModifcarPassword" class="ui-button ui-corner-all ui-widget"
 			onclick="validaCamposUpdatePwd()" /></td>
 		<td width="50%" align="center"><input type="button"
-			value="Cancelar" id="btnCancelaModifcarPassword" class="btn_Generico"
+			value="Cancelar" id="btnCancelaModifcarPassword" class="ui-button ui-corner-all ui-widget"
 			onclick="cancelarUpdatePwd()" /></td>
 	</tr>
 </table>

@@ -903,7 +903,7 @@ DD P {
 			<td>
 				<table id="iTestigoViewHeader" width="100%" border="0">
 					<tr>
-						<td><input type="button" class="btn_Generico"
+						<td><input type="button" class="ui-button ui-corner-all ui-widget"
 							id="anularInvolucrado" value="Anular Involucrado"></td>
 					</tr>
 				</table>
@@ -981,8 +981,8 @@ DD P {
 								<tr valign="top">
 									<td align="center"><input type="button"
 										value="Modificar Datos" id="iTestigoBtnModificarDatos"
-										class="btn_Generico" /> <input type="button" value="Guardar"
-										id="iTestigoBtnGuardar" class="btn_Generico" /></td>
+										class="ui-button ui-corner-all ui-widget" /> <input type="button" value="Guardar"
+										id="iTestigoBtnGuardar" class="ui-button ui-corner-all ui-widget" /></td>
 								</tr>
 							</table>
 						</td>

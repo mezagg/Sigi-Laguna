@@ -139,7 +139,7 @@
 		</html:form>
 		</td>
 		<td>
-			<input type="button" id="agregarValorAlCatalogo" value="Agregar nuevo valor al Cat&aacute;logo" onclick="agregarValorCatalogo()" class="btn_Generico"/>
+			<input type="button" id="agregarValorAlCatalogo" value="Agregar nuevo valor al Cat&aacute;logo" onclick="agregarValorCatalogo()" class="ui-button ui-corner-all ui-widget"/>
 		</td>
 	</tr>
 	</table>

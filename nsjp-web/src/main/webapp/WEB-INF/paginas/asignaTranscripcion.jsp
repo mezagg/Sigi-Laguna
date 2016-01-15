@@ -188,7 +188,7 @@ function grid2(){
   </tr>
 </table>
 
-<input type="button" value="Marcar Audiencia" onclick="marcaAudiencia()" class="btn_Generico">
+<input type="button" value="Marcar Audiencia" onclick="marcaAudiencia()" class="ui-button ui-corner-all ui-widget">
 
 
 <div id="nabtabgrid2" style="display: none;"> <table id="tabgrid2" align="center" ></table></div>

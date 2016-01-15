@@ -166,7 +166,7 @@
                 </tr>
                 <tr>
 
-                    <td  colspan="2" align="right"><input type="button" value="Enviar" onclick="enviaCarpeta()" class="btn_Generico"/>
+                    <td  colspan="2" align="right"><input type="button" value="Enviar" onclick="enviaCarpeta()" class="ui-button ui-corner-all ui-widget"/>
                     </td>
                 </tr>
                 <tr>

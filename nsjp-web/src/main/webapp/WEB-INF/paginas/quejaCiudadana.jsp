@@ -208,7 +208,7 @@
 <body>
 	<table width="100%">
 	<tr>
-	<td align="right""><input class="back_button" type="button" onclick="guardaQejaCiudadana()" value="Guardar"> </td>
+	<td align="right""><input class="ui-button ui-corner-all ui-widget" type="button" onclick="guardaQejaCiudadana()" value="Guardar"> </td>
 	</tr>
 		<tr>
 			<td>

@@ -103,7 +103,7 @@
 						      	</tr>
 						      	<tr>
 						      		<td align="center">
-						      			<input type="button" value="Solicitar abogado externo" class="btn_Generico"/>
+						      			<input type="button" value="Solicitar abogado externo" class="ui-button ui-corner-all ui-widget"/>
 						      		</td>
 						      	</tr>
 						     </table>
@@ -137,7 +137,7 @@
 						      	</tr>
 						      	<tr>
 						      		<td colspan="2" align="center">
-						      			<input type="button" value="Consultar Agenda" class="btn_Generico"/>
+						      			<input type="button" value="Consultar Agenda" class="ui-button ui-corner-all ui-widget"/>
 						      		</td>
 						     	</tr>
 						     </table>
@@ -157,7 +157,7 @@
 				<table width="100%" height="100%" border="0">
 			     	<tr align="center">
 			     		<td align="center"">
-			     			<input type="button" value="Enviar Notificaci&oacute;n" class="btn_Generico"/>
+			     			<input type="button" value="Enviar Notificaci&oacute;n" class="ui-button ui-corner-all ui-widget"/>
 			     		</td>
 			     	</tr>
 			     </table>

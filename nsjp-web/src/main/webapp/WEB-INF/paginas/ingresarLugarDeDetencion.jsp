@@ -116,7 +116,7 @@
 </div>    	
 		<table width="762px" height="313px" border="0" cellspacing="0" cellpadding="0">
 			<tr>
-				<td><input type="button" id="btnGuardarDomicilioDetencion" value="Guardar" class="back_button"></td>
+				<td><input type="button" id="btnGuardarDomicilioDetencion" value="Guardar" class="ui-button ui-corner-all ui-widget"></td>
 			</tr>
 			<tr>
 				<td>

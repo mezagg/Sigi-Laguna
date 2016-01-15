@@ -76,10 +76,10 @@
 				<table border="0" cellspacing="0" cellpadding="0" width="295">
 					<tr>
 						<td align="center">
-							<input type="button" value="Asignar" id="btnAsignar" class="btn_Generico"/>
+							<input type="button" value="Asignar" id="btnAsignar" class="ui-button ui-corner-all ui-widget"/>
 						</td>
 						<td align="center">
-							<input type="button" value="Cancelar" id="btnCancelar" class="btn_Generico"/>
+							<input type="button" value="Cancelar" id="btnCancelar" class="ui-button ui-corner-all ui-widget"/>
 						</td>
 					</tr>
 				</table>

@@ -285,7 +285,7 @@
 				        </tr>
 				  		<tr>
 							<td align="left">
-								<input type="button" id="btnEnviarSolicitud" value="Enviar Solicitud" class="btn_Generico"/>
+								<input type="button" id="btnEnviarSolicitud" value="Enviar Solicitud" class="ui-button ui-corner-all ui-widget"/>
 							</td>
 						</tr>
 				  	</table>

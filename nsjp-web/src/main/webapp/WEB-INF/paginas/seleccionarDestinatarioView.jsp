@@ -413,7 +413,7 @@
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td width="8%"><input type="button" id="para" value="Para:" class="btn_Generico"/>
+    <td width="8%"><input type="button" id="para" value="Para:" class="ui-button ui-corner-all ui-widget"/>
     &nbsp;</td>
     <td colspan="2"><table id="destinatariosAgregados" border="1" width="90%"><tr><td>&nbsp;</td></tr>
     </table></td>
@@ -424,7 +424,7 @@
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td colspan="3"><input type="button" id="adjuntarOficio" value="Adjuntar Oficio:" class="btn_Generico"/></td>
+    <td colspan="3"><input type="button" id="adjuntarOficio" value="Adjuntar Oficio:" class="ui-button ui-corner-all ui-widget"/></td>
   </tr>
   <tr>
     <td>&nbsp;</td>
@@ -433,7 +433,7 @@
   <tr>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-    <td width="44%" align="right"><input type="button" id="enviarDoc" value="Enviar" class="btn_Generico"/></td>
+    <td width="44%" align="right"><input type="button" id="enviarDoc" value="Enviar" class="ui-button ui-corner-all ui-widget"/></td>
     <td width="44%">&nbsp;</td>
   </tr>
 </table>

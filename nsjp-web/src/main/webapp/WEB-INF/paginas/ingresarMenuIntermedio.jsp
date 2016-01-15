@@ -2424,7 +2424,7 @@
 		function cargarMenu(){
 			$('#tblProbableResponsable').empty();
 			//$('#tblProbableResponsable').append('<tr><td class="noSub">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoProbResponsable">Ingreso nuevo</a></td></tr>');
-			$('#tblProbableResponsable').append('<tr><td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoProbResponsable" value="Ingreso nuevo" class="btn_Generico"/></td></tr>');
+			$('#tblProbableResponsable').append('<tr><td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoProbResponsable" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td></tr>');
 			$('#tblProbableResponsable').append('<tr><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a id="consultarProbResponsableUno">Prob. Responsable Uno</a></td></tr>');
 			$.ajax({
 		    	  type: 'POST',
@@ -2505,7 +2505,7 @@
 		function cargarMenuVictima(){
 			$('#tblVictima').empty();
 			//$('#tblVictima').append('<tr><td class="noSub">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevaVictima">Ingreso nuevo</a></td></tr>');
-			$('#tblVictima').append('<tr><td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaVictima" value="Ingreso nuevo" class="btn_Generico"/></td></tr>');
+			$('#tblVictima').append('<tr><td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaVictima" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td></tr>');
 			$('#tblVictima').append('<tr><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a id="consultaVictimaDos">Victima uno</a></td></tr>');
 			$.ajax({
 		    	  type: 'POST',
@@ -2700,7 +2700,7 @@
 		//Carga el menu de denunciante con la consulta y un boton para agregar 
 		function cargarMenuDenunciante(){
 			$('#tblDenunciante').empty();
-			$('#tblDenunciante').append('<tr><td ><input type="button" id="crearDenunciante" value="Ingreso nuevo" class="btn_Generico"/></td></tr>');
+			$('#tblDenunciante').append('<tr><td ><input type="button" id="crearDenunciante" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td></tr>');
 			$.ajax({
 		    	  type: 'POST',
 		    	  url:  '<%= request.getContextPath()%>/ObtenerListaIndividuos.do',
@@ -2763,7 +2763,7 @@
 		function cargarMenuTestigo(){
 			$('#tblTestigo').empty();
 			//$('#tblTestigo').append('<tr><td class="noSub">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoTestigo">Ingreso nuevo</a></td></tr>');
-			$('#tblTestigo').append('<tr><td>&nbsp;&nbsp;<input type="button" id="nuevoTestigo" value="Ingreso nuevo" class="btn_Generico"/></td></tr>');
+			$('#tblTestigo').append('<tr><td>&nbsp;&nbsp;<input type="button" id="nuevoTestigo" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td></tr>');
 			$('#tblTestigo').append('<tr><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a id="consultaTestigo">Testigo uno</a></td></tr>');
 			$.ajax({
 		    	  type: 'POST',
@@ -2811,7 +2811,7 @@
 		function cargarMenuTraductor(){
 			$('#tblTraductor').empty();
 			//$('#tblTraductor').append('<tr><td class="noSub">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoTraductor">Ingreso nuevo</a></td></tr>');
-			$('#tblTraductor').append('<tr><td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoTraductor" value="Ingreso nuevo" class="btn_Generico"/></td></tr>');
+			$('#tblTraductor').append('<tr><td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoTraductor" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td></tr>');
 			$('#tblTraductor').append('<tr><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a id="consultarTraductorUno">Traductor uno</a></td></tr>');
 			$.ajax({
 		    	  type: 'POST',
@@ -2846,7 +2846,7 @@
 		function cargarMenuQuienDetuvo(){
 			$('#tblQuienDetuvo').empty();
 			//$('#tblQuienDetuvo').append('<tr><td class="noSub">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Ingreso nuevo</a></td></tr>');
-			$('#tblQuienDetuvo').append('<tr><td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoTraductor" value="Ingreso nuevo" class="btn_Generico"/></td></tr>');
+			$('#tblQuienDetuvo').append('<tr><td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoTraductor" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td></tr>');
 			$('#tblQuienDetuvo').append('<tr><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a>Quien detuvo uno</a></td></tr>');
 			$.ajax({
 		    	  type: 'POST',
@@ -5410,7 +5410,7 @@
 					<div style="width: 1042px; height: 490px;" class="back_hechos">
 						<table width="25%" cellpadding="0" cellspacing="0" id="tblDenunciante" style=" padding: .5cm;">
 							<tr  vAlign="Top" >
-								<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="crearDenunciante"><input type="button" class="btn_Generico" value="Ingresar Denunciante"/></a></td>
+								<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="crearDenunciante"><input type="button" class="ui-button ui-corner-all ui-widget" value="Ingresar Denunciante"/></a></td>
 							</tr>
 						</table>
 					</div>
@@ -5419,7 +5419,7 @@
 					<div style="width: 1042px; height: 490px;" class="back_hechos">
 						<table width="25%" cellpadding="0" cellspacing="0" id="tblVictima" style="padding: .5cm;">
 							<tr>
-								<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevaVictima"><input type="button" class="btn_Generico" value="Ingresar Víctima"/></a></td>
+								<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevaVictima"><input type="button" class="ui-button ui-corner-all ui-widget" value="Ingresar Víctima"/></a></td>
 							</tr>
 						</table>
 					</div>
@@ -5428,7 +5428,7 @@
 					<div style="width: 1042px; height: 490px;" class="back_hechos">
 						<table width="25%" cellpadding="0" cellspacing="0" id="tblProbableResponsable" style="padding: .5cm;">
 							<tr>
-								<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoProbResponsable"><input type="button" class="btn_Generico" id="btnNuevoProbResponsable" value=""/></a></td>
+								<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoProbResponsable"><input type="button" class="ui-button ui-corner-all ui-widget" id="btnNuevoProbResponsable" value=""/></a></td>
 							</tr>
 						</table>
 					</div>
@@ -5437,7 +5437,7 @@
 					<div style="width: 1042px; height: 490px;" class="back_hechos">
 						<table width="25%" cellpadding="0" cellspacing="0" id="tblTestigo" style="padding: .5cm;">
 							<tr>
-								<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoTestigo"><input type="button" class="btn_Generico" value="Ingresar Testigo"/></a></td>
+								<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoTestigo"><input type="button" class="ui-button ui-corner-all ui-widget" value="Ingresar Testigo"/></a></td>
 							</tr>
 						</table>
 					</div>
@@ -5446,7 +5446,7 @@
 					<div style="width: 1042px; height: 490px;" class="back_hechos">
 						<table width="25%" cellpadding="0" cellspacing="0" id="tblTraductor" style="padding: .5cm;">
 							<tr>
-								<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoTraductor"><input type="button" class="btn_Generico" value="Ingresar Traductor"/></a></td>
+								<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoTraductor"><input type="button" class="ui-button ui-corner-all ui-widget" value="Ingresar Traductor"/></a></td>
 							</tr>
 						</table>
 					</div>
@@ -5455,7 +5455,7 @@
 					<div style="width: 1042px; height: 490px;" class="back_hechos" style="padding: .5cm;">
 						<table width="25%" cellpadding="0" cellspacing="0" id="tblQuienDetuvo">
 							<tr>
-								<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="quienDetuvo"><input type="button" class="btn_Generico" value="Ingresar Quién Detuvo"/></a></td>
+								<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="quienDetuvo"><input type="button" class="ui-button ui-corner-all ui-widget" value="Ingresar Quién Detuvo"/></a></td>
 							</tr>
 						</table>
 					</div>	
@@ -5534,7 +5534,7 @@
 					<div style="width: 1042px; height: 490px;" class="back_hechos">
 						<table    border="0" cellspacing="0" cellpadding="0" id="tableHecho" class="back_hechos" style="padding: .5cm; " >
 							<tr valign="top">
-								<td valign="top"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="ingresarHechos" value="Ingreso Hecho" class="btn_Generico"/></td>
+								<td valign="top"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="ingresarHechos" value="Ingreso Hecho" class="ui-button ui-corner-all ui-widget"/></td>
 							</tr>
 						</table>
 					</div>
@@ -5571,7 +5571,7 @@
 				<div id="tabschild4-1">
 					<table width="25%" cellpadding="0" cellspacing="0" id="tblEquipoComputo">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoEquipoDeComputo" class="btn_Generico" value="Ingreso nuevo"/></td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoEquipoDeComputo" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 						</tr>
 					</table>
 					<table id="gridObjsEquipoComputo"></table>
@@ -5582,7 +5582,7 @@
 				<div id="tabschild4-2">
 					<table width="25%" cellpadding="0" cellspacing="0" id="tblEquipoTelefonico">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoEquipoTelefonico" class="btn_Generico" value="Ingreso nuevo"/></td>
+							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoEquipoTelefonico" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 						</tr>
 					</table>
 					<table id="gridObjsEquipoTelefonico" width="600px"></table>
@@ -5593,7 +5593,7 @@
 				<div id="tabschild4-3">
 					<table width="25%" cellpadding="0" cellspacing="0" id="tblArma">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaArma" class="btn_Generico" value="Ingreso nuevo"/></td>
+							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaArma" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 						</tr>
 					</table>
 					<table id="gridObjsArma" width="600px"></table>
@@ -5603,7 +5603,7 @@
 				<div id="tabschild4-4">
 					<table width="25%" cellpadding="0" cellspacing="0" id="tblExplosivos">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoExplosivo" class="btn_Generico" value="Ingreso nuevo"/></td>
+							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoExplosivo" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 						</tr>
 					</table>
 					<table id="gridObjsExplosivo" width="600px"></table>
@@ -5614,7 +5614,7 @@
 				<div id="tabschild4-5">
 					<table width="25%" cellpadding="0" cellspacing="0" id="tblSustancia">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaSustancia" class="btn_Generico" value="Ingreso nuevo"/></td>
+							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaSustancia" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 						</tr>
 					</table>
 					<table id="gridObjsSustancia" width="600px"></table>
@@ -5625,7 +5625,7 @@
 				<div id="tabschild4-6">
 					<table width="25%" cellpadding="0" cellspacing="0" id="tblAnimal">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoAnimal" class="btn_Generico" value="Ingreso nuevo"/></td>
+							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoAnimal" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 						</tr>
 					</table>
 					<table id="gridObjsAnimal" width="600px"></table>
@@ -5636,7 +5636,7 @@
 				<div id="tabschild4-7">
 					<table width="25%" cellpadding="0" cellspacing="0" id="tblVehiculos">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoVehiculo" class="btn_Generico" value="Ingreso nuevo"/></td>
+							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoVehiculo" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 						</tr>
 					</table>
 					<table id="gridObjsVehiculo" width="470px"></table>
@@ -5647,7 +5647,7 @@
 				<div id="tabschild4-8">
 					<table width="25%" cellpadding="0" cellspacing="0" id="tblAeronave">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaAeronave" class="btn_Generico" value="Ingreso nuevo"/></td>
+							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaAeronave" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 						</tr>
 					</table>
 					<table id="gridObjsAeronave" width="600px"></table>
@@ -5658,7 +5658,7 @@
 				<div id="tabschild4-9">
 					<table width="25%" cellpadding="0" cellspacing="0" id="tblEmbarcacion">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaEmbarcacion" class="btn_Generico" value="Ingreso nuevo"/></td>
+							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaEmbarcacion" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 						</tr>
 					</table>
 					<table id="gridObjsEmbarcacion" width="600px"></table>
@@ -5669,7 +5669,7 @@
 				<div id="tabschild4-11">
 					<table width="25%" cellpadding="0" cellspacing="0" id="tblNumerario">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoNumerario" class="btn_Generico" value="Ingreso nuevo"/></td>
+							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoNumerario" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 						</tr>
 					</table>
 					<table id="gridObjsNumerario" width="600px"></table>
@@ -5680,7 +5680,7 @@
 				<div id="tabschild4-12">
 					<table width="25%" cellpadding="0" cellspacing="0" id="tblVegetal">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoVegetal" class="btn_Generico" value="Ingreso nuevo"/></td>
+							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoVegetal" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 						</tr>
 					</table>
 					<table id="gridObjsVegetal" width="600px"></table>
@@ -5691,7 +5691,7 @@
 				<div id="tabschild4-13">
 					<table width="25%" cellpadding="0" cellspacing="0" id="tblDocOficial">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoDocumentoOficial" class="btn_Generico" value="Ingreso nuevo"/></td>
+							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoDocumentoOficial" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 						</tr>
 					</table>
 					<table id="gridObjsDocumentoOficial" width="600px"></table>
@@ -5702,7 +5702,7 @@
 				<div id="tabschild4-14">
 					<table width="25%" cellpadding="0" cellspacing="0" id="tblJoya">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaJoya" class="btn_Generico" value="Ingreso nuevo"/></td>
+							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaJoya" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 						</tr>
 					</table>
 					<table id="gridObjsJoya" width="600px"></table>
@@ -5713,7 +5713,7 @@
 				<div id="tabschild4-15">
 					<table width="25%" cellpadding="0" cellspacing="0" id="tblObraArte">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaObraDeArte" class="btn_Generico" value="Ingreso nuevo"/></td>
+							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaObraDeArte" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 						</tr>
 					</table>
 					<table id="gridObjsObraDeArte" width="600px"></table>
@@ -5724,7 +5724,7 @@
 				<div id="tabschild4-16">
 					<table width="25%" cellpadding="0" cellspacing="0" id="tblOtros">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoOtros" class="btn_Generico" value="Ingreso nuevo"/></td>
+							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoOtros" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 						</tr>
 					</table>
 					<table id="gridObjsOtros" width="600px"></table>
@@ -5735,7 +5735,7 @@
 				<div id="tabschild4-17">
 					<table width="25%" cellpadding="0" cellspacing="0" id="tblPericial">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoPericial" class="btn_Generico" value="Ingreso nuevo"/></td>
+							<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoPericial" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 						</tr>
 					</table>
 					<table id="gridObjsPericial" width="600px"></table>
@@ -5752,7 +5752,7 @@
 		<div id="tabs-5" class="tabTabsNotas">
 			<table width="25%" cellpadding="0" cellspacing="0" id="tablaNotasExpediente">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;<input type="button" class="btn_Generico" value="Generar Nota"  id="botonGuardarNotas" onclick="notaExpediente(0);" /></td>
+							<td>&nbsp;&nbsp;&nbsp;<input type="button" class="ui-button ui-corner-all ui-widget" value="Generar Nota"  id="botonGuardarNotas" onclick="notaExpediente(0);" /></td>
 						</tr>
 				</table>
 		</div>
@@ -6030,9 +6030,9 @@
 							
 						</select></td>
 						<td>
-						<button value="Asignar a Agente MP" id="idAsignarAgenteMp" class="btn_Generico" onclick="asignarAgenteMP()">Asignar a Agente MP</button>
-						<button value="Asignar a Facilitador" id="idAsignarFacilitador" class="btn_Generico" onclick="asignarFacilitador()">Asignar a Facilitador</button>
-						<button value="Reasignar a Facilitador" id="idReasignarFacilitador" class="btn_Generico" onclick="asignarFacilitador()">Reasignar a Facilitador</button>						
+						<button value="Asignar a Agente MP" id="idAsignarAgenteMp" class="ui-button ui-corner-all ui-widget" onclick="asignarAgenteMP()">Asignar a Agente MP</button>
+						<button value="Asignar a Facilitador" id="idAsignarFacilitador" class="ui-button ui-corner-all ui-widget" onclick="asignarFacilitador()">Asignar a Facilitador</button>
+						<button value="Reasignar a Facilitador" id="idReasignarFacilitador" class="ui-button ui-corner-all ui-widget" onclick="asignarFacilitador()">Reasignar a Facilitador</button>						
 						</td>
 					</tr>
 					<tr id="trActuaciones">
@@ -6082,22 +6082,22 @@
 								<table>
 									<tr>
 										<td>
-												<button value="Adjuntar documento" id="btnReasignarUIEExpediente" class="btn_Generico" onclick="abreVentanaReasignarUIEExpediente()" style="display: none">Reasignar Unidad de Investigaci&oacute;n</button>
+												<button value="Adjuntar documento" id="btnReasignarUIEExpediente" class="ui-button ui-corner-all ui-widget" onclick="abreVentanaReasignarUIEExpediente()" style="display: none">Reasignar Unidad de Investigaci&oacute;n</button>
 										</td>
 									</tr>
 									<tr>
 										<td>
-												<!--<button value="Adjuntar documento" id="btnAdjuntarDocumento" class="btn_Generico" onclick="abreVentanaAdjuntarDocumentoAExpediente()" style="width: 100%;">Adjuntar documento</button>-->
+												<!--<button value="Adjuntar documento" id="btnAdjuntarDocumento" class="ui-button ui-corner-all ui-widget" onclick="abreVentanaAdjuntarDocumentoAExpediente()" style="width: 100%;">Adjuntar documento</button>-->
 										</td>
 									</tr>
 									<tr>
 										<td>
-												<!--  <button value="Elaborar teoria del caso" id="idTeoriaCaso" class="btn_Generico" onclick="abreTeoria()" style="width: 100%; ">Elaborar teoría del caso</button>-->
+												<!--  <button value="Elaborar teoria del caso" id="idTeoriaCaso" class="ui-button ui-corner-all ui-widget" onclick="abreTeoria()" style="width: 100%; ">Elaborar teoría del caso</button>-->
 										</td>
 									</tr>
 									<!-- <tr id="idbotoncarpeta" style="display: none;">
 										<td>
-											<button value="Enviar de Investigacion" class="btn_Generico" onclick="lanzaCarpetaInvestigacionDefensoria()">Enviar carpeta de investigación</button>
+											<button value="Enviar de Investigacion" class="ui-button ui-corner-all ui-widget" onclick="lanzaCarpetaInvestigacionDefensoria()">Enviar carpeta de investigación</button>
 										</td>
 									</tr> -->
 								</table>
@@ -6160,7 +6160,7 @@
 <!-- 								<option value="-1">-Seleccione-</option> -->
 							</select></td>
 							<td>
-								<input type="button" id="idInvestiga" onclick="abreLineasInvestiga()" value="Iniciar Investigación" class="btn_Generico"/>
+								<input type="button" id="idInvestiga" onclick="abreLineasInvestiga()" value="Iniciar Investigación" class="ui-button ui-corner-all ui-widget"/>
 							</td>
 						</tr>
 					</table>
@@ -6176,12 +6176,12 @@
 			</div>
 		</div>
 		<div id="tabs-10" class="tabTabsCadCus">
-				 <input type="button" class="btn_Generico" id="btnCadCusNuevaCadCus" style="width: 250px;" value="Crear nueva cadena de custodia"/><br/><br/>
-				 <input type="button" class="btn_Generico" id="btnCadCusConsultaCadCus" style="width: 250px;" value="Consultar cadena de custodia"/><br/><br/>    
+				 <input type="button" class="ui-button ui-corner-all ui-widget" id="btnCadCusNuevaCadCus" style="width: 250px;" value="Crear nueva cadena de custodia"/><br/><br/>
+				 <input type="button" class="ui-button ui-corner-all ui-widget" id="btnCadCusConsultaCadCus" style="width: 250px;" value="Consultar cadena de custodia"/><br/><br/>    
 		</div>
 		<div id="tabs-11" class="tabTabsDocs">
 		<br>
-                <div><button value="Adjuntar documento" id="btnAdjuntarDocumento" class="btn_Generico" onclick="abreVentanaAdjuntarDocumentoAExpediente()" style="width: 10%;">Adjuntar documento</button></div>
+                <div><button value="Adjuntar documento" id="btnAdjuntarDocumento" class="ui-button ui-corner-all ui-widget" onclick="abreVentanaAdjuntarDocumentoAExpediente()" style="width: 10%;">Adjuntar documento</button></div>
                 <div style="height: 10px;"></div>					
 			<table id="gridDetalleFrmPrincipal"></table>
 			<div id="pager1Documentos"></div>
@@ -6205,7 +6205,7 @@
 								&nbsp;
 							</td>
 							<td>
-								<input type="button" id="btnTranscripcionAudiencia" value="Transcripción de audiencia" class="btn_Generico" style="display: none;">
+								<input type="button" id="btnTranscripcionAudiencia" value="Transcripción de audiencia" class="ui-button ui-corner-all ui-widget" style="display: none;">
 							</td>
 						</tr>
 					</table>
@@ -6256,18 +6256,18 @@
 			</tr>
 			<tr>
 				<td>
-					<input type="button" id="btnDocumentoCriterio" onclick="" value="Generar razones para criterio de oportunidad" class="btn_Generico">
+					<input type="button" id="btnDocumentoCriterio" onclick="" value="Generar razones para criterio de oportunidad" class="ui-button ui-corner-all ui-widget">
 				</td>
 				<td>
-					<input type="button"  id="btnDocumentoDictamen" onclick="abilitaDoc()" value="Generar Dictamen motivado de criterio de oportunidad" class="btn_Generico">
+					<input type="button"  id="btnDocumentoDictamen" onclick="abilitaDoc()" value="Generar Dictamen motivado de criterio de oportunidad" class="ui-button ui-corner-all ui-widget">
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<input type="button" id="btnInformeCriterio" onclick="dialigoDictamenOprtunidad()" value="Informar criterio de oportunidad" class="btn_Generico">
+					<input type="button" id="btnInformeCriterio" onclick="dialigoDictamenOprtunidad()" value="Informar criterio de oportunidad" class="ui-button ui-corner-all ui-widget">
 				</td>
 				<td>
-					<input type="button"  id="btnTurnarInpugna" onclick="dialigoImpugnacion()" value="Turnar inpugnación de criterio de oportunidad" class="btn_Generico">
+					<input type="button"  id="btnTurnarInpugna" onclick="dialigoImpugnacion()" value="Turnar inpugnación de criterio de oportunidad" class="ui-button ui-corner-all ui-widget">
 				</td>
 			</tr>
 			</table>
@@ -6336,7 +6336,7 @@
 					    				</table>
 					    			</td>
 					    			<td>
-					    				<input type="button" id="btnConclusionExpe" onclick="guardarConclusion()" value="Guardar" class="btn_Generico">
+					    				<input type="button" id="btnConclusionExpe" onclick="guardarConclusion()" value="Guardar" class="ui-button ui-corner-all ui-widget">
 					    			</td>
 					    		</tr>
 					    		

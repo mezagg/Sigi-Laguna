@@ -1165,7 +1165,7 @@
 											</select>
 										</td>
 									    <td>
-											<input type="button" value= "Guardar" id="btnGuardarEstatusMandamientoJud" class="btn_Generico" onclick="generarDocumentoDeCambioEstatusDeMandamientoJudicial();"/>
+											<input type="button" value= "Guardar" id="btnGuardarEstatusMandamientoJud" class="ui-button ui-corner-all ui-widget" onclick="generarDocumentoDeCambioEstatusDeMandamientoJudicial();"/>
 										</td>
 									</tr>
 										
@@ -1174,7 +1174,7 @@
 												
 										</td>
 									    <td>
-											<input type="button" value= "Adjuntar Documento" id="btnAdjuntarDocAMandamientoJud" class="btn_Generico" onclick="abreVentanaAdjuntarDocumentoAMandamiento();"/>	
+											<input type="button" value= "Adjuntar Documento" id="btnAdjuntarDocAMandamientoJud" class="ui-button ui-corner-all ui-widget" onclick="abreVentanaAdjuntarDocumentoAMandamiento();"/>	
 										</td>
 									</tr>
 									
@@ -1275,7 +1275,7 @@
 					<table id="iMandamientoJudicialWorkSheet" width="100%"  border="0">
 						<tr valign="top">
 							<td align="center">
-								<input type="button" value="Generar Mandamiento Judicial" id="guardarMandamientoJudicial" class="btn_Generico"/>
+								<input type="button" value="Generar Mandamiento Judicial" id="guardarMandamientoJudicial" class="ui-button ui-corner-all ui-widget"/>
 							</td>
 						</tr>
 					</table>

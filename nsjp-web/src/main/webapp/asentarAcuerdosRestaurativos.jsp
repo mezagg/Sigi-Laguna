@@ -229,7 +229,7 @@
 							<td colspan="2" align="center"><input type="button"
 								value="Guardar" id="guardarLibroGobierno" /> <input
 								type="button" value="Generar Libro de Gobierno"
-								id="generarLibro" disabled="disabled" class="btn_Generico"/>
+								id="generarLibro" disabled="disabled" class="ui-button ui-corner-all ui-widget"/>
 							</td>
 							<td>&nbsp;</td>
 							<td>&nbsp;</td>

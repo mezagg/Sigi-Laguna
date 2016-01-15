@@ -372,7 +372,7 @@
 						</select>
 					</td>
 					<td width="40%" align="left">
-						<input name="" type="button" id="btnCerrarAviso" value="Cerrar Aviso" onclick="cerrarAviso();" class="btn_Generico"/>
+						<input name="" type="button" id="btnCerrarAviso" value="Cerrar Aviso" onclick="cerrarAviso();" class="ui-button ui-corner-all ui-widget"/>
 					</td>
 				</tr>
 			</table>
@@ -382,7 +382,7 @@
 			<table width="100%" border="0">
 				<tr>
 					<td width="100%" align="center">
-						<input name="" type="button" id="btnProcesaAviso" value="Procesar Aviso" onclick="procesarAviso();" class="btn_Generico"/>
+						<input name="" type="button" id="btnProcesaAviso" value="Procesar Aviso" onclick="procesarAviso();" class="ui-button ui-corner-all ui-widget"/>
 					</td>
 				</tr>
 			</table>

@@ -169,8 +169,8 @@ var reloadGridEvidencia = false;
    <table width="650" border="0" cellspacing="0" cellpadding="0">
    <tr>
    		<td align="center">
-			<input type="button" name="buscarEvidencia" value="Buscar" id="buscarEvidencia" class="btn_Generico"/>	
-			<!--<input type="button" name="limpiar" value="limpiar campos" id="limpiar" class="btn_Generico"/>		-->
+			<input type="button" name="buscarEvidencia" value="Buscar" id="buscarEvidencia" class="ui-button ui-corner-all ui-widget"/>	
+			<!--<input type="button" name="limpiar" value="limpiar campos" id="limpiar" class="ui-button ui-corner-all ui-widget"/>		-->
 		</td>
    </tr>
    <tr>

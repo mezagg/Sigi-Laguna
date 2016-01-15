@@ -171,7 +171,7 @@
 		  <tr>
 		  	<td>&nbsp;</td>
 		    <td>&nbsp;</td>
-		    <td align="right"><input type="button" id="guardarPlantilla1" value="Guardar" class="btn_Generico" onclick="javascript:guardar();" /></td>
+		    <td align="right"><input type="button" id="guardarPlantilla1" value="Guardar" class="ui-button ui-corner-all ui-widget" onclick="javascript:guardar();" /></td>
 		  </tr>
 		</table>
 	</div>
@@ -188,9 +188,9 @@
 							<select name="cbxTamanioPapel" id="cbxTamanioPapel" onchange="recuperarTamanioPapel()" style=" border:0; background-color:#FFF;">
 					    	</select>
 					    </td>
-						<td align="center"><input type="button" id="vistaPreliminar" value="Vista Preliminar" class="btn_Generico" onclick="elaborarVistaPreliminar();" /></td>
+						<td align="center"><input type="button" id="vistaPreliminar" value="Vista Preliminar" class="ui-button ui-corner-all ui-widget" onclick="elaborarVistaPreliminar();" /></td>
 			            <td align="center">
-					  		<input type="button" id="guardarPlantilla2" value="Guardar" class="btn_Generico" onclick="javascript:guardar();"/>
+					  		<input type="button" id="guardarPlantilla2" value="Guardar" class="ui-button ui-corner-all ui-widget" onclick="javascript:guardar();"/>
 					  	</td>
 				  	</tr>
 			  	</table>

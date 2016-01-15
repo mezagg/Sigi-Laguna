@@ -115,7 +115,7 @@
     </tr>
 
 	<tr >
-    <td height="25" align="center"><input type="button" name="buscarNombre" value="Buscar" id="buscarNombre" class="btn_Generico"/></td>
+    <td height="25" align="center"><input type="button" name="buscarNombre" value="Buscar" id="buscarNombre" class="ui-button ui-corner-all ui-widget"/></td>
     </tr>
 	<tr>
      <td valign="middle" align="center">

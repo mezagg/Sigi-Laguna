@@ -6056,10 +6056,10 @@
                                                 </tr>
                                                 <tr>
                                                         <td width="111">
-                                                                <input type="button" class="btn_Generico" value="Manualmente" id="btnAsignarJuezManual" onclick="controlJueces(false);"/>
+                                                                <input type="button" class="ui-button ui-corner-all ui-widget" value="Manualmente" id="btnAsignarJuezManual" onclick="controlJueces(false);"/>
                                                         </td>
                                                         <td width="125">
-                                                                <input type="button" class="btn_Generico" value="Autom&aacute;ticamente" id="btnAsignarJuezAuto" onclick="controlJueces(true);"/>
+                                                                <input type="button" class="ui-button ui-corner-all ui-widget" value="Autom&aacute;ticamente" id="btnAsignarJuezAuto" onclick="controlJueces(true);"/>
                                                         </td>
                                                 </tr>
                                         </table>
@@ -6162,10 +6162,10 @@
                                         <table>
                                             <tr>
                                                 <td align="center">
-                                                    <input type="button" class="btn_Generico" value="<<" id="btnAtrasMes" onClick="atrasAdelanteMes('atras');"/>
+                                                    <input type="button" class="ui-button ui-corner-all ui-widget" value="<<" id="btnAtrasMes" onClick="atrasAdelanteMes('atras');"/>
                                                     <input type="text" id="mes" disabled="disabled" style="width: 70px"/>
                                                     <input type="text" id="anio" disabled="disabled" style="width: 70px" />
-                                                    <input type="button" class="btn_Generico" value=">>" id="btnAdelanteMes" onClick="atrasAdelanteMes('adelante');"/>
+                                                    <input type="button" class="ui-button ui-corner-all ui-widget" value=">>" id="btnAdelanteMes" onClick="atrasAdelanteMes('adelante');"/>
                                                 </td>        
                                             </tr>
                                             <tr>
@@ -6189,10 +6189,10 @@
                             <table>
                                 <tr>
                                     <td align="right" width="50%">
-                                        <input type="button" id="btnGuardarAudiencia" class="btn_Generico" value="Guardar"  onclick="validaGuardarAudiencia();"/>
+                                        <input type="button" id="btnGuardarAudiencia" class="ui-button ui-corner-all ui-widget" value="Guardar"  onclick="validaGuardarAudiencia();"/>
                                     </td>
                                     <td align="left" width="50%">
-                                        <input type="button" class="btn_Generico" id="btnDesignar" onclick="mostrarAsignarSalaTemporalPJENA();" value="Designar Sala Temporal" />
+                                        <input type="button" class="ui-button ui-corner-all ui-widget" id="btnDesignar" onclick="mostrarAsignarSalaTemporalPJENA();" value="Designar Sala Temporal" />
                                     </td>
                                 </tr>  
                                 <tr>

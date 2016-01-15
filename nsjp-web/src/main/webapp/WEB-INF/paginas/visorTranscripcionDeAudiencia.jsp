@@ -126,7 +126,7 @@
 					<input type="hidden" name="texto" value=""/>
 					<input type="hidden" name="solicitudId" value="<%=request.getParameter("idEvento")!=null?request.getParameter("idEvento"):"" %>"/>
 					<input type="hidden" name="formaId" value="<%=request.getAttribute("formaId")!=null?request.getAttribute("formaId"):"" %>"/>
-					<input type="button" name="guardarTranscripcion" value="Guardar" onclick="guardarTranscricpcion()" class="btn_Generico" />
+					<input type="button" name="guardarTranscripcion" value="Guardar" onclick="guardarTranscricpcion()" class="ui-button ui-corner-all ui-widget" />
 				</form>
 				</p>
 			    </td>

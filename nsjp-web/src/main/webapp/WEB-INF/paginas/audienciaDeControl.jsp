@@ -175,7 +175,7 @@
 							<table width="100%">
 								<tr>
 									<td align="left">
-										<input type="button" value="Designar Abogado Defensor" id="idDesignarAbogadoDefensorAudControl" class="btn_Generico"/>
+										<input type="button" value="Designar Abogado Defensor" id="idDesignarAbogadoDefensorAudControl" class="ui-button ui-corner-all ui-widget"/>
 									</td>
 								</tr>
 								<tr>
@@ -196,8 +196,8 @@
 							<table width="100%" >
 								<tr valign="top">
 									<td align="center">
-										<input type="button" value="Modificar Datos" id="iTestigoBtnModificarDatos" class="btn_Generico"/>
-										<input type="button" value="Guardar" id="iTestigoBtnGuardar" class="btn_Generico"/>
+										<input type="button" value="Modificar Datos" id="iTestigoBtnModificarDatos" class="ui-button ui-corner-all ui-widget"/>
+										<input type="button" value="Guardar" id="iTestigoBtnGuardar" class="ui-button ui-corner-all ui-widget"/>
 									</td>
 								</tr>
 							</table>

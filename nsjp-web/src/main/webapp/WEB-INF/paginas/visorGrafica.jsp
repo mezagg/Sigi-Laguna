@@ -190,7 +190,7 @@
   				<tr>
   					<td width="80">&nbsp;</td>
 		 			<td colspan="2" align="center">
-    					<input type="button" name="idbotonGrafica" id="idbotonGrafica" value="Generar Gr&aacute;fica" class="btn_Generico" onclick="invocacionGrafico()"/>
+    					<input type="button" name="idbotonGrafica" id="idbotonGrafica" value="Generar Gr&aacute;fica" class="ui-button ui-corner-all ui-widget" onclick="invocacionGrafico()"/>
     				</td>
   				</tr>
   				<tr><td>&nbsp;</td></tr>

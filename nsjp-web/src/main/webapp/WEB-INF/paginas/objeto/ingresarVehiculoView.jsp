@@ -16,8 +16,8 @@
         <title>Ingresar veh&iacute;culo</title>
 
         <link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/jquery.windows-engine.css"/>
-        <link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/estilos.css"/>	
-        <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/jquery-ui.css"/>
+        <!--link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/estilos.css"/-->	
+        <!--link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/jquery-ui.css"/-->
         <link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/south-street/jquery-ui-1.8.10.custom.css" />
         <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/layout_complex.css" media="screen" />
         <link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/multiselect/jquery.multiselect.css" />
@@ -1090,196 +1090,205 @@
         </script>
     </head>
 
-    <body class="jquery-ui page page-id-51 page-template-default page-slug-sortable single-author singular">
-        <div id="container">
-            <div id="content-wrapper" class="clearfix row">
+    <body >
+        <form id="profileForm" class="actionForm"  method="get">
+            <table width="80%" height="100%" border="0" cellspacing="0" cellpadding="0" class="back_hechos">
+                <tbody>  
+                    <tr valign="top">
+                        <td valign="top">
+
+                            <table width="700" height="449" border="0" cellspacing="0" cellpadding="0" align="center">
+                                <tr>
+                                    <td>&nbsp;</td>
+                                </tr>
+
+                                <tr>
+                                    <td height="21" colspan="4" align="center">
+                                        <input type="button" value="Anular objeto" class="ui-button ui-corner-all ui-widget" id="anularElemento" onclick="solicitarAnlrObjeto()"/>
+                                        <input name="Button" type="button" id="btnGuardarVehiculo" class="ui-button ui-corner-all ui-widget" onclick="validaCamposObligatorios();" value="Guardar" />
+                                        <input type="button" id="btnBuscarReincidencia" value="Buscar reincidencia" class="ui-button ui-corner-all ui-widget" onclick="cargaGridReincidenciaElemento()"/>
+                                        <input type="button" id="btnConsultarExpedientes" value="Consultar expedientes relacionados " class="ui-button ui-corner-all ui-widget" onclick="cargaGridReincidenciasXElemento()"/>
+                                        <input type="button" id="btnAdjuntarImagen" value="Adjuntar imagen" class="ui-button ui-corner-all ui-widget" onclick="abreVentanaAdjuntarImagen()" style="display:none">
+                                    </td>                
+                                </tr>
+                                <tr height="6.25%">
+                                    <td width="30%" align="right">Tipo: </td>
+                                    <td width="30%"><select id="cbxTipoVehiculo" style="width:180px" onchange="cargaMarcasVehiculo();">
+                                            <option value="-1">-Seleccione-</option>
+                                        </select>
+                                    </td>
+                                    <td width="40%" rowspan="6" align="right">Descripci&oacute;n:<br>
+                                        <textarea name="txtBoxDescVehiculo" cols="25" rows="9" id="txtBoxDescVehiculo" maxlength="199" ></textarea></td>
+                                </tr> 
+                                <tr height="6.25%">
+                                    <td width="30%" align="right">Marca: </td>
+                                    <td width="30%"><select id="cbxMarcaVehiculo" style="width:180px" onchange="cargaSubMarcasVehiculo();">
+                                            <option value="-1">-Seleccione-</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr height="6.25%">
+                                    <td width="30%" align="right">Submarca: </td>
+                                    <td width="30%"><select id="cbxSubMarcaVehiculo" style="width:180px">
+                                            <option value="-1">-Seleccione-</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr height="6.25%">
+                                    <td width="30%" align="right">Color: </td>
+                                    <td width="30%"><select id="cbxColorVehiculo" style="width:180px">
+                                            <option value="-1">-Seleccione-</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr height="6.25%">
+                                    <td width="30%" align="right">Pa&iacute;s de Origen: </td>
+                                    <td width="30%"><select id="cbxPaisOrigenVehiculo" style="width:180px">
+                                            <option value="-1">-Seleccione-</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr height="6.25%">
+                                    <td width="30%" align="right">Modelo (a&ntilde;o): </td>
+                                    <td width="30%"><input type="text" id="txtModeloVehiculo" onKeyPress="return solonumeros(event);" maxlength="4" style="width:175px"/></td>
+                                </tr>
+                                <tr height="6.25%">
+                                    <td width="30%" align="right">No. de Placas: </td>
+                                    <td width="30%"><input type="text" id="txtPlacasVehiculo" maxlength="10" style="width:175px"/></td>
+                                    <td width="40%" align="right">No. de Motor alterado:
+                                        <input type="checkbox" id="chkBoxNumMotorAlterado"/></td>
+                                </tr>
+                                <tr height="6.25%">
+                                    <td width="30%" align="right">No. de Motor: </td>
+                                    <td width="30%"><input type="text" id="txtMotorVehiculo" maxlength="20" style="width:175px"/></td>
+                                    <td width="40%" align="right">No. de Serie alterado:
+                                        <input type="checkbox" id="chkBoxNumSerieAlterado"/></td>
+                                </tr>
+                                <tr height="6.25%">
+                                    <td width="30%" height="24" align="right">No. de Serie: </td>
+                                    <td width="30%"><input type="text" id="txtSerieVehiculo" maxlength="20" style="width:175px"/></td>
+                                    <td width="40%" align="right">Blindado:
+                                        <input type="checkbox" id="chkBoxBlindadoVehiculo"/></td>
+                                </tr>		
+                                <tr height="6.25%">
+                                    <td width="30%" align="right">No. de Registro P&uacute;blico Vehicular: </td>
+                                    <td width="30%"><input type="text" id="txtRegFedVehiculo" maxlength="20" style="width:175px"/></td>
+                                    <td width="40%">&nbsp;</td>
+                                </tr>
+                                <tr height="6.25%">
+                                    <td width="30%" align="right">No. de Puertas: </td>
+                                    <td width="30%"><input type="text" id="txtPuertas" style="width:175px" onKeyPress="return solonumeros(event);" maxlength="1"/></td>
+                                    <td width="40%">&nbsp;</td>
+                                </tr>
+                                <tr height="6.25%">
+                                    <td width="30%" align="right">No. de Cilindros: </td>
+                                    <td width="30%"><input type="text" id="txtCilindrosVehiculo" style="width:175px" onKeyPress="return solonumeros(event);" maxlength="1"/></td>
+                                    <td width="40%">&nbsp;</td>
+                                </tr>
+
+                                <tr height="6.25%">
+                                    <td width="30%" height="36" align="right">Condici&oacute;n del objeto: </td>
+                                    <td width="30%"><select name="cbxTipoJoya6" id="cbxCondicionVehiculo" style="width:180px">
+                                            <option value="-1">-Seleccione-</option>
+                                        </select>
+                                    </td>
+                                    <td width="40%">&nbsp;</td>
+                                </tr>
+                                <tr height="6.25%">
+                                    <td width="30%" height="36" align="right">Propietario: </td>
+                                    <td width="30%"><input type="text" id="txtPropietario" maxlength="100" style="width:175px" onkeypress="return soloLetrasNPunto(event, this.id);" onblur="validaSoloLetras(this);"/></td>
+                                    <td width="40%">&nbsp;</td>
+                                </tr>
+
+                                <tr height="6.25%">
+                                    <td width="30%" align="right">Causa: </td>
+                                    <td width="30%"><select id="cbxCausaVehiculo" style="width:180px" onchange="cargaCausaVehiculoRecuperado();">
+                                            <option value="-1">-Seleccione-</option>
+                                        </select>
+                                    </td>
+                                    <td width="40%">&nbsp;</td>
+                                </tr>
+
+                                <tr height="6.25%" id="trCausaRecuperado">
+                                    <td width="30%">&nbsp; </td>
+                                    <td width="30%" id="idCausaRecuperado"><select id="cbxCausaRecuperadoVehiculo" style="width:180px" onchange="cargaCausaVehiculoRecuperadoOtros();">
+                                            <option value="-1">-Seleccione-</option>
+                                        </select>
+                                    </td>
+                                    <td width="40%"id="tdCausaRecuperadoOtros" align="right"><select id="cbxCausaRecuperadoOtrosVehiculo" style="width:180px">
+                                            <option value="-1">-Seleccione-</option>
+                                        </select>
+                                    </td>
+                                </tr>
+
+                                <tr height="6.25%">
+                                    <td width="30%" height="36" align="right">Relaci&oacute;n del hecho: </td>
+                                    <td width="30%"><select name="cbxRelacionHecho" id="cbxRelacionHecho" style="width:180px" onchange="muestraCamposHechos();">
+                                            <option value="-1">-Seleccione-</option>
+                                        </select>
+                                    </td>
+                                    <td width="40%" rowspan="3" style="vertical-align: text-top;">
+                                        <table border ="0" id="idRelacionHechoRecuperado">
+                                            <tr>
+                                                <td width="100px">Fecha de Recuperaci&oacute;n: </td>
+                                                <td><input type="text" id="idFechaRecuperado" style="width:110px;" readonly="readonly"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Lugar de Recuperaci&oacute;n: </td>
+                                                <td><input type="text" id="idLugarRecuperado" width="50px"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Autoridad que recupero: </td>
+                                                <td><input type="text" id="idAutoridadRecupero" width="50px"/></td>
+                                            </tr>
+                                        </table>
+                                        <table id="idRelacionHechoEntregado" border="0">
+                                            <tr>
+                                                <td width="40%">Fecha de Entrega: </td>
+                                                <td><input type="text" id="idFechaEntrega" style="width:110px;" readonly="readonly"/></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
 
 
 
 
-                <form id="profileForm" class="actionForm"  method="get">
-                    <table width="700" height="449" border="0" cellspacing="0" cellpadding="0" align="center">
-                        <tr>
-                            <td>&nbsp;</td>
-                        </tr>
 
-                        <tr>
-                            <td height="21" colspan="4" align="center">
-                                <input type="button" value="Anular objeto" class="btn_Generico"id="anularElemento" onclick="solicitarAnlrObjeto()"/>
-                                <input name="Button" type="button" id="btnGuardarVehiculo" class="btn_Generico" onclick="validaCamposObligatorios();" value="Guardar" />
-                                <input type="button" id="btnBuscarReincidencia" value="Buscar reincidencia" class="btn_Generico" onclick="cargaGridReincidenciaElemento()"/>
-                                <input type="button" id="btnConsultarExpedientes" value="Consultar expedientes relacionados " class="btn_Generico" onclick="cargaGridReincidenciasXElemento()"/>
-                                <input type="button" id="btnAdjuntarImagen" value="Adjuntar imagen" class="btn_Generico" onclick="abreVentanaAdjuntarImagen()" style="display:none">
-                            </td>                
-                        </tr>
-                        <tr height="6.25%">
-                            <td width="30%" align="right">Tipo: </td>
-                            <td width="30%"><select id="cbxTipoVehiculo" style="width:180px" onchange="cargaMarcasVehiculo();">
-                                    <option value="-1">-Seleccione-</option>
-                                </select>
-                            </td>
-                            <td width="40%" rowspan="6" align="right">Descripci&oacute;n:<br>
-                                <textarea name="txtBoxDescVehiculo" cols="25" rows="9" id="txtBoxDescVehiculo" maxlength="199" ></textarea></td>
-                        </tr> 
-                        <tr height="6.25%">
-                            <td width="30%" align="right">Marca: </td>
-                            <td width="30%"><select id="cbxMarcaVehiculo" style="width:180px" onchange="cargaSubMarcasVehiculo();">
-                                    <option value="-1">-Seleccione-</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr height="6.25%">
-                            <td width="30%" align="right">Submarca: </td>
-                            <td width="30%"><select id="cbxSubMarcaVehiculo" style="width:180px">
-                                    <option value="-1">-Seleccione-</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr height="6.25%">
-                            <td width="30%" align="right">Color: </td>
-                            <td width="30%"><select id="cbxColorVehiculo" style="width:180px">
-                                    <option value="-1">-Seleccione-</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr height="6.25%">
-                            <td width="30%" align="right">Pa&iacute;s de Origen: </td>
-                            <td width="30%"><select id="cbxPaisOrigenVehiculo" style="width:180px">
-                                    <option value="-1">-Seleccione-</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr height="6.25%">
-                            <td width="30%" align="right">Modelo (a&ntilde;o): </td>
-                            <td width="30%"><input type="text" id="txtModeloVehiculo" onKeyPress="return solonumeros(event);" maxlength="4" style="width:175px"/></td>
-                        </tr>
-                        <tr height="6.25%">
-                            <td width="30%" align="right">No. de Placas: </td>
-                            <td width="30%"><input type="text" id="txtPlacasVehiculo" maxlength="10" style="width:175px"/></td>
-                            <td width="40%" align="right">No. de Motor alterado:
-                                <input type="checkbox" id="chkBoxNumMotorAlterado"/></td>
-                        </tr>
-                        <tr height="6.25%">
-                            <td width="30%" align="right">No. de Motor: </td>
-                            <td width="30%"><input type="text" id="txtMotorVehiculo" maxlength="20" style="width:175px"/></td>
-                            <td width="40%" align="right">No. de Serie alterado:
-                                <input type="checkbox" id="chkBoxNumSerieAlterado"/></td>
-                        </tr>
-                        <tr height="6.25%">
-                            <td width="30%" height="24" align="right">No. de Serie: </td>
-                            <td width="30%"><input type="text" id="txtSerieVehiculo" maxlength="20" style="width:175px"/></td>
-                            <td width="40%" align="right">Blindado:
-                                <input type="checkbox" id="chkBoxBlindadoVehiculo"/></td>
-                        </tr>		
-                        <tr height="6.25%">
-                            <td width="30%" align="right">No. de Registro P&uacute;blico Vehicular: </td>
-                            <td width="30%"><input type="text" id="txtRegFedVehiculo" maxlength="20" style="width:175px"/></td>
-                            <td width="40%">&nbsp;</td>
-                        </tr>
-                        <tr height="6.25%">
-                            <td width="30%" align="right">No. de Puertas: </td>
-                            <td width="30%"><input type="text" id="txtPuertas" style="width:175px" onKeyPress="return solonumeros(event);" maxlength="1"/></td>
-                            <td width="40%">&nbsp;</td>
-                        </tr>
-                        <tr height="6.25%">
-                            <td width="30%" align="right">No. de Cilindros: </td>
-                            <td width="30%"><input type="text" id="txtCilindrosVehiculo" style="width:175px" onKeyPress="return solonumeros(event);" maxlength="1"/></td>
-                            <td width="40%">&nbsp;</td>
-                        </tr>
 
-                        <tr height="6.25%">
-                            <td width="30%" height="36" align="right">Condici&oacute;n del objeto: </td>
-                            <td width="30%"><select name="cbxTipoJoya6" id="cbxCondicionVehiculo" style="width:180px">
-                                    <option value="-1">-Seleccione-</option>
-                                </select>
-                            </td>
-                            <td width="40%">&nbsp;</td>
-                        </tr>
-                        <tr height="6.25%">
-                            <td width="30%" height="36" align="right">Propietario: </td>
-                            <td width="30%"><input type="text" id="txtPropietario" maxlength="100" style="width:175px" onkeypress="return soloLetrasNPunto(event, this.id);" onblur="validaSoloLetras(this);"/></td>
-                            <td width="40%">&nbsp;</td>
-                        </tr>
+        </form>
+    </div>
 
-                        <tr height="6.25%">
-                            <td width="30%" align="right">Causa: </td>
-                            <td width="30%"><select id="cbxCausaVehiculo" style="width:180px" onchange="cargaCausaVehiculoRecuperado();">
-                                    <option value="-1">-Seleccione-</option>
-                                </select>
-                            </td>
-                            <td width="40%">&nbsp;</td>
-                        </tr>
+</div>
 
-                        <tr height="6.25%" id="trCausaRecuperado">
-                            <td width="30%">&nbsp; </td>
-                            <td width="30%" id="idCausaRecuperado"><select id="cbxCausaRecuperadoVehiculo" style="width:180px" onchange="cargaCausaVehiculoRecuperadoOtros();">
-                                    <option value="-1">-Seleccione-</option>
-                                </select>
-                            </td>
-                            <td width="40%"id="tdCausaRecuperadoOtros" align="right"><select id="cbxCausaRecuperadoOtrosVehiculo" style="width:180px">
-                                    <option value="-1">-Seleccione-</option>
-                                </select>
-                            </td>
-                        </tr>
-
-                        <tr height="6.25%">
-                            <td width="30%" height="36" align="right">Relaci&oacute;n del hecho: </td>
-                            <td width="30%"><select name="cbxRelacionHecho" id="cbxRelacionHecho" style="width:180px" onchange="muestraCamposHechos();">
-                                    <option value="-1">-Seleccione-</option>
-                                </select>
-                            </td>
-                            <td width="40%" rowspan="3" style="vertical-align: text-top;">
-                                <table border ="0" id="idRelacionHechoRecuperado">
-                                    <tr>
-                                        <td width="100px">Fecha de Recuperaci&oacute;n: </td>
-                                        <td><input type="text" id="idFechaRecuperado" style="width:110px;" readonly="readonly"/></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Lugar de Recuperaci&oacute;n: </td>
-                                        <td><input type="text" id="idLugarRecuperado" width="50px"/></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Autoridad que recupero: </td>
-                                        <td><input type="text" id="idAutoridadRecupero" width="50px"/></td>
-                                    </tr>
-                                </table>
-                                <table id="idRelacionHechoEntregado" border="0">
-                                    <tr>
-                                        <td width="40%">Fecha de Entrega: </td>
-                                        <td><input type="text" id="idFechaEntrega" style="width:110px;" readonly="readonly"/></td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                    </table>
-                </form>
-            </div>
-
-        </div>
-
-        <!--  Muestra las imanenes asociadas al objeto asi como el grid del tipo de estudio -->	
-        <jsp:include page="/WEB-INF/paginas/detalleObjeto.jsp" flush="true"></jsp:include>
+<!--  Muestra las imanenes asociadas al objeto asi como el grid del tipo de estudio -->	
+<jsp:include page="/WEB-INF/paginas/detalleObjeto.jsp" flush="true"></jsp:include>
 
 
 
-        <!-- ETIQUETAS PARA LA REINCIDENCIA DE UN OBJETO -->
-        <div id="dialog-Reincidencia" title="Reincidencia(s) asociada(s) al elemento">
-            <table id="gridReincidenciaElemento"></table>
-            <div id="paginadorReincidenciaElemento"></div>
-        </div>
+<!-- ETIQUETAS PARA LA REINCIDENCIA DE UN OBJETO -->
+<div id="dialog-Reincidencia" title="Reincidencia(s) asociada(s) al elemento">
+    <table id="gridReincidenciaElemento"></table>
+    <div id="paginadorReincidenciaElemento"></div>
+</div>
 
-        <div id="dialog-ReincidenciaCaso" title="Reincidencia(s) registrada(s) al elemento">
-            <table id="gridReincidenciaElementoCaso"></table>
-            <div id="paginadorReincidenciaElementoCaso"></div>
-        </div>
+<div id="dialog-ReincidenciaCaso" title="Reincidencia(s) registrada(s) al elemento">
+    <table id="gridReincidenciaElementoCaso"></table>
+    <div id="paginadorReincidenciaElementoCaso"></div>
+</div>
 
-    </body>
+</body>
 </html>

@@ -222,7 +222,7 @@
   </tr>
   <tr>
     <td rowspan="5">&nbsp;</td>
-    <td colspan="4" align="center"><input type="button" value="Enviar Orden de Detenci&oacute;n" id="elaborarOrdenDetencion" disabled="disabled" class="btn_Generico"/></td>
+    <td colspan="4" align="center"><input type="button" value="Enviar Orden de Detenci&oacute;n" id="elaborarOrdenDetencion" disabled="disabled" class="ui-button ui-corner-all ui-widget"/></td>
     <td rowspan="5">&nbsp;</td>
   </tr>
   <tr>

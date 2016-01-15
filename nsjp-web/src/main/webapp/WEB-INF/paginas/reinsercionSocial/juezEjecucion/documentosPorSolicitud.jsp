@@ -464,14 +464,14 @@
 					name="btnResponder" 
 					id="btnResponder" 
 					value="Responder Documento"  
-					class="btn_Generico"/>
+					class="ui-button ui-corner-all ui-widget"/>
 		</td>
 		<td align="left" >
 			<input 	type="button" 
 					name="btnCerrar" 
 					id="btnCerrar" 
 					value="Cerrar" 
-					class="btn_Generico"/>
+					class="ui-button ui-corner-all ui-widget"/>
 		</td>		
 	</tr>
 </table>

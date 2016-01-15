@@ -44,10 +44,10 @@
 		</tr>
 		<tr>
 			<td align="right" colspan="3">
-				<input type="button" value="Registrar Informe"  id="botonGuarda" onclick="guarda()"	class="btn_Generico"/>
+				<input type="button" value="Registrar Informe"  id="botonGuarda" onclick="guarda()"	class="ui-button ui-corner-all ui-widget"/>
 			</td>
 			<td align="left" colspan="3">
-				<!--<div id="boton" ><input type="button" value="Elaborar Evaluaci&oacute;n"  id="botonGenerarActa" class="btn_Generico"/> </div>-->
+				<!--<div id="boton" ><input type="button" value="Elaborar Evaluaci&oacute;n"  id="botonGenerarActa" class="ui-button ui-corner-all ui-widget"/> </div>-->
 			</td>
 		</tr>
 	</table>

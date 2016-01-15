@@ -69,7 +69,7 @@ function cargaTurno(){
    <tr align="center"><td  colspan="2"><table width="200" border="0" align="center">
   <tr>
     <td id="emer"><span style="display:none;" id="textemer"><input name="checemer" type="checkbox"  id="checemer" />Urgente </span></td>
-    <td  ><input name="Generar Turno de atenci&oacute;n penal" type="button"  id="botpenal" value="Generar Turno" class="btn_Generico"/></td></tr>
+    <td  ><input name="Generar Turno de atenci&oacute;n penal" type="button"  id="botpenal" value="Generar Turno" class="ui-button ui-corner-all ui-widget"/></td></tr>
 </table>
  
 </td> 

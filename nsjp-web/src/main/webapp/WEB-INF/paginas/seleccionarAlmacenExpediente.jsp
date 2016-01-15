@@ -83,8 +83,8 @@ function almacenTemporal(){
 <table width="650" border="0" cellspacing="0" cellpadding="0">
 	<tr>
     	<td height="25" colspan="2" align="left">
-    		<input type="button" name="btnAsignar" value="Asignar" id="btnAsignar" onclick="asignar()" class="btn_Generico"/>
-    		<input type="button" name="btnAlmacenTemporal" value="Almac&eacute;n Temporal" id="btnAlmacenTemporal" onclick="almacenTemporal()" class="btn_Generico"/>
+    		<input type="button" name="btnAsignar" value="Asignar" id="btnAsignar" onclick="asignar()" class="ui-button ui-corner-all ui-widget"/>
+    		<input type="button" name="btnAlmacenTemporal" value="Almac&eacute;n Temporal" id="btnAlmacenTemporal" onclick="almacenTemporal()" class="ui-button ui-corner-all ui-widget"/>
     	</td>
     </tr>
 </table>

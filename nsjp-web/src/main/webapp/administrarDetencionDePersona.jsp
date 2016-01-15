@@ -152,11 +152,11 @@
 				
 				<div id="tabsconsultaprincipal-3">
 				
-				 <input type="button" id="btnCadCusNuevaCadCus" style="width: 250px;" value="Crear nueva cadena de custodia" class="btn_Generico"/><br/><br/>  
-  				 <input type="button" id="btnCadCusRegEslabones" style="width: 250px;" value="Registrar eslabones" class="btn_Generico"/> <br/><br/>
-  				 <input type="button" id="btnCadCusRepEvidencias" style="width: 250px;" style="width: 250px;" value="Reporte de evidencias" class="btn_Generico"/> <br/><br/>
-  				 <input type="button" id="btnCadCusElabOficio" style="width: 250px;" value="Elaborar oficio para fijaci&oacute;n y preservaci&oacute;n" class="btn_Generico"/><br/><br/>  
-   				 <input type="button" id="btnCadCusAdmDestino" style="width: 250px;" value="Administrar destino legal de evidencia" class="btn_Generico"/>
+				 <input type="button" id="btnCadCusNuevaCadCus" style="width: 250px;" value="Crear nueva cadena de custodia" class="ui-button ui-corner-all ui-widget"/><br/><br/>  
+  				 <input type="button" id="btnCadCusRegEslabones" style="width: 250px;" value="Registrar eslabones" class="ui-button ui-corner-all ui-widget"/> <br/><br/>
+  				 <input type="button" id="btnCadCusRepEvidencias" style="width: 250px;" style="width: 250px;" value="Reporte de evidencias" class="ui-button ui-corner-all ui-widget"/> <br/><br/>
+  				 <input type="button" id="btnCadCusElabOficio" style="width: 250px;" value="Elaborar oficio para fijaci&oacute;n y preservaci&oacute;n" class="ui-button ui-corner-all ui-widget"/><br/><br/>  
+   				 <input type="button" id="btnCadCusAdmDestino" style="width: 250px;" value="Administrar destino legal de evidencia" class="ui-button ui-corner-all ui-widget"/>
    				 
 				</div>
 				<div id="tabsconsultaprincipal-4">
@@ -180,7 +180,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td colspan="3" align="center"><input type="button" id="elaborarOficioLocalizacionPadres" value="Elaborar oficio para localizacion de padres" class="btn_Generico"/>
+							<td colspan="3" align="center"><input type="button" id="elaborarOficioLocalizacionPadres" value="Elaborar oficio para localizacion de padres" class="ui-button ui-corner-all ui-widget"/>
 								
 							</td>
 						</tr>
@@ -231,7 +231,7 @@
 					    </tr>
 					    <tr>
 					        <td align="right" valign="top" >
-					            <input type="button" id="btnIngresarPertenencias" value="Ingresar Pertenencia" class="btn_Generico"/>
+					            <input type="button" id="btnIngresarPertenencias" value="Ingresar Pertenencia" class="ui-button ui-corner-all ui-widget"/>
 					        </td>
 					        <td>
 					            <textarea rows="4" cols="30"></textarea>
@@ -239,7 +239,7 @@
 					    </tr>
 					    <tr>
 					        <td colspan="2" align="center">
-					            <input type="button" id="btnGuardar" value="Guardar" class="btn_Generico"/>
+					            <input type="button" id="btnGuardar" value="Guardar" class="ui-button ui-corner-all ui-widget"/>
 					        </td>
 					    </tr>
 					</table>

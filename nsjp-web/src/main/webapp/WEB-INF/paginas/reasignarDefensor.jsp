@@ -106,7 +106,7 @@
   <tr>
     <td>&nbsp;</td>
     <td align="center"><strong>
-      <input type="button" value="Buscar Expediente" id="buscarExpediente" class="btn_Generico"/>
+      <input type="button" value="Buscar Expediente" id="buscarExpediente" class="ui-button ui-corner-all ui-widget"/>
     </strong></td>
     <td>&nbsp;</td>
   </tr>
@@ -133,7 +133,7 @@
   <tr>
     <td>&nbsp;</td>
     <td align="center"><strong>
-      <input type="button" value="Cambiar defensor designado" id="cambiarDefensor" disabled="disabled" class="btn_Generico"/>
+      <input type="button" value="Cambiar defensor designado" id="cambiarDefensor" disabled="disabled" class="ui-button ui-corner-all ui-widget"/>
       
     </strong></td>
     <td>&nbsp;</td>

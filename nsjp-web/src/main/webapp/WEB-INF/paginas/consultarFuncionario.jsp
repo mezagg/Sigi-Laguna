@@ -274,7 +274,7 @@ var idindi;
 				</tr>
 				<tr>
 					<td colspan="3" align="center">
-						<button id="btnContinuar"  type="button" class="btn_Generico" onclick="cambiarTab('#tabsconsultaprincipal-2');">Continuar</button>
+						<button id="btnContinuar"  type="button" class="ui-button ui-corner-all ui-widget" onclick="cambiarTab('#tabsconsultaprincipal-2');">Continuar</button>
 					</td>
 				</tr>
 			</table>
@@ -291,9 +291,9 @@ var idindi;
 				<tr>
 					<td align="center">
 						<div id="boton2">
-							<input type="button" value="Modificar"  id="botonModifica" class="btn_Generico" onclick="modificarDatosFuncionario();"/>
-							<!--<input type="button" value="Cerrar"  id="botonCerrar" class="btn_Generico" onclick="cerrarVentanaConsulta();"/>
-							--><input type="button" value="Guardar"  id="botonGuardar" class="btn_Generico" onclick="guardarModificarDatosFuncionario();"/>
+							<input type="button" value="Modificar"  id="botonModifica" class="ui-button ui-corner-all ui-widget" onclick="modificarDatosFuncionario();"/>
+							<!--<input type="button" value="Cerrar"  id="botonCerrar" class="ui-button ui-corner-all ui-widget" onclick="cerrarVentanaConsulta();"/>
+							--><input type="button" value="Guardar"  id="botonGuardar" class="ui-button ui-corner-all ui-widget" onclick="guardarModificarDatosFuncionario();"/>
 						</div>
 					</td>
 				</tr>

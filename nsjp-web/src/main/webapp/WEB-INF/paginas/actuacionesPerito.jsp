@@ -413,8 +413,8 @@ Funcionalidad para:
 					    			<tr>
 					    				<td></td>
 					    				<td>
-					    					<input id="anexarDoc" type="button" value="Anexar" onclick="anexarDocumento();" class="btn_Generico"/>
-					    					<input id="limpiarAnexarDoc" type="button" value="Limpiar" class="btn_Generico"/>
+					    					<input id="anexarDoc" type="button" value="Anexar" onclick="anexarDocumento();" class="ui-button ui-corner-all ui-widget"/>
+					    					<input id="limpiarAnexarDoc" type="button" value="Limpiar" class="ui-button ui-corner-all ui-widget"/>
 					    				</td>
 					    			</tr>
 					    		</table>

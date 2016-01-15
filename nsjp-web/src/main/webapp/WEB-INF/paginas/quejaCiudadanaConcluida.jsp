@@ -154,7 +154,7 @@
 <body>
 <table width="100%">
 	<tr>
-		<td align="right""><input class="back_button" type="button"
+		<td align="right""><input class="ui-button ui-corner-all ui-widget" type="button"
 			onclick="guardaQejaCiudadana()" value="Guardar"
 			style="display: none;"></td>
 	</tr>

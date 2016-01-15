@@ -2457,7 +2457,7 @@ DD P {
 			<option value="0">Moral</option>
 		</select>
 		<td>
-		<td><input type="button" class="btn_Generico" id="anularInvolucrado" value="Anular Involucrado"></td>
+		<td><input type="button" class="ui-button ui-corner-all ui-widget" id="anularInvolucrado" value="Anular Involucrado"></td>
 	</tr>
 </table>
 <table>
@@ -2473,11 +2473,11 @@ DD P {
 				<table width="100%" border="0" cellspacing="0" cellpadding="0">
 					<tr>
 						<td width="12%" height="130" align="center"><img
-							src="<%=request.getContextPath()%>/resources/images/img_denunciante.png"
+							src="<%=request.getContextPath()%>/resources/images/foto.png"
 							alt="" width="105" height="105" id="imgConFoto" /></td>
-						<td width="12%" height="130" align="center" valign="middle">
+						<!--td width="12%" height="130" align="center" valign="middle">
 						<img src="resources/images/fingerPrint.JPG" width="100"
-							height="100" /></td>
+							height="100" /></td-->
 						<td width="12%" height="130" align="center" valign="top">
 						<table width="12%" border="0" cellspacing="0" cellpadding="0"
 							class="celda2" id="tableUAVDOpsHide">

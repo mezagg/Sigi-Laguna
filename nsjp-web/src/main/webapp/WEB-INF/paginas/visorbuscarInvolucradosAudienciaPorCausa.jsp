@@ -642,7 +642,7 @@
 					<td>&nbsp;</td>
 					<td>&nbsp;</td>
 					<td colspan="3"><input type="submit" id="guardar"
-						value="Guardar" onclick="actualizarSituacionJuridica();" class="btn_Generico"/>
+						value="Guardar" onclick="actualizarSituacionJuridica();" class="ui-button ui-corner-all ui-widget"/>
 					</td>
 					<td width="74">&nbsp;</td>
 					<td>&nbsp;</td>

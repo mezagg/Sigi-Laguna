@@ -228,7 +228,7 @@ function grid2(){
 	<tr>
 		<td align="left"><input type="text" id="numCarpetaPJ"></td>
 		<td align="right"><input type="button" value="Buscar"
-			onclick="tipoBusqueda();" class="btn_Generico"></td>
+			onclick="tipoBusqueda();" class="ui-button ui-corner-all ui-widget"></td>
 	</tr>
 </table>
 

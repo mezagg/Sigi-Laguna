@@ -1236,7 +1236,7 @@
 		</tr>
 		<tr id="seccionSolicitarDefensor">
 			<td align="center" colspan="4">
-					<input type=button class="back_button" id="btnRegistroDetencion" value="Solicitar Defensor">
+					<input type=button class="ui-button ui-corner-all ui-widget" id="btnRegistroDetencion" value="Solicitar Defensor">
 			</td>
 		</tr>
 	</table>

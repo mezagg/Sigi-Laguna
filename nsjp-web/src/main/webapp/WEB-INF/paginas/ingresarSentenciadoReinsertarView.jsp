@@ -198,8 +198,8 @@
 							<table width="100%" >
 								<tr valign="top">
 									<td align="center">
-										<input type="button" value="Abrir Expediente" id="abrirExpediente" class="btn_Generico"/>
-										<input type="button" value="Elaborar Oficio" id="oficio" class="btn_Generico"/>
+										<input type="button" value="Abrir Expediente" id="abrirExpediente" class="ui-button ui-corner-all ui-widget"/>
+										<input type="button" value="Elaborar Oficio" id="oficio" class="ui-button ui-corner-all ui-widget"/>
 										
 									</td>
 								</tr>

@@ -873,7 +873,7 @@
 						              <option value="0">Moral</option>
 						          </select>
 						    <td>
-						    <td><input type="button" class="btn_Generico" id="anularInvolucrado" value="Anular Involucrado"></td>
+						    <td><input type="button" class="ui-button ui-corner-all ui-widget" id="anularInvolucrado" value="Anular Involucrado"></td>
 						</tr>
 	                </table>
 	</TD>
@@ -890,7 +890,7 @@
             <tr>
                 <td width="10" height="109">&nbsp;</td>
                 <td width="4">&nbsp;</td>
-                <td width="123"><IMG id=iVictimaCmpFoto alt=foto src="<%= request.getContextPath() %>/resources/images/img_denunciante.png"></td>
+                <td width="123"><IMG id=iVictimaCmpFoto alt=foto src="<%= request.getContextPath() %>/resources/images/foto.png"></td>
                 <td width="223">	
 					
     	            <table width="195" border="0" cellspacing="0" cellpadding="0">

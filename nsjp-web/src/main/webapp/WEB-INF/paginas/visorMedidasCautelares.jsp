@@ -1036,7 +1036,7 @@ banderaCambio=1;
 			  </tr>  
 			  <tr>
 			  	
-			  	<td colspan="2" align="center"><input type="button" id="btnCalendarizar" value="Calendarizar"  onclick="generarCalendarizacion();" align="left" class="btn_Generico"/></td>
+			  	<td colspan="2" align="center"><input type="button" id="btnCalendarizar" value="Calendarizar"  onclick="generarCalendarizacion();" align="left" class="ui-button ui-corner-all ui-widget"/></td>
 			   	<td colspan="2"><textarea id="areaRecomendaciones" cols="45" rows="5" style="width: 250px; height:100px;" disabled="disabled"></textarea></td>
 			  </tr>
 			</table>
@@ -1051,12 +1051,12 @@ banderaCambio=1;
                <div id="paginadorSeguimiento"></div>
                <table>
 					<tr>
-						<td colspan="2" align="center"><input type="button" value="Generar Reporte"  onclick="generarReporteCalendarizacion();" align="left" style="display: none;" class="btn_Generico"/></td>
+						<td colspan="2" align="center"><input type="button" value="Generar Reporte"  onclick="generarReporteCalendarizacion();" align="left" style="display: none;" class="ui-button ui-corner-all ui-widget"/></td>
 					</tr>
                </table>
             </div>
             <br/>
-            <input type="button" value="Cancelar Seguimiento" onclick="cancelarSeguiemiento()" id="btnCancelarSeguimiento" class="btn_Generico"/>
+            <input type="button" value="Cancelar Seguimiento" onclick="cancelarSeguiemiento()" id="btnCancelarSeguimiento" class="ui-button ui-corner-all ui-widget"/>
 		</div>
 			
 		<div id="tabsconsultaprincipal-4">
@@ -1118,8 +1118,8 @@ banderaCambio=1;
 			    			<tr>
 			    				<td></td>
 			    				<td>
-			    					<input id="anexarDoc" type="button" value="Anexar" onclick="anexarDocumento();" class="btn_Generico"/>
-			    					<input id="limpiarAnexarDoc" type="button" value="Limpiar" class="btn_Generico"/>
+			    					<input id="anexarDoc" type="button" value="Anexar" onclick="anexarDocumento();" class="ui-button ui-corner-all ui-widget"/>
+			    					<input id="limpiarAnexarDoc" type="button" value="Limpiar" class="ui-button ui-corner-all ui-widget"/>
 			    				</td>
 			    			</tr>
 			    		</table>

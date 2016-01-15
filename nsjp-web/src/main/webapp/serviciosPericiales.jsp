@@ -766,7 +766,7 @@ body,td,th {
 			<table width="100%">
 				<tr>
 					<td>Solicitud</td>
-					<td align="right"  ><input type="button"  id="idTipoBusqueda" value="Designar Perito" class="btn_Generico"/></td>
+					<td align="right"  ><input type="button"  id="idTipoBusqueda" value="Designar Perito" class="ui-button ui-corner-all ui-widget"/></td>
 				</tr>
 				<tr>
 					<td colspan="2"><textarea rows="7" cols="100"></textarea></td>

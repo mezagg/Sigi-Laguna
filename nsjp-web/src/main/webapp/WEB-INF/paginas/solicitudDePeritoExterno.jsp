@@ -353,7 +353,7 @@
 								<input type="text" size="50" maxlength="50" id="solServPericialCadenaCustodia"/>
 							</td>
 							<td>
-								<input type="button" id="solServPericialConsCadenaCustodia" value="Consultar" class="btn_Generico"/>
+								<input type="button" id="solServPericialConsCadenaCustodia" value="Consultar" class="ui-button ui-corner-all ui-widget"/>
 							</td>
 						</tr>
 						<tr>
@@ -371,19 +371,19 @@
 								&nbsp;
 							</td>
 							<td>
-								<input type="button" id="solServPericialAddCadenaCustodia" value="Agregar Cadena" class="btn_Generico"/>
+								<input type="button" id="solServPericialAddCadenaCustodia" value="Agregar Cadena" class="ui-button ui-corner-all ui-widget"/>
 							</td>
 						</tr>
 						<tr>
 							<td colspan="3" align="right">
-								<input type="button" id="btnGuardar" value="Guardar" class="btn_Generico"/>
+								<input type="button" id="btnGuardar" value="Guardar" class="ui-button ui-corner-all ui-widget"/>
 							</td>
 						</tr>
 					</table>
 				</div>
 				<div id="tabsconsultaprincipal-4">
 					<jsp:include page="/WEB-INF/paginas/ingresarNarrativaView.jsp" flush="true"></jsp:include>
-					<input type="button" id="btnGuardar" value="Guardar" class="btn_Generico"/>
+					<input type="button" id="btnGuardar" value="Guardar" class="ui-button ui-corner-all ui-widget"/>
 				</div>
 				<div id="tabsconsultaprincipal-5" style="height: 400">
 				  	<table width="600">
@@ -401,7 +401,7 @@
 				  		</tr>
 				  		<tr>
 							<td colspan="2" align="right">
-								<input type="button" id="btnGuardar" value="Guardar" class="btn_Generico"/>
+								<input type="button" id="btnGuardar" value="Guardar" class="ui-button ui-corner-all ui-widget"/>
 							</td>
 						</tr>
 				  	</table>
@@ -411,7 +411,7 @@
 	</tr>
 	<tr>
 		<td align="center">
-			<input type="button" id="btnEnviarSolicitud" value="Enviar Solicitud" class="btn_Generico"/>
+			<input type="button" id="btnEnviarSolicitud" value="Enviar Solicitud" class="ui-button ui-corner-all ui-widget"/>
 		</td>
 	</tr>
 </table>

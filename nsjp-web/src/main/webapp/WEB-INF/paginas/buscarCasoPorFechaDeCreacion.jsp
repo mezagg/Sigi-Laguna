@@ -98,7 +98,7 @@
     </tr>
 
 	<tr >
-    <td height="25" colspan="2" align="center"><input type="button" name="buscarFecha" id="buscarFecha" value="Buscar"  class="btn_Generico"/>
+    <td height="25" colspan="2" align="center"><input type="button" name="buscarFecha" id="buscarFecha" value="Buscar"  class="ui-button ui-corner-all ui-widget"/>
     </tr>
     <tr>
      <td align="center">

@@ -156,15 +156,15 @@
                     </td>
                     <td align="right">
                         <input type="button" value="Buscar"
-                                             onclick="consultaEvidenciasPorFolio();" class="btn_Generico"/>
+                                             onclick="consultaEvidenciasPorFolio();" class="ui-button ui-corner-all ui-widget"/>
                     </td>
                 </tr>
             </table>
             <div id="nabtabgrid" >
                 <input type="button" value="Dar de baja indicio o evidencia"
-                       onclick="lanzaDarDeBajaIndicioOEvidencia();" class="btn_Generico"/>
+                       onclick="lanzaDarDeBajaIndicioOEvidencia();" class="ui-button ui-corner-all ui-widget"/>
                 <input type="button" value="Registrar salida de almac&eacute;n"
-                       onclick="lanzaRegistrarSalidaAlmacen();" class="btn_Generico"/>
+                       onclick="lanzaRegistrarSalidaAlmacen();" class="ui-button ui-corner-all ui-widget"/>
                 <div id="wrapGriEvidencias" style="display:none">
                     <table id="gridEvidencias" align="center"></table>
                     <div id="pagerGridEvidencias"></div>

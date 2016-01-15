@@ -136,7 +136,7 @@ function hideTable(){
 	<table id="tblButtons" align="center">
 		<tr>
 			<td align="center" width="50%">
-				<input id="btnGuardar" class="btn_Generico" type="button" onclick="saveValues()" value="Guardar">
+				<input id="btnGuardar" class="ui-button ui-corner-all ui-widget" type="button" onclick="saveValues()" value="Guardar">
 			</td>
 		</tr>	
 	</table>

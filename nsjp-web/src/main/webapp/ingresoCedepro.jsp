@@ -187,7 +187,7 @@
 						</tr>
 						<tr>
 							<td align="right" valign="top" >
-								<input type="button" id="btnIngresarPertenencias" value="Ingresar Pertenencia" class="btn_Generico"/>
+								<input type="button" id="btnIngresarPertenencias" value="Ingresar Pertenencia" class="ui-button ui-corner-all ui-widget"/>
 							</td>
 							<td>
 				            	<textarea rows="4" cols="30"></textarea>
@@ -195,7 +195,7 @@
 						</tr>
 						<tr>
 							<td colspan="2" align="right">
-								<input type="button" id="btnGuardar" value="Guardar" class="btn_Generico"/>
+								<input type="button" id="btnGuardar" value="Guardar" class="ui-button ui-corner-all ui-widget"/>
 							</td>
 						</tr>
 					</table>
@@ -209,7 +209,7 @@
 						</tr>
 						<tr>
 							<td colspan="2" align="right">
-								<input type="button" id="btnGuardar" value="Guardar" class="btn_Generico"/>
+								<input type="button" id="btnGuardar" value="Guardar" class="ui-button ui-corner-all ui-widget"/>
 							</td>
 						</tr>
 					</table>

@@ -293,9 +293,9 @@
 			<table width="100%">
 				<tr>
 					<td align="right">
-						<input type="button" id="btnEnviar" value="Enviar" onclick="enviaCarpeta()" class="btn_Generico"/>
+						<input type="button" id="btnEnviar" value="Enviar" onclick="enviaCarpeta()" class="ui-button ui-corner-all ui-widget"/>
 						<span id="asignar">
-							<input type="button" id="btnAsignar" value="Asignar" class="btn_Generico" />
+							<input type="button" id="btnAsignar" value="Asignar" class="ui-button ui-corner-all ui-widget" />
 						</span>
 					</td>
 				</tr>

@@ -134,7 +134,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td><input id="btnReasignarDefensor" name="btnReasignarDefensor" type="button" value="Reasignar Defensor" class="btn_Generico"></td>
+		<td><input id="btnReasignarDefensor" name="btnReasignarDefensor" type="button" value="Reasignar Defensor" class="ui-button ui-corner-all ui-widget"></td>
 	</tr>
     </table>
 </body>

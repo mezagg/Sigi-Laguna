@@ -228,7 +228,7 @@
     </select></td>
     </tr>
   <tr>
-    <td colspan="4" align="center"><input type="button" name="btnBuscarPersonal" id="btnBuscarPersonal" value="Buscar" class="btn_Generico"></td>
+    <td colspan="4" align="center"><input type="button" name="btnBuscarPersonal" id="btnBuscarPersonal" value="Buscar" class="ui-button ui-corner-all ui-widget"></td>
     </tr>
     </table>
 

@@ -85,7 +85,7 @@
 				<td>
 				<form id="formaBusqueda" name="formaBusqueda">
 					<input type="text"   value="" id="numeroCaso" name="numeroCaso" style="width:350px"/>
-					<input type="button" value="Buscar Caso" onclick="buscarCasosParaVincular();" class="btn_Generico"/>
+					<input type="button" value="Buscar Caso" onclick="buscarCasosParaVincular();" class="ui-button ui-corner-all ui-widget"/>
 				</form>
 				</td>
 			</tr>
@@ -95,7 +95,7 @@
 						<table id="gridCasos"></table>
 						<div id="paginadorCasos"></div>
 					</div>
-					<input type="button" value="Vincular" onclick="vincularCaso()" class="btn_Generico"/>
+					<input type="button" value="Vincular" onclick="vincularCaso()" class="ui-button ui-corner-all ui-widget"/>
 				</td>
 			</tr>
 		</table>

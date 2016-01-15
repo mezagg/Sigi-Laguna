@@ -1695,7 +1695,7 @@
 							readonly="readonly" />
 						<input type="button" id="editarNumeroExp"
 							value='<bean:message key="audiencia.configurar.editarNumeroExpediente"/>'
-							style="display: none" onclick="abrirDialogEditarNumExp()" class="btn_Generico"/>
+							style="display: none" onclick="abrirDialogEditarNumExp()" class="ui-button ui-corner-all ui-widget"/>
 					</td>
 					<td colspan="2" rowspan="8" align="left"><table
 							id="gridSolicitudDeAudienciaImputadosPJENA"></table>
@@ -1777,10 +1777,10 @@
 			    <td width="258">&nbsp;</td>
 			    <td width="178">&nbsp;</td>
 			   
-			    <td colspan="3" align="center" valign="bottom"><input type="button" value="<<" id="btnAtrasMes" onClick="atrasAdelanteMes('atras');" class="btn_Generico"/>
+			    <td colspan="3" align="center" valign="bottom"><input type="button" value="<<" id="btnAtrasMes" onClick="atrasAdelanteMes('atras');" class="ui-button ui-corner-all ui-widget"/>
 			      <input type="text" id="mes" disabled="disabled" style="width: 70px"/>
 			      <input type="text" id="anio" disabled="disabled" style="width: 70px" />
-			    <input type="button" value=">>" id="btnAdelanteMes" onClick="atrasAdelanteMes('adelante');" class="btn_Generico"/></td>
+			    <input type="button" value=">>" id="btnAdelanteMes" onClick="atrasAdelanteMes('adelante');" class="ui-button ui-corner-all ui-widget"/></td>
 			    <td width="100" nowrap="nowrap"><strong>Designar Juez:</strong> 
 			    	
 			    </td>
@@ -1793,8 +1793,8 @@
 			    			</td> 
 			    		</tr>
 			    		<tr>
-			    			<td width="111"><input type="button" value="Manualmente" id="btnAsignarJuezManual" onclick="controlJueces(false);" class="btn_Generico"/></td>
-			    			<td width="125"><input type="button" value="Autom&aacute;ticamente" id="btnAsignarJuezAuto" onclick="controlJueces(true);" class="btn_Generico"/></td>
+			    			<td width="111"><input type="button" value="Manualmente" id="btnAsignarJuezManual" onclick="controlJueces(false);" class="ui-button ui-corner-all ui-widget"/></td>
+			    			<td width="125"><input type="button" value="Autom&aacute;ticamente" id="btnAsignarJuezAuto" onclick="controlJueces(true);" class="ui-button ui-corner-all ui-widget"/></td>
 			    		</tr>
 			    	</table>
 			    
@@ -1906,8 +1906,8 @@
 			  <tr>
 			    <td>&nbsp;</td>
 			    <td>&nbsp;</td>
-			    <td colspan="3" align="center"><input type="button" class="btn_guardar" id="btnGuardarAudiencia" value="Guardar"  onclick="guardarAudiencia();" class="btn_Generico"/></td>
-			    <td colspan="3" align="left"><input type="button" class="btn_mediano" id="btnDesignar" onclick="mostrarAsignarSalaTemporalPJENA();" value="Designar Sala Temporal"  class="btn_Generico"/></td>
+			    <td colspan="3" align="center"><input type="button" class="btn_guardar" id="btnGuardarAudiencia" value="Guardar"  onclick="guardarAudiencia();" class="ui-button ui-corner-all ui-widget"/></td>
+			    <td colspan="3" align="left"><input type="button" class="btn_mediano" id="btnDesignar" onclick="mostrarAsignarSalaTemporalPJENA();" value="Designar Sala Temporal"  class="ui-button ui-corner-all ui-widget"/></td>
 			  </tr>
 			</table>
 			
@@ -2003,10 +2003,10 @@
 				</tr>
 				<tr>
 				  <td colspan="2" align="center"><input type="button"
-						value="Enviar" id="trasladoImputado"  class="btn_Generico"/> 
+						value="Enviar" id="trasladoImputado"  class="ui-button ui-corner-all ui-widget"/> 
 				  </td>
 	                   <td colspan="2" align="center"><input type="button"
-						value="Cancelar" id="trasladoImputado" class="btn_Generico" /> 
+						value="Cancelar" id="trasladoImputado" class="ui-button ui-corner-all ui-widget" /> 
 					</td>
 				</tr>
 				<tr>

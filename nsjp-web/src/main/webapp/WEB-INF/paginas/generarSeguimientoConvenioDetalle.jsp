@@ -384,7 +384,7 @@
 					<input type="text" id="cbxVictima" disabled="disabled">					
 				</td>
 				<td width="1%">
-					<input type="button" value="Capturar Convenio" onclick="capturarConvenio();" style="display: none;" class="btn_Generico"/>
+					<input type="button" value="Capturar Convenio" onclick="capturarConvenio();" style="display: none;" class="ui-button ui-corner-all ui-widget"/>
 				</td>
 			</tr>
 		</table>
@@ -440,11 +440,11 @@
 	   		</tr>
        		<tr>
        			<!--
-		   		<td colspan="2"><input type="button" id="btnGenerarConstanciaConvenio2" value="Generar constancia de seguimiento a convenio" style="display: none;" class="btn_Generico"/></td>
+		   		<td colspan="2"><input type="button" id="btnGenerarConstanciaConvenio2" value="Generar constancia de seguimiento a convenio" style="display: none;" class="ui-button ui-corner-all ui-widget"/></td>
 		   		<td colspan="2"></td>
 		  		-->
 		   		<td colspan="2" align="right">
-		     		<input type="button" id="btnGuardarConvenio" value="Guardar" onclick="ocultaboton()" style="display: none;" class="btn_Generico"/>
+		     		<input type="button" id="btnGuardarConvenio" value="Guardar" onclick="ocultaboton()" style="display: none;" class="ui-button ui-corner-all ui-widget"/>
 		   		</td>
 	   		</tr>
    		</table>

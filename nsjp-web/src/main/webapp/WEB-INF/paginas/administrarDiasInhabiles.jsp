@@ -197,8 +197,8 @@
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td align="center"><input type="button" value="Agregar" id="agregarDiaInhabil" class="btn_Generico"/></td>
-    <td align="center"><input type="button" value="Eliminar"id="eliminarDiaInhabil" class="btn_Generico"/></td>
+    <td align="center"><input type="button" value="Agregar" id="agregarDiaInhabil" class="ui-button ui-corner-all ui-widget"/></td>
+    <td align="center"><input type="button" value="Eliminar"id="eliminarDiaInhabil" class="ui-button ui-corner-all ui-widget"/></td>
     <td>&nbsp;</td>
   </tr>
   <tr>

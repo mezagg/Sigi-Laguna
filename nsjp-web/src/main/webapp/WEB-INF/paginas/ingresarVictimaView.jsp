@@ -1585,7 +1585,7 @@
 						              <option value="1">F&iacute;sica</option>
 						              <option value="0">Moral</option>
 						          </select>&nbsp;&nbsp;&nbsp;&nbsp;
-						          <input type="button" class="btn_Generico" id="anularInvolucrado" value="Anular Involucrado"></td>
+						          <input type="button" class="ui-button ui-corner-all ui-widget" id="anularInvolucrado" value="Anular Involucrado"></td>
 						<td width="30%" align="right" class="seccion">Expediente: <span id="expediente"><%= request.getParameter("numeroExpediente")%></span> </td>
 					</tr>
 				</table>
@@ -1604,7 +1604,7 @@
 									<td width="10" height="109">&nbsp;</td>
                 					<td width="4">&nbsp;</td>
 									<td width="123">
-										<img alt="foto" src="<%= request.getContextPath() %>/resources/images/img_denunciante.png" id="iVictimaCmpFoto">
+										<img alt="foto" src="<%= request.getContextPath() %>/resources/images/foto.png" id="iVictimaCmpFoto">
 									</td>
 									<td width="123">
 										<table width="195" border="0" cellspacing="0" cellpadding="0">
@@ -1685,8 +1685,8 @@
 							<table width="100%" >
 								<tr valign="top">
 									<td valign="top" align="center">
-										<input type="button" class="btn_Generico" value="Modificar Datos" id="iVictimaBtnModificarDatos" onclick="habilitaRadioBotones()"/>
-										<input type="button" class="btn_Generico" value="Guardar" id="iVictimaBtnGuardar"/>
+										<input type="button" class="ui-button ui-corner-all ui-widget" value="Modificar Datos" id="iVictimaBtnModificarDatos" onclick="habilitaRadioBotones()"/>
+										<input type="button" class="ui-button ui-corner-all ui-widget" value="Guardar" id="iVictimaBtnGuardar"/>
 									</td>
 								</tr>
 							</table>

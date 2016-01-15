@@ -924,7 +924,7 @@
 </table>	
 </div>
 
-<input type="button" value="Enviar a Unidad de Captura" id="btnEnviarUnidadCaptura" class="back_button" align="right"/>	
+<input type="button" value="Enviar a Unidad de Captura" id="btnEnviarUnidadCaptura" class="ui-button ui-corner-all ui-widget" align="right"/>	
 <p>				
 
 	<div id="tabsconsultaprincipal">
@@ -971,9 +971,9 @@
 					</tr>
 					<tr>
 						<td align="center" colspan="4">
-							<input type="button" value="Agregar Pertenencia" id="btnAgregarPertenencia" class="back_button" tabindex="6"/>
+							<input type="button" value="Agregar Pertenencia" id="btnAgregarPertenencia" class="ui-button ui-corner-all ui-widget" tabindex="6"/>
 							&nbsp;
-							<!--<input type="button" value="Cancelar Pertenencia" id="btnCancelarPertenencia" class="back_button" tabindex="7"/>-->
+							<!--<input type="button" value="Cancelar Pertenencia" id="btnCancelarPertenencia" class="ui-button ui-corner-all ui-widget" tabindex="7"/>-->
 						</td>					
 					</tr>		
 					<tr>
@@ -1044,10 +1044,10 @@
 					<tr>
 						<td>&nbsp;</td>
 						<td align="right" colspan="2">
-							<input type="button" value='<bean:message key="ingProbaleResponsable"/>' id="btnAgregarProbableResponsable" class="back_button" tabindex="11"/>
+							<input type="button" value='<bean:message key="ingProbaleResponsable"/>' id="btnAgregarProbableResponsable" class="ui-button ui-corner-all ui-widget" tabindex="11"/>
 						</td>
 						<td align="left" colspan="2">
-							<input type="button" value='<bean:message key="elimProbaleResponsable"/>' id="btnEliminarProbableResponsable" class="back_button" tabindex="12"/>
+							<input type="button" value='<bean:message key="elimProbaleResponsable"/>' id="btnEliminarProbableResponsable" class="ui-button ui-corner-all ui-widget" tabindex="12"/>
 						</td>
 						<td>&nbsp;</td>						
 					</tr>
@@ -1065,7 +1065,7 @@
 
 			<table border="0" height="90%" style="width: 900px;">
 				<tr>
-					<td align="left" style="width: 200px;"><input type="button" value="Mostrar IPH" id="btnMostrarIPH" class="back_button" tabindex="14"/></td>
+					<td align="left" style="width: 200px;"><input type="button" value="Mostrar IPH" id="btnMostrarIPH" class="ui-button ui-corner-all ui-widget" tabindex="14"/></td>
 				</tr>
 			</table>
 		</div>
@@ -1079,7 +1079,7 @@
 			<table width="900px" height="350px" border="0" cellspacing="0" cellpadding="0">
 				<tr>
 					<td>
-						<input type="button" value="Guardar Descripci&oacute;n" id="guardarDescripcionHecho" class="back_button" onclick="guardarDescripcionDelHecho();"/>
+						<input type="button" value="Guardar Descripci&oacute;n" id="guardarDescripcionHecho" class="ui-button ui-corner-all ui-widget" onclick="guardarDescripcionDelHecho();"/>
 					</td>
 				</tr>
 				<tr>

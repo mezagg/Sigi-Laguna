@@ -118,7 +118,7 @@
 	<table border="0">
 		<tr>
 			<td>
-				<input type="button" name="finalizarSolicitud" id="finalizarSolicitud" value="Finalizar Solicitud" class="btn_Generico" onClick="actualizarEstatusSolicitud(<%=EstatusSolicitud.CERRADA.getValorId()%>);" />
+				<input type="button" name="finalizarSolicitud" id="finalizarSolicitud" value="Finalizar Solicitud" class="ui-button ui-corner-all ui-widget" onClick="actualizarEstatusSolicitud(<%=EstatusSolicitud.CERRADA.getValorId()%>);" />
 			</td>
 		</tr>
 	</table>

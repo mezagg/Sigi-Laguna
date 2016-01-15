@@ -66,21 +66,21 @@
 	<div id="tabsInvolucrado-7"><!-- VICTIMAS calidad VICTIMA-->
 		<table width="25%" cellpadding="0" cellspacing="0" id="tblVictimaDEF">
 			<tr>
-				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="btnNuevaVictima"><input type="button" class="btn_Generico" value="Ingresar Victima" onclick="creaNuevaVictima()"/></a></td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="btnNuevaVictima"><input type="button" class="ui-button ui-corner-all ui-widget" value="Ingresar Victima" onclick="creaNuevaVictima()"/></a></td>
 			</tr>
 		</table>
 	</div>
 	<div id="tabsInvolucrado-8"><!-- PROBABLES RESPONSABLES calidad PROBABLE_RESPONSABLES-->
 		<table width="25%" cellpadding="0" cellspacing="0" id="tblProbableResponsableDEF">
 			<tr>
-				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="btnNuevoProbRes"><input type="button" class="btn_Generico" value='<bean:message key="ingProbaleResponsable"/>' onclick="creaNuevoProbResponsable()"/></a></td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="btnNuevoProbRes"><input type="button" class="ui-button ui-corner-all ui-widget" value='<bean:message key="ingProbaleResponsable"/>' onclick="creaNuevoProbResponsable()"/></a></td>
 			</tr>
 		</table>
 	</div>
 	<div id="tabsInvolucrado-9"><!-- TESTIGOS calidad TESTIGO-->
 		<table width="25%" cellpadding="0" cellspacing="0" id="tblTestigoDEF">
 			<tr>
-				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="btnNuevoTestigo"><input type="button" class="btn_Generico" value="Ingresar Testigo" onclick="creaNuevoTestigo()"/></a></td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="btnNuevoTestigo"><input type="button" class="ui-button ui-corner-all ui-widget" value="Ingresar Testigo" onclick="creaNuevoTestigo()"/></a></td>
 			</tr>
 		</table>
 	</div>

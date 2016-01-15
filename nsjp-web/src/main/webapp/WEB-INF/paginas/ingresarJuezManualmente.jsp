@@ -83,7 +83,7 @@
 					</table>
 				</td>
 				<td width="200" >
-					<input type="button" value="Designar Autom&aacute;ticamente" class="btn_Generico"/>
+					<input type="button" value="Designar Autom&aacute;ticamente" class="ui-button ui-corner-all ui-widget"/>
 				</td> 
 			</tr>
 		</table>		

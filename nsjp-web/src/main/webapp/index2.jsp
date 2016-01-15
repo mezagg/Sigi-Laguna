@@ -627,7 +627,7 @@
 							<td align="right">Alias:</td>
 							<td>
 								<input type="text" size="20" maxlength="50" id="newItem"/>
-								<input type="button" id="add" value="Agrega Alias" class="btn_Generico"/>
+								<input type="button" id="add" value="Agrega Alias" class="ui-button ui-corner-all ui-widget"/>
 							</td>
 						</tr>
 						<tr>
@@ -700,7 +700,7 @@
 										<td>C&oacute;digo Postal</td>
 										<td>
 											<input type="text" name="codigoPostal" id="codigoPostal" size="5" maxlength="5" />
-											<input type="button" value="Enviar" id="codigoPostalButton" class="btn_Generico"/>
+											<input type="button" value="Enviar" id="codigoPostalButton" class="ui-button ui-corner-all ui-widget"/>
 										</td>
 										<td>Numero exterior</td>
 										<td>
@@ -808,7 +808,7 @@
 											<label for="domicilioNotificacionesNo">No</label>
 										</td>
 										<td>Limpiar Formulario</td>
-										<td><input type="button" value="Limpiar" id="limpiarButton" class="btn_Generico"/></td>
+										<td><input type="button" value="Limpiar" id="limpiarButton" class="ui-button ui-corner-all ui-widget"/></td>
 									</tr>
 								</table>
 								</td>
@@ -842,7 +842,7 @@
 										<td>C&oacute;digo Postal</td>
 										<td> 
 											<input type="text" name="codigoPostalNotif" id="codigoPostalNotif" maxlength="5" size="5"/>
-											<input type="button" value="Enviar" id="codigoPostalButtonNotif" class="btn_Generico"/>
+											<input type="button" value="Enviar" id="codigoPostalButtonNotif" class="ui-button ui-corner-all ui-widget"/>
 										</td>
 										<td>Numero exterior</td>
 										<td> 

@@ -334,7 +334,7 @@ function reasignarSolicitudPericial(){
 		        <tr>
 		            <td align="right">&nbsp;</td>
 		            <td align="left" valign="middle">
-		            	<input type="button" id="buttonBuscarSolicitud" value="Buscar" class="btn_Generico" onclick="cargaGridSolicitudes();">
+		            	<input type="button" id="buttonBuscarSolicitud" value="Buscar" class="ui-button ui-corner-all ui-widget" onclick="cargaGridSolicitudes();">
 		            </td>
 		        </tr>
 		        <tr>
@@ -422,7 +422,7 @@ function reasignarSolicitudPericial(){
 		            <td align="right">&nbsp;</td>
 		            <td align="left" valign="middle">
 		            	<div id="divButtonBuscarPerito">
-		            		<input type="button" id="buttonBuscarPeritoPorNombre" value="Buscar" class="btn_Generico" onclick="obtenerParametrosYcargarGridPeritos();">
+		            		<input type="button" id="buttonBuscarPeritoPorNombre" value="Buscar" class="ui-button ui-corner-all ui-widget" onclick="obtenerParametrosYcargarGridPeritos();">
 		            	</div>
 		            </td>
 		        </tr>
@@ -430,7 +430,7 @@ function reasignarSolicitudPericial(){
 		            <td align="left">&nbsp;</td>
 		            <td align="left">&nbsp;</td>
 		            <td align="right">            
-		            	<input type="button" id="btnReasignar" value="Reasignar Solicitud" class="btn_Generico" onclick="reasignarSolicitudPericial();" />
+		            	<input type="button" id="btnReasignar" value="Reasignar Solicitud" class="ui-button ui-corner-all ui-widget" onclick="reasignarSolicitudPericial();" />
 					</td>
 		        </tr>
 		    </table>	

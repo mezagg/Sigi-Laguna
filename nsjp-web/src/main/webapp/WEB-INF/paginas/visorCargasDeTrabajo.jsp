@@ -210,9 +210,9 @@
 				</tr>
 				<tr>
 					<td>&nbsp;</td>
-					<td valign="top"><input type="button" value="Guardar" class="btn_Generico"/>
+					<td valign="top"><input type="button" value="Guardar" class="ui-button ui-corner-all ui-widget"/>
 					</td>
-					<td valign="top"><input type="button" value="Cancelar" class="btn_Generico"/>
+					<td valign="top"><input type="button" value="Cancelar" class="ui-button ui-corner-all ui-widget"/>
 					</td>
 					<td valign="top">&nbsp;</td>
 				</tr>

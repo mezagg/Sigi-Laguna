@@ -961,7 +961,7 @@ body,td,th {
 
 			    <tr>
 			        <td colspan="3" align="center">
-						<input type="button" id="btnAdminMediCaute" value="Administrar medidas cautelares" class="btn_Generico">
+						<input type="button" id="btnAdminMediCaute" value="Administrar medidas cautelares" class="ui-button ui-corner-all ui-widget">
 						<!--<input type="submit" id="consultarMandamiento" value="Consultar Mandamiento" />-->
 			       	</td>
 			    </tr>

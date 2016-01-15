@@ -2241,7 +2241,7 @@
         				<input type="radio" value="1" id="rdbCadCusRespEmbExt" name="rdbCadCusRespEmb" checked="checked" class="rdbCadCusRespEmb" style="display:none"/><samp style="display:none">Externo</samp>
         			</td>
         			<td width="50%" align="right">
-        				<input type="button" value="Guardar" id="btnGuardaCadCustodia" class="btn_Generico"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        				<input type="button" value="Guardar" id="btnGuardaCadCustodia" class="ui-button ui-corner-all ui-widget"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         			</td>
         		</tr>
         		<tr>
@@ -2253,7 +2253,7 @@
         							<input type="text" id="txtCadCusRespEmbNombre" onkeypress="return soloLetrasNPunto(event,this.id);" style="width:100%;"/>
         						</td>
         						<td>
-        							<input type="button" value="<<" onclick="abrePopupSystemUser(1);" id="btnCadCusRespEmb" class="btn_Generico"/>
+        							<input type="button" value="<<" onclick="abrePopupSystemUser(1);" id="btnCadCusRespEmb" class="ui-button ui-corner-all ui-widget"/>
         						</td>
         					</tr>
         					<tr>
@@ -2300,7 +2300,7 @@
         							<input type="text" id="txtCadCusRespTrasNombre" style="width:100%;" onkeypress="return soloLetrasNPunto(event,this.id);"/>
         						</td>
         						<td>
-        							<input type="button" value="<<" onclick="abrePopupSystemUser(2);" id="btnCadCusRespTras" class="btn_Generico"/>
+        							<input type="button" value="<<" onclick="abrePopupSystemUser(2);" id="btnCadCusRespTras" class="ui-button ui-corner-all ui-widget"/>
         						</td>
         					</tr>
         					<tr>
@@ -2344,7 +2344,7 @@
         							<input type="text" id="txtCadCusPerEntNombre" style="width:100%;" onkeypress="return soloLetrasNPunto(event,this.id);"/>
         						</td>
         						<td>
-        							<input type="button" value="<<" onclick="abrePopupSystemUser(3);" id="btnCadCusPerEntrg" class="btn_Generico"/>
+        							<input type="button" value="<<" onclick="abrePopupSystemUser(3);" id="btnCadCusPerEntrg" class="ui-button ui-corner-all ui-widget"/>
         						</td>
         					</tr>
         					<tr>
@@ -2502,8 +2502,8 @@
         	<table>
         		<tr>
         			<td>
-        				<input type="button" id="btnCapturarEvidenciaCadCus" onclick="consultaEvidenciasCadenaDeCustodia();" value="Capturar evidencia" style="width: 250px;" class="btn_Generico"/>
-        				<input type="button" id="btnSeleccionaEvidenciaCadCus" value="Seleccionar evidencia ya capturada" style="width: 250px; display: none" class="btn_Generico"/>
+        				<input type="button" id="btnCapturarEvidenciaCadCus" onclick="consultaEvidenciasCadenaDeCustodia();" value="Capturar evidencia" style="width: 250px;" class="ui-button ui-corner-all ui-widget"/>
+        				<input type="button" id="btnSeleccionaEvidenciaCadCus" value="Seleccionar evidencia ya capturada" style="width: 250px; display: none" class="ui-button ui-corner-all ui-widget"/>
         			</td>
         		</tr>
         	</table>
@@ -2535,8 +2535,8 @@
         		<tr class="trCapturaEvidenciaCadCus" style="width: 800px;" id="trAnulaAgregaEvdncs">
         			<td align="center">
 	        			<br/>
-	        			<input type="button" id="idEliminarEvidencia" value="Anular Evidencia" class="btn_Generico"/>&nbsp;&nbsp;&nbsp;&nbsp;
-	        			<input type="button" id="idAgregarEvidencia" value="Agregar Evidencia a Cadena de Custodia" class="btn_Generico"/>
+	        			<input type="button" id="idEliminarEvidencia" value="Anular Evidencia" class="ui-button ui-corner-all ui-widget"/>&nbsp;&nbsp;&nbsp;&nbsp;
+	        			<input type="button" id="idAgregarEvidencia" value="Agregar Evidencia a Cadena de Custodia" class="ui-button ui-corner-all ui-widget"/>
 	        		</td>
         		</tr>
         		<tr class="trSeleccionaEvidenciaCadCus">
@@ -2550,8 +2550,8 @@
         				<table id="gridCadCustodiaEvdncs"></table>
 						<div id="pagerGridCadCustodiaEvdncs"></div>
 						<br>
-						<input type="button" name="btnAsignarAlamcen" id="btnAsignarAlamcen" value="Asignar Almac&eacute;n" onclick="asignaAlamcen()" class="btn_Generico">
-	       			    <input type="button" name="btnCrearAlmacenVirtual" id="btnCrearAlmacenVirtual" value="Crear Almac&eacute;n Virtual" onclick="crearAlmacen()" class="btn_Generico">
+						<input type="button" name="btnAsignarAlamcen" id="btnAsignarAlamcen" value="Asignar Almac&eacute;n" onclick="asignaAlamcen()" class="ui-button ui-corner-all ui-widget">
+	       			    <input type="button" name="btnCrearAlmacenVirtual" id="btnCrearAlmacenVirtual" value="Crear Almac&eacute;n Virtual" onclick="crearAlmacen()" class="ui-button ui-corner-all ui-widget">
 	       			    
         			</td>
         		</tr>
@@ -2579,8 +2579,8 @@
         	<table>
         		<tr>
         			<td colspan="2" align="right">
-        			    <input type="button" value="Adicionar eslabones a la cadena" id="btnAddEslbnCadCus" class="btn_Generico"/>&nbsp;&nbsp;&nbsp;
-        				<input type="button" value="Registrar eslab&oacute;n de cadena" id="btnRegEslbnCadCus" class="btn_Generico"/>
+        			    <input type="button" value="Adicionar eslabones a la cadena" id="btnAddEslbnCadCus" class="ui-button ui-corner-all ui-widget"/>&nbsp;&nbsp;&nbsp;
+        				<input type="button" value="Registrar eslab&oacute;n de cadena" id="btnRegEslbnCadCus" class="ui-button ui-corner-all ui-widget"/>
         			</td>
         		</tr>
         		<tr>

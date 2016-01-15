@@ -242,7 +242,7 @@
 		    <tr>
 		        <td align="center">&nbsp;</td>
 		        <td align="center">&nbsp;</td>
-		        <td align="center"><input type="submit" id="guardar" value="Guardar" onclick="finalizarSolicitudDeAV();" class="btn_Generico"/>
+		        <td align="center"><input type="submit" id="guardar" value="Guardar" onclick="finalizarSolicitudDeAV();" class="ui-button ui-corner-all ui-widget"/>
 		            
 		      </td>
 		        <td align="center">&nbsp;</td>

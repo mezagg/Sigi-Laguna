@@ -99,17 +99,17 @@
 					<table width="25%" cellpadding="0" cellspacing="0">
 						<tr>
 							<td class="noSub">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="crearDenunciante">Lista de Bajas de Evidencias</a></td>
-							<td align="right"> <input type="button" value="Eliminar Expediente" class="btn_Generico"/></td>
+							<td align="right"> <input type="button" value="Eliminar Expediente" class="ui-button ui-corner-all ui-widget"/></td>
 							
 						</tr>
 						<tr>
 							<td >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-							<td align="right"><input type="button" value="Terminar Cadena de Custodia" class="btn_Generico"/> </td>
+							<td align="right"><input type="button" value="Terminar Cadena de Custodia" class="ui-button ui-corner-all ui-widget"/> </td>
 							
 						</tr>
 						<tr>
 							<td >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-							<td align="right"> <input type="button" value="Seguimiento Cadena de Custodia" class="btn_Generico"/></td>
+							<td align="right"> <input type="button" value="Seguimiento Cadena de Custodia" class="ui-button ui-corner-all ui-widget"/></td>
 							
 						</tr>
 					</table>

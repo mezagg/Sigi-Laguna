@@ -228,7 +228,7 @@ function enviarCorreoAvisoAudienciaConclusion( idAudiencia ){
 			</select>
 		</td>
 		<td>
-			<input id="btnFinalizarAudiencia" type="button" class="btn_Generico" value="Finalizar Audiencia" onclick="finalizarAudiencia();" style="display:none">
+			<input id="btnFinalizarAudiencia" type="button" class="ui-button ui-corner-all ui-widget" value="Finalizar Audiencia" onclick="finalizarAudiencia();" style="display:none">
 		</td>
 	</tr>
 	<tr>

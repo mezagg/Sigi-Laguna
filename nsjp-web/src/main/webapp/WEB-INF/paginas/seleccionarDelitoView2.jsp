@@ -151,7 +151,7 @@
 <body>
 	<table border="0"  width="900px">
 		<tr>
-			<td height="20" colspan="4" align="right" ><input type="button" id="btnGuardarDelitosAg2" value="Guardar" onclick="guardarDelitosAgraviadosExp2();" class="btn_Generico"/>
+			<td height="20" colspan="4" align="right" ><input type="button" id="btnGuardarDelitosAg2" value="Guardar" onclick="guardarDelitosAgraviadosExp2();" class="ui-button ui-corner-all ui-widget"/>
 				
 			</td>
 		</tr>
@@ -161,8 +161,8 @@
 				<div id="pager1"></div>
 			</td>
 			<td>
-				<input type="button" id="pasar" value=">>" onclick="addRowRigthToLeft2();" class="btn_Generico">
-				<input type="button" id="pasarD" value="<<" onclick="addRowLeftToRigth2();" class="btn_Generico">
+				<input type="button" id="pasar" value=">>" onclick="addRowRigthToLeft2();" class="ui-button ui-corner-all ui-widget">
+				<input type="button" id="pasarD" value="<<" onclick="addRowLeftToRigth2();" class="ui-button ui-corner-all ui-widget">
 			</td>
 			<td>
 				<table id="gridDelitosAgraviados2" width="380px"></table>

@@ -106,9 +106,9 @@ function guardar(){
 <table id="tblAlmacen" width="650" border="0" cellspacing="0" cellpadding="0">    
 	<tr >
     	<td height="25" colspan="2" align="left">
-    		<input type="button" name="btnSeleccionarAlmacen" value="Seleccionar almacen de expedientes" id="btnSeleccionarAlmacen" onclick="seleccionarAlmacen();" class="btn_Generico"/>
-    		<input type="button" name="btnCambiarAlmacen" value="Cambiar expediente de almacen" id="btnCambiarAlmacen" onclick="seleccionarAlmacen()" class="btn_Generico"/>
-    		<input type="button" name="btnGuardar" value="Guardar" id="btnGuardar" onclick="guardar()" class="btn_Generico"/>
+    		<input type="button" name="btnSeleccionarAlmacen" value="Seleccionar almacen de expedientes" id="btnSeleccionarAlmacen" onclick="seleccionarAlmacen();" class="ui-button ui-corner-all ui-widget"/>
+    		<input type="button" name="btnCambiarAlmacen" value="Cambiar expediente de almacen" id="btnCambiarAlmacen" onclick="seleccionarAlmacen()" class="ui-button ui-corner-all ui-widget"/>
+    		<input type="button" name="btnGuardar" value="Guardar" id="btnGuardar" onclick="guardar()" class="ui-button ui-corner-all ui-widget"/>
     	</td>
     </tr>
 </table>

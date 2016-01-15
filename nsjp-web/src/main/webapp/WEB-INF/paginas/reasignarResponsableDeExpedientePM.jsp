@@ -677,7 +677,7 @@ input.error {
 	<tr>
 		<td colspan="2" align="center"><input type="button"
 			name="buscarExpediente" value="Buscar" id="buscarExpediente"
-			class="btn_Generico" /></td>
+			class="ui-button ui-corner-all ui-widget" /></td>
 	</tr>
 </table>
 </fieldset>
@@ -700,7 +700,7 @@ input.error {
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p align="center"><input type="button" name="btnReasignar"
-	value="Reasignar" id="btnReasignar" class="btn_Generico" /></p>
+	value="Reasignar" id="btnReasignar" class="ui-button ui-corner-all ui-widget" /></p>
 
 <p>&nbsp;</p>
 <p>&nbsp;</p>

@@ -20,10 +20,10 @@
 					<tr>
 						<td width="40%">Ingresar Numero de Caso</td>
 						<td width="40%"><input type="text" title="Numero caso" size="50" id="iNumeroCaso"/></td>
-						<td width="20%"> <button id="iBuscarCaso" class="btn_Generico">Buscar Caso</button></td>
+						<td width="20%"> <button id="iBuscarCaso" class="ui-button ui-corner-all ui-widget">Buscar Caso</button></td>
 					</tr>
 					<tr>
-						<td width="40%"><button id="iBuscarCaso" class="btn_Generico">Relacionar expediente a caso y salir</button></td>
+						<td width="40%"><button id="iBuscarCaso" class="ui-button ui-corner-all ui-widget">Relacionar expediente a caso y salir</button></td>
 					</tr>
 				</table>
 			</td>

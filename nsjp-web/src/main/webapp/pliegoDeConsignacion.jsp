@@ -681,7 +681,7 @@ if(location.hostname.toLowerCase().indexOf('dhtmlgoodies') >=0) {
 		<table  align="right" border="0">
 			<tr>
 				<td align="right">
-					<input type="button" id="guardaTeoria" value="Guardar" onclick="guardaTeoria()" class="btn_Generico"/>
+					<input type="button" id="guardaTeoria" value="Guardar" onclick="guardaTeoria()" class="ui-button ui-corner-all ui-widget"/>
 				</td>
 			</tr>
 			<tr>

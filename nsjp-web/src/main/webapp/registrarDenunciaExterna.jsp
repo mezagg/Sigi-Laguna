@@ -131,7 +131,7 @@
 				    <tr height="12.5%">
 				        <td width="10%">&nbsp;</td>
 				        <td>&nbsp;</td>
-				        <td width="20%" align="left"><input type="button" id="btnGuardarArma" value="Guardar" class="btn_Generico" onclick="nuevaDenunciaUI();" /></td>
+				        <td width="20%" align="left"><input type="button" id="btnGuardarArma" value="Guardar" class="ui-button ui-corner-all ui-widget" onclick="nuevaDenunciaUI();" /></td>
 				    </tr>
 				</table>
 			</td>

@@ -595,9 +595,9 @@ DD P {
 								<tr valign="top">
 									<td align="center"><input type="button"
 										value="Modificar Datos" id="iDetieneBtnModificar"
-										class="btn_Generico" onclick="habilitaDatos()" /> <input
+										class="ui-button ui-corner-all ui-widget" onclick="habilitaDatos()" /> <input
 										type="button" value="Guardar" id="iDetieneBtnGuardar"
-										class="btn_Generico" /></td>
+										class="ui-button ui-corner-all ui-widget" /></td>
 								</tr>
 							</table>
 						</td>

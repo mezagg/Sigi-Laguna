@@ -100,7 +100,7 @@ var reloadGridCaso = false;
     </tr>
 
 	<tr >
-    <td height="25" colspan="2" align="center"><input type="button" name="buscarCaso" value="Buscar" id="buscarCaso" class="btn_Generico"/>
+    <td height="25" colspan="2" align="center"><input type="button" name="buscarCaso" value="Buscar" id="buscarCaso" class="ui-button ui-corner-all ui-widget"/>
     </tr>
     <tr>
      <td align="center">

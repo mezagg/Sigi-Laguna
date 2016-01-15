@@ -13,7 +13,7 @@
 	</tbody>
 		<tr>
 			<td>
-				<input id="myButton" name="myButton" value="Click Me" type="button" onclick="MostrarDialog()"  class="btn_Generico"/> 
+				<input id="myButton" name="myButton" value="Click Me" type="button" onclick="MostrarDialog()"  class="ui-button ui-corner-all ui-widget"/> 
 			</td>
 		</tr>
 		<tr>

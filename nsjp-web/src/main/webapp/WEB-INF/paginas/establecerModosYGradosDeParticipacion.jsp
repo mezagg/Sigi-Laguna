@@ -724,10 +724,10 @@ $(document).ready(function(){
   <tr>
     <td></td>
     <td>
-    	<input type="button" id="btnAttrRelacionDelPer" value="Grado de participaci&oacute;n" onclick="dialogoAtributosRelDelPer();" class="btn_Generico"/>
+    	<input type="button" id="btnAttrRelacionDelPer" value="Grado de participaci&oacute;n" onclick="dialogoAtributosRelDelPer();" class="ui-button ui-corner-all ui-widget"/>
     </td>
     <td>
-    	<input type="button" id="btnAnulaRelacionDelPerPg" value="Anular relaci&oacute;n" onclick="anularRelacionDelitoPersonaPersona();" class="btn_Generico"/>
+    	<input type="button" id="btnAnulaRelacionDelPerPg" value="Anular relaci&oacute;n" onclick="anularRelacionDelitoPersonaPersona();" class="ui-button ui-corner-all ui-widget"/>
     </td>
     <td></td>
     <td></td>

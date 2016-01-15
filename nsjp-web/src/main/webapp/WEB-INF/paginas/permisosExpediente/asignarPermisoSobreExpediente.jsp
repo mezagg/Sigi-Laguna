@@ -145,7 +145,7 @@
 		<strong>Fecha Vencimiento:</strong><input type="text" id="fechaVencimiento"/>
 	</td>
 	<td width="40%">
-		<input type="button" onclick="asignarPermisos()" value="Asignar permiso" class="btn_Generico">
+		<input type="button" onclick="asignarPermisos()" value="Asignar permiso" class="ui-button ui-corner-all ui-widget">
 	</td>
 </form>
 </tr>
@@ -159,8 +159,8 @@
 		<strong>Fecha Vencimiento:</strong><input type="text" id="modFechaVencimiento"/>
 	</td>
 	<td width="30%">
-		<input type="button" onclick="modificarPermisos()" value="Actualizar permiso" class="btn_Generico">
-		<input type="button" onclick="eliminarPermisos()" value="Eliminar permiso" class="btn_Generico">
+		<input type="button" onclick="modificarPermisos()" value="Actualizar permiso" class="ui-button ui-corner-all ui-widget">
+		<input type="button" onclick="eliminarPermisos()" value="Eliminar permiso" class="ui-button ui-corner-all ui-widget">
 	</td>
 </form>
 </tr>

@@ -148,7 +148,7 @@
 		</tr>
 		<tr>
 			<td align="center">
-				<input type="button" value="Dar Seguimiento" id="btnDarSeguimiento" class="btn_Generico"/>
+				<input type="button" value="Dar Seguimiento" id="btnDarSeguimiento" class="ui-button ui-corner-all ui-widget"/>
 			</td>
 		</tr>
 	</table>

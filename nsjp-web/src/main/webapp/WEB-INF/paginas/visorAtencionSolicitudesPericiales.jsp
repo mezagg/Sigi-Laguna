@@ -889,7 +889,7 @@ Funcionalidad para:
 										        </select>
 											</td>
 											<td width="50%">                                            
-                                            	<button value="Adjuntar documento" id="btnAdjuntarDocumento" class="btn_Generico" onclick="abreVentanaAdjuntarDocumentoAExpediente()">Adjuntar documento</button>
+                                            	<button value="Adjuntar documento" id="btnAdjuntarDocumento" class="ui-button ui-corner-all ui-widget" onclick="abreVentanaAdjuntarDocumentoAExpediente()">Adjuntar documento</button>
 											</td>
                                             
 										</tr>
@@ -919,8 +919,8 @@ Funcionalidad para:
 					    			<tr>
 					    				<td></td>
 					    				<td>
-					    					<input id="anexarDoc" type="button" value="Anexar" onClick="anexarDocumento();" class="btn_Generico"/>
-					    					<input id="limpiarAnexarDoc" type="button" value="Limpiar" class="btn_Generico"/>
+					    					<input id="anexarDoc" type="button" value="Anexar" onClick="anexarDocumento();" class="ui-button ui-corner-all ui-widget"/>
+					    					<input id="limpiarAnexarDoc" type="button" value="Limpiar" class="ui-button ui-corner-all ui-widget"/>
 					    				</td>
 					    			</tr>
 					    		</table>
@@ -972,12 +972,12 @@ Funcionalidad para:
 				
 				<!--Termina div para ver los documentos propios del perito-->
 				<div id="tabs-10" class="tabTabsCadCus">
-					 <input type="button" class="btn_Generico" id="btnCadCusNuevaCadCus" style="width: 250px;" value="Crear nueva cadena de custodia"/><br/><br/>
-					 <input type="button" class="btn_Generico" id="btnCadCusConsultaCadCus" style="width: 250px;" value="Consultar cadena de custodia"/><br/><br/>    
-	  				 <!--  <input type="button" class="btn_Generico" id="btnCadCusRegEslabones" style="width: 250px;" value="Registrar eslabones"/> <br/><br/>
-	  				 <input type="button" class="btn_Generico" id="btnCadCusRepEvidencias" style="width: 250px;" style="width: 250px;" value="Reporte de evidencias"/> <br/><br/>
-	  				 <input type="button" class="btn_Generico" id="btnCadCusElabOficio" style="width: 250px;" value="Elaborar oficio para fijaci&oacute;n y preservaci&oacute;n"/><br/><br/>  
-	   				 <input type="button" class="btn_Generico" id="btnCadCusAdmDestino" style="width: 250px;" value="Administrar destino legal de evidencia"/>
+					 <input type="button" class="ui-button ui-corner-all ui-widget" id="btnCadCusNuevaCadCus" style="width: 250px;" value="Crear nueva cadena de custodia"/><br/><br/>
+					 <input type="button" class="ui-button ui-corner-all ui-widget" id="btnCadCusConsultaCadCus" style="width: 250px;" value="Consultar cadena de custodia"/><br/><br/>    
+	  				 <!--  <input type="button" class="ui-button ui-corner-all ui-widget" id="btnCadCusRegEslabones" style="width: 250px;" value="Registrar eslabones"/> <br/><br/>
+	  				 <input type="button" class="ui-button ui-corner-all ui-widget" id="btnCadCusRepEvidencias" style="width: 250px;" style="width: 250px;" value="Reporte de evidencias"/> <br/><br/>
+	  				 <input type="button" class="ui-button ui-corner-all ui-widget" id="btnCadCusElabOficio" style="width: 250px;" value="Elaborar oficio para fijaci&oacute;n y preservaci&oacute;n"/><br/><br/>  
+	   				 <input type="button" class="ui-button ui-corner-all ui-widget" id="btnCadCusAdmDestino" style="width: 250px;" value="Administrar destino legal de evidencia"/>
 	   				 -->
 				</div>		
 			</div>

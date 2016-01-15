@@ -126,7 +126,7 @@
 				<tr>
 					<td width="80">&nbsp;</td>
 		 			<td colspan="2" align="center">
-		 				<input type="button" value="Generar Reporte" id="botonGenerarReporte" class="btn_Generico" onclick="invocacionReporte();"/>
+		 				<input type="button" value="Generar Reporte" id="botonGenerarReporte" class="ui-button ui-corner-all ui-widget" onclick="invocacionReporte();"/>
 		 			</td>
 		 		</tr>
   				<tr><td>&nbsp;</td></tr>

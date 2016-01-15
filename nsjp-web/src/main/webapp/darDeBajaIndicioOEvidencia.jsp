@@ -312,7 +312,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="button" id="botonGuardaBajaEvidencia" value="Guardar" onclick="confirmaSolicitud();" class="btn_Generico"/>
+                        <input type="button" id="botonGuardaBajaEvidencia" value="Guardar" onclick="confirmaSolicitud();" class="ui-button ui-corner-all ui-widget"/>
                     </td>
                 </tr>
             </table>

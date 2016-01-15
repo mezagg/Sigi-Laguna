@@ -335,7 +335,7 @@
 			  <tr>
 			    <td width="250">&nbsp;</td>
 			    <td width="200">&nbsp;</td>
-			    <td width="450"><input type="button" value="Enviar Notificacion" onclick="enviarNotificacionDevolucionEvidencia();" class="btn_Generico"/></td>
+			    <td width="450"><input type="button" value="Enviar Notificacion" onclick="enviarNotificacionDevolucionEvidencia();" class="ui-button ui-corner-all ui-widget"/></td>
 			  </tr>
 			  <tr>
 			    <td align="right"><strong>Nombre del Servidor P&uacute;blico:</strong></td>

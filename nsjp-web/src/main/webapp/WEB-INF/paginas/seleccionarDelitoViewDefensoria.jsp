@@ -278,8 +278,8 @@
 				<div id="pagergridCatDelitos"></div>
 			</td>
 			<td width="3%">
-				<input type="button" id="pasar" value=">>" onclick="addRowRigthToLeft();" class="btn_Generico"> <br/>
-				<input type="button" id="pasarD" value="<<" onclick="addRowLeftToRigth();" class="btn_Generico">
+				<input type="button" id="pasar" value=">>" onclick="addRowRigthToLeft();" class="ui-button ui-corner-all ui-widget"> <br/>
+				<input type="button" id="pasarD" value="<<" onclick="addRowLeftToRigth();" class="ui-button ui-corner-all ui-widget">
 			</td>
 			<td valign="top" width="10%">
 				<table id="gridDelitosAgraviados" width="450px"></table>

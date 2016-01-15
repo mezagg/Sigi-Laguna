@@ -1116,7 +1116,7 @@ input.error {
 			<tr>
 				<td align="center"><br>
 				<input type="button" name="buscarExpediente" value="Buscar"
-					id="buscarExpediente" class="btn_Generico" /></td>
+					id="buscarExpediente" class="ui-button ui-corner-all ui-widget" /></td>
 			</tr>
 		</table>
 		<br>

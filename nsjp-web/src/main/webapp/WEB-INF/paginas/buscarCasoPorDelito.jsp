@@ -145,7 +145,7 @@
    <table width="650" border="0" cellspacing="0" cellpadding="0">
    <tr>
    		<td align="center">
-			<input type="button" name="buscarDelito" value="Buscar" id="buscarDelito"  class="btn_Generico"/>	
+			<input type="button" name="buscarDelito" value="Buscar" id="buscarDelito"  class="ui-button ui-corner-all ui-widget"/>	
 			
 		</td>
    </tr>

@@ -985,23 +985,23 @@
 							<tr>
 								<td><input type="button" id="integracion"
 									onclick="pasavalor(this.id)" id="integracion"
-									value="Integraci&oacute;n" style="cursor: pointer;" class="btn_Generico">
+									value="Integraci&oacute;n" style="cursor: pointer;" class="ui-button ui-corner-all ui-widget">
 								</td>
 							</tr>
 							<tr>
 								<td><input type="button" onclick="pasavalor(this.id)"
-									id="tecnica" style="cursor: pointer;" value="T&eacute;cnica" class="btn_Generico">
+									id="tecnica" style="cursor: pointer;" value="T&eacute;cnica" class="ui-button ui-corner-all ui-widget">
 								</td>
 							</tr>
 							<tr>
 								<td><input type="button" onclick="pasavalor(this.id)"
 									id="restaurativa" style="cursor: pointer;"
-									value="Conciliaci&oacute;n y mediaci&oacute;n" class="btn_Generico">
+									value="Conciliaci&oacute;n y mediaci&oacute;n" class="ui-button ui-corner-all ui-widget">
 								</td>
 							</tr>
 							<tr>
 								<td><input type="button" onclick="pasavalor(this.id)"
-									id="externa" style="cursor: pointer;" value="Externa" class="btn_Generico">
+									id="externa" style="cursor: pointer;" value="Externa" class="ui-button ui-corner-all ui-widget">
 								</td>
 							</tr>
 						</table></td>

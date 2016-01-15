@@ -17,4 +17,4 @@
     </select></td>
   </tr>
 </table>
-<center><input name="" type="button" value="Generar Notificaci&oacute;n" class="btn_Generico"/></center>
+<center><input name="" type="button" value="Generar Notificaci&oacute;n" class="ui-button ui-corner-all ui-widget"/></center>

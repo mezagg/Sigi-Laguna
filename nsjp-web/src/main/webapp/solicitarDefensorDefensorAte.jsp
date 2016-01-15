@@ -615,7 +615,7 @@
 	<table width="90%" >
 		<tr align="right">
 			<td width="23%" align="right">
-				<input type="button" id="btnCancelarSol" value="Cancelar" onClick="cancelarSolicitudDeDefensor()" class="btn_Generico"/>
+				<input type="button" id="btnCancelarSol" value="Cancelar" onClick="cancelarSolicitudDeDefensor()" class="ui-button ui-corner-all ui-widget"/>
 			</td>
 		</tr>
 	</table>
@@ -654,7 +654,7 @@
 					<td>
 						<strong>Numero de Caso: </strong>
 						<input type="text" class="" style="width: 200px; border: 0;" id="txtNumCaso" onkeyup="habilitarValidacion(this)" /> 
-						<input type="button" id="btnValidarNumCaso" value="Validar n&uacute;mero de caso" onClick="consultarExpedientePorCaso()" class="btn_Generico"/>
+						<input type="button" id="btnValidarNumCaso" value="Validar n&uacute;mero de caso" onClick="consultarExpedientePorCaso()" class="ui-button ui-corner-all ui-widget"/>
 					</td>
 					<td colspan="2">
 						<strong>La solicitud ser&aacute; enviada al Coordinador del Distrito:</strong>
@@ -715,7 +715,7 @@
 					<td colspan="2">&nbsp;</td>
 					<td colspan="2">&nbsp;</td>
 					<td align="right" valign="top">
-						<input type="button" id="btnAceptarSol" value="Aceptar" onClick="confirmarSolicitudDeDefensor()" class="btn_Generico"/>	
+						<input type="button" id="btnAceptarSol" value="Aceptar" onClick="confirmarSolicitudDeDefensor()" class="ui-button ui-corner-all ui-widget"/>	
 					</td>
 				</tr>
 			</table>

@@ -486,7 +486,7 @@
 				</select>
 			</td>
 			<td>
-				<input type="button" value="Capturar Convenio" onclick="capturarConvenio();" class="btn_Generico"/>
+				<input type="button" value="Capturar Convenio" onclick="capturarConvenio();" class="ui-button ui-corner-all ui-widget"/>
 			</td>
 		</tr>
 	</table>
@@ -529,7 +529,7 @@
 			<td><input type="text" id="fechaFin" name="fechaFin" maxlength="10" readonly="readonly" style="width: 180px;" /></td>
 			<td></td>
 			<td align="left">
-				<input type="button" id="btnIngresaPago" onclick="ingresarPago();" value="Ingresar pago" class="btn_Generico"/>
+				<input type="button" id="btnIngresaPago" onclick="ingresarPago();" value="Ingresar pago" class="ui-button ui-corner-all ui-widget"/>
 			</td>
 		</tr>
 		<tr>
@@ -539,7 +539,7 @@
 				<div id="pagerGridPagos"></div>
 			</td>
 			<td colspan="2" align="right">
-				<input type="button" id="btnGenerarConvenio" value="Generar convenio" class="btn_Generico"/>
+				<input type="button" id="btnGenerarConvenio" value="Generar convenio" class="ui-button ui-corner-all ui-widget"/>
 			</td>
 		</tr>
 	</table>

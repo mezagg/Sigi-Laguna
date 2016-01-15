@@ -613,8 +613,8 @@
 				        <td>&nbsp;</td>
 				      </tr>
 				      <tr>
-				      	<td align="left"><input id="btnASolicitarTraslado" type="button" value="Solicitar Traslado" class="btn_Generico"/></td>
-				      	<td align="left"><input id="btnSegGarEconomica" type="button" value="Dar seguimiento a &#10; garant&iacute;a econ&oacute;mica" style="width: 130px;" class="btn_Generico"/></td>
+				      	<td align="left"><input id="btnASolicitarTraslado" type="button" value="Solicitar Traslado" class="ui-button ui-corner-all ui-widget"/></td>
+				      	<td align="left"><input id="btnSegGarEconomica" type="button" value="Dar seguimiento a &#10; garant&iacute;a econ&oacute;mica" style="width: 130px;" class="ui-button ui-corner-all ui-widget"/></td>
 				      </tr>
 					</table>	
 				</td>
@@ -806,7 +806,7 @@
           <td align="right" height="25">C&oacute;digo Postal:</td>
           <td height="25">
             <input type="text" id="codigoPostalSeparacion" size="8" maxlength="5" />
-            <input type="button" value="Enviar" id="codigoPostalButton" class="btn_Generico"/>
+            <input type="button" value="Enviar" id="codigoPostalButton" class="ui-button ui-corner-all ui-widget"/>
           </td>
           <td align="right" height="25">N&uacute;mero Ext.:</td>
           <td width="95" height="25" align="left">

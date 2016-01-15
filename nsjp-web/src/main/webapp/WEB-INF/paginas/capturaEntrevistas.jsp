@@ -171,6 +171,6 @@
 </table>
       <textarea class="jquery_ckeditor" cols="80" id="editor1" name="editor1" rows="15" ></textarea>
    
-   <input type="button" id="guardar" name="guardar" value="Guardar" class="btn_Generico"/>
+   <input type="button" id="guardar" name="guardar" value="Guardar" class="ui-button ui-corner-all ui-widget"/>
 </body>
 </html>

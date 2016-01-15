@@ -124,10 +124,10 @@
 			</tr>
 			<tr>
 				<td align="center">
-					<input type="button" id="btnCancelar" value="Cancelar" onclick="confirmaCancelar();" class="btn_Generico">
+					<input type="button" id="btnCancelar" value="Cancelar" onclick="confirmaCancelar();" class="ui-button ui-corner-all ui-widget">
 				</td>
 				<td align="center">
-					<input type="button" id="btnAsignar" value="Asignar" onclick="asignarSalaTemporal();" class="btn_Generico">
+					<input type="button" id="btnAsignar" value="Asignar" onclick="asignarSalaTemporal();" class="ui-button ui-corner-all ui-widget">
 				</td>
 			</tr>
 		</table>

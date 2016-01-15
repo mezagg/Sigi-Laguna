@@ -461,7 +461,7 @@
 	            <td width="21%" align="right"><strong>N&uacute;mero de Caso:</strong></td>
 	            <td width="37%"><input type="text" id="numCasoPJATP" style="width:200px; border: 0; background:#DDD;" readonly="readonly"/></td>
 	            <td colspan="2" align="right">
-	                <input type="button" id="btnAdjuntarDocumento" value="Adjuntar documento"  class="back_button"/>
+	                <input type="button" id="btnAdjuntarDocumento" value="Adjuntar documento"  class="ui-button ui-corner-all ui-widget"/>
 	            </td>
 	        </tr>
 	        <tr>
@@ -558,7 +558,7 @@
 			  <td colspan="5" align="right">&nbsp;</td>
 	  		</tr>
 			<tr>
-			  <td colspan="5" align="center"><input type="button" value="Generar Acuse de Recibo" id="generarAcuse" class="btn_Generico"/></td>
+			  <td colspan="5" align="center"><input type="button" value="Generar Acuse de Recibo" id="generarAcuse" class="ui-button ui-corner-all ui-widget"/></td>
 		  	</tr>
 			<tr>
 			  <td colspan="5" align="right">&nbsp;</td>

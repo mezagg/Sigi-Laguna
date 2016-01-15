@@ -1318,7 +1318,7 @@ DD P {
 					</select>
 				</td>
     			<td >
-					<button value="Adjuntar documento" id="btnAdjuntarDocumento" class="btn_Generico" onclick="abreVentanaAdjuntarDocumentoAExpediente()" >Adjuntar documento</button>
+					<button value="Adjuntar documento" id="btnAdjuntarDocumento" class="ui-button ui-corner-all ui-widget" onclick="abreVentanaAdjuntarDocumentoAExpediente()" >Adjuntar documento</button>
     			</td>
   			</tr>
   			<tr>

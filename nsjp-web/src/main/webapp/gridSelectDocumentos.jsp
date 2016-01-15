@@ -129,7 +129,7 @@
    </tr>
    <tr>
    		<td>
-   			<input type="button" id="btnAdjuntarDocumento" value="Adjuntar documentos"  class="back_button"/>
+   			<input type="button" id="btnAdjuntarDocumento" value="Adjuntar documentos"  class="ui-button ui-corner-all ui-widget"/>
    		</td>
    </tr>
    <tr>
@@ -141,7 +141,7 @@
    <tr>
      <td align="right">       
      	<br/>
-     	<input type="button" name="btnGuardar" id="btnGuardar" value="Guardar" tabindex="4" class="btn_Generico">
+     	<input type="button" name="btnGuardar" id="btnGuardar" value="Guardar" tabindex="4" class="ui-button ui-corner-all ui-widget">
      </td>
    </tr>
 </table>

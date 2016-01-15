@@ -463,8 +463,8 @@
 				</span>
 			</td>
 			<td align="right">
-					 <input type="button" value="Modificar" id="btnModificarHechos" class="back_button"/>
-					 <input type="button" value="Guardar" id="btnGuardarHechos" class="back_button"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					 <input type="button" value="Modificar" id="btnModificarHechos" class="ui-button ui-corner-all ui-widget"/>
+					 <input type="button" value="Guardar" id="btnGuardarHechos" class="ui-button ui-corner-all ui-widget"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			</td>
 		</tr>
 	</table>
@@ -502,7 +502,7 @@
 		                        <tr valign="top">
 		                          <td width="20px">&nbsp;</td>
 		                          <td align="left" height="18px">
-		                              <input type="submit" id="ingresarTiempoEspecificamentePResponsable" value="Espec&iacute;ficamente" class="back_button"/>
+		                              <input type="submit" id="ingresarTiempoEspecificamentePResponsable" value="Espec&iacute;ficamente" class="ui-button ui-corner-all ui-widget"/>
 		                          </td>
 		                          <td width="55%" rowspan="3">
 		                            <div id="divEspecifico" style="display: block;">
@@ -520,13 +520,13 @@
 		                        <tr valign="top">
 		                        <td width="20px">&nbsp;</td>
 		                          <td align="left" height="18px">
-		                              <input style="width:112px" type="submit" id="ingresarTiempoLapsoPResponsable" value="Lapso" class="back_button"/>
+		                              <input style="width:112px" type="submit" id="ingresarTiempoLapsoPResponsable" value="Lapso" class="ui-button ui-corner-all ui-widget"/>
 		                          </td>
 		                        </tr>
 		                        <tr valign="top">
 		                        <td width="20px">&nbsp;</td>
 		                          <td align="left" height="18px">
-		                              <input style="width:112px" type="submit" id="ingresarTiempoOtroPResponsable" value="Otro" class="back_button"/>
+		                              <input style="width:112px" type="submit" id="ingresarTiempoOtroPResponsable" value="Otro" class="ui-button ui-corner-all ui-widget"/>
 		                          </td>
 		                        </tr>
 		                      </table>

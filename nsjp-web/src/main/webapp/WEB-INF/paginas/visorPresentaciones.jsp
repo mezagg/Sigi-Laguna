@@ -1109,10 +1109,10 @@
 			      </tr>
 			      <tr>
 			        <td colspan="3" align="right"">
-			        	<input type="submit" id="cancelar" value="Cancelar" onclick="confirmaCancelar();" class="btn_Generico" />
+			        	<input type="submit" id="cancelar" value="Cancelar" onclick="confirmaCancelar();" class="ui-button ui-corner-all ui-widget" />
 			        </td>
 			        <td colspan="3" align="left">
-			        	<input type="submit" id="enviarSolicitud" value="Enviar Solicitud" onclick="enviarSolicitud();" class="btn_Generico" />
+			        	<input type="submit" id="enviarSolicitud" value="Enviar Solicitud" onclick="enviarSolicitud();" class="ui-button ui-corner-all ui-widget" />
 			        </td>
 			      </tr>
 			    </table>

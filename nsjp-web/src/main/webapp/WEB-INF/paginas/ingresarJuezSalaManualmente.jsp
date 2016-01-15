@@ -206,7 +206,7 @@ function checkboxListenerResponsable(){
 				      </tr>
 				      <tr>
 				      	<td></td>
-				      	<td align="left"><input id="btnGuardar" type="button" value="Guardar" class="btn_Generico"/></td>
+				      	<td align="left"><input id="btnGuardar" type="button" value="Guardar" class="ui-button ui-corner-all ui-widget"/></td>
 				      </tr>
 					</table>	
 				</td>
@@ -237,7 +237,7 @@ function checkboxListenerResponsable(){
 					</table>
 				</td>
 				<td width="200" >
-					<input type="button" value="Designar Autom&aacute;ticamente" class="btn_Generico"/>
+					<input type="button" value="Designar Autom&aacute;ticamente" class="ui-button ui-corner-all ui-widget"/>
 				</td> 
 			</tr>
 		</table>
@@ -266,7 +266,7 @@ function checkboxListenerResponsable(){
 					</table>	
 				</td>
 				<td width="200" >
-					<input type="button" value="Designar Autom&aacute;ticamente" class="btn_Generico"/>
+					<input type="button" value="Designar Autom&aacute;ticamente" class="ui-button ui-corner-all ui-widget"/>
 				</td> 
 			</tr>
 		</table>
@@ -317,7 +317,7 @@ function checkboxListenerResponsable(){
 							</td>
 						</tr>
 						<tr>
-						<td colspan="2" align="right"><input type="button" value="Asignar Sala" class="btn_Generico"/>
+						<td colspan="2" align="right"><input type="button" value="Asignar Sala" class="ui-button ui-corner-all ui-widget"/>
 						</td>
 						</tr>	
 					</table>

@@ -304,7 +304,7 @@
 		<div id="tabsconsultadetencion-1" class="tabDetencion">
 			<table width="762px" height="313px" border="0" cellspacing="0" cellpadding="0">
 				<tr>
-					<td><input type="button" id="btnGuardarDomicilioDetencion" value="Guardar" class="back_button"></td>
+					<td><input type="button" id="btnGuardarDomicilioDetencion" value="Guardar" class="ui-button ui-corner-all ui-widget"></td>
 				</tr>
 				<tr>
 					<td>
@@ -342,7 +342,7 @@
 <!-- 					</tr>					 -->
 <!-- 					<tr> -->
 <!-- 						<td align="center" colspan="3"> -->
-<!-- 							<input type=button class="back_button" id="btnRegistroDetencion" value="Generar aviso de detenci&oacute;n"> -->
+<!-- 							<input type=button class="ui-button ui-corner-all ui-widget" id="btnRegistroDetencion" value="Generar aviso de detenci&oacute;n"> -->
 <!-- 						</td> -->
 <!-- 					</tr> -->
 <!-- 				</table> -->

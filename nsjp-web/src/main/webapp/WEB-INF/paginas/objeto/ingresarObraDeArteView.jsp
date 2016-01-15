@@ -440,9 +440,9 @@
                         <tr><td>&nbsp;</td></tr>
                     	<tr height="12.5%">
                             <td height="21" colspan="3" align="center">
-                            	<input type="button" value="Anular objeto" class="btn_Generico"id="anularElemento" onclick="solicitarAnlrObjeto()"/>
-                            	<input type="button" id="btnGuardarObraDeArte" value="Guardar" onclick="validaCamposObligatorios();" class="btn_Generico" />
-                            	&nbsp;&nbsp;<button value="Adjuntar imagen" id="btnAdjuntarImagen" class="btn_Generico" onclick="abreVentanaAdjuntarImagen()" style="display:none">Adjuntar imagen</button>
+                            	<input type="button" value="Anular objeto" class="ui-button ui-corner-all ui-widget"id="anularElemento" onclick="solicitarAnlrObjeto()"/>
+                            	<input type="button" id="btnGuardarObraDeArte" value="Guardar" onclick="validaCamposObligatorios();" class="ui-button ui-corner-all ui-widget" />
+                            	&nbsp;&nbsp;<button value="Adjuntar imagen" id="btnAdjuntarImagen" class="ui-button ui-corner-all ui-widget" onclick="abreVentanaAdjuntarImagen()" style="display:none">Adjuntar imagen</button>
                             </td>
                         </tr>
                         <tr><td>&nbsp;</td></tr>                       

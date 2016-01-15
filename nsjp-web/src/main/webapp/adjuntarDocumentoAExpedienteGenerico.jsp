@@ -173,7 +173,7 @@
    <tr>
      <td align="center">       
      	<br/>
-     	<input type="button" name="btnGuardar" id="btnGuardar" value="Guardar" tabindex="4" class="btn_Generico">
+     	<input type="button" name="btnGuardar" id="btnGuardar" value="Guardar" tabindex="4" class="ui-button ui-corner-all ui-widget">
      </td>
    </tr>
 </table>

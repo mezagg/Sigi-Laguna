@@ -517,18 +517,18 @@
 				<% 
 					if (esActuacion) {
 				 %>
-						<button id="btnDevPertenencias" type="button" class="btn_Generico">Devoluci&oacute;n de pertenencias</button>
-						<button id="btnReciboDevPertenencias" type="button" class="btn_Generico">Recibo de devoluci&oacute;n de pertenencias</button>
-						<button id="btnCancelar" type="button" class="btn_Generico">Cancelar</button>
+						<button id="btnDevPertenencias" type="button" class="ui-button ui-corner-all ui-widget">Devoluci&oacute;n de pertenencias</button>
+						<button id="btnReciboDevPertenencias" type="button" class="ui-button ui-corner-all ui-widget">Recibo de devoluci&oacute;n de pertenencias</button>
+						<button id="btnCancelar" type="button" class="ui-button ui-corner-all ui-widget">Cancelar</button>
 				 <% } else { %>
-						<button id="btnNuevaPertenencia" type="button" class="btn_Generico">Agregar</button>
-						<button id="btnModificarPertenencia" type="button" class="btn_Generico">Modificar</button>
-						<button id="btnEliminarPertenencia" type="button" class="btn_Generico">Eliminar</button>
+						<button id="btnNuevaPertenencia" type="button" class="ui-button ui-corner-all ui-widget">Agregar</button>
+						<button id="btnModificarPertenencia" type="button" class="ui-button ui-corner-all ui-widget">Modificar</button>
+						<button id="btnEliminarPertenencia" type="button" class="ui-button ui-corner-all ui-widget">Eliminar</button>
 					</td>
 				</tr>
 				<tr>
 					<td colspan="6" align="center">
-						<button id="btnImprimirRecibo" type="button" class="btn_Generico">Imprimir recibo</button>
+						<button id="btnImprimirRecibo" type="button" class="ui-button ui-corner-all ui-widget">Imprimir recibo</button>
 				<% } %>
 					</td>
 				</tr>
@@ -582,8 +582,8 @@
 						</tr>
 						<tr>
 							<td colspan="2" align="center">
-								<button id="btnRegistrarNuevaPertenencia" type="button" class="btn_Generico" >Registrar</button>
-								<button id="btnRegistrarCambioPertenencia" type="button" class="btn_Generico" >Modificar</button>
+								<button id="btnRegistrarNuevaPertenencia" type="button" class="ui-button ui-corner-all ui-widget" >Registrar</button>
+								<button id="btnRegistrarCambioPertenencia" type="button" class="ui-button ui-corner-all ui-widget" >Modificar</button>
 							</td>
 						</tr>
 					</table>

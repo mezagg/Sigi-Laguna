@@ -164,7 +164,7 @@
 	<br/><br/>
       <textarea class="jquery_ckeditor" cols="150" id="editor1" name="editor1" rows="10" ></textarea>
    <br/>
-	<input type="button" id="guardarNarraTiva" name="guardar" value="Guardar" class="btn_Generico"/>
+	<input type="button" id="guardarNarraTiva" name="guardar" value="Guardar" class="ui-button ui-corner-all ui-widget"/>
 </body>
 </html>
 

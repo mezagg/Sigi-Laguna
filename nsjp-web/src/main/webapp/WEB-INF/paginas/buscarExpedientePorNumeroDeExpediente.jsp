@@ -130,7 +130,7 @@ $.updateWindowContent("iframewindowDetalleExp",'<iframe src="<%= request.getCont
     </tr>
 
 	<tr >
-    <td height="25" colspan="2" align="center"><input type="button" name="buscarExpediente" value="Buscar" id="buscarExpediente" class="btn_Generico"/>
+    <td height="25" colspan="2" align="center"><input type="button" name="buscarExpediente" value="Buscar" id="buscarExpediente" class="ui-button ui-corner-all ui-widget"/>
     </tr>
     <tr>
      <td align="center">

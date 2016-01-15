@@ -848,8 +848,8 @@
         <br>
 		<center>
 			<input type="button" value="Limpiar campos" id="btnLimpiarCamposEslabon" class="btn_modificar" onclick="limpiaCamposEslabonCadCus()"/> &nbsp;&nbsp;
-			<button value="Adjuntar documento" id="btnAdjuntarDocumento" class="btn_Generico" onclick="abreVentanaAdjuntarDocumentoAEslabon()">Adjuntar documento</button> &nbsp;&nbsp;
-			<input type="button" value="Guardar" id="btnRegEslbnCadCus" class="btn_Generico"/>
+			<button value="Adjuntar documento" id="btnAdjuntarDocumento" class="ui-button ui-corner-all ui-widget" onclick="abreVentanaAdjuntarDocumentoAEslabon()">Adjuntar documento</button> &nbsp;&nbsp;
+			<input type="button" value="Guardar" id="btnRegEslbnCadCus" class="ui-button ui-corner-all ui-widget"/>
 		</center>
 			
 	</div>

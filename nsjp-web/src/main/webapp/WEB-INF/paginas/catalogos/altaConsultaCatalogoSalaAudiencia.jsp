@@ -670,9 +670,9 @@
 	  	<tr><td>&nbsp;</td></tr>
 	  	<tr>	  		
 			<td align="center" colspan="4">
-				<input type="button" onclick="modificaValor()" id="btnModificar" value="Modificar" class="btn_Generico"/>
-				<input type="button" onclick="guardaValor()" 	id="btnGuardar" value="Guardar" class="btn_Generico"/>
-				<input type="button" onclick="eliminaValor()" id="btnEliminar" value="Eliminar" class="btn_Generico"/>
+				<input type="button" onclick="modificaValor()" id="btnModificar" value="Modificar" class="ui-button ui-corner-all ui-widget"/>
+				<input type="button" onclick="guardaValor()" 	id="btnGuardar" value="Guardar" class="ui-button ui-corner-all ui-widget"/>
+				<input type="button" onclick="eliminaValor()" id="btnEliminar" value="Eliminar" class="ui-button ui-corner-all ui-widget"/>
 			</td>
 		</tr>	  	
 	</table>

@@ -588,19 +588,19 @@ for(CatalogoDTO opcion : opciones){
 <%  if(!esNuevo){%>
 	<tr>
 		<td colspan="2">
-			<input type="button" onclick="modificarValor()" id="btnModificar" value="Modificar" class="btn_Generico"/>
-			<input type="button" onclick="validaClaveIgual()" 	id="btnGuardar" value="Guardar" class="btn_Generico" style="display:none"/>
+			<input type="button" onclick="modificarValor()" id="btnModificar" value="Modificar" class="ui-button ui-corner-all ui-widget"/>
+			<input type="button" onclick="validaClaveIgual()" 	id="btnGuardar" value="Guardar" class="ui-button ui-corner-all ui-widget" style="display:none"/>
 			<%if(!esSistema){ %>
-			<input type="button" onclick="eliminarValor()" id="btnEliminar" value="Eliminar" class="btn_Generico"/>
+			<input type="button" onclick="eliminarValor()" id="btnEliminar" value="Eliminar" class="ui-button ui-corner-all ui-widget"/>
 			<%} %>
 		</td>
 	</tr>
 <%	}else{%>
 	<tr>
 		<td colspan="2">
-			<input type="button" onclick="modificarValor()" id="btnModificar" value="Modificar" class="btn_Generico" style="display:none"/>
-			<input type="button" onclick="validaClaveIgual()" 	id="btnGuardar" value="Guardar" class="btn_Generico"/>
-			<input type="button" onclick="eliminarValor()" id="btnEliminar" value="Eliminar" class="btn_Generico"/>
+			<input type="button" onclick="modificarValor()" id="btnModificar" value="Modificar" class="ui-button ui-corner-all ui-widget" style="display:none"/>
+			<input type="button" onclick="validaClaveIgual()" 	id="btnGuardar" value="Guardar" class="ui-button ui-corner-all ui-widget"/>
+			<input type="button" onclick="eliminarValor()" id="btnEliminar" value="Eliminar" class="ui-button ui-corner-all ui-widget"/>
 		</td>
 	</tr>
 

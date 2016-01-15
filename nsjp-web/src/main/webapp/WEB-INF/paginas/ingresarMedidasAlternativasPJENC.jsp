@@ -480,8 +480,8 @@
 			  <table id="iMedidaCautelarWorkSheet" width="100%"  border="0">
 				<tr valign="top">
 					<td align="center">
-						<input type="button" value="Continuar Medida Alterna" id="guardarMedida" onclick="generarMedidaAlterna()" class="btn_Generico"/><td align="center">
-						<input type="button" value="Guardar" id="botguardarMedida" onclick="guardarMedidaCautelar()" class="btn_Generico"/>
+						<input type="button" value="Continuar Medida Alterna" id="guardarMedida" onclick="generarMedidaAlterna()" class="ui-button ui-corner-all ui-widget"/><td align="center">
+						<input type="button" value="Guardar" id="botguardarMedida" onclick="guardarMedidaCautelar()" class="ui-button ui-corner-all ui-widget"/>
 					</td>
 					</td>
 				</tr>
@@ -491,7 +491,7 @@
 			  <table id="iMedidaCautelarConsulta" width="100%"  border="0">
 				<tr valign="top">
 					<td align="center">
-						<input type="button" value="Consultar Documento Digital" id="consultaMedida" class="btn_Generico"/>
+						<input type="button" value="Consultar Documento Digital" id="consultaMedida" class="ui-button ui-corner-all ui-widget"/>
 					</td>
 				</tr>
 			  </table>

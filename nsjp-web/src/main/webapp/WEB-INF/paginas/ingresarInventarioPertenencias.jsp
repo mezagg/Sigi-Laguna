@@ -226,8 +226,8 @@
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td align="center"><input type="button" value="Agregar" id="agregarPertenencia" class="btn_Generico"/></td>
-    <td align="center"><input type="button" value="Eliminar"id="eliminarPertenencia" class="btn_Generico"/></td>
+    <td align="center"><input type="button" value="Agregar" id="agregarPertenencia" class="ui-button ui-corner-all ui-widget"/></td>
+    <td align="center"><input type="button" value="Eliminar"id="eliminarPertenencia" class="ui-button ui-corner-all ui-widget"/></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
