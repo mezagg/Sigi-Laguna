@@ -2016,7 +2016,7 @@
 	*/
 	function consultarDefensoresActivos(){
 
-		var ancho = $("#mainContent").width() - 15;
+		var ancho = $("#mainContent").width() - 5;
 		
 		if(!gridDefensoresActivos){
 			jQuery("#gridSubordinados").jqGrid({
@@ -2057,7 +2057,7 @@
 	 */
 	function gridExpedientesDeEtapas(rowid){
 		 	
-		var ancho = $("#mainContent").width() - 15;
+		var ancho = $("#mainContent").width() - 5;
 		var param ='expTodos=true&idFuncionario='+rowid;
 	
 		if(!gridExpedientesEtapaCargado){

@@ -1114,7 +1114,7 @@ function abreVentanaAdjuntarDocumentoAAudiencia(){
 function ajustarGridAlCentro(grid, params){
 	var height = 0;
 	var restarHeight = 60;
-	grid.setGridWidth($("#mainContent").width() - 5, true);
+	grid.setGridWidth($("#mainContent").width() - 15, true);
 	var caption = grid.jqGrid('getGridParam','caption');
 	
 	
