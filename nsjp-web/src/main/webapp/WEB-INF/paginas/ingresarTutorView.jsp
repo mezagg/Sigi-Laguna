@@ -16,7 +16,7 @@
 			#iTutorAccordionPane dt.active{cursor:pointer;color:#E78F08;background:#fff url(<%= request.getContextPath() %>/images/jquery/plugins/easyaccordion/slide-title-active-1.jpg) 0 0 no-repeat}
 			#iTutorAccordionPane dt.hover{color:#E78F08;}
 			#iTutorAccordionPane dt.active.hover{color:#1C94C4}
-			#iTutorAccordionPane dd{padding:1px;background:url(<%= request.getContextPath() %>/images/jquery/plugins/easyaccordion/slide.jpg) bottom left repeat-x;border:1px solid #dbe9ea;border-left:0;margin-right:1px}
+			#iTutorAccordionPane dd{padding:1px;background:url(<%= request.getContextPath() %>/images/jquery/plugins/easyaccordion/slide.jpg) bottom left repeat-x;border:1px solid #ffffff;border-left:0;margin-right:1px}
 			#iTutorAccordionPane .slide-number{color:#68889b;left:10px;font-weight:bold}
 			#iTutorAccordionPane .active .slide-number{color:#fff;}
 			#iTutorAccordionPane a{color:#68889b}

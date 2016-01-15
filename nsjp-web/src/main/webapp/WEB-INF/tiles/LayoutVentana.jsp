@@ -99,15 +99,15 @@
 				COLOR: #f5f5f5
 			}
 			#cedulaIdentificacion DD {
-				BORDER-BOTTOM: #dbe9ea 0px solid; 
+				BORDER-BOTTOM: #ffffff 0px solid; 
 				BORDER-LEFT: 0px; 
 				PADDING-BOTTOM: 1px; 
 				PADDING-LEFT: 1px; 
 				PADDING-RIGHT: 1px; 
 				/*BACKGROUND: url(<%=request.getContextPath()%>/images/jquery/plugins/easyaccordion/slide.jpg) repeat-x left bottom;*/ 
-				BORDER-TOP: #dbe9ea 0px solid; 
+				BORDER-TOP: #ffffff 0px solid; 
 				MARGIN-RIGHT: 1px; 
-				BORDER-RIGHT: #dbe9ea 0px solid; 
+				BORDER-RIGHT: #ffffff 0px solid; 
 				PADDING-TOP: 1px
 			}
 			/*distancia y color de numero*/

@@ -62,7 +62,7 @@ DD P {
 	COLOR: #1c94c4
 }
 #iRepLegalAccordionPane DD {
-	BORDER-BOTTOM: #dbe9ea 1px solid; BORDER-LEFT: 0px; PADDING-BOTTOM: 1px; PADDING-LEFT: 1px; PADDING-RIGHT: 1px; BACKGROUND: url(<%= request.getContextPath()%>/images/jquery/plugins/easyaccordion/slide.jpg) repeat-x left bottom; BORDER-TOP: #dbe9ea 1px solid; MARGIN-RIGHT: 1px; BORDER-RIGHT: #dbe9ea 1px solid; PADDING-TOP: 1px
+	BORDER-BOTTOM: #ffffff 1px solid; BORDER-LEFT: 0px; PADDING-BOTTOM: 1px; PADDING-LEFT: 1px; PADDING-RIGHT: 1px; BACKGROUND: url(<%= request.getContextPath()%>/images/jquery/plugins/easyaccordion/slide.jpg) repeat-x left bottom; BORDER-TOP: #ffffff 1px solid; MARGIN-RIGHT: 1px; BORDER-RIGHT: #ffffff 1px solid; PADDING-TOP: 1px
 }
 #iRepLegalAccordionPane .slide-number {
 	COLOR: #68889b; FONT-WEIGHT: bold; LEFT: 10px

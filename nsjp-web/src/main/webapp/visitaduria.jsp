@@ -37,7 +37,7 @@
 			#iRepLegalAccordionPane dt.active{cursor:pointer;color:#E78F08;background:#fff url(<%= request.getContextPath() %>/images/jquery/plugins/easyaccordion/slide-title-active-1.jpg) 0 0 no-repeat}
 			#iRepLegalAccordionPane dt.hover{color:#E78F08;}
 			#iRepLegalAccordionPane dt.active.hover{color:#1C94C4}
-			#iRepLegalAccordionPane dd{padding:1px;background:url(<%= request.getContextPath() %>/images/jquery/plugins/easyaccordion/slide.jpg) bottom left repeat-x;border:1px solid #dbe9ea;border-left:0;margin-right:1px}
+			#iRepLegalAccordionPane dd{padding:1px;background:url(<%= request.getContextPath() %>/images/jquery/plugins/easyaccordion/slide.jpg) bottom left repeat-x;border:1px solid #ffffff;border-left:0;margin-right:1px}
 			#iRepLegalAccordionPane .slide-number{color:#68889b;left:10px;font-weight:bold}
 			#iRepLegalAccordionPane .active .slide-number{color:#fff;}
 			#iRepLegalAccordionPane a{color:#68889b}

@@ -61,7 +61,7 @@ img {
 	clear:both;
 	float:left;
 	width:100%;
-	background-color:#e4f2e5;
+	background-color:#fff;
 }
 
 #encabezado .logo {
@@ -707,12 +707,12 @@ img {
          
 .fondoClaroAp{
 	
-	background-color: #e4f2e5;
+	background-color: #fff;
 	
 }
      
 .cuerpoLineaInvestigacion{
-        	background-color:#e4f2e5;
+        	background-color:#fff;
         	border-left: 1px solid;
         	border-right: 1px solid;
         	border-bottom: 1px solid;

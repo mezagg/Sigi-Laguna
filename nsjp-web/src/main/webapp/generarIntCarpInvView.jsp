@@ -21,7 +21,7 @@
 		#iProbResponsablePane dt.active{cursor:pointer;color:#E78F08;background:#333333 url(<%= request.getContextPath() %>/images/jquery/plugins/easyaccordion/slide-title-active-1.jpg) 0 0 no-repeat}
 		#iProbResponsablePane dt.hover{color:#E78F08;}
 		#iProbResponsablePane dt.active.hover{color:#1C94C4}
-		#iProbResponsablePane dd{padding:1px;background:url(<%= request.getContextPath() %>/images/jquery/plugins/easyaccordion/slide.jpg) bottom left repeat-x;border:1px solid #dbe9ea;border-left:0;margin-right:1px}
+		#iProbResponsablePane dd{padding:1px;background:url(<%= request.getContextPath() %>/images/jquery/plugins/easyaccordion/slide.jpg) bottom left repeat-x;border:1px solid #ffffff;border-left:0;margin-right:1px}
 		#iProbResponsablePane .slide-number{color:#E78F08;left:10px;font-weight:bold}
 		#iProbResponsablePane .active .slide-number{color:#fff;}
 		#iProbResponsablePane a{color:#E78F08}

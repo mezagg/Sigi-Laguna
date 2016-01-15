@@ -104,21 +104,23 @@ public class LoginAction extends GenericAction {
 	//	
 		try {
 			UsuarioDTO usuarioDTO = getUsuarioFirmado(request);
+                        
+                        
+                        if(usuarioDTO==null)
+                            return mapping.findForward("success");
+                        HttpSession httpSession = request.getSession();
 			this.usuarioDelegate.logout(usuarioDTO);
-			HttpSession httpSession = request.getSession();
 			httpSession.removeAttribute(KEY_SESSION_USUARIO_FIRMADO);
-			httpSession.invalidate();
 			ManejadorSesion.invalidate(KEY_SESSION_USUARIO_FIRMADO);
-			log.info("Logout de sistema");
+			httpSession.invalidate();
+
+                        log.info("Logout de sistema");
 			return mapping.findForward("success");
 		} catch (Exception e) {
 			// return mapping.findForward("success");
 			log.info("Logout de sistema fallido con excepcion mensaje:"
 					+ e.getMessage());
-			log.info("Logout de sistema fallido con excepcion mensaje:"
-					+ e.getCause());
-			log.info("Logout de sistema fallido con excepcion mensaje:"
-					+ e.getStackTrace());
+			
 			return mapping.findForward("error");
 		}
 	}

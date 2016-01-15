@@ -37,15 +37,18 @@
         <!--scripts de java script-->
         <script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery-1.5.1.js"></script>
         <script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery-ui-1.8.11.custom.min.js"></script>
+	<script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery.blockUI.js"></script>
 
         <!--script de windows engine (frames)-->
         <script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery.windows-engine.js"></script>
 
-        <!--script de jquery UI-->
         <script type="text/javascript" src="<%= request.getContextPath()%>/js/jquery-ui.min.js"></script>
         <script type="text/javascript" src="<%= request.getContextPath()%>/js/prettify.js"></script>
-        <script type="text/javascript" src="<%=request.getContextPath()%>/js/comun.js?n=1"></script>
 
+        <script type="text/javascript">
+            var contextoPagina = "${pageContext.request.contextPath}";
+        </script>
+        
         <!--script de los combos multiselect-->
         <!-- script type="text/javascript" src="<%= request.getContextPath()%>/js/jquery.multiselect.js"></script-->
 
@@ -62,6 +65,9 @@
         <script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/ckeditor/adapters/jquery.js"></script>
 
         <script type="text/javascript" src="<%=request.getContextPath()%>/js/bloqueaTecla.js?n=1"></script>
+
+        <!--script de jquery UI-->
+        <script type="text/javascript" src="<%=request.getContextPath()%>/js/comun.js?n=1"></script>
 
         <!--ESTILOS PARA LAS TABS-->
         <style>
@@ -547,7 +553,7 @@
             //Abre una nueva ventana de crear una nuev victima
             function creaNuevaVictima() {
                 idWindowIngresarVictima++;
-                $.newWindow({id: "iframewindowIngresarVictima" + idWindowIngresarVictima, statusBar: true, posx: 200, posy: 50, width: 1050, height: 600, title: "Ingresar V&iacute;ctima", type: "iframe"});
+                $.newWindow({id: "iframewindowIngresarVictima" + idWindowIngresarVictima, statusBar: true, posx: 100, posy: 20, width: 1050, height: 600, title: "Ingresar V&iacute;ctima", type: "iframe"});
                 $.updateWindowContent("iframewindowIngresarVictima" + idWindowIngresarVictima, '<iframe src="<%= request.getContextPath() %>/IngresarVictima.do?numeroExpediente=' + numeroExpediente + '" width="1050" height="600" />');
             }
             function cargaVictima(nombre, id) {
@@ -575,7 +581,7 @@
             //Abre una nueva ventana de crear una nuev victima
             function modificarVictima(id) {
                 idWindowIngresarVictima++;
-                $.newWindow({id: "iframewindowIngresarVictima" + idWindowIngresarVictima, statusBar: true, posx: 75, posy: 30, width: 1100, height: 530, title: "Consultar V&iacute;ctima", type: "iframe"});
+                $.newWindow({id: "iframewindowIngresarVictima" + idWindowIngresarVictima, statusBar: true, posx: 100, posy: 20, width: 1100, height: 530, title: "Consultar V&iacute;ctima", type: "iframe"});
                 $.updateWindowContent("iframewindowIngresarVictima" + idWindowIngresarVictima, '<iframe src="<%= request.getContextPath() %>/IngresarVictima.do?idVictima=' + id + '&numeroExpediente=' + numeroExpediente + '" width="1100" height="530" />');
             }
 
@@ -597,7 +603,7 @@
             function creaNuevoProbResponsable() {
                 var probableResponsableProp = '<bean:message key="ingProbaleResponsableTitulo"/>';
                 idWindowIngresarProbResponsable++;
-                $.newWindow({id: "iframewindowIngresarProbResponsable" + idWindowIngresarProbResponsable, statusBar: true, posx: 250, posy: 150, width: 1050, height: 620, title: probableResponsableProp, type: "iframe"});
+                $.newWindow({id: "iframewindowIngresarProbResponsable" + idWindowIngresarProbResponsable, statusBar: true, posx: 100, posy: 20, width: 1050, height: 620, title: probableResponsableProp, type: "iframe"});
                 $.updateWindowContent("iframewindowIngresarProbResponsable" + idWindowIngresarProbResponsable, '<iframe src="<%= request.getContextPath() %>/IngresarProbResponsable.do?numeroExpediente=' + numeroExpediente + '&calidadInv=PROBABLE_RESPONSABLE&isDetenidoExist=' + isDetenidoExist + '&detenido=1" width="1050" height="620" />');
             }
 
@@ -617,14 +623,14 @@
             function modificarProbResponsable(id) {
                 var probableResponsableProp = '<bean:message key="ingProbaleResponsableTitulo"/>';
                 idWindowIngresarProbResponsable++;
-                $.newWindow({id: "iframewindowModificarProbResponsable" + idWindowIngresarProbResponsable, statusBar: true, posx: 250, posy: 150, width: 1050, height: 620, title: probableResponsableProp, type: "iframe"});
+                $.newWindow({id: "iframewindowModificarProbResponsable" + idWindowIngresarProbResponsable, statusBar: true, posx: 100, posy: 20, width: 1050, height: 620, title: probableResponsableProp, type: "iframe"});
                 $.updateWindowContent("iframewindowModificarProbResponsable" + idWindowIngresarProbResponsable, '<iframe src="<%= request.getContextPath() %>/IngresarProbResponsable.do?idProbableResponsable=' + id + '&calidadInv=PROBABLE_RESPONSABLE&numeroExpediente=' + numeroExpediente + '" width="1050" height="620" />');
             }
 
             //Abre una nueva ventana de Denunciante
             function crearDenunciante() {
                 idWindowIngresarDenunciante++;
-                $.newWindow({id: "iframewindowIngresarDenunciante" + idWindowIngresarDenunciante, statusBar: true, posx: 150, posy: 20, width: 1040, height: 570, title: "Ingresar Denunciante", type: "iframe"});
+                $.newWindow({id: "iframewindowIngresarDenunciante" + idWindowIngresarDenunciante, statusBar: true, posx: 100, posy: 20, width: 1040, height: 570, title: "Ingresar Denunciante", type: "iframe"});
                 $.updateWindowContent("iframewindowIngresarDenunciante" + idWindowIngresarDenunciante, '<iframe src="<%= request.getContextPath() %>/IngresarDenunciante.do?numeroExpediente=' + numeroExpediente + '&calidadInv=DENUNCIANTE" width="1040" height="570" />');
             }
             function cargaDenunciante(nombre, id) {
@@ -642,7 +648,7 @@
             //Abre una nueva ventana de Denunciante
             function modificarDenunciante(id) {
                 idWindowIngresarDenunciante++;
-                $.newWindow({id: "iframewindowIngresarDenunciante" + idWindowIngresarDenunciante, statusBar: true, posx: 150, posy: 20, width: 1040, height: 570, title: "Modificar Denunciante", type: "iframe"});
+                $.newWindow({id: "iframewindowIngresarDenunciante" + idWindowIngresarDenunciante, statusBar: true, posx: 100, posy: 20, width: 1040, height: 570, title: "Modificar Denunciante", type: "iframe"});
                 $.updateWindowContent("iframewindowIngresarDenunciante" + idWindowIngresarDenunciante, '<iframe src="<%= request.getContextPath() %>/IngresarDenunciante.do?idDenunciante=' + id + '&numeroExpediente=' + numeroExpediente + '" width="1040" height="570" />');
             }
 
@@ -650,7 +656,7 @@
             //Crea una nueva ventana de testigo
             function creaNuevoTestigo() {
                 idWindowIngresarTestigo++;
-                $.newWindow({id: "iframewindowIngresarTestigo" + idWindowIngresarTestigo, statusBar: true, posx: 200, posy: 50, width: 1050, height: 600, title: "Ingresar Testigo", type: "iframe"});
+                $.newWindow({id: "iframewindowIngresarTestigo" + idWindowIngresarTestigo, statusBar: true, posx: 100, posy: 20, width: 1050, height: 600, title: "Ingresar Testigo", type: "iframe"});
                 $.updateWindowContent("iframewindowIngresarTestigo" + idWindowIngresarTestigo, '<iframe src="<%= request.getContextPath() %>/IngresarTestigo.do?numeroExpediente=' + numeroExpediente + '" width="1050" height="600" />');
             }
             function cargaTestigo(nombre, id) {
@@ -661,14 +667,14 @@
             }
             function modificarTestigo(id) {
                 idWindowIngresarTestigo++;
-                $.newWindow({id: "iframewindowIngresarTestigo" + idWindowIngresarTestigo, statusBar: true, posx: 75, posy: 30, width: 1100, height: 530, title: "Ingresar Testigo", type: "iframe"});
+                $.newWindow({id: "iframewindowIngresarTestigo" + idWindowIngresarTestigo, statusBar: true, posx: 100, posy: 20, width: 1100, height: 530, title: "Ingresar Testigo", type: "iframe"});
                 $.updateWindowContent("iframewindowIngresarTestigo" + idWindowIngresarTestigo, '<iframe src="<%= request.getContextPath() %>/IngresarTestigo.do?idTestigo=' + id + '&numeroExpediente=' + numeroExpediente + '" width="1100" height="530" />');
             }
 
             //Abre una nueva ventana de ingresar traductor
             function creaNuevoTraductor() {
                 idWindowIngresarTraductor++;
-                $.newWindow({id: "iframewindow" + idWindowIngresarTraductor, statusBar: true, posx: 200, posy: 50, width: 1050, height: 600, title: "Traductor", type: "iframe"});
+                $.newWindow({id: "iframewindow" + idWindowIngresarTraductor, statusBar: true, posx: 100, posy: 20, width: 1050, height: 600, title: "Traductor", type: "iframe"});
                 $.updateWindowContent("iframewindow" + idWindowIngresarTraductor, '<iframe src="<%= request.getContextPath() %>/IngresarTraductor.do?numeroExpediente=' + numeroExpediente + '" width="1050" height="600" />');
             }
             function cargaTraductor(nombre, id) {

@@ -16,7 +16,7 @@
 			#iVictimaAccordionPane dt.active{cursor:pointer;color:#fff;background:#fff url(<%= request.getContextPath() %>/images/jquery/plugins/easyaccordion/slide-title-active-1.jpg) 0 0 no-repeat}
 			#iVictimaAccordionPane dt.hover{color:#68889b;}
 			#iVictimaAccordionPane dt.active.hover{color:#fff}
-			#iVictimaAccordionPane dd{padding:1px;background:url(<%= request.getContextPath() %>/images/jquery/plugins/easyaccordion/slide.jpg) bottom left repeat-x;border:1px solid #dbe9ea;border-left:0;margin-right:1px}
+			#iVictimaAccordionPane dd{padding:1px;background:url(<%= request.getContextPath() %>/images/jquery/plugins/easyaccordion/slide.jpg) bottom left repeat-x;border:1px solid #ffffff;border-left:0;margin-right:1px}
 			#iVictimaAccordionPane .slide-number{color:#68889b;left:10px;font-weight:bold}
 			#iVictimaAccordionPane .active .slide-number{color:#fff;}
 			#iVictimaAccordionPane a{color:#68889b}

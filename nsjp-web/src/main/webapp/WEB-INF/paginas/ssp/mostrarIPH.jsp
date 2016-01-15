@@ -11,57 +11,61 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Mostrar IPH</title>
 
-	<!--Hoja de estilos de Layout-->
-	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/layout_complex.css" media="screen" />
-	
-	<!--Hojas de estilos de los combos multiselect-->
-	<!-- <link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/multiselect/style.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/multiselect/prettify.css" /> -->
-	
-	<!--Hoja de estilos ultrasist-->
-	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/estilos.css" media="screen" />
-	
-	<!--Hoja de estilos windows engine (frames)-->
-	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/jquery.windows-engine.css"/>
-	
-	<!--Hojas de estilos para los componentes UI de Jquery-->
-	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css"/>
-	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/south-street/jquery-ui-1.8.10.custom.css" />
-	
-	<!--Hoja de estilos para el grid-->
-	<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/jqgrid/ui.jqgrid.css" />
+    <!--Hoja de estilos de Layout-->
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/layout_complex.css" media="screen" />
 
-	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery.timeentry.css"/>  
-	
-	
-	<!--scripts de java script-->
-	<script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery-1.5.1.js"></script>
-	<script type="text/javascript" src="<%= request.getContextPath() %>/resources/js/jquery-ui-1.8.11.custom.min.js"></script>
-	
-	<!--script de windows engine (frames)-->
-	<script type="text/javascript" src="<%= request.getContextPath() %>/resources/js/jquery.windows-engine.js"></script>
-	
-	<!--script de jquery UI-->
-	<script type="text/javascript" src="<%= request.getContextPath()%>/js/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="<%= request.getContextPath()%>/js/prettify.js"></script>
-	
-	<!--scripts del gird-->
-	<script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jqgrid/i18n/grid.locale-es.js"></script>
-	<script type="text/javascript" src="<%= request.getContextPath()%>/js/jqgrid/jquery.jqGrid.min.js"></script>
-		<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jqgrid/i18n/grid.locale-es.js"></script>
-	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jqgrid/jquery.jqGrid.js"></script>
-	
-	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.layout-1.3.0.js"></script>
+    <!--Hojas de estilos de los combos multiselect-->
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/multiselect/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/multiselect/prettify.css" /> -->
 
-	<script type="text/javascript" src="<%= request.getContextPath() %>/resources/js/jquery.timeentry.js"></script>
+    <!--Hoja de estilos ultrasist-->
+    <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/estilos.css" media="screen" />
+
+    <!--Hoja de estilos windows engine (frames)-->
+    <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/jquery.windows-engine.css"/>
+
+    <!--Hojas de estilos para los componentes UI de Jquery-->
+    <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css"/>
+    <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/south-street/jquery-ui-1.8.10.custom.css" />
+
+    <!--Hoja de estilos para el grid-->
+    <link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/jqgrid/ui.jqgrid.css" />
+
+    <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery.timeentry.css"/>  
+
+
+    <!--scripts de java script-->
+    <script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery-1.5.1.js"></script>
+    <script type="text/javascript" src="<%= request.getContextPath() %>/resources/js/jquery-ui-1.8.11.custom.min.js"></script>
+
+    <!--script de windows engine (frames)-->
+    <script type="text/javascript" src="<%= request.getContextPath() %>/resources/js/jquery.windows-engine.js"></script>
+
+    <!--script de jquery UI-->
+    <script type="text/javascript" src="<%= request.getContextPath()%>/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="<%= request.getContextPath()%>/js/prettify.js"></script>
+
+    <!--scripts del gird-->
+    <script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jqgrid/i18n/grid.locale-es.js"></script>
+    <script type="text/javascript" src="<%= request.getContextPath()%>/js/jqgrid/jquery.jqGrid.min.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jqgrid/i18n/grid.locale-es.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jqgrid/jquery.jqGrid.js"></script>
+
+
+    <script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery.blockUI.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.layout-1.3.0.js"></script>
+
+    <script type="text/javascript" src="<%= request.getContextPath() %>/resources/js/jquery.timeentry.js"></script>
 
    <script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/ckeditor/ckeditor.js"></script>
    <script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/ckeditor/adapters/jquery.js"></script>
    <script type="text/javascript" src="<%=request.getContextPath()%>/js/bloqueaTecla.js?n=1"></script>
    <script type="text/javascript" src="<%=request.getContextPath()%>/js/comun.js?n=1"></script>
 		
-	<!-- JS para la validacion de solo numeros -->
-	<script src="<%=request.getContextPath()%>/js/comun.js?n=1"></script>	
+   <script type="text/javascript">
+            var contextoPagina = "${pageContext.request.contextPath}";
+    </script>
+        
 
 	<!--ESTILOS PARA LAS TABS-->
 	<style>
