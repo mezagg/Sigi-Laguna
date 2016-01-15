@@ -19,7 +19,10 @@
  */
 package mx.gob.segob.nsjp.web.elemento.action;
 
+import java.io.BufferedInputStream;
 import java.io.IOException;
+import java.net.URL;
+import java.net.URLConnection;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
@@ -159,12 +162,28 @@ public class AdjuntarFotoDeElementoAction extends GenericAction {
 			ArchivoDigitalDTO archivoDigitalDTO = documentoDelegate
 					.consultarArchivoDigitalXElementoId(Long
 							.parseLong(idObjeto));
+                        ServletOutputStream out = response.getOutputStream();
+                                
 			if (archivoDigitalDTO != null
 					&& archivoDigitalDTO.getContenido() != null) {
 				byte[] imag = archivoDigitalDTO.getContenido();
-				ServletOutputStream out = response.getOutputStream();
-				out.write(imag);
-			}
+				if(imag.length>0)
+                                    out.write(imag);
+                                
+			}else{
+                             BufferedInputStream bis= null;
+                                    URL resource= AdjuntarFotoDeElementoAction.class.getResource("/foto.png");
+                                    URLConnection urlConnection= resource.openConnection();
+                                    //int length=  urlConnection.getContentLength();
+                                    //out.setContentLength(length);
+                                    bis= new BufferedInputStream(urlConnection.getInputStream());
+                                    byte[] imagen = new byte[1024*2];
+                                    int read;
+                                    while ((read= bis.read(imagen))>0){
+                                        out.write(imagen, 0, read);
+                                    }
+                        }
+                            
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
 		}
