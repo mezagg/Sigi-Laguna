@@ -803,7 +803,7 @@
 							$("#imgConFoto").attr("src",'<%=request.getContextPath()%>/obtenImagenDeFuncionario.do?idFuncionario='+idFuncionario+'');
 						}
 						else{
-							$("#imgConFoto").attr("src","<%=request.getContextPath()%>/resources/images/img_denunciante.png");
+							$("#imgConFoto").attr("src","<%=request.getContextPath()%>/resources/images/foto.png");
 						}
 					}
 				});
@@ -812,7 +812,7 @@
 		       $('#tabDatosGenerales').hide();
 		       $('#tabMedios').hide();	
 			   $('#tabsconsultaprincipal-1').hide();
-			   $("#imgConFoto").attr("src","<%=request.getContextPath()%>/resources/images/img_denunciante.png");
+			   $("#imgConFoto").attr("src","<%=request.getContextPath()%>/resources/images/foto.png");
 			}		 
 
 		    idUsuario = $(xml).find('funcionario').find('usuario').find('idUsuario').text();
@@ -968,7 +968,7 @@
 	
 				<tr>
 		 			<td width="12%" height="130" align="center" rowspan=3>
-		 			<img src="<%=request.getContextPath()%>/resources/images/img_denunciante.png"
+		 			<img src="<%=request.getContextPath()%>/resources/images/foto.png"
 		 				alt="" width="105" height="105" id="imgConFoto" />
 		 			</td>
 		 			<td  align="right">*Nombre(s):</td>
@@ -1137,7 +1137,7 @@
 		 		</tr>
 		 		<tr>
 		 			<td align="center">
-		 				<div id="boton2"><input type="button" value="Guardar" id="botonGuarda" class="btn_Generico" onclick="guardarDatosFuncionario();"/></div>
+		 				<div id="boton2"><input type="button" value="Guardar" id="botonGuarda" class="ui-button ui-corner-all ui-widget" onclick="guardarDatosFuncionario();"/></div>
 		 			</td>
 		 		</tr>
 		 	</table>

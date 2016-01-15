@@ -13,7 +13,7 @@
 							            	<tr>
 							                	<td width="10" height="109">&nbsp;</td>
 							                	<td width="4">&nbsp;</td>
-							                	<td width="123"><IMG id=iVictimaCmpFoto alt=foto src="<%= request.getContextPath() %>/resources/images/img_denunciante.png"></td>
+							                	<td width="123"><IMG id=iVictimaCmpFoto alt=foto src="<%= request.getContextPath() %>/resources/images/foto.png"></td>
 							                </tr>
 				         				 </table>
 				        			 </TD>
