@@ -511,31 +511,70 @@
 		
 	   return lsDatosGenerales;
 	}
-
+        function missingField(fieldname, valueWrong, tabname, message){
+            if($(fieldname).val() === valueWrong){
+                     $(fieldname).focus();  
+                     $(fieldname).addClass("ui-state-error ui-corner-all errorField");
+                     //alert(msgError);
+                     $("#msgError").removeClass("ui-helper-hidden");
+                     $("#msgError").text(message);
+                     $(tabname).addClass("ui-state-error ui-corner-all");
+                     return true;
+            }else{
+                $(fieldname).removeClass("ui-state-error ui-corner-all");
+                     //alert(msgError);
+                     $("#msgError").addClass("ui-helper-hidden");
+                     
+                     $(tabname).removeClass("ui-state-error ui-corner-all");
+            }
+            return false;
+        }
 	function guardarDatosGeneralesIPH(){
 		var params = recuperaDatosGenerales();
 		params += "&operativoId=" + operativoId;
 		var op=false;
-		if($("#datosGeneralesCmpNumeroTransporteOf").val() == "" || $("#datosGeneralesCmpAsunto").val() == "" ||
-		   $("#motivoCmpTipoEvento option:selected").val() == 0 || $("#motivoCmpSubtipoEvento option:selected").val() == "" ||
-		   $("#datosGeneralesCmpNumeroEmpleado").val() == "" || $("#datosGeneralesCmpTurno option:selected").val() == "" ||
-		   $("#datosGeneralesCmpTipoParticipacion option:selected").val() == "" || 
-		   ($("#chkOperativo").is(':checked') && ($("#datosGeneralesCmpNombreOperativo").val() == "" || 
-		    $("#datosGeneralesCmpComandanteAgrupamiento").val() == "" || $("#datosGeneralesCmpComandanteOperativo").val() == ""))){
-			alert("Debe ingresar valores a los campos obligatorios (*)");
-		}else{			
-			$.ajax({								
-			  	  type: 'POST',
-			  	  url: '<%= request.getContextPath()%>/guardarDatosGeneralesIPH.do?folioIPH='+folioIPH+'',
-			  	  data: params,				
-			  	  dataType: 'xml',
-			  	  async:false,
-			  	  success: function(xml){
-			  		  alert('Datos Generales del IPH guardados de manera correcta');
-			  		  op=true;
-			  	  }
-			 });
-		}
+                if(
+                    missingField("#datosGeneralesCmpNumeroTransporteOf","","#tabDatosGenerales", "Debe ingresar el numero del transporte oficial.") ||
+                    missingField("#datosGeneralesCmpAsunto","","#tabDatosGenerales", "Debe ingresar el asunto.") ||
+                    missingField("#motivoCmpTipoEvento option:selected","0","#tabDatosGenerales", "Debe ingresar el tipo de Evento.") ||
+                    missingField("#motivoCmpSubtipoEvento option:selected","0","#tabDatosGenerales", "Debe ingresar el subtipo de Evento.") ||
+                    missingField("#datosGeneralesCmpNumeroEmpleado","","#tabDatosGenerales", "Debe ingresar el numero de empleado.") ||
+                    missingField("#datosGeneralesCmpTurno option:selected","","#tabDatosGenerales", "Debe ingresar el turno.") ||    
+                    missingField("#datosGeneralesCmpTipoParticipacion option:selected","","#tabDatosGenerales", "Debe ingresar el tipo de participacion.") ||
+                    missingField("#cbxDistrito option:selected","","#tabDatosGenerales", "Debe ingresar Distrito.") ||
+                    missingField("#cbxAgencia option:selected","","#tabDatosGenerales", "Debe ingresar la agencia.") 
+
+                )return;
+                 if($("#chkOperativo").is(':checked')){
+                     if(
+                        missingField("#datosGeneralesCmpNombreOperativo","","#tabDatosGenerales", "Debe ingresar el nombre del operativo.") ||
+                        missingField("#datosGeneralesCmpComandanteAgrupamiento","","#tabDatosGenerales", "Debe ingresar el comandante del agrupamiento.") ||
+                        missingField("#datosGeneralesCmpComandanteOperativo","","#tabDatosGenerales", "Debe ingresar el comandante del operativo.")
+                       )
+                     return;
+                 }
+                     $("#msg").removeClass("ui-helper-hidden");
+                     $("#msg").text('Guardando...');
+                 
+                $.ajax({								
+                          type: 'POST',
+                          url: '<%= request.getContextPath()%>/guardarDatosGeneralesIPH.do?folioIPH='+folioIPH+'',
+                          data: params,				
+                          dataType: 'xml',
+                          async:false,
+                          success: function(xml){
+                                console.log(xml);
+                                  $("#msgError").removeClass("ui-helper-hidden");
+                                  $("#msg").text('Datos Generales del IPH guardados de manera correcta');
+                                  op=true;
+                          },
+                          error: function(result) {
+                           $("#msgError").text('Datos Generales del IPH guardados de manera correcta');
+                           $("#msgError").removeClass("ui-helper-hidden");
+                           
+                        }
+                 });
+		
 		if(op){
 			return "ok";
 		}
@@ -1448,11 +1487,15 @@
 <body>
 
 	<table width="100%" class="back_pleca_h">
-		<tr>			
-			<td align="right">
-					<input type="button" value="Adjuntar Documento" id="btnAdjuntar" class="btn_Generico" onclick="abreVentanaAdjuntarDocumentoAExpediente()"/>
-					 <input type="button" value="Guardar" id="btnIPHGuardadoParcial" class="back_button" onclick="guardarDatosGeneralesIPH()"/>
-					 <input type="button" value="Generar Informe" class="back_button" onclick="generarInformeIPH()"/>
+		<tr>	
+                    <td align="left " width="50%"> 
+                        <span id="msgError" class="ui-helper-hidden ui-state-error ui-corner-all"></span>
+                        <span id="msg" class="ui-helper-hidden ui-state-highlight ui-corner-all"></span>
+                    </td>
+			<td align="right" width="50%">
+					<input type="button" value="Adjuntar Documento" id="btnAdjuntar" class="ui-button ui-corner-all ui-widget" onclick="abreVentanaAdjuntarDocumentoAExpediente()"/>
+					 <input type="button" value="Guardar" id="btnIPHGuardadoParcial" class="ui-button ui-corner-all ui-widget" onclick="guardarDatosGeneralesIPH()"/>
+					 <input type="button" value="Generar Informe" class="ui-button ui-corner-all ui-widget" onclick="generarInformeIPH()"/>
 			</td>
 		</tr>
 	</table>
@@ -1735,7 +1778,7 @@
 									<tr>
 										<td align="right">* Subtipo de Evento:</td>
 										<td>
-											<select id="motivoCmpSubtipoEvento" style="width: 180px;">
+											<select id="motivoCmpSubtipoEvento" style="width: 400px;">
 												<option value="">- Seleccione -</option>
 											</select>
 										</td>
@@ -1792,14 +1835,14 @@
 									</tr>
 									<tr>
 									  <td align="right">* Distrito:</td>
-									  <td><select name="cbxDistrito" id="cbxDistrito" style="width: 180px;" onchange="actualizaComboAgencias()">
+									  <td><select name="cbxDistrito" id="cbxDistrito" style="width: 300px;" onchange="actualizaComboAgencias()">
 									    <option value="">- Seleccione -</option>
 								      </select></td>
 									  <td>&nbsp;</td>
 								  </tr>
 									<tr>
 									  <td align="right">* <bean:message key="agencia"/>:</td>
-									  <td><select name="cbxAgencia" id="cbxAgencia" style="width: 180px;">
+									  <td><select name="cbxAgencia" id="cbxAgencia" style="width: 300px;">
 									    <option value="">- Seleccione -</option>
 								      </select></td>
 									   <td>&nbsp;</td>
