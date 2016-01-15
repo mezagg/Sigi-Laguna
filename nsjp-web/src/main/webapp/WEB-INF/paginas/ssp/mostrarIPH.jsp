@@ -512,9 +512,14 @@
 	   return lsDatosGenerales;
 	}
         function missingField(fieldname, valueWrong, tabname, message){
+            
+            $("#msgError").addClass("ui-helper-hidden");
+            $("#msgError").text("");
+            $(tabname).removeClass("ui-state-error ui-corner-all");
+            
             if($(fieldname).val() === valueWrong){
                      $(fieldname).focus();  
-                     $(fieldname).addClass("ui-state-error ui-corner-all errorField");
+                     $(fieldname).addClass("ui-state-error ui-corner-all");
                      //alert(msgError);
                      $("#msgError").removeClass("ui-helper-hidden");
                      $("#msgError").text(message);
@@ -523,9 +528,6 @@
             }else{
                 $(fieldname).removeClass("ui-state-error ui-corner-all");
                      //alert(msgError);
-                     $("#msgError").addClass("ui-helper-hidden");
-                     
-                     $(tabname).removeClass("ui-state-error ui-corner-all");
             }
             return false;
         }
@@ -1787,7 +1789,7 @@
 									<tr>
 										<td align="right">* N&uacute;mero de Empleado:</td>
 										<td><input type="text" style="width: 180px;" maxlength="30" id="datosGeneralesCmpNumeroEmpleado" /></td>
-										<td><input type="button" id="btnFuncionario" value="Validar Funcionario" onclick="buscarFuncionario();" class="back_button" ></td>
+										<td><input type="button" id="btnFuncionario" value="Validar Funcionario" onclick="buscarFuncionario();" class="ui-button ui-corner-all ui-widget" ></td>
 									</tr>
 									<tr>
 										<td align="right">Oficial:</td>
@@ -1921,7 +1923,7 @@
 										</td>
 									</tr>
 									<tr>
-										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="crearDenunciante"><input type="button" value="Ingresar Denunciante" class="back_button"/></a></td>
+										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="crearDenunciante"><input type="button" value="Ingresar Denunciante" class="ui-button ui-corner-all ui-widget"/></a></td>
 									</tr>
 								</table>
 							</td>
@@ -1940,7 +1942,7 @@
 										</td>
 									</tr>
 									<tr>
-										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevaVictima"><input type="button" value="Ingresar V&iacute;ctima" class="back_button"/></a></td>
+										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevaVictima"><input type="button" value="Ingresar V&iacute;ctima" class="ui-button ui-corner-all ui-widget"/></a></td>
 									</tr>
 								</table>
 							</td>
@@ -1959,7 +1961,7 @@
 										</td>
 									</tr>
 									<tr>
-										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoProbResponsable"><input type="button" value='<bean:message key="ingProbaleResponsable"/>' class="back_button"/></a></td>
+										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoProbResponsable"><input type="button" value='<bean:message key="ingProbaleResponsable"/>' class="ui-button ui-corner-all ui-widget"/></a></td>
 									</tr>
 								</table>
 							</td>
@@ -1978,7 +1980,7 @@
 										</td>
 									</tr>
 									<tr>
-										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoTestigo"><input type="button" value="Ingresar Testigo" class="back_button"/></a></td>
+										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoTestigo"><input type="button" value="Ingresar Testigo" class="ui-button ui-corner-all ui-widget"/></a></td>
 									</tr>
 									
 								</table>
@@ -2019,7 +2021,7 @@
 									</tr>
 									<tr>
 									<td width="50px">&nbsp;</td>
-										<td><a id="nuevoVehiculo"><input type="button" value="Ingresar Veh&iacute;culo" class="back_button"/></a></td>
+										<td><a id="nuevoVehiculo"><input type="button" value="Ingresar Veh&iacute;culo" class="ui-button ui-corner-all ui-widget"/></a></td>
 									</tr>
 									<tr>
 										<td width="50px">&nbsp;</td>
@@ -2049,7 +2051,7 @@
 									</tr>
 									<tr>
 										<td width="50px">&nbsp;</td>
-										<td><input type="button" id="nuevaAeronave" value="Ingreso nuevo" class="back_button"/></td>
+										<td><input type="button" id="nuevaAeronave" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
 									</tr>
 									<tr>
 										<td width="50px">&nbsp;</td>
@@ -2079,7 +2081,7 @@
 									</tr>
 									<tr>
 										<td width="50px">&nbsp;</td>
-										<td><input type="button" id="nuevaEmbarcacion" value="Ingreso nuevo" class="back_button"/></td>
+										<td><input type="button" id="nuevaEmbarcacion" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
 									</tr>
 									<tr>
 										<td width="50px">&nbsp;</td>
@@ -2111,7 +2113,7 @@
 									</tr>
 									<tr>
 										<td width="50px">&nbsp;</td>
-										<td><input type="button" id="nuevaSustancia" value="Ingreso nuevo" class="back_button"/></td>
+										<td><input type="button" id="nuevaSustancia" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
 									</tr>
 									<tr>
 										<td width="50px">&nbsp;</td>
@@ -2143,7 +2145,7 @@
 									</tr>
 									<tr>
 										<td width="50px">&nbsp;</td>
-										<td><input type="button" id="nuevaArma" value="Ingreso nuevo" class="back_button"/></td>
+										<td><input type="button" id="nuevaArma" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
 									</tr>
 									<tr>
 										<td width="50px">&nbsp;</td>
@@ -2173,7 +2175,7 @@
 									</tr>
 									<tr>
 										<td width="50px">&nbsp;</td>
-										<td><input type="button" id="nuevoExplosivo" value="Ingreso nuevo" class="back_button"/></td>
+										<td><input type="button" id="nuevoExplosivo" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
 									</tr>
 									<tr>
 										<td width="50px">&nbsp;</td>
@@ -2205,7 +2207,7 @@
 									</tr>
 									<tr>
 										<td width="50px">&nbsp;</td>
-										<td><input type="button" id="nuevoNumerario" value="Ingreso nuevo" class="back_button"/></td>
+										<td><input type="button" id="nuevoNumerario" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
 									</tr>
 									<tr>
 										<td width="50px">&nbsp;</td>
@@ -2237,7 +2239,7 @@
 									</tr>
 									<tr>
 										<td width="50px">&nbsp;</td>
-										<td><input type="button" id="nuevoOtros" value="Ingreso nuevo" class="back_button"/></td>
+										<td><input type="button" id="nuevoOtros" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
 									</tr>
 									<tr>
 										<td width="50px">&nbsp;</td>

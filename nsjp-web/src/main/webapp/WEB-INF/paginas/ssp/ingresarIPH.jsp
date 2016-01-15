@@ -271,6 +271,7 @@
             }
             function missingField(fieldname, valueWrong, tabname, message) {
                 $("#msgError").addClass("ui-helper-hidden");
+                $("#msgError").text("");
                 $(tabname).removeClass("ui-state-error ui-corner-all");
                 if ($(fieldname).val() === valueWrong) {
                     $(fieldname).focus();
@@ -1079,7 +1080,7 @@
                                         <tr>
                                             <td align="right">* N&uacute;mero de Empleado:</td>
                                             <td><input type="text" style="width: 180px;" maxlength="30" id="datosGeneralesCmpNumeroEmpleado"/></td>
-                                            <td><input type="button" id="btnFuncionario" value="Validar Funcionario" onclick="buscarFuncionario();" class="btn_Generico"></td>
+                                            <td><input type="button" id="btnFuncionario" value="Validar Funcionario" onclick="buscarFuncionario();" class="ui-button ui-corner-all ui-widget"></td>
                                         </tr>
                                         <tr>
                                             <td align="right">Oficial:</td>
@@ -1218,7 +1219,7 @@
                 <div style="width: 1042px; height: 490px;" class="back_hechos">
                     <table border="0" cellspacing="0" cellpadding="0" id="tablaHecho" class="back_hechos" style="padding: .5cm; " >
                         <tr valign="top">						
-                            <td valign="top"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="ingresarHechos" value="Ingreso Hecho" class="btn_Generico"/></td>
+                            <td valign="top"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="ingresarHechos" value="Ingreso Hecho" class="ui-button ui-corner-all ui-widget"/></td>
                         </tr>
                     </table>
                 </div>
@@ -1245,7 +1246,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="crearDenunciante"><input type="button" value="Ingresar Denunciante" class="btn_Generico"/></a></td>
+                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="crearDenunciante"><input type="button" value="Ingresar Denunciante" class="ui-button ui-corner-all ui-widget"/></a></td>
                                         </tr>
                                     </table>
                                 </td>
@@ -1264,7 +1265,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevaVictima"><input type="button" value="Ingresar V&iacute;ctima" class="btn_Generico"/></a></td>
+                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevaVictima"><input type="button" value="Ingresar V&iacute;ctima" class="ui-button ui-corner-all ui-widget"/></a></td>
                                         </tr>
                                     </table>
                                 </td>
@@ -1283,7 +1284,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoProbResponsable"><input type="button" value='<bean:message key="ingProbaleResponsable" />' class="btn_Generico"/></a></td>
+                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoProbResponsable"><input type="button" value='<bean:message key="ingProbaleResponsable" />' class="ui-button ui-corner-all ui-widget"/></a></td>
                                         </tr>
                                     </table>
                                 </td>
@@ -1302,7 +1303,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoTestigo"><input type="button" value="Ingresar Testigo" class="btn_Generico"/></a></td>
+                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoTestigo"><input type="button" value="Ingresar Testigo" class="ui-button ui-corner-all ui-widget"/></a></td>
                                         </tr>
 
                                     </table>
@@ -1334,7 +1335,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoVehiculo"><input type="button" value="Ingresar Veh&iacute;culo" class="btn_Generico"/></a></td>
+                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoVehiculo"><input type="button" value="Ingresar Veh&iacute;culo" class="ui-button ui-corner-all ui-widget"/></a></td>
                                         </tr>
                                     </table>
                                 </td>
@@ -1353,7 +1354,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaAeronave" value="Ingreso nuevo" class="btn_Generico"/></td>
+                                            <td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaAeronave" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
                                         </tr>						
                                     </table>
                                 </td>
@@ -1372,7 +1373,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaEmbarcacion" value="Ingreso nuevo" class="btn_Generico"/></td>
+                                            <td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaEmbarcacion" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
                                         </tr>
                                     </table>
                                 </td>
@@ -1400,7 +1401,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaSustancia" value="Ingreso nuevo" class="btn_Generico"/></td>
+                                            <td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaSustancia" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
                                         </tr>
                                     </table>
                                 </td>
@@ -1430,7 +1431,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaArma" value="Ingreso nuevo" class="btn_Generico"/></td>
+                                            <td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaArma" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
                                         </tr>
                                     </table>
                                 </td>
@@ -1449,7 +1450,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoExplosivo" value="Ingreso nuevo" class="btn_Generico"/></td>
+                                            <td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoExplosivo" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
                                         </tr>						
                                     </table>
                                 </td>
@@ -1477,7 +1478,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoNumerario" value="Ingreso nuevo" class="btn_Generico"/></td>
+                                            <td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoNumerario" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
                                         </tr>						
                                     </table>
                                 </td>
@@ -1496,7 +1497,7 @@
                                                                     </td>
                                                             </tr>
                                                             <tr>
-                                                                    <td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoOtro" value="Ingreso nuevo" class="btn_Generico"/></td>
+                                                                    <td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoOtro" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
                                                             </tr>						
                                                     </table>
                                             </td>
@@ -1525,7 +1526,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoOtros" value="Ingreso nuevo" class="btn_Generico"/></td>
+                                            <td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoOtros" value="Ingreso nuevo" class="ui-button ui-corner-all ui-widget"/></td>
                                         </tr>						
                                     </table>
                                 </td>
@@ -1546,12 +1547,12 @@
                 </table>
             </div>
             <div id="tabsconsultaprincipal-9" class="tabTabsCadCus">
-                <input type="button" class="btn_Generico" id="btnCadCusNuevaCadCus" style="width: 250px;" value="Crear nueva cadena de custodia"/><br/><br/>
-                <input type="button" class="btn_Generico" id="btnCadCusConsultaCadCus" style="width: 250px;" value="Consultar cadena de custodia"/><br/><br/>    
-                <input type="button" class="btn_Generico" id="btnCadCusRegEslabones" style="width: 250px;" value="Registrar eslabones"/> <br/><br/>
-                <input type="button" class="btn_Generico" id="btnCadCusRepEvidencias" style="width: 250px;" style="width: 250px;" value="Reporte de evidencias"/> <br/><br/>
-                <input type="button" class="btn_Generico" id="btnCadCusElabOficio" style="width: 250px;" value="Elaborar oficio para fijaci&oacute;n y preservaci&oacute;n"/><br/><br/>  
-                <input type="button" class="btn_Generico" id="btnCadCusAdmDestino" style="width: 250px;" value="Administrar destino legal de evidencia"/>
+                <input type="button" class="ui-button ui-corner-all ui-widget" id="btnCadCusNuevaCadCus" style="width: 250px;" value="Crear nueva cadena de custodia"/><br/><br/>
+                <input type="button" class="ui-button ui-corner-all ui-widget" id="btnCadCusConsultaCadCus" style="width: 250px;" value="Consultar cadena de custodia"/><br/><br/>    
+                <input type="button" class="ui-button ui-corner-all ui-widget" id="btnCadCusRegEslabones" style="width: 250px;" value="Registrar eslabones"/> <br/><br/>
+                <input type="button" class="ui-button ui-corner-all ui-widget" id="btnCadCusRepEvidencias" style="width: 250px;" style="width: 250px;" value="Reporte de evidencias"/> <br/><br/>
+                <input type="button" class="ui-button ui-corner-all ui-widget" id="btnCadCusElabOficio" style="width: 250px;" value="Elaborar oficio para fijaci&oacute;n y preservaci&oacute;n"/><br/><br/>  
+                <input type="button" class="ui-button ui-corner-all ui-widget" id="btnCadCusAdmDestino" style="width: 250px;" value="Administrar destino legal de evidencia"/>
             </div>		
 
         </div>
