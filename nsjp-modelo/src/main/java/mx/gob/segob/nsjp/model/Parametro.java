@@ -32,6 +32,14 @@ public class Parametro implements java.io.Serializable {
     public Parametro() {
     }
 
+    public Parametro(Long parametroId, String clave, String valor, String descripcion, String tipoValor) {
+        this.parametroId=parametroId;
+        this.clave=clave;
+        this.valor=valor;
+        this.descripcion = descripcion;
+        this.tipoValor=tipoValor;
+    }
+
     // Property accessors
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
