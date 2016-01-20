@@ -289,7 +289,7 @@
 			}
 
 			//INICIA OPTIMIZACION
-			$("#tabInvolucrados").one("click", function() {
+			$("#tabInvolucrados").click("click", function() {
 				$('#tabInvolucrados').addClass("cargando");
 				cargarInvolucradosExpediente(idNumeroExpedienteConsul);
         		$('#tabInvolucrados').removeClass("cargando");
@@ -332,7 +332,7 @@
 				jQuery("#gridDetalleFrmPrincipal").jqGrid({ 
 					url:'<%=request.getContextPath()%>/consultarDocumentos.do?idExpedienteop='+idNumeroExpedienteConsul, 
 					datatype: "xml",
-					colNames:['Área del responsable','Fecha de la actividad','Nombre de la actividad','Tipo de documento','Nombre de Documento','Fecha del documento', 'Documento', 'Es Parcial'],
+					colNames:['Area del responsable','Fecha de la actividad','Nombre de la actividad','Tipo de documento','Nombre de Documento','Fecha del documento', 'Documento', 'Es Parcial'],
 					colModel:[ 	{name:'area',index:'da', width:200},
 								{name:'FechaActividad',index:'fechaActividad', width:170},							
 								{name:'NombreActividad',index:'nombreActividad', width:400},
@@ -957,7 +957,7 @@
 				jQuery("#gridObjsVehiculo").jqGrid({ 
 					url:'<%= request.getContextPath()%>/ConsultaObjetosGridVisorXTipo.do?numeroExpediente='+numeroExpediente+'&tipoObjeto=<%= Objetos.VEHICULO.getValorId() %>', 
 					datatype: "xml", 
-					colNames:['Vehículo','Folio de cadena de custodia', 'No. de casos asociados'], 
+					colNames:['Veh&iacute;culo','Folio de cadena de custodia', 'No. de casos asociados'], 
 					colModel:[ 	{name:'Vehiculo',index:'vehiculon', width:100}, 
 								{name:'FolioCadCus',index:'folioCadCus', width:150}, 
 								{name:'NoExpedientes',index:'noExpedientes', width:200,hidden:false}, 
@@ -2099,13 +2099,13 @@
 				//verificamos si se tienen relaciones de delito-persona o delito-delito
 				if(consultaTotalRelacionesDelitoPorTodos()>0)
 				{
-					$.newWindow({id:"iframewindowGenerarDocumento", statusBar: true, posx:20,posy:20,width:940,height:350,title:"Solicitud de Ayuda a la Unidad de Atención a Víctimas", type:"iframe"});
+					$.newWindow({id:"iframewindowGenerarDocumento", statusBar: true, posx:20,posy:20,width:940,height:350,title:"Solicitud de Ayuda a la Unidad de Atención a V&iacute;ctimas", type:"iframe"});
 		            $.updateWindowContent("iframewindowGenerarDocumento",'<iframe src="<%= request.getContextPath() %>/solicitarAyudaPsicologicaUAVD.do?formaId='+formaID+'&idExpedienteop='+idExpedienteop+'&numeroCaso='+numeroCaso+'&numeroUnicoExpediente='+numeroExpediente+'&idNumeroExpedienteOp='+idNumeroExpedienteOp+'"    width="1140" height="550" />');
 		            $("#" +"iframewindowGenerarDocumento" + " .window-maximizeButton").click();
 				}
 				else
 				{
-					var texto = "Debe tener registrada la relación de la víctima \n con el " +
+					var texto = "Debe tener registrada la relación de la v&iacute;ctima \n con el " +
 								msjProbableResponsableProp +
 								" y el delito"
 					alertDinamico(texto);
@@ -2287,10 +2287,10 @@
 	function canalizarControversiaPRReincidente(actividad,estatusId,titulo, formaID, numeroExpediente){
 		var excede = excedeMediaAritmeticaDelitos(); 
 		if( excede == "null"){
-			alertDinamico("Existe un problema con la media aritmética de los delitos");
+			alertDinamico("Existe un problema con la media aritmetica de los delitos");
 		}else{
 			if(excede == "true"){
-				customConfirm ("La media aritmética de los delitos excede lo permitido. ¿Desea enviar a la unidad de controversias?", "Aviso", 
+				customConfirm ("La media aritmetica de los delitos excede lo permitido. ¿Desea enviar a la unidad de controversias?", "Aviso", 
 						function(){
 							canalizarControversiaMediaAritmetica(actividad,estatusId,titulo, formaID, numeroExpediente);
 						},
@@ -2874,7 +2874,7 @@
 			
 		function modificaQuienDetuvo(id) {			
 			idWindowIngresarQuienDetuvo++;
-			$.newWindow({id:"iframewindowQuienDetuvo" + idWindowIngresarQuienDetuvo, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Ingresar Quién Detuvo", type:"iframe"});
+			$.newWindow({id:"iframewindowQuienDetuvo" + idWindowIngresarQuienDetuvo, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Ingresar Qui&eacute;n Detuvo", type:"iframe"});
 		    $.updateWindowContent("iframewindowQuienDetuvo" + idWindowIngresarQuienDetuvo,'<iframe src="<%= request.getContextPath() %>/IngresarQuienDetuvo.do?elemento='+id +'&numeroExpediente='+numeroExpediente +'" width="1100" height="530" />');
 		    $("#" +"iframewindowQuienDetuvo" + idWindowIngresarQuienDetuvo + " .window-maximizeButton").click();
 		}
@@ -2904,7 +2904,7 @@
 			$("#" +"iframewindowConsultarProbResponsable" + idWindowConsultarProbResponsable + " .window-maximizeButton").click();
 		}
 
-		//Abre una nueva ventana para consultar una víctima		
+		//Abre una nueva ventana para consultar una v&iacute;ctima		
 		function consultarVictima(idInvolucrado){
 			idWindowIngresarSentenciadoReinsertar++;
 			$.newWindow({id:"iframewindowIngresarSentenciadoReinsertar" + idWindowIngresarSentenciadoReinsertar, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Consultar Victima", type:"iframe"});
@@ -2954,7 +2954,7 @@
 		//Abre una nueva ventana de crear una nuev victima
 		function creaNuevaVictima() {
 			idWindowIngresarVictima++;
-			$.newWindow({id:"iframewindowIngresarVictima" + idWindowIngresarVictima, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Ingresar Víctima", type:"iframe"});
+			$.newWindow({id:"iframewindowIngresarVictima" + idWindowIngresarVictima, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Ingresar V&iacute;ctima", type:"iframe"});
 		    $.updateWindowContent("iframewindowIngresarVictima" + idWindowIngresarVictima,'<iframe src="<%= request.getContextPath() %>/IngresarVictima.do?numeroExpediente='+numeroExpediente +'" width="1100" height="530" />');
 		    $("#" +"iframewindowIngresarVictima" + idWindowIngresarVictima + " .window-maximizeButton").click();
 		}
@@ -2962,7 +2962,7 @@
 		//Abre una nueva ventana de crear una nuev victima
 		function modificarVictima(id) {
 			idWindowIngresarVictima++;
-			$.newWindow({id:"iframewindowIngresarVictima" + idWindowIngresarVictima, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Ingresar Víctima", type:"iframe"});
+			$.newWindow({id:"iframewindowIngresarVictima" + idWindowIngresarVictima, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Ingresar V&iacute;ctima", type:"iframe"});
 		    $.updateWindowContent("iframewindowIngresarVictima" + idWindowIngresarVictima,'<iframe src="<%= request.getContextPath() %>/IngresarVictima.do?idVictima='+id +'&numeroExpediente='+numeroExpediente +'" width="1100" height="530" />');
 		    $("#" +"iframewindowIngresarVictima" + idWindowIngresarVictima + " .window-maximizeButton").click();
 		}
@@ -2970,7 +2970,7 @@
 		function eliminaVictimaDeMenuIntermedio(id){
 			var row =$('#tblVictima tr:#'+id);
 			$(row).remove();
-			alertDinamico("Se anuló exitosamente la víctima");
+			alertDinamico("Se anuló exitosamente la v&iacute;ctima");
 		}
 
 		//Abre una nueva ventana de probable responsable
@@ -3078,7 +3078,7 @@
 		//Abre una nueva ventana de ingresar quien detuvo
 		function creaQuienDetuvo() {
 			idWindowIngresarQuienDetuvo++;
-		$.newWindow({id:"iframewindowQuienDetuvo" + idWindowIngresarQuienDetuvo, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Ingresar Quién detuvo", type:"iframe"});
+		$.newWindow({id:"iframewindowQuienDetuvo" + idWindowIngresarQuienDetuvo, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Ingresar Qui&eacute;n detuvo", type:"iframe"});
 	    $.updateWindowContent("iframewindowQuienDetuvo" + idWindowIngresarQuienDetuvo,'<iframe src="<%= request.getContextPath() %>/IngresarQuienDetuvo.do?elemento='+0+'&numeroExpediente='+numeroExpediente+'" width="1050" height="600" />');
 		}	
 
@@ -4290,7 +4290,7 @@
 				jQuery("#gridDocumentosDigitales").jqGrid({
 					url:'<%=request.getContextPath()%>/consultarDocumentos.do?idExpedienteop='+idNumeroExpedienteConsul+'',
 					datatype: "xml", 
-					colNames:['Área del responsable','Fecha de la actividad','Nombre de la actividad','Tipo de documento','Nombre de Documento','Fecha del documento'],
+					colNames:['Area del responsable','Fecha de la actividad','Nombre de la actividad','Tipo de documento','Nombre de Documento','Fecha del documento'],
 					colModel:[ 	{name:'area',index:'area', width:200},
 								{name:'fechaActividad',index:'fechaActividad', width:170},							
 								{name:'nombreActividad',index:'nombreActividad', width:400},
@@ -4359,7 +4359,7 @@
 					estatusId=$(xml).find('confActividadDocumentoDTO').find('estadoCambioExpediente').find('idCampo').text();
 				}
 			});
-			$.newWindow({id:"iframewindowElaborarSolicitud", statusBar: true, posx:20,posy:20,width:1140,height:550,title:"Notificación Auditoría", type:"iframe"});
+			$.newWindow({id:"iframewindowElaborarSolicitud", statusBar: true, posx:20,posy:20,width:1140,height:550,title:"Notificación Auditor&iacute;a", type:"iframe"});
             $.updateWindowContent("iframewindowElaborarSolicitud",'<iframe src="<%= request.getContextPath() %>/elaborarNotificacionAuditoria.do?formaId='+formaID+'&numeroUnicoExpediente='+idNumeroExpedienteOp+'"    width="1140" height="550" />');
             $("#" +"iframewindowElaborarSolicitud" + " .window-maximizeButton").click();
 		}
@@ -5375,7 +5375,7 @@
 	<div id="tabs">
 		<ul>
 			<li class="tabTabsGrals"><a href="#tabs-6" id="tapResumen">Resumen</a></li>
-			<li class="tabTabsVisitaduria"><a href="#tabs-16">Visitaduría</a></li>
+			<li class="tabTabsVisitaduria"><a href="#tabs-16">Visitadur&iacute;a</a></li>
 			<li class="tabTabsHechos"><a href="#tabs-3" id="tapHechos">Hechos</a></li>
 			<li class="tabTabsInv"><a href="#tabs-1" id="tabInvolucrados">Involucrado</a></li>
 			<li class="tabTabsRelacionesDelitosPersonas"><a href="#tabs-17" id="tapDelitoYRelaciones" onclick="cargarGridsInvolucradosRelDelitoPersonaPG()">Delito y Relaciones Delito-Persona</a></li>
@@ -5384,11 +5384,11 @@
 			<li class="tabTabsDocs"><a href="#tabs-11" onclick="documentos()" id="tabDocumentos">Documentos</a></li>
 			<li class="tabTabsAcciones"><a href="#tabs-7" id="tapActuaciones">Actuaciones</a></li>
 			<li class="tabTabsPeri"><a href="#tabs-8" onclick="cargaGridsPericiales()" id="tapPericiales">Periciales</a></li> <!--onclick : gridPericiales() -->
-			<li class="tabTabsPolMin"><a href="#tabs-9" onclick="cargaGridPoliciaMinisterial()" id="tapPoliciaMinister">Policía Investigadora</a></li>
+			<li class="tabTabsPolMin"><a href="#tabs-9" onclick="cargaGridPoliciaMinisterial()" id="tapPoliciaMinister">Polic&iacute;a Investigadora</a></li>
 			<li class="tabTabsCadCus"><a href="#tabs-10" onclick="gridCustodia()">Cadena de custodia</a></li>
 			<li class="tabTabsAudiencias"><a href="#tabs-12" onclick="cargaGridJudiaciales()">Judiciales</a></li>
 			<li class="tabTabsNotas"><a href="#tabs-5" id="tapNotas">Notas</a></li>
-			<li class="tabTabsAlertas"><a href="#tabs-14" onclick="alertas()">Bitácora de alarmas</a></li>
+			<li class="tabTabsAlertas"><a href="#tabs-14" onclick="alertas()">Bit&aacute;cora de alarmas</a></li>
 			<li class="tabTabsAmparos"><a href="#tabs-15" onclick="consultarAmparosPorExpediente()">Amparo</a></li>
 			<li class="tabTabsConclusion" id="conclusionTab"><a href="#tabsHechos-17">Conclusi&#243;n</a></li>
 		</ul>
@@ -5400,11 +5400,11 @@
 			<div id="tabschild" class="tabs-bottom">
 				<ul>
 					<li><a href="#tabschild-1">Denunciante</a></li>
-					<li><a href="#tabschild-2">Víctima</a></li>
+					<li><a href="#tabschild-2">V&iacute;ctima</a></li>
 					<li><a href="#tabschild-3" id="tapProbableResposable"></a></li>
 					<li><a href="#tabschild-4">Testigo</a></li>
 					<li class="tabTabsTraductor"><a href="#tabschild-5">Traductor</a></li>
-					<li class="tabTabsQuienDetuvo"><a href="#tabschild-6">Quién detuvo</a></li>
+                                        <li class="tabTabsQuienDetuvo"><a href="#tabschild-6">Qui&eacute;n detuvo</a></li>
 				</ul>
 				<div id="tabschild-1">
 					<div style="width: 1042px; height: 490px;" class="back_hechos">
@@ -5419,7 +5419,7 @@
 					<div style="width: 1042px; height: 490px;" class="back_hechos">
 						<table width="25%" cellpadding="0" cellspacing="0" id="tblVictima" style="padding: .5cm;">
 							<tr>
-								<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevaVictima"><input type="button" class="ui-button ui-corner-all ui-widget" value="Ingresar Víctima"/></a></td>
+								<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevaVictima"><input type="button" class="ui-button ui-corner-all ui-widget" value="Ingresar V&iacute;ctima"/></a></td>
 							</tr>
 						</table>
 					</div>
@@ -5455,7 +5455,7 @@
 					<div style="width: 1042px; height: 490px;" class="back_hechos" style="padding: .5cm;">
 						<table width="25%" cellpadding="0" cellspacing="0" id="tblQuienDetuvo">
 							<tr>
-								<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="quienDetuvo"><input type="button" class="ui-button ui-corner-all ui-widget" value="Ingresar Quién Detuvo"/></a></td>
+								<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="quienDetuvo"><input type="button" class="ui-button ui-corner-all ui-widget" value="Ingresar Qui&eacute;n Detuvo"/></a></td>
 							</tr>
 						</table>
 					</div>	
@@ -5827,7 +5827,7 @@
 			   
 			   	 <table  border="0" cellpadding="0" cellspacing="0" width="99%">
 		          <tr>
-		            <td width="145" align="right" nowrap style="background-color:">Vehículos:</td>
+		            <td width="145" align="right" nowrap style="background-color:">Veh&iacute;culos:</td>
 		            <td width="332" id="Vehiculos">&nbsp;</td>
 		            <td id="imgVehiculo" width="25"><img title="Contiene mas registros" width="10px" src='<%= request.getContextPath() %>/resources/images/add.png'></td>
 		          </tr>
@@ -5978,7 +5978,7 @@
 			    <td id="fechaApertura" align="right">&nbsp;</td>
 			  </tr>
 			  <tr>
-			    <td align="right"><strong>Responsable del Trámite:</strong></td>
+			    <td align="right"><strong>Responsable del Tr&aacute;mite:</strong></td>
 			    <td></td>
 			  </tr>
 			  <tr>
@@ -6092,7 +6092,7 @@
 									</tr>
 									<tr>
 										<td>
-												<!--  <button value="Elaborar teoria del caso" id="idTeoriaCaso" class="ui-button ui-corner-all ui-widget" onclick="abreTeoria()" style="width: 100%; ">Elaborar teoría del caso</button>-->
+												<!--  <button value="Elaborar teoria del caso" id="idTeoriaCaso" class="ui-button ui-corner-all ui-widget" onclick="abreTeoria()" style="width: 100%; ">Elaborar teor&iacute;a del caso</button>-->
 										</td>
 									</tr>
 									<!-- <tr id="idbotoncarpeta" style="display: none;">
@@ -6235,7 +6235,7 @@
 					<input type="radio" name="noJuridico" id="juridicoSi" onclick="validaCriterios()">
 				</td>
 				<td>
-					<input type="radio" name="noJuridico" id="juridicoNo" onclick="validaCriterios()"> No se afecta bien jurídico.
+					<input type="radio" name="noJuridico" id="juridicoNo" onclick="validaCriterios()"> No se afecta bien jur&iacute;dico.
 				</td>
 			</tr>
 			<tr>
@@ -6610,7 +6610,7 @@
 		</p>
 	</div>
 	<!-- DIV para el dialogo de envio de dictamen -->
-	<div id="dialogDictamen-confirm" title="Criterio de Opotunidad Envío de Dictamen " >
+	<div id="dialogDictamen-confirm" title="Criterio de Opotunidad Env&iacute;o de Dictamen " >
 		<p align="left">
 			¿Desea enviar el dictamen de criterio de oportunidad? 
 		</p>

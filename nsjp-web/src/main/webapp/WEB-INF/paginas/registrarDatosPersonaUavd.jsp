@@ -902,7 +902,7 @@ function popopAsistencia(rowid){
  
     $(input).change( function () {
         var filter = $(this).val();
-       
+       console.log("filter:"+filter);
                                     
         if(filter) {
             $matches1 = $(list1).find('a:Contains(' + filter + ')').parent();
