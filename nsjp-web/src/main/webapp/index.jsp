@@ -5,7 +5,7 @@
 		<script>
 		var ventanaPrincipal;
 		function loadVentanaPrincipal() {
-			ventanaPrincipal=window.open('<%= request.getContextPath() %>/cargarLogin.do','ventanaPrincipal','toolbar=no,location=no,directories=no,status=no, menubar=no,scrollbars=no,resizable=no,width=' + window.screen.width + ',height=' + window.screen.height);
+			ventanaPrincipal=window.open('<%= request.getContextPath() %>/Login.do','ventanaPrincipal','toolbar=no,location=no,directories=no,status=no, menubar=no,scrollbars=no,resizable=no,width=' + window.screen.width + ',height=' + window.screen.height);
 		}
 		</script>
 	</head>

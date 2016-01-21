@@ -457,8 +457,10 @@ public class ModificarIndividuoServiceImpl implements ModificarIndividuoService 
 				invoBD.setSituacionJuridica(new Valor(
 						SituacionJuridica.INDICIADO.getValorId()));
 		}else{
-			Valor situacionJuridica = valorDAO.read(new Long(situacionJuridicaDTO.getValor()));
-			invoBD.setSituacionJuridica(situacionJuridica);
+                        if(situacionJuridicaDTO.getValor()!=null){
+                            Valor situacionJuridica = valorDAO.read(new Long(situacionJuridicaDTO.getValor()));
+                            invoBD.setSituacionJuridica(situacionJuridica);
+                        }
 		}
 
 		involucradoDAO.update(invoBD);

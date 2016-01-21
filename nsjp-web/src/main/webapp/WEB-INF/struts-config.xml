@@ -235,7 +235,11 @@
 				scope="request"
                 parameter="findUser"
                 validate="false">
-                <forward name="success" path="/cargarLogin.do"/>
+                <!--forward name="success" path="/cargarLogin.do"/>
+                <forward name="fail" path="/WEB-INF/paginas/security.jsp" />
+                <forward name="error" path="/WEB-INF/paginas/error.jsp" /-->
+                
+                <forward name="success" path="/WEB-INF/paginas/Login.jsp" />
                 <forward name="fail" path="/WEB-INF/paginas/security.jsp" />
                 <forward name="error" path="/WEB-INF/paginas/error.jsp" />
 <!-- ADMINISTRACION -->
@@ -508,7 +512,7 @@
                 validate="false">
         </action>
 		
-		       <action path="/cargarLogin"           
+		       <!--action path="/cargarLogin"           
        	type="mx.gob.segob.nsjp.web.login.action.LoginAction"
 				name="LoginForm"
 				scope="request"
@@ -517,7 +521,7 @@
        <forward name="success" path="/WEB-INF/paginas/Login.jsp" />
        <forward name="fail" path="/WEB-INF/paginas/security.jsp" />
        <forward name="error" path="/WEB-INF/paginas/error.jsp" />
-       </action>
+       </action-->
 		<action path="/consultaMenuRol"
 				type="mx.gob.segob.nsjp.web.login.action.LoginAction"
 				name=""
@@ -781,7 +785,7 @@
 				scope="request"
                 parameter="logout"
                 validate="false">
-                <forward name="success" path="/cargarLogin.do" />
+                <forward name="success" path="/WEB-INF/paginas/Login.jsp" />
                 <forward name="fail"    path="/WEB-INF/paginas/security.jsp" />
                 <forward name="error"    path="/WEB-INF/paginas/error.jsp" />
 		</action>	

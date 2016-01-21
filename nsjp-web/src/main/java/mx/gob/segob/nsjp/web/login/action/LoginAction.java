@@ -105,6 +105,7 @@ public class LoginAction extends GenericAction {
 		try {
 			UsuarioDTO usuarioDTO = getUsuarioFirmado(request);
                         
+                        this.recuperarConfiguracionGlobal(request);
                         
                         if(usuarioDTO==null)
                             return mapping.findForward("success");
@@ -112,7 +113,7 @@ public class LoginAction extends GenericAction {
 			this.usuarioDelegate.logout(usuarioDTO);
 			httpSession.removeAttribute(KEY_SESSION_USUARIO_FIRMADO);
 			ManejadorSesion.invalidate(KEY_SESSION_USUARIO_FIRMADO);
-			httpSession.invalidate();
+			//httpSession.invalidate();
 
                         log.info("Logout de sistema");
 			return mapping.findForward("success");
@@ -194,8 +195,10 @@ public class LoginAction extends GenericAction {
 			String ip = (String) request.getRemoteHost();
 			String idSesion = request.getRequestedSessionId();
 			VisitanteDTO visitanteDTO = new VisitanteDTO(ip, 0);
+                        
+                        this.recuperarConfiguracionGlobal(request);			
 			
-			visitanteDTO = visitanteDelegate
+                        visitanteDTO = visitanteDelegate
 					.consultarVisitantePorIP(visitanteDTO);
 			if (visitanteDTO.getiIntentos() != null) {
 				if (visitanteDTO.getiIntentos() > 10) {
@@ -352,7 +355,7 @@ public class LoginAction extends GenericAction {
 									.setAttribute(KEY_SESSION_USUARIO_FIRMADO,
 											usuarioFirmado);
 
-							this.recuperarConfiguracionGlobal(request);
+//							this.recuperarConfiguracionGlobal(request);
 							RolDTO rolDTO = usuarioFirmado.getRolACtivo().getRol();
 							request.getSession()
 							.setAttribute(KEY_SESSION_MENU_DINAMICO_IZQUIERDO, this.getMenuInicial(rolDTO, TipoMenu.IZQUIERDO));
@@ -404,12 +407,13 @@ public class LoginAction extends GenericAction {
 
 				} else {
 					request.setAttribute("captcha", 1);
-					ManejadorSesion.invalidate(idSesion);
+					//ManejadorSesion.invalidate(idSesion);
 					return mapping.findForward("success");
 				}
 			} else {
 				request.setAttribute("error", 1);
 				request.setAttribute("captcha", 0);
+                                //ManejadorSesion.invalidate(idSesion);
 				return mapping.findForward("success");
 
 			}
@@ -430,7 +434,7 @@ public class LoginAction extends GenericAction {
 		final ConfiguracionDTO cfg = this.configDelegate
 				.obtgenerConfiguracionGlobal();
 		log.debug("Subiendo la configuracion a la sesion");
-		HttpSession ses = request.getSession();
+		HttpSession ses = request.getSession(true);
 		ses.setAttribute(KEY_SESSION_CONFIGURACION_GLOBAL, cfg);
 
 		// SUBE A SESION EL LOCAL DE DONDE TOMARA EL PROPERTIES CORRESPONDIENTE
@@ -470,7 +474,7 @@ public class LoginAction extends GenericAction {
 				log.debug("RECURSO DENEGADO:" + fncDTO.getNombreFuncion()
 						+ " AL USUARIO: " + usrDTO.getClaveUsuario()
 						+ " CON EL ROL: " + usrDTO.getRolACtivo().getRol().getNombreRol());
-			}
+                    	}
 			resp=true;
 		} catch (NSJPNegocioException e) {
 			e.printStackTrace();

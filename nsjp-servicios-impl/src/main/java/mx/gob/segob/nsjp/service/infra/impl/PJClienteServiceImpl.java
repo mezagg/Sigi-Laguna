@@ -275,9 +275,9 @@ public class PJClienteServiceImpl implements PJClienteService {
 			logger.error(e.getMessage());
 			throw new NSJPNegocioException(CodigoError.ERROR_COMUNICACION, e);
 		} catch (NSJPNegocioException_Exception e) {
-			throw new NSJPNegocioException(CodigoError.ERROR_COMUNICACION);				
+			throw new NSJPNegocioException(CodigoError.ERROR_COMUNICACION, e);				
 		} catch (Exception e){
-			throw new NSJPNegocioException(CodigoError.ERROR_COMUNICACION);
+			throw new NSJPNegocioException(CodigoError.ERROR_COMUNICACION,e);
 		}
 	}
 

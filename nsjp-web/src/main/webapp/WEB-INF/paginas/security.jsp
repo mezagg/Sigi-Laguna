@@ -48,7 +48,7 @@ response.setDateHeader ("Expires", -1);
 	</head>
 	<body>
 	  <center>
-		<form method="post" action="<%= request.getContextPath() %>/cargarLogin.do">
+		<form method="post" action="<%= request.getContextPath() %>/Login.do">
 	   	<table width="100%" height="100%" border="0" cellspacing="3" cellpadding="0" background="<%=request.getContextPath()%>/resources/images/back_grallogin.jpg" align="center">
 	      <tr height="108px">
 	        <td colspan="3">

@@ -57,8 +57,9 @@ public class ParametroDAOImpl extends GenericDaoHibernateImpl<Parametro, Long>
                 parDTO = new Parametro(result.getParametroId(), result
 				.getClave(), result.getValor(),
 				result.getDescripcion(), result.getTipoValor());
-		mapa.put(Parametros.valueOf(result
-				.getClave()), parDTO);
+                Parametros pp= Parametros.valueOf(result.getClave());
+                if(pp!=null)
+                    mapa.put(pp, parDTO);
             }
             logger.debug("Inicializacion de parametros:"+mapa);
              return mapa;
@@ -71,13 +72,19 @@ public class ParametroDAOImpl extends GenericDaoHibernateImpl<Parametro, Long>
     public Parametro obtenerPorClave(Parametros clveParam) {
         inicializaParametros();
         logger.debug("Recuperando " + clveParam);
-        return (Parametro)mapa.get(clveParam);
+        Parametro p= (Parametro)mapa.get(clveParam);
+        if(p==null){
+            final StringBuffer cq = new StringBuffer();
+            cq.append(" from Parametro where clave = :cve");
+            final Query qry = super.getSession().createQuery(cq.toString())
+                    .setParameter("cve", clveParam.name());
+            p= (Parametro) qry.uniqueResult();
+            mapa.put(Parametros.valueOf(p.getClave()), p);
+            
+        }
+        return p;
         /*
-        final StringBuffer cq = new StringBuffer();
-        cq.append(" from Parametro where clave = :cve");
-        final Query qry = super.getSession().createQuery(cq.toString())
-                .setParameter("cve", clveParam.name());
-        return (Parametro) qry.uniqueResult();*/
+        */
     }
 
     public List<Parametro> obtenerPorClaveBase(String claveBase) {

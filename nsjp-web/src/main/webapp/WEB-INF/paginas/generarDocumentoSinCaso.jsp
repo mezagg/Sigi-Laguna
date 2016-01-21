@@ -751,8 +751,8 @@
 			//parametro para documento de cambio de estatus de mandamiento judicial
 			params += '&mandamientoId=' + mandamientoId;
 			
-                        console.log("LOS PARAMETROS QUE VOY A MANDAR: ");
-                        console.log(params);
+                        //console.log("LOS PARAMETROS QUE VOY A MANDAR: ");
+                        //console.log(params);
 			//Se eliminan eventos de los botones de guardado u envio
 			deshabilitarBotonesGuardado();
 			
