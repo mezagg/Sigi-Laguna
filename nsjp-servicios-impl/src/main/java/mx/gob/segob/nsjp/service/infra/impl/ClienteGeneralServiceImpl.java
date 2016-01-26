@@ -19,6 +19,8 @@
  */
 package mx.gob.segob.nsjp.service.infra.impl;
 
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -31,6 +33,7 @@ import mx.gob.segob.nsjp.comun.enums.calidad.Calidades;
 import mx.gob.segob.nsjp.comun.enums.excepciones.CodigoError;
 import mx.gob.segob.nsjp.comun.enums.institucion.Instituciones;
 import mx.gob.segob.nsjp.comun.enums.seguridad.Roles;
+import mx.gob.segob.nsjp.comun.excepcion.NSJPCommunicationException;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
 import mx.gob.segob.nsjp.dao.institucion.ConfInstitucionDAO;
 import mx.gob.segob.nsjp.dao.persona.DelitoPersonaDAO;
@@ -519,7 +522,8 @@ public class ClienteGeneralServiceImpl implements ClienteGeneralService {
 	}
 	
     @Override
-    public List<CatDiscriminanteDTO> consultarAgenciasPorDistrito( Long distritoId, Instituciones target) throws NSJPNegocioException {
+    public List<CatDiscriminanteDTO> consultarAgenciasPorDistrito( Long distritoId, Instituciones target) 
+            throws NSJPNegocioException, NSJPCommunicationException {
     
     	logger.info("Inicia - consultarAgenciasPorDistrito(...)");
 
@@ -527,8 +531,8 @@ public class ClienteGeneralServiceImpl implements ClienteGeneralService {
 		URL ep;
 		try {
 			// Configuración de WS
-			ConfInstitucion destino = this.institucionDao.read(target
-					.getValorId());
+			ConfInstitucion destino = this.institucionDao.read(target.getValorId());
+                        
 			ep = new URL(
 					destino.getUrlInst()
 							+ "/ConsultarTribunalesPorDistritoServiceExporterImplService?wsdl");
@@ -561,13 +565,15 @@ public class ClienteGeneralServiceImpl implements ClienteGeneralService {
 }
 			}
 			logger.info("Fin - consultarAgenciasPorDistrito(...)");
-		} catch (MalformedURLException e) {
-			logger.error(e.getMessage());
-			throw new NSJPNegocioException(CodigoError.ERROR_COMUNICACION, e);
+                }catch (MalformedURLException e) {
+                    logger.error(e.getMessage());
+                    throw new NSJPCommunicationException(CodigoError.ERROR_COMUNICACION, e);
 		} catch (mx.gob.segob.nsjp.ws.cliente.consultartribunalespordistrito.NSJPNegocioException_Exception e) {
-			logger.error(e.getMessage());
-			throw new NSJPNegocioException(CodigoError.ERROR_COMUNICACION, e);
-		}
+                    logger.error(e.getMessage());
+                    throw new NSJPCommunicationException(CodigoError.ERROR_COMUNICACION, e);
+		}catch (IOException   ioe){
+                    throw new  NSJPCommunicationException(CodigoError.ERROR_COMUNICACION, ioe);
+                }
 
 		return discriminantesDTO;
     }

@@ -22,6 +22,7 @@ package mx.gob.segob.nsjp.service.catalogo;
 import java.util.List;
 
 import mx.gob.segob.nsjp.comun.enums.institucion.Instituciones;
+import mx.gob.segob.nsjp.comun.excepcion.NSJPCommunicationException;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
 import mx.gob.segob.nsjp.dto.catalogo.CatAreasNegocioDTO;
 import mx.gob.segob.nsjp.dto.catalogo.CatDiscriminanteDTO;
@@ -83,7 +84,7 @@ public interface AdministrarCatalogoService {
      * @return
      * @throws NSJPNegocioException
      */
-    List<CatDiscriminanteDTO> consultarAgenciasPorDistrito( Long distritoId, Instituciones target) throws NSJPNegocioException ;
+    List<CatDiscriminanteDTO> consultarAgenciasPorDistrito( Long distritoId, Instituciones target) throws NSJPNegocioException, NSJPCommunicationException ;
     
     /**
      * Permite conssultar el catalogo de areas de negocio

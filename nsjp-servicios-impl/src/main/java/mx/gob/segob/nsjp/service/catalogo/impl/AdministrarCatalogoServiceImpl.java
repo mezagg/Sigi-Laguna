@@ -36,6 +36,7 @@ import javax.persistence.Transient;
 import mx.gob.segob.nsjp.comun.enums.catalogo.Catalogos;
 import mx.gob.segob.nsjp.comun.enums.excepciones.CodigoError;
 import mx.gob.segob.nsjp.comun.enums.institucion.Instituciones;
+import mx.gob.segob.nsjp.comun.excepcion.NSJPCommunicationException;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
 import mx.gob.segob.nsjp.dao.actividad.ConfActividadDocumentoDAO;
 import mx.gob.segob.nsjp.dao.audiencia.SalaAudienciaDAO;
@@ -1497,8 +1498,12 @@ public class AdministrarCatalogoServiceImpl
     }
     
     @Override
-    public List<CatDiscriminanteDTO> consultarAgenciasPorDistrito( Long distritoId, Instituciones target) throws NSJPNegocioException {
-    	return clienteGeneralService.consultarAgenciasPorDistrito(distritoId, target);
+    public List<CatDiscriminanteDTO> consultarAgenciasPorDistrito( Long distritoId, Instituciones target) throws NSJPNegocioException, NSJPCommunicationException {
+        try{
+            return clienteGeneralService.consultarAgenciasPorDistrito(distritoId, target);
+        }catch(Throwable e){
+            throw new NSJPCommunicationException(CodigoError.ERROR_COMUNICACION, e.getCause());
+        }
     }
     
     /**

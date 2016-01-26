@@ -6,6 +6,7 @@ package mx.gob.segob.nsjp.delegate.catalogo;
 import java.util.List;
 
 import mx.gob.segob.nsjp.comun.enums.institucion.Instituciones;
+import mx.gob.segob.nsjp.comun.excepcion.NSJPCommunicationException;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
 import mx.gob.segob.nsjp.dto.catalogo.CatDiscriminanteDTO;
 
@@ -33,7 +34,8 @@ public interface CatDiscriminanteDelegate {
      * @return
      * @throws NSJPNegocioException
      */
-    public List<CatDiscriminanteDTO> consultarAgenciasPorDistrito( Long distritoId, Instituciones target) throws NSJPNegocioException;
+    public List<CatDiscriminanteDTO> consultarAgenciasPorDistrito( Long distritoId, Instituciones target) 
+            throws NSJPNegocioException, NSJPCommunicationException;
     
     /**
      * Metodo que permite eliminar una agencia siempre y cuando no tenga relaciones

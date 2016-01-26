@@ -1858,3 +1858,48 @@ function abreFrameAudio(id,titulo,tipoId){
     });
     $.updateWindowContent("iframewindowAudio"+id,'<iframe src="' + CONTEXT_ROOT + '/ConsultarContenidoArchivoDigital.do?'+tipoId+'='+id+'&mostrarTipoArchivo=true "width="'+ (500) +'" height="' + (40) + '" />');
 }
+
+/**
+ * Funcion que permite validar los campo de captura de un formulario basado en tabs, el elemento que es incorrecto se marcara 
+ * en color rojo y se activara el tab donde se encuentra ese elemento.
+ * @param {Selector} fieldname, elemento indicado atraves de su selector #elemento.
+ * @param {String} valueWrong, valor que se considera como invalido.
+ * @param {Selector} tabname
+ * @param {String} message, mensaje que se enviara si el campo es incorrecto.
+ * @returns {Boolean}
+ */
+function missingField(fieldname, valueWrong, tabname, message){
+
+    //$("#msgErrorBox").addClass("ui-helper-hidden");
+    //$("#msgError").text("");
+    inicializaMensajes();
+    $(tabname).removeClass("ui-state-error ui-corner-all");
+
+    if($(fieldname).val() === valueWrong){
+             $(fieldname).focus();  
+             $(fieldname).addClass("ui-state-error ui-corner-all");
+             //alert(msgError);
+             //$("#msgErrorBox").removeClass("ui-helper-hidden");
+             //$("#msgError").text(message);
+             muestraMensaje(message, 'error');
+             $(tabname).addClass("ui-state-error ui-corner-all");
+             return true;
+    }else{
+        $(fieldname).removeClass("ui-state-error ui-corner-all");
+             //alert(msgError);
+    }
+    return false;
+}
+function inicializaMensajes(){
+      $("#msgErrorBox").addClass("ui-helper-hidden");
+      $("#msgInfoBox").addClass("ui-helper-hidden");
+}
+function muestraMensaje(mensaje, tipoMensaje){
+    if(tipoMensaje==='error'){
+        $("#msgErrorBox").removeClass("ui-helper-hidden");
+        $("#msgError").text(mensaje);
+    }else{
+        $("#msgInfoBox").removeClass("ui-helper-hidden");
+        $("#msgInfo").text(mensaje);
+    }
+}

@@ -128,13 +128,13 @@
 	<body>
 	  <center>
 		<form method="post" action="<%= request.getContextPath() %>/Login.do" id="login">
-	   	<table width="100%" height="100%" border="0" cellspacing="3" cellpadding="0" background="<%=((ConfiguracionDTO)session.getAttribute(LoginAction.KEY_SESSION_CONFIGURACION_GLOBAL)).getUrlServidorImag()%>/sistema/back_grallogin.jpg" align="center">
+	   	<table width="100%" height="100%" border="0" cellspacing="3" cellpadding="0" background="<%= request.getContextPath() %>/images/sistema/back_grallogin.jpg" align="center">
 	      <tr height="108px">
 	        <td colspan="3">
 	        	<table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0" background="<%=request.getContextPath()%>/resources/images/top_gral_sin_version.jpg">
 	                <tr>
 	                    
-					<td width="150" align="center"><img src="<%=((ConfiguracionDTO)session.getAttribute(LoginAction.KEY_SESSION_CONFIGURACION_GLOBAL)).getUrlServidorImag()%>/sistema/logo_login.png" alt="Logo sistema de justicia" /></td>     
+					<td width="150" align="center"><img src="<%= request.getContextPath() %>/images/sistema/logo_login.png" alt="Logo sistema de justicia" /></td>     
 	                    <td width="150" align="left">
 	                    	<div>&nbsp;</div>
 	                    	<div>&nbsp;</div>
@@ -184,7 +184,7 @@
 	        <td>&nbsp;</td>
 	        <td valign="top">
 	       
-	        <table width="537" height="228" border="0" cellspacing="0" cellpadding="0" background="<%=((ConfiguracionDTO)session.getAttribute(LoginAction.KEY_SESSION_CONFIGURACION_GLOBAL)).getUrlServidorImag()%>/sistema/back_login.png" align="center" >
+	        <table width="537" height="228" border="0" cellspacing="0" cellpadding="0" background="<%= request.getContextPath() %>/images/sistema/back_login.png" align="center" >
 	                <tr>
 	                    <td align="center" style="border-left:#FFFFFF; border-top:#FFFFFF;">
 	                    	<label style="color:#4A5C68">Escriba su usuario y contrase&ntilde;a para iniciar.</label>	
@@ -235,9 +235,7 @@
 	                            </tr>
 	                        </table>
 	                    </td>
-	                    <td valign="top">
-	                    <td valign="top" width="150" align="left""><img src="<%=((ConfiguracionDTO)session.getAttribute(LoginAction.KEY_SESSION_CONFIGURACION_GLOBAL)).getUrlServidorImag()%>/sistema/backHuella.png"  /></td>
-	                    </td>
+	                    
 	                </tr>
 	        </table>
 	        </td>

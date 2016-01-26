@@ -37,6 +37,9 @@ import mx.gob.segob.nsjp.comun.enums.documento.EstatusMedida;
 import mx.gob.segob.nsjp.comun.enums.funcionario.TipoEspecialidad;
 import mx.gob.segob.nsjp.comun.enums.institucion.Instituciones;
 import mx.gob.segob.nsjp.comun.enums.seguridad.Roles;
+import mx.gob.segob.nsjp.comun.enums.ws.CodigoRespuestaWS;
+import mx.gob.segob.nsjp.comun.excepcion.NSJPCommunicationException;
+import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
 import mx.gob.segob.nsjp.comun.util.DateUtils;
 import mx.gob.segob.nsjp.comun.util.tl.PaginacionThreadHolder;
 import mx.gob.segob.nsjp.delegate.actuaciones.ActuacionesDelegate;
@@ -61,6 +64,7 @@ import mx.gob.segob.nsjp.dto.catalogo.CatDiscriminanteDTO;
 import mx.gob.segob.nsjp.dto.catalogo.CatDistritoDTO;
 import mx.gob.segob.nsjp.dto.catalogo.CatUIEspecializadaDTO;
 import mx.gob.segob.nsjp.dto.catalogo.CatalogoDTO;
+import mx.gob.segob.nsjp.dto.catalogo.RespuestaWSDTO;
 import mx.gob.segob.nsjp.dto.catalogo.ValorDTO;
 import mx.gob.segob.nsjp.dto.configuracion.ConfInstitucionDTO;
 import mx.gob.segob.nsjp.dto.delito.CausaDTO;
@@ -3231,27 +3235,44 @@ public class ConsultarCatalogosAction extends GenericAction{
 	public ActionForward consultarAgenciasDePGJxIdDistrito(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
+                
+                RespuestaWSDTO respuesta = new RespuestaWSDTO();
+                List<CatDiscriminanteDTO> listaCatalogo = new ArrayList<CatDiscriminanteDTO>();
 		try {
 	
 			log.info("EJECUTANDO ACTION consultarAgenciasPGJ");
 			
 			Long distritoId = NumberUtils.toLong(request.getParameter("distritoId"), 0L);		
-			List<CatDiscriminanteDTO> listaCatalogo = new ArrayList<CatDiscriminanteDTO>();	
-			if(distritoId!=null && !distritoId.equals(0L)){
+				
+			if( !distritoId.equals(0L)){
 				listaCatalogo = catDiscriminanteDelegate.consultarAgenciasPorDistrito(distritoId, Instituciones.PGJ);
 			}
-			converter.alias("listaCatalogo", java.util.List.class);
-			converter.alias("catDiscriminanteDTO", CatDiscriminanteDTO.class);
-			String xml = converter.toXML(listaCatalogo);
-			response.setContentType("text/xml");
-			PrintWriter pw = response.getWriter();
-			pw.print(xml);
-			pw.flush();
-			pw.close();
-		} catch (Exception e) {
+                        
+                        respuesta.setCodigo(CodigoRespuestaWS.OK);
+                        //respuesta.setLista(listaCatalogo);
+			
+		
+                    }catch (NSJPCommunicationException e) {
 			log.error(e.getMessage(), e);
-		}
-		return null;
+                        respuesta.setCodigo(CodigoRespuestaWS.ERROR);
+                        respuesta.setCodigoError(e.getCodigo());
+                    }catch (NSJPNegocioException ne){
+                        log.error(ne.getMessage(), ne);
+                        respuesta.setCodigo(CodigoRespuestaWS.ERROR);
+                        respuesta.setCodigoError(ne.getCodigo());
+                    }
+                converter.alias("respuesta", mx.gob.segob.nsjp.dto.catalogo.RespuestaWSDTO.class);
+                converter.alias("listaCatalogo", java.util.List.class);
+                converter.alias("catDiscriminanteDTO", CatDiscriminanteDTO.class);
+                
+                respuesta.setLista(listaCatalogo);
+		String xml = converter.toXML(respuesta);
+                response.setContentType("text/xml");
+                PrintWriter pw = response.getWriter();
+                pw.print(xml);
+                pw.flush();
+                pw.close();
+                return null;
 	}
 	
 	/**

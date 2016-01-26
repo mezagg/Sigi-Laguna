@@ -6,6 +6,7 @@ package mx.gob.segob.nsjp.delegate.catalogo.impl;
 import java.util.List;
 
 import mx.gob.segob.nsjp.comun.enums.institucion.Instituciones;
+import mx.gob.segob.nsjp.comun.excepcion.NSJPCommunicationException;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
 import mx.gob.segob.nsjp.delegate.catalogo.CatDiscriminanteDelegate;
 import mx.gob.segob.nsjp.dto.catalogo.CatDiscriminanteDTO;
@@ -37,7 +38,7 @@ public class CatDiscriminanteDelegateImpl implements CatDiscriminanteDelegate {
 	
 	@Override
 	public List<CatDiscriminanteDTO> consultarAgenciasPorDistrito(
-			Long distritoId, Instituciones target) throws NSJPNegocioException {
+			Long distritoId, Instituciones target) throws NSJPNegocioException, NSJPCommunicationException {
 		return administrarCatalogoService.consultarAgenciasPorDistrito(distritoId, target);
 	}
 	

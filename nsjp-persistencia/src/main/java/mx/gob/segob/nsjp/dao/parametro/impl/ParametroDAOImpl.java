@@ -57,9 +57,13 @@ public class ParametroDAOImpl extends GenericDaoHibernateImpl<Parametro, Long>
                 parDTO = new Parametro(result.getParametroId(), result
 				.getClave(), result.getValor(),
 				result.getDescripcion(), result.getTipoValor());
+                try{
                 Parametros pp= Parametros.valueOf(result.getClave());
                 if(pp!=null)
                     mapa.put(pp, parDTO);
+                }catch(Exception e){
+                    logger.error(e);
+                }
             }
             logger.debug("Inicializacion de parametros:"+mapa);
              return mapa;

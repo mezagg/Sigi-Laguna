@@ -22,6 +22,7 @@ package mx.gob.segob.nsjp.service.infra;
 import java.util.List;
 
 import mx.gob.segob.nsjp.comun.enums.institucion.Instituciones;
+import mx.gob.segob.nsjp.comun.excepcion.NSJPCommunicationException;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
 import mx.gob.segob.nsjp.dto.audiencia.AudienciaDTO;
 import mx.gob.segob.nsjp.dto.catalogo.CatDiscriminanteDTO;
@@ -131,7 +132,7 @@ public interface ClienteGeneralService {
      * @return
      * @throws NSJPNegocioException
      */
-    List<CatDiscriminanteDTO> consultarAgenciasPorDistrito( Long distritoId, Instituciones target) throws NSJPNegocioException;
+    List<CatDiscriminanteDTO> consultarAgenciasPorDistrito( Long distritoId, Instituciones target) throws NSJPNegocioException, NSJPCommunicationException;
     
     /**
 	 * M&eacute;todo utilizado para llevar a cabo la consulta de los funcionarios pertenencientes 

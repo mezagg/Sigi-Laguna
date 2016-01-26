@@ -25,7 +25,9 @@
     <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/jquery.windows-engine.css"/>
 
     <!--Hojas de estilos para los componentes UI de Jquery-->
-    <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css"/>
+    <!--link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css"/-->
+    <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/south-street/jquery-ui-1.8.10.custom.css" />
+    
     <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/south-street/jquery-ui-1.8.10.custom.css" />
 
     <!--Hoja de estilos para el grid-->
@@ -42,7 +44,7 @@
     <script type="text/javascript" src="<%= request.getContextPath() %>/resources/js/jquery.windows-engine.js"></script>
 
     <!--script de jquery UI-->
-    <script type="text/javascript" src="<%= request.getContextPath()%>/js/jquery-ui.min.js"></script>
+    <!--script type="text/javascript" src="<%= request.getContextPath()%>/js/jquery-ui.min.js"></script-->
     <script type="text/javascript" src="<%= request.getContextPath()%>/js/prettify.js"></script>
 
     <!--scripts del gird-->
@@ -517,16 +519,18 @@
 	}
         function missingField(fieldname, valueWrong, tabname, message){
             
-            $("#msgError").addClass("ui-helper-hidden");
-            $("#msgError").text("");
+            //$("#msgErrorBox").addClass("ui-helper-hidden");
+            //$("#msgError").text("");
+            inicializaMensajes();
             $(tabname).removeClass("ui-state-error ui-corner-all");
             
             if($(fieldname).val() === valueWrong){
                      $(fieldname).focus();  
                      $(fieldname).addClass("ui-state-error ui-corner-all");
                      //alert(msgError);
-                     $("#msgError").removeClass("ui-helper-hidden");
-                     $("#msgError").text(message);
+                     //$("#msgErrorBox").removeClass("ui-helper-hidden");
+                     //$("#msgError").text(message);
+                     muestraMensaje(message, 'error');
                      $(tabname).addClass("ui-state-error ui-corner-all");
                      return true;
             }else{
@@ -534,6 +538,19 @@
                      //alert(msgError);
             }
             return false;
+        }
+        function inicializaMensajes(){
+              $("#msgErrorBox").addClass("ui-helper-hidden");
+              $("#msgInfoBox").addClass("ui-helper-hidden");
+        }
+        function muestraMensaje(mensaje, tipoMensaje){
+            if(tipoMensaje==='error'){
+                $("#msgErrorBox").removeClass("ui-helper-hidden");
+                $("#msgError").text(mensaje);
+            }else{
+                $("#msgInfoBox").removeClass("ui-helper-hidden");
+                $("#msgInfo").text(mensaje);
+            }
         }
 	function guardarDatosGeneralesIPH(){
 		var params = recuperaDatosGenerales();
@@ -559,8 +576,8 @@
                        )
                      return;
                  }
-                     $("#msg").removeClass("ui-helper-hidden");
-                     $("#msg").text('Guardando...');
+                     $("#msgInfoBox").removeClass("ui-helper-hidden");
+                     $("#msgInfo").text('Guardando...');
                  
                 $.ajax({								
                           type: 'POST',
@@ -570,13 +587,15 @@
                           async:false,
                           success: function(xml){
                                 console.log(xml);
-                                  $("#msgError").removeClass("ui-helper-hidden");
-                                  $("#msg").text('Datos Generales del IPH guardados de manera correcta');
+                                  //$("#msgInfoBox").removeClass("ui-helper-hidden");
+                                  //$("#msgInfo").text('Datos Generales del IPH guardados de manera correcta');
+                                  muestraMensaje('Datos Generales del IPH guardados de manera correcta');
                                   op=true;
                           },
                           error: function(result) {
-                           $("#msgError").text('Datos Generales del IPH guardados de manera correcta');
-                           $("#msgError").removeClass("ui-helper-hidden");
+                           //$("#msgError").text();
+                           //$("#msgErrorBox").removeClass("ui-helper-hidden");
+                           muestraMensaje('Datos Generales del IPH guardados de manera incorrecta', 'error');
                            
                         }
                  });
@@ -586,25 +605,14 @@
 		}
 	}
 
-	<%-- function generarInformeIPH(){
-		$.ajax({								
-		  	  type: 'POST',
-		  	  url: '<%= request.getContextPath()%>/generarInformeIPH.do?folioIPH='+folioIPH+'',			
-		  	  dataType: 'xml',
-		  	  success: function(xml){			  	  
-		  		  alert('Informe Policial Homologado generado de manera correcta');
-		  		  document.frmDocumento.documentoId.value = $(xml).find('documentoId').text();
-				  document.frmDocumento.submit();
-		  	  }
-		});
-	} --%>
+	
 	
 	function generarInformeIPH(){
 		 
 		
 		var regreso = guardarDatosGeneralesIPH();
 		
-		if(regreso == "ok" && iphReplica=="false"){
+		if(regreso === "ok" && iphReplica==="false"){
 			var idAgencia = parseInt($("#cbxAgencia option:selected").val());
 			$.ajax({								
 			  	  type: 'POST',
@@ -612,7 +620,8 @@
 			  	  dataType: 'xml',
 			  	  async:false,
 			  	  success: function(xml){			  	  
-			  			customAlert('Informe Policial Homologado generado de manera correcta');
+			  			//customAlert('Informe Policial Homologado generado de manera correcta');
+                                          muestraMensaje('Informe Policial Homologado generado de manera correcta');
 			  		  document.frmDocumento.documentoId.value = $(xml).find('idDocumentoIPH').text();
 					  document.frmDocumento.submit();
 					  //window.parent.cerrarVentanaIPH(idVentana);
@@ -620,10 +629,12 @@
 					
 			});
 		}
-		else if(regreso == "fail"){
-			customAlert("Ocurri&oacute; un problema durante el guardado, intente de nuevo");	
-		}else if(iphReplica=="true"){
-			customAlert("El IPH  ya ha sido enviado");	
+		else if(regreso === "fail"){
+			//customAlert("Ocurri&oacute; un problema durante el guardado, intente de nuevo");	
+                        muestraMensaje('Ocurrio un problema durante el guardado, intente de nuevo.', 'error');
+		}else if(iphReplica==="true"){
+			
+                        muestraMensaje('El IPH  ya ha sido enviado.', 'error');
 		}
 	}
 	
@@ -644,23 +655,35 @@
 	
 	function consultarAgenciasXDistrito(distritoId){
 		$('#cbxAgencia').empty();
+                $('#cbxAgencia').addClass('cargando');
 		$('#cbxAgencia').append('<option value="0">-Seleccione-</option>');
+                $('#cbxAgenciaError').addClass("ui-helper-hidden");
 		$.ajax({
-			type: 'POST',
-		    url: '<%=request.getContextPath()%>/consultarAgenciasDePGJxIdDistrito.do?distritoId='+distritoId+'',
-		    data: '',
+		    type: 'POST',
+		    url: '<%=request.getContextPath()%>/consultarAgenciasDePGJxIdDistrito.do',
+		    data: 'distritoId='+distritoId,
 		    dataType: 'xml',
-		    async: false,
+		    async: true,
 		    success: function(xml){
 			    	var contAgencias=0;
-			    	$(xml).find('listaCatalogo').find('catDiscriminanteDTO').each(function(){
-						$('#cbxAgencia').append('<option value="' + $(this).find('catDiscriminanteId').text() + '">' + $(this).find('clave').text()+"-"+ $(this).find('nombre').text() + '</option>');
-						contAgencias++;
-					});
-					if(contAgencias == 0){
-						alertDinamico('<bean:message key="mensajeAgenciaValidarDistrito"/>');
+                                var respuesta= $(xml).find('respuesta');
+                                if(respuesta.find('codigo').text()==='OK'){
+                                    respuesta.find('lista').find('catDiscriminanteDTO').each(function(){
+                                                    $('#cbxAgencia').append('<option value="' + $(this).find('catDiscriminanteId').text() + '">' + $(this).find('clave').text()+"-"+ $(this).find('nombre').text() + '</option>');
+                                                    contAgencias++;
+                                            });
+                                    if(contAgencias === 0){
+                                           // alertDinamico('<bean:message key="mensajeAgenciaValidarDistrito"/>');
+                                             $('#cbxAgenciaError').addClass('Error');
+                                             $('#cbxAgenciaError').text('<bean:message key="mensajeAgenciaValidarDistrito"/>');
 
-					}
+                                    }
+                                }else{
+                                    $("#msgErrorBox").removeClass("ui-helper-hidden");
+                                    $('#msgError').text('<bean:message key="error.conexion.pg"/>');
+                                    
+                                }
+                                $('#cbxAgencia').removeClass('cargando');
 			}
 		});
 	}
@@ -1495,8 +1518,20 @@
 	<table width="100%" class="back_pleca_h">
 		<tr>	
                     <td align="left " width="50%"> 
-                        <span id="msgError" class="ui-helper-hidden ui-state-error ui-corner-all"></span>
-                        <span id="msg" class="ui-helper-hidden ui-state-highlight ui-corner-all"></span>
+                        
+                        <div id="msgBox" class="ui-widget ui-helper-hidden">
+                            <div class="ui-state-highlight ui-corner-all" style="padding: 0 .7em; height:30px">
+                                    <p><span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
+                                        <strong>Informacion:</strong> <span id="msgInfo"></span></p>
+                            </div>
+                        </div>
+                        
+                        <div id="msgErrorBox" class="ui-widget ui-helper-hidden">
+                            <div class="ui-state-error ui-corner-all" style="padding: 0 .7em; height:30px">
+                                    <p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
+                                        <strong>Error:</strong> <span id="msgError"></span></p>
+                            </div>
+                        </div>
                     </td>
 			<td align="right" width="50%">
 					<input type="button" value="Adjuntar Documento" id="btnAdjuntar" class="ui-button ui-corner-all ui-widget" onclick="abreVentanaAdjuntarDocumentoAExpediente()"/>
@@ -1658,7 +1693,7 @@
 			    	<td></td>
 			  	</tr>
 			  	<tr>
-			    	<td align="right"><span style="border-left:#000000; border-top:#000000; border-bottom-width:4; font-size:14px; background-color:; display:none;"><strong>Canalizado a:</strong></span> </td>
+			    	<td align="right"><span style="border-left:#000000; border-top:#000000; border-bottom-width:4; font-size:14px; ; display:none;"><strong>Canalizado a:</strong></span> </td>
 			    	<td><!-- <input type="radio" name="radio" id="rbtnRestaurativa" value="R" />--></td> 
 			    	<td align="right">&nbsp;</td>
 			    	<td>&nbsp;</td>
@@ -1851,7 +1886,7 @@
 									  <td><select name="cbxAgencia" id="cbxAgencia" style="width: 300px;">
 									    <option value="">- Seleccione -</option>
 								      </select></td>
-									   <td>&nbsp;</td>
+                                                                      <td><span id='cbxAgenciaError' class=''></span></td>
 								  </tr>
 			                        <tr>
 			                            <td align="right">Se realiz&oacute; Operativo</td>
