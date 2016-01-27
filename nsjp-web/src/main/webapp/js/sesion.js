@@ -6,7 +6,7 @@ var tituloInicial = "";
 
 function estaSesionActiva(){
 	if(sesionActiva=="false"){
-		bloquearPantalla(true, "Cerrando Sesión");
+		bloquearPantalla(true, "Cerrando Sesion");
 		window.location.href = contextoPagina + "/Logout.do";
 	}
 }
@@ -75,7 +75,7 @@ function bloqueoSesion(){
 			},
 			"Cancelar": function() {
 				$( this ).dialog( "close" );
-				bloquearPantalla(true, "Cerrando Sesión");
+				bloquearPantalla(true, "Cerrando Sesion");
 				window.location.href = contextoPagina + "/Logout.do";
 				return false;
 			}
@@ -150,7 +150,7 @@ function customLogout(){
 			"Aceptar": function() {
 				$( this ).dialog( "close" );
 				//$( "#dialog:ui-dialog" ).dialog( "destroy" );
-				bloquearPantalla(true, "Cerrando Sesión");
+				bloquearPantalla(true, "Cerrando Sesion");
 				window.location.href = contextoPagina + "/Logout.do";
 			},
 			"Cancelar": function() {

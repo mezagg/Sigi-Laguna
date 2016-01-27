@@ -73,6 +73,10 @@ public class LoginAction extends GenericAction {
 	 * Logger.
 	 */
 	private static final Logger log = Logger.getLogger(LoginAction.class);
+        
+        
+        private static ConfiguracionDTO cfg;
+        
 	@Autowired
 	private UsuarioDelegate usuarioDelegate;
 	
@@ -431,10 +435,12 @@ public class LoginAction extends GenericAction {
 	 * @param request
 	 */
 	private void recuperarConfiguracionGlobal(HttpServletRequest request) {
-		final ConfiguracionDTO cfg = this.configDelegate
-				.obtgenerConfiguracionGlobal();
+                if(cfg == null)
+                    cfg  = this.configDelegate.obtgenerConfiguracionGlobal();
+                
 		log.debug("Subiendo la configuracion a la sesion");
-		HttpSession ses = request.getSession(true);
+		HttpSession ses = request.getSession();
+                
 		ses.setAttribute(KEY_SESSION_CONFIGURACION_GLOBAL, cfg);
 
 		// SUBE A SESION EL LOCAL DE DONDE TOMARA EL PROPERTIES CORRESPONDIENTE

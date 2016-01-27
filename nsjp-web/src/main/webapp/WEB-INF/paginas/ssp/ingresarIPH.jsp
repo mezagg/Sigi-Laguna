@@ -275,30 +275,11 @@
                 //Permite enviar los datos asociados al distrito y la agencia al cual sera enviado el IPH
                 return lsDatosGenerales;
             }
-            function missingField(fieldname, valueWrong, tabname, message) {
-                $("#msgError").addClass("ui-helper-hidden");
-                $("#msgError").text("");
-                $(tabname).removeClass("ui-state-error ui-corner-all");
-                if ($(fieldname).val() === valueWrong) {
-                    $(fieldname).focus();
-                    $(fieldname).addClass("ui-state-error ui-corner-all");
-                    //alert(msgError);
-                    $("#msgError").removeClass("ui-helper-hidden");
-                    $("#msgError").text(message);
-                    $(tabname).addClass("ui-state-error ui-corner-all");
-                    return true;
-                } else {
-                    $(fieldname).removeClass("ui-state-error ui-corner-all");
-                    //alert(msgError);
-
-
-                }
-                return false;
-            }
+           
 
             function guardarDatosGeneralesIPH() {
                 var params = recuperaDatosGenerales();
-
+                inicializaMensajes();
                 var respuesta = "fail";
                 if (
                         missingField("#datosGeneralesCmpNumeroTransporteOf", "", "#tabDatosGenerales", "Debe ingresar el numero del transporte oficial.") ||
@@ -321,8 +302,7 @@
                             )
                         return;
                 }
-                $("#msg").removeClass("ui-helper-hidden");
-                $("#msg").text('Guardando...');
+                muestraMensajeInfo('Guardando...');
 
                 $.ajax({
                     type: 'POST',
@@ -332,14 +312,11 @@
                     async: false,
                     success: function (xml) {
                         console.log(xml);
-                        $("#msgError").removeClass("ui-helper-hidden");
-                        $("#msg").text('Datos Generales del IPH guardados de manera correcta');
+                        muestraMensajeInfo('Datos Generales del IPH guardados de manera correcta');
                         op = 'ok';
                     },
                     error: function (result) {
-                        $("#msgError").text('Datos Generales del IPH guardados de manera correcta');
-                        $("#msgError").removeClass("ui-helper-hidden");
-
+                        muestraMensajeError('Datos Generales del IPH guardados de manera incorrecta');
                     }
                 });
 
@@ -421,7 +398,7 @@
 
             function buscarFuncionario() {
                 var numeroEmpleado = $('#datosGeneralesCmpNumeroEmpleado').val();
-
+                $('#datosGeneralesCmpOficial').addClass("cargando");
                 if (numeroEmpleado != "") {
                     $.ajax({
                         type: 'POST',
@@ -440,6 +417,8 @@
                             } else {
                                 alertDinamico('No existe funcionario con ese n&uacute;mero de empleado');
                             }
+                            $('#datosGeneralesCmpOficial').removeClass("cargando");
+
                         }
                     });
                 } else {
@@ -952,27 +931,41 @@
                     }
                 });
             }
-            function consultarAgenciasXDistrito(distritoId) {
-                $('#cbxAgencia').empty();
-                $('#cbxAgencia').append('<option value="0">-Seleccione-</option>');
-                $.ajax({
-                    type: 'POST',
-                    url: '<%=request.getContextPath()%>/consultarAgenciasDePGJxIdDistrito.do?distritoId=' + distritoId + '',
-                    data: '',
-                    dataType: 'xml',
-                    async: false,
-                    success: function (xml) {
-                        var contAgencias = 0;
-                        $(xml).find('listaCatalogo').find('catDiscriminanteDTO').each(function () {
-                            $('#cbxAgencia').append('<option value="' + $(this).find('catDiscriminanteId').text() + '">' + $(this).find('clave').text() + "-" + $(this).find('nombre').text() + '</option>');
-                            contAgencias++;
-                        });
-                        if (contAgencias == 0) {
-                            alertDinamico('<bean:message key="mensajeAgenciaValidarDistrito"/>');
+            
+            function consultarAgenciasXDistrito(distritoId){
+                    inicializaMensajes();
+                    $('#cbxAgencia').empty();
+                    $('#cbxAgencia').addClass('cargando');
+                    $('#cbxAgencia').append('<option value="0">-Seleccione-</option>');
+                    $('#cbxAgenciaError').addClass("ui-helper-hidden");
+                    $.ajax({
+                        type: 'POST',
+                        url: '<%=request.getContextPath()%>/consultarAgenciasDePGJxIdDistrito.do',
+                        data: 'distritoId='+distritoId,
+                        dataType: 'xml',
+                        async: true,
+                        success: function(xml){
+                                    var contAgencias=0;
+                                    var respuesta= $(xml).find('respuesta');
+                                    if(respuesta.find('codigo').text()==='OK'){
+                                        respuesta.find('lista').find('catDiscriminanteDTO').each(function(){
+                                                        $('#cbxAgencia').append('<option value="' + $(this).find('catDiscriminanteId').text() + '">' + $(this).find('clave').text()+"-"+ $(this).find('nombre').text() + '</option>');
+                                                        contAgencias++;
+                                                });
+                                        if(contAgencias === 0){
+                                               // alertDinamico('<bean:message key="mensajeAgenciaValidarDistrito"/>');
+                                                 $('#cbxAgenciaError').addClass('Error');
+                                                 $('#cbxAgenciaError').text('<bean:message key="mensajeAgenciaValidarDistrito"/>');
 
-                        }
-                    }
-                });
+                                        }
+                                    }else{
+
+                                       muestraMensajeError('<bean:message key="error.conexion.pg"/>');
+
+                                    }
+                                    $('#cbxAgencia').removeClass('cargando');
+                            }
+                    });
             }
 
             function actualizaComboAgencias() {
@@ -1001,8 +994,19 @@
         <table width="100%" class="back_pleca_h">
             <tr>		
                 <td align="left " width="50%"> 
-                    <span id="msgError" class="ui-helper-hidden ui-state-error ui-corner-all"></span>
-                    <span id="msg" class="ui-helper-hidden ui-state-highlight ui-corner-all"></span>
+                   <div id="msgInfoBox" class="ui-widget ui-helper-hidden">
+                        <div class="ui-state-highlight ui-corner-all" style="padding: 0 .7em; height:30px">
+                                <p><span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
+                                    <strong>Informacion:</strong> <span id="msgInfo"></span></p>
+                        </div>
+                    </div>
+
+                    <div id="msgErrorBox" class="ui-widget ui-helper-hidden">
+                        <div class="ui-state-error ui-corner-all" style="padding: 0 .7em; height:30px">
+                                <p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
+                                    <strong>Error:</strong> <span id="msgError"></span></p>
+                        </div>
+                    </div>
                 </td>
                 <td align="right" width="50%">
                     <!--<input type="button" value="Guardado Parcial" id="btnIPHGuardadoParcial" class="ui-button ui-corner-all ui-widget" onclick="guardarDatosGeneralesIPH()"/> -->
@@ -1142,7 +1146,7 @@
                                         </tr>
                                         <tr>
                                             <td align="right">* <bean:message key="agencia"/>:</td>
-                                            <td><select name="cbxAgencia" id="cbxAgencia" style="width: 180px;">
+                                            <td><select name="cbxAgencia" id="cbxAgencia" style="width: 300px;">
                                                     <option value="">- Seleccione -</option>
                                                 </select></td>
                                             <td>&nbsp;</td>

@@ -370,24 +370,25 @@ public class ProcuraduriaClienteServiceImpl implements
 			// Hasta aqui finaliza la configuracion para acceder al web service
 
 			// Aqui inicia el proceso de transformar los dto en wsDto
-			ExpedientePrint.imprimirDatosExpediente(iPHomologadoDTO
-					.getExpediente());
+	//		ExpedientePrint.imprimirDatosExpediente(iPHomologadoDTO
+	//				.getExpediente());
 			InformePolicialHomologadoWSDTO informePolicialHomologadoWSDTO = InformePolicialHomologadoWSDTOTransformer
 					.transformarWSDTO(iPHomologadoDTO);
 
-			ExpedientePrintIPH
-					.imprimirDatosExpediente(informePolicialHomologadoWSDTO
-							.getExpediente());
+			//ExpedientePrintIPH
+			//		.imprimirDatosExpediente(informePolicialHomologadoWSDTO
+			//				.getExpediente());
 			logger.debug("Enviando a traves de :: " + ep);
 			iPH = clienteEnviarIPH.enviarInformePolicialHomologado(
 					informePolicialHomologadoWSDTO, idAgencia);
 			
-	         /**
-             * DESPUES DE ENVIAR EL IPH SE ACTUALIZA LOS ARCHIVOS DIGITALES(IMAGENES)
-             * POR OBJETO
-             */
-            actualizaArchivosDigitalesEnviados(iPHomologadoDTO.getExpediente());
-
+                        if(iPH.getMensajeDeError()==null){
+                            /**
+                             * DESPUES DE ENVIAR EL IPH SE ACTUALIZA LOS ARCHIVOS DIGITALES(IMAGENES)
+                             * POR OBJETO
+                             */
+                            actualizaArchivosDigitalesEnviados(iPHomologadoDTO.getExpediente());
+                        }
 
 			return new RespuestaIPHWSDTO(iPH.getIdNuevoExpedienteIPH(),
 					iPH.getMensajeDeError());

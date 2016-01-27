@@ -209,7 +209,7 @@
 	  		type: 'POST',
 	  	  	url: '<%= request.getContextPath()%>/consultarInformePolicialHomologadoPorFolio.do?folioIPH='+folioIPH+'',			
 	  	  	dataType: 'xml',
-	  	  	async:false,
+	  	  	async:true,
 	  	  	success: function(xml){
 	  	  		iphReplica=$(xml).find('InformePolicialHomologadoDTO').find('existeInforme').text();
 	  	  		
@@ -235,8 +235,8 @@
 		$("#datosGeneralesCmpNumeroTransporteOf").val($(xml).find('numEcoTransporte').text());
 		$("#datosGeneralesCmpAsunto").val($(xml).find('asunto').text());
 
-		if($(xml).find('faltaIph').find('catFaltaAdministrativa').find('nombreFalta') == null ||
-			$(xml).find('faltaIph').find('catFaltaAdministrativa').find('nombreFalta').text() == ""){
+		if($(xml).find('faltaIph').find('catFaltaAdministrativa').find('nombreFalta') === null ||
+			$(xml).find('faltaIph').find('catFaltaAdministrativa').find('nombreFalta').text() === ""){
 			$("#motivoCmpTipoEvento").val('1'); //combo
 			buscaSubTipoEvento();
 			$("#motivoCmpSubtipoEvento").val($(xml).find('InformePolicialHomologadoDTO').find('InvolucradoDTO').first().find('delitosCometidos').first().find('catDelitoDTO').first().find('catDelitoId').first().text()); //combo
@@ -247,7 +247,7 @@
 		}
 		
 		$("#datosGeneralesCmpNumeroEmpleado").val($(xml).find('funcionarioDestinatario').find('numeroEmpleado').text());
-		if($("#datosGeneralesCmpNumeroEmpleado").val() != null && $("#datosGeneralesCmpNumeroEmpleado").val() != ""){
+		if($("#datosGeneralesCmpNumeroEmpleado").val() !== null && $("#datosGeneralesCmpNumeroEmpleado").val() !== ""){
   			buscarFuncionario();	  		  	
 		}
 		
@@ -262,7 +262,7 @@
 
 		$("#editor1").val($(xml).find('objetivosGenerales').text());
 
-		if ($(xml).find('operativo').find('operativoId') != null &&	$(xml).find('operativo').find('operativoId').text() != ""){
+		if ($(xml).find('operativo').find('operativoId') !== null &&	$(xml).find('operativo').find('operativoId').text() !== ""){
 			$("#divOperativo").show();
 			$('#chkOperativo').attr("checked","checked");
 			$("#datosGeneralesCmpNombreOperativo").val($(xml).find('operativo').find('nombre').last().text());
@@ -276,9 +276,9 @@
 		idExpedienteop = numeroExpedienteId;
 		numeroExpediente = $(xml).find('expediente').find('numeroExpediente').first().text();
 		expedienteId=$(xml).find('expediente').find('expedienteId').first().text();
-		if($(xml).find('operativo').find('operativoId').first().text() != null && $(xml).find('operativo').find('operativoId').first().text() != ""){
+		if($(xml).find('operativo').find('operativoId').first().text() !== null && $(xml).find('operativo').find('operativoId').first().text() !== ""){
 			
-			if($(xml).find('operativo').find('operativoId').first().text()!="null"){
+			if($(xml).find('operativo').find('operativoId').first().text()!=="null"){
 				operativoId = $(xml).find('operativo').find('operativoId').first().text();
 			}else{
 				operativoId = null;
@@ -314,47 +314,47 @@
 	function mostrarInvolucrados(xml){
 		$(xml).find('InformePolicialHomologadoDTO').find('involucradosDTO').find('InvolucradoDTO').each(function(){
 
-	      	if($(this).find('valorIdCalidad').find('idCampo').first().text() == '<%= Calidades.DENUNCIANTE.getValorId() %>') {
+	      	if($(this).find('valorIdCalidad').find('idCampo').first().text() === '<%= Calidades.DENUNCIANTE.getValorId() %>') {
 		      	var idInvolucrado = $(this).find('elementoId').first().text(); 
 	      		var nombreDenunciante = $(this).find('nombre').first().text() + ' ' + $(this).find('apellidoPaterno').first().text() + ' ' + $(this).find('apellidoMaterno').first().text();
-	      		nombreDenunciante = nombreDenunciante == "" ? 'An&oacute;nimo' : nombreDenunciante;
+	      		nombreDenunciante = nombreDenunciante === "" ? 'An&oacute;nimo' : nombreDenunciante;
 				$('#tblDenunciante').append('<tr id="' + idInvolucrado + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificarDenuncianteDatos('+idInvolucrado+');">'+ nombreDenunciante + '</a></td></tr>');
-				if($(this).find('condicion').first().text() == 1){
+				if($(this).find('condicion').first().text() === 1){
 					$('#tblVictima').append('<tr id="v' + idInvolucrado + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificarDenuncianteDatos('+idInvolucrado+');">'+ nombreDenunciante + '</a></td></tr>');
 				}
 				$("#crearDenunciante").hide();
 	      	}
 	      	
-	      	if($(this).find('valorIdCalidad').find('idCampo').first().text() == '<%= Calidades.DENUNCIANTE_ORGANIZACION.getValorId() %>'){
+	      	if($(this).find('valorIdCalidad').find('idCampo').first().text() === '<%= Calidades.DENUNCIANTE_ORGANIZACION.getValorId() %>'){
 	      		var idInvolucrado = $(this).find('elementoId').first().text();
 	      		var nombreDenunciante = $(this).find('nombreOrganizacion').first().text();
-	      		nombreDenunciante = nombreDenunciante == "" ? 'An&oacute;nimo' : nombreDenunciante;
+	      		nombreDenunciante = nombreDenunciante === "" ? 'An&oacute;nimo' : nombreDenunciante;
 				$('#tblDenunciante').append('<tr id="' + idInvolucrado + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificarDenuncianteDatos('+idInvolucrado+');">'+ nombreDenunciante + '</a></td></tr>');
-				if($(this).find('condicion').first().text() == 1){
+				if($(this).find('condicion').first().text() === 1){
 					$('#tblVictima').append('<tr id="' + idInvolucrado + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificarVictima('+idInvolucrado+');">'+ nombreDenunciante + '</a></td></tr>');
 				}				
 				$("#crearDenunciante").hide();
 	      	}
 
-	      	if($(this).find('valorIdCalidad').find('idCampo').first().text() == '<%= Calidades.VICTIMA_PERSONA.getValorId() %>'){
+	      	if($(this).find('valorIdCalidad').find('idCampo').first().text() === '<%= Calidades.VICTIMA_PERSONA.getValorId() %>'){
 	      		var idInvolucrado = $(this).find('elementoId').first().text();
 	      		var nombreVictima = $(this).find('nombre').first().text() + ' ' + $(this).find('apellidoPaterno').first().text() + ' ' + $(this).find('apellidoMaterno').first().text();
       			$('#tblVictima').append('<tr id="' + idInvolucrado + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificarVictima('+idInvolucrado+');">'+ nombreVictima + '</a></td></tr>');	
 	      	}
 	      
-	      	if($(this).find('valorIdCalidad').find('idCampo').first().text() == '<%= Calidades.PROBABLE_RESPONSABLE_PERSONA.getValorId() %>'){
+	      	if($(this).find('valorIdCalidad').find('idCampo').first().text() === '<%= Calidades.PROBABLE_RESPONSABLE_PERSONA.getValorId() %>'){
 	      		var idInvolucrado = $(this).find('elementoId').first().text(); 
 	      		var nombreResponsable = $(this).find('nombre').first().text() + ' ' + $(this).find('apellidoPaterno').first().text() + ' ' + $(this).find('apellidoMaterno').first().text();
 				$('#tblProbableResponsable').append('<tr id="' + idInvolucrado + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificarProbableResponsable('+idInvolucrado+');">'+ nombreResponsable + '</a></td></tr>');
 	      	}
 
-	      	if($(this).find('valorIdCalidad').find('idCampo').first().text() == '<%= Calidades.PROBABLE_RESPONSABLE_ORGANIZACION.getValorId() %>'){
+	      	if($(this).find('valorIdCalidad').find('idCampo').first().text() === '<%= Calidades.PROBABLE_RESPONSABLE_ORGANIZACION.getValorId() %>'){
 	      		var idInvolucrado = $(this).find('elementoId').first().text();
 	      		var nombreResponsable = $(this).find('nombreOrganizacion').first().text();
 				$('#tblProbableResponsable').append('<tr id="' + idInvolucrado + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificarProbableResponsable('+idInvolucrado+');">'+ nombreResponsable + '</a></td></tr>');
 	      	}
 	      	
-	      	if($(this).find('valorIdCalidad').find('idCampo').first().text() == '<%= Calidades.TESTIGO.getValorId() %>'){
+	      	if($(this).find('valorIdCalidad').find('idCampo').first().text() === '<%= Calidades.TESTIGO.getValorId() %>'){
 	      		var idInvolucrado = $(this).find('elementoId').first().text();
 		      	var nombreTestigo = $(this).find('nombre').first().text() + ' ' + $(this).find('apellidoPaterno').first().text() + ' ' + $(this).find('apellidoMaterno').first().text();
 				$('#tblTestigo').append('<tr id="' + idInvolucrado + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificarTestigo('+idInvolucrado+');">'+ nombreTestigo + '</a></td></tr>');
@@ -510,52 +510,18 @@
 	    var txtArea = $('.jquery_ckeditor').val();
 		lsDatosGenerales+='&observaciones=' + escape(txtArea);
 	   
-		if ($("#cbxDistrito option:selected").val() != "" && $("#cbxAgencia option:selected").val() != ""){
+		if ($("#cbxDistrito option:selected").val() !== "" && $("#cbxAgencia option:selected").val() !== ""){
 			lsDatosGenerales+='&fCatDistritoId=' + $("#cbxDistrito option:selected").val();	
 			lsDatosGenerales+='&fCatDiscriminanteId=' + $("#cbxAgencia option:selected").val();
 		}
 		
 	   return lsDatosGenerales;
 	}
-        function missingField(fieldname, valueWrong, tabname, message){
-            
-            //$("#msgErrorBox").addClass("ui-helper-hidden");
-            //$("#msgError").text("");
-            inicializaMensajes();
-            $(tabname).removeClass("ui-state-error ui-corner-all");
-            
-            if($(fieldname).val() === valueWrong){
-                     $(fieldname).focus();  
-                     $(fieldname).addClass("ui-state-error ui-corner-all");
-                     //alert(msgError);
-                     //$("#msgErrorBox").removeClass("ui-helper-hidden");
-                     //$("#msgError").text(message);
-                     muestraMensaje(message, 'error');
-                     $(tabname).addClass("ui-state-error ui-corner-all");
-                     return true;
-            }else{
-                $(fieldname).removeClass("ui-state-error ui-corner-all");
-                     //alert(msgError);
-            }
-            return false;
-        }
-        function inicializaMensajes(){
-              $("#msgErrorBox").addClass("ui-helper-hidden");
-              $("#msgInfoBox").addClass("ui-helper-hidden");
-        }
-        function muestraMensaje(mensaje, tipoMensaje){
-            if(tipoMensaje==='error'){
-                $("#msgErrorBox").removeClass("ui-helper-hidden");
-                $("#msgError").text(mensaje);
-            }else{
-                $("#msgInfoBox").removeClass("ui-helper-hidden");
-                $("#msgInfo").text(mensaje);
-            }
-        }
 	function guardarDatosGeneralesIPH(){
 		var params = recuperaDatosGenerales();
 		params += "&operativoId=" + operativoId;
 		var op=false;
+                
                 if(
                     missingField("#datosGeneralesCmpNumeroTransporteOf","","#tabDatosGenerales", "Debe ingresar el numero del transporte oficial.") ||
                     missingField("#datosGeneralesCmpAsunto","","#tabDatosGenerales", "Debe ingresar el asunto.") ||
@@ -576,8 +542,7 @@
                        )
                      return;
                  }
-                     $("#msgInfoBox").removeClass("ui-helper-hidden");
-                     $("#msgInfo").text('Guardando...');
+                muestraMensajeInfo('Guardando...');
                  
                 $.ajax({								
                           type: 'POST',
@@ -586,16 +551,16 @@
                           dataType: 'xml',
                           async:false,
                           success: function(xml){
-                                console.log(xml);
+                                //console.log(xml);
                                   //$("#msgInfoBox").removeClass("ui-helper-hidden");
                                   //$("#msgInfo").text('Datos Generales del IPH guardados de manera correcta');
-                                  muestraMensaje('Datos Generales del IPH guardados de manera correcta');
+                                  muestraMensajeInfo('Datos Generales del IPH guardados de manera correcta');
                                   op=true;
                           },
                           error: function(result) {
                            //$("#msgError").text();
                            //$("#msgErrorBox").removeClass("ui-helper-hidden");
-                           muestraMensaje('Datos Generales del IPH guardados de manera incorrecta', 'error');
+                           muestraMensajeError('Datos Generales del IPH guardados de manera incorrecta');
                            
                         }
                  });
@@ -608,52 +573,65 @@
 	
 	
 	function generarInformeIPH(){
-		 
 		
+		$('#generaInformeBtn').addClass('cargando');
 		var regreso = guardarDatosGeneralesIPH();
 		
+                
 		if(regreso === "ok" && iphReplica==="false"){
 			var idAgencia = parseInt($("#cbxAgencia option:selected").val());
 			$.ajax({								
 			  	  type: 'POST',
-			  	  url: '<%= request.getContextPath()%>/generarInformeIPH.do?folioIPH='+folioIPH+ '&idAgencia=' + idAgencia + '',			
+			  	  url: '<%= request.getContextPath()%>/generarInformeIPH.do',
+                                  data: 'folioIPH='+folioIPH+ '&idAgencia=' + idAgencia,
 			  	  dataType: 'xml',
-			  	  async:false,
+			  	  async:true,
 			  	  success: function(xml){			  	  
-			  			//customAlert('Informe Policial Homologado generado de manera correcta');
-                                          muestraMensaje('Informe Policial Homologado generado de manera correcta');
+			  	          muestraMensajeInfo('Informe Policial Homologado generado de manera correcta');
 			  		  document.frmDocumento.documentoId.value = $(xml).find('idDocumentoIPH').text();
 					  document.frmDocumento.submit();
-					  //window.parent.cerrarVentanaIPH(idVentana);
-			  	  }
-					
+                                          $('#generaInformeBtn').removeClass('cargando');
+                                          iphReplica="true";
+			  	  },
+                                  error:function(result) {
+                                    console.log(result);
+                                    muestraMensajeError('Error al enviar el IPH a Procuraduria General de Justicia.');
+                                     $('#generaInformeBtn').removeClass('cargando');
+                                 }
+				
 			});
 		}
 		else if(regreso === "fail"){
 			//customAlert("Ocurri&oacute; un problema durante el guardado, intente de nuevo");	
-                        muestraMensaje('Ocurrio un problema durante el guardado, intente de nuevo.', 'error');
+                        muestraMensajeError('Ocurrio un problema durante el guardado, intente de nuevo.');
+                         $('#generaInformeBtn').removeClass('cargando');
 		}else if(iphReplica==="true"){
 			
-                        muestraMensaje('El IPH  ya ha sido enviado.', 'error');
+                        muestraMensajeError('El IPH  ya ha sido enviado a Procuraduria');
+                         $('#generaInformeBtn').removeClass('cargando');
 		}
+                
 	}
 	
 	function consultarDistritos(){		
+                $('#cbxDistrito').addClass('cargando');
 		$.ajax({
 			type: 'POST',
 		    url: '<%=request.getContextPath()%>/consultarDistritos.do',
 		    data: '',
 		    dataType: 'xml',
-		    async: false,
+		    async: true,
 		    success: function(xml){
 			    	$(xml).find('listaCatalogo').find('catDistritoDTO').each(function(){
 						$('#cbxDistrito').append('<option value="' + $(this).find('catDistritoId').text() + '">' + $(this).find('claveDistrito').text()+"-"+ $(this).find('nombreDist').text() + '</option>');
-					});					
+					});	
+                                $('#cbxDistrito').removeClass('cargando');
 			}
 		});
 	}
 	
 	function consultarAgenciasXDistrito(distritoId){
+                inicializaMensajes();
 		$('#cbxAgencia').empty();
                 $('#cbxAgencia').addClass('cargando');
 		$('#cbxAgencia').append('<option value="0">-Seleccione-</option>');
@@ -679,8 +657,8 @@
 
                                     }
                                 }else{
-                                    $("#msgErrorBox").removeClass("ui-helper-hidden");
-                                    $('#msgError').text('<bean:message key="error.conexion.pg"/>');
+                                    
+                                   muestraMensajeError('<bean:message key="error.conexion.pg"/>');
                                     
                                 }
                                 $('#cbxAgencia').removeClass('cargando');
@@ -700,18 +678,18 @@
 	
 	function buscarFuncionario(){
 		var numeroEmpleado = $('#datosGeneralesCmpNumeroEmpleado').val();
-
-		if(numeroEmpleado != ""){
+                $('#datosGeneralesCmpNumeroEmpleado').addClass("cargando");
+		if(numeroEmpleado !== ""){
 	    	$.ajax({
 	    		type: 'POST',
 	    	    url: '<%=request.getContextPath()%>/consultarPersonalOperativoIPH.do?numeroEmpleado='+numeroEmpleado+'',
 	    	    data: '',
 	    	    dataType: 'xml',
-	    	    async: false,
+	    	    async: true,
 	    	    success: function(xml){
 				   var nombre =  $(xml).find('funcionarioDTO').find('nombreFuncionario').first().text()+' '+$(xml).find('funcionarioDTO').find('apellidoPaternoFuncionario').first().text();
 				   var sector =  $(xml).find('funcionarioDTO').find('departamento').find('area').find('nombre').first().text();
-				   if(nombre != "" && nombre != null){
+				   if(nombre !== "" && nombre !== null){
 					   $('#datosGeneralesCmpOficial').val(nombre);
 					   $('#datosGeneralesCmpSector').val(sector);
 					   var claveFuncionario =  $(xml).find('funcionarioDTO').find('claveFuncionario').first().text();
@@ -719,21 +697,23 @@
 				   }else{
 						alert('No existe Funcionario con ese N&uacute;mero de Empleado');
 				   }
+                                   $('#datosGeneralesCmpNumeroEmpleado').removeClass("cargando");
 	    		}
 			});
 		}else{
-			alert("Debe ingresar un n&uacute;mero de Empleado");
+			mostrarMensaje("Debe ingresar un número de Empleado", 'error');
+                        $('#datosGeneralesCmpNumeroEmpleado').removeClass("cargando");
 		}
 	}
 
 	function obtenerSuperior(claveFuncionario){
-		if(claveFuncionario != "" && claveFuncionario != null){
+		if(claveFuncionario !== "" && claveFuncionario !== null){
 	    	$.ajax({
 	    		type: 'POST',
 	    	    url: '<%=request.getContextPath()%>/consultaFuncionarioSuperior.do?claveFuncionario='+claveFuncionario+'',
 	    	    data: '',
 	    	    dataType: 'xml',
-	    	    async: false,
+	    	    async: true,
 	    	    success: function(xml){
 				   var nombre =  $(xml).find('funcionarioDTO').find('nombreFuncionario').first().text()+' '+$(xml).find('funcionarioDTO').find('apellidoPaternoFuncionario').first().text();
 
@@ -766,17 +746,19 @@
 	*Funcion que dispara el Action para consultar Tipo Participacion
 	*/	
 	function cargaTipoParticipacion(){
+                $('#datosGeneralesCmpTipoParticipacion').addClass('cargando');
 		$.ajax({
 			type: 'POST',
 			url: '<%= request.getContextPath()%>/consultarCatalogoTipoParticipacion.do',
 			data: '',
 			dataType: 'xml',
-			async: false,
+			async: true,
 			success: function(xml){
 				var option;
 				$(xml).find('tipoParticipacion').each(function(){
 					$('#datosGeneralesCmpTipoParticipacion').append('<option value="' + $(this).find('clave').text() + '">'+ $(this).find('valor').text() + '</option>');
 				});
+                                $('#datosGeneralesCmpTipoParticipacion').removeClass('cargando');
 			}
 		});
 	}
@@ -785,6 +767,7 @@
 		var selected = $("#motivoCmpTipoEvento option:selected").val();
 		$( "#motivoCmpSubtipoEvento" ).attr('selectedIndex',0);
 		$('#motivoCmpSubtipoEvento').empty();
+                $('#motivoCmpSubtipoEvento').addClass('cargando');
 		$('#motivoCmpSubtipoEvento').append('<option value="0">-Seleccione-</option>');
 		
 		$.ajax({
@@ -793,15 +776,16 @@
 			url: '<%= request.getContextPath()%>/consultarSubtipoEvento.do?tipoEvento='+selected+'',
 			dataType: 'xml',
 			success: function(xml){
-				if(selected == "1"){
+				if(selected === "1"){
 					$(xml).find('delito').each(function(){
 						$('#motivoCmpSubtipoEvento').append('<option value="' + $(this).find('catDelitoId').text() + '">' + $(this).find('nombre').text() + '</option>');
 					});
-				}else if(selected == "2"){
+				}else if(selected === "2"){
 					$(xml).find('falta').each(function(){
 						$('#motivoCmpSubtipoEvento').append('<option value="' + $(this).find('catFaltaAdministrativaId').text() + '">' + $(this).find('nombreFalta').text() + '</option>');
 					});
 				}
+                                $('#motivoCmpSubtipoEvento').removeClass('cargando');
 			}
 		});
 	}
@@ -1245,7 +1229,7 @@
 	    	  url: '<%= request.getContextPath()%>/cargarDatosGenerales.do?idNumeroExpedienteOp='+numeroExpedienteId,
 	    	  data: '',
 	    	  dataType: 'xml',
-	    	  async: false,
+	    	  async: true,
 	    	  success: function(xml){
 					$('#Vehiculos').html($(xml).find('totalVehiculos').text()+': '+$(xml).find('vehiculos').text());
 					$('#Aeronaves').html($(xml).find('totalAeronaves').text()+': '+$(xml).find('aeronaves').text());
@@ -1254,7 +1238,7 @@
 					$('#Armas').html($(xml).find('totalArmas').text()+': '+$(xml).find('armas').text());
 					$('#Explosivos').html($(xml).find('totalExplosivos').text()+': '+$(xml).find('explosivos').text());
 					$('#Numerario').html($(xml).find('totalNumerarios').text()+': '+$(xml).find('numerarios').text());
-					$('#Denunciantes').html($(xml).find('totalDenunciantes').text() == "" ? 'An&oacute;nimo' : $(xml).find('totalDenunciantes').text()+': '+$(xml).find('denunciantes').text());
+					$('#Denunciantes').html($(xml).find('totalDenunciantes').text() === "" ? 'An&oacute;nimo' : $(xml).find('totalDenunciantes').text()+': '+$(xml).find('denunciantes').text());
 					$('#Victimas').html($(xml).find('totalVictimas').text()+': '+$(xml).find('victimas').text());
 					$('#ProbablesResponsables').html($(xml).find('totalProbablesResposables').text()+': '+$(xml).find('probablesResposables').text());
 					$('#Testigos').html($(xml).find('totalTestigos').text()+': '+$(xml).find('testigos').text());
@@ -1271,57 +1255,57 @@
 	}
 
 	function ocultaImgResumen(xml){
-		if($(xml).find('ve').text()!="1"){
+		if($(xml).find('ve').text()!=="1"){
 			$('#imgVehiculo').hide();
 		}else{
 			$('#imgVehiculo').show();
 		}
-		if($(xml).find('aero').text()!="1"){
+		if($(xml).find('aero').text()!=="1"){
 			$('#imgAeronaves').hide();
 		}else{
 			$('#imgAeronaves').show();
 		}
-		if($(xml).find('embar').text()!="1"){
+		if($(xml).find('embar').text()!=="1"){
 			$('#imgEmbarcacion').hide();
 		}else{
 			$('#imgEmbarcacion').show();
 		}					
-		if($(xml).find('sus').text()!="1"){
+		if($(xml).find('sus').text()!=="1"){
 			$('#imgSustancias').hide();
 		}else{
 			$('#imgSustancias').show();
 		}
-		if($(xml).find('arm').text()!="1"){
+		if($(xml).find('arm').text()!=="1"){
 			$('#imgArmas').hide();
 		}else{
 			$('#imgArmas').show();
 		}
-		if($(xml).find('expl').text()!="1"){
+		if($(xml).find('expl').text()!=="1"){
 			$('#imgExplosivos').hide();
 		}else{
 			$('#imgExplosivos').show();
 		}
-		if($(xml).find('nume').text()!="1"){
+		if($(xml).find('nume').text()!=="1"){
 			$('#imgNumerario').hide();
 		}else{
 			$('#imgNumerario').show();
 		}
-		if($(xml).find('denun').text()!="1"){
+		if($(xml).find('denun').text()!=="1"){
 			$('#imgDenunciantes').hide();
 		}else{
 			$('#imgDenunciantes').show();
 		}
-		if($(xml).find('vic').text()!="1"){
+		if($(xml).find('vic').text()!=="1"){
 			$('#imgVictimas').hide();
 		}else{
 			$('#imgVictimas').show();	
 		}
-		if($(xml).find('proba').text()!="1"){
+		if($(xml).find('proba').text()!=="1"){
 			$('#imgProbablesResponsables').hide();
 		}else{
 			$('#imgProbablesResponsables').show();
 		}
-		if($(xml).find('test').text()!="1"){
+		if($(xml).find('test').text()!=="1"){
 			$('#imgTestigos').hide();
 		}else{
 			$('#imgTestigos').show();
@@ -1367,7 +1351,7 @@
 	*Funcion que abre el PDF para ver los documentos asociados al numero de causa
 	*/
 	function abrirDocsDigAsociadosASol(documentoAsocId){
-		if(documentoAsocId != null && documentoAsocId != ""){
+		if(documentoAsocId !== null && documentoAsocId !== ""){
 		$("#visorDocsPropiosFrame").attr("src","<%= request.getContextPath()%>/consultarArchivoDigitalIframe.do?documentoId="+documentoAsocId+"&inFrame=true");
 			
 		}
@@ -1519,7 +1503,7 @@
 		<tr>	
                     <td align="left " width="50%"> 
                         
-                        <div id="msgBox" class="ui-widget ui-helper-hidden">
+                        <div id="msgInfoBox" class="ui-widget ui-helper-hidden">
                             <div class="ui-state-highlight ui-corner-all" style="padding: 0 .7em; height:30px">
                                     <p><span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
                                         <strong>Informacion:</strong> <span id="msgInfo"></span></p>
@@ -1534,9 +1518,9 @@
                         </div>
                     </td>
 			<td align="right" width="50%">
-					<input type="button" value="Adjuntar Documento" id="btnAdjuntar" class="ui-button ui-corner-all ui-widget" onclick="abreVentanaAdjuntarDocumentoAExpediente()"/>
-					 <input type="button" value="Guardar" id="btnIPHGuardadoParcial" class="ui-button ui-corner-all ui-widget" onclick="guardarDatosGeneralesIPH()"/>
-					 <input type="button" value="Generar Informe" class="ui-button ui-corner-all ui-widget" onclick="generarInformeIPH()"/>
+                            <input type="button" value="Adjuntar Documento" id="btnAdjuntar" class="ui-button ui-corner-all ui-widget" onclick="abreVentanaAdjuntarDocumentoAExpediente()"/>
+                            <input type="button" value="Guardar" id="btnIPHGuardadoParcial" class="ui-button ui-corner-all ui-widget" onclick="guardarDatosGeneralesIPH()"/>
+                            <input type="button" id="generaInformeBtn" value="Generar Informe" class="ui-button ui-corner-all ui-widget" onclick="generarInformeIPH()"/>
 			</td>
 		</tr>
 	</table>
