@@ -109,7 +109,7 @@ public class LoginAction extends GenericAction {
 		try {
 			UsuarioDTO usuarioDTO = getUsuarioFirmado(request);
                         
-                        this.recuperarConfiguracionGlobal(request);
+                        
                         
                         if(usuarioDTO==null)
                             return mapping.findForward("success");
@@ -118,7 +118,8 @@ public class LoginAction extends GenericAction {
 			httpSession.removeAttribute(KEY_SESSION_USUARIO_FIRMADO);
 			ManejadorSesion.invalidate(KEY_SESSION_USUARIO_FIRMADO);
 			//httpSession.invalidate();
-
+                        httpSession = request.getSession(true);
+                        this.recuperarConfiguracionGlobal(request);
                         log.info("Logout de sistema");
 			return mapping.findForward("success");
 		} catch (Exception e) {
@@ -134,7 +135,7 @@ public class LoginAction extends GenericAction {
 			HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
 		String ip = (String) request.getRemoteHost();
-
+                
 		VisitanteDTO visitanteDTO = new VisitanteDTO(ip, 0);
 		try {
 			visitanteDTO = visitanteDelegate.consultarVisitantePorIP(visitanteDTO);
@@ -142,7 +143,7 @@ public class LoginAction extends GenericAction {
 			log.info("Los intentos de la IP " + visitanteDTO.getcIP()
 					+ " son: " + visitanteDTO.getiIntentos());
 			//FIXME Se recupera los datos de la configruación Global
-			this.recuperarConfiguracionGlobal(request);
+			
 			
 			if (visitanteDTO != null) {
 				if (visitanteDTO.getiIntentos() != null) {
@@ -151,6 +152,7 @@ public class LoginAction extends GenericAction {
 						// El bloqueo por IP esta; deshabilitado para usuarios
 						// desconocidos
 						// return mapping.findForward("fail");
+                                                this.recuperarConfiguracionGlobal(request);
 						return mapping.findForward("success");
 					}
 				}
@@ -164,7 +166,7 @@ public class LoginAction extends GenericAction {
 			log.info("visitanteDTO: " + visitanteDTO);
 			log.info("visitanteDTO.ip: " + visitanteDTO.getcIP());
 			log.info("visitanteDTO.intentos: " + visitanteDTO.getiIntentos());
-
+                        this.recuperarConfiguracionGlobal(request);
 			return mapping.findForward("error");
 		}
 
@@ -200,8 +202,7 @@ public class LoginAction extends GenericAction {
 			String idSesion = request.getRequestedSessionId();
 			VisitanteDTO visitanteDTO = new VisitanteDTO(ip, 0);
                         
-                        this.recuperarConfiguracionGlobal(request);			
-			
+                        
                         visitanteDTO = visitanteDelegate
 					.consultarVisitantePorIP(visitanteDTO);
 			if (visitanteDTO.getiIntentos() != null) {
@@ -238,6 +239,7 @@ public class LoginAction extends GenericAction {
 								request.setAttribute("captcha", 2);
 								ManejadorSesion.invalidate(usuarioEnSesion
 										.getIdSesion());
+                                                                this.recuperarConfiguracionGlobal(request);
 								return mapping.findForward("success");
 							}
 						}
@@ -352,6 +354,7 @@ public class LoginAction extends GenericAction {
 							if (forward == null) {								
 								request.setAttribute("error", 0);
 								ManejadorSesion.invalidate(idSesion);
+                                                                this.recuperarConfiguracionGlobal(request);
 								return mapping.findForward("success");
 								
 							}
@@ -366,7 +369,7 @@ public class LoginAction extends GenericAction {
 
 							request.getSession()
 							.setAttribute(KEY_SESSION_MENU_DINAMICO_SUPERIOR, this.getMenuInicial(rolDTO, TipoMenu.ARRIBA));
-							
+							this.recuperarConfiguracionGlobal(request);
 							return mapping.findForward(forward);
 						} else {// en caso de que la sesion no sea la primera se
 								// mandara
@@ -375,6 +378,7 @@ public class LoginAction extends GenericAction {
 								// usuario esta bloqueado por más de un intento
 								// de
 								// loguear
+                                                        this.recuperarConfiguracionGlobal(request);
 							if (usuarioFirmado.getiSesion() == -1) {
 								request.setAttribute("error", 0);
 							} else {
@@ -397,27 +401,32 @@ public class LoginAction extends GenericAction {
 								// desconocido
 								// return mapping.findForward("fail");
 								ManejadorSesion.invalidate(idSesion);
+                                                                this.recuperarConfiguracionGlobal(request);
 								return mapping.findForward("success");
 							} else {
 								ManejadorSesion.invalidate(idSesion);
 								request.setAttribute("error", 0);
+                                                                this.recuperarConfiguracionGlobal(request);
 								return mapping.findForward("success");
 							}
 						} else {
 							request.setAttribute("error", 2);
 						}
+                                                this.recuperarConfiguracionGlobal(request);
 						return mapping.findForward("success");
 					}
 
 				} else {
 					request.setAttribute("captcha", 1);
 					//ManejadorSesion.invalidate(idSesion);
+                                        this.recuperarConfiguracionGlobal(request);
 					return mapping.findForward("success");
 				}
 			} else {
 				request.setAttribute("error", 1);
 				request.setAttribute("captcha", 0);
                                 //ManejadorSesion.invalidate(idSesion);
+                                this.recuperarConfiguracionGlobal(request);
 				return mapping.findForward("success");
 
 			}
@@ -425,6 +434,7 @@ public class LoginAction extends GenericAction {
 		} catch (NSJPNegocioException e) {
 			log.error(e.getMessage(), e);
 			request.setAttribute("error", 0);
+                        this.recuperarConfiguracionGlobal(request);
 			return mapping.findForward("success");
 		}
 	}
