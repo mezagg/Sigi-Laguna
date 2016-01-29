@@ -1086,6 +1086,22 @@
                 var digitosFecha = arrFechaHora[0].split("-");
                 return digitosFecha[2] + '/' + digitosFecha[1] + '/' + digitosFecha[0];
             }
+   
+            function revisaLongitudFechasEspecifica()
+            {
+                               //si la fecha de fin seleccioanda es el dia de hoy seteamos la hora maxima 
+                               if($("#idFechaDate").val()===fechaMax)
+                               {
+                                       $("#idHora").timeEntry('destroy');
+                                       $("#idHora").timeEntry({show24Hours: false,defaultTime: timeMax,maxTime: timeMax});
+                               }
+                               else
+                               {
+                                       $("#idHora").val(timeMax);
+                                       $("#idHora").timeEntry('destroy');
+                                       $("#idHora").timeEntry({show24Hours: false,defaultTime: timeMax,maxTime: null});
+                               }
+            }
 
         </script>
     </head>

@@ -25,8 +25,7 @@
     <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/jquery.windows-engine.css"/>
 
     <!--Hojas de estilos para los componentes UI de Jquery-->
-    <!--link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css"/-->
-    <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/south-street/jquery-ui-1.8.10.custom.css" />
+    <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css"/>
     
     <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/south-street/jquery-ui-1.8.10.custom.css" />
 
@@ -39,6 +38,7 @@
     <!--scripts de java script-->
     <script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery-1.5.1.js"></script>
     <script type="text/javascript" src="<%= request.getContextPath() %>/resources/js/jquery-ui-1.8.11.custom.min.js"></script>
+    <script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery.blockUI.js"></script>
 
     <!--script de windows engine (frames)-->
     <script type="text/javascript" src="<%= request.getContextPath() %>/resources/js/jquery.windows-engine.js"></script>
@@ -165,6 +165,7 @@
 		$("#nuevoOtros").click(creaNuevoOtros);
 		
 		cargaTurnos();
+                cargaCorporacion();
 		cargaTipoParticipacion();
 		$("#chkOperativo").click(habilitaDivOperativo);	
 		ocultaDivOperativo();			
@@ -521,46 +522,47 @@
 		var params = recuperaDatosGenerales();
 		params += "&operativoId=" + operativoId;
 		var op=false;
-                
+                muestraMensajeInfo('Guardando...');
                 if(
                     missingField("#datosGeneralesCmpNumeroTransporteOf","","#tabDatosGenerales", "Debe ingresar el numero del transporte oficial.") ||
                     missingField("#datosGeneralesCmpAsunto","","#tabDatosGenerales", "Debe ingresar el asunto.") ||
                     missingField("#motivoCmpTipoEvento option:selected","0","#tabDatosGenerales", "Debe ingresar el tipo de Evento.") ||
                     missingField("#motivoCmpSubtipoEvento option:selected","0","#tabDatosGenerales", "Debe ingresar el subtipo de Evento.") ||
                     missingField("#datosGeneralesCmpNumeroEmpleado","","#tabDatosGenerales", "Debe ingresar el numero de empleado.") ||
+                    missingField("#datosGeneralesCmpCorporaciones option:selected", "", "#tabDatosGenerales", "Debe ingresar una corporacion.") ||    
                     missingField("#datosGeneralesCmpTurno option:selected","","#tabDatosGenerales", "Debe ingresar el turno.") ||    
                     missingField("#datosGeneralesCmpTipoParticipacion option:selected","","#tabDatosGenerales", "Debe ingresar el tipo de participacion.") ||
                     missingField("#cbxDistrito option:selected","","#tabDatosGenerales", "Debe ingresar Distrito.") ||
                     missingField("#cbxAgencia option:selected","","#tabDatosGenerales", "Debe ingresar la agencia.") 
 
-                )return;
+                )return op;
                  if($("#chkOperativo").is(':checked')){
                      if(
                         missingField("#datosGeneralesCmpNombreOperativo","","#tabDatosGenerales", "Debe ingresar el nombre del operativo.") ||
                         missingField("#datosGeneralesCmpComandanteAgrupamiento","","#tabDatosGenerales", "Debe ingresar el comandante del agrupamiento.") ||
                         missingField("#datosGeneralesCmpComandanteOperativo","","#tabDatosGenerales", "Debe ingresar el comandante del operativo.")
                        )
-                     return;
+                     return op;
                  }
-                muestraMensajeInfo('Guardando...');
+                
                  
                 $.ajax({								
                           type: 'POST',
                           url: '<%= request.getContextPath()%>/guardarDatosGeneralesIPH.do?folioIPH='+folioIPH+'',
                           data: params,				
                           dataType: 'xml',
-                          async:false,
+                          async: false,
                           success: function(xml){
                                 //console.log(xml);
                                   //$("#msgInfoBox").removeClass("ui-helper-hidden");
                                   //$("#msgInfo").text('Datos Generales del IPH guardados de manera correcta');
-                                  muestraMensajeInfo('Datos Generales del IPH guardados de manera correcta');
+                                  muestraMensajeInfo('Datos Generales del IPH guardados de manera correcta.');
                                   op=true;
                           },
                           error: function(result) {
                            //$("#msgError").text();
                            //$("#msgErrorBox").removeClass("ui-helper-hidden");
-                           muestraMensajeError('Datos Generales del IPH guardados de manera incorrecta');
+                           muestraMensajeError('Datos Generales del IPH guardados de manera incorrecta.');
                            
                         }
                  });
@@ -576,7 +578,7 @@
 		
 		$('#generaInformeBtn').addClass('cargando');
 		var regreso = guardarDatosGeneralesIPH();
-		
+		muestraMensajeInfo('Enviando IPH...');
                 
 		if(regreso === "ok" && iphReplica==="false"){
 			var idAgencia = parseInt($("#cbxAgencia option:selected").val());
@@ -585,13 +587,14 @@
 			  	  url: '<%= request.getContextPath()%>/generarInformeIPH.do',
                                   data: 'folioIPH='+folioIPH+ '&idAgencia=' + idAgencia,
 			  	  dataType: 'xml',
-			  	  async:true,
+			  	  async:false,
 			  	  success: function(xml){			  	  
 			  	          muestraMensajeInfo('Informe Policial Homologado generado de manera correcta');
 			  		  document.frmDocumento.documentoId.value = $(xml).find('idDocumentoIPH').text();
 					  document.frmDocumento.submit();
                                           $('#generaInformeBtn').removeClass('cargando');
                                           iphReplica="true";
+                                         
 			  	  },
                                   error:function(result) {
                                     console.log(result);
@@ -701,7 +704,7 @@
 	    		}
 			});
 		}else{
-			mostrarMensaje("Debe ingresar un número de Empleado", 'error');
+			muestraMensajeError("Debe ingresar un número de Empleado", 'error');
                         $('#datosGeneralesCmpNumeroEmpleado').removeClass("cargando");
 		}
 	}
@@ -732,7 +735,7 @@
 			url: '<%= request.getContextPath()%>/consultarCatalogoTurnoLaboral.do',
 			data: '',
 			dataType: 'xml',
-			async: false,
+			async: true,
 			success: function(xml){
 				var option;
 				$(xml).find('turnoLaboralDTO').each(function(){
@@ -741,6 +744,28 @@
 			}
 		});
 	}
+/*
+             *Funcion que dispara el Action para consultar Turnos
+             */
+            function cargaCorporacion() {
+                $('#datosGeneralesCmpCorporaciones').addClass('cargando');
+                $.ajax({
+                    type: 'POST',
+                    url: '<%= request.getContextPath()%>/consultarCatalogoCorporacion.do',
+                    data: '',
+                    dataType: 'xml',
+                    async: true,
+                    success: function (xml) {
+                        
+                        $(xml).find('corporacion').each(function () {
+                            $('#datosGeneralesCmpCorporaciones').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
+                        });
+                        $('#datosGeneralesCmpCorporaciones').removeClass('cargando');
+                
+                    }
+                });
+            }
+
 
 	/*
 	*Funcion que dispara el Action para consultar Tipo Participacion
@@ -771,18 +796,18 @@
 		$('#motivoCmpSubtipoEvento').append('<option value="0">-Seleccione-</option>');
 		
 		$.ajax({
-			async: false,									// la accion cargar las especialidades
+			async: true,									// la accion cargar las especialidades
 			type: 'POST',
 			url: '<%= request.getContextPath()%>/consultarSubtipoEvento.do?tipoEvento='+selected+'',
 			dataType: 'xml',
 			success: function(xml){
 				if(selected === "1"){
 					$(xml).find('delito').each(function(){
-						$('#motivoCmpSubtipoEvento').append('<option value="' + $(this).find('catDelitoId').text() + '">' + $(this).find('nombre').text() + '</option>');
+						$('#motivoCmpSubtipoEvento').append('<option title="'+ $(this).find('catDelitoId').text()+'" value="' + $(this).find('catDelitoId').text() + '">' + $(this).find('nombre').text() + '</option>');
 					});
 				}else if(selected === "2"){
 					$(xml).find('falta').each(function(){
-						$('#motivoCmpSubtipoEvento').append('<option value="' + $(this).find('catFaltaAdministrativaId').text() + '">' + $(this).find('nombreFalta').text() + '</option>');
+						$('#motivoCmpSubtipoEvento').append('<option title="'+ $(this).find('catDelitoId').text()+'" svalue="' + $(this).find('catFaltaAdministrativaId').text() + '">' + $(this).find('nombreFalta').text() + '</option>');
 					});
 				}
                                 $('#motivoCmpSubtipoEvento').removeClass('cargando');
@@ -1314,7 +1339,7 @@
 
 	function cargaGridDocumentosDigitalesPropios(){ 
 
-		if(primeraVezGridDocumentosDigitalesPropios == true){
+		if(primeraVezGridDocumentosDigitalesPropios === true){
 			jQuery("#gridDocumentosDigitalesPropios").jqGrid({
 				url:'<%=request.getContextPath()%>/ConsultaExpedientesDocumento.do?numeroExpedienteId='+numeroExpedienteId+'',
 				datatype: "xml", 
@@ -1441,10 +1466,10 @@
 	function customCargaGrid(id, tipoObjeto, esPrimeraVez, funcDblClic){
 		//alert('Entra a cargar grid iph');
 
-		if(esPrimeraVez == true){
+		if(esPrimeraVez === true){
 			var names;
 			var model;
-			if (tipoObjeto == '<%=Objetos.VEHICULO.getValorId()%>'){
+			if (tipoObjeto === '<%=Objetos.VEHICULO.getValorId()%>'){
 				names = ['Tipo','Placas']; 
 				model = [ 	{name:'tipo',index:'1',width:350, align:'center'},
 									{name:'placas',index:'2',width:500, align:'center'}];
@@ -1553,7 +1578,7 @@
 		<div id="tabsconsultaprincipal-12" class="tabResumen" >
 			<table width="1042px"  height="490px" border="0" cellspacing="0" cellpadding="0" class="back_hechos">
 				<tr><td colspan="6">&nbsp;</td></tr>			
-			  	<tr style="border-bottom-style: solid; border: 1;background-image:">
+			  	<tr style="border-bottom-style: solid; border: 1px">
 				    <td width="238" style="font-size:14px; background-color:" align="right"><strong>Estatus del Expediente:</strong></td>
 				    <td width="19" style="font-size:14px; background-color:" >&nbsp;</td>
 				    <td width="507" align="center" style="font-size:14px; background-color:"><strong>Resumen de objetos:</strong></td>
@@ -1611,8 +1636,8 @@
 				          	<tr>
 				          		<td>&nbsp;</td>
 				          	</tr>
-				          	<tr style="border-bottom-style: solid; border: 1;background-image:">
-				          		<td width="670" align="center" style="font-size:14px; background-color:" colspan="2">
+				          	<tr style="border-bottom-style: solid; border: 1px;">
+				          		<td width="670" align="center" style="font-size:14px; " colspan="2">
 				          		<strong>Resumen de involucrados<em>:</em></strong></td>	
 				    			<!--<td width="4" style="font-size:14px; background-color:">&nbsp;</td>-->
 				    		</tr>
@@ -1654,7 +1679,7 @@
 			  	</tr>
 			  	<tr>
 			    	<td  style="background-color:"align="right">
-			    		<span style="border-left:#000000; border-top:#000000; border-bottom-width:4; font-size:14px; background-color:">
+			    		<span style="border-left:#000000; border-top:#000000; border-bottom-width:4px; font-size:14px; ">
 			    			<img src="<%=request.getContextPath()%>/resources/images/icn_doc_chek.png"><strong>Tipo:</strong>
 			    		</span>
 			    	</td>
@@ -1803,7 +1828,7 @@
 									<tr>
 										<td align="right">* Subtipo de Evento:</td>
 										<td>
-											<select id="motivoCmpSubtipoEvento" style="width: 400px;">
+											<select id="motivoCmpSubtipoEvento" style="width: 500px;">
 												<option value="">- Seleccione -</option>
 											</select>
 										</td>
@@ -1811,8 +1836,10 @@
 									</tr>
 									<tr>
 										<td align="right">* N&uacute;mero de Empleado:</td>
-										<td><input type="text" style="width: 180px;" maxlength="30" id="datosGeneralesCmpNumeroEmpleado" /></td>
-										<td><input type="button" id="btnFuncionario" value="Validar Funcionario" onclick="buscarFuncionario();" class="ui-button ui-corner-all ui-widget" ></td>
+										<td><input type="text" style="width: 180px;" maxlength="30" id="datosGeneralesCmpNumeroEmpleado" />
+                                                                                <input type="button" id="btnFuncionario" value="Validar Funcionario" onclick="buscarFuncionario();" class="ui-button ui-corner-all ui-widget" >
+                                                                                </td>
+                                                                                <td></td>
 									</tr>
 									<tr>
 										<td align="right">Oficial:</td>
@@ -1831,7 +1858,7 @@
 									</tr>
 									
 									<tr>
-										<td align="right">Corporacion:</td>
+										<td align="right">*Corporaci&oacute;n:</td>
 										<td>
 											<select id="datosGeneralesCmpCorporaciones" style="width: 180px;">
 												<option value="">- Seleccione -</option>

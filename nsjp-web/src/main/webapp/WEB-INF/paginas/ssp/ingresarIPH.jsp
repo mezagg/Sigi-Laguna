@@ -119,7 +119,7 @@
             var folioIPH = '<%= request.getParameter("folioIPH")%>';
             numeroExpediente = '<%= request.getParameter("numeroExpediente")%>';
 
-            var idVentana = '<%=request.getParameter("idVentana")%>;'
+            var idVentana = '<%=request.getParameter("idVentana")%>';
 
             var contextoPagina = "${pageContext.request.contextPath}";
 
@@ -280,27 +280,29 @@
             function guardarDatosGeneralesIPH() {
                 var params = recuperaDatosGenerales();
                 inicializaMensajes();
-                var respuesta = "fail";
+                
+                
                 if (
                         missingField("#datosGeneralesCmpNumeroTransporteOf", "", "#tabDatosGenerales", "Debe ingresar el numero del transporte oficial.") ||
                         missingField("#datosGeneralesCmpAsunto", "", "#tabDatosGenerales", "Debe ingresar el asunto.") ||
                         missingField("#motivoCmpTipoEvento option:selected", "0", "#tabDatosGenerales", "Debe ingresar el tipo de Evento.") ||
                         missingField("#motivoCmpSubtipoEvento option:selected", "0", "#tabDatosGenerales", "Debe ingresar el subtipo de Evento.") ||
                         missingField("#datosGeneralesCmpNumeroEmpleado", "", "#tabDatosGenerales", "Debe ingresar el numero de empleado.") ||
+                        missingField("#datosGeneralesCmpCorporaciones option:selected", "", "#tabDatosGenerales", "Debe ingresar una corporacion.") ||
                         missingField("#datosGeneralesCmpTurno option:selected", "", "#tabDatosGenerales", "Debe ingresar el turno.") ||
                         missingField("#datosGeneralesCmpTipoParticipacion option:selected", "", "#tabDatosGenerales", "Debe ingresar el tipo de participacion.") ||
                         missingField("#cbxDistrito option:selected", "", "#tabDatosGenerales", "Debe ingresar Distrito.") ||
                         missingField("#cbxAgencia option:selected", "", "#tabDatosGenerales", "Debe ingresar la agencia.")
-
+                        
                         )
-                    return;
+                    return false;
                 if ($("#chkOperativo").is(':checked')) {
                     if (
                             missingField("#datosGeneralesCmpNombreOperativo", "", "#tabDatosGenerales", "Debe ingresar el nombre del operativo.") ||
                             missingField("#datosGeneralesCmpComandanteAgrupamiento", "", "#tabDatosGenerales", "Debe ingresar el comandante del agrupamiento.") ||
                             missingField("#datosGeneralesCmpComandanteOperativo", "", "#tabDatosGenerales", "Debe ingresar el comandante del operativo.")
                             )
-                        return;
+                        return false;
                 }
                 muestraMensajeInfo('Guardando...');
 
@@ -317,50 +319,26 @@
                     },
                     error: function (result) {
                         muestraMensajeError('Datos Generales del IPH guardados de manera incorrecta');
+                        return false;
                     }
                 });
 
-                if (op) {
-                    return "ok";
-                }
+                
+                return op;
+                
             }
 
-            /*
-             function guardarDatosGeneralesIPH(){
-             
-             var respuesta="fail";
-             var params = recuperaDatosGenerales();
-             
-             if($("#datosGeneralesCmpNumeroTransporteOf").val() == "" || $("#datosGeneralesCmpAsunto").val() == "" ||
-             $("#motivoCmpTipoEvento option:selected").val() == 0 || $("#motivoCmpSubtipoEvento option:selected").val() == "" ||
-             $("#datosGeneralesCmpNumeroEmpleado").val() == "" || $("#datosGeneralesCmpTurno option:selected").val() == "" ||
-             $("#datosGeneralesCmpTipoParticipacion option:selected").val() == "" || 
-             $("#cbxAgencia option:selected").val() == 0 || $("#cbxDistrito option:selected").val() == "" ||
-             ($("#chkOperativo").is(':checked') && ($("#datosGeneralesCmpNombreOperativo").val() == "" || 
-             $("#datosGeneralesCmpComandanteAgrupamiento").val() == "" || $("#datosGeneralesCmpComandanteOperativo").val() == ""))){
-             alertDinamico("Debe ingresar valores a los campos obligatorios (*)");
-             respuesta = "paramInsuficientes";
-             }else{
-             
-             
-             $.ajax({								
-             type: 'POST',
-             url: '<%= request.getContextPath()%>/guardarDatosGeneralesIPH.do?folioIPH='+folioIPH+'',
-             data: params,				
-             dataType: 'xml',
-             async:false,
-             success: function(xml){
-             respuesta = "ok";
-             }
-             });
-             
-             
-             return respuesta;
-             }
-             }*/
-
+            
+            
             function generarInformeIPH() {
+                $('#generaInformeBtn').addClass('cargando');
                 var regreso = guardarDatosGeneralesIPH();
+                if(regreso === false){
+                    $('#generaInformeBtn').removeClass('cargando');
+                    return;
+                }
+                
+                muestraMensajeInfo('Generando IPH...');
                 var idAgencia = parseInt($("#cbxAgencia option:selected").val());
                 customConfirm('<span style="font-size:20px">' + 'Esta seguro de enviar el IPH' + '</span>', 'Confirmar de env&iacute;o de IPH',
                         function () {
@@ -368,10 +346,11 @@
                                 type: 'POST',
                                 url: '<%= request.getContextPath()%>/generarInformeIPH.do?folioIPH=' + folioIPH + '&idAgencia=' + idAgencia + '',
                                 dataType: 'xml',
-                                async: false,
+                                async: true,
                                 success: function (xml) {
+                                     $('#generaInformeBtn').removeClass('cargando');
                                     var idExpedienteIPH = $(xml).find('body').find('RespuestaDTO').find('idNuevoExpedienteIPH').text();
-                                    if (parseInt(idExpedienteIPH) == 0) {//Ocurrio un error en la replica del caso
+                                    if (parseInt(idExpedienteIPH) === 0) {//Ocurrio un error en la replica del caso
                                         alertDinamico($(xml).find('body').find('RespuestaDTO').find('mensajeDeError').text());
                                     } else {
                                         var idDocumento = $(xml).find('body').find('RespuestaDTO').find('idDocumentoIPH').text();
@@ -384,32 +363,23 @@
                         });
             }
 
-            /*function customRange(input) {
-             $.timeEntry.setDefaults({show24Hours: true});
-             return {minTime: (input.id == 'idHoraDateLapsoFin' ?
-             $('#datosGeneralesCmpHoraEvento').timeEntry('getTime') : null),
-             maxTime: (input.id == 'datosGeneralesCmpHoraEvento' ?
-             $('#idHoraDateLapsoFin').timeEntry('getTime') : null)};
-             }*/
-
-            /*$(function(){
-             $('.timeRange').timeEntry({beforeShow: customRange,timeSteps:[1,5,0],ampmPrefix: ' '});
-             });*/
+            
+            
 
             function buscarFuncionario() {
                 var numeroEmpleado = $('#datosGeneralesCmpNumeroEmpleado').val();
                 $('#datosGeneralesCmpOficial').addClass("cargando");
-                if (numeroEmpleado != "") {
+                if (numeroEmpleado !== "") {
                     $.ajax({
                         type: 'POST',
                         url: '<%=request.getContextPath()%>/consultarPersonalOperativoIPH.do?numeroEmpleado=' + numeroEmpleado + '',
                         data: '',
                         dataType: 'xml',
-                        async: false,
+                        async: true,
                         success: function (xml) {
                             var nombre = $(xml).find('funcionarioDTO').find('nombreFuncionario').first().text() + ' ' + $(xml).find('funcionarioDTO').find('apellidoPaternoFuncionario').first().text();
                             var sector = $(xml).find('funcionarioDTO').find('departamento').find('area').find('nombre').first().text();
-                            if (nombre != "" && nombre != null) {
+                            if (nombre !== "" && nombre !== null) {
                                 $('#datosGeneralesCmpOficial').val(nombre);
                                 $('#datosGeneralesCmpSector').val(sector);
                                 var claveFuncionario = $(xml).find('funcionarioDTO').find('claveFuncionario').first().text();
@@ -428,17 +398,19 @@
             }
 
             function obtenerSuperior(claveFuncionario) {
-                if (claveFuncionario != "" && claveFuncionario != null) {
+                $("#datosGeneralesCmpDirigidoA").addClass('cargando');
+                if (claveFuncionario !== "" && claveFuncionario !== null) {
                     $.ajax({
                         type: 'POST',
                         url: '<%=request.getContextPath()%>/consultaFuncionarioSuperior.do?claveFuncionario=' + claveFuncionario + '',
                         data: '',
                         dataType: 'xml',
-                        async: false,
+                        async: true,
                         success: function (xml) {
                             var nombre = $(xml).find('funcionarioDTO').find('nombreFuncionario').first().text() + ' ' + $(xml).find('funcionarioDTO').find('apellidoPaternoFuncionario').first().text();
 
                             $('#datosGeneralesCmpDirigidoA').val(nombre);
+                             $("#datosGeneralesCmpDirigidoA").removeClass('cargando');
                         }
                     });
                 }
@@ -448,17 +420,19 @@
              *Funcion que dispara el Action para consultar Turnos
              */
             function cargaTurnos() {
+                $("#datosGeneralesCmpTurno").addClass('cargando');
                 $.ajax({
                     type: 'POST',
                     url: '<%= request.getContextPath()%>/consultarCatalogoTurnoLaboral.do',
                     data: '',
                     dataType: 'xml',
-                    async: false,
+                    async: true,
                     success: function (xml) {
                         var option;
                         $(xml).find('turnoLaboralDTO').each(function () {
                             $('#datosGeneralesCmpTurno').append('<option value="' + $(this).find('turnoLaboralId').text() + '">' + $(this).find('nombreTurno').text() + '</option>');
                         });
+                        $("#datosGeneralesCmpTurno").removeClass('cargando');
                     }
                 });
             }
@@ -467,17 +441,19 @@
              *Funcion que dispara el Action para consultar Turnos
              */
             function cargaCorporacion() {
+                $('#datosGeneralesCmpCorporaciones').addClass('cargando');
                 $.ajax({
                     type: 'POST',
                     url: '<%= request.getContextPath()%>/consultarCatalogoCorporacion.do',
                     data: '',
                     dataType: 'xml',
-                    async: false,
+                    async: true,
                     success: function (xml) {
-                        var option;
+                        
                         $(xml).find('corporacion').each(function () {
                             $('#datosGeneralesCmpCorporaciones').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
                         });
+                        $('#datosGeneralesCmpCorporaciones').removeClass('cargando');
                     }
                 });
             }
@@ -486,22 +462,25 @@
              *Funcion que dispara el Action para consultar Tipo Participacion
              */
             function cargaTipoParticipacion() {
+                $("#datosGeneralesCmpTipoParticipacion").addClass('cargando');
                 $.ajax({
                     type: 'POST',
                     url: '<%= request.getContextPath()%>/consultarCatalogoTipoParticipacion.do',
                     data: '',
                     dataType: 'xml',
-                    async: false,
+                    async: true,
                     success: function (xml) {
-                        var option;
+                        
                         $(xml).find('tipoParticipacion').each(function () {
                             $('#datosGeneralesCmpTipoParticipacion').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
                         });
+                         $("#datosGeneralesCmpTipoParticipacion").removeClass('cargando');
                     }
                 });
             }
 
             function buscaSubTipoEvento() {
+                $("#motivoCmpSubtipoEvento").addClass('cargando');
                 var selected = $("#motivoCmpTipoEvento option:selected").val();
                 //deshabilitaCtrlsFaltaAdministrativa(selected != 2 );
                 $("#motivoCmpSubtipoEvento").attr('selectedIndex', 0);
@@ -509,20 +488,21 @@
                 $('#motivoCmpSubtipoEvento').append('<option value="0">-Seleccione-</option>');
 
                 $.ajax({
-                    async: false, // la accion cargar las especialidades
+                    async: true, // la accion cargar las especialidades
                     type: 'POST',
                     url: '<%= request.getContextPath()%>/consultarSubtipoEvento.do?tipoEvento=' + selected + '',
                     dataType: 'xml',
                     success: function (xml) {
-                        if (selected == "1") {
+                        if (selected === "1") {
                             $(xml).find('delito').each(function () {
                                 $('#motivoCmpSubtipoEvento').append('<option value="' + $(this).find('catDelitoId').text() + '">' + $(this).find('nombre').text() + '</option>');
                             });
-                        } else if (selected == "2") {
+                        } else if (selected === "2") {
                             $(xml).find('falta').each(function () {
                                 $('#motivoCmpSubtipoEvento').append('<option value="' + $(this).find('catFaltaAdministrativaId').text() + '">' + $(this).find('nombreFalta').text() + '</option>');
                             });
                         }
+                        $("#motivoCmpSubtipoEvento").removeClass('cargando');
                     }
                 });
             }
@@ -733,7 +713,7 @@
             }
             function cargaAeronave(id, tipo) {
                 $('#tblAeronave tr:#' + id).remove();
-                if (tipo != "")
+                if (tipo !== "")
                 {
                     $('#tblAeronave').append('<tr id="' + id + '"><td class="noSub" >&nbsp;&nbsp;&nbsp;<a style="cursor:pointer;" id="consultarAeronave_' + id + '" onclick="consultarAeronave(' + id + ')">' + tipo + '</a></td></tr>');
                 }
@@ -760,7 +740,7 @@
             }
             function cargaEmbarcacion(id, tipo) {
                 $('#tblEmbarcacion tr:#' + id).remove();
-                if (tipo != "")
+                if (tipo !== "")
                 {
                     $('#tblEmbarcacion').append('<tr id="' + id + '"><td class="noSub">&nbsp;&nbsp;&nbsp;<a style="cursor:pointer;" id="consultarEmbarcacion_' + id + '" onclick="consultarEmbarcacion(' + id + ')">' + tipo + '</a></td></tr>');
                 }
@@ -788,7 +768,7 @@
 
             function cargaArma(id, tipo) {
                 $('#tblArma tr:#' + id).remove();
-                if (tipo != "")
+                if (tipo !== "")
                 {
                     $('#tblArma').append('<tr id="' + id + '"><td class="noSub">&nbsp;&nbsp;&nbsp;<a style="cursor:pointer;" id="consultarArma_' + id + '" onclick="consultarArma(' + id + ')">' + tipo + '</a></td></tr>');
                 }
@@ -815,7 +795,7 @@
             }
             function cargaExplosivo(id, tipo) {
                 $('#tblExplosivos tr:#' + id).remove();
-                if (tipo != "")
+                if (tipo !== "")
                 {
                     $('#tblExplosivos').append('<tr id="' + id + '"><td class="noSub" >&nbsp;&nbsp;&nbsp;<a style="cursor:pointer;" id="consultarExplosivo_' + id + '" onclick="consultarExplosivo(' + id + ')">' + tipo + '</a></td></tr>');
                 }
@@ -841,7 +821,7 @@
             }
             function cargaSustancia(id, tipo) {
                 $('#tblSustancia tr:#' + id).remove();
-                if (tipo != "")
+                if (tipo !== "")
                 {
                     $('#tblSustancia').append('<tr id="' + id + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a id="consultarSustancia_' + id + '" onclick="consultarSustancia(' + id + ')">' + tipo + '</a></td></tr>');
                 }
@@ -867,7 +847,7 @@
             }
             function cargaNumerario(id, tipo) {
                 $('#tblNumerario tr:#' + id).remove();
-                if (tipo != "")
+                if (tipo !== "")
                 {
                     $('#tblNumerario').append('<tr id="' + id + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a id="consultarNumerario_' + id + '" onclick="consultarNumerario(' + id + ')">' + tipo + '</a></td></tr>');
                 }
@@ -898,7 +878,7 @@
 
             function cargaOtros(id, nombre) {
                 $('#tblOtros tr:#' + id).remove();
-                if (nombre != "")
+                if (nombre !== "")
                 {
                     $('#tblOtros').append('<tr id="' + id + '"><td class="noSub" >&nbsp;&nbsp;&nbsp;<a style="cursor:pointer;" id="consultarOtros_' + id + '" onclick="consultarOtros(' + id + ')">' + nombre + '</a></td></tr>');
                 }
@@ -918,16 +898,18 @@
              *Funcion que consulta Distritos
              */
             function consultarDistritos() {
+                $("#cbxDistrito").addClass('cargando');
                 $.ajax({
                     type: 'POST',
                     url: '<%=request.getContextPath()%>/consultarDistritos.do',
                     data: '',
                     dataType: 'xml',
-                    async: false,
+                    async: true,
                     success: function (xml) {
                         $(xml).find('listaCatalogo').find('catDistritoDTO').each(function () {
                             $('#cbxDistrito').append('<option value="' + $(this).find('catDistritoId').text() + '">' + $(this).find('claveDistrito').text() + "-" + $(this).find('nombreDist').text() + '</option>');
                         });
+                         $("#cbxDistrito").removeClass('cargando');
                     }
                 });
             }
@@ -1081,7 +1063,7 @@
                                         <tr>
                                             <td align="right">* Subtipo de Evento:</td>
                                             <td>
-                                                <select id="motivoCmpSubtipoEvento" style="width: 180px;">
+                                                <select id="motivoCmpSubtipoEvento" style="width: 500px;">
                                                     <option value="">- Seleccione -</option>
                                                 </select>
                                             </td>
@@ -1089,8 +1071,10 @@
                                         </tr>
                                         <tr>
                                             <td align="right">* N&uacute;mero de Empleado:</td>
-                                            <td><input type="text" style="width: 180px;" maxlength="30" id="datosGeneralesCmpNumeroEmpleado"/></td>
-                                            <td><input type="button" id="btnFuncionario" value="Validar Funcionario" onclick="buscarFuncionario();" class="ui-button ui-corner-all ui-widget"></td>
+                                            <td><input type="text" style="width: 180px;" maxlength="30" id="datosGeneralesCmpNumeroEmpleado"/>
+                                            <input type="button" id="btnFuncionario" value="Validar Funcionario" onclick="buscarFuncionario();" class="ui-button ui-corner-all ui-widget">
+                                            </td>
+                                            <td></td>
                                         </tr>
                                         <tr>
                                             <td align="right">Oficial:</td>
@@ -1109,7 +1093,7 @@
                                         </tr>
 
                                         <tr>
-                                            <td align="right">Corporaciones:</td>
+                                            <td align="right">*Corporaci&oacute;n:</td>
                                             <td>
                                                 <select id="datosGeneralesCmpCorporaciones" style="width: 180px;">
                                                     <option value="0">- Seleccione -</option>

@@ -79,7 +79,7 @@
 			var idUsuario="";
 			var tipoTiempoHecho=1;//1 para definido,2 para lapso y 3 para descripcion hecho en el tiempo
 			var calidad="";
-			var idHecho=";"
+			var idHecho="";
 			var banderaConsultaHecho=0;
 			var deshabilitarCampos = window.parent.deshabilitarCamposPM;
 			var validaTipoExpedienteReporte='<%=((ConfiguracionDTO) request.getSession().getAttribute(GenericAction.KEY_SESSION_CONFIGURACION_GLOBAL)).getValidaTipoExpedienteReporte() %>';
@@ -105,7 +105,7 @@
 					
 					var auxiliar='<%= request.getParameter("menuIntermedio")%>';
 					
-					if(auxiliar!=null){
+					if(auxiliar!==null){
 						flagMenuIntermedio=auxiliar;
 					}
 					
@@ -118,20 +118,20 @@
 					isIPH = '<%=request.getParameter("iphFuncionalidadHidden")%>';
 					pantallaSolicitada = '<%=request.getParameter("pantallaSolicitada")%>';
 					
-					if(validaTipoExpedienteReporte !=null && (validaTipoExpedienteReporte == "0" || validaTipoExpedienteReporte==0)){
+					if(validaTipoExpedienteReporte !==null && (validaTipoExpedienteReporte === "0" || validaTipoExpedienteReporte===0)){
 						$('#spanRdbTipoReporte').hide();
 					}else{
 						//Permite manipular el radio button en base al rol del usuario loggeado
 						$('#rdbTipoReporte').attr('disabled', 'disabled');	
-						if(pantallaSolicitada != null){
-							if(pantallaSolicitada == AGENTE_MP || pantallaSolicitada == COORDINADOR_AMP ||
-							   pantallaSolicitada == POLICIA_MINISTERIAL_DENUNCIA || pantallaSolicitada == POLICIA_MINISTERIAL){
+						if(pantallaSolicitada !== null){
+							if(pantallaSolicitada === AGENTE_MP || pantallaSolicitada === COORDINADOR_AMP ||
+							   pantallaSolicitada === POLICIA_MINISTERIAL_DENUNCIA || pantallaSolicitada === POLICIA_MINISTERIAL){
 								//Oculta radio button de Reporte
 								$('#spanRdbTipoReporte').hide();	
-							}else if(pantallaSolicitada == ATPENAL ){
+							}else if(pantallaSolicitada === ATPENAL ){
 									$('#rdbTipoReporte').attr('disabled', false);	
 							}
-							else if(pantallaSolicitada == ENCARGADO_CAUSA ){
+							else if(pantallaSolicitada === ENCARGADO_CAUSA ){
 								$('#spanRdbQuerella').hide();
 								$('#spanRdbTipoReporte').hide();
 							}
@@ -168,7 +168,7 @@
 							$( "#idFechaDateLapso2" ).datepicker( "option", "minDate", date );
 							//sette la hora maxima del inicio
 							var fechaTemp=$("#idHoraDateLapsoFin").val();
-							if($("#idFechaDateLapso").val()==fechaMax ){
+							if($("#idFechaDateLapso").val()===fechaMax ){
 								fechaTemp=horaServer();
 								$("#idHoraDateLapsoInicio").val(fechaTemp);
 								$("#idHoraDateLapsoFin").val(fechaTemp);
@@ -192,7 +192,7 @@
 							//sette la hora maxima del inicio
 							revisaLongitudFechas();
 							var fechaTemp;
-							if($("#idFechaDateLapso2").val()==fechaMax ){
+							if($("#idFechaDateLapso2").val()===fechaMax ){
 								fechaTemp=horaServer();
 								$("#idHoraDateLapsoFin").val(fechaTemp);
 							}else{
@@ -233,7 +233,7 @@
 					killDomicilioNotificaciones();
 					
 					
-					if(idHecho!=null && parseInt(idHecho)!=0)
+					if(idHecho!==null && parseInt(idHecho)!==0)
 					{
 						$("#btnGuardarHechos").hide();
 						$("#btnModificarHechos").show();
@@ -245,23 +245,23 @@
 					$('#idFechaDateLapso').change(validaCamposFecha);
 					$('#idFechaDateLapso2').change(validaCamposFecha);
 					
-					if (isIPH == true || isIPH == "true") {
+					if (isIPH === true || isIPH === "true") {
 						$("#IPHFuncionalidadOcultaTipoExpediente").hide();					
 					}
 					
 					//Instruccion pensada solo para el caso de policia ministerial
-					if(deshabilitarCampos == true){
+					if(deshabilitarCampos === true){
 						$(":enabled").attr('disabled','disabled');
 					}
 					
-					if(pantallaSolicitada==COORDINADOR_AMP_GENERAL){
+					if(pantallaSolicitada===COORDINADOR_AMP_GENERAL){
 	    				$(":enabled").attr('disabled','disabled');
 	    				$('input[type="submit"]').hide();
 	    				$('input[type="button"]').hide();
 	    				$("#editor1").attr('disabled','disabled');
 					}
 					
-					if(idRolActivo == '<%=Roles.FACILITADOR.getValorId()%>' || idRolActivo == '<%=Roles.COORDINADORJAR.getValorId()%>' ){
+					if(idRolActivo === '<%=Roles.FACILITADOR.getValorId()%>' || idRolActivo === '<%=Roles.COORDINADORJAR.getValorId()%>' ){
 						$("#btnModificarHechos").hide();	
 					}
 					
@@ -339,7 +339,7 @@
 			function consultaHecho()
 			{
 				var numExpedienteConsulta=0;
-				if (isIPH == true || isIPH == "true") {
+				if (isIPH === true || isIPH === "true") {
 					numExpedienteConsulta=numeroExpedienteId;
 				}
 				else{
@@ -352,7 +352,7 @@
 		    		dataType: 'xml',
 		    		async: false,
 		    		success: function(xml){
-		    			if(parseInt($(xml).find('code').text())==0)
+		    			if(parseInt($(xml).find('code').text())===0)
 			    		{
 		    				try{
 			    				 var datos=$(xml).find('fechaDeArribo').text().split(' ');
@@ -384,11 +384,11 @@
 				    	      
 				    	      var tipoExpediente=$(xml).find('hechoDTO').find('expediente').find('origen').find('idCampo').text();
 				    	      
-				    	      if(tipoExpediente=='<%=OrigenExpediente.QUERELLA.getValorId()%>'){
+				    	      if(tipoExpediente==='<%=OrigenExpediente.QUERELLA.getValorId()%>'){
 				    	    	  $('#rdbTipoQuerella').attr('checked','checked');				    	    	  
 				    	      }
 				    	      
-				    	      if(tipoExpediente=='<%=OrigenExpediente.REPORTE.getValorId()%>'){
+				    	      if(tipoExpediente==='<%=OrigenExpediente.REPORTE.getValorId()%>'){
 				    	    	  $('#rdbTipoReporte').attr('checked','checked');				    	    	  
 				    	      }
 				    	      
@@ -408,7 +408,7 @@
 				    	      //Seteamos los campos de conclusion
 				    	      cargaCalendarioTipoConclusion();
 				    	      var fechaConclusion = $(xml).find('conclusionHechoDTO').find('fechaConclusion').text();
-				    			 if( fechaConclusion != null && fechaConclusion.length>0){
+				    			 if( fechaConclusion !== null && fechaConclusion.length>0){
 				    				 var fechaConclusion = fechaConclusion.split(' ');
 				    				 var fchConclusionBien = fechaConclusion[0].split('-');
 				    				 $('#fechaConclusion').val(fchConclusionBien[2]+"/"+fchConclusionBien[1]+"/"+fchConclusionBien[0]);
@@ -448,7 +448,7 @@
 			}
 			
 			function habilitaDeshabilitaCamposTipoConclusion(bandera){
-				if(parseInt(bandera)==1){
+				if(parseInt(bandera)===1){
 					//habilita
 					$('#fechaConclusion').datepicker('enable');
 					$('#fechaConclusion').attr("disabled","");
@@ -466,7 +466,7 @@
 			
 			function bloqueaCamposTiempoOtro(bandera)
 		     {
-		    	if(parseInt(bandera)==0)
+		    	if(parseInt(bandera)===0)
 		    	{
 		    		$("#textNarrativa").attr("readonly","readonly");
 		    	}
@@ -478,7 +478,7 @@
 			
 			function habilitaDeshabilitaBotonesTiempo(bandera)
 			{
-				if(parseInt(bandera)==1)
+				if(parseInt(bandera)===1)
 				{
 					$("#ingresarTiempoEspecificamentePResponsable").attr("disabled","");
 					$("#ingresarTiempoLapsoPResponsable").attr("disabled","");
@@ -511,7 +511,16 @@
 					tipoTiempoHecho=2;
 				  }
 				}
-				
+				  /*
+                                *Funcion para recuperar los datos de tiempo especifico
+                                */
+                                function recuperaDatosTiempoEspecifico(idCalidad)
+                                {
+                                      var lsDatosTiempo="";
+                                                   lsDatosTiempo="fecha="+$("#idFechaDate").val();
+                                                   lsDatosTiempo+="&hora="+$("#idHoraDate").val();
+                                      return lsDatosTiempo;
+                                }
 						
 				function cambiaOtro(){
 				  if(!$("#divLapso").is(':visible')||!("#divEspecifico").is(':visible')){
@@ -551,14 +560,14 @@
 						data: parametrosHechos+"&idTiempo="+idTiempo+"&idLugar="+idLugar,
 						dataType: 'xml',
 						success: function(xml){
-							if(parseInt(idHecho)==0)
+							if(parseInt(idHecho)===0)
 							{
 								//Venismo de una insercion
-								if(parseInt($(xml).find('code').text())==0)
+								if(parseInt($(xml).find('code').text())===0)
 								{
 									$("#btnGuardarHechos").attr("disabled","disabled");	
 									alertDinamicoCerrar("Se guard&oacute; exitosamente la informaci&oacute;n",1,xml);
-									if (typeof window.parent.cambiaTextoVisor == 'function') {
+									if (typeof window.parent.cambiaTextoVisor === 'function') {
 										window.parent.cambiaTextoVisor($(':radio[name=rdTipoExpediente]:checked').val());
 								    }
 						    	}
@@ -569,7 +578,7 @@
 							}
 							else
 							{
-								if(parseInt($(xml).find('code').text())==0)
+								if(parseInt($(xml).find('code').text())===0)
 								{
 									//venimos de un update y para setear la pantalla mandaremos llamar a la consulta del hecho
 									//consultaHecho();
@@ -577,7 +586,7 @@
 									$("#btnGuardarHechos").hide();
 									$("#btnModificarHechos").attr('disabled','');
 									
-									if (typeof window.parent.cambiaTextoVisor == 'function') {
+									if (typeof window.parent.cambiaTextoVisor === 'function') {
 										window.parent.cambiaTextoVisor($(':radio[name=rdTipoExpediente]:checked').val());
 								    }
 									
@@ -623,7 +632,7 @@
 			
 			function bloqueaCamposHoraArribo(bandera)
 		     {
-		    	if(parseInt(bandera)==0)
+		    	if(parseInt(bandera)===0)
 		    	{
 		    	 $('#idFechaArribo').attr('disabled','disabled');
 		    	 $('#idHoraArribo').attr('disabled','disabled');
@@ -642,14 +651,14 @@
 			function validaDatosIngresoHecho()
 			{
 				//lamaremos a cada uno de los metodos que validan las secciones de la vista
-				if(escape($('.jquery_ckeditor').val()).length==0)
+				if(escape($('.jquery_ckeditor').val()).length===0)
 				{
 					alertDinamico("Favor de registrar la descripci&oacute;n de los hechos");
 					return false;
 				}
 				
 				var selected = $("#cbxDelegacionMunicipio option:selected");
-				if(	selected.val() == "-1" ){
+				if(	selected.val() === "-1" ){
 					alertDinamico("Debe ingresar Delegaci&oacute;n/Municipio");
 					return false;
 				}
@@ -678,15 +687,15 @@
 					parametros += "&tipoTiempoHecho="+tipoTiempoHecho;
 				}
 				//recuperamos los datos de fecha y tiempo
-				if(parseInt(tipoTiempoHecho)==1)//especifico
+				if(parseInt(tipoTiempoHecho)===1)//especifico
 				{
 					parametros += "&"+recuperaDatosTiempoEspecifico(calidad);	
 				}
-				else if(parseInt(tipoTiempoHecho)==2)//lapso
+				else if(parseInt(tipoTiempoHecho)===2)//lapso
 				{
 					parametros += "&"+recuperaDatosTiempoLapso(calidad);	
 				}
-				else if(parseInt(tipoTiempoHecho)==3)//hecho en el tiempo
+				else if(parseInt(tipoTiempoHecho)===3)//hecho en el tiempo
 				{
 					parametros += "&gsNarrativa="+$("#textNarrativa").val();	
 				}
@@ -695,7 +704,7 @@
 				parametros += "&idUsuario=" + idUsuario;
 				parametros += "&origenExpediente=" + $(':radio[name=rdTipoExpediente]:checked').val();
 				var numExpedienteConsulta=0;
-				if (isIPH == true || isIPH == "true") {					
+				if (isIPH === true || isIPH === "true") {					
 					parametros += "&numExpediente=" + numeroExpediente;				
 					parametros += "&numeroExpedienteId="+numeroExpedienteId;
 				}
@@ -789,7 +798,16 @@
 					}
 				});    
 			 }
-			
+			 /*
+                        *Funcion para recuperar los datos de tiempo especifico
+                        */
+                        function recuperaDatosTiempoEspecifico(idCalidad)
+                        {
+                              var lsDatosTiempo="";
+                                           lsDatosTiempo="fecha="+$("#idFechaDate").val();
+                                           lsDatosTiempo+="&hora="+$("#idHoraDate").val();
+                              return lsDatosTiempo;
+                        }
 			function horaServer(){
 				fechaTemp = consultaFechaHoraMaximaServer();
 				hora = parseInt(fechaTemp.substring(11,13),10);

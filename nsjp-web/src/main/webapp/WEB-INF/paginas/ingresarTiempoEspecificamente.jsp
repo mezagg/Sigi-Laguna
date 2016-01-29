@@ -7,18 +7,18 @@
  <script type="text/javascript">
     
 	 function customRangeDef(input) {
-	 	if($("#idFechaDate").val()==fechaMax)
+	 	if($("#idFechaDate").val()===fechaMax)
 	 	{
-			  return {minTime: (input.id == 'idHoraDate' ?
+			  return {minTime: (input.id === 'idHoraDate' ?
 						null : null),
-					maxTime: (input.id == 'idHoraDate' ?
+					maxTime: (input.id === 'idHoraDate' ?
 							timeMax : null)};
 	 	}
 	 	else
 	 	{
-	 		return {minTime: (input.id == 'idHoraDate' ?
+	 		return {minTime: (input.id === 'idHoraDate' ?
 	 				null : null),
-	 				maxTime: (input.id == 'idHoraDate' ?
+	 				maxTime: (input.id === 'idHoraDate' ?
 	 	    				null : null)};
 	 	}
 	 }
@@ -37,7 +37,7 @@
   			lsDatosTiempo+="&hora="+$("#idHoraDate").val();
   	   return lsDatosTiempo;
      }
-
+  
      /*
       *Funcion para pintar los datos mediante la recuperacion del xml de tiempo especifico
       */
@@ -53,7 +53,7 @@
     	 var hora=datos[1].split(".");
     	 var horaBien=hora[0].split(":");
     	 $("#idFechaDate").val(fechaBien[2]+"/"+fechaBien[1]+"/"+fechaBien[0]);
-    	 $("#idHoraDate").timeEntry('destroy')
+    	 $("#idHoraDate").timeEntry('destroy');
     	 //$("#idHoraDate").val(datos[1].substring(0,5));
     	 $('#idHoraDate').timeEntry({beforeShow: customRange,timeSteps:[1,1,0],ampmPrefix: ' '});
     	 $('#idHoraDate').timeEntry('setTime', formateaHoraTimeEntryTextBox(datos[1].substring(0,5)));
@@ -65,7 +65,7 @@
      
      function bloqueaCamposTiempoEspecifico(bandera)
      {
-    	if(parseInt(bandera)==0)
+    	if(parseInt(bandera)===0)
     	{
     	 $('#idFechaDate').attr('disabled','disabled');
     	 $('#idHoraDate').attr('disabled','disabled');
@@ -81,7 +81,7 @@
      function revisaLongitudFechasEspecifica()
      {
 			//si la fecha de fin seleccioanda es el dia de hoy seteamos la hora maxima 
-			if($("#idFechaDate").val()==fechaMax)
+			if($("#idFechaDate").val()===fechaMax)
 			{
 				$("#idHora").timeEntry('destroy');
 				$("#idHora").timeEntry({show24Hours: false,defaultTime: timeMax,maxTime: timeMax});
