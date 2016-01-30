@@ -141,11 +141,10 @@ public class AudienciaDAOImpl extends GenericDaoHibernateImpl<Audiencia, Long>
 				qryStr.append(" AND CONVERT (nvarchar, a.fechaAudiencia, 112) = ");
 				qryStr.append(DateUtils.formatearBD(fecIni));
 				if (!diaCompleto) {
-					final SimpleDateFormat sdf = new SimpleDateFormat(
-							"yyyy/MM/dd HH:mm:ss.SSS");
-					qryStr.append(" AND a.fechaAudiencia >= ('");
-					qryStr.append(sdf.format(fecIni));
-					qryStr.append("')");
+					
+					qryStr.append(" AND CONVERT (nvarchar, a.fechaAudiencia, 112) >= ");
+					qryStr.append(DateUtils.formatearBD(fecIni));
+					
 				}
 			}
 		}
@@ -216,11 +215,9 @@ public class AudienciaDAOImpl extends GenericDaoHibernateImpl<Audiencia, Long>
 				qs.append(" AND CONVERT (nvarchar, a.fechaAudiencia, 112) = ");
 				qs.append(DateUtils.formatearBD(fecIni));
 				if (!diaCompleto) {
-					final SimpleDateFormat sdf = new SimpleDateFormat(
-							"yyyy/MM/dd HH:mm:ss.SSS");
-					qs.append(" AND a.fechaAudiencia >= ('");
-					qs.append(sdf.format(fecIni));
-					qs.append("')");
+					
+                                        qs.append(" AND CONVERT (nvarchar, a.fechaAudiencia, 112) >= ");
+					qs.append(DateUtils.formatearBD(fecIni));
 				}
 			}
 		}
@@ -362,7 +359,7 @@ public class AudienciaDAOImpl extends GenericDaoHibernateImpl<Audiencia, Long>
 		
 		StringBuffer queryString = new StringBuffer();
 		queryString.append("SELECT au  FROM Audiencia au ")
-					.append(" WHERE au.numeroExpediente.numeroExpediente like").append("'"+numeroExpediente+"'");
+					.append(" WHERE au.numeroExpediente.numeroExpediente like ").append("'"+numeroExpediente+"'");
 		queryString.append(" AND au.numeroExpediente.expediente.discriminante.catDiscriminanteId=").append(discriminanteId);
 		
 		queryString.append(" ORDER by au.fechaAudiencia desc");
@@ -544,13 +541,11 @@ public class AudienciaDAOImpl extends GenericDaoHibernateImpl<Audiencia, Long>
 		
 		if (fechaInicio != null && fechaFin != null){
 			
-			final SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-			
-			queryString.append(" a.fechaAudiencia BETWEEN ('");
-			queryString.append(sdf.format(fechaInicio));
+                        queryString.append(" CONVERT (nvarchar, a.fechaAudiencia, 112) BETWEEN ('");
+			queryString.append(DateUtils.formatearBD(fechaInicio));
 			queryString.append("')");
 			queryString.append(" AND ('");
-			queryString.append(sdf.format(fechaFin));
+			queryString.append(DateUtils.formatearBD(fechaFin));
 			queryString.append("')");
 			queryString.append(" AND a.salaAudiencia.salaAudienciaId=")
 			.append(salaId);
