@@ -223,6 +223,8 @@
 		var contadorCargaInvolucrados = 0; 
 		//Permite consultar el Parametro NumExpAlterno
 		var valorParametroNumExpAlterno = 0;
+                
+                cargaActuaciones(1);
 		//Comienza funcion on ready del documento
 		$(document).ready(function() {
                     
@@ -1473,6 +1475,7 @@
                         seleccionaActuacion($(this));
                     }
                     $( this ).removeClass( "ui-selectable" );
+                    
                 });
                         
                 $("#cbxOficiosTab").delegate('a','click',function(event) {
@@ -1481,11 +1484,13 @@
                         seleccionaActuacion($(this));
                     }
                     $( this ).removeClass( "ui-selectable" );
+                    
                 });
                 
-                $("#tapActuaciones").one("click", function() {
-				 cargaActuaciones(1);
-			 });
+                $("#tapActuaciones").click("click", function() {
+                    console.log("aquii");
+                    cargaActuaciones(1);
+		});
            });             
                          
 		//Termina funcion on ready del documento
@@ -1791,7 +1796,9 @@
 	/*
 	*Funcion que realiza la carga del combo de Actuaciones
 	*/
+        
 	function cargaActuaciones(sinCatuie) {
+        //console.log("cargando actuaciones ...")
 		$('#cbxAccionesTab').empty();
                 $('#cbxOficiosTab').empty();
                 $('#cbxAccionesTab').addClass("cargando");

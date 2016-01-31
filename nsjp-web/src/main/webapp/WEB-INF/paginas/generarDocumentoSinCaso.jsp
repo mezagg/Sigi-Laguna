@@ -531,7 +531,7 @@
 				    	});
 			}
 			else{
-				customConfirm("&iquest;Est\u00E1 seguro que quiere guardarlo definitivamente?", "Aviso",generaDocumento);
+				customConfirm("&iquest;Est\u00E1 seguro que quiere guardarlo definitivamentePam?", "Aviso",generaDocumento);
 				
 			}	
 		}
@@ -559,6 +559,8 @@
 			}else{
 				generaDocumentoFormaTradicional();
 			}
+                        
+                        window.parent.cargaActuaciones(1);
 		}
 		
 		/**
