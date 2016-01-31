@@ -194,17 +194,17 @@
 		var extensionesPermitidasAudio = '<%=((ConfiguracionDTO) request.getSession().getAttribute(GenericAction.KEY_SESSION_CONFIGURACION_GLOBAL)).getExtensionesPermitidasAlAdjuntarAudio() %>';
 		var extensionesPermitidasImagen = '<%=((ConfiguracionDTO) request.getSession().getAttribute(GenericAction.KEY_SESSION_CONFIGURACION_GLOBAL)).getExtensionesPermitidasAlAdjuntarImagen() %>';
 		
-		var ATPENAL = 1;
-		var COORDINADOR_JAR = 2;
-		var AGENTE_MP = 3;
-		var COORDINADOR_AMP = 4;
+		var ATPENAL = 3; //1
+		var COORDINADOR_JAR = 6; //2
+		var AGENTE_MP = 7; //3
+		var COORDINADOR_AMP = 8; //4
 		var FACILITADOR = 5;
-		var POLICIA_MINISTERIAL = 6;
-		var COORDINADOR_VISITADOR = 7;
-		var VISITADOR = 8;
-		var COORDINADOR_AMP_GENERAL = 10;
-		var POLICIA_MINISTERIAL_DENUNCIA=60;
-		var COORDINADOR_AT=61;
+		var POLICIA_MINISTERIAL = 9; //6
+		var COORDINADOR_VISITADOR = 42; // coordinadorVIS - 7
+		var VISITADOR = 4; //8  
+		var COORDINADOR_AMP_GENERAL = 57; //10;
+		var POLICIA_MINISTERIAL_DENUNCIA=64; //60
+		var COORDINADOR_AT=58; //61
 		var ENCARGADO_CAUSA=16;
 		var idWindowPantallaActuaciones = 1;
 
@@ -458,15 +458,15 @@
 //				 $('#cbxPrimerElemento').attr('selectedIndex', 0);
 //				 $('#cbxSegundoElemento').attr('selectedIndex', 0);
 //			 });
-
+//			 
 			// opcion uno es para la pantalla de Atencion temprana penal
-			if(pantallaSolicitada===ATPENAL){
-				
+			if(pantallaSolicitada == ATPENAL){
+				console.log("soy atpenal");  
 				// Recargar el grid principal del menú intermedio
 				try{
 					window.parent.activaExpediente();					
 				}catch (e) {
-		        }
+		                }
 				
 				ocultaMuestraTabVisor("tabTabsCadCus",0);
 				ocultaMuestraTabVisor("tabTabsPeri",0);
@@ -486,7 +486,7 @@
 				$('#btnAccApoyoPericial').hide();
 				$('#btnAccGenerarConvenio').hide();
 
-			}else if(pantallaSolicitada===COORDINADOR_AT){//Coordinador de Atencion Temprana
+			}else if(pantallaSolicitada == COORDINADOR_AT){//Coordinador de Atencion Temprana
 				deshabilitarCamposPM=true;
 				deshabilitarCampos=true;
 				ocultaMuestraTabVisor("tabTabsCadCus",0);
@@ -507,7 +507,7 @@
 				$('#btnAccApoyoPericial').hide();
 				$('#btnAccGenerarConvenio').hide();
 			
-			}else if(pantallaSolicitada===COORDINADOR_JAR){//coordinador JAR
+			}else if(pantallaSolicitada == COORDINADOR_JAR){//coordinador JAR
 				
 				cargaAgenteJAR();
 				
@@ -543,7 +543,7 @@
 					ocultaMuestraTabVisor("tabTabsObjs",0);
 				}
                                 
-			}else if(pantallaSolicitada===AGENTE_MP){//agentemp
+			}else if(pantallaSolicitada == AGENTE_MP){//agentemp
 				
 				// Recargar el grid principal del menú intermedio
 				//Solo si es consulta
@@ -572,7 +572,7 @@
 				if(valorParametroNumExpAlterno === '1'){
 					$('#idsNumerosDelExpediente').show();	
 				}
-			}else if(pantallaSolicitada===COORDINADOR_AMP){//Coordinador Amp
+			}else if(pantallaSolicitada == COORDINADOR_AMP){//Coordinador Amp
 				
 				muestraDetenido=1;
 			
@@ -601,7 +601,7 @@
 					$('#tdCbxAgentesCoorUI1').show();
 					$('#idAsignarAgenteMp').show();
 				}
-			} else if(pantallaSolicitada===FACILITADOR){//facilitador
+			} else if(pantallaSolicitada == FACILITADOR){//facilitador
 				
 				ocultaMuestraTabVisor("tabTabsCriterio",0);
 				ocultaMuestraTabVisor("tabTabsAlertas",0);
@@ -618,7 +618,7 @@
 //					ocultaMuestraTabVisor("tabTabsDelito",0);						
 					ocultaMuestraTabVisor("tabTabsObjs",0);
 				}
-			} else if(pantallaSolicitada===POLICIA_MINISTERIAL){//policia ministerial
+			} else if(pantallaSolicitada == POLICIA_MINISTERIAL){//policia ministerial
 				deshabilitarCamposPM=true;
 				deshabilitarCampos=true;
 				
@@ -647,7 +647,7 @@
 				$("#tabs-10").css('display','');
 				$("#tabs-8").css('display','');
 				
-			} else if(pantallaSolicitada===POLICIA_MINISTERIAL_DENUNCIA){//policia ministerial de denuncia
+			} else if(pantallaSolicitada == POLICIA_MINISTERIAL_DENUNCIA){//policia ministerial de denuncia
 				//ESte if es especcifico para la pantalla de nueva denuncia en policia ministerial
 				//deshabilitarCamposPM=true;
 				//deshabilitarCampos=true;
@@ -676,7 +676,7 @@
  			    $("#cbxAccionesTab9").attr("disabled","");
 				//$("#idInvestiga").attr("disabled","");
 				
-			}else if(pantallaSolicitada===COORDINADOR_VISITADOR){//Coordinador Visitador
+			}else if(pantallaSolicitada == COORDINADOR_VISITADOR){//Coordinador Visitador
 				
 				var Area='<%= request.getParameter("idArea")%>';
 				
@@ -707,7 +707,7 @@
 					
 				$("#btnCadCusNuevaCadCus").hide();
 
-			}else if(pantallaSolicitada===VISITADOR){//Visitador
+			}else if(pantallaSolicitada == VISITADOR){//Visitador
 				
 				//Carga los documentos adjuntos que se adjuntaran a la solicitud de periciales
 				cargaGridDocumentosDigitales();
@@ -744,7 +744,7 @@
 				ocultaMuestraTabVisor("tabTabsAmparos",0);
 					$(".btn_modificar").hide();
 					$(".btn_grande").hide();
-			} else if(pantallaSolicitada===COORDINADOR_AMP_GENERAL){//Coordinador Amp General
+			} else if(pantallaSolicitada == COORDINADOR_AMP_GENERAL){//Coordinador Amp General
 				
 				muestraDetenido=1;
 		
@@ -799,7 +799,7 @@
 					ocultaMuestraTabVisor("tabTabsAcciones",0);
 					$("#btnAdjuntarDocumento").hide();
 				}
-			}else if (pantallaSolicitada===ENCARGADO_CAUSA){
+			}else if (pantallaSolicitada == ENCARGADO_CAUSA){
 				//Institucion PJ, Encargado de Causa
 				recargarBandejaAccPenalPriv();
 				
@@ -1369,7 +1369,7 @@
 			$("#victimaslb").html('V&iacute;ctimas:');
 			$("#probableResponsableslb").html('<bean:message key="plProbalbeResponsableTitulo"/>');
 			
-			if(pantallaSolicitada===COORDINADOR_JAR || pantallaSolicitada===FACILITADOR ){//coordinador JAR
+			if(pantallaSolicitada == COORDINADOR_JAR || pantallaSolicitada == FACILITADOR ){//coordinador JAR
 				//De acuerdo a la bandera de petanaJAR, se muestran otras leyendas, caso contario la misma version
 				if(visualizaPestanaJar===1 || visualizaPestanaJar==='1'){
 					$("#denuncianteslb").html('<bean:message key="denunciantes"/>'+':');
@@ -1402,7 +1402,7 @@
 			$("#btnAdjuntarDocumento").attr("disabled",false);
 
 			//controlNumeroExpedienteAlterno();
-			if(pantallaSolicitada===POLICIA_MINISTERIAL){
+			if(pantallaSolicitada == POLICIA_MINISTERIAL){
 				$("#idInvestiga").attr('disabled','');
 				$("#btnCadCusNuevaCadCus").attr('disabled','');
 				$("#btnCadCusConsultaCadCus").attr('disabled','');
@@ -2181,7 +2181,7 @@
 								if(tipoExpediente === '<%=OrigenExpediente.REPORTE.getValorId()%>' ){
 										validacionDeDelitoUSC(actividad,estatusId,titulo, formaID, numeroExpediente);						
 								}else{//No es un tipo Reporte
-									if(pantallaSolicitada != null && (pantallaSolicitada === AGENTE_MP || pantallaSolicitada === COORDINADOR_AMP) ){
+									if(pantallaSolicitada != null && (pantallaSolicitada == AGENTE_MP || pantallaSolicitada == COORDINADOR_AMP) ){
 										validacionDeDelitoUSC(actividad,estatusId,titulo, formaID, numeroExpediente);	
 									}else{
 										alertDinamico("Sólo los tipo de expediente 'Reporte' se pueden canalizar a JAR");	
@@ -2205,7 +2205,7 @@
 							}else if(tipoExpediente === '<%=OrigenExpediente.DENUNCIA.getValorId()%>' || tipoExpediente === '<%=OrigenExpediente.QUERELLA.getValorId()%>'){
 								validacionUFI(actividad,estatusId,titulo, formaID, numeroExpediente, numeroExpedienteId);						
 							}else{//No es un tipo Reporte
-								if(pantallaSolicitada != null && (pantallaSolicitada === AGENTE_MP || pantallaSolicitada === COORDINADOR_AMP) ){
+								if(pantallaSolicitada != null && (pantallaSolicitada === AGENTE_MP || pantallaSolicitada == COORDINADOR_AMP) ){
 									validacionUFI(actividad,estatusId,titulo, formaID, numeroExpediente, numeroExpedienteId);	
 								}else{
 									alertDinamico("Un expediente de tipo 'Reporte' no puede ser enviado a UI");	
@@ -4210,6 +4210,7 @@
 		{
 			if(parseInt(bandera)===0)//oculta
 			{
+                                console.log("voy a ocultar");
 				$("."+claseTab).hide();
 			}
 			else///muestra
@@ -4527,7 +4528,7 @@
 		
 		function cambiaTextoVisor(idTipoExpediente){
 			//Unicamente para atpenal
-			if(pantallaSolicitada === ATPENAL){
+			if(pantallaSolicitada == ATPENAL){
 				var tituloOriginal =window.parent.recuperaTituloVisor(idIframe)
 				var nuevoTitulo = "";
 				if(tituloOriginal.toLowerCase().substring(0, 10) === "expediente"){
@@ -5374,7 +5375,7 @@
 	<!--COMIENZAN TABS SUPERIORES (PRINCIPALES)-->
 	<div id="tabs">
 		<ul>
-			<li class="tabTabsGrals"><a href="#tabs-6" id="tapResumen">Resumen</a></li>
+			<li class="tabTabsGrals"><a href="#tabs-6" id="tapResumen">ResumenPam</a></li>
 			<li class="tabTabsVisitaduria"><a href="#tabs-16">Visitadur&iacute;a</a></li>
 			<li class="tabTabsHechos"><a href="#tabs-3" id="tapHechos">Hechos</a></li>
 			<li class="tabTabsInv"><a href="#tabs-1" id="tabInvolucrados">Involucrado</a></li>
