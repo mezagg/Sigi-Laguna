@@ -23,8 +23,10 @@ import java.util.List;
 
 import mx.gob.segob.nsjp.comun.enums.calidad.Calidades;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
+import mx.gob.segob.nsjp.dto.caso.CasoDTO;
 import mx.gob.segob.nsjp.dto.expediente.DelitoPersonaDTO;
 import mx.gob.segob.nsjp.dto.expediente.ExpedienteDTO;
+import mx.gob.segob.nsjp.dto.institucion.AreaDTO;
 import mx.gob.segob.nsjp.dto.institucion.InstitucionDTO;
 import mx.gob.segob.nsjp.dto.involucrado.InvolucradoDTO;
 import mx.gob.segob.nsjp.dto.usuario.UsuarioDTO;
@@ -194,7 +196,9 @@ public interface AdministrarNumeroExpedienteService {
 	 */
 	public ExpedienteDTO generarNuevoExpedienteConCaso(ExpedienteDTO expedienteDTO) throws NSJPNegocioException;
 
-	/**
+        public CasoDTO generarNuevoNUC(UsuarioDTO usuarioDTO, Long numeroExpedienteId) throws NSJPNegocioException;
+
+        /**
 	 * Permite crear un nuevo expediente con un nuevo numero de Expediente
 	 * @param expedienteDTO
 	 * @return

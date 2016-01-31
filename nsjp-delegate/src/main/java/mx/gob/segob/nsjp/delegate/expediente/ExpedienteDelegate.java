@@ -366,6 +366,17 @@ public interface ExpedienteDelegate {
 	 * @throws NSJPNegocioException
 	 */
 	public ExpedienteDTO crearExpediente () throws NSJPNegocioException;
+        
+        /**
+	 * Servicio que genera el numero de caso a partir de
+	 *   Estatus: EstatusExpedeinte.ABIERTO
+	 * Regresa un objeto de tipo Expediente, en caso contrario regresa NULL.
+	 * 
+	 * @return
+	 * @throws NSJPNegocioException
+	 */
+        public CasoDTO generarNuevoNUC(UsuarioDTO usuario, Long numeroExpedienteId)  throws NSJPNegocioException;
+	
 	
     /**
      * Servicio que realiza la funcionalidad de asociar el N&uacute;mero de Expediente a:

@@ -258,7 +258,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             }
             for (TurnoDTO turnoDTO : listTurnoDTOs) {
                 ExpedienteDTO expedienteDTO = turnoDTO.getExpediente();
-                log.info("caso en expediente art" + expedienteDTO.getCasoDTO().getNumeroGeneralCaso());
+                //log.info("caso en expediente art" + expedienteDTO.getCasoDTO().getNumeroGeneralCaso());
                 writer.print("<row id='" + expedienteDTO.getNumeroExpedienteId() + "'>");
                 writer.print("<cell><![CDATA[<div class='celdaGrid'>" + expedienteDTO.getNumeroExpediente() + " </div>]]></cell>");
                 if (expedienteDTO.getOrigen() != null && expedienteDTO.getOrigen().getValor() != null) {
@@ -346,7 +346,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
 
             for (TurnoDTO turnoDTO : listTurnoDTOs) {
                 ExpedienteDTO expedienteDTO = turnoDTO.getExpediente();
-                log.info("caso en expediente art" + expedienteDTO.getCasoDTO().getNumeroGeneralCaso());
+               // log.info("caso en expediente art" + expedienteDTO.getCasoDTO().getNumeroGeneralCaso());
                 writer.print("<row id='" + expedienteDTO.getNumeroExpedienteId() + "'>");
 
                 writer.print("<cell><![CDATA[<div class='celdaGrid'>" + expedienteDTO.getNumeroExpediente() + " </div>]]></cell>");
@@ -426,8 +426,15 @@ public class AtencionTempranaPenalAction extends GenericAction {
             for (TurnoDTO turnoDTO : listTurnoDTOs) {
                 ExpedienteDTO expedienteDTO = turnoDTO.getExpediente();
 
-                writer.print("<row id='" + expedienteDTO.getCasoDTO().getCasoId() + "'>");
-                writer.print("<cell><![CDATA[<div class='celdaGrid'>" + expedienteDTO.getCasoDTO().getNumeroGeneralCaso() + " </div>]]></cell>");
+                if(expedienteDTO.getCasoDTO()!=null){
+                    writer.print("<row id='" + expedienteDTO.getCasoDTO().getCasoId() + "'>");
+                    writer.print("<cell><![CDATA[<div class='celdaGrid'>" + expedienteDTO.getCasoDTO().getNumeroGeneralCaso() + " </div>]]></cell>");
+                }else{
+                    writer.print("<row id='" + "-Pendiente-" + "'>");
+                    writer.print("<cell><![CDATA[<div class='celdaGrid'>" + "-Pendiente-" + " </div>]]></cell>");
+                }
+                
+                //writer.print("<cell><![CDATA[<div class='celdaGrid'>" + expedienteDTO.getCasoDTO().getNumeroGeneralCaso() + " </div>]]></cell>");
                 writer.print("<cell><![CDATA[<div class='celdaGrid'>" + expedienteDTO.getStrFechaApertura() + " </div>]]></cell>");
                 log.info("Este es el expediente con calidad de denunciante" + expedienteDTO.getInvolucradoByCalidad(Calidades.DENUNCIANTE));
                 log.info("invol tamano" + expedienteDTO.getInvolucradoByCalidad(Calidades.DENUNCIANTE).size());
@@ -878,7 +885,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
 
             for (TurnoDTO turnoDTO : listTurnoDTOs) {
                 ExpedienteDTO expedienteDTO = turnoDTO.getExpediente();
-                log.info("caso en expediente art" + expedienteDTO.getCasoDTO().getNumeroGeneralCaso());
+                //log.info("caso en expediente art" + expedienteDTO.getCasoDTO().getNumeroGeneralCaso());
                 writer.print("<row id='" + expedienteDTO.getNumeroExpedienteId() + "'>");
                 writer.print("<cell><![CDATA[<div class='celdaGrid'>" + expedienteDTO.getNumeroExpediente() + " </div>]]></cell>");
                 writer.print("<cell><![CDATA[<div class='celdaGrid'>" + expedienteDTO.getStrFechaApertura() + " </div>]]></cell>");
@@ -1365,13 +1372,12 @@ public class AtencionTempranaPenalAction extends GenericAction {
             expedienteDTO = expedienteDelegate.obtenerExpediente(expedienteDTO);
             expedienteDTO.setConsulta(true);
 //			request.setAttribute("numExpConsul", expedienteDTO.getNumeroExpediente());
-            log.info("$$$$ numero el Expediente $$$ : " + expedienteDTO.getNumeroExpediente());
-            log.info("$$$$ numero del caso  $$$ : " + expedienteDTO.getCasoDTO());
             request.getSession().removeAttribute("numExpConsul");
             request.getSession().setAttribute("numExpConsul", expedienteDTO.getNumeroExpediente());
             request.getSession().setAttribute("idExpedienteConsul", expedienteDTO.getNumeroExpedienteId());
             request.getSession().setAttribute("idExpedienteConsulop", expedienteDTO.getExpedienteId());
-            request.getSession().setAttribute("numeroCasoConsul", expedienteDTO.getCasoDTO().getNumeroGeneralCaso());
+            if(expedienteDTO.getCasoDTO()!=null)
+                request.getSession().setAttribute("numeroCasoConsul", expedienteDTO.getCasoDTO().getNumeroGeneralCaso());
             Boolean banderaFac = Boolean.FALSE;
             log.info(":::::: Actividad deacuerdo al id del Expediente::::");
             if (expedienteDTO.getExpedienteId() != null || expedienteDTO.getExpedienteId().equals("")) {
@@ -1409,8 +1415,8 @@ public class AtencionTempranaPenalAction extends GenericAction {
                 log.info("area_enum:: " + Areas.VISITADURIA.parseLong());
                 request.getSession().setAttribute("pantallaSolicitada", 8);
             }
-
-            request.getSession().setAttribute("numeroCasoConsul", expedienteDTO.getCasoDTO().getNumeroGeneralCaso());
+            if(expedienteDTO.getCasoDTO()!=null)
+                request.getSession().setAttribute("numeroCasoConsul", expedienteDTO.getCasoDTO().getNumeroGeneralCaso());
             //request.setAttribute("numeroExpediente",  expedienteDTO.getNumeroExpediente());
             //request.setAttribute("idNumeroExpedienteop",  expedienteDTO.getNumeroExpedienteId());
             //request.setAttribute("idExpedienteop",  expedienteDTO.getExpedienteId());
@@ -5509,7 +5515,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             }
             for (TurnoDTO turnoDTO : listTurnoDTOs) {
                 ExpedienteDTO expedienteDTO = turnoDTO.getExpediente();
-                log.info("caso en expediente art" + expedienteDTO.getCasoDTO().getNumeroGeneralCaso());
+                //log.info("caso en expediente art" + expedienteDTO.getCasoDTO().getNumeroGeneralCaso());
                 writer.print("<row id='" + expedienteDTO.getNumeroExpedienteId() + "'>");
                 writer.print("<cell><![CDATA[<div class='celdaGrid'>" + expedienteDTO.getNumeroExpediente() + " </div>]]></cell>");
 
@@ -5891,7 +5897,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             writer.print(paginacion);
 
             for (ExpedienteDTO expedienteDTO : listExpedienteDTOs) {
-                log.info("caso en expediente art" + expedienteDTO.getCasoDTO().getNumeroGeneralCaso());
+                //log.info("caso en expediente art" + expedienteDTO.getCasoDTO().getNumeroGeneralCaso());
                 writer.print("<row id='" + expedienteDTO.getNumeroExpedienteId() + "'>");
                 writer.print("<cell><![CDATA[<div class='celdaGrid'>" + expedienteDTO.getNumeroExpediente() + " </div>]]></cell>");
                 if (expedienteDTO.getOrigen() != null && expedienteDTO.getOrigen().getValor() != null) {

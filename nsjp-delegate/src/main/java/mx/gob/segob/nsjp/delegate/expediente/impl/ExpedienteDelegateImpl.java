@@ -661,6 +661,9 @@ public class ExpedienteDelegateImpl implements ExpedienteDelegate {
 			throws NSJPNegocioException{
 		return administrarNumeroExpediente.generarNuevoExpedienteSinCaso(expedienteDTO);
 	}
+        public CasoDTO generarNuevoNUC(UsuarioDTO usuario, Long numeroExpedienteId )  throws NSJPNegocioException{
+            	return administrarNumeroExpediente.generarNuevoNUC(usuario, numeroExpedienteId);
+        }
 
 	public List<ExpedienteDTO> buscarRemisionesConIPH(EstatusExpediente estatusExpediente)throws NSJPNegocioException{
 		return service.buscarRemisionesConIPH(estatusExpediente);

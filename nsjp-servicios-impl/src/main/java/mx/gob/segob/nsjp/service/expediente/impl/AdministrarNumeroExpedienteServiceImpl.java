@@ -185,7 +185,7 @@ public class AdministrarNumeroExpedienteServiceImpl implements AdministrarNumero
     	
     	ultimoNumeroExpediente = prefijo + anio + consecutivo;
     	
-    	logger.info("Nuevo N�mero Expedeinte:"+ ultimoNumeroExpediente);
+    	logger.info("Nuevo Numero Expedeinte:"+ ultimoNumeroExpediente);
     	
     	expedienteDTO.setNumeroExpediente(ultimoNumeroExpediente);
     	
@@ -571,6 +571,46 @@ public class AdministrarNumeroExpedienteServiceImpl implements AdministrarNumero
 	}
 	
 	
+        
+	@Override
+	@Transactional
+	public CasoDTO generarNuevoNUC(UsuarioDTO usuarioDTO, Long numeroExpedienteId) throws NSJPNegocioException{
+		if (logger.isDebugEnabled())
+			logger.debug("/**** Servicio para generar el nuevo numero de caso ****/");		
+		
+		if (usuarioDTO == null
+                        ||
+				usuarioDTO.getFuncionario() == null
+				|| usuarioDTO.getFuncionario()
+						.getJerarquiaOrganizacional() == null
+				|| usuarioDTO.getFuncionario()
+						.getJerarquiaOrganizacional()
+						.getJerarquiaOrganizacionalId() == null) {
+			throw new NSJPNegocioException(CodigoError.PARAMETROS_INSUFICIENTES);
+		}
+
+		
+		
+		CasoDTO casoDTO = new CasoDTO();
+		
+		if (usuarioDTO.getFuncionario()
+				.getJerarquiaOrganizacional().getJerarquiaOrganizacionalId() != Areas.AGENCIA_DEL_MINISTERIO_PUBLICO
+				.ordinal()) {
+
+			// Se genera el caso para ser asociado al Expediente
+
+			casoDTO.setFechaApertura(new Date());
+			casoDTO.setEstatus(EstatusCaso.INVESTIGACION);
+			casoDTO = casoService.asignarNumeroCaso(casoDTO, usuarioDTO.getFuncionario());
+		}
+                //generarNuevoExpedienteConCaso(expedienteDTO)
+                Expediente expediente=expedienteDAO.read(numeroExpedienteId);
+                expediente.setCaso(new Caso(casoDTO.getCasoId(), casoDTO.getNumeroGeneralCaso()));
+                expedienteDAO.update(expediente);
+                return casoDTO;
+        }
+        
+        
 	@Override
 	@Transactional
 	public ExpedienteDTO generarNuevoExpedienteConCaso(ExpedienteDTO expedienteDTO) throws NSJPNegocioException{

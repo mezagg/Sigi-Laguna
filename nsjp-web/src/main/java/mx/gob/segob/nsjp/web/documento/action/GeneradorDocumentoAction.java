@@ -1651,13 +1651,14 @@ public class GeneradorDocumentoAction extends ReporteBaseAction {
 			try {
 				Boolean esGuardadoParcial = BooleanUtils.toBoolean(request.getParameter(PARAM_GUARDAR_PARCIAL));
 				Long idTipoSolicitud = NumberUtils.toLong(request.getParameter("idTipoSolicitud"),0);			
-
+                                UsuarioDTO usuarioDTO=super.getUsuarioFirmado(request);	
 				
 				logger.info("SECCION ENCARGADA DE CONFIGURAR LOS DATOS PARA REGISTRAR UNA ACTIVIDAD AL EXPEDIENTE");
 				Long documentoId = 0L;
 				
 				Long idNumeroExpediente = NumberUtils.toLong(request.getParameter("idNumeroExpediente"),0L);
 				Long idActividad = NumberUtils.toLong(request.getParameter("actuacion"),0L);
+                                
 				Long idClaveFuncionarioAsignado = NumberUtils.toLong(request.getParameter("cveFuncionarioAsignado"),0L);
 				Long solicitudPeritoId=	NumberUtils.toLong(request.getParameter("solicitudPeritoId"),0L);
 				Long involcradoId = NumberUtils.toLong(request.getParameter("involcradoId"),0L);
@@ -1687,11 +1688,22 @@ public class GeneradorDocumentoAction extends ReporteBaseAction {
 					Long expedienteId = NumberUtils.toLong(request.getParameter("expedienteId"));
 					expediente = expedienteDelegate.consultarExpedientePorExpedienteId(new ExpedienteDTO(expedienteId));
 				}
+                                
+                                //Si la actuacion es una denuncia
+                                if(idActividad==1647L){
+                                    CasoDTO caso =expediente.getCasoDTO();
+                                    if(caso==null || caso.getCasoId()==null || caso.getNumeroGeneralCaso()==null)
+                                     caso = expedienteDelegate.generarNuevoNUC(usuarioDTO, expediente.getExpedienteId());
+                                   
+                                    //expediente.setCasoDTO(dtoNuevo);
+                                }
+                                
+                                    
 				
 				GuardadoDefinitivoDTO loGuardadoDefinitivoDTO = new GuardadoDefinitivoDTO();
 				loGuardadoDefinitivoDTO.setIdActividad(idActividad);
 				loGuardadoDefinitivoDTO.setIdClaveFuncionarioAsignado(idClaveFuncionarioAsignado);
-				UsuarioDTO usuarioDTO=super.getUsuarioFirmado(request);				
+							
 				loGuardadoDefinitivoDTO.setFuncionarioDTO(usuarioDTO.getFuncionario());
 				
 				
@@ -1737,6 +1749,7 @@ public class GeneradorDocumentoAction extends ReporteBaseAction {
 		    		// Si es un documento nuevo se obtiene el tipo de forma que se esta editando
 		            documento = new DocumentoDTO();
 			    	Long formaId = NumberUtils.toLong(request.getParameter(PARAM_FORMA_DOCUMENTO), 1L);
+                               
 		            forma = documentoDelegate.buscarForma(formaId);
 		    	}
 		    	
@@ -1753,7 +1766,7 @@ public class GeneradorDocumentoAction extends ReporteBaseAction {
 
 		    	if(!esGuardadoParcial){
 			    	archivoPDF = generarReportePDFDeHTML(textoPdf, confPapel);
-				    archivo = new ArchivoDigitalDTO();
+    				    archivo = new ArchivoDigitalDTO();
 				    archivo.setContenido(archivoPDF.toByteArray());
 				    archivo.setNombreArchivo(forma.getNombre());
 				    archivo.setTipoArchivo(ConstantesGenerales.EXTENSION_PDF);

@@ -106,13 +106,15 @@ public class AsignarNumeroCasoServiceImpl implements AsignarNumeroCasoService {
 		if (logger.isInfoEnabled())
 			logger.info("");
 
-		if (funcionarioDTO == null || funcionarioDTO.getDepartamento() == null || funcionarioDTO.getDepartamento().getArea() == null || funcionarioDTO.getDepartamento().getArea().getAreaId() <= 0)
+		if (funcionarioDTO == null || funcionarioDTO.getDepartamento() == null || 
+                        funcionarioDTO.getJerarquiaOrganizacional() == null || funcionarioDTO.getJerarquiaOrganizacional().getJerarquiaOrganizacionalId() <= 0)
 			throw new NSJPNegocioException(CodigoError.PARAMETROS_INSUFICIENTES);
 
 		Long idDepartamento = 0L;
 		if (funcionarioDTO.getDepartamento().getDepartamentoId() != null && funcionarioDTO.getDepartamento().getDepartamentoId() > 0)
 			idDepartamento = funcionarioDTO.getDepartamento().getDepartamentoId();
-		Long idArea = funcionarioDTO.getDepartamento().getArea().getAreaId();
+		//Long idArea = funcionarioDTO.getJerarquiaOrganizacional(). Departamento().getArea().getAreaId();
+                Long idArea = funcionarioDTO.getJerarquiaOrganizacional().getJerarquiaOrganizacionalId();       
 
 		String prefijoDelEstado = "";
 		String prefijoDeInstitucion = "";
