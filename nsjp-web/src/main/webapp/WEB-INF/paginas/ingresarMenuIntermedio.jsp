@@ -1468,13 +1468,19 @@
                 });   
                 
                 $("#cbxAccionesTab").delegate('a','click',function(event) {
-                    console.log('acciones');
-                    seleccionaActuacion($(this).selectable());
+                    $(this).addClass( "ui-selectable" );
+                    if($( this ).hasClass( "ui-selectable" )){
+                        seleccionaActuacion($(this));
+                    }
+                    $( this ).removeClass( "ui-selectable" );
                 });
                         
                 $("#cbxOficiosTab").delegate('a','click',function(event) {
-                    console.log('acciones');
-                    seleccionaActuacion($(this).selectable());
+                    $(this).addClass( "ui-selectable" );
+                    if($( this ).hasClass( "ui-selectable" )){
+                        seleccionaActuacion($(this));
+                    }
+                    $( this ).removeClass( "ui-selectable" );
                 });
                 
                 $("#tapActuaciones").one("click", function() {
@@ -2226,7 +2232,7 @@
 						}else{
 							//codigo para cambiar el estatus del expediente
 							idWindowPantallaActuaciones++;
-							console.info("ID Tipo Actividad:" + actividad);
+							console.info("ID Tipo Actividad Pam:" + actividad);
 			     			$.newWindow({id:"iframewindowGenerarDocumento"+idWindowPantallaActuaciones, statusBar: true, posx:200,posy:50,width:1140,height:400,title:""+titulo, type:"iframe", confirmarCierreVentana:confirmarCierreVentana});
 			    		    $.updateWindowContent("iframewindowGenerarDocumento"+idWindowPantallaActuaciones,'<iframe src="<%= request.getContextPath() %>/generarDocumentoSinCaso.do?formaId='+formaID+'&numeroUnicoExpediente='+numeroExpediente+'&idWindowPantallaActuaciones='+idWindowPantallaActuaciones+'&actividadId='+actividad+'&esTransaccional='+true+'" width="1140" height="400" />');
 			    		    																																																																											
@@ -4210,7 +4216,6 @@
 		{
 			if(parseInt(bandera)===0)//oculta
 			{
-                                console.log("voy a ocultar");
 				$("."+claseTab).hide();
 			}
 			else///muestra
@@ -5375,7 +5380,7 @@
 	<!--COMIENZAN TABS SUPERIORES (PRINCIPALES)-->
 	<div id="tabs">
 		<ul>
-			<li class="tabTabsGrals"><a href="#tabs-6" id="tapResumen">ResumenPam</a></li>
+			<li class="tabTabsGrals"><a href="#tabs-6" id="tapResumen">Resumen</a></li>
 			<li class="tabTabsVisitaduria"><a href="#tabs-16">Visitadur&iacute;a</a></li>
 			<li class="tabTabsHechos"><a href="#tabs-3" id="tapHechos">Hechos</a></li>
 			<li class="tabTabsInv"><a href="#tabs-1" id="tabInvolucrados">Involucrado</a></li>
