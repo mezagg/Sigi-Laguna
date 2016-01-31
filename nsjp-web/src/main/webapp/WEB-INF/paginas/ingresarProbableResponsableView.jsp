@@ -207,13 +207,13 @@ DD P {
 		var idElemento = '<%=request.getParameter("idProbableResponsable")%>';
 		// muestra el campo de detenido si el valor es 1
 		var muestraDetenido = '<%=request.getParameter("detenido")%>';
-		if(muestraDetenido=="" || muestraDetenido==null || muestraDetenido=="undefined"){
+		if(muestraDetenido==="" || muestraDetenido===null || muestraDetenido==="undefined"){
 			muestraDetenido = '<%=request.getAttribute("detenido")%>';
 		}
 
 		var muestraDetenidoModificar=0;
 		var isdetenidoTemp = '<%=request.getParameter("isDetenidoExist")%>';
-		var isDetenidoExist = (isdetenidoTemp == '' || isdetenidoTemp == 'null')? false : <%=request.getParameter("isDetenidoExist")%>;
+		var isDetenidoExist = (isdetenidoTemp === '' || isdetenidoTemp === 'null')? false : <%=request.getParameter("isDetenidoExist")%>;
 		var deshabilitarCampos = window.parent.deshabilitarCamposPM;
 		var modificaGrid=true;
 		
@@ -2472,13 +2472,13 @@ DD P {
 				<td>
 				<table width="100%" border="0" cellspacing="0" cellpadding="0">
 					<tr>
-						<td width="12%" height="130" align="center"><img
+						<td width="25%" height="130" align="center"><img
 							src="<%=request.getContextPath()%>/resources/images/foto.png"
 							alt="" width="105" height="105" id="imgConFoto" /></td>
 						<!--td width="12%" height="130" align="center" valign="middle">
 						<img src="resources/images/fingerPrint.JPG" width="100"
 							height="100" /></td-->
-						<td width="12%" height="130" align="center" valign="top">
+						<td width="25%" height="130" align="center" valign="top">
 						<table width="12%" border="0" cellspacing="0" cellpadding="0"
 							class="celda2" id="tableUAVDOpsHide">
 							<tr>
@@ -2518,40 +2518,9 @@ DD P {
 						</table>
 						</td>
 
-						<td width="30%" align="center">
-						<table id="datosDetenido" width="100%" height="150" border="0"
-							cellspacing="0" cellpadding="0" style="display: none;">
-							<tr>
-								<td colspan="2" height="20" valign="middle" class="seccion">INGRESAR
-								DATOS DE DETENCI&Oacute;N</td>
-							</tr>
-							<tr>
-								<td align="left"><input type="submit"
-									id="ingresarTiempoEspecificamentePResponsable"
-									value="Espec&iacute;ficamente" /></td>
-								<td width="75%" rowspan="3">
-								<div id="divEspecifico" style="display: block;"><jsp:include
-									page="/WEB-INF/paginas/ingresarTiempoEspecificamente.jsp"
-									flush="true"></jsp:include></div>
-								<div id="divLapso" style="display: none;"><jsp:include
-									page="/WEB-INF/paginas/ingresarTiempoLapso.jsp"
-									flush="true"></jsp:include></div>
-								<div id="divOtro" style="display: none;"><textarea
-									rows="5" cols="20" id="textNarrativa" readonly="readonly"></textarea>
-								</div>
-								</td>
-							</tr>
-							<tr>
-								<td align="left"></td>
-							</tr>
-							<tr>
-								<td align="left"><input style="width: 112px" type="submit"
-									id="ingresarTiempoOtroPResponsable" value="Otro" /></td>
-							</tr>
-						</table>
-						</td>
+                                                
 
-						<td width="50%" height="130" align="center" valign="top">
+						<td width="25%" height="130" align="center" valign="top">
 						
 						<table width="100%" height="143" cellpadding="0" cellspacing="0"
 							class="celda2">

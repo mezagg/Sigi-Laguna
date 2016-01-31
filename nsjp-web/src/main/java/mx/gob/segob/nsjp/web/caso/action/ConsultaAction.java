@@ -650,7 +650,7 @@ public class ConsultaAction extends GenericAction{
 					&& usuario.getFuncionario().getUnidadIEspecializada().getCatUIEId()!=null){
 				expedienteDTO.setCatUIE(usuario.getFuncionario().getUnidadIEspecializada().getCatUIEId());
 			}
-			expedienteDTO = expedienteDelegate.generarExpediente(expedienteDTO);
+			expedienteDTO = expedienteDelegate.generarExpedienteSinCaso(expedienteDTO);
 			expedienteDTO.setConsulta(false);
 			request.getSession().setAttribute("numeroExpediente", expedienteDTO.getNumeroExpediente());
 			String pm=request.getParameter("pm");

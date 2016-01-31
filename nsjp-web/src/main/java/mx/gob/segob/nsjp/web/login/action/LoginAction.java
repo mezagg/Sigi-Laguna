@@ -111,14 +111,17 @@ public class LoginAction extends GenericAction {
                         
                         
                         
-                        if(usuarioDTO==null)
+                        if(usuarioDTO==null){
+                            this.recuperarConfiguracionGlobal(request);
                             return mapping.findForward("success");
+                        }
                         HttpSession httpSession = request.getSession();
 			this.usuarioDelegate.logout(usuarioDTO);
 			httpSession.removeAttribute(KEY_SESSION_USUARIO_FIRMADO);
 			ManejadorSesion.invalidate(KEY_SESSION_USUARIO_FIRMADO);
-			//httpSession.invalidate();
-                        httpSession = request.getSession(true);
+			httpSession.invalidate();
+                        
+                        //httpSession = request.getSession(true);
                         this.recuperarConfiguracionGlobal(request);
                         log.info("Logout de sistema");
 			return mapping.findForward("success");

@@ -853,13 +853,13 @@ public class AsignarNumeroExpedienteServiceImpl
         final CasoDTO casoReq = new CasoDTO();
         casoReq.setFechaApertura(new Date());
         casoReq.setEstatus(EstatusCaso.INVESTIGACION);
-        final CasoDTO niuCaso = this.casoService.asignarNumeroCaso(casoReq,obtenerFuncionario(turno.getUsuario().getFuncionario().getDiscriminante()));
+        //final CasoDTO niuCaso = this.casoService.asignarNumeroCaso(casoReq,obtenerFuncionario(turno.getUsuario().getFuncionario().getDiscriminante()));
         
         ExpedienteDTO expParam = new ExpedienteDTO();
         expParam.setFechaApertura(new Date());
         expParam.setUsuario(turno.getUsuario());
         expParam.setArea(turno.getExpediente().getArea());
-        expParam.setCasoDTO(niuCaso);
+        //expParam.setCasoDTO(niuCaso);
         logger.debug("Antes de llamar a asignarNumeroExpediente(expParam)");
         ExpedienteDTO expNuevo = asignarNumeroExpediente(expParam);
         logger.debug("Despues de llamar a asignarNumeroExpediente(expParam)");
@@ -871,7 +871,7 @@ public class AsignarNumeroExpedienteServiceImpl
         tnoBD.setEstatus(new Valor(EstatusTurno.ATENDIDO.getValorId()));
 
         this.turnoDao.update(tnoBD);
-        expNuevo.setCasoDTO(niuCaso);
+        //expNuevo.setCasoDTO(niuCaso);
         return expNuevo;
     }
     
