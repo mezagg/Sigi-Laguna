@@ -153,9 +153,8 @@
 			success: function(xml){
 				$(xml).find('ValorDTO').each(function(){
 					var idTipoSolicitud = $(this).find('idCampo').text();
-					if(idTipoSolicitud==<%= TiposSolicitudes.ATENCION_JURIDICA.getValorId()%> ||
-					   idTipoSolicitud==<%= TiposSolicitudes.ATENCION_PSICOLOGICA.getValorId()%> ||		
-					   idTipoSolicitud==<%= TiposSolicitudes.TRABAJO_SOCIAL.getValorId()%>){						
+					
+                                        if(idTipoSolicitud==<%= TiposSolicitudes.ATENCION_PSICOLOGICA.getValorId()%>){						
 						$('#cbxTipoDeAyuda').append('<option value="' + idTipoSolicitud + '">' + $(this).find('valor').text() + '</option>');
 					}
 				});
