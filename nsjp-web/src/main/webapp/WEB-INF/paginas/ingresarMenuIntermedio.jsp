@@ -194,17 +194,17 @@
 		var extensionesPermitidasAudio = '<%=((ConfiguracionDTO) request.getSession().getAttribute(GenericAction.KEY_SESSION_CONFIGURACION_GLOBAL)).getExtensionesPermitidasAlAdjuntarAudio() %>';
 		var extensionesPermitidasImagen = '<%=((ConfiguracionDTO) request.getSession().getAttribute(GenericAction.KEY_SESSION_CONFIGURACION_GLOBAL)).getExtensionesPermitidasAlAdjuntarImagen() %>';
 		
-		var ATPENAL = 1;
-		var COORDINADOR_JAR = 2;
-		var AGENTE_MP = 3;
-		var COORDINADOR_AMP = 4;
+		var ATPENAL = 3; //1
+		var COORDINADOR_JAR = 6; //2
+		var AGENTE_MP = 7; //3
+		var COORDINADOR_AMP = 8; //4
 		var FACILITADOR = 5;
-		var POLICIA_MINISTERIAL = 6;
-		var COORDINADOR_VISITADOR = 7;
-		var VISITADOR = 8;
-		var COORDINADOR_AMP_GENERAL = 10;
-		var POLICIA_MINISTERIAL_DENUNCIA=60;
-		var COORDINADOR_AT=61;
+		var POLICIA_MINISTERIAL = 9; //6
+		var COORDINADOR_VISITADOR = 42; // coordinadorVIS - 7
+		var VISITADOR = 4; //8  
+		var COORDINADOR_AMP_GENERAL = 57; //10;
+		var POLICIA_MINISTERIAL_DENUNCIA=64; //60
+		var COORDINADOR_AT=58; //61
 		var ENCARGADO_CAUSA=16;
 		var idWindowPantallaActuaciones = 1;
 
@@ -223,6 +223,8 @@
 		var contadorCargaInvolucrados = 0; 
 		//Permite consultar el Parametro NumExpAlterno
 		var valorParametroNumExpAlterno = 0;
+                
+                cargaActuaciones(1);
 		//Comienza funcion on ready del documento
 		$(document).ready(function() {
                     
@@ -239,7 +241,7 @@
 			}
 			
 			//On ready
-			if(confirmarCierreVentana !=null && (confirmarCierreVentana === "1" || confirmarCierreVentana===1)) {
+			if(confirmarCierreVentana !==null && (confirmarCierreVentana === "1" || confirmarCierreVentana===1)) {
 				confirmarCierreVentana = true;
 			}else{
 				confirmarCierreVentana = false;
@@ -248,7 +250,7 @@
 			idIframe = '<%= request.getParameter("idIframe")%>';
 			var auxiliar='<%= request.getParameter("flagIndexProcView")%>';
 			
-			if(auxiliar!=null){flagIndexProcView=auxiliar;}
+			if(auxiliar!==null){flagIndexProcView=auxiliar;}
 			
 			numeroExpediente='<%= request.getAttribute("numeroExpediente")%>';
 
@@ -458,15 +460,15 @@
 //				 $('#cbxPrimerElemento').attr('selectedIndex', 0);
 //				 $('#cbxSegundoElemento').attr('selectedIndex', 0);
 //			 });
-
+//			 
 			// opcion uno es para la pantalla de Atencion temprana penal
-			if(pantallaSolicitada===ATPENAL){
-				
+			if(pantallaSolicitada === ATPENAL){
+				console.log("Pantalla ATPENAL");  
 				// Recargar el grid principal del menú intermedio
 				try{
 					window.parent.activaExpediente();					
 				}catch (e) {
-		        }
+		                }
 				
 				ocultaMuestraTabVisor("tabTabsCadCus",0);
 				ocultaMuestraTabVisor("tabTabsPeri",0);
@@ -486,7 +488,8 @@
 				$('#btnAccApoyoPericial').hide();
 				$('#btnAccGenerarConvenio').hide();
 
-			}else if(pantallaSolicitada===COORDINADOR_AT){//Coordinador de Atencion Temprana
+			}else if(pantallaSolicitada === COORDINADOR_AT){//Coordinador de Atencion Temprana
+                                console.log("Pantalla COORDINADOR_AT"); 
 				deshabilitarCamposPM=true;
 				deshabilitarCampos=true;
 				ocultaMuestraTabVisor("tabTabsCadCus",0);
@@ -507,8 +510,8 @@
 				$('#btnAccApoyoPericial').hide();
 				$('#btnAccGenerarConvenio').hide();
 			
-			}else if(pantallaSolicitada===COORDINADOR_JAR){//coordinador JAR
-				
+			}else if(pantallaSolicitada === COORDINADOR_JAR){//coordinador JAR
+				console.log("Pantalla COORDINADOR_JAR"); 
 				cargaAgenteJAR();
 				
 				ocultaMuestraTabVisor("tabTabsCriterio",0);
@@ -543,8 +546,8 @@
 					ocultaMuestraTabVisor("tabTabsObjs",0);
 				}
                                 
-			}else if(pantallaSolicitada===AGENTE_MP){//agentemp
-				
+			}else if(pantallaSolicitada === AGENTE_MP){//agentemp
+				console.log("Pantalla AGENTE_MP");
 				// Recargar el grid principal del menú intermedio
 				//Solo si es consulta
 				try{
@@ -572,8 +575,8 @@
 				if(valorParametroNumExpAlterno === '1'){
 					$('#idsNumerosDelExpediente').show();	
 				}
-			}else if(pantallaSolicitada===COORDINADOR_AMP){//Coordinador Amp
-				
+			}else if(pantallaSolicitada === COORDINADOR_AMP){//Coordinador Amp
+				console.log("Pantalla COORDINADOR_AMP");
 				muestraDetenido=1;
 			
 				//cargamos las actuaciones para la tab de policia ministerial
@@ -601,8 +604,8 @@
 					$('#tdCbxAgentesCoorUI1').show();
 					$('#idAsignarAgenteMp').show();
 				}
-			} else if(pantallaSolicitada===FACILITADOR){//facilitador
-				
+			} else if(pantallaSolicitada === FACILITADOR){//facilitador
+				console.log("Pantalla FACILITADOR");
 				ocultaMuestraTabVisor("tabTabsCriterio",0);
 				ocultaMuestraTabVisor("tabTabsAlertas",0);
 				ocultaMuestraTabVisor("tabTabsAmparos",0);
@@ -618,7 +621,8 @@
 //					ocultaMuestraTabVisor("tabTabsDelito",0);						
 					ocultaMuestraTabVisor("tabTabsObjs",0);
 				}
-			} else if(pantallaSolicitada===POLICIA_MINISTERIAL){//policia ministerial
+			} else if(pantallaSolicitada === POLICIA_MINISTERIAL){//policia ministerial
+                                console.log("Pantalla POLICIA_MINISTERIAL");
 				deshabilitarCamposPM=true;
 				deshabilitarCampos=true;
 				
@@ -647,10 +651,11 @@
 				$("#tabs-10").css('display','');
 				$("#tabs-8").css('display','');
 				
-			} else if(pantallaSolicitada===POLICIA_MINISTERIAL_DENUNCIA){//policia ministerial de denuncia
+			} else if(pantallaSolicitada === POLICIA_MINISTERIAL_DENUNCIA){//policia ministerial de denuncia
 				//ESte if es especcifico para la pantalla de nueva denuncia en policia ministerial
 				//deshabilitarCamposPM=true;
 				//deshabilitarCampos=true;
+                                console.log("Pantalla POLICIA_MINISTERIAL_DENUNCIA");
 				muestraDetenido=1;
 				
 				$("#tapPoliciaMinister").one("click", function() {
@@ -676,8 +681,8 @@
  			    $("#cbxAccionesTab9").attr("disabled","");
 				//$("#idInvestiga").attr("disabled","");
 				
-			}else if(pantallaSolicitada===COORDINADOR_VISITADOR){//Coordinador Visitador
-				
+			}else if(pantallaSolicitada === COORDINADOR_VISITADOR){//Coordinador Visitador
+				console.log("Pantalla COORDINADOR_VISITADOR");
 				var Area='<%= request.getParameter("idArea")%>';
 				
 				deshabilitarCamposPM=true;
@@ -707,8 +712,8 @@
 					
 				$("#btnCadCusNuevaCadCus").hide();
 
-			}else if(pantallaSolicitada===VISITADOR){//Visitador
-				
+			}else if(pantallaSolicitada === VISITADOR){//Visitador
+				console.log("Pantalla VISITADOR");
 				//Carga los documentos adjuntos que se adjuntaran a la solicitud de periciales
 				cargaGridDocumentosDigitales();
 				
@@ -716,7 +721,7 @@
 				var estatusVisitador='<%= EstatusExpediente.AUDITANDO.getValorId() %>';
 				//Realiza el cambio de estatus solo si la consulta proviene de la bandeja de visitador
 				//si la consulta proviene del modulo de "Busqueda de expediente" no se registra
-				if(esModuloConsultaDeExpedientes != "true")
+				if(esModuloConsultaDeExpedientes !== "true")
 					registraEstatus(estatusVisitador);
 				
 				deshabilitarCamposPM=true;
@@ -744,8 +749,8 @@
 				ocultaMuestraTabVisor("tabTabsAmparos",0);
 					$(".btn_modificar").hide();
 					$(".btn_grande").hide();
-			} else if(pantallaSolicitada===COORDINADOR_AMP_GENERAL){//Coordinador Amp General
-				
+			} else if(pantallaSolicitada === COORDINADOR_AMP_GENERAL){//Coordinador Amp General
+				console.log("Pantalla COORDINADOR_AMP_GENERAL");
 				muestraDetenido=1;
 		
 				$("#tabs").tabs("option", "selected", 2);
@@ -799,7 +804,8 @@
 					ocultaMuestraTabVisor("tabTabsAcciones",0);
 					$("#btnAdjuntarDocumento").hide();
 				}
-			}else if (pantallaSolicitada===ENCARGADO_CAUSA){
+			}else if (pantallaSolicitada === ENCARGADO_CAUSA){
+                                console.log("Pantalla ENCARGADO_CAUSA");
 				//Institucion PJ, Encargado de Causa
 				recargarBandejaAccPenalPriv();
 				
@@ -832,7 +838,7 @@
 					titulo=numeroExpediente;
 				}
 				
-				numeroCaso='<%= request.getSession().getAttribute("numeroCasoConsul")%>';
+				numeroCaso='<%= request.getAttribute("numeroCasoConsul")%>';
 
 				if(numeroCaso === undefined || numeroCaso === null || numeroCaso === "null"){
 					numeroCaso = '- PENDIENTE -';
@@ -933,7 +939,7 @@
 			$("#rdbMenuInterRelDelXDelito").bind("click",ocultaMuestraTblsRelacionarDelitos);
 			$("#rdbMenuInterRelDelXTodos").bind("click",ocultaMuestraTblsRelacionarDelitos);
 
-			if(idRolActivo != '<%=Roles.AGENTEMP.getValorId()%>'){
+			if(idRolActivo !== '<%=Roles.AGENTEMP.getValorId()%>'){
 				datosGenerales();
 			}
 			
@@ -944,7 +950,7 @@
 			//FIN Seteo listener cadena de custodia
 			//consultamos las notas del expediente
 			
-			if(idNumeroExpedienteOp != '')
+			if(idNumeroExpedienteOp !== '')
 			{
 				$("#tapNotas").one("click", function() {
 					consultarNotas();
@@ -1369,7 +1375,7 @@
 			$("#victimaslb").html('V&iacute;ctimas:');
 			$("#probableResponsableslb").html('<bean:message key="plProbalbeResponsableTitulo"/>');
 			
-			if(pantallaSolicitada===COORDINADOR_JAR || pantallaSolicitada===FACILITADOR ){//coordinador JAR
+			if(pantallaSolicitada === COORDINADOR_JAR || pantallaSolicitada === FACILITADOR ){//coordinador JAR
 				//De acuerdo a la bandera de petanaJAR, se muestran otras leyendas, caso contario la misma version
 				if(visualizaPestanaJar===1 || visualizaPestanaJar==='1'){
 					$("#denuncianteslb").html('<bean:message key="denunciantes"/>'+':');
@@ -1402,14 +1408,14 @@
 			$("#btnAdjuntarDocumento").attr("disabled",false);
 
 			//controlNumeroExpedienteAlterno();
-			if(pantallaSolicitada===POLICIA_MINISTERIAL){
+			if(pantallaSolicitada === POLICIA_MINISTERIAL){
 				$("#idInvestiga").attr('disabled','');
 				$("#btnCadCusNuevaCadCus").attr('disabled','');
 				$("#btnCadCusConsultaCadCus").attr('disabled','');
 			}
 			
 			if(idRolActivo === '<%=Roles.COORDINADORAMP.getValorId()%>'
-					&& visualizaMenuAsignarExps != 0){
+					&& visualizaMenuAsignarExps !== 0){
 				esModoConsulta = "true";
 				//Adjuntar documentos
 				$("#btnAdjuntarDocumento").hide();
@@ -1436,7 +1442,7 @@
 			
 
 			//
-			if(idRolActivo != '<%=Roles.COORDINADORAMP.getValorId()%>'){
+			if(idRolActivo !== '<%=Roles.COORDINADORAMP.getValorId()%>'){
 				$('#tdCbxAgentesCoorUI1').hide();
 				$('#tdCbxAgentesCoorUI').hide();
 				$('#idAsignarAgenteMp').hide();
@@ -1468,18 +1474,27 @@
                 });   
                 
                 $("#cbxAccionesTab").delegate('a','click',function(event) {
-                    console.log('acciones');
-                    seleccionaActuacion($(this).selectable());
+                    $(this).addClass( "ui-selectable" );
+                    if($( this ).hasClass( "ui-selectable" )){
+                        seleccionaActuacion($(this));
+                    }
+                    $( this ).removeClass( "ui-selectable" );
+                    
                 });
                         
                 $("#cbxOficiosTab").delegate('a','click',function(event) {
-                    console.log('acciones');
-                    seleccionaActuacion($(this).selectable());
+                    $(this).addClass( "ui-selectable" );
+                    if($( this ).hasClass( "ui-selectable" )){
+                        seleccionaActuacion($(this));
+                    }
+                    $( this ).removeClass( "ui-selectable" );
+                    
                 });
                 
-                $("#tapActuaciones").one("click", function() {
-				 cargaActuaciones(1);
-			 });
+                $("#tapActuaciones").click("click", function() {
+                    
+                    cargaActuaciones(1);
+		});
            });             
                          
 		//Termina funcion on ready del documento
@@ -1785,7 +1800,9 @@
 	/*
 	*Funcion que realiza la carga del combo de Actuaciones
 	*/
+        
 	function cargaActuaciones(sinCatuie) {
+        //console.log("cargando actuaciones ...")
 		$('#cbxAccionesTab').empty();
                 $('#cbxOficiosTab').empty();
                 $('#cbxAccionesTab').addClass("cargando");
@@ -1896,7 +1913,7 @@
 	function asignarAgenteMP(){
 		//Sele colocara la funcion para signar agente ke aun no esta realizada
 		var funcio=$('#cbxAgentesCoorUI option:selected').val();
-		if(funcio != "-1"){
+		if(funcio !== "-1"){
 			$.ajax({
 				type: 'POST',
 				url: '<%= request.getContextPath()%>/registrafuncionarioNumeroExpediente.do?funcionario='+funcio+'&idNumeroExpediente='+idNumeroExpedienteOp,
@@ -2181,7 +2198,7 @@
 								if(tipoExpediente === '<%=OrigenExpediente.REPORTE.getValorId()%>' ){
 										validacionDeDelitoUSC(actividad,estatusId,titulo, formaID, numeroExpediente);						
 								}else{//No es un tipo Reporte
-									if(pantallaSolicitada != null && (pantallaSolicitada === AGENTE_MP || pantallaSolicitada === COORDINADOR_AMP) ){
+									if(pantallaSolicitada !== null && (pantallaSolicitada == AGENTE_MP || pantallaSolicitada == COORDINADOR_AMP) ){
 										validacionDeDelitoUSC(actividad,estatusId,titulo, formaID, numeroExpediente);	
 									}else{
 										alertDinamico("Sólo los tipo de expediente 'Reporte' se pueden canalizar a JAR");	
@@ -2205,7 +2222,7 @@
 							}else if(tipoExpediente === '<%=OrigenExpediente.DENUNCIA.getValorId()%>' || tipoExpediente === '<%=OrigenExpediente.QUERELLA.getValorId()%>'){
 								validacionUFI(actividad,estatusId,titulo, formaID, numeroExpediente, numeroExpedienteId);						
 							}else{//No es un tipo Reporte
-								if(pantallaSolicitada != null && (pantallaSolicitada === AGENTE_MP || pantallaSolicitada === COORDINADOR_AMP) ){
+								if(pantallaSolicitada !== null && (pantallaSolicitada === AGENTE_MP || pantallaSolicitada === COORDINADOR_AMP) ){
 									validacionUFI(actividad,estatusId,titulo, formaID, numeroExpediente, numeroExpedienteId);	
 								}else{
 									alertDinamico("Un expediente de tipo 'Reporte' no puede ser enviado a UI");	
@@ -2226,7 +2243,7 @@
 						}else{
 							//codigo para cambiar el estatus del expediente
 							idWindowPantallaActuaciones++;
-							console.info("ID Tipo Actividad:" + actividad);
+							console.info("ID Tipo Actividad Pam:" + actividad);
 			     			$.newWindow({id:"iframewindowGenerarDocumento"+idWindowPantallaActuaciones, statusBar: true, posx:200,posy:50,width:1140,height:400,title:""+titulo, type:"iframe", confirmarCierreVentana:confirmarCierreVentana});
 			    		    $.updateWindowContent("iframewindowGenerarDocumento"+idWindowPantallaActuaciones,'<iframe src="<%= request.getContextPath() %>/generarDocumentoSinCaso.do?formaId='+formaID+'&numeroUnicoExpediente='+numeroExpediente+'&idWindowPantallaActuaciones='+idWindowPantallaActuaciones+'&actividadId='+actividad+'&esTransaccional='+true+'" width="1140" height="400" />');
 			    		    																																																																											
@@ -2241,9 +2258,8 @@
                 $.updateWindowContent("iframewindowRegistrarAmparo",'<iframe src="<%= request.getContextPath() %>/registrarAmparo.jsp?idNumeroExpediente=' + idNumeroExpedienteOp + '&idExpedienteSoli='+ idExpedienteop+'&numeroExpediente='+numeroExpediente+'"    width="450" height="500" />');
                 $("#" +"iframewindowRegistrarAmparo" + " .window-maximizeButton").click();
 			}else{
-				if(actividad !='<%=Actividades.DIRIGIR_A_LA_UNIDAD_DE_FISCALES_INVESTIGADORES
-					.getValorId()%>' && actividad !='<%=Actividades.DIRIGIR_A_LA_UNIDAD_DE_FISCALES_INVESTIGADORES
-					.getValorId()%>'){
+				if(actividad !=='<%=Actividades.DIRIGIR_A_LA_UNIDAD_DE_FISCALES_INVESTIGADORES.getValorId()%>' &&
+                                        actividad !=='<%=Actividades.DIRIGIR_A_LA_UNIDAD_DE_FISCALES_INVESTIGADORES.getValorId()%>'){
 				//codigo para cambiar el estatus del expediente
 				registrarActividadExpediente(actividad,estatusId,0);
 				document.frmDoc2.numeroUnicoExpediente.value = numeroExpediente;
@@ -2270,7 +2286,7 @@
 						
 			var texto = "Existe " +
 						msjProbableResponsableProp +
-						" reincidente. ¿Desea enviar a la unidad de controversias?"
+						" reincidente. ¿Desea enviar a la unidad de controversias?";
 			
 			customConfirm (texto, "Aviso", 
 					function(){
@@ -3635,7 +3651,7 @@
 			var delitos=<%=(String)request.getSession().getAttribute("delitosXML")%>;
 			var delitosXML=$(''+delitos);
 			//mostramos los botones correspondientes dependiento del tipo de delito
-			if(ret.Gravedad!=null)
+			if(ret.Gravedad!==null)
 			{
 				isGrave=ret.Gravedad;
 			}
@@ -3661,7 +3677,7 @@
 				delitosXML.find('catDelitoDTO').each(function(){
 					if($(this).find('claveDelito').text()===idRadio)
 					{
-						if($(this).find('departamento').text()!="")
+						if($(this).find('departamento').text()!=="")
 						{
 							//seteamos el combo de la pestaña de Acciones dependiendo del departamento
 							$('#cbxCanalizaAUI').val(parseInt($(this).find('departamento').find('departamentoId').text()));
@@ -3761,7 +3777,7 @@
 				{
 					if($(this).find('claveDelito').text()===idDelPrincipal)
 					{
-						if($(this).find('departamento').text()!="")
+						if($(this).find('departamento').text()!=="")
 						{
 							//seteamos el combo de la pestaña de Acciones dependiendo del departamento
 							$('#cbxCanalizaAUI').val(parseInt($(this).find('departamento').find('departamentoId').text()));
@@ -3807,7 +3823,7 @@
 			//barremos el grid para generar la cadena de IDs de los delitos normales
 			for (i=0;i<arrayIDs.length;i++)
 			{
-				if(arrayIDs[i]!=idDelPrincipal)
+				if(arrayIDs[i]!==idDelPrincipal)
 				{
 					var retd = jQuery("#gridDelitosAgraviados").jqGrid('getRowData',arrayIDs[i]);
 					if(delitosNormales.length>0)
@@ -3826,7 +3842,7 @@
 			//mostramos las leyendas de canalizacion debajo del grid
   			  if(existeDelitoGraveEnGrid())
   			  {
-  				  if(pantallaSolicitada!=AGENTE_MP){
+  				  if(pantallaSolicitada!==AGENTE_MP){
   					  $("#leyendaUnDelitoGrave").show();
   					  $("#leyendaNingunDelitoGrave").hide();  
 				  }else{
@@ -3869,9 +3885,9 @@
 			var idRdbTipo="";
 			var banderaTipo=false;
 			idRdbTipo=$('input[name=generales]:checked').attr('id');
-			if(idRdbTipo!=null)
+			if(idRdbTipo!==null)
 			{
-				if(idRdbTipo!="")
+				if(idRdbTipo!=="")
 				{
 					//reviso si el delito seleccionado es grave o no
 					if(idRdbTipo==="rbtnDenuncia")//Denuncia
@@ -4062,91 +4078,91 @@
 		    	  async: false,
 		    	  success: function(xml){
 						$('#Vehiculos').html($(xml).find('totalVehiculos').text()+': '+$(xml).find('vehiculos').text());
-						if($(xml).find('ve').text()!="1"){
+						if($(xml).find('ve').text()!=="1"){
 							$('#imgVehiculo').hide();
 						}
 						$('#EquiposDeComputo').html($(xml).find('totalEquiposComputo').text()+': '+$(xml).find('equiposComputo').text());
-						if($(xml).find('equiCom').text()!="1"){
+						if($(xml).find('equiCom').text()!=="1"){
 							$('#imgEquiposDeComputo').hide();
 						}
 						$('#EquiposTelefonicos').html($(xml).find('totalEquiposTelefonicos').text()+': '+$(xml).find('equiposTelefonicos').text());
-						if($(xml).find('equiTel').text()!="1"){
+						if($(xml).find('equiTel').text()!=="1"){
 							$('#imgEquiposTelefonicos').hide();
 						}
 						$('#Armas').html($(xml).find('totalArmas').text()+': '+$(xml).find('armas').text());
-						if($(xml).find('arm').text()!="1"){
+						if($(xml).find('arm').text()!=="1"){
 							$('#imgArmas').hide();
 						}
 						$('#Explosivos').html($(xml).find('totalExplosivos').text()+': '+$(xml).find('explosivos').text());
-						if($(xml).find('expl').text()!="1"){
+						if($(xml).find('expl').text()!=="1"){
 							$('#imgExplosivos').hide();
 						}
 						$('#Sustancias').html($(xml).find('totalSustancias').text()+': '+$(xml).find('sustancias').text());
-						if($(xml).find('sus').text()!="1"){
+						if($(xml).find('sus').text()!=="1"){
 							$('#imgSustancias').hide();
 						}
 						$('#Animales').html($(xml).find('totalAnimales').text()+': '+$(xml).find('animales').text());
-						if($(xml).find('anim').text()!="1"){
+						if($(xml).find('anim').text()!=="1"){
 							$('#imgAnimales').hide();
 						}
 						$('#Aeronaves').html($(xml).find('totalAeronaves').text()+': '+$(xml).find('aeronaves').text());
-						if($(xml).find('aero').text()!="1"){
+						if($(xml).find('aero').text()!=="1"){
 							$('#imgAeronaves').hide();
 						}
 						$('#Embarcacion').html($(xml).find('totalEmbarcaciones').text()+': '+$(xml).find('embarcaciones').text());
-						if($(xml).find('embar').text()!="1"){
+						if($(xml).find('embar').text()!=="1"){
 							$('#imgEmbarcacion').hide();
 						}
 						$('#Numerario').html($(xml).find('totalNumerarios').text()+': '+$(xml).find('numerarios').text());
-						if($(xml).find('nume').text()!="1"){
+						if($(xml).find('nume').text()!=="1"){
 							$('#imgNumerario').hide();
 						}
 						$('#Vegetal').html($(xml).find('totalVegetales').text()+': '+$(xml).find('vegetales').text());
-						if($(xml).find('vege').text()!="1"){
+						if($(xml).find('vege').text()!=="1"){
 							$('#imgVegetal').hide();
 						}
 						$('#DocumentoOficial').html($(xml).find('totalDocumentosOficiales').text()+': '+$(xml).find('documentosOficiales').text());
-						if($(xml).find('docuOfi').text()!="1"){
+						if($(xml).find('docuOfi').text()!=="1"){
 							$('#imgDocumentoOficial').hide();
 						}
 						$('#Joya').html($(xml).find('totalJoyas').text()+': '+$(xml).find('joyas').text());
-						if($(xml).find('joy').text()!="1"){
+						if($(xml).find('joy').text()!=="1"){
 							$('#imgJoya').hide();
 						}
 						$('#ObraDeArte').html($(xml).find('totalObrasDeArte').text()+': '+$(xml).find('obrasDeArte').text());
-						if($(xml).find('obrArte').text()!="1"){
+						if($(xml).find('obrArte').text()!=="1"){
 							$('#imgObraDeArte').hide();
 						}
 						$('#Periciales').html($(xml).find('totalPericialObjeto').text()+': '+$(xml).find('pericialObjeto').text());
-						if($(xml).find('perObj').text()!= "1"){
+						if($(xml).find('perObj').text()!== "1"){
 							$('#imgPericiales').hide();
 						}
 						$('#Otros').html($(xml).find('totalOtrosObjestos').text()+': '+$(xml).find('otrosObjestos').text());
-						if($(xml).find('otrObj').text()!="1"){
+						if($(xml).find('otrObj').text()!=="1"){
 							$('#imgOtros').hide();
 						}
 						$('#Denunciantes').html($(xml).find('totalDenunciantes').text()+': '+$(xml).find('denunciantes').text());
-						if($(xml).find('denun').text()!="1"){
+						if($(xml).find('denun').text()!=="1"){
 							$('#imgDenunciantes').hide();
 						}
 						$('#Victimas').html($(xml).find('totalVictimas').text()+': '+$(xml).find('victimas').text());
-						if($(xml).find('vic').text()!="1"){
+						if($(xml).find('vic').text()!=="1"){
 							$('#imgVictimas').hide();
 						}
 						$('#ProbablesResponsables').html($(xml).find('totalProbablesResposables').text()+': '+$(xml).find('probablesResposables').text());
-						if($(xml).find('proba').text()!="1"){
+						if($(xml).find('proba').text()!=="1"){
 							$('#imgProbablesResponsables').hide();
 						}
 						$('#Testigos').html($(xml).find('totalTestigos').text()+': '+$(xml).find('testigos').text());
-						if($(xml).find('test').text()!="1"){
+						if($(xml).find('test').text()!=="1"){
 							$('#imgTestigos').hide();
 						}
 						$('#Traductores').html($(xml).find('totalTraductores').text()+': '+$(xml).find('traductores').text());
-						if($(xml).find('tradu').text()!="1"){
+						if($(xml).find('tradu').text()!=="1"){
 							$('#imgTraductores').hide();
 						}
 						$('#QuienDetuvo').html($(xml).find('quienDetuvo').text()+': '+$(xml).find('quienDetuvoNombre').text());
-						if($(xml).find('quienDetu').text()!="1"){
+						if($(xml).find('quienDetu').text()!=="1"){
 							$('#imgQuienDetuvo').hide();
 						}
 						$('#estatusExpe').html($(xml).find('estatusNumeroExpediente').text());
@@ -4329,7 +4345,7 @@
 		*Funcion que abre el PDF para ver los documentos asociados al numero de causa
 		*/
 		function abrirDocsDigAsociadosASol(documentoId){
-			if(documentoId != null && documentoId != ""){
+			if(documentoId !== null && documentoId !== ""){
 				$("#visorDocsFrame").attr("src","<%= request.getContextPath()%>/ConsultarContenidoArchivoDigital.do?documentoId="+documentoId+"&inFrame=true");
 			}
 			else{
@@ -4369,7 +4385,7 @@
 		*Funcion que abre el PDF para ver los documentos asociados al numero de causa
 		*/
 		function abrirDocsDigAsociadosASol(documentoId){
-			if(documentoId != null && documentoId != ""){
+			if(documentoId !== null && documentoId !== ""){
 				$("#visorDocsFrame").attr("src","<%= request.getContextPath()%>/ConsultarContenidoArchivoDigital.do?documentoId="+documentoId+"&inFrame=true");
 			}
 			else{
@@ -4528,7 +4544,7 @@
 		function cambiaTextoVisor(idTipoExpediente){
 			//Unicamente para atpenal
 			if(pantallaSolicitada === ATPENAL){
-				var tituloOriginal =window.parent.recuperaTituloVisor(idIframe)
+				var tituloOriginal =window.parent.recuperaTituloVisor(idIframe);
 				var nuevoTitulo = "";
 				if(tituloOriginal.toLowerCase().substring(0, 10) === "expediente"){
 					nuevoTitulo =  (idTipoExpediente === 2 ? "Reporte" : "Expediente")  + tituloOriginal.substring(10, tituloOriginal.length);
@@ -4536,7 +4552,7 @@
 				}else{
 					if(tituloOriginal.toLowerCase().substring(0, 7) === "reporte"){
 						nuevoTitulo =  (idTipoExpediente === 2 ? "Reporte" : "Expediente")  + tituloOriginal.substring(7, tituloOriginal.length);
-						window.parent.cambiarTituloVisor(idIframe,nuevoTitulo)
+						window.parent.cambiarTituloVisor(idIframe,nuevoTitulo);
 					}					
 				}	
 			}			
@@ -4578,9 +4594,9 @@
 		
 		function validacionUFI(actividad,estatusId,titulo, formaID, numeroExpediente, numeroExpedienteId){
 			existeDelitoGrave();	
-			if(existeDelitoGraveEnExpediente != ""){
+			if(existeDelitoGraveEnExpediente !== ""){
 				//Valida Delito Grave deshabilitado 
-				 if(validaDelitoGrave !=null && (validaDelitoGrave === "0" || validaDelitoGrave===0)) {
+				 if(validaDelitoGrave !==null && (validaDelitoGrave === "0" || validaDelitoGrave===0)) {
 					//Mostrar ventana de Canalización a la Unidad de Fiscales Investigadores
 						idWindowPantallaActuaciones++;
 		     			$.newWindow({id:"iframewindowGenerarDocumento"+idWindowPantallaActuaciones, statusBar: true, posx:200,posy:50,width:1140,height:400,title:"", type:"iframe", confirmarCierreVentana:confirmarCierreVentana});
@@ -4777,26 +4793,26 @@
 
 			var parametros='';
 			
-			if (idNumeroExpedienteOp != undefined && idNumeroExpedienteOp != null
-					&& idNumeroExpedienteOp != "") {
+			if (idNumeroExpedienteOp !== undefined && idNumeroExpedienteOp !== null
+					&& idNumeroExpedienteOp !== "") {
 				parametros += "idNumeroExpediente=" + idNumeroExpedienteOp;
 			}
 			
-			if (idExpedienteop != undefined && idExpedienteop != null
-					&& idExpedienteop != "") {
+			if (idExpedienteop !== undefined && idExpedienteop !== null
+					&& idExpedienteop !== "") {
 				parametros += "&idExpediente=" + idExpedienteop;
 			}
 			
-			if (numeroExpediente != undefined && numeroExpediente != null
-					&& numeroExpediente != "") {
+			if (numeroExpediente !== undefined && numeroExpediente !== null
+					&& numeroExpediente !== "") {
 				parametros += "&numeroExpediente=" + numeroExpediente;
 			}
 			
 			ejecutaAction("/validarSolicitudDeDefensor", function(respuesta){					
 				if(parseInt($(respuesta).find('code').text())===0){
-					if($(respuesta).find('body').text() != null 
-							&& $(respuesta).find('body').text() != "null"
-								&& $(respuesta).find('body').text() != ""){
+					if($(respuesta).find('body').text() !== null 
+							&& $(respuesta).find('body').text() !== "null"
+								&& $(respuesta).find('body').text() !== ""){
 						if($(respuesta).find('body').text() === "success"){
 							solicitarDefensor(actividad,estatusId,titulo, formaID);
 						}else{
@@ -4859,7 +4875,7 @@
 		}
 		function cerrarVentanaGenerarDocumentoDefensor(idWindow){
 
-			var idCompleto = "iframewindowGenerarDocumento"+idWindow
+			var idCompleto = "iframewindowGenerarDocumento"+idWindow;
 			
 			$.closeWindow(idCompleto);
 		}
@@ -4872,7 +4888,7 @@
 			jQuery("#gridSolicitudesPeri3").trigger("reloadGrid");
 		}
 		function abreVentanaReasignarUIEExpediente(){
-			if(typeof(idExpedienteop) != "undefined" && typeof(idExpedienteop) != "null" && idExpedienteop != ""){
+			if(typeof(idExpedienteop) !== "undefined" && typeof(idExpedienteop) !== "null" && idExpedienteop !== ""){
 				$.newWindow({id:"iframewindowReasignarUIEDeExpediente", statusBar: true, posx:50,posy:50,width:900,height:300,title:"Reasignar Unidad de Investigaci&oacute;n Especializada", type:"iframe"});
 				$.updateWindowContent("iframewindowReasignarUIEDeExpediente",'<iframe src="' + contextoPagina + '/reasignarUIEDeExpediente.jsp?idExpediente='+idExpedienteop+'" width="900" height="300" />');
 			}else{
@@ -5025,7 +5041,7 @@
 		  */
 		  function cargaTipoSubConclusion() {
 		  	var tipoConclusion = $("#cbxTipoConclusion option:selected").val();
-			if(tipoConclusion != <%=ConstantesGenerales.HECHOS_TIPO_CONCLUSION_ARCHIVO_TEMP_ID%> && tipoConclusion != "-1" ){
+			if(tipoConclusion !== <%=ConstantesGenerales.HECHOS_TIPO_CONCLUSION_ARCHIVO_TEMP_ID%> && tipoConclusion !== "-1" ){
 				
 				tieneSubConclusion = true;
 				$('#cbxTipoSubConclusion').empty();
@@ -5106,10 +5122,10 @@
 			//obtengo el ID del rdb del delito seleccionado
 			var idRdb="";
 			idRdb=$('input[name=gridDelitos]:checked').attr('id');
-			if(idRdb!=null)
+			if(idRdb!==null)
 			{
 				idRdb=idRdb.split('_')[1];
-				if(idRdb!="")
+				if(idRdb!=="")
 				{
 					var resp=jQuery("#gridDelitosAgraviados").jqGrid('getRowData',idRdb);
 					if(resp.Gravedad==="Yes")
@@ -5164,10 +5180,10 @@
 			var bandera2=1;
 			
 			idRdb=$('input[name=gridDelitos]:checked').attr('id');
-			if(idRdb!=null)
+			if(idRdb!==null)
 			{
 				idRdb=idRdb.split('_')[1];
-				if(idRdb!="")
+				if(idRdb!=="")
 				{
 					var resp=jQuery("#gridDelitosAgraviados").jqGrid('getRowData',idRdb);
 					if(resp.Gravedad==="No")
@@ -5235,7 +5251,7 @@
 			//barremos el grid para generar la cadena de IDs de los delitos normales
 			for (i=0;i<arrayIDs.length;i++)
 			{
-				if(arrayIDs[i]!=idDelPrincipal)
+				if(arrayIDs[i]!==idDelPrincipal)
 				{
 					var retd = jQuery("#gridDelitosAgraviados").jqGrid('getRowData',arrayIDs[i]);
 					if(delitosNormales.length>0)
@@ -5263,7 +5279,7 @@
 	    			//mostramos las leyendas de canalizacion debajo del grid
 	    			  if(existeDelitoGraveEnGrid())
 	    			  {
-	    				  if(pantallaSolicitada!=AGENTE_MP){
+	    				  if(pantallaSolicitada!==AGENTE_MP){
 	      					  $("#leyendaUnDelitoGrave").show();
 	      					  $("#leyendaNingunDelitoGrave").hide();  
 	    				  }else{
@@ -5322,7 +5338,7 @@
 			var delitos=<%=(String)request.getSession().getAttribute("delitosXML")%>;
 			var delitosXML=$(''+delitos);
 			//mostramos los botones correspondientes dependiento del tipo de delito
-			if(ret.Gravedad!=null)
+			if(ret.Gravedad!==null)
 			{
 				isGrave=ret.Gravedad;
 			}
@@ -5777,7 +5793,7 @@
 		
 			<table width="1142px"  height="612px" border="0" cellspacing="0" cellpadding="0" class="back_generales">
 			  <tr><td colspan="6">&nbsp;</td></tr>			
-			  <tr style="border-bottom-style: solid; border: 1;background-image:">
+			  <tr style="border-bottom-style: solid; border: 1px;background-image:">
 			    <td id="espacioEntrelbsEstatus" width="300" style="font-size:14px; background-color:" align="right">
 			    	<%
 			    		if(confInstitucionId != null && confInstitucionId.equals(Instituciones.PJ.getValorId())){

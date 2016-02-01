@@ -1377,7 +1377,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             request.getSession().setAttribute("idExpedienteConsul", expedienteDTO.getNumeroExpedienteId());
             request.getSession().setAttribute("idExpedienteConsulop", expedienteDTO.getExpedienteId());
             if(expedienteDTO.getCasoDTO()!=null)
-                request.getSession().setAttribute("numeroCasoConsul", expedienteDTO.getCasoDTO().getNumeroGeneralCaso());
+                request.setAttribute("numeroCasoConsul", expedienteDTO.getCasoDTO().getNumeroGeneralCaso());
             Boolean banderaFac = Boolean.FALSE;
             log.info(":::::: Actividad deacuerdo al id del Expediente::::");
             if (expedienteDTO.getExpedienteId() != null || expedienteDTO.getExpedienteId().equals("")) {
@@ -1416,7 +1416,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
                 request.getSession().setAttribute("pantallaSolicitada", 8);
             }
             if(expedienteDTO.getCasoDTO()!=null)
-                request.getSession().setAttribute("numeroCasoConsul", expedienteDTO.getCasoDTO().getNumeroGeneralCaso());
+                request.setAttribute("numeroCasoConsul", expedienteDTO.getCasoDTO().getNumeroGeneralCaso());
             //request.setAttribute("numeroExpediente",  expedienteDTO.getNumeroExpediente());
             //request.setAttribute("idNumeroExpedienteop",  expedienteDTO.getNumeroExpedienteId());
             //request.setAttribute("idExpedienteop",  expedienteDTO.getExpedienteId());

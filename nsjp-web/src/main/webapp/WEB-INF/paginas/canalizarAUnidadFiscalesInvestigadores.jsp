@@ -409,6 +409,7 @@
 					return false;
 				}			
 			}
+                        window.parent.cargaActuaciones(1);
 		}
 
 		
