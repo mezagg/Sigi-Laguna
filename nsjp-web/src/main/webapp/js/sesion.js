@@ -135,7 +135,7 @@ function iniciarBloqueoSesion(){
 function customLogout(){
 	
 	if (jQuery('#dialog-logout').length == 0){
-		jQuery("body").append("<div id=\"dialog-logout\" title=\"Cerrar Sesi&oacute;n\"><p align=\"center\"><span id=\"logout\">¿Desea cerrar su sesi&oacute;n?</span></p></div>");
+		jQuery("body").append("<div id=\"dialog-logout\" title=\"Cerrar Sesi&oacute;n\"><p align=\"center\"><span id=\"logout\">&iquest;Desea cerrar su sesi&oacute;n?</span></p></div>");
 	}
 
 	jQuery( "#dialog:ui-dialog" ).dialog( "destroy" );

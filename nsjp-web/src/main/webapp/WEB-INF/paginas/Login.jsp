@@ -187,7 +187,7 @@
 	        <table width="537" height="228" border="0" cellspacing="0" cellpadding="0" background="<%= request.getContextPath() %>/images/sistema/back_login.png" align="center" >
 	                <tr>
 	                    <td align="center" style="border-left:#FFFFFF; border-top:#FFFFFF;">
-	                    	<label style="color:#4A5C68">Escriba su usuario y contrase&ntilde;a para iniciar.</label>	
+	                    	<label style="color:#4A5C68; font-weight: bolder">Escriba su usuario y contrase&ntilde;a para iniciar.</label>	
 	                    </td>
 	                </tr>
 	                <tr>
@@ -224,13 +224,14 @@
 	                                	<input type="hidden" name="captcha" id="captcha" value='<%= request.getAttribute("captcha")%>'>
 	                                </td>
 	                            </tr>
+                                    <tr>
+	                                <td align="center" colspan="2"> &nbsp;
+                                        </td>
+                                    </tr>
 	                            <tr>
-	                                <td align="right">
-	                                    &nbsp;
-	                                </td>			
-	                                <td align="left" colspan="2">
-	                                    <input value="Entrar" name="login" id="login" type="submit" class="btn_login"/> 
-	                                    <input value="Cancelar" name="cancelar" id="cancelar" type="reset"  class="btn_login" onclick="ocultarCaptcha();"/>
+	                                <td align="center" colspan="2">
+	                                    <input value="Entrar" name="login" id="login" type="submit" class="ui-button ui-corner-all ui-widget"/> 
+	                                    <input value="Cancelar" name="cancelar" id="cancelar" type="reset"  class="ui-button ui-corner-all ui-widget" onclick="ocultarCaptcha();"/>
 	                                </td>			
 	                            </tr>
 	                        </table>

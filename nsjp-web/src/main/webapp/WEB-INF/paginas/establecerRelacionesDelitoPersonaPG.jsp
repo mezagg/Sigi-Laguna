@@ -790,6 +790,12 @@
   </tr>
   <tr>
     <td>&nbsp;</td>
+    
+    <td></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td></td>
   </tr>
   <tr>
     <td>&nbsp;</td>
@@ -800,16 +806,18 @@
   <tr>
     <td>&nbsp;</td>
   </tr>
+  
   <tr>
     <td>&nbsp;</td>
   </tr>
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
+  
   <tr>
     <td align="left" valign="top">&nbsp;</td>
     <td>&nbsp;</td>
-    <td>&nbsp;</td>
+    <td align="center"><input name="button4" type="button" class="ui-button ui-corner-all ui-widget"
+			id="btnGuardarRelacionesDelitoPersona"
+			onclick="guardarRelacionesDelitoPersona();"
+			value="Relacionar Delito Personas" /></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
@@ -843,10 +851,7 @@
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td colspan="3" align="center" valign="middle"><input name="button4" type="button" class="ui-button ui-corner-all ui-widget"
-			id="btnGuardarRelacionesDelitoPersona"
-			onclick="guardarRelacionesDelitoPersona();"
-			value="Relacionar Delito Personas" /></td>
+    <td colspan="3" align="center" valign="middle"></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
