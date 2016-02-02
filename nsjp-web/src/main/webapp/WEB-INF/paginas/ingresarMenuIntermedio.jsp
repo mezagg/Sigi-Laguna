@@ -224,7 +224,7 @@
             //Permite consultar el Parametro NumExpAlterno
             var valorParametroNumExpAlterno = 0;
 
-            cargaActuaciones(1);
+            
             //Comienza funcion on ready del documento
             $(document).ready(function () {
 
@@ -262,11 +262,15 @@
                         numeroExpediente = '<%= request.getParameter("numeroExpediente")%>';
                     }
                 }
-
-                pantallaSolicitada = '<%= request.getParameter("pantallaSolicitada")%>';
-                if (pantallaSolicitada === 'null') {
-                    pantallaSolicitada = '<%= request.getSession().getAttribute("pantallaSolicitada")%>';
-                }
+                <%
+                    String pantallaSolicitada;
+                    if(request.getParameter("pantallaSolicitada")!=null)
+                        pantallaSolicitada = request.getParameter("pantallaSolicitada");
+                    else
+                       pantallaSolicitada= (String)request.getSession().getAttribute("pantallaSolicitada");
+                %>
+                pantallaSolicitada = <%= pantallaSolicitada%>;
+               
 
                 ingresoDenuncia = '<%= request.getParameter("ingresoDenuncia")%>';
 
@@ -652,7 +656,7 @@
                     $("#tabs-10").css('display', '');
                     $("#tabs-8").css('display', '');
 
-                } else if (pantallaSolicitada === POLICIA_MINISTERIAL_DENUNCIA) {//policia ministerial de denuncia
+                } else if (pantallaSolicitada == POLICIA_MINISTERIAL_DENUNCIA) {//policia ministerial de denuncia
                     //ESte if es especcifico para la pantalla de nueva denuncia en policia ministerial
                     //deshabilitarCamposPM=true;
                     //deshabilitarCampos=true;
@@ -682,7 +686,7 @@
                     $("#cbxAccionesTab9").attr("disabled", "");
                     //$("#idInvestiga").attr("disabled","");
 
-                } else if (pantallaSolicitada === COORDINADOR_VISITADOR) {//Coordinador Visitador
+                } else if (pantallaSolicitada == COORDINADOR_VISITADOR) {//Coordinador Visitador
                     console.log("Pantalla COORDINADOR_VISITADOR");
                     var Area = '<%= request.getParameter("idArea")%>';
 
@@ -713,7 +717,7 @@
 
                     $("#btnCadCusNuevaCadCus").hide();
 
-                } else if (pantallaSolicitada === VISITADOR) {//Visitador
+                } else if (pantallaSolicitada == VISITADOR) {//Visitador
                     console.log("Pantalla VISITADOR");
                     //Carga los documentos adjuntos que se adjuntaran a la solicitud de periciales
                     cargaGridDocumentosDigitales();
@@ -750,7 +754,7 @@
                     ocultaMuestraTabVisor("tabTabsAmparos", 0);
                     $(".btn_modificar").hide();
                     $(".btn_grande").hide();
-                } else if (pantallaSolicitada === COORDINADOR_AMP_GENERAL) {//Coordinador Amp General
+                } else if (pantallaSolicitada == COORDINADOR_AMP_GENERAL) {//Coordinador Amp General
                     console.log("Pantalla COORDINADOR_AMP_GENERAL");
                     muestraDetenido = 1;
 
@@ -1805,7 +1809,7 @@
              *Funcion que realiza la carga del combo de Actuaciones
              */
 
-            function cargaActuaciones(sinCatuie) {
+            function cargaActuaciones( sinCatuie) {
                 //console.log("cargando actuaciones ...")
                 $('#cbxAcciones').empty();
                 $('#cbxOficiosTab').empty();

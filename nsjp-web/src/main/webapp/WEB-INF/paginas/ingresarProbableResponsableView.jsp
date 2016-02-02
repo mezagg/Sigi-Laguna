@@ -204,16 +204,21 @@ DD P {
 		
 		var isUavd = '<%= request.getParameter("isUavd")%>';
 		
-		var idElemento = '<%=request.getParameter("idProbableResponsable")%>';
+		var idElemento = <%=request.getParameter("idProbableResponsable")%>;
 		// muestra el campo de detenido si el valor es 1
-		var muestraDetenido = '<%=request.getParameter("detenido")%>';
-		if(muestraDetenido==="" || muestraDetenido===null || muestraDetenido==="undefined"){
-			muestraDetenido = '<%=request.getAttribute("detenido")%>';
-		}
+                <%
+                String muestraDetenido =  request.getParameter("detenido");
+                boolean isDetenidoExist= request.getParameter("idProbableResponsable")!=null;
+                
+                if(muestraDetenido==null)
+                    muestraDetenido = (String)request.getAttribute("detenido");
+                %>
+		var muestraDetenido = <%=muestraDetenido%>;
+		
 
 		var muestraDetenidoModificar=0;
-		var isdetenidoTemp = '<%=request.getParameter("isDetenidoExist")%>';
-		var isDetenidoExist = (isdetenidoTemp === '' || isdetenidoTemp === 'null')? false : <%=request.getParameter("isDetenidoExist")%>;
+		
+		var isDetenidoExist = <%=isDetenidoExist%>;
 		var deshabilitarCampos = window.parent.deshabilitarCamposPM;
 		var modificaGrid=true;
 		
@@ -234,16 +239,19 @@ DD P {
 
 		
 		jQuery().ready(function () {
-			jQuery(document).ajaxStop(desbloquearPantalla());			
-			if((isDetenidoExist!=null) && (isDetenidoExist==true)){
+			
+                        jQuery(document).ajaxStop(desbloquearPantalla());
+                        
+			if((isDetenidoExist!==null) && (isDetenidoExist===true)){
 				$('#chkPResponsableDetenido').attr('checked',true);
 				habilitaDetenido();
 			}		
 
 			//Si viene de CoordinadorAMP, policiaMinister &oacute; agenteMP se muestra el campo de detenido
-			if(parseInt(muestraDetenido) == 1){
+			if(muestraDetenido === 1){
 					$("#etiquetaDetenido").show();
 					$("#chkPResponsableDetenido").show();
+                                        
 					muestraDetenidoModificar = 1;				
 			}  
 										
@@ -251,7 +259,7 @@ DD P {
 				
 				valorCalidad ='<%=request.getParameter("calidadInv")%>';
 				
-				if (idElemento != null && idElemento != '0' && <%=request.getParameter("idProbableResponsable")%> != null){
+				if (idElemento !== null && idElemento !== 0 && <%=request.getParameter("idProbableResponsable")%> !== null){
 					//esta linea se comento porque al entrar cuando aun no hay foto oculta la imagen
 					$("#imgConFoto").attr("src",'<%=request.getContextPath()%>/obtenImagenDelElemento.do?elementoID=<%=request.getParameter("idProbableResponsable")%>');
 					//$("#imgConFoto").attr("src","<%=request.getContextPath()%>/resources/images/foto.png");
@@ -381,7 +389,7 @@ DD P {
 		}
 		
 		//Si es sistema tradicional ocultamos buscar reincidencias
-		if (sistemaTrad=='true') {			
+		if (sistemaTrad===true) {			
 			$("#btnBuscarReincidencia").hide();
 			$("#btnConsultarExpedientes").hide();
 		}
@@ -413,9 +421,9 @@ DD P {
 		*si el id del prob responsable ,es null, no se ejecuta la consulta
 		*/			
 		var id=idElemento;
-		if(id==null){
-			id='<%=request.getAttribute("idIndividuoProp")%>';
-			if(id!=null){
+		if(id===null){
+			id=<%=request.getAttribute("idIndividuoProp")%>;
+			if(id!==null){
 				var estaDetenido =$('#chkPResponsableDetenido').is(':checked');
 				if(estaDetenido){
 					consulta(id);
@@ -423,12 +431,12 @@ DD P {
 			}
 		}
 		 $('#chkDefensor').attr("disabled","disabled");
-		if(id!="null"){
+		if(id!==null){
 			muestraDatosProbResponsable(id);
 		}
 		
-		var idProbableResponsable='<%=request.getParameter("idProbableResponsable")%>';
-		if(idProbableResponsable != "null"){
+		var idProbableResponsable=<%=request.getParameter("idProbableResponsable")%>;
+		if(idProbableResponsable !== null){
 			$("img.ui-datepicker-trigger").hide();
 			$('#anularInvolucrado').show();
 			consulta(idProbableResponsable);
@@ -439,7 +447,7 @@ DD P {
 
 		//Instruccion pensada solo para el caso de policia ministerial
 		//Para el caso de Defensoria, si la calidad es DEFENDIDO
-		if(deshabilitarCampos == true || deshabilitarCampos == 'true'){
+		if(deshabilitarCampos === true || deshabilitarCampos === 'true'){
 			$(":enabled").attr('disabled','disabled');
 			$("#btnBuscarReincidencia").removeAttr('disabled');
 			$("#btnConsultarExpedientes").removeAttr('disabled');	
@@ -458,9 +466,9 @@ DD P {
 	*/
 	function configurarPantallaPorRol(){
 
-		if(idRolActivo == '<%=Roles.PROCURADOR.getValorId()%>' || idRolActivo == '<%=Roles.SUBPROCURADOR.getValorId()%>' ||
-				   idRolActivo == '<%=Roles.DIRECTOR_GENERAL.getValorId()%>' || idRolActivo == '<%=Roles.DIRECTOR_UI.getValorId()%>' || 
-				   idRolActivo == '<%=Roles.COORDINADORAMPGENERAL.getValorId()%>'){
+		if(idRolActivo === <%=Roles.PROCURADOR.getValorId()%> || idRolActivo === <%=Roles.SUBPROCURADOR.getValorId()%> ||
+				   idRolActivo === <%=Roles.DIRECTOR_GENERAL.getValorId()%> || idRolActivo === <%=Roles.DIRECTOR_UI.getValorId()%> || 
+				   idRolActivo === <%=Roles.COORDINADORAMPGENERAL.getValorId()%>){
 			$(":enabled").attr('disabled','disabled');
 			$('input[type="submit"]').hide();
 			$('input[type="button"]').hide();
@@ -471,9 +479,9 @@ DD P {
 			$('#btnBuscarReincidencia').attr("disabled","");
 			$('#btnConsultarExpedientes').attr("disabled","");
 			
-		}else if (rolId == '<%=Roles.DEFENSOR.getValorId()%>' || rolId == '<%=Roles.DEFENSORATE.getValorId()%>' || rolId == '<%=Roles.COORDINADORDEF.getValorId()%>' ){
+		}else if (rolId === <%=Roles.DEFENSOR.getValorId()%> || rolId === <%=Roles.DEFENSORATE.getValorId()%> || rolId === <%=Roles.COORDINADORDEF.getValorId()%> ){
 			habilitaDatosEspecificos();
-			if (calidadInv == "DEFENDIDO"){
+			if (calidadInv === "DEFENDIDO"){
 				$("#anularInvolucrado").hide();
 				$("#iVictimaBtnModificarDatos").attr('disabled',false);
 				$("#iVictimaBtnGuardar").attr('disabled',false);
@@ -487,9 +495,9 @@ DD P {
 				$("#iVictimaBtnGuardar").hide();
 				$("uploadArchivo").hide();
 			}
-		}else if(rolId == '<%=Roles.ENCARGADOCAUSA.getValorId()%>' 
-					|| rolId == '<%=Roles.ENCARGADOSALA.getValorId()%>'
-						|| rolId == '<%=Roles.JUEZPJ.getValorId()%>'){
+		}else if(rolId === <%=Roles.ENCARGADOCAUSA.getValorId()%>
+					|| rolId === <%=Roles.ENCARGADOSALA.getValorId()%>
+						|| rolId === <%=Roles.JUEZPJ.getValorId()%>){
 			$("#anularInvolucrado").hide();
 			$('#btnBuscarReincidencia').hide();
 			$('#btnConsultarExpedientes').hide();
@@ -503,14 +511,15 @@ DD P {
 			$("#btnPResponsableEsMuerto").hide();
 			$("#desconocido").hide();
 			$("#btnPResponsableDesconocido").hide();
-			if(parseInt(muestraDetenido) != 1){
+			if(muestraDetenido !== 1){
 				$("#lblcondicion").hide();
 			}
 						
 			//Cuando una audiencia se encuentra finalizada, no se permiten realizar cambios
 			var deshabilitarProbResp=<%=request.getParameter("deshabilitar")%>;
-			if((rolId == '<%=Roles.ENCARGADOSALA.getValorId()%>' 
-					|| rolId == '<%=Roles.JUEZPJ.getValorId()%>') && deshabilitarProbResp==true){
+                        
+			if((rolId === <%=Roles.ENCARGADOSALA.getValorId()%>
+					|| rolId === <%=Roles.JUEZPJ.getValorId()%>) && deshabilitarProbResp===true){
 				 $('#iVictimaBtnModificarDatos').hide();
 			}
 		}
@@ -523,17 +532,17 @@ DD P {
 	*/
 	function habilitarPantallaPorRol(){
 
-		if (rolId == '<%=Roles.DEFENSOR.getValorId()%>' 
-				|| rolId == '<%=Roles.DEFENSORATE.getValorId()%>' 
-					|| rolId == '<%=Roles.COORDINADORDEF.getValorId()%>' ){
-			if (calidadInv == "DEFENDIDO"){
+		if (rolId === <%=Roles.DEFENSOR.getValorId()%> 
+				|| rolId === <%=Roles.DEFENSORATE.getValorId()%>
+					|| rolId === <%=Roles.COORDINADORDEF.getValorId()%> ){
+			if (calidadInv === "DEFENDIDO"){
 				$('#anularInvolucrado').hide();
 				$("#btnBuscarReincidencia").hide();
 				$("#btnConsultarExpedientes").hide();
 			}
-		}else if(rolId == '<%=Roles.ENCARGADOCAUSA.getValorId()%>'
-					|| rolId == '<%=Roles.ENCARGADOSALA.getValorId()%>'
-						|| rolId == '<%=Roles.JUEZPJ.getValorId()%>'){
+		}else if(rolId === <%=Roles.ENCARGADOCAUSA.getValorId()%>
+					|| rolId === <%=Roles.ENCARGADOSALA.getValorId()%>
+						|| rolId === <%=Roles.JUEZPJ.getValorId()%>){
 			$("#anularInvolucrado").hide();
 			$('#btnBuscarReincidencia').hide();
 			$('#btnConsultarExpedientes').hide();
@@ -594,7 +603,7 @@ DD P {
 		    		  seteaDatosTiempoLapsoDetencion(xml);
 
 		    		  if($(xml).find('involucradoDTO').find('esDetenido').text()){
-		    			  bloqueaCamposTiempoLapso(0);
+		    			  //bloqueaCamposTiempoLapso(0);
 		    			  $('#chkPResponsableDetenido').attr('checked','checked');
 		    			  $('#chkPResponsableDetenido').attr('disabled','disabled');
 		    			  $('#chkPResponsableDetenido').show();
@@ -680,7 +689,7 @@ DD P {
 		habilitaDatosMediaFiliacion();
 		avilitarDatosIdentificacion();
 		desbloqueaCamposMediosDeContactoGrid();
-		bloqueaCamposTiempoLapso(1);
+		//bloqueaCamposTiempoLapso(1);
 		bloqueaCamposTablaUAVDOpsHide(1);
 
 		$('#iVictimaBtnGuardar').show();
@@ -734,7 +743,7 @@ DD P {
 	   */		
 		function muestraDatosDetenido(xml){
 			
-			if($(xml).find('esDetenido').first().text() == "true"){
+			if($(xml).find('esDetenido').first().text() === true){
 				 $("#chkPResponsableDetenido").click();
 			}
 			$('#textNarrativa').val($(xml).find('expedienteDTO').find('narrativa').text());
@@ -2067,7 +2076,7 @@ DD P {
 									&& $(xml).find('body').text() != "null"
 										&& $(xml).find('body').text() != ""){
 								alertDinamico($(xml).find('body').text());								
-								bloqueaCamposTiempoLapso(0);
+								//bloqueaCamposTiempoLapso(0);
 							}
 						}else{
 							alertDinamico("Ocurri&oacute; un error al intentar enviar la solicitud de defensor.<br/>" +
@@ -2229,7 +2238,7 @@ DD P {
 						buttons: {
 							"Relacionar": function() {
 								
-								if(deshabilitarCampos == false){
+								if(deshabilitarCampos === false){
 								
 									var longitudTabla = jQuery("#gridReincidenciaElemento").getDataIDs();
 									var numeroExpedientes = longitudTabla.length;
@@ -2457,7 +2466,12 @@ DD P {
 			<option value="0">Moral</option>
 		</select>
 		<td>
-		<td><input type="button" class="ui-button ui-corner-all ui-widget" id="anularInvolucrado" value="Anular Involucrado"></td>
+		<td><input type="button" class="ui-button ui-corner-all ui-widget" id="anularInvolucrado" value="Anular Involucrado">
+                <input type="button" class="ui-button ui-corner-all ui-widget" value="Modificar Datos" id="iVictimaBtnModificarDatos" /> 
+                <input type="button" class="ui-button ui-corner-all ui-widget" value="Guardar" id="iVictimaBtnGuardar"/> 
+                <input type="button" class="ui-button ui-corner-all ui-widget" id="btnBuscarReincidencia"	value="Buscar reincidencia"	onclick="cargaGridReincidenciaElemento()" /> 
+                <input type="button" class="ui-button ui-corner-all ui-widget" id="btnConsultarExpedientes" value="Expedientes relacionados" onclick="cargaGridReincidenciasXElemento()" />
+                </td>
 	</tr>
 </table>
 <table>
@@ -2471,18 +2485,24 @@ DD P {
 			<tr valign="top">
 				<td>
 				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                            <td align="left" colpan="4">
+						&nbsp;
+                                            </td>
+                                    </tr>
 					<tr>
-						<td width="25%" height="130" align="center"><img
+                                            
+						<td width="10%" height="130" align="center"><img
 							src="<%=request.getContextPath()%>/resources/images/foto.png"
 							alt="" width="105" height="105" id="imgConFoto" /></td>
 						<!--td width="12%" height="130" align="center" valign="middle">
 						<img src="resources/images/fingerPrint.JPG" width="100"
 							height="100" /></td-->
-						<td width="25%" height="130" align="center" valign="top">
+						<td width="10%" height="130" align="center" valign="top">
 						<table width="12%" border="0" cellspacing="0" cellpadding="0"
 							class="celda2" id="tableUAVDOpsHide">
 							<tr>
-								<td height="29" class="seccion"><div id="lblcondicion">Condici&oacute;n:</div></td>
+								<td height="29" class="seccion"><div id="lblcondicion">CONDICI&Oacute;N:</div></td>
 							</tr>
 							<tr>
 								<td align="left"><div id="vivo">Vivo</div></td>
@@ -2512,63 +2532,91 @@ DD P {
 									style="display: none" /></td>
 							</tr>
 							<tr>
-								<td align="left"><span id="lblDefensor">Con Defensor</span></td>
+								<td align="left" nowrap><span id="lblDefensor">Con Defensor</span></td>
 								<td><input type="checkbox" id="chkDefensor" /></td>
 							</tr>
 						</table>
 						</td>
 
-                                                
+                                                <td width="30%" align="center">
+						<table id="datosDetenido"  border="0"
+							cellspacing="0" cellpadding="0" style="display: none;">
+							<tr>
+								<td colspan="2" height="20" valign="middle" class="seccion">INGRESAR
+								DATOS DE DETENCI&Oacute;N</td>
+							</tr>
+							<tr>
+								<td align="left"><input type="submit"
+									id="ingresarTiempoEspecificamentePResponsable"
+									value="Espec&iacute;ficamente" /></td>
+								<td >
+								<div id="divEspecifico" style="display: block;"><jsp:include
+									page="/WEB-INF/paginas/ingresarTiempoEspecificamente.jsp"
+									flush="true"></jsp:include></div>
+								<div id="divLapso" style="display: none;"><jsp:include
+									page="/WEB-INF/paginas/ingresarTiempoLapso.jsp"
+									flush="true"></jsp:include></div>
+								<div id="divOtro" style="display: none;"><textarea
+									rows="5" cols="20" id="textNarrativa" readonly="readonly"></textarea>
+								</div>
+								</td>
+							</tr>
+							<tr>
+								<td align="left"></td>
+							</tr>
+							<tr>
+								<td align="left"><input style="width: 112px" type="submit"
+									id="ingresarTiempoOtroPResponsable" value="Otro" /></td>
+							</tr>
+						</table>
+						</td>
 
-						<td width="25%" height="130" align="center" valign="top">
+						<td width="30%" height="130" align="center" valign="top">
 						
 						<table width="100%" height="143" cellpadding="0" cellspacing="0"
 							class="celda2">
 							<tr>
-								<td width="10%" height="30" align="right">Nombre:</td>
+								<td width="10%" height="30" align="right" nowrap>Nombre:</td>
 								<td width="29%"><div id="nombProResponsable" style="border: 0; background: #DDD;width: 210px;">&nbsp;</div></td>
 							</tr>
 							<tr>
-								<td width="10%" height="28" align="right">Apellido Paterno:</td>
+								<td width="10%" height="28" align="right" nowrap>Apellido Paterno:</td>
 								<td width="29%" height="28"><div id="apPatProbResponsable" style="border: 0; background: #DDD;width: 210px;">&nbsp;</div></td>
 							</tr>
 							<tr>
-								<td width="10%" height="35" align="right">Apellido Materno:</td>
+								<td width="10%" height="35" align="right" nowrap>Apellido Materno:</td>
 								<td height="35"><div id="apMatProbResponsable" style="border: 0; background: #DDD;width: 210px;">&nbsp;</div></td>
 							</tr>
+                                                         <tr valign="top">
+                                                             <td align="center" valign="top" colspan="2">
+                                                                <form id="frmImagenElemento" name="frmImagenElemento" method="post" enctype="multipart/form-data">
+
+                                                                    <input type="hidden" name="muestraDetenidoModificar" /> 
+                                                                    <input type="hidden" name="elementoID" /> 
+                                                                    <input type="hidden" name="idIndividuo" /> 
+                                                                    <input type="file" name="archivo" id="uploadArchivo" style="display: " onclick="$(this).val('')"> 
+                                                                    <input type="text" name="numeroExpediente" id="numeroExpediente" style="display: none">
+                                                                </form>
+                                                            </td>
+                                                        </tr>
+                                                                
+                                    
 						</table>
 						
 						</td>
 					</tr>
+                                        <tr>
+                                            <td align="left" id="idDefensorTdDad">
+						<table width="100%" cellpadding="0" cellspacing="0"
+							id="idDefensor"></table>
+						</td>
+                                        </tr>
 				</table>
 				</td>
 			</tr>
 			<tr valign="top">
-				<td colspan="3">
-				<table width="100%" border="0">
-					<tr valign="top">
-						<td width="20%" align="left" id="idDefensorTdDad">
-						<table width="100%" cellpadding="0" cellspacing="0"
-							id="idDefensor"></table>
-						</td>
-						<td align="left" width="80%" valign="top">
-						<form id="frmImagenElemento" name="frmImagenElemento"
-							<%-- action="<%=request.getContextPath()%>/ingresarImagenDelElementoPResponsable.do" --%>
-							method="post" enctype="multipart/form-data"><input
-							type="hidden" name="muestraDetenidoModificar" /> <input
-							type="hidden" name="elementoID" /> <input type="hidden"
-							name="idIndividuo" /> <input type="file" name="archivo"
-							id="uploadArchivo" style="display: " onclick="$(this).val('')"> <input type="text"
-							name="numeroExpediente" id="numeroExpediente"
-							style="display: none">
-							</form>
-
-						<input type="button" class="btn_modificar" value="Modificar Datos" id="iVictimaBtnModificarDatos" /> 
-						<input type="button" class="btn_guardar" value="Guardar" id="iVictimaBtnGuardar"/> 
-						<input type="button" class="btn_mediano" id="btnBuscarReincidencia"	value="Buscar reincidencia"	onclick="cargaGridReincidenciaElemento()" /> 
-						<input type="button" class="btn_mediano" id="btnConsultarExpedientes" value="Expedientes relacionados" onclick="cargaGridReincidenciasXElemento()" /></td>
-					</tr>
-				</table>
+				<td colspan="4">
+                                    
 				</td>
 			</tr>
 

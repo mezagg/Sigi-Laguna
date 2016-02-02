@@ -251,7 +251,7 @@ function cargaSituacionJuridica(valorSituacion){
 		url: '<%=request.getContextPath()%>/ConsultarCatalogoSituacionJuridicaDetenido.do',
 		data: '',
 		dataType: 'xml',
-		async: false,
+		async: true,
 		success: function(xml){
 			var option;
 			$(xml).find('catSituacionJuridicaDetenido').each(function(){
@@ -269,10 +269,10 @@ function cargaSituacionJuridica(valorSituacion){
 
 <table width="200px" height="100px" border="0">
 	<tr>
-		<td id="lbTextInicio">
+		<td id="lbTextInicio" nowrap>
 			<label>Fecha Inicio:</label>
 		</td>
-		<td id="lbTextInicioDet">
+		<td id="lbTextInicioDet" nowrap>
 			<label>Fecha Detenci&oacute;n:</label>
 		</td>
 		<td><div id="idFechaDateDivLapso">
@@ -280,28 +280,28 @@ function cargaSituacionJuridica(valorSituacion){
 		</div></td>
 	</tr>
 	<tr>
-		<td id="horaTextInicio">Hora Inicio:</td>
-		<td id="horaTextInicioDet">Hora Detenci&oacute;n:</td>
+		<td id="horaTextInicio" nowrap>Hora Inicio:</td>
+		<td id="horaTextInicioDet" nowrap>Hora Detenci&oacute;n:</td>
 		<td><div id="idHoraLapso">
 		<input size="10" class="timeRange" type="text" id="idHoraDateLapsoInicio" value="7:00" onblur="cuandoCambien(this.id);"/>
 		</div></td>
 	</tr>
 	<tr>
-		<td id="lbTextFin">Fecha Fin:</td>
-		<td id="lbTextFinDet">Fecha Disponibilidad:</td>
+		<td id="lbTextFin" nowrap>Fecha Fin:</td>
+		<td id="lbTextFinDet" nowrap>Fecha Disponibilidad:</td>
 		<td><div id="idFechaDateDivLapso2">
 		<input type="text" id="idFechaDateLapso2" onchange="revisaLongitudFechas()" size="10" style="width: 70px;" readonly="readonly">
 		</div></td>
 	</tr>
 	<tr>
-		<td id="horaTextFin">Hora Fin:</td>
+		<td id="horaTextFin" nowrap>Hora Fin:</td>
 		<td id="horaTextFinDet">Hora Disponibilidad:</td>
 		<td><div id="idHoraLapso2">
 		<input type="text" id="idHoraDateLapsoFin" size="10" class="timeRange" value="8:00" onblur="cuandoCambien(this.id);"/>
 		</div></td>
 	</tr>
 	<tr>
-		<td align="right">Situaci&oacute;n Juridica:</td>
+		<td align="right" nowrap>Situaci&oacute;n Juridica:</td>
 		<td><select id="situacionJuridicaCombo"
 					name="situacionJuridicaCombo" style="width: 180px;" >
 			<option value="">- Selecciona -</option>
