@@ -195,7 +195,7 @@
             var extensionesPermitidasImagen = '<%=((ConfiguracionDTO) request.getSession().getAttribute(GenericAction.KEY_SESSION_CONFIGURACION_GLOBAL)).getExtensionesPermitidasAlAdjuntarImagen()%>';
 
             var ATPENAL = 3; //1
-            var COORDINADOR_JAR = 6; //2
+            var COORDINADOR_JAR = 2; 
             var AGENTE_MP = 7; //3
             var COORDINADOR_AMP = 4;
             var FACILITADOR = 5;
@@ -515,7 +515,7 @@
                     $('#btnAccApoyoPericial').hide();
                     $('#btnAccGenerarConvenio').hide();
 
-                } else if (pantallaSolicitada === COORDINADOR_JAR) {//coordinador JAR
+                } else if (pantallaSolicitada == COORDINADOR_JAR) {//coordinador JAR
                     console.log("Pantalla COORDINADOR_JAR");
                     cargaAgenteJAR();
 
