@@ -49,7 +49,6 @@ import mx.gob.segob.nsjp.delegate.forma.FormaDelegate;
 import mx.gob.segob.nsjp.dto.archivo.ArchivoDigitalDTO;
 import mx.gob.segob.nsjp.dto.base.PaginacionDTO;
 import mx.gob.segob.nsjp.dto.catalogo.ValorDTO;
-import mx.gob.segob.nsjp.dto.configuracion.ConfiguracionDTO;
 import mx.gob.segob.nsjp.dto.documento.DocumentoDTO;
 import mx.gob.segob.nsjp.dto.documento.DocumentoIntegracionDTO;
 import mx.gob.segob.nsjp.dto.documento.MandamientoDTO;
@@ -112,9 +111,9 @@ public class ConsultarDocumentoAction extends ReporteBaseAction {
             HttpServletResponse response)  {    	
 try {
     		
-    		logger.info("EJECUTANDO CONSULTAR ARCHIVO DIGITAL................");
+    		
 	    		Long documentoId = request.getParameter("documentoId")!=null?NumberUtils.toLong(request.getParameter("documentoId")):null;
-	    		logger.info("DOCUMENTO ID OBTENIDO="+documentoId);
+	    		
 	    		Long archivoDigitalId = request.getParameter("archivoDigitalId")!=null?NumberUtils.toLong(request.getParameter("archivoDigitalId")):null; 
 	    		//Boolean mostrarTipoArchivo = (request.getParameter("mostrarTipoArchivo")==null ? true:false);
                 String mostrarTipoArchivoS = request.getParameter("mostrarTipoArchivo");
@@ -122,6 +121,7 @@ try {
                 if(mostrarTipoArchivoS!=null){
                         mostrarTipoArchivo = Boolean.parseBoolean(mostrarTipoArchivoS);
                 } 
+                logger.info("EJECUTANDO CONSULTAR ARCHIVO DIGITAL................documentoId:"+documentoId);
 	    		logger.info("ARCHIVO DIGITAL ID OBTENIDO="+archivoDigitalId);
 				ArchivoDigitalDTO archivo = documentoDelegate.consultarArchivoDigitalCompletoPorArchivoODocumento(documentoId, archivoDigitalId);
 				
@@ -177,13 +177,13 @@ try {
             ActionForm form, HttpServletRequest request,
             HttpServletResponse response)  {    	
     	try {
-    			logger.info("_____________________________________________________________");
-    			logger.info("EJECUTANDO CONSULTA PLANTILLAS POR TIPO ACTION");
-    			logger.info("_____________________________________________________________");
+    			//logger.info("_____________________________________________________________");
+    			//logger.info("EJECUTANDO CONSULTA PLANTILLAS POR TIPO ACTION");
+    			//logger.info("_____________________________________________________________");
     			
 	    		//Se obtiene el id del tipo de documento
 				String tipoDocumento = request.getParameter("tipoDocumento");
-				logger.info("TIPO DE DOCUMENTO::::::::::"+tipoDocumento);
+			//	logger.info("TIPO DE DOCUMENTO::::::::::"+tipoDocumento);
 				List<FormaDTO> listaPlantillas = formaDelegate.consultarFormasPorTipoForma(NumberUtils.toLong(tipoDocumento));
 				
 				response.setContentType("text/xml; charset=UTF-8");
@@ -244,12 +244,12 @@ try {
             ActionForm form, HttpServletRequest request,
             HttpServletResponse response)  {    	
     	try {
-    			logger.info("****************************************************************");
-    			logger.info("EJECUTANDO ADMINISTRAR PLANTILLA ACTION");
-    			logger.info("****************************************************************");
+    			//logger.info("****************************************************************");
+    			//logger.info("EJECUTANDO ADMINISTRAR PLANTILLA ACTION");
+    			//logger.info("****************************************************************");
     			
 	    		//Se obtiene el id del tipo de plantilla
-				logger.info("PLANTILLA ID::::::::::"+request.getParameter("plantillaId"));
+			//	logger.info("PLANTILLA ID::::::::::"+request.getParameter("plantillaId"));
 				Long plantillaId = null; 
 				FormaDTO plantilla = null;
 				
@@ -262,7 +262,7 @@ try {
 				if(plantilla == null){
 					plantilla = new FormaDTO();
 				}
-				logger.info("PLANTILLA"+plantilla);
+				//logger.info("PLANTILLA"+plantilla);
 				request.setAttribute("tipoPlantilla",plantilla.getTipoFormaDTO().getIdCampo());
 				request.setAttribute("cuerpoPlantilla",plantilla.getCuerpo());
 				request.setAttribute("nombrePlantilla",plantilla.getNombre());
@@ -358,18 +358,17 @@ try {
             ActionForm form, HttpServletRequest request,
             HttpServletResponse response)  {    	
     	try {
-    			logger.info("_____________________________________________________________");
-    			logger.info("EJECUTANDO CONSULTA Documentos ACTION");
-    			logger.info("_____________________________________________________________");
+    			//logger.info("_____________________________________________________________");
+    			//logger.info("EJECUTANDO CONSULTA Documentos ACTION");
+    			//logger.info("_____________________________________________________________");
     			
 	    		//Se obtiene el id del tipo de documento
 				String numeroExpedienteId = request.getParameter("numeroExpedienteId");
-				logger.info("EXPEDIENTE ID::::::::::"+numeroExpedienteId);
+			//	logger.info("EXPEDIENTE ID::::::::::"+numeroExpedienteId);
 				
 				ExpedienteDTO expedienteDTO = new ExpedienteDTO();
 				expedienteDTO.setNumeroExpedienteId(NumberUtils.toLong(numeroExpedienteId));
-				List<DocumentoDTO> documentoDTOs = new ArrayList<DocumentoDTO>();
-				documentoDTOs = documentoDelegate.consultarDocumentosExpediente(expedienteDTO);
+				List<DocumentoDTO> documentoDTOs = documentoDelegate.consultarDocumentosExpediente(expedienteDTO);
 				
 				response.setContentType("text/xml; charset=UTF-8");
 				response.setHeader("Cache-Control", "no-cache");
@@ -379,7 +378,7 @@ try {
 				
 				final PaginacionDTO pag = PaginacionThreadHolder.get();
 
-				logger.debug("pag :: " + pag);
+				//logger.debug("pag :: " + pag);
 				if (pag != null && pag.getTotalRegistros() != null
 						&& !pag.getTotalRegistros().equals(0L)) {
 					writer.print("<page>" + pag.getPage() + "</page>");
@@ -418,13 +417,13 @@ try {
     		HttpServletResponse response)  {    	
     	try {
 
-    		logger.info("EJECUTANDO CONSULTAR ARCHIVO DIGITAL................");
+    		
     		Long documentoId = request.getParameter("documentoId")!=null?NumberUtils.toLong(request.getParameter("documentoId")):null;
     		Long archivoDigitalId = request.getParameter("archivoDigitalId")!=null?NumberUtils.toLong(request.getParameter("archivoDigitalId")):null;
     		String tamanioPapelIdString = request.getParameter("seleccionTamanioPapel");
         	Long tamanioPapelId = NumberUtils.toLong(tamanioPapelIdString, 1L);
         	PDFPropiedad confPapel = PDFPropiedad.getByValor(tamanioPapelId);
-        	
+        	logger.info("EJECUTANDO CONSULTAR ARCHIVO DIGITAL................documentoId:"+documentoId+" archivoDigitalId:"+archivoDigitalId);
         	logger.debug("tamanioPapelId" + " :: " + tamanioPapelId);
         	
 			ArchivoDigitalDTO archivoDigitalDTO = documentoDelegate
@@ -494,39 +493,41 @@ try {
     public ActionForward consultarDocumentosIntegracionExpediente(ActionMapping mapping,
     		ActionForm form, HttpServletRequest request,
     		HttpServletResponse response)  {
-    	Long expedienteId = NumberUtils.toLong(request.getParameter(PARAM_EXPEDIENTE_ID),0L);
-    	if (expedienteId != null 
-    			&& expedienteId > 0L){
-    		try {
-    			ExpedienteDTO expedienteDTO = new ExpedienteDTO();
-    			expedienteDTO.setExpedienteId(expedienteId);
-    			List<DocumentoIntegracionDTO> documentosIntegracion = documentoDelegate.consultarDocumentosIntegracion("tipoDocumento.valorId", true);
-				Map<Long, DocumentoDTO> documentosExpediente = documentoDelegate.consultarDocumentosIntegracionXExpediente(expedienteDTO);
-				if (documentosIntegracion != null
-						&& !documentosIntegracion.isEmpty()){
-					JSONArray jsonArrayDoctos = new JSONArray();
-					for (DocumentoIntegracionDTO di : documentosIntegracion){
-						boolean asociado = documentosExpediente.containsKey(di.getTipoDocumento().getIdCampo());
-						jsonArrayDoctos.add(convertirJson(di,asociado));
-					}
-					
-					response.setContentType(ConstantesGenerales.CONTENT_TYPE_JAVASCRIPT+ "; "+ConstantesGenerales.CHARSET_ISO_8859);
-					response.setHeader(ConstantesGenerales.ENCABEZADO_CACHE_CONTROL,ConstantesGenerales.ENCABEZADO_NOCACHE);
-					PrintWriter writer = response.getWriter();
+        try {
+            Long expedienteId = NumberUtils.toLong(request.getParameter(PARAM_EXPEDIENTE_ID), 0L);
+            if (expedienteId != null
+                    && expedienteId > 0L) {
 
-					StringWriter out = new StringWriter();
-					jsonArrayDoctos.writeJSONString(out);
-				
-					writer.print(out.toString());
-					writer.flush();
-					writer.close();
-				}
-			} catch (NSJPNegocioException e) {
-				logger.error(e.getMessage(), e);
-			} catch (IOException e) {
-				logger.error(e.getMessage(), e);
-			}
-    	}
+                ExpedienteDTO expedienteDTO = new ExpedienteDTO();
+                expedienteDTO.setExpedienteId(expedienteId);
+                List<DocumentoIntegracionDTO> documentosIntegracion = documentoDelegate.consultarDocumentosIntegracion("tipoDocumento.valorId", true);
+                Map<Long, DocumentoDTO> documentosExpediente = documentoDelegate.consultarDocumentosIntegracionXExpediente(expedienteDTO);
+                if (documentosIntegracion != null
+                        && !documentosIntegracion.isEmpty()) {
+                    JSONArray jsonArrayDoctos = new JSONArray();
+                    for (DocumentoIntegracionDTO di : documentosIntegracion) {
+                        boolean asociado = documentosExpediente.containsKey(di.getTipoDocumento().getIdCampo());
+                        jsonArrayDoctos.add(convertirJson(di, asociado));
+                    }
+
+                    response.setContentType(ConstantesGenerales.CONTENT_TYPE_JAVASCRIPT + "; " + ConstantesGenerales.CHARSET_ISO_8859);
+                    response.setHeader(ConstantesGenerales.ENCABEZADO_CACHE_CONTROL, ConstantesGenerales.ENCABEZADO_NOCACHE);
+                    PrintWriter writer = response.getWriter();
+
+                    StringWriter out = new StringWriter();
+                    jsonArrayDoctos.writeJSONString(out);
+
+                    writer.print(out.toString());
+                    writer.flush();
+                    writer.close();
+                }
+            }
+        } catch (NSJPNegocioException e) {
+            logger.error(e.getMessage(), e);
+        } catch (IOException e) {
+            logger.error(e.getMessage(), e);
+        }
+
     	return null;
     }
     
@@ -642,7 +643,7 @@ try {
 				if (fila != null && !fila.isEmpty()){
 					for (int i=0; i<fila.size();i++){
 						if (i==0){
-							buffer.append("<row id='"+ fila.get(i)+"'>");
+							buffer.append("<row id='").append(fila.get(i)).append("'>");
 						}else{
 							buffer.append("<cell><![CDATA[<div class='celdaGrid'>");
 							if (fila.get(i) != null){

@@ -1518,20 +1518,18 @@ public class AtencionTempranaPenalAction extends GenericAction {
             HttpServletRequest request, HttpServletResponse response)
             throws IOException {
         try {
-            log.info("CARGARGO ACTUACIONES");
-            log.debug("EJECUTANDO CARGAR ACTUACIONES..................");
 
+            
             String idCategoria = request.getParameter("idCategoria");
-            log.debug("ID DE LA CATEGORIA=" + idCategoria);
 
+            
             String numeroExpediente = request.getParameter("numeroExpediente");
             String sinCatuie = request.getParameter("sinCatuie");
             Long numeroExpedienteId = NumberUtils.toLong(request.getParameter("numeroExpedienteId"), 0);
-            log.debug("ejecutando MetodoAction cargarActuaciones numeroExpediente ###" + numeroExpediente);
+            log.debug("ejecutando MetodoAction cargarActuaciones numeroExpediente ###" + numeroExpediente + " ID DE LA CATEGORIA=" + idCategoria);
             //Codigo que implementa la funcionalidad de sub rol y filtra sus actuaciones
             UsuarioDTO usuarioDTO = super.getUsuarioFirmado(request);
-            log.info("ACA ESTA EL USUARIO");
-            log.info(usuarioDTO);
+
 
             RolDTO rolDTO = null;
             List<ConfActividadDocumentoDTO> listConfActividadDocumentoDTOs = new ArrayList<ConfActividadDocumentoDTO>();
@@ -1563,16 +1561,16 @@ public class AtencionTempranaPenalAction extends GenericAction {
             List<CatalogoDTO> listaOficio = new ArrayList<CatalogoDTO>();
 
             List<ConfActividadDocumentoDTO> listActividadDocumentoDTOs = new ArrayList<ConfActividadDocumentoDTO>();
-            log.info("ACA ESTA !sinCatuie" + sinCatuie);
+            //log.info("ACA ESTA !sinCatuie" + sinCatuie);
             if (idCategoria == null) {
-                log.debug("ENTRA A ID DE LA CATEGORIA NULA:::::::idCategoria=" + idCategoria);
+                //log.debug("ENTRA A ID DE LA CATEGORIA NULA:::::::idCategoria=" + idCategoria);
                 if (sinCatuie != null) {
                      listActividadDocumentoDTOs = confActividadDocumentoDelegate.consultarConfActividadDocumento(usuario, expedienteDto, null, "0".equals(sinCatuie));
                 }else{
                     listActividadDocumentoDTOs=confActividadDocumentoDelegate.consultarConfActividadDocumento(usuario, expedienteDto, null);
                 }
             } else {
-                log.debug("ENTRA A ID DE LA CATEGORIA NO NULA::::idCategoria=" + idCategoria);
+                //log.debug("ENTRA A ID DE LA CATEGORIA NO NULA::::idCategoria=" + idCategoria);
                 if (sinCatuie != null) {
                      listActividadDocumentoDTOs = confActividadDocumentoDelegate.consultarConfActividadDocumento(usuario, expedienteDto, Long.parseLong(idCategoria), "0".equals(sinCatuie));
                 }else{
@@ -1581,8 +1579,8 @@ public class AtencionTempranaPenalAction extends GenericAction {
             }
 
 //            log.info("USUARIO rol: " + usuario.getRolACtivo().getRol().getRolId());
-            log.debug("ejecutando MetodoAction cargarActuaciones lista respuesta tamano" + listActividadDocumentoDTOs.size());
-            log.debug("ejecutando MetodoAction cargarActuaciones lista respuesta " + listActividadDocumentoDTOs);
+            log.debug("ejecutando MetodoAction cargarActuaciones lista respuesta tamano:" + listActividadDocumentoDTOs.size());
+            //log.debug("ejecutando MetodoAction cargarActuaciones lista respuesta " + listActividadDocumentoDTOs);
             listaCatalogo = new ArrayList<CatalogoDTO>();
             listaOficio = new ArrayList<CatalogoDTO>();
             //Codigo que implementa la funcionalidad de sub rol y filtra sus actuaciones
@@ -1605,7 +1603,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
                                 listaCatalogo.add(catalogo);
                             }
 
-                            log.debug("ejecutando MetodoAction cargarActuaciones actuaciones de BD:" + confActividadDocumentoDTO.getNombreActividad());
+                          //  log.debug("ejecutando MetodoAction cargarActuaciones actuaciones de BD:" + confActividadDocumentoDTO.getNombreActividad());
                         }
                     }
 
@@ -1625,7 +1623,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
                         listaCatalogo.add(catalogo);
                     }
 
-                    log.debug("ejecutando MetodoAction cargarActuaciones actuaciones de BD:" + confActividadDocumentoDTO.getNombreActividad());
+//                    log.debug("ejecutando MetodoAction cargarActuaciones actuaciones de BD:" + confActividadDocumentoDTO.getNombreActividad());
                 }
             }
 
@@ -1643,8 +1641,8 @@ public class AtencionTempranaPenalAction extends GenericAction {
 		xml = converter.toXML(listaCatalogo);
             }
 
-            log.info("ESTE ES EL XML:");
-            log.info(xml);
+           // log.info("ESTE ES EL XML:");
+            //log.info(xml);
             response.setContentType("text/xml");
             PrintWriter pw = response.getWriter();
             pw.print(xml);
@@ -2000,9 +1998,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
 
             converter.alias("hechoDTO", HechoDTO.class);
             String xml = converter.toXML(hechoDTO);
-            if (log.isDebugEnabled()) {
-                log.info("hechoDTO_exp::" + xml);
-            }
+            
             escribirRespuesta(response, xml + xmlConclusion);
         } catch (Exception e) {
             log.error(e.getMessage(), e);
@@ -3334,10 +3330,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             converter.alias("listaNotas", java.util.List.class);
             converter.alias("NotaExpedienteDTO", NotaExpedienteDTO.class);
             String xml = converter.toXML(listaNotas);
-            if (log.isDebugEnabled()) {
-                log.info(xml);
-                log.info("JJJ_KKK:: " + listaNotas.get(0).getIdNota());
-            }
+            
 
             escribirRespuesta(response, xml);
         } catch (Exception e) {
