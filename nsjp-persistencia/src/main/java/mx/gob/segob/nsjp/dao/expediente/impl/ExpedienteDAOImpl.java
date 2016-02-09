@@ -2,7 +2,7 @@
  *
  * Nombre del Programa : ExpedienteDAOImpl.java Autor : Cesar Agustin Compania :
  * Ultrasist Proyecto : NSJP Fecha: 30/03/2011 Marca de cambio : N/A Descripcion
- * General : Implementación para el DAO de la entidad Expediente Programa
+ * General : Implementaciï¿½n para el DAO de la entidad Expediente Programa
  * Dependiente :N/A Programa Subsecuente :N/A Cond. de ejecucion :N/A Dias de
  * ejecucion :N/A Horario: N/A MODIFICACIONES
  * ------------------------------------------------------------------------------
@@ -43,6 +43,7 @@ import mx.gob.segob.nsjp.comun.util.tl.PaginacionThreadHolder;
 import mx.gob.segob.nsjp.dao.base.impl.GenericDaoHibernateImpl;
 import mx.gob.segob.nsjp.dao.expediente.ExpedienteDAO;
 import mx.gob.segob.nsjp.dao.expediente.NumeroExpedienteDAO;
+import mx.gob.segob.nsjp.dao.funcionario.FuncionarioDAO;
 import mx.gob.segob.nsjp.dao.involucrado.InvolucradoDAO;
 import mx.gob.segob.nsjp.dao.persona.DelitoPersonaDAO;
 import mx.gob.segob.nsjp.dao.usuario.UsuarioDAO;
@@ -52,7 +53,7 @@ import mx.gob.segob.nsjp.dto.expediente.ExpedienteViewDTO;
 import mx.gob.segob.nsjp.dto.expediente.FiltroExpedienteDTO;
 import mx.gob.segob.nsjp.dto.institucion.JerarquiaOrganizacionalDTO;
 import mx.gob.segob.nsjp.dto.usuario.UsuarioDTO;
-import mx.gob.segob.nsjp.model.Actividad;
+import mx.gob.segob.nsjp.model.CatDiscriminante;
 import mx.gob.segob.nsjp.model.ArchivoDigital;
 import mx.gob.segob.nsjp.model.CatAreasNegocio;
 import mx.gob.segob.nsjp.model.ConfInstitucion;
@@ -94,6 +95,9 @@ public class ExpedienteDAOImpl extends
 
     @Autowired
     private UsuarioDAO usuarioDao;
+
+    @Autowired
+    private FuncionarioDAO funcionarioDAO;
 
     public List<Expediente> buscarExpedientes(String numeroExpediente,
             Long areaId, Long discriminanteId) {
@@ -429,7 +433,16 @@ public class ExpedienteDAOImpl extends
 
         //FILTRO POR EL DISCRIMINANTE
         if (filtroExpedienteDTO.getIdDiscriminante() != null && filtroExpedienteDTO.getIdDiscriminante() > 0) {
-            queryString.append(" AND e.discriminante.catDiscriminanteId=").append(filtroExpedienteDTO.getIdDiscriminante());
+            queryString.append(" AND e.discriminante.catDiscriminanteId IN ( ").append(filtroExpedienteDTO.getIdDiscriminante());
+            try {
+                Funcionario f= funcionarioDAO.consultarFuncionarioXIdUsuario(filtroExpedienteDTO.getUsuario().getIdUsuario());
+                for (CatDiscriminante cd:f.getFuncionarioAgencias()) {
+                    queryString.append(" , " + cd.getCatDiscriminanteId());
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            queryString.append(" )");
         }
 
         //FILTRO POR el CAT_UIE
@@ -502,6 +515,7 @@ public class ExpedienteDAOImpl extends
                 queryString.append(" ").append(pag.getDirOrd());
             }
         }
+        logger.info("QUERY DEBUG----> "+ queryString.toString());
         if (filtroExpedienteDTO.getestatusMenuCoorJAR() != null
                 && (filtroExpedienteDTO.getestatusMenuCoorJAR().equals(EstatusMenuJAR.ASIGNADOS.getValorId())
                 || filtroExpedienteDTO.getestatusMenuCoorJAR().equals(EstatusMenuJAR.PORASIGNAR.getValorId())
@@ -509,9 +523,11 @@ public class ExpedienteDAOImpl extends
 
             List<NumeroExpediente> lista = super.ejecutarQueryPaginado(queryString, null);
             PaginacionThreadHolder.set(paguinaantigua);
+            logger.info("LISTA1 "+lista.size());
             return lista;
 
         } else {
+            logger.info("LISTA 2"+ super.ejecutarQueryPaginado(queryString, pag).size());
             return super.ejecutarQueryPaginado(queryString, pag);
         }
     }
@@ -1140,7 +1156,7 @@ public class ExpedienteDAOImpl extends
         }
         if (discriminanteId != null && !discriminanteId.equals(0L) && filtroExpedienteDTO.getFiltroEspecificoDeAreaRolActual() == null) {
             queryStr.append(" AND n.expediente.discriminante.catDiscriminanteId = ").append(discriminanteId);
-			// si se busca por jerarquías hijas, se considera que el discriminante del funcionario debe
+			// si se busca por jerarquï¿½as hijas, se considera que el discriminante del funcionario debe
             // se el mismo que el discriminante del expediente
             if (filtroExpedienteDTO.getUsuario().getAreaActual() != null
                     && filtroExpedienteDTO.getUsuario().getAreaActual()
@@ -1888,7 +1904,6 @@ public class ExpedienteDAOImpl extends
                 queryString.append(" ").append(pag.getDirOrd());
             }
         }
-
         if (filtroExpedienteDTO.getestatusMenuCoorJAR() != null
                 && (filtroExpedienteDTO.getestatusMenuCoorJAR().equals(EstatusMenuJAR.ASIGNADOS.getValorId())
                 || filtroExpedienteDTO.getestatusMenuCoorJAR().equals(EstatusMenuJAR.PORASIGNAR.getValorId())

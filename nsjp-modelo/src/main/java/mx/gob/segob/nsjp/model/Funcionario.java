@@ -4,21 +4,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.persistence.*;
+
 import mx.gob.segob.nsjp.model.ssp.InformePolicialHomologado;
 
 import org.hibernate.annotations.Cache;
@@ -93,6 +80,8 @@ public class Funcionario implements java.io.Serializable {
 	private Set<MultaSancion> multaSanciones = new HashSet<MultaSancion>(0);
 	
 	// AGENCIAS
+	private Set<CatDiscriminante> funcionarioAgencias = new HashSet<CatDiscriminante>(
+			0);
 	private CatDiscriminante discriminante;
 	// UIE
 	private CatUIEspecializada unidadIEspecializada;
@@ -140,7 +129,7 @@ public class Funcionario implements java.io.Serializable {
 
 
 	/**
-	 * @param icaveFuncionario
+	 * @param claveFuncionario
 	 */
 	public Funcionario(Long claveFuncionario) {
 		super();
@@ -707,7 +696,29 @@ public class Funcionario implements java.io.Serializable {
 		this.multaSanciones = multaSanciones;
 	}
 	//FINALIZA MODULO DE DEF
-	
+
+	/**
+	 * Método de acceso al campo funcionarioAgencias.
+	 *
+	 * @return El valor del campo funcionarioAgencias.
+	 */
+	@ManyToMany(cascade= CascadeType.ALL, fetch= FetchType.LAZY)
+	@JoinTable(name = "FuncionarioAgencias",
+			joinColumns = @JoinColumn(name = "iClaveFuncionario", referencedColumnName = "iClaveFuncionario"),
+			inverseJoinColumns = @JoinColumn(name = "catDiscriminante_id", referencedColumnName="catDiscriminante_id"))
+	public Set<CatDiscriminante> getFuncionarioAgencias() {
+		return funcionarioAgencias;
+	}
+	/**
+	 * Asigna el valor al campo funcionarioAgencias.
+	 *
+	 * @param funcionarioAgencias
+	 *            el valor multaSanciones a asignar
+	 */
+	public void setFuncionarioAgencias(Set<CatDiscriminante> funcionarioAgencias) {
+		this.funcionarioAgencias = funcionarioAgencias;
+	}
+	//FINALIZA MODULO DE DEF
 
 	/**
 	 * @return the discriminante

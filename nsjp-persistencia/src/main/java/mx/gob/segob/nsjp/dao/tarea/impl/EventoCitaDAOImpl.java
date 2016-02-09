@@ -30,6 +30,8 @@ import mx.gob.segob.nsjp.dao.tarea.EventoCitaDAO;
 import mx.gob.segob.nsjp.model.EventoCita;
 import mx.gob.segob.nsjp.model.Funcionario;
 
+import org.apache.commons.collections.bag.SynchronizedSortedBag;
+import org.apache.log4j.Logger;
 import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
@@ -63,6 +65,9 @@ public class EventoCitaDAOImpl extends
 				
 				queryString.append(" AND e.agendaFuncionario.funcionario.claveFuncionario = :funcionario")
 				.append(" ORDER BY e.fechaInicioEvento");
+
+		logger.debug("***CONSULTA DE AGENDA FUNCIONARIO***");
+		logger.debug(queryString.toString());
 		Query query = super.getSession().createQuery(queryString.toString());
 		query.setParameter("funcionario", idFuncionario);
 		return query.list();
