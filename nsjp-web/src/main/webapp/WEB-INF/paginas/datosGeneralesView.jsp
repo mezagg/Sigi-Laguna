@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/multiselect/jquery.multiselect.css" />
 <link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/multiselect/style.css" />
 <link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/multiselect/prettify.css" />
-<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/south-street/jquery-ui-1.8.10.custom.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css" />
 
 
 <script src="<%=request.getContextPath()%>/js/prettify.js"></script>
@@ -125,7 +125,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
     		url: '<%=request.getContextPath()%>/ConsultarListaEstadoCivil.do',
     		data: '',
     		dataType: 'xml',
-    		async: false,
+    		async: true,
     		success: function(xml){
     			var option;
     			$(xml).find('catEstadoCivil').each(function(){
@@ -142,18 +142,20 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 	}
 	
     function cargaOcupacion(){
+        $('#datosGeneralesCmpOcupacion').addClass("cargando");
     	$.ajax({
     		type: 'POST',
     		url: '<%=request.getContextPath()%>/ConsultarCatalogoOcupacion.do',
     		data: '',
     		dataType: 'xml',
-    		async: false,
+    		async: true,
     		success: function(xml){
     			var option;
     			$(xml).find('catOcupacion').each(function(){
     				$('#datosGeneralesCmpOcupacion').append('<option value="' + $(this).find('clave').text() + '">'+ $(this).find('valor').text() + '</option>');
     				numOcupacionTotal++;
     			});
+                        $('#datosGeneralesCmpOcupacion').removeClass("cargando");
     		}
     	});
     }
@@ -171,7 +173,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
     		url: '<%=request.getContextPath()%>/ConsultarCatalogoIdioma.do',
     		data: '',
     		dataType: 'xml',
-    		async: false,
+    		async: true,
     		success: function(xml){
     			var option;
     			$(xml).find('catIdioma').each(function(){
@@ -194,7 +196,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
     		url: '<%=request.getContextPath()%>/ConsultarCatalogoNacionalidad.do',
     		data: '',
     		dataType: 'xml',
-    		async: false,
+    		async: true,
     		success: function(xml){
     			$(xml).find('catNacionalidad').each(function(){
     				$('#datosGeneralesCmpNacionalidad').append('<option value="' + $(this).find('clave').text() + '">'+ $(this).find('valor').text() + '</option>');
@@ -213,7 +215,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
     		url: '<%=request.getContextPath()%>/ConsultarCatalogoEscolaridad.do',
     		data: '',
     		dataType: 'xml',
-    		async: false,
+    		async: true,
     		success: function(xml){
     			var option;
     			$(xml).find('catEscolaridad').each(function(){
@@ -234,7 +236,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
     		url: '<%=request.getContextPath()%>/ConsultarCatalogoReligion.do',
     		data: '',
     		dataType: 'xml',
-    		async: false,
+    		async: true,
     		success: function(xml){
     			var option;
     			$(xml).find('catReligion').each(function(){
@@ -252,7 +254,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
     	    url: '<%=request.getContextPath()%>/ConsultarFechaCaptura.do',
     	    data: '',
     	    dataType: 'xml',
-    	    async: false,
+    	    async: true,
     	    success: function(xml){
     			$('#datosGeneralesCmpFechaIngreso').val($(xml).find('fechaActual').text());
     		}
@@ -1161,7 +1163,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 				    	    url: '<%=request.getContextPath()%>/ConsultarEdoFisico.do',
 				    	    data: '',
 				    	    dataType: 'xml',
-				    	    async: false,
+				    	    async: true,
 				    	    success: function(xml){
 				    	    	$(xml).find('catEdoFisico').each(function(){
 									$('#cbxEdoFisico').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
@@ -1187,7 +1189,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 				    	    url: '<%=request.getContextPath()%>/ConsultarEdoConsciencia.do',
 				    	    data: '',
 				    	    dataType: 'xml',
-				    	    async: false,
+				    	    async: true,
 				    	    success: function(xml){
 				    	    	$(xml).find('catEdoConsciencia').each(function(){
 									$('#cbxEdoConciencia').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
@@ -1215,7 +1217,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 				    	    url: '<%=request.getContextPath()%>/ConsultarEdoConscienciaInconsciente.do?edoConcienciaId='+edoConcienciaId+'',
 				    	    data: '',
 				    	    dataType: 'xml',
-				    	    async: false,
+				    	    async: true,
 				    	    success: function(xml){
 				    	    	$(xml).find('catEdoConscienciaInconsciente').each(function(){
 									$('#cbxEdoInconciente').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
@@ -1552,7 +1554,7 @@ function bloqueaEnter(e)
 		  url: '<%= request.getContextPath()%>/cargarEdadUnidad.do',
 		  data: '',
 		  dataType: 'xml',
-		  async: false,
+		  async: true,
 		  success: function(xml){
 			var option;
 			$(xml).find('catEdadUnidad').each(function(){
@@ -1575,7 +1577,7 @@ function bloqueaEnter(e)
 		  url: '<%= request.getContextPath()%>/cargarCondicionActividad.do',
 		  data: '',
 		  dataType: 'xml',
-		  async: false,
+		  async: true,
 		  success: function(xml){
 			var option;
 			$(xml).find('catCondicionActividad').each(function(){

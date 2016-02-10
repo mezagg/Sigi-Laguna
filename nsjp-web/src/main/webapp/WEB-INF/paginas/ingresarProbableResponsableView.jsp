@@ -9,18 +9,20 @@
 <%@page import="mx.gob.segob.nsjp.dto.configuracion.ConfInstitucionDTO"%>
 
 <%@taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 					UsuarioDTO usuarioDTO = (UsuarioDTO) request.getSession().getAttribute("KEY_SESSION_USUARIO_FIRMADO");
 					ConfInstitucionDTO confInstitucionDTO = usuarioDTO.getInstitucion();%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
+            <!-- ingresarProbableResponsableView -->
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 			<title><bean:message key="ingProbaleResponsableTitulo"/></title>
 				
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/jquery-ui.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/jquery.easyaccordion.css" />
-	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/south-street/jquery-ui-1.8.10.custom.css" />
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css" />
 
 <style type="text/css">
 DD P {
@@ -133,8 +135,8 @@ DD P {
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jquery.windows-engine.css" />
 
 <!--Scripts necesarios para el funcionamiento de la JSP-->
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery-1.5.1.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery-ui-1.8.10.custom.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.5.1.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/themes/1.8.10/jquery-ui.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.easyAccordion.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.windows-engine.js"></script>
 <!--Script para el idioma del calendario-->
@@ -356,7 +358,7 @@ DD P {
 			//$("#ingresarTiempoLapsoPResponsable").click(deshabilitaBotonUnoTres);
 			$("#ingresarTiempoOtroPResponsable").click(deshabilitaBotonUnoDos);
 			$("#btnPResponsableDesconocido").click(deshabilitaDatosGeneralesDomicilio);										
-			$("#iVictimaBtnModificarDatos").click(avilitaDatos);										
+			$("#iVictimaBtnModificarDatos").click(habilitaDatos);										
 			//$("#btnPResponsableEsVivo").click(deshabilitaDatosGeneralesDomicilio);										
 		  
 			$("#chkPResponsableDetenido").click(habilitaDetenido);
@@ -447,7 +449,7 @@ DD P {
 
 		//Instruccion pensada solo para el caso de policia ministerial
 		//Para el caso de Defensoria, si la calidad es DEFENDIDO
-		if(deshabilitarCampos === true || deshabilitarCampos === 'true'){
+		if(deshabilitarCampos === true || deshabilitarCampos == 'true'){
 			$(":enabled").attr('disabled','disabled');
 			$("#btnBuscarReincidencia").removeAttr('disabled');
 			$("#btnConsultarExpedientes").removeAttr('disabled');	
@@ -465,11 +467,12 @@ DD P {
 	*rol del usuario logeado, independiente de la institucion
 	*/
 	function configurarPantallaPorRol(){
-
-		if(idRolActivo === <%=Roles.PROCURADOR.getValorId()%> || idRolActivo === <%=Roles.SUBPROCURADOR.getValorId()%> ||
-				   idRolActivo === <%=Roles.DIRECTOR_GENERAL.getValorId()%> || idRolActivo === <%=Roles.DIRECTOR_UI.getValorId()%> || 
-				   idRolActivo === <%=Roles.COORDINADORAMPGENERAL.getValorId()%>){
-			$(":enabled").attr('disabled','disabled');
+                        
+                <%
+                    if (rolId == Roles.PROCURADOR.getValorId() || rolId == Roles.SUBPROCURADOR.getValorId() || rolId == Roles.DIRECTOR_GENERAL.getValorId()
+                            || rolId == Roles.DIRECTOR_UI.getValorId() || rolId == Roles.COORDINADORAMPGENERAL.getValorId()) {
+                %>
+                        $(":enabled").attr('disabled','disabled');
 			$('input[type="submit"]').hide();
 			$('input[type="button"]').hide();
 			bloqueaCamposMediosDeContactoGrid();
@@ -478,9 +481,10 @@ DD P {
 			$('#btnConsultarExpedientes').show();			
 			$('#btnBuscarReincidencia').attr("disabled","");
 			$('#btnConsultarExpedientes').attr("disabled","");
-			
-		}else if (rolId === <%=Roles.DEFENSOR.getValorId()%> || rolId === <%=Roles.DEFENSORATE.getValorId()%> || rolId === <%=Roles.COORDINADORDEF.getValorId()%> ){
-			habilitaDatosEspecificos();
+                <%
+                } else if (rolId == Roles.DEFENSOR.getValorId() || rolId == Roles.DEFENSORATE.getValorId() || rolId == Roles.COORDINADORDEF.getValorId()) {
+                %>
+                        habilitaDatosEspecificos();
 			if (calidadInv === "DEFENDIDO"){
 				$("#anularInvolucrado").hide();
 				$("#iVictimaBtnModificarDatos").attr('disabled',false);
@@ -495,10 +499,10 @@ DD P {
 				$("#iVictimaBtnGuardar").hide();
 				$("uploadArchivo").hide();
 			}
-		}else if(rolId === <%=Roles.ENCARGADOCAUSA.getValorId()%>
-					|| rolId === <%=Roles.ENCARGADOSALA.getValorId()%>
-						|| rolId === <%=Roles.JUEZPJ.getValorId()%>){
-			$("#anularInvolucrado").hide();
+                <%
+                } else if (rolId == Roles.ENCARGADOCAUSA.getValorId() || rolId == Roles.ENCARGADOSALA.getValorId() || rolId == Roles.JUEZPJ.getValorId()) {
+                %>
+                        $("#anularInvolucrado").hide();
 			$('#btnBuscarReincidencia').hide();
 			$('#btnConsultarExpedientes').hide();
 			$("#cbxProbResponsableTipoResp").attr('disabled','disabled');
@@ -516,13 +520,16 @@ DD P {
 			}
 						
 			//Cuando una audiencia se encuentra finalizada, no se permiten realizar cambios
-			var deshabilitarProbResp=<%=request.getParameter("deshabilitar")%>;
+			//var deshabilitarProbResp=<%=request.getParameter("deshabilitar")%>;
                         
-			if((rolId === <%=Roles.ENCARGADOSALA.getValorId()%>
-					|| rolId === <%=Roles.JUEZPJ.getValorId()%>) && deshabilitarProbResp===true){
-				 $('#iVictimaBtnModificarDatos').hide();
-			}
-		}
+			//if((rolId === <%=Roles.ENCARGADOSALA.getValorId()%>
+			//		|| rolId === <%=Roles.JUEZPJ.getValorId()%>) && deshabilitarProbResp===true){
+			//	 $('#iVictimaBtnModificarDatos').hide();
+			//}
+                <%
+                    }
+                %>
+		
 	}
 
   
@@ -565,7 +572,7 @@ DD P {
 		    	  url:  '<%=request.getContextPath()%>/consultarInvolucrado.do',
 		    	  data: 'idInvolucrado='+id,
 		    	  dataType: 'xml',
-		    	  async: false,
+		    	  async: true,
 		    	  success: function(xml){
 		    		  datosXML=xml;
 		    		  muestraDatosCondicion(xml);
@@ -616,10 +623,10 @@ DD P {
 		    });
 			idindi=id;
 			idElementoOrganizaion=id;
-			desavilitarDatosGenerales();
+			deshabilitarDatosGenerales();
 			deshabilitaDatosDomicilio();
 			deshabilitaDatosMediaFiliacion();
-			desavilitarDatosIdentificacion();
+			deshabilitarDatosIdentificacion();
 			bloqueaCamposTablaUAVDOpsHide(0);
 			bloqueaCamposMediosDeContactoGrid();
 			mediosContactoCorreoActualiza();
@@ -634,7 +641,7 @@ DD P {
 			    	  url:  '<%=request.getContextPath()%>/consultarRelacionDefensorInvolucrado.do',
 			    	  data: 'idProbableResponsable='+idindi,
 			    	  dataType: 'xml',
-			    	  async: false,
+			    	  async: true,
 			    	  success: function(xml){
 			    		  var nombre=$(xml).find('nombresDemograficoDTO').find('nombre').text();
 			    		  nombre=nombre+" "+$(xml).find('nombresDemograficoDTO').find('apellidoPaterno').text();
@@ -680,14 +687,14 @@ DD P {
 /*
  *COMIENZAN FUNCIONES PARA EL CU CONSULTAR PROBABLE RESPONSABLE
  */  
- function avilitaDatos(){
+ function habilitaDatos(){
 	 
 	 	$("img.ui-datepicker-trigger").show();
 	 	
-		avilitarDatosGenerales();
-		avilitarDatosDomicilio();
+		habilitarDatosGenerales();
+		habilitarDatosDomicilio();
 		habilitaDatosMediaFiliacion();
-		avilitarDatosIdentificacion();
+		habilitarDatosIdentificacion();
 		desbloqueaCamposMediosDeContactoGrid();
 		//bloqueaCamposTiempoLapso(1);
 		bloqueaCamposTablaUAVDOpsHide(1);
@@ -707,7 +714,7 @@ DD P {
 	     */
 	  	function muestraDatosProbResponsable(id) {
 		   $.ajax({
-			 async: false,
+			 async: true,
 		     type: 'POST',
 		     url: '<%=request.getContextPath()%>/ConsultarIndividuoDatos.do',
 			 data: 'idInvolucrado='+id,
@@ -743,7 +750,7 @@ DD P {
 	   */		
 		function muestraDatosDetenido(xml){
 			
-			if($(xml).find('esDetenido').first().text() === true){
+			if($(xml).find('esDetenido').first().text() === 'true'){
 				 $("#chkPResponsableDetenido").click();
 			}
 			$('#textNarrativa').val($(xml).find('expedienteDTO').find('narrativa').text());
@@ -1314,7 +1321,7 @@ DD P {
 						//llamamos al ajax que guardara la informacion de la organizacion
 						$.ajax({								
 					    	  type: 'POST',
-					    	  async:false,
+					    	  async: true,
 					    	  url: '<%=request.getContextPath()%>/guardarOrganizacion.do',
 					    	  data: params,				
 					    	  dataType: 'xml',
@@ -1471,7 +1478,7 @@ DD P {
 						//llamamos al ajax que guardara la informacion de la organizacion
 						$.ajax({								
 					    	  type: 'POST',
-					    	  async:false,
+					    	  true,
 					    	  url: '<%=request.getContextPath()%>/guardarOrganizacion.do',
 					    	  data: params,				
 					    	  dataType: 'xml',
@@ -2349,7 +2356,7 @@ DD P {
 						type: 'POST',
 						url: '<%=request.getContextPath()%>/registrarReincidenciasXElemento.do',
 						data: params, 
-						async: false,
+						async: true,
 						dataType: 'xml',
 						success: function(xml){								
 								cargaGridReincidenciaElemento();
@@ -2399,7 +2406,7 @@ DD P {
 				     type: 'POST',
 				     url: '<%=request.getContextPath()%>/regresaFechaYHoraDelServidor.do',
 					 dataType: 'xml',
-					 async: false,
+					 async: true,
 					 success: function(xml){
 						fecha= $(xml).find('fecha').text();
 					  }

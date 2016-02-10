@@ -18,7 +18,7 @@
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/estilos.css" media="screen" />	
 	<!--Hojas de estilos para los componentes UI de Jquery-->
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css"/>
-	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/south-street/jquery-ui-1.8.10.custom.css" />
+	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/themes/1.8.10/south-street/jquery-ui.css" />
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/comun.js?n=1"></script>
 
 	<script type="text/javascript">	

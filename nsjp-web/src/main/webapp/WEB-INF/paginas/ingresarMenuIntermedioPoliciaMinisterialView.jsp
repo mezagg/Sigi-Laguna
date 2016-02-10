@@ -19,20 +19,20 @@
 	
 	<!--Hojas de estilos para los componentes UI de Jquery-->
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css"/>
-	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/south-street/jquery-ui-1.8.10.custom.css" />
+	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/themes/1.8.10/south-street/jquery-ui.css" />
 	
 	<!--Hoja de estilos para el grid-->
 	<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/jqgrid/ui.jqgrid.css" />
 	
 	<!--scripts de java script-->
-	<script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery-1.5.1.js"></script>
-	<script type="text/javascript" src="<%= request.getContextPath() %>/resources/js/jquery-ui-1.8.11.custom.min.js"></script>
+	<script type="text/javascript" src="<%= request.getContextPath()%>/js/jquery-1.5.1.min.js"></script>
+	<script type="text/javascript" src="<%= request.getContextPath() %>/themes/1.8.10/jquery-ui.min.js"></script>
 	
 	<!--script de windows engine (frames)-->
 	<script type="text/javascript" src="<%= request.getContextPath() %>/resources/js/jquery.windows-engine.js"></script>
 	
 	<!--script de jquery UI-->
-	<script type="text/javascript" src="<%= request.getContextPath()%>/js/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="<%= request.getContextPath()%>/themes/1.8.10/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="<%= request.getContextPath()%>/js/prettify.js"></script>
 	
 	<!--script de los combos multiselect-->
@@ -40,7 +40,7 @@
 	
 	<!--scripts del gird-->
 	<script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jqgrid/i18n/grid.locale-es.js"></script>
-	<script type="text/javascript" src="<%= request.getContextPath()%>/js/jqgrid/jquery.jqGrid.min.js"></script>
+	<script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jqgrid/jquery.jqGrid.min.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/bloqueaTecla.js?n=1"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/comun.js?n=1"></script>
 	

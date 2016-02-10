@@ -8,14 +8,15 @@
 <%@ page import="mx.gob.segob.nsjp.comun.enums.institucion.Areas" %>
 <html>
 <head>
+    <!-- carpetaDeInvestigacionView -->
 	<link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/jquery.windows-engine.css"/>
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/layout_complex.css" media="screen" />
-	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css" />
+	<!--link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css" /-->
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/treeview/jquery.treeview.css" />
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/estilos.css" media="screen" />
 	<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/jqgrid/ui.jqgrid.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/jquery.easyaccordion.css" />				
-	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/south-street/jquery-ui-1.8.10.custom.css" />
+	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/themes/1.8.10/south-street/jquery-ui.css" />
 	<!--link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/jquery.zweatherfeed.css" /-->	 
 	<style type="text/css">
 			dd p{line-height:120%}
@@ -41,17 +42,17 @@
 			    padding-top:2px;
 			}
 		</style>	
-	<script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery-1.5.1.js"></script>
+	<script type="text/javascript" src="<%= request.getContextPath()%>/js/jquery-1.5.1.min.js"></script>
 	<script type="text/javascript" src="<%= request.getContextPath() %>/resources/js/layout_complex.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/timer/jquery.idletimeout.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/timer/jquery.idletimer.js"></script>
-	<script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery-ui-1.8.10.custom.js"></script>
+	<script type="text/javascript" src="<%= request.getContextPath()%>/themes/1.8.10/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="<%= request.getContextPath() %>/resources/js/jquery.windows-engine.js"></script>
 	<script type="text/javascript" src="<%= request.getContextPath() %>/resources/js/jquery.layout-1.3.0.js"></script>
 	<script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery.treeview.js"></script>
 	<script type="text/javascript" src="<%= request.getContextPath() %>/resources/js/reloj.js"></script>
 	<script type="text/javascript" src="<%= request.getContextPath() %>/resources/js/jqgrid/i18n/grid.locale-es.js"></script>
-	<script type="text/javascript" src="<%= request.getContextPath() %>/resources/js/jqgrid/jquery.jqGrid.js"></script>
+	<script type="text/javascript" src="<%= request.getContextPath() %>/resources/js/jqgrid/jquery.jqGrid.min.js"></script>
 	<script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery.easyAccordion.js"></script>
 	<!--script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.zweatherfeed.js"></script-->
 	<script type="text/javascript" src="<%= request.getContextPath() %>/resources/js/jquery.timeentry.js"></script>
@@ -602,7 +603,7 @@
     		url: '<%=request.getContextPath()%>/nuevoNumeroExpediente.do?idArea='+<%=Areas.UNIDAD_INVESTIGACION.ordinal()%>+'&idExpediente='+id+'',
     		data: '',
     		dataType: 'xml',
-    		async: false,
+    		async: true,
     		success: function(xml){
     			idExpediente=$(xml).find('expedienteDTO').find('expedienteId').text();
     			numeroExpediente=$(xml).find('expedienteDTO').find('numeroExpediente').text();
@@ -738,19 +739,21 @@
 	{
 		//limpiamos el menu de los tipos de solicitud
 		$("#"+idDivArbol).empty();
+                $('#'+idDivArbol).addClass("cargando");
 		//lanzamos la consulta del tipo de solicitudes
 		$.ajax({
 			type: 'POST',
 			url: '<%= request.getContextPath()%>/consultaTiposSolsXArea.do',
 			data: 'idArea='+idArea,
 			dataType: 'xml',
-			async: false,
+			async: true,
 			success: function(xml){
 				$(xml).find('ValorDTO').each(function(){
 					var trTabla = '<tr>';
 					trTabla = trTabla + '<td><span><img src="<%=request.getContextPath()%>/resources/css/treeview/images/folder-closed.gif" width="16" height="16"/><a onclick="cargaGridSolsXAtndr('+$(this).find("idCampo").text()+','+idArea+')">'+$(this).find("valor").text()+'</a></span></td>';
 					trTabla = trTabla + '</tr>';
 					$('#'+idDivArbol).append(trTabla);
+                                        $('#'+idDivArbol).removeClass("cargando");
 				});
 			}
 			
@@ -854,19 +857,21 @@
 	{
 		//limpiamos el menu de los tipos de solicitud
 		$("#"+idDivArbol).empty();
+                $('#'+idDivArbol).addClass("cargando");
 		//lanzamos la consulta del tipo de solicitudes
 		$.ajax({
 			type: 'POST',
 			url: '<%= request.getContextPath()%>/consultaTiposSolsXArea.do',
 			data: 'idArea='+idArea,
 			dataType: 'xml',
-			async: false,
+			async: true,
 			success: function(xml){
 				$(xml).find('ValorDTO').each(function(){
 					var trTabla = '<tr>';
 					trTabla = trTabla + '<td><span><img src="<%=request.getContextPath()%>/resources/css/treeview/images/folder-closed.gif" width="16" height="16"/><a onclick="cargaGridSolsGeneradas('+$(this).find("idCampo").text()+',0)">'+$(this).find("valor").text()+'</a></span></td>';
 					trTabla = trTabla + '</tr>';
 					$('#'+idDivArbol).append(trTabla);
+                                        $('#'+idDivArbol).removeClass("cargando");
 				});
 			}
 			
@@ -934,18 +939,20 @@ function visorLeyesCodigos() {
 	{
 		//limpiamos el menu de los tipos de solicitud
 		$("#seccion1tree").empty();
+                $('#seccion1tree').addClass("cargando");
 		//$("#seccion1tree").append("<li class='closed' id='li_dptos_10'><span class='folder'>"+$(this).find('nombre').text()+"</span>"+"<ul id='li_dptosTree_"+$(this).find('jerarquiaOrganizacionalId').text()+"' class='filetree'></ul></li>");
 		$.ajax({
     		type: 'POST',
     		url: '<%= request.getContextPath()%>/consultarEstadosPorDepartamentoDinamico.do',
     		data: 'area='+<%= Areas.UNIDAD_INVESTIGACION.ordinal()%>,
     		dataType: 'xml',
-    		async: false,
+    		async: true,
     		success: function(xml){
 				$(xml).find('estatus').each(function(){
 					//barremos el grid para generar la cadena de IDs de los delitos normales
 					$("#seccion1tree").append("<li><span class='file'><a onclick='cargaGridVisitadores("+<%= Areas.UNIDAD_INVESTIGACION.ordinal()%>+","+$(this).find('idCampo').text()+")'>"+$(this).find('valor').text()+"</a></span></li>");
     			});
+                        $('#seccion1tree').removeClass("cargando");
     		}
     		
     	});
@@ -1060,7 +1067,7 @@ function visorLeyesCodigos() {
     		url: '<%=request.getContextPath()%>/consultarAlarmas.do',
     		data: '',
     		dataType: 'xml',
-    		async: false,
+    		async: true,
     		success: function(xml){
     			$(xml).find('alertaDTO').each(function(){
     				op=$(this).find('esAplaza').text();
@@ -1083,7 +1090,7 @@ function visorLeyesCodigos() {
 	    		url: '<%=request.getContextPath()%>/actualizarAlarma.do?idAlerta='+id+'&estatus='+estatus+'&tiempo='+tiempo+'&unidad='+unidad,
 	    		data: '',
 	    		dataType: 'xml',
-	    		async: false,
+	    		async: true,
 	    		success: function(xml){
 	    			if(estatus=="posponer")
 	    			{

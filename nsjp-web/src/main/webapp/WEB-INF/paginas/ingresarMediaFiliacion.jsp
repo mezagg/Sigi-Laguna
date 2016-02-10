@@ -4,7 +4,7 @@
 
 	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<script src="<%= request.getContextPath()%>/resources/js/jquery-1.5.1.js"></script>
+	<script src="<%= request.getContextPath()%>/js/jquery-1.5.1.min.js"></script>
 	<script type="text/javascript">
 	
 	/*

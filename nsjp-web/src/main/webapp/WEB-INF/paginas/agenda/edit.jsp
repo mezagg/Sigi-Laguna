@@ -9,7 +9,7 @@
     <link href="<%= request.getContextPath() %>/resources/css/wdCalendar/dropdown.css" rel="stylesheet" />    
     <link href="<%= request.getContextPath() %>/resources/css/wdCalendar/colorselect.css" rel="stylesheet" />   
      
-    <script src="<%= request.getContextPath() %>/resources/js/jquery-1.5.1.js" type="text/javascript"></script>  
+    <script src="<%= request.getContextPath() %>/js/jquery-1.5.1.min.js" type="text/javascript"></script>  
     <script src="<%= request.getContextPath() %>/resources/js/wdCalendar/Plugins/Common.js" type="text/javascript"></script>        
     <script src="<%= request.getContextPath() %>/resources/js/wdCalendar/Plugins/jquery.form.js" type="text/javascript"></script>     
     <script src="<%= request.getContextPath() %>/resources/js/wdCalendar/Plugins/jquery.validate.js" type="text/javascript"></script>     

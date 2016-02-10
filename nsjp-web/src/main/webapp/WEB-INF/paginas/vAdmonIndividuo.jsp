@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/multiselect/prettify.css" />
 <link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/multiselect/jquery-ui.css" />
 <script src="<%= request.getContextPath()%>/js/jquery.js"></script>
-<script src="<%= request.getContextPath()%>/js/jquery-ui.min.js"></script>
+<script src="<%= request.getContextPath()%>/themes/1.8.10/jquery-ui.min.js"></script>
 <script src="<%= request.getContextPath()%>/js/prettify.js"></script>
 <script src="<%= request.getContextPath()%>/js/jquery.multiselect.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/comun.js?n=1"></script>

@@ -10,7 +10,7 @@
     <link href="<%= request.getContextPath() %>/resources/css/wdCalendar/main.css" rel="stylesheet" type="text/css" /> 
     
 
-    <script src="<%= request.getContextPath() %>/resources/js/jquery-1.5.1.js" type="text/javascript"></script>  
+    <script src="<%= request.getContextPath() %>/js/jquery-1.5.1.min.js" type="text/javascript"></script>  
     
     <script src="<%= request.getContextPath() %>/resources/js/wdCalendar/Plugins/Common.js" type="text/javascript"></script>    
     <script src="<%= request.getContextPath() %>/resources/js/wdCalendar/Plugins/datepicker_lang_US.js" type="text/javascript"></script>     

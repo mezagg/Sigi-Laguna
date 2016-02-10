@@ -3,6 +3,7 @@
 <%@page import="mx.gob.segob.nsjp.model.Forma"%>
 <html>
     <head>
+        <!-- ingresarMenuIntermedio -->
         <%@ page import="mx.gob.segob.nsjp.comun.enums.calidad.Calidades" %>
         <%@ page import="mx.gob.segob.nsjp.comun.enums.actividad.Actividades" %>
         <%@ page import="mx.gob.segob.nsjp.comun.enums.objeto.Objetos" %>
@@ -56,20 +57,20 @@
 
         <!--Hojas de estilos para los componentes UI de Jquery-->
         <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css"/>
-        <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/south-street/jquery-ui-1.8.10.custom.css" />
+        <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css" />
 
         <!--Hoja de estilos para el grid-->
         <link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/jqgrid/ui.jqgrid.css" />
 
         <!--scripts de java script-->
-        <script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery-1.5.1.js"></script>
-        <script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery-ui-1.8.11.custom.min.js"></script>
+        <script type="text/javascript" src="<%= request.getContextPath()%>/js/jquery-1.5.1.min.js"></script>
+        <script type="text/javascript" src="<%= request.getContextPath()%>/themes/1.8.10/jquery-ui.min.js"></script>
 
         <!--script de windows engine (frames)-->
         <script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery.windows-engine.js"></script>
 
         <!--script de jquery UI-->
-        <script type="text/javascript" src="<%= request.getContextPath()%>/js/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="<%= request.getContextPath()%>/themes/1.8.10/jquery-ui.min.js"></script>
         <script type="text/javascript" src="<%= request.getContextPath()%>/js/prettify.js"></script>
 
         <!--script de los combos multiselect-->
@@ -77,7 +78,7 @@
 
         <!--scripts del gird-->
         <script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jqgrid/i18n/grid.locale-es.js"></script>
-        <script type="text/javascript" src="<%= request.getContextPath()%>/js/jqgrid/jquery.jqGrid.min.js"></script>
+        <script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jqgrid/jquery.jqGrid.min.js"></script>
 
         <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.layout-1.3.0.js"></script>
         <script type="text/javascript" src="<%=request.getContextPath()%>/js/bloqueaTecla.js?n=1"></script>
@@ -467,7 +468,7 @@
 //			 });
 //			 
                 // opcion uno es para la pantalla de Atencion temprana penal
-                if (pantallaSolicitada === ATPENAL) {
+                if (pantallaSolicitada == ATPENAL) {
                     console.log("Pantalla ATPENAL");
                     // Recargar el grid principal del menú intermedio
                     try {
@@ -493,7 +494,7 @@
                     $('#btnAccApoyoPericial').hide();
                     $('#btnAccGenerarConvenio').hide();
 
-                } else if (pantallaSolicitada === COORDINADOR_AT) {//Coordinador de Atencion Temprana
+                } else if (pantallaSolicitada == COORDINADOR_AT) {//Coordinador de Atencion Temprana
                     console.log("Pantalla COORDINADOR_AT");
                     deshabilitarCamposPM = true;
                     deshabilitarCampos = true;
@@ -536,7 +537,7 @@
                         $("#idAsignarFacilitador").hide();
                         //$("#idReasignarFacilitador").show();
                         $("#cbxAgentesCoorJAR").hide();
-            <%session.setAttribute("banderaFac", false);%>
+                        <%session.setAttribute("banderaFac", false);%>
                     } else {
                         $("#idAsignarFacilitador").show();
                         $("#idReasignarFacilitador").hide();
@@ -550,7 +551,7 @@
                         ocultaMuestraTabVisor("tabTabsObjs", 0);
                     }
 
-                } else if (pantallaSolicitada === AGENTE_MP) {//agentemp
+                } else if (pantallaSolicitada == AGENTE_MP) {//agentemp
                     console.log("Pantalla AGENTE_MP");
                     // Recargar el grid principal del menú intermedio
                     //Solo si es consulta
@@ -580,7 +581,7 @@
                     if (valorParametroNumExpAlterno === '1') {
                         $('#idsNumerosDelExpediente').show();
                     }
-                } else if (pantallaSolicitada === COORDINADOR_AMP) {//Coordinador Amp
+                } else if (pantallaSolicitada == COORDINADOR_AMP) {//Coordinador Amp
                     console.log("Pantalla COORDINADOR_AMP");
                     muestraDetenido = 1;
 
@@ -609,7 +610,7 @@
                         $('#tdCbxAgentesCoorUI1').show();
                         $('#idAsignarAgenteMp').show();
                     }
-                } else if (pantallaSolicitada === FACILITADOR) {//facilitador
+                } else if (pantallaSolicitada == FACILITADOR) {//facilitador
                     console.log("Pantalla FACILITADOR");
                     ocultaMuestraTabVisor("tabTabsCriterio", 0);
                     ocultaMuestraTabVisor("tabTabsAlertas", 0);
@@ -626,7 +627,7 @@
 //					ocultaMuestraTabVisor("tabTabsDelito",0);						
                         ocultaMuestraTabVisor("tabTabsObjs", 0);
                     }
-                } else if (pantallaSolicitada === POLICIA_MINISTERIAL) {//policia ministerial
+                } else if (pantallaSolicitada == POLICIA_MINISTERIAL) {//policia ministerial
                     console.log("Pantalla POLICIA_MINISTERIAL");
                     deshabilitarCamposPM = true;
                     deshabilitarCampos = true;
@@ -810,7 +811,7 @@
                         ocultaMuestraTabVisor("tabTabsAcciones", 0);
                         $("#btnAdjuntarDocumento").hide();
                     }
-                } else if (pantallaSolicitada === ENCARGADO_CAUSA) {
+                } else if (pantallaSolicitada == ENCARGADO_CAUSA) {
                     console.log("Pantalla ENCARGADO_CAUSA");
                     //Institucion PJ, Encargado de Causa
                     recargarBandejaAccPenalPriv();
@@ -835,7 +836,7 @@
                 //oculta la pestaña de Alertas
                 ocultaMuestraTabVisor("tabTabsAlertas", 0);
 
-                if (ingresoDenuncia === 'true') {
+                if (ingresoDenuncia == 'true') {
                     $("#tapNotas").one("click", function () {
                         consultarNotas();
                     });

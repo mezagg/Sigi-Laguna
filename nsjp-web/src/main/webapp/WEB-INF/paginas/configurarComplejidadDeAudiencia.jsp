@@ -21,22 +21,22 @@
 <link rel="stylesheet" type="text/css" media="screen"
 	href="<%=request.getContextPath()%>/resources/css/multiselect/prettify.css" />
 <link rel="stylesheet" type="text/css" media="screen"
-	href="<%=request.getContextPath()%>/resources/css/south-street/jquery-ui-1.8.10.custom.css" />
+	href="<%=request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css" />
 <link rel="stylesheet" type="text/css"
-	href="<%= request.getContextPath() %>/resources/css/south-street/jquery-ui-1.8.10.custom.css" />
+	href="<%= request.getContextPath() %>/themes/1.8.10/south-street/jquery-ui.css" />
 <link rel="stylesheet" type="text/css" media="screen"
 	href="<%=request.getContextPath()%>/resources/css/jqgrid/ui.jqgrid.css" />
 <link type="text/css" rel="stylesheet"
 	href="<%= request.getContextPath() %>/resources/css/jquery.windows-engine.css" />
 
 <script type="text/javascript"
-	src="<%= request.getContextPath()%>/resources/js/jquery-1.5.1.js"></script>
+	src="<%= request.getContextPath()%>/js/jquery-1.5.1.min.js"></script>
 <script type="text/javascript"
-	src="<%= request.getContextPath()%>/resources/js/jquery-ui-1.8.10.custom.js"></script>
+	src="<%= request.getContextPath()%>/themes/1.8.10/jquery-ui.min.js"></script>
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/resources/js/jqgrid/i18n/grid.locale-es.js"></script>
 <script type="text/javascript"
-	src="<%=request.getContextPath()%>/resources/js/jqgrid/jquery.jqGrid.js"></script>
+	src="<%=request.getContextPath()%>/resources/js/jqgrid/jquery.jqGrid.min.js"></script>
 <script src="<%=request.getContextPath()%>/js/prettify.js"></script>
 <script src="<%=request.getContextPath()%>/js/jquery.multiselect.js"></script>
 <script type="text/javascript"

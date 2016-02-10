@@ -28,6 +28,7 @@ function cargarRbtCondicion(contexto) {
 	    url:  contexto + '/CargarCondicionProbableResponsable.do',
 	    data: '',
 	    dataType: 'xml',
+            async: true,
 	    success: function(xml){
 	    	$('#tdProbResponsableCondicion').empty();
 		    $(xml).find('condicionDTO').each(function(){

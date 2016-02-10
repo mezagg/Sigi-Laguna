@@ -8,7 +8,7 @@
 <title>Modificar contacto de una organizacion</title>
 
 	<link type="text/css" href="<%=request.getContextPath()%>/resources/css/ingresarIndividuo.css" rel="stylesheet" />
-	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery-1.5.1.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.5.1.min.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/tabs.js"></script>	
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/modificarContactoDeUnaOrganizacion.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/bloqueaTecla.js?n=1"></script>
