@@ -67,12 +67,12 @@ jQuery().ready(	function () {
     	 var datos2=$(xml).find('tiempo').find('fechaFin').text().split(' ');
     	 var fechaBien=datos[0].split('-');
     	 var fechaBien2=datos2[0].split('-');
-		 var fecha1 = (fechaBien[2] === undefined ?"":fechaBien[2]+"/")+
-    		 		  (fechaBien[1] === undefined ?"":fechaBien[1]+"/")+    					 
-	    		      (fechaBien[0] === undefined ?"":fechaBien[0]);
-		 var fecha2 = (fechaBien2[2] === undefined ?"":fechaBien2[2]+"/")+
-			     	  (fechaBien2[1] === undefined ?"":fechaBien2[1]+"/")+    					 
-	    			  (fechaBien2[0] === undefined ?"":fechaBien2[0]);
+		 var fecha1 = (fechaBien[2] == undefined ?"":fechaBien[2]+"/")+
+    		 		  (fechaBien[1] == undefined ?"":fechaBien[1]+"/")+    					 
+	    		      (fechaBien[0] == undefined ?"":fechaBien[0]);
+		 var fecha2 = (fechaBien2[2] == undefined ?"":fechaBien2[2]+"/")+
+			     	  (fechaBien2[1] == undefined ?"":fechaBien2[1]+"/")+    					 
+	    			  (fechaBien2[0] == undefined ?"":fechaBien2[0]);
     	 
     	 $("#idFechaDateLapso").val(fecha1);
     	 $("#idHoraDateLapsoInicio").val(datos[1].substring(0,5));
@@ -91,12 +91,12 @@ jQuery().ready(	function () {
     	 var fechaBien=datos[0].split('-');
     	 var fechaBien2=datos2[0].split('-');
     	 
-		 var fecha1 = (fechaBien[2] === undefined ?"":fechaBien[2]+"/")+
-					  (fechaBien[1] === undefined ?"":fechaBien[1]+"/")+    					 
-	      			  (fechaBien[0] === undefined ?"":fechaBien[0]);
-		 var fecha2 = (fechaBien2[2] === undefined ?"":fechaBien2[2]+"/")+
-    	 		      (fechaBien2[1] === undefined ?"":fechaBien2[1]+"/")+    					 
-			          (fechaBien2[0] === undefined ?"":fechaBien2[0]);
+		 var fecha1 = (fechaBien[2] == undefined ?"":fechaBien[2]+"/")+
+					  (fechaBien[1] == undefined ?"":fechaBien[1]+"/")+    					 
+	      			  (fechaBien[0] == undefined ?"":fechaBien[0]);
+		 var fecha2 = (fechaBien2[2] == undefined ?"":fechaBien2[2]+"/")+
+    	 		      (fechaBien2[1] == undefined ?"":fechaBien2[1]+"/")+    					 
+			          (fechaBien2[0] == undefined ?"":fechaBien2[0]);
 
     	 $("#idFechaDateLapso").val(fecha1);
     	 $("#idHoraDateLapsoInicio").val(datos[1].substring(0,5));

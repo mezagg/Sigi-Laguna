@@ -880,7 +880,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 					var paternoStr = valorCampoApPat;
 					str = paternoStr.toLowerCase().replace(/de\s|la\s|del\s|'|-/gi, '');
 					var consonateAPaterno = str;
-					paternoStr = (str.charAt(0) === 'ñ' ? 'X' : str.charAt(0)) + (str.charAt(1) ? obtieneVocal(str) : 'X');
+					paternoStr = (str.charAt(0) == 'ñ' ? 'X' : str.charAt(0)) + (str.charAt(1) ? obtieneVocal(str) : 'X');
 					consonateAPaterno=obtenConsonante(consonateAPaterno);
 						
 					if(consonateAPaterno.trim()=="" || consonateAPaterno.trim().length==0)
@@ -894,7 +894,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 					{
 						str = maternoStr.toLowerCase().replace(/de\s|la\s|del\s|'|-/gi, '');
 						consonateAMaterno = str;
-						maternoStr = str.charAt(0) === 'ñ' ? 'X' : str.charAt(0);		
+						maternoStr = str.charAt(0) == 'ñ' ? 'X' : str.charAt(0);		
 						//consonateAMaterno=consonateAMaterno.substring(1);					
 						consonateAMaterno=obtenConsonante(consonateAMaterno);
 						if(consonateAMaterno.trim()=="" || consonateAMaterno.trim().length==0)
@@ -1044,13 +1044,13 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 				var letraNombre = '';
 				nombreStr = nombreStr.trim();
 				nombreStr = nombreStr.toLowerCase().replace(/de\s|la\s|del\s|'|-/gi, '');
-				var letraBase = nombreStr.charAt(0).toLowerCase() === 'ñ' ? 'X' : nombreStr.charAt(0);
+				var letraBase = nombreStr.charAt(0).toLowerCase() == 'ñ' ? 'X' : nombreStr.charAt(0);
 				if (nombreStr.split(' ').length >= 2) {
 					var jose = quitaAcentos(nombreStr).toLowerCase().search('jose');
 					var maria = quitaAcentos(nombreStr).toLowerCase().search('maria');
 					if (jose >= 0 && maria >= 0) {
 						letraNombre = letraBase;
-					} else if (jose === 0 || maria === 0) {
+					} else if (jose == 0 || maria == 0) {
 						letraNombre = nombreStr.split(' ')[1].charAt(0);
 					} else {
 						letraNombre = nombreStr.split(' ')[0].charAt(0);
@@ -1067,7 +1067,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 					nombreStr = nombreStr.trim();
 					nombreStr = nombreStr.toLowerCase().replace(/de\s|la\s|del\s|'|-/gi, '');
 					var nombreStrOrg=nombreStr;
-					var letraBase = nombreStr.charAt(0).toLowerCase() === 'ñ' ? 'X' : nombreStr.charAt(0);
+					var letraBase = nombreStr.charAt(0).toLowerCase() == 'ñ' ? 'X' : nombreStr.charAt(0);
 					if (nombreStrOrg.split(' ').length >= 2) {
 						var nombreStrJose = quitaAcentos(nombreStr).toLowerCase();
 						var nombreStrMaria= quitaAcentos(nombreStr).toLowerCase();
@@ -1123,7 +1123,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 				var vocalStr = '';
 				for (var i = 1; i < str.length; i++) {				
 					for (var j = 0; j < vocales.length; j++) {
-						if (str.charAt(i) === vocales[j]) {
+						if (str.charAt(i) == vocales[j]) {
 							vocalStr = quitaAcentos(str.charAt(i));
 							return vocalStr;
 						}

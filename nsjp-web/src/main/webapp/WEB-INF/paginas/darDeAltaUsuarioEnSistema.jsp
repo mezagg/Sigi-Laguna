@@ -47,7 +47,7 @@
 		else if(roles==null || roles=="null" || roles==""){
 			alertDinamico("Se necesita seleccionar un rol de la lista");
 		}
-		else if(idRolPrincipal === undefined){
+		else if(idRolPrincipal == undefined){
 			alertDinamico("Se necesita seleccionar un rol principal");
 		}
 		else if($("#contrasena").val()==""){

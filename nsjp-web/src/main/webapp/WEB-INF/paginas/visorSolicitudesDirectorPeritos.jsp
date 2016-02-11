@@ -446,7 +446,7 @@ Funcionalidad para:
 
 	function registrarActividadExpediente(actuacionID,estatusId,banderaMensaje,funcionario){
 		var idFuncionario;
-		if ( funcionario === undefined ) {
+		if ( funcionario == undefined ) {
 			idFuncionario = '';
 		}else{
 			idFuncionario=funcionario;

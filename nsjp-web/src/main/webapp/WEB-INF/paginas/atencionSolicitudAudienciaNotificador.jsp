@@ -316,7 +316,7 @@
 		
 		if(esParcial != null ){
 
-			if(esParcial===false){
+			if(esParcial==false){
 				//Fue guardado definitivo	
 				document.frmDoc.action=accionConsultarPdf+"?documentoId="+documentoId;
 				document.frmDoc.submit();

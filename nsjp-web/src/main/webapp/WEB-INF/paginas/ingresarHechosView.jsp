@@ -128,20 +128,20 @@
 					isIPH = '<%=request.getParameter("iphFuncionalidadHidden")%>';
 					pantallaSolicitada = '<%=request.getParameter("pantallaSolicitada")%>';
 					
-					if(validaTipoExpedienteReporte !==null && (validaTipoExpedienteReporte === "0" || validaTipoExpedienteReporte===0)){
+					if(validaTipoExpedienteReporte !==null && (validaTipoExpedienteReporte == "0" || validaTipoExpedienteReporte==0)){
 						$('#spanRdbTipoReporte').hide();
 					}else{
 						//Permite manipular el radio button en base al rol del usuario loggeado
 						$('#rdbTipoReporte').attr('disabled', 'disabled');	
 						if(pantallaSolicitada !== null){
-							if(pantallaSolicitada === AGENTE_MP || pantallaSolicitada === COORDINADOR_AMP ||
-							   pantallaSolicitada === POLICIA_MINISTERIAL_DENUNCIA || pantallaSolicitada === POLICIA_MINISTERIAL){
+							if(pantallaSolicitada == AGENTE_MP || pantallaSolicitada == COORDINADOR_AMP ||
+							   pantallaSolicitada == POLICIA_MINISTERIAL_DENUNCIA || pantallaSolicitada == POLICIA_MINISTERIAL){
 								//Oculta radio button de Reporte
 								$('#spanRdbTipoReporte').hide();	
-							}else if(pantallaSolicitada === ATPENAL ){
+							}else if(pantallaSolicitada == ATPENAL ){
 									$('#rdbTipoReporte').attr('disabled', false);	
 							}
-							else if(pantallaSolicitada === ENCARGADO_CAUSA ){
+							else if(pantallaSolicitada == ENCARGADO_CAUSA ){
 								$('#spanRdbQuerella').hide();
 								$('#spanRdbTipoReporte').hide();
 							}
@@ -178,7 +178,7 @@
 							$( "#idFechaDateLapso2" ).datepicker( "option", "minDate", date );
 							//sette la hora maxima del inicio
 							var fechaTemp=$("#idHoraDateLapsoFin").val();
-							if($("#idFechaDateLapso").val()===fechaMax ){
+							if($("#idFechaDateLapso").val()==fechaMax ){
 								fechaTemp=horaServer();
 								$("#idHoraDateLapsoInicio").val(fechaTemp);
 								$("#idHoraDateLapsoFin").val(fechaTemp);
@@ -202,7 +202,7 @@
 							//sette la hora maxima del inicio
 							revisaLongitudFechas();
 							var fechaTemp;
-							if($("#idFechaDateLapso2").val()===fechaMax ){
+							if($("#idFechaDateLapso2").val()==fechaMax ){
 								fechaTemp=horaServer();
 								$("#idHoraDateLapsoFin").val(fechaTemp);
 							}else{
@@ -255,23 +255,23 @@
 					$('#idFechaDateLapso').change(validaCamposFecha);
 					$('#idFechaDateLapso2').change(validaCamposFecha);
 					
-					if (isIPH === true || isIPH === "true") {
+					if (isIPH == true || isIPH == "true") {
 						$("#IPHFuncionalidadOcultaTipoExpediente").hide();					
 					}
 					
 					//Instruccion pensada solo para el caso de policia ministerial
-					if(deshabilitarCampos === true){
+					if(deshabilitarCampos == true){
 						$(":enabled").attr('disabled','disabled');
 					}
 					
-					if(pantallaSolicitada===COORDINADOR_AMP_GENERAL){
+					if(pantallaSolicitada==COORDINADOR_AMP_GENERAL){
 	    				$(":enabled").attr('disabled','disabled');
 	    				$('input[type="submit"]').hide();
 	    				$('input[type="button"]').hide();
 	    				$("#editor1").attr('disabled','disabled');
 					}
 					
-					if(idRolActivo === '<%=Roles.FACILITADOR.getValorId()%>' || idRolActivo === '<%=Roles.COORDINADORJAR.getValorId()%>' ){
+					if(idRolActivo == '<%=Roles.FACILITADOR.getValorId()%>' || idRolActivo == '<%=Roles.COORDINADORJAR.getValorId()%>' ){
 						$("#btnModificarHechos").hide();	
 					}
 					
@@ -349,7 +349,7 @@
 			function consultaHecho()
 			{
 				var numExpedienteConsulta=0;
-				if (isIPH === true || isIPH === "true") {
+				if (isIPH == true || isIPH == "true") {
 					numExpedienteConsulta=numeroExpedienteId;
 				}
 				else{
@@ -362,7 +362,7 @@
 		    		dataType: 'xml',
 		    		async: false,
 		    		success: function(xml){
-		    			if(parseInt($(xml).find('code').text())===0)
+		    			if(parseInt($(xml).find('code').text())==0)
 			    		{
 		    				try{
 			    				 var datos=$(xml).find('fechaDeArribo').text().split(' ');
@@ -394,11 +394,11 @@
 				    	      
 				    	      var tipoExpediente=$(xml).find('hechoDTO').find('expediente').find('origen').find('idCampo').text();
 				    	      
-				    	      if(tipoExpediente==='<%=OrigenExpediente.QUERELLA.getValorId()%>'){
+				    	      if(tipoExpediente=='<%=OrigenExpediente.QUERELLA.getValorId()%>'){
 				    	    	  $('#rdbTipoQuerella').attr('checked','checked');				    	    	  
 				    	      }
 				    	      
-				    	      if(tipoExpediente==='<%=OrigenExpediente.REPORTE.getValorId()%>'){
+				    	      if(tipoExpediente=='<%=OrigenExpediente.REPORTE.getValorId()%>'){
 				    	    	  $('#rdbTipoReporte').attr('checked','checked');				    	    	  
 				    	      }
 				    	      
@@ -458,7 +458,7 @@
 			}
 			
 			function habilitaDeshabilitaCamposTipoConclusion(bandera){
-				if(parseInt(bandera)===1){
+				if(parseInt(bandera)==1){
 					//habilita
 					$('#fechaConclusion').datepicker('enable');
 					$('#fechaConclusion').attr("disabled","");
@@ -476,7 +476,7 @@
 			
 			function bloqueaCamposTiempoOtro(bandera)
 		     {
-		    	if(parseInt(bandera)===0)
+		    	if(parseInt(bandera)==0)
 		    	{
 		    		$("#textNarrativa").attr("readonly","readonly");
 		    	}
@@ -488,7 +488,7 @@
 			
 			function habilitaDeshabilitaBotonesTiempo(bandera)
 			{
-				if(parseInt(bandera)===1)
+				if(parseInt(bandera)==1)
 				{
 					$("#ingresarTiempoEspecificamentePResponsable").attr("disabled","");
 					$("#ingresarTiempoLapsoPResponsable").attr("disabled","");
@@ -570,14 +570,14 @@
 						data: parametrosHechos+"&idTiempo="+idTiempo+"&idLugar="+idLugar,
 						dataType: 'xml',
 						success: function(xml){
-							if(parseInt(idHecho)===0)
+							if(parseInt(idHecho)==0)
 							{
 								//Venismo de una insercion
-								if(parseInt($(xml).find('code').text())===0)
+								if(parseInt($(xml).find('code').text())==0)
 								{
 									$("#btnGuardarHechos").attr("disabled","disabled");	
 									alertDinamicoCerrar("Se guard&oacute; exitosamente la informaci&oacute;n",1,xml);
-									if (typeof window.parent.cambiaTextoVisor === 'function') {
+									if (typeof window.parent.cambiaTextoVisor == 'function') {
 										window.parent.cambiaTextoVisor($(':radio[name=rdTipoExpediente]:checked').val());
 								    }
 						    	}
@@ -588,7 +588,7 @@
 							}
 							else
 							{
-								if(parseInt($(xml).find('code').text())===0)
+								if(parseInt($(xml).find('code').text())==0)
 								{
 									//venimos de un update y para setear la pantalla mandaremos llamar a la consulta del hecho
 									//consultaHecho();
@@ -596,7 +596,7 @@
 									$("#btnGuardarHechos").hide();
 									$("#btnModificarHechos").attr('disabled','');
 									
-									if (typeof window.parent.cambiaTextoVisor === 'function') {
+									if (typeof window.parent.cambiaTextoVisor == 'function') {
 										window.parent.cambiaTextoVisor($(':radio[name=rdTipoExpediente]:checked').val());
 								    }
 									
@@ -642,7 +642,7 @@
 			
 			function bloqueaCamposHoraArribo(bandera)
 		     {
-		    	if(parseInt(bandera)===0)
+		    	if(parseInt(bandera)==0)
 		    	{
 		    	 $('#idFechaArribo').attr('disabled','disabled');
 		    	 $('#idHoraArribo').attr('disabled','disabled');
@@ -661,14 +661,14 @@
 			function validaDatosIngresoHecho()
 			{
 				//lamaremos a cada uno de los metodos que validan las secciones de la vista
-				if(escape($('.jquery_ckeditor').val()).length===0)
+				if(escape($('.jquery_ckeditor').val()).length==0)
 				{
 					alertDinamico("Favor de registrar la descripci&oacute;n de los hechos");
 					return false;
 				}
 				
 				var selected = $("#cbxDelegacionMunicipio option:selected");
-				if(	selected.val() === "-1" ){
+				if(	selected.val() == "-1" ){
 					alertDinamico("Debe ingresar Delegaci&oacute;n/Municipio");
 					return false;
 				}
@@ -697,15 +697,15 @@
 					parametros += "&tipoTiempoHecho="+tipoTiempoHecho;
 				}
 				//recuperamos los datos de fecha y tiempo
-				if(parseInt(tipoTiempoHecho)===1)//especifico
+				if(parseInt(tipoTiempoHecho)==1)//especifico
 				{
 					parametros += "&"+recuperaDatosTiempoEspecifico(calidad);	
 				}
-				else if(parseInt(tipoTiempoHecho)===2)//lapso
+				else if(parseInt(tipoTiempoHecho)==2)//lapso
 				{
 					parametros += "&"+recuperaDatosTiempoLapso(calidad);	
 				}
-				else if(parseInt(tipoTiempoHecho)===3)//hecho en el tiempo
+				else if(parseInt(tipoTiempoHecho)==3)//hecho en el tiempo
 				{
 					parametros += "&gsNarrativa="+$("#textNarrativa").val();	
 				}
@@ -714,7 +714,7 @@
 				parametros += "&idUsuario=" + idUsuario;
 				parametros += "&origenExpediente=" + $(':radio[name=rdTipoExpediente]:checked').val();
 				var numExpedienteConsulta=0;
-				if (isIPH === true || isIPH === "true") {					
+				if (isIPH == true || isIPH == "true") {					
 					parametros += "&numExpediente=" + numeroExpediente;				
 					parametros += "&numeroExpedienteId="+numeroExpedienteId;
 				}

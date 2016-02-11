@@ -272,7 +272,7 @@ function enableControls(tipo){
 		
 		if(rolUsuario == "adminat"){
 			var tituloVentana; 
-			if(numExpediente === undefined ){
+			if(numExpediente == undefined ){
 				tituloVentana="";
 			}
 			else{

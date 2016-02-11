@@ -164,7 +164,7 @@
 		var height = 0;
 		grid.setGridWidth($("#mainContent").width() - 5, true);
 		
-		if (params === undefined){
+		if (params == undefined){
 			height = (($("#mainContent").height() - $("#ui-layout-south").height()) - 60);
 		} else {
 			try {

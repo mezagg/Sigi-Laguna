@@ -195,17 +195,17 @@
             var extensionesPermitidasAudio = '<%=((ConfiguracionDTO) request.getSession().getAttribute(GenericAction.KEY_SESSION_CONFIGURACION_GLOBAL)).getExtensionesPermitidasAlAdjuntarAudio()%>';
             var extensionesPermitidasImagen = '<%=((ConfiguracionDTO) request.getSession().getAttribute(GenericAction.KEY_SESSION_CONFIGURACION_GLOBAL)).getExtensionesPermitidasAlAdjuntarImagen()%>';
 
-            var ATPENAL = 3; //1
+            var ATPENAL = 1; //1
             var COORDINADOR_JAR = 2; 
-            var AGENTE_MP = 7; //3
+            var AGENTE_MP = 3; //3
             var COORDINADOR_AMP = 4;
             var FACILITADOR = 5;
-            var POLICIA_MINISTERIAL = 9; //6
-            var COORDINADOR_VISITADOR = 42; // coordinadorVIS - 7
-            var VISITADOR = 4; //8  
-            var COORDINADOR_AMP_GENERAL = 57; //10;
-            var POLICIA_MINISTERIAL_DENUNCIA = 64; //60
-            var COORDINADOR_AT = 58; //61
+            var POLICIA_MINISTERIAL = 6; //6
+            var COORDINADOR_VISITADOR = 7; // coordinadorVIS - 7
+            var VISITADOR = 8; //8  
+            var COORDINADOR_AMP_GENERAL = 10; //10;
+            var POLICIA_MINISTERIAL_DENUNCIA = 60; //60
+            var COORDINADOR_AT = 61; //61
             var ENCARGADO_CAUSA = 16;
             var idWindowPantallaActuaciones = 1;
 
@@ -234,15 +234,15 @@
                 valorParametroNumExpAlterno = consultaParametroNumExpAlterno();
 
                 //Permite abrir el visor de solo consulta
-                if (idRolActivo === '<%=Roles.PROCURADOR.getValorId()%>'
-                        || idRolActivo === '<%=Roles.SUBPROCURADOR.getValorId()%>'
-                        || idRolActivo === '<%=Roles.DIRECTOR_GENERAL.getValorId()%>'
-                        || idRolActivo === '<%=Roles.DIRECTOR_UI.getValorId()%>') {
+                if (idRolActivo == '<%=Roles.PROCURADOR.getValorId()%>'
+                        || idRolActivo == '<%=Roles.SUBPROCURADOR.getValorId()%>'
+                        || idRolActivo == '<%=Roles.DIRECTOR_GENERAL.getValorId()%>'
+                        || idRolActivo == '<%=Roles.DIRECTOR_UI.getValorId()%>') {
                     esModoConsulta = "true";
                 }
 
                 //On ready
-                if (confirmarCierreVentana !== null && (confirmarCierreVentana === "1" || confirmarCierreVentana === 1)) {
+                if (confirmarCierreVentana !== null && (confirmarCierreVentana == "1" || confirmarCierreVentana == 1)) {
                     confirmarCierreVentana = true;
                 } else {
                     confirmarCierreVentana = false;
@@ -257,9 +257,9 @@
 
                 numeroExpediente = '<%= request.getAttribute("numeroExpediente")%>';
 
-                if (numeroExpediente === 'null') {
+                if (numeroExpediente == 'null') {
                     numeroExpediente = '<%= request.getSession().getAttribute("numExpConsul")%>';
-                    if (numeroExpediente === 'null') {
+                    if (numeroExpediente == 'null') {
                         numeroExpediente = '<%= request.getParameter("numeroExpediente")%>';
                     }
                 }
@@ -287,12 +287,12 @@
                     idExpedienteop = '<%= request.getSession().getAttribute("idExpedienteConsulop")%>';
                 }
                 idExpedienteDeli = idExpedienteop;
-                if (idNumeroExpedienteOp === 'null') {
+                if (idNumeroExpedienteOp == 'null') {
                     idNumeroExpedienteOp = '<%= request.getSession().getAttribute("idExpedienteConsul")%>';
                 }
 
                 idNumeroExpedienteConsul = '<%= request.getParameter("idNumeroExpedienteop")%>';
-                if (idNumeroExpedienteConsul === 'null') {
+                if (idNumeroExpedienteConsul == 'null') {
                     idNumeroExpedienteConsul = '<%= request.getParameter("idNumeroExpediente")%>';
 
                 }
@@ -309,7 +309,7 @@
                 $("#tapResumen").click("click", function () {
                     $('#tapResumen').addClass("cargando");
 
-                    if (valorParametroNumExpAlterno === '1') {
+                    if (valorParametroNumExpAlterno == '1') {
                         buscarNumerosDeExpediente();
                     }
 
@@ -533,7 +533,7 @@
                     $("#idAsignarFacilitador").show();
 
                     banderaFac = '<%= request.getSession().getAttribute("banderaFac")%>';
-                    if (banderaFac === 'true') {
+                    if (banderaFac == 'true') {
                         $("#idAsignarFacilitador").hide();
                         //$("#idReasignarFacilitador").show();
                         $("#cbxAgentesCoorJAR").hide();
@@ -544,7 +544,7 @@
                         $("#cbxAgentesCoorJAR").show();
                     }
 
-                    if (visualizaPestanaJar === 1 || visualizaPestanaJar === '1') {
+                    if (visualizaPestanaJar == 1 || visualizaPestanaJar == '1') {
 //					ocultaMuestraTabVisor("tabTabsHechos",0);
 //					ocultaMuestraTabVisor("tabTabsInv",0);
 //					ocultaMuestraTabVisor("tabTabsDelito",0);						
@@ -556,7 +556,7 @@
                     // Recargar el grid principal del menú intermedio
                     //Solo si es consulta
                     try {
-                        if (ingresoDenuncia === 'false') {
+                        if (ingresoDenuncia == 'false') {
                             window.parent.regresaGrid();
                         }
                     } catch (e) {
@@ -578,7 +578,7 @@
                     $("#tabs").tabs("option", "selected", 2);
                     $('#idTeoriaCaso').show();
                     //$('#idbotoncarpeta').show();
-                    if (valorParametroNumExpAlterno === '1') {
+                    if (valorParametroNumExpAlterno == '1') {
                         $('#idsNumerosDelExpediente').show();
                     }
                 } else if (pantallaSolicitada == COORDINADOR_AMP) {//Coordinador Amp
@@ -599,12 +599,12 @@
                     $("#tabs").tabs("option", "selected", 2);
                     $('#idTeoriaCaso').show();
                     //$('#idbotoncarpeta').show();
-                    if (valorParametroNumExpAlterno === '1') {
+                    if (valorParametroNumExpAlterno == '1') {
                         $('#idsNumerosDelExpediente').show();
                     }
 
                     //Si la bandera esta deshabilitada, entonces se habilita la opcion para asignar expediente
-                    if (visualizaMenuAsignarExps === 0) {
+                    if (visualizaMenuAsignarExps == 0) {
                         cargaAgenteMp();
                         $('#tdCbxAgentesCoorUI').show();
                         $('#tdCbxAgentesCoorUI1').show();
@@ -621,7 +621,7 @@
                     ocultaMuestraTabVisor("tabTabsAudiencias", 0);
                     ocultaMuestraTabVisor("tabTabsCadCus", 0);
 
-                    if (visualizaPestanaJar === 1 || visualizaPestanaJar === '1') {
+                    if (visualizaPestanaJar == 1 || visualizaPestanaJar == '1') {
 //					ocultaMuestraTabVisor("tabTabsHechos",0);
 //					ocultaMuestraTabVisor("tabTabsInv",0);
 //					ocultaMuestraTabVisor("tabTabsDelito",0);						
@@ -698,7 +698,7 @@
 
                     ocultaMuestraTabVisor("tabTabsVisitaduria", 1);
 
-                    if (Area === "55" || Area === "44" || Area === "11") {
+                    if (Area == "55" || Area == "44" || Area == "11") {
                         ocultaMuestraTabVisor("tabTabsPeri", 0);
                         ocultaMuestraTabVisor("tabTabsPolMin", 0);
                         ocultaMuestraTabVisor("tabTabsAudiencias", 0);
@@ -737,7 +737,7 @@
 
                     ocultaMuestraTabVisor("tabTabsVisitaduria", 1);
 
-                    if (Area === "55" || Area === "44" || Area === "11") {
+                    if (Area == "55" || Area == "44" || Area == "11") {
                         ocultaMuestraTabVisor("tabTabsPeri", 0);
                         ocultaMuestraTabVisor("tabTabsPolMin", 0);
                         ocultaMuestraTabVisor("tabTabsAudiencias", 0);
@@ -800,12 +800,12 @@
                     $('#idbotoncarpeta').hide();
                     $('#idInvestiga').hide();
 
-                    if (idRolActivo === '<%=Roles.PROCURADOR.getValorId()%>' || idRolActivo === '<%=Roles.SUBPROCURADOR.getValorId()%>'
-                            || idRolActivo === '<%=Roles.DIRECTOR_GENERAL.getValorId()%>' || idRolActivo === '<%=Roles.DIRECTOR_UI.getValorId()%>') {
+                    if (idRolActivo == '<%=Roles.PROCURADOR.getValorId()%>' || idRolActivo == '<%=Roles.SUBPROCURADOR.getValorId()%>'
+                            || idRolActivo == '<%=Roles.DIRECTOR_GENERAL.getValorId()%>' || idRolActivo == '<%=Roles.DIRECTOR_UI.getValorId()%>') {
                         $('#btnGuardarDelitosAg').hide();
                     }
 
-                    if (idRolActivo === '<%=Roles.DIRECTOR_GENERAL.getValorId()%>') {
+                    if (idRolActivo == '<%=Roles.DIRECTOR_GENERAL.getValorId()%>') {
                         $("#pasar").hide();
                         $("#pasarD").hide();
                         ocultaMuestraTabVisor("tabTabsAcciones", 0);
@@ -841,13 +841,13 @@
                         consultarNotas();
                     });
                     var titulo = '<%= request.getSession().getAttribute("numExpConsul")%>';
-                    if (titulo === undefined || titulo === null || titulo === "null") {
+                    if (titulo == undefined || titulo == null || titulo == "null") {
                         titulo = numeroExpediente;
                     }
 
                     numeroCaso = '<%= request.getAttribute("numeroCasoConsul")%>';
 
-                    if (numeroCaso === undefined || numeroCaso === null || numeroCaso === "null") {
+                    if (numeroCaso == undefined || numeroCaso == null || numeroCaso == "null") {
                         numeroCaso = '- PENDIENTE -';
                     }
                     titulo = titulo + " No. Caso: " + numeroCaso;
@@ -916,7 +916,7 @@
 
                 var opNuevaDenuncia =<%=request.getAttribute("idNuevaDenuncia")%>;
 
-                if (opNuevaDenuncia === 1) {
+                if (opNuevaDenuncia == 1) {
                     $('#tabschild-op').show();
                     $('#tdCbxAgentesCoorUI1').hide();
                     $('#tdCbxAgentesCoorUI').hide();
@@ -1355,7 +1355,7 @@
 
 
                 //Instruccion pensada solo para el caso de policia ministerial
-                if (deshabilitarCampos === true) {
+                if (deshabilitarCampos == true) {
                     $("#rdbMenuInterRelDelXTodos").attr("disabled", "");
                     $("#rdbMenuInterRelDelXPersona").attr("disabled", "");
                     $("#rdbMenuInterRelDelXDelito").attr("disabled", "");
@@ -1370,7 +1370,7 @@
 
                 tipoExpediente = consultaTipoExpediente();
 
-                if (tipoExpediente === '<%=OrigenExpediente.REPORTE.getValorId()%>') {
+                if (tipoExpediente == '<%=OrigenExpediente.REPORTE.getValorId()%>') {
                     cambiaTextoVisor(2);
                 } else {
                     cambiaTextoVisor(1);
@@ -1381,9 +1381,9 @@
                 $("#victimaslb").html('V&iacute;ctimas:');
                 $("#probableResponsableslb").html('<bean:message key="plProbalbeResponsableTitulo"/>');
 
-                if (pantallaSolicitada === COORDINADOR_JAR || pantallaSolicitada === FACILITADOR) {//coordinador JAR
+                if (pantallaSolicitada == COORDINADOR_JAR || pantallaSolicitada == FACILITADOR) {//coordinador JAR
                     //De acuerdo a la bandera de petanaJAR, se muestran otras leyendas, caso contario la misma version
-                    if (visualizaPestanaJar === 1 || visualizaPestanaJar === '1') {
+                    if (visualizaPestanaJar == 1 || visualizaPestanaJar == '1') {
                         $("#denuncianteslb").html('<bean:message key="denunciantes"/>' + ':');
                         $("#victimaslb").html('<bean:message key="victimas"/>' + ':');
                         $("#probableResponsableslb").html('<bean:message key="probableResponsableJAR"/>');
@@ -1414,13 +1414,13 @@
                 $("#btnAdjuntarDocumento").attr("disabled", false);
 
                 //controlNumeroExpedienteAlterno();
-                if (pantallaSolicitada === POLICIA_MINISTERIAL) {
+                if (pantallaSolicitada == POLICIA_MINISTERIAL) {
                     $("#idInvestiga").attr('disabled', '');
                     $("#btnCadCusNuevaCadCus").attr('disabled', '');
                     $("#btnCadCusConsultaCadCus").attr('disabled', '');
                 }
 
-                if (idRolActivo === '<%=Roles.COORDINADORAMP.getValorId()%>'
+                if (idRolActivo == '<%=Roles.COORDINADORAMP.getValorId()%>'
                         && visualizaMenuAsignarExps !== 0) {
                     esModoConsulta = "true";
                     //Adjuntar documentos
@@ -1436,19 +1436,19 @@
                     $("#btnTranscripcionAudiencia").hide();
                 }
 
-                if (esModoConsulta !== null && esModoConsulta === "true") {
+                if (esModoConsulta !== null && esModoConsulta == "true") {
                     deshabilitarCamposPM = true;
                     deshabilitarCampos = true;
                     ocultaElementosDelVisor();
                 }
 
-                if (idRolActivo === <%=Roles.COORDINADORAMPGENERAL.getValorId()%> && esExpedienteNoAtendido !== null && esExpedienteNoAtendido === "true") {
+                if (idRolActivo == <%=Roles.COORDINADORAMPGENERAL.getValorId()%> && esExpedienteNoAtendido !== null && esExpedienteNoAtendido == "true") {
                     $("#btnReasignarUIEExpediente").show();
                 }
 
 
                 //
-                if (idRolActivo === <%=Roles.COORDINADORAMP.getValorId()%>) {
+                if (idRolActivo == <%=Roles.COORDINADORAMP.getValorId()%>) {
                     cargaAgenteMp();
                     $('#tdCbxAgentesCoorUI1').show();
                     $('#tdCbxAgentesCoorUI').show();
@@ -1459,7 +1459,7 @@
                 fechaMax = getFechaMaximaServerHechos(fechaServidor);
                 timeMax = getHoraMaximaServer(fechaServidor);
 
-                if (idRolActivo === '<%=Roles.AGENTEMP.getValorId()%>' || idRolActivo === '<%=Roles.COORDINADORAMP.getValorId()%>') {
+                if (idRolActivo == '<%=Roles.AGENTEMP.getValorId()%>' || idRolActivo == '<%=Roles.COORDINADORAMP.getValorId()%>') {
                     $("#conclusionTab").show();
 
                     //se oculta el combo de tipo SubConclusion
@@ -1833,14 +1833,14 @@
                         $(xml).find('entry').each(function () {
                             var resp = $(this).find(':first-child').get(0);
 
-                            if ($(resp).text() === "listaOficios") {
+                            if ($(resp).text() == "listaOficios") {
                                 ofic = $(this).find('catActuaciones');
                                 ofic.each(function () {
                                     $('#cbxOficiosTab').append('<li data-value="' + $(this).find('clave').text() + '"><img src="<%=request.getContextPath()%>/resources/images/oficio.jpg" width="15" height="15" align="absmiddle"/><a href="#" class="actuaciones" idselected="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</a></li>');
 
                                 });
                             }
-                            if ($(resp).text() === "listaActuaciones") {
+                            if ($(resp).text() == "listaActuaciones") {
                                 act = $(this).find('catActuaciones');
                                 act.each(function () {
                                     $('#cbxAccionesTab').append('<li data-value="' + $(this).find('clave').text() + '"><img src="<%=request.getContextPath()%>/resources/images/play.png" width="15" height="15" align="absmiddle"/><a href="#" idselected="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</a></li>');
@@ -1851,13 +1851,13 @@
                         $('#cbxAccionesTab').removeClass("cargando");
                         $('#cbxOficiosTab').removeClass("cargando");
                         $('#tapActuaciones').removeClass("cargando");
-                        if (act.size() === 0 && ofic.size() === 0) {
-                            if (sinCatuie === 1) {
+                        if (act.size() == 0 && ofic.size() == 0) {
+                            if (sinCatuie == 1) {
                                 $("#rdbConUaei").attr('checked', true);
                                 $("#rdbSinUaei").attr('checked', false);
                                 $("#rdbSinUaei").attr("disabled", true);
                                 cargaActuaciones(0);
-                            } else if (sinCatuie === 0) {
+                            } else if (sinCatuie == 0) {
                                 $("#rdbConUaei").attr("disabled", true);
                                 //alertDinamico("No existe ninguna Actuación.");
                                 $('#cbxAccionesTab').text('No existen actuaciones asociadas al estado de este expediente.');
@@ -1899,7 +1899,7 @@
 
             function registrarActividadExpediente(actuacionID, estatusId, banderaMensaje, funcionario) {
                 var idFuncionario;
-                if (funcionario === undefined) {
+                if (funcionario == undefined) {
                     idFuncionario = '';
                 } else {
                     idFuncionario = funcionario;
@@ -1913,7 +1913,7 @@
                     dataType: 'xml',
                     async: true,
                     success: function (xml) {
-                        if (parseInt(banderaMensaje) === 1)
+                        if (parseInt(banderaMensaje) == 1)
                         {
                             alertDinamico("Actividad nueva registrada");
                         }
@@ -1953,7 +1953,7 @@
                         dataType: 'xml',
                         async: true,
                         success: function (xml) {
-                            if ($(xml).find('respuesta').find('bandera').text() === '1') {
+                            if ($(xml).find('respuesta').find('bandera').text() == '1') {
                                 //Sele colocara la funcion para signar agente ke aun no esta realizada
                                 registrarActividadExpediente(<%= Actividades.ATENDER_CANALIZACION_JAR.getValorId()%>, 2542, 0, funcio);
                                 $("#idAsignarFacilitador").hide();
@@ -1961,7 +1961,7 @@
                                 $("#cbxAgentesCoorJAR").hide();
                                 alertDinamico("Se asign&oacute; correctamente el expediente");
                             }
-                            if ($(xml).find('respuesta').find('bandera').text() === '0') {
+                            if ($(xml).find('respuesta').find('bandera').text() == '0') {
                                 $("#idAsignarFacilitador").show();
                                 $("#idReasignarFacilitador").hide();
                                 $("#cbxAgentesCoorJAR").show();
@@ -2026,27 +2026,27 @@
                 });
 
                 actuacion = actividad;
-                if (parametroConfirm === '1' &&
-                        (actividad === '<%= Actividades.DIRIGIR_A_INSTANCIA_EXTERNA.getValorId()%>'
-                                || actividad === '<%=Actividades.DIRIGIR_A_LA_UNIDAD_DE_SOLUCION_DE_CONTROVERSIAS.getValorId()%>'
-                                || actividad === '<%=Actividades.DIRIGIR_A_LA_UNIDAD_DE_FISCALES_INVESTIGADORES.getValorId()%>'
-                                || actividad === '<%=Actividades.GENERAR_CONSTANCIA_DE_FALTA_DE_INTERES.getValorId()%>'
-                                || actividad === '<%=Actividades.NO_ACEPTACION_DEL_SERVICIO_POR_PARTE_DEL_INVITADO.getValorId()%>'
-                                || actividad === '<%=Actividades.GENERAR_CONSTANCIA_DE_TERMINACION_DEL_PROCEDIMIENTO.getValorId()%>'
-                                || actividad === '<%=Actividades.DIRIGIR_A_ATENCION_TEMPRANA_PENAL.getValorId()%>')) {
+                if (parametroConfirm == '1' &&
+                        (actividad == '<%= Actividades.DIRIGIR_A_INSTANCIA_EXTERNA.getValorId()%>'
+                                || actividad == '<%=Actividades.DIRIGIR_A_LA_UNIDAD_DE_SOLUCION_DE_CONTROVERSIAS.getValorId()%>'
+                                || actividad == '<%=Actividades.DIRIGIR_A_LA_UNIDAD_DE_FISCALES_INVESTIGADORES.getValorId()%>'
+                                || actividad == '<%=Actividades.GENERAR_CONSTANCIA_DE_FALTA_DE_INTERES.getValorId()%>'
+                                || actividad == '<%=Actividades.NO_ACEPTACION_DEL_SERVICIO_POR_PARTE_DEL_INVITADO.getValorId()%>'
+                                || actividad == '<%=Actividades.GENERAR_CONSTANCIA_DE_TERMINACION_DEL_PROCEDIMIENTO.getValorId()%>'
+                                || actividad == '<%=Actividades.DIRIGIR_A_ATENCION_TEMPRANA_PENAL.getValorId()%>')) {
                     var textoUno = '&#191;Est&aacute; seguro que requiere realizar la siguiente actuaci&oacute;n?:<br/>' + nombreActividad;
                     var textoDos = 'La actuaci&oacute;n que acaba de seleccionar cerrar&aacute; su expediente.<br/>'
                             + '&#191;Est&aacute; seguro que requiere ' + nombreActividad + '?';
                     var textoTres = "Ha aceptado cerrar su expediente.<br/>&#191;Desea Continuar?";
-                    if (actividad === '<%=Actividades.DIRIGIR_A_INSTANCIA_EXTERNA.getValorId()%>') {
+                    if (actividad == '<%=Actividades.DIRIGIR_A_INSTANCIA_EXTERNA.getValorId()%>') {
                         textoTres = 'Ha aceptado cerrar su expediente, porque no compete a esta Instituci&oacute;n.<br/>&#191;Desea Continuar?';
-                    } else if (actividad === '<%=Actividades.DIRIGIR_A_ATENCION_TEMPRANA_PENAL.getValorId()%>') {
+                    } else if (actividad == '<%=Actividades.DIRIGIR_A_ATENCION_TEMPRANA_PENAL.getValorId()%>') {
                         textoTres = 'Ha aceptado cerrar su expediente, generando el oficio para dirigir a Atenci&oacute;n Temprana.<br/>&#191;Desea Continuar?';
-                    } else if (actividad === '<%=Actividades.GENERAR_CONSTANCIA_DE_FALTA_DE_INTERES.getValorId()%>') {
+                    } else if (actividad == '<%=Actividades.GENERAR_CONSTANCIA_DE_FALTA_DE_INTERES.getValorId()%>') {
                         textoTres = 'Ha aceptado concluir por falta de inter&eacute;s su expediente, generado la constancia correspondiente.<br/>&#191;Desea Continuar?';
-                    } else if (actividad === '<%=Actividades.NO_ACEPTACION_DEL_SERVICIO_POR_PARTE_DEL_INVITADO.getValorId()%>') {
+                    } else if (actividad == '<%=Actividades.NO_ACEPTACION_DEL_SERVICIO_POR_PARTE_DEL_INVITADO.getValorId()%>') {
                         textoTres = 'Ha aceptado cerrar su expediente, con la carta de no Aceptaci&oacute;n de Servicio por el Invitado.<br/>&#191;Desea Continuar?';
-                    } else if (actividad === '<%=Actividades.GENERAR_CONSTANCIA_DE_TERMINACION_DEL_PROCEDIMIENTO.getValorId()%>') {
+                    } else if (actividad == '<%=Actividades.GENERAR_CONSTANCIA_DE_TERMINACION_DEL_PROCEDIMIENTO.getValorId()%>') {
                         textoTres = 'Ha aceptado concluir su expediente, con la constancia de terminaci&oacute;n del procedimiento.<br/>&#191;Desea Continuar?';
                     }
                     var tituloConfirm = 'Validar actuaci&oacute;n';
@@ -2059,27 +2059,27 @@
 
             function despliegaMensaje(contador, textoUno, textoDos, textoTres, tituloConfirm, selected, confActividadId, actividad, formaID,
                     titulo, usaeditor, estatusId, habilitarTurno, validaDelitoGrave) {
-                if (contador === 0) {
+                if (contador == 0) {
                     contador++;
                     customConfirm('<span style="font-size:20px">' + textoUno + '</span>', tituloConfirm,
                             function () {
                                 despliegaMensaje(contador, textoUno, textoDos, textoTres, tituloConfirm, selected, confActividadId, actividad, formaID,
                                         titulo, usaeditor, estatusId, habilitarTurno, validaDelitoGrave);
                             });
-                } else if (contador === 1) {
+                } else if (contador == 1) {
                     contador++;
                     customConfirm('<span style="font-size:20px">' + textoDos + '</span>', tituloConfirm,
                             function () {
                                 despliegaMensaje(contador, textoUno, textoDos, textoTres, tituloConfirm, selected, confActividadId, actividad, formaID,
                                         titulo, usaeditor, estatusId, habilitarTurno, validaDelitoGrave);
                             });
-                } else if (contador === 2) {
+                } else if (contador == 2) {
                     contador++;
                     //Tiene el objetivo de mostrar un mensaje de confirmacion en canalizarAUnidadFiscalesInvestigadores.jsp en el metodo
                     //crearPdf(), para el caso de DIRIGIR_A_LA_UNIDAD_DE_FISCALES_INVESTIGADORES y
                     // para Actividades.DIRIGIR_A_LA_UNIDAD_DE_SOLUCION_DE_CONTROVERSIAS
-                    if (actividad === '<%= Actividades.DIRIGIR_A_LA_UNIDAD_DE_FISCALES_INVESTIGADORES.getValorId()%>' ||
-                            actividad === '<%= Actividades.DIRIGIR_A_LA_UNIDAD_DE_SOLUCION_DE_CONTROVERSIAS.getValorId()%>') {
+                    if (actividad == '<%= Actividades.DIRIGIR_A_LA_UNIDAD_DE_FISCALES_INVESTIGADORES.getValorId()%>' ||
+                            actividad == '<%= Actividades.DIRIGIR_A_LA_UNIDAD_DE_SOLUCION_DE_CONTROVERSIAS.getValorId()%>') {
                         despliegaMensaje(contador, textoUno, textoDos, textoTres, tituloConfirm, selected, confActividadId, actividad, formaID,
                                 titulo, usaeditor, estatusId, habilitarTurno, validaDelitoGrave);
                     } else {
@@ -2089,14 +2089,14 @@
                                             titulo, usaeditor, estatusId, habilitarTurno, validaDelitoGrave);
                                 });
                     }
-                } else if (contador === 3) {
+                } else if (contador == 3) {
                     ejecutaActuacion(selected, confActividadId, actividad, formaID,
                             titulo, usaeditor, estatusId, habilitarTurno, validaDelitoGrave);
                 }
             }
 
             function ejecutaActuacion(selected, confActividadId, actividad, formaID, titulo, usaeditor, estatusId, habilitarTurno, validaDelitoGrave) {
-                if (actividad === '<%= Actividades.GENERAR_QUERELLA.getValorId()%>' || actividad === '<%= Actividades.GENERAR_DENUNCIA_EN_ATP.getValorId()%>') {
+                if (actividad == '<%= Actividades.GENERAR_QUERELLA.getValorId()%>' || actividad == '<%= Actividades.GENERAR_DENUNCIA_EN_ATP.getValorId()%>') {
                     $.ajax({
                         type: 'POST',
                         url: '<%= request.getContextPath()%>/enviarReplicaCaso.do?idExpediente=' + idExpedienteop,
@@ -2105,11 +2105,11 @@
                         async: true
                     });
                 }
-                if (usaeditor === "true") {
+                if (usaeditor == "true") {
 
-                    if (actividad === '<%= Actividades.SOLICITAR_AUDIENCIA.getValorId()%>') {
+                    if (actividad == '<%= Actividades.SOLICITAR_AUDIENCIA.getValorId()%>') {
 
-                        if (confInstitucionId === '<%=Instituciones.PJ.getValorId()%>') {
+                        if (confInstitucionId == '<%=Instituciones.PJ.getValorId()%>') {
                             nuevaSolicitudPJATP();
                         } else {
                             console.log("acaa");
@@ -2119,9 +2119,9 @@
                             $.updateWindowContent("iframewindowSolicitarAudiencia", '<iframe src="<%= request.getContextPath()%>/solicitarAudiencia.jsp?idNumeroExpediente=' + idNumeroExpedienteOp + '&idExpedienteSoli=' + idExpedienteop + '&numeroExpediente=' + numeroExpediente + '"    width="1040" height="570" />');
                             $("#" + "iframewindowSolicitarAudiencia" + " .window-maximizeButton").click();
                         }
-                    } else if (actividad === '<%= Actividades.SOLICITAR_DEFENSOR_PUBLICO.getValorId()%>') {
+                    } else if (actividad == '<%= Actividades.SOLICITAR_DEFENSOR_PUBLICO.getValorId()%>') {
                         validarEjecucionSolicitudDeDefensor(actividad, estatusId, titulo, formaID);
-                    } else if (actividad === '<%= Actividades.SOLICITAR_ATENCION_PSICOLOGICA_A_LA_DIRECCION_DE_ATENCION_A_VICTIMAS.getValorId()%>')
+                    } else if (actividad == '<%= Actividades.SOLICITAR_ATENCION_PSICOLOGICA_A_LA_DIRECCION_DE_ATENCION_A_VICTIMAS.getValorId()%>')
                     {
                         //verificamos si se tienen relaciones de delito-persona o delito-delito
                         if (consultaTotalRelacionesDelitoPorTodos() > 0)
@@ -2136,9 +2136,9 @@
                                     " y el delito"
                             alertDinamico(texto);
                         }
-                    } else if (actividad === '<%=Actividades.SOLICITAR_ATENCION_MEDICA_A_LA_DIRECCION_DE_ATENCION_A_VICTIMAS
-                                .getValorId()%>' || actividad === '<%=Actividades.SOLICITAR_ORIENTACION_LEGAL_A_LA_DIRECCION_DE_ATENCION_A_VICTIMAS
-                                                .getValorId()%>' || actividad === '<%=Actividades.SOLICITAR_SEGURIDAD_POLICIAL_A_LA_DIRECCION_DE_ATENCION_A_VICTIMAS
+                    } else if (actividad == '<%=Actividades.SOLICITAR_ATENCION_MEDICA_A_LA_DIRECCION_DE_ATENCION_A_VICTIMAS
+                                .getValorId()%>' || actividad == '<%=Actividades.SOLICITAR_ORIENTACION_LEGAL_A_LA_DIRECCION_DE_ATENCION_A_VICTIMAS
+                                                .getValorId()%>' || actividad == '<%=Actividades.SOLICITAR_SEGURIDAD_POLICIAL_A_LA_DIRECCION_DE_ATENCION_A_VICTIMAS
                                                 .getValorId()%>')
                     {
                         var area = 1;
@@ -2146,7 +2146,7 @@
                         $.newWindow({id: "iframewindowGenerarDocumento" + idWindowPantallaActuaciones, statusBar: true, posx: 20, posy: 20, width: 1140, height: 550, title: "Elaborar Solicitud", type: "iframe", confirmarCierreVentana: confirmarCierreVentana});
                         $.updateWindowContent("iframewindowGenerarDocumento" + idWindowPantallaActuaciones, '<iframe src="<%= request.getContextPath()%>/elaborarSolicitud.do?formaId=' + formaID + '&numeroUnicoExpediente=' + numeroExpediente + '&idWindowPantallaActuaciones=' + idWindowPantallaActuaciones + '&actividadId=' + actividad + '" width="1140" height="550" />');
                         $("#" + "iframewindowGenerarDocumento" + idWindowPantallaActuaciones + " .window-maximizeButton").click();
-                    } else if (actividad === '<%= Actividades.SOLICITAR_SERVICIO_PERICIAL.getValorId()%>') {
+                    } else if (actividad == '<%= Actividades.SOLICITAR_SERVICIO_PERICIAL.getValorId()%>') {
                         // Variable para definir el área de donde proviene la solicitud.
                         // Para Procuraduria el valor es 1
                         // Para Defensoria el valor es 2
@@ -2156,7 +2156,7 @@
                         $.newWindow({id: "iframewindowSolicitud", statusBar: true, posx: 20, posy: 20, width: 1140, height: 550, title: "Solicitar servicio pericial", type: "iframe"});
                         $.updateWindowContent("iframewindowSolicitud", '<iframe src="<%= request.getContextPath()%>/solicitarServicioPericial.do?numeroExpediente=' + numeroExpediente + '&numeroExpedienteId=' + idNumeroExpedienteOp + '&area=' + area + '"    width="1140" height="550" />');
                         $("#" + "iframewindowSolicitud" + " .window-maximizeButton").click();
-                    } else if (actividad === '<%=Actividades.ELABORAR_OFICIO_INVESTIGACION_POLICIACA
+                    } else if (actividad == '<%=Actividades.ELABORAR_OFICIO_INVESTIGACION_POLICIACA
                         .getValorId()%>') {
                         var area = 1;
                         //codigo para cambiar el estatus del expediente
@@ -2164,7 +2164,7 @@
                         $.newWindow({id: "iframewindowSolicitudPolicia", statusBar: true, posx: 20, posy: 20, width: 1140, height: 550, title: "Solicitar servicio policial", type: "iframe"});
                         $.updateWindowContent("iframewindowSolicitudPolicia", '<iframe src="<%= request.getContextPath()%>/solicitarServicioPolicial.do?numeroExpediente=' + numeroExpediente + '&numeroExpedienteId=' + idNumeroExpedienteOp + '&area=' + area + '"    width="1140" height="550" />');
                         $("#" + "iframewindowSolicitudPolicia" + " .window-maximizeButton").click();
-                    } else if (actividad === '<%=Actividades.GENERAR_CONVENIO_DE_CONCILIACION_MEDIACION
+                    } else if (actividad == '<%=Actividades.GENERAR_CONVENIO_DE_CONCILIACION_MEDIACION
                                 .getValorId()%>')
                     {
                         idWindowGenConvenio++;
@@ -2173,7 +2173,7 @@
                         $.newWindow({id: "iframewindowGenConvenio" + idWindowGenConvenio, statusBar: true, posx: 20, posy: 20, width: 1140, height: 550, title: "Generar Convenio", type: "iframe"});
                         $.updateWindowContent("iframewindowGenConvenio" + idWindowGenConvenio, '<iframe src="<%= request.getContextPath()%>/generarConvenio.do?numeroExpediente=' + numeroExpediente + '&numeroExpedienteId=' + idNumeroExpedienteOp + '&area=' + area + '&formaID=' + formaID + '"    width="1140" height="550" />');
                         $("#" + "iframewindowGenConvenio" + " .window-maximizeButton").click();
-                    } else if (actividad === '<%=Actividades.GENERAR_CONSTANCIA_DE_SEGUIMIENTO_A_CONVENIO
+                    } else if (actividad == '<%=Actividades.GENERAR_CONSTANCIA_DE_SEGUIMIENTO_A_CONVENIO
                                 .getValorId()%>')
                     {
                         idWindowGenConvenio++;
@@ -2182,23 +2182,23 @@
                         $.newWindow({id: "iframewindowGenConvenio" + idWindowGenConvenio, statusBar: true, posx: 20, posy: 20, width: 1140, height: 550, title: "Seguimiento Convenio", type: "iframe"});
                         $.updateWindowContent("iframewindowGenConvenio" + idWindowGenConvenio, '<iframe src="<%= request.getContextPath()%>/generarSeguimientoConvenio.do?numeroExpediente=' + numeroExpediente + '&numeroExpedienteId=' + idNumeroExpedienteOp + '&area=' + area + '"    width="1140" height="550" />');
                         $("#" + "iframewindowGenConvenio" + " .window-maximizeButton").click();
-                    } else if (actividad === '<%=Actividades.REPORTE_ORDENES_DE_APREHENSION_CUMPLIDAS
-                                .getValorId()%>' || actividad === '<%=Actividades.CONCLUSION_POR_VISTA_DE_NO_EJERCICIO
-                                        .getValorId()%>' || actividad === '<%=Actividades.CONCLUSION_POR_REPARACION_DEL_DANO
+                    } else if (actividad == '<%=Actividades.REPORTE_ORDENES_DE_APREHENSION_CUMPLIDAS
+                                .getValorId()%>' || actividad == '<%=Actividades.CONCLUSION_POR_VISTA_DE_NO_EJERCICIO
+                                        .getValorId()%>' || actividad == '<%=Actividades.CONCLUSION_POR_REPARACION_DEL_DANO
                                         .getValorId()%>')
                     {
                         ventanaNuevaConclusionOrdenAprension(actividad, formaID);
                     } else {
                         //incluir mi validacion
-                        if (actividad === '<%=Actividades.DIRIGIR_A_LA_UNIDAD_DE_SOLUCION_DE_CONTROVERSIAS
-                                        .getValorId()%>' || actividad === '<%=Actividades.DIRIGIR_A_LA_UNIDAD_DE_SOLUCION_DE_CONTROVERSIAS_SIN_SUSPENDER_EXPEDIENTE.getValorId()%>') {
+                        if (actividad == '<%=Actividades.DIRIGIR_A_LA_UNIDAD_DE_SOLUCION_DE_CONTROVERSIAS
+                                        .getValorId()%>' || actividad == '<%=Actividades.DIRIGIR_A_LA_UNIDAD_DE_SOLUCION_DE_CONTROVERSIAS_SIN_SUSPENDER_EXPEDIENTE.getValorId()%>') {
                             if (!existeProbableResponsableDeMenuIntermedio()) {
                                 alertDinamico("Necesita un " + msjProbableResponsableProp + " para poder canalizar a JAR.");
                             } else {
                                 //Valida si aplica Reporte
                                 if (validarReporte()) {
                                     tipoExpediente = consultaTipoExpediente();
-                                    if (tipoExpediente === '<%=OrigenExpediente.REPORTE.getValorId()%>') {
+                                    if (tipoExpediente == '<%=OrigenExpediente.REPORTE.getValorId()%>') {
                                         validacionDeDelitoUSC(actividad, estatusId, titulo, formaID, numeroExpediente);
                                     } else {//No es un tipo Reporte
                                         if (pantallaSolicitada !== null && (pantallaSolicitada == AGENTE_MP || pantallaSolicitada == COORDINADOR_AMP)) {
@@ -2213,19 +2213,19 @@
                             }
 
                         } else {
-                            if (actividad === '<%=Actividades.DIRIGIR_A_LA_UNIDAD_DE_FISCALES_INVESTIGADORES
+                            if (actividad == '<%=Actividades.DIRIGIR_A_LA_UNIDAD_DE_FISCALES_INVESTIGADORES
                                                 .getValorId()%>') {
 
 
                                 //VALIDA EL TIPO DE EXPEDIENTE, DENUNCIA O QUERELLA
                                 if (validarReporte()) {
                                     tipoExpediente = consultaTipoExpediente();
-                                    if (tipoExpediente === 0) {
+                                    if (tipoExpediente == 0) {
                                         alertDinamico("Se debe registrar la descripci&oacute;n de los hechos");
-                                    } else if (tipoExpediente === '<%=OrigenExpediente.DENUNCIA.getValorId()%>' || tipoExpediente === '<%=OrigenExpediente.QUERELLA.getValorId()%>') {
+                                    } else if (tipoExpediente == '<%=OrigenExpediente.DENUNCIA.getValorId()%>' || tipoExpediente == '<%=OrigenExpediente.QUERELLA.getValorId()%>') {
                                         validacionUFI(actividad, estatusId, titulo, formaID, numeroExpediente, numeroExpedienteId);
                                     } else {//No es un tipo Reporte
-                                        if (pantallaSolicitada !== null && (pantallaSolicitada === AGENTE_MP || pantallaSolicitada === COORDINADOR_AMP)) {
+                                        if (pantallaSolicitada !== null && (pantallaSolicitada == AGENTE_MP || pantallaSolicitada == COORDINADOR_AMP)) {
                                             validacionUFI(actividad, estatusId, titulo, formaID, numeroExpediente, numeroExpedienteId);
                                         } else {
                                             alertDinamico("Un expediente de tipo 'Reporte' no puede ser enviado a UI");
@@ -2236,7 +2236,7 @@
                                 }
 
                             } else {
-                                if (actividad === '<%=Actividades.ELABORAR_OFICIO_INVESTIGACION_POLICIAL.getValorId()%>') {
+                                if (actividad == '<%=Actividades.ELABORAR_OFICIO_INVESTIGACION_POLICIAL.getValorId()%>') {
                                     var area = 1;
                                     var tipoSolicitud =<%= TiposSolicitudes.POLICIA_MINISTERIAL.getValorId()%>;
                                     idWindowPantallaActuaciones++;
@@ -2256,7 +2256,7 @@
                         }
                     }
                 } else {
-                    if (actividad === '<%= Actividades.REGISTRAR_AMPARO.getValorId()%>') {
+                    if (actividad == '<%= Actividades.REGISTRAR_AMPARO.getValorId()%>') {
                         $.newWindow({id: "iframewindowRegistrarAmparo", statusBar: true, posx: 20, posy: 20, width: 450, height: 500, title: "Registrar Amparo", type: "iframe"});
                         $.updateWindowContent("iframewindowRegistrarAmparo", '<iframe src="<%= request.getContextPath()%>/registrarAmparo.jsp?idNumeroExpediente=' + idNumeroExpedienteOp + '&idExpedienteSoli=' + idExpedienteop + '&numeroExpediente=' + numeroExpediente + '"    width="450" height="500" />');
                         $("#" + "iframewindowRegistrarAmparo" + " .window-maximizeButton").click();
@@ -2285,7 +2285,7 @@
             }
 
             function canalizarControversiaExisteDelitoGrave(actividad, estatusId, titulo, formaID, numeroExpediente) {
-                if (existeProbableResponsableReincidente() === "true") {
+                if (existeProbableResponsableReincidente() == "true") {
 
                     var texto = "Existe " +
                             msjProbableResponsableProp +
@@ -2304,17 +2304,17 @@
 
             function canalizarControversiaPRReincidente(actividad, estatusId, titulo, formaID, numeroExpediente) {
                 var excede = excedeMediaAritmeticaDelitos();
-                if (excede === "null") {
+                if (excede == "null") {
                     alertDinamico("Existe un problema con la media aritmetica de los delitos");
                 } else {
-                    if (excede === "true") {
+                    if (excede == "true") {
                         customConfirm("La media aritmetica de los delitos excede lo permitido. ¿Desea enviar a la unidad de controversias?", "Aviso",
                                 function () {
                                     canalizarControversiaMediaAritmetica(actividad, estatusId, titulo, formaID, numeroExpediente);
                                 },
                                 recargarActuaciones()
                                 );
-                    } else if (excede === "false") {
+                    } else if (excede == "false") {
                         canalizarControversiaMediaAritmetica(actividad, estatusId, titulo, formaID, numeroExpediente);
                     }
                 }
@@ -2322,8 +2322,8 @@
 
             function canalizarControversiaMediaAritmetica(actividad, estatusId, titulo, formaID, numeroExpediente) {
                 idWindowPantallaActuaciones++;
-                if (actividad === '<%= Actividades.DIRIGIR_A_LA_UNIDAD_DE_SOLUCION_DE_CONTROVERSIAS.getValorId()%>' ||
-                        actividad === '<%=Actividades.DIRIGIR_A_LA_UNIDAD_DE_SOLUCION_DE_CONTROVERSIAS_SIN_SUSPENDER_EXPEDIENTE.getValorId()%>') {
+                if (actividad == '<%= Actividades.DIRIGIR_A_LA_UNIDAD_DE_SOLUCION_DE_CONTROVERSIAS.getValorId()%>' ||
+                        actividad == '<%=Actividades.DIRIGIR_A_LA_UNIDAD_DE_SOLUCION_DE_CONTROVERSIAS_SIN_SUSPENDER_EXPEDIENTE.getValorId()%>') {
                     $.newWindow({id: "iframewindowGenerarDocumento" + idWindowPantallaActuaciones, statusBar: true, posx: 200, posy: 50, width: 1140, height: 400, title: "" + titulo, type: "iframe", confirmarCierreVentana: confirmarCierreVentana});
                     $.updateWindowContent("iframewindowGenerarDocumento" + idWindowPantallaActuaciones, '<iframe src="<%= request.getContextPath()%>/generarDocumentoSinCaso.do?formaId=' + formaID + '&numeroUnicoExpediente=' + numeroExpediente + '&actividadId=' + actividad + '&idNumeroExpediente=' + idNumeroExpedienteOp + '&esTransaccional=' + true + '&idWindowPantallaActuaciones=' + idWindowPantallaActuaciones + '" width="1140" height="400" />');
                 } else {
@@ -2398,9 +2398,9 @@
                     }
                 });
                 actuacion = actividad;
-                if (usaeditor === "true") {
+                if (usaeditor == "true") {
 
-                    if (actividad === '<%=Actividades.ELABORAR_OFICIO_INVESTIGACION_POLICIAL.getValorId()%>') {
+                    if (actividad == '<%=Actividades.ELABORAR_OFICIO_INVESTIGACION_POLICIAL.getValorId()%>') {
                         var area = 1;
                         var tipoSolicitud =<%= TiposSolicitudes.POLICIA_MINISTERIAL.getValorId()%>;
                         idWindowPantallaActuaciones++;
@@ -2596,13 +2596,13 @@
                         async: true,
                         success: function (xml) {
                             $(xml).find('involucradoViewDTO').each(function () {
-                                if ($(this).find('calidad').text() === '<%= Calidades.DENUNCIANTE.getValorId()%>' || $(this).find('calidad').text() === '<%= Calidades.DENUNCIANTE_ORGANIZACION.getValorId()%>') {
+                                if ($(this).find('calidad').text() == '<%= Calidades.DENUNCIANTE.getValorId()%>' || $(this).find('calidad').text() == '<%= Calidades.DENUNCIANTE_ORGANIZACION.getValorId()%>') {
                                     var liga = '<tr id="' + $(this).find('involucradoId').text() + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificaDenunciante(' + $(this).find('involucradoId').text() + ');">';
-                                    if ($(this).find('nombre').text() === 'null') {
+                                    if ($(this).find('nombre').text() == 'null') {
                                         liga += 'Anónimo';
-                                    } else if ($(this).find('nombre').text() === '') {
+                                    } else if ($(this).find('nombre').text() == '') {
                                         liga += 'Anónimo';
-                                    } else if ($(this).find('nombre').text() === '   ') {
+                                    } else if ($(this).find('nombre').text() == '   ') {
                                         liga += 'Anónimo';
                                     } else {
                                         liga += $(this).find('nombre').text();
@@ -2611,21 +2611,21 @@
                                     $('#tblDenunciante').append(liga);
                                     $('#crearDenunciante').css('display', 'none'); //.attr("disabled", "disabled");
                                 }
-                                if ($(this).find('calidad').text() === '<%= Calidades.VICTIMA_PERSONA.getValorId()%>' || $(this).find('calidad').text() === '<%= Calidades.DENUNCIANTE.getValorId()%>') {
-                                    if ($(this).find('esVictima').text() === "true") {
+                                if ($(this).find('calidad').text() == '<%= Calidades.VICTIMA_PERSONA.getValorId()%>' || $(this).find('calidad').text() == '<%= Calidades.DENUNCIANTE.getValorId()%>') {
+                                    if ($(this).find('esVictima').text() == "true") {
                                         var liga = '<tr id="v' + $(this).find('involucradoId').text() + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificaDenunciante(' + $(this).find('involucradoId').text() + ');">';
-                                        if ($(this).find('nombre').text() === 'null') {
+                                        if ($(this).find('nombre').text() == 'null') {
                                             liga += 'Desconocido';
-                                        } else if ($(this).find('nombre').text() === '' || $(this).find('nombre').text() === '   ') {
+                                        } else if ($(this).find('nombre').text() == '' || $(this).find('nombre').text() == '   ') {
                                             liga += 'Anónimo';
                                         } else {
                                             liga += $(this).find('nombre').text();
                                         }
                                         liga += '</a></td></tr>';
                                         $('#tblVictima').append(liga);
-                                    } else if ($(this).find('calidad').text() === '<%= Calidades.VICTIMA_PERSONA.getValorId()%>') {
+                                    } else if ($(this).find('calidad').text() == '<%= Calidades.VICTIMA_PERSONA.getValorId()%>') {
                                         var liga = '<tr id="' + $(this).find('involucradoId').text() + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificaVictima(' + $(this).find('involucradoId').text() + ');">';
-                                        if ($(this).find('nombre').text() === 'null') {
+                                        if ($(this).find('nombre').text() == 'null') {
                                             liga += 'Desconocido';
                                         } else {
                                             liga += $(this).find('nombre').text();
@@ -2636,13 +2636,13 @@
 
                                 }
 
-                                if ($(this).find('calidad').text() === '<%= Calidades.DEFENSOR_PUBLICO.getValorId()%>' || $(this).find('calidad').text() === '<%= Calidades.DEFENSOR_PRIVADO.getValorId()%>') {
+                                if ($(this).find('calidad').text() == '<%= Calidades.DEFENSOR_PUBLICO.getValorId()%>' || $(this).find('calidad').text() == '<%= Calidades.DEFENSOR_PRIVADO.getValorId()%>') {
                                     idDefensor = $(this).find('involucradoId').text();
                                     nombreDefensor = $(this).find('nombre').text();
                                 }
-                                if ($(this).find('calidad').text() === '<%= Calidades.PROBABLE_RESPONSABLE_PERSONA.getValorId()%>' || $(this).find('calidad').text() === '<%= Calidades.PROBABLE_RESPONSABLE_ORGANIZACION.getValorId()%>') {
+                                if ($(this).find('calidad').text() == '<%= Calidades.PROBABLE_RESPONSABLE_PERSONA.getValorId()%>' || $(this).find('calidad').text() == '<%= Calidades.PROBABLE_RESPONSABLE_ORGANIZACION.getValorId()%>') {
                                     var liga = '<tr id="' + $(this).find('involucradoId').text() + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificaProbableResponsable(' + $(this).find('involucradoId').text() + ');">';
-                                    if ($(this).find('nombre').text() === 'null') {
+                                    if ($(this).find('nombre').text() == 'null') {
                                         liga += 'Desconocido';
                                     } else {
                                         liga = liga + $(this).find('nombre').text() + ' - ' + $(this).find('situacionJuridica').text();
@@ -2650,9 +2650,9 @@
                                     liga += '</a></td></tr>';
                                     $('#tblProbableResponsable').append(liga);
                                 }
-                                if ($(this).find('calidad').text() === '<%= Calidades.TESTIGO.getValorId()%>') {
+                                if ($(this).find('calidad').text() == '<%= Calidades.TESTIGO.getValorId()%>') {
                                     var liga = '<tr id="' + $(this).find('involucradoId').text() + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificaTestigo(' + $(this).find('involucradoId').text() + ');">';
-                                    if ($(this).find('nombre').text() === 'null') {
+                                    if ($(this).find('nombre').text() == 'null') {
                                         liga += 'Desconocido';
                                     } else {
                                         liga += $(this).find('nombre').text();
@@ -2660,9 +2660,9 @@
                                     liga += '</a></td></tr>';
                                     $('#tblTestigo').append(liga);
                                 }
-                                if ($(this).find('calidad').text() === '<%= Calidades.TRADUCTOR.getValorId()%>') {
+                                if ($(this).find('calidad').text() == '<%= Calidades.TRADUCTOR.getValorId()%>') {
                                     var liga = '<tr id="' + $(this).find('involucradoId').text() + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificaTraductor(' + $(this).find('involucradoId').text() + ');">';
-                                    if ($(this).find('nombre').text() === 'null') {
+                                    if ($(this).find('nombre').text() == 'null') {
                                         liga += 'Desconocido';
                                     } else {
                                         liga += $(this).find('nombre').text();
@@ -2670,9 +2670,9 @@
                                     liga += '</a></td></tr>';
                                     $('#tblTraductor').append(liga);
                                 }
-                                if ($(this).find('calidad').text() === '<%= Calidades.QUIEN_DETUVO.getValorId()%>') {
+                                if ($(this).find('calidad').text() == '<%= Calidades.QUIEN_DETUVO.getValorId()%>') {
                                     var liga = '<tr id="' + $(this).find('involucradoId').text() + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificaQuienDetuvo(' + $(this).find('involucradoId').text() + ');">';
-                                    if ($(this).find('nombre').text() === 'null') {
+                                    if ($(this).find('nombre').text() == 'null') {
                                         liga += 'Desconocido';
                                     } else {
                                         liga += $(this).find('nombre').text();
@@ -2699,7 +2699,7 @@
                     dataType: 'xml',
                     async: true,
                     success: function (xml) {
-                        if (parseInt($(xml).find('code').text()) === 0)
+                        if (parseInt($(xml).find('code').text()) == 0)
                         {
                             $(xml).find('hechoDTO').each(function () {
                                 var liga = '<tr><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="consultarHecho(' + $(this).find('hechoId').text() + ',' + idNumeroExpediente + ');">';
@@ -3659,7 +3659,7 @@
                 {
                     isGrave = retDos.Gravedad;
                 }
-                if (isGrave === "No")
+                if (isGrave == "No")
                 {
                     //revisamos que no exista un delito grave NO seleccionado
                     if (existeDelitoGraveEnGrid())
@@ -3673,7 +3673,7 @@
                 } else {
                     //barro el pseudo-XML de delitos	
                     delitosXML.find('catDelitoDTO').each(function () {
-                        if ($(this).find('claveDelito').text() === idRadio)
+                        if ($(this).find('claveDelito').text() == idRadio)
                         {
                             if ($(this).find('departamento').text() !== "")
                             {
@@ -3696,15 +3696,15 @@
             function mostraDivGenerarOficioCanalizacion(idDiv)
             {
                 $("#divCanalizaAUI,#divCanalizaAIE,#btnCanalizaAJR").hide();
-                if (parseInt(idDiv) === 1)
+                if (parseInt(idDiv) == 1)
                 {
                     $("#btnCanalizaAJR").show();
                     $("#btnGenerarAcciones").hide();
-                } else if (parseInt(idDiv) === 2)
+                } else if (parseInt(idDiv) == 2)
                 {
                     $("#divCanalizaAUI").show();
                     $("#btnGenerarAcciones").show();
-                } else if (parseInt(idDiv) === 3)
+                } else if (parseInt(idDiv) == 3)
                 {
                     $("#divCanalizaAIE").show();
                     $("#btnGenerarAcciones").show();
@@ -3744,7 +3744,7 @@
                 //revisamos que si hay un delito grave se haya seleccionado
                 if (existeDelitoGraveEnGrid())
                 {
-                    if (parseInt(existeUnDelitoPrincipalGraveSeleccionado()) === 0)
+                    if (parseInt(existeUnDelitoPrincipalGraveSeleccionado()) == 0)
                     {
                         alertDinamico("Debe seleccionar un delito grave como principal");
                         return false;
@@ -3759,7 +3759,7 @@
                 var delitosXML = $('' + delitos);
                 //seteamos la gravedad
                 isGrave = retDos.Gravedad;
-                if (isGrave === "No")
+                if (isGrave == "No")
                 {
                     mostraDivGenerarOficioCanalizacion(1);
                 } else
@@ -3767,7 +3767,7 @@
                     //barro el pseudo-XML de delitos
                     delitosXML.find('catDelitoDTO').each(function ()
                     {
-                        if ($(this).find('claveDelito').text() === idDelPrincipal)
+                        if ($(this).find('claveDelito').text() == idDelPrincipal)
                         {
                             if ($(this).find('departamento').text() !== "")
                             {
@@ -3805,7 +3805,7 @@
                 }
                 //obtenemos el ID del delito principal			
                 var idDelPrincipal = $('input[name=gridDelitos]:checked').attr('id').split('_')[1];
-                if (idDelPrincipal === null || idDelPrincipal === 'null')
+                if (idDelPrincipal == null || idDelPrincipal == 'null')
                 {
                     return;
                 }
@@ -3851,7 +3851,7 @@
                     data: params,
                     async: true,
                     success: function (xml) {
-                        if (parseInt($(xml).find('code').text()) === 0)
+                        if (parseInt($(xml).find('code').text()) == 0)
                         {
                             $("#actividadesXDelitosDelExpediente").empty();
                             var actividades = "";
@@ -3879,7 +3879,7 @@
                     if (idRdbTipo !== "")
                     {
                         //reviso si el delito seleccionado es grave o no
-                        if (idRdbTipo === "rbtnDenuncia")//Denuncia
+                        if (idRdbTipo == "rbtnDenuncia")//Denuncia
                         {
                             $("#btnAccDenuncia").show();
                             $("#tdCbxAccionesTab").show();
@@ -4207,7 +4207,7 @@
             /************ FUNCION PARA OCULTAR-MOSTRAR LOS TABS DEL VISOR***************/
             function ocultaMuestraTabVisor(claseTab, bandera)
             {
-                if (parseInt(bandera) === 0)//oculta
+                if (parseInt(bandera) == 0)//oculta
                 {
                     $("." + claseTab).hide();
                 } else///muestra
@@ -4244,13 +4244,13 @@
             function ocultaMuestraTblsRelacionarDelitos()
             {
                 var relacionDelitoPorPErsonaDelito = $(':radio[name=relacionaDelitos]:checked').val();
-                if (parseInt(relacionDelitoPorPErsonaDelito) === 0)
+                if (parseInt(relacionDelitoPorPErsonaDelito) == 0)
                 {
                     //Relacion por persona
                     $("#tblRelacionaDelXPersona").show();
                     $("#tblRelacionaDelXDelito").hide();
                     $("#tblRelacionaDelXTodos").hide();
-                } else if (parseInt(relacionDelitoPorPErsonaDelito) === 1)
+                } else if (parseInt(relacionDelitoPorPErsonaDelito) == 1)
                 {
                     //Relacion por delito
                     $("#tblRelacionaDelXDelito").show();
@@ -4282,7 +4282,7 @@
              *al id de la solicitud de visitaduria
              */
             function cargaGridDocumentosDigitales() {
-                if (primeraVezGridDocumentosDigitales === true) {
+                if (primeraVezGridDocumentosDigitales == true) {
                     jQuery("#gridDocumentosDigitales").jqGrid({
                         url: '<%=request.getContextPath()%>/consultarDocumentos.do?idExpedienteop=' + idNumeroExpedienteConsul + '',
                         datatype: "xml",
@@ -4511,7 +4511,7 @@
 
                     success: function (xml) {
                         tipoExpediente = $(xml).find('valorDTO').find('idCampo').text();
-                        tipoExpediente = tipoExpediente === "" ? 0 : tipoExpediente;
+                        tipoExpediente = tipoExpediente == "" ? 0 : tipoExpediente;
                     }
                 });
                 return tipoExpediente;
@@ -4522,15 +4522,15 @@
 
             function cambiaTextoVisor(idTipoExpediente) {
                 //Unicamente para atpenal
-                if (pantallaSolicitada === ATPENAL) {
+                if (pantallaSolicitada == ATPENAL) {
                     var tituloOriginal = window.parent.recuperaTituloVisor(idIframe);
                     var nuevoTitulo = "";
-                    if (tituloOriginal.toLowerCase().substring(0, 10) === "expediente") {
-                        nuevoTitulo = (idTipoExpediente === 2 ? "Reporte" : "Expediente") + tituloOriginal.substring(10, tituloOriginal.length);
+                    if (tituloOriginal.toLowerCase().substring(0, 10) == "expediente") {
+                        nuevoTitulo = (idTipoExpediente == 2 ? "Reporte" : "Expediente") + tituloOriginal.substring(10, tituloOriginal.length);
                         window.parent.cambiarTituloVisor(idIframe, nuevoTitulo)
                     } else {
-                        if (tituloOriginal.toLowerCase().substring(0, 7) === "reporte") {
-                            nuevoTitulo = (idTipoExpediente === 2 ? "Reporte" : "Expediente") + tituloOriginal.substring(7, tituloOriginal.length);
+                        if (tituloOriginal.toLowerCase().substring(0, 7) == "reporte") {
+                            nuevoTitulo = (idTipoExpediente == 2 ? "Reporte" : "Expediente") + tituloOriginal.substring(7, tituloOriginal.length);
                             window.parent.cambiarTituloVisor(idIframe, nuevoTitulo);
                         }
                     }
@@ -4538,7 +4538,7 @@
             }
 
             function validarReporte() {
-                if (validaTipoExpedienteReporte != null && (validaTipoExpedienteReporte === "1" || validaTipoExpedienteReporte === 1)) {
+                if (validaTipoExpedienteReporte != null && (validaTipoExpedienteReporte == "1" || validaTipoExpedienteReporte == 1)) {
                     return true;
                 }
                 return false;
@@ -4549,12 +4549,12 @@
                 existeDelitoGrave();
                 if (existeDelitoGraveEnExpediente != "") {
                     //Valida Delito Grave deshabilitado
-                    if (validaDelitoGrave != null && (validaDelitoGrave === "0" || validaDelitoGrave === 0)) {
+                    if (validaDelitoGrave != null && (validaDelitoGrave == "0" || validaDelitoGrave == 0)) {
                         idWindowPantallaActuaciones++;
                         $.newWindow({id: "iframewindowGenerarDocumento" + idWindowPantallaActuaciones, statusBar: true, posx: 200, posy: 50, width: 1140, height: 400, title: "" + titulo, type: "iframe", confirmarCierreVentana: confirmarCierreVentana});
                         $.updateWindowContent("iframewindowGenerarDocumento" + idWindowPantallaActuaciones, '<iframe src="<%= request.getContextPath()%>/generarDocumentoSinCaso.do?formaId=' + formaID + '&numeroUnicoExpediente=' + numeroExpediente + '&actividadId=' + actividad + '&idNumeroExpediente=' + idNumeroExpedienteOp + '&esTransaccional=' + true + '&idWindowPantallaActuaciones=' + idWindowPantallaActuaciones + '" width="1140" height="400" />');
                     } else {
-                        if (existeDelitoGraveEnExpediente === "true") {
+                        if (existeDelitoGraveEnExpediente == "true") {
                             customConfirm("Existe delito grave. ¿Desea enviar a la unidad de controversias?", "Aviso",
                                     function () {
                                         canalizarControversiaExisteDelitoGrave(actividad, estatusId, titulo, formaID, numeroExpediente);
@@ -4573,13 +4573,13 @@
                 existeDelitoGrave();
                 if (existeDelitoGraveEnExpediente !== "") {
                     //Valida Delito Grave deshabilitado 
-                    if (validaDelitoGrave !== null && (validaDelitoGrave === "0" || validaDelitoGrave === 0)) {
+                    if (validaDelitoGrave !== null && (validaDelitoGrave == "0" || validaDelitoGrave == 0)) {
                         //Mostrar ventana de Canalizaci&oacute;n a la Unidad de Fiscales Investigadores
                         idWindowPantallaActuaciones++;
                         $.newWindow({id: "iframewindowGenerarDocumento" + idWindowPantallaActuaciones, statusBar: true, posx: 200, posy: 50, width: 1140, height: 400, title: "", type: "iframe", confirmarCierreVentana: confirmarCierreVentana});
                         $.updateWindowContent("iframewindowGenerarDocumento" + idWindowPantallaActuaciones, '<iframe src="<%= request.getContextPath()%>/canalizarAUnidadFiscalesInv.do?formaId=' + formaID + '&numeroUnicoExpediente=' + numeroExpediente + '&actividadId=' + actividad + '&numeroExpedienteId=' + numeroExpedienteId + '&esTransaccional=' + true + '&idWindowPantallaActuaciones=' + idWindowPantallaActuaciones + '" width="1140" height="400" />');
                     } else {
-                        if (existeDelitoGraveEnExpediente === "false") {
+                        if (existeDelitoGraveEnExpediente == "false") {
                             customConfirm("No existe delito grave. ¿Desea enviar a la unidad de fiscales investigadores?", "Aviso",
                                     function () {
                                         canalizarInvestigadoresNoExisteDelitoGrave(actividad, estatusId, titulo, formaID, numeroExpediente);
@@ -4675,9 +4675,9 @@
             });
 
             function recargaGridAgenteMP() {
-                if (flagIndexProcView === 1) {
+                if (flagIndexProcView == 1) {
                     try {
-                        if (ingresoDenuncia === 'false') {
+                        if (ingresoDenuncia == 'false') {
                             window.parent.regresaGrid();
                         }
                     } catch (e) {
@@ -4704,13 +4704,13 @@
 					
                             errorCode=$(xml).find('response').find('code').text();
                             //Si errorCode=0 entonces continuamos con el flujo
-                            if(parseInt(errorCode)===0){
+                            if(parseInt(errorCode)==0){
 		    			
                                     var numExpAlt = $(xml).find('body').find('respuesta').text();
                                     $("#numExpAltSpan").val(numExpAlt);
                             }					
                             else{
-                                    if(errorCode === '<%=CodigoError.CLAVE_ROMANA_DISTRITO_INEXISTENTE.toString()%>'){
+                                    if(errorCode == '<%=CodigoError.CLAVE_ROMANA_DISTRITO_INEXISTENTE.toString()%>'){
                                             $("#numExpAlterTable").hide();
                                                     customAlert("No se ha podido generar el n\u00famero de expediente alterno\ndebido a que el distrito no tiene clave romana");
                                     }
@@ -4754,13 +4754,13 @@
                             numExpAlter = false;
                     }
 			
-                    if(numExpAlter === true){
-                            if(consultaParametroNumExpAlterno() === '1'){
+                    if(numExpAlter == true){
+                            if(consultaParametroNumExpAlterno() == '1'){
                                     consultarConsecutivoNumeroExpAlterno();
                             }
                     }
                     else{
-                            if($('#numExpAltSpan').val() === ""){
+                            if($('#numExpAltSpan').val() == ""){
                                     $("#numExpAlterTable").hide();
                             }
                     }
@@ -4789,11 +4789,11 @@
                 }
 
                 ejecutaAction("/validarSolicitudDeDefensor", function (respuesta) {
-                    if (parseInt($(respuesta).find('code').text()) === 0) {
+                    if (parseInt($(respuesta).find('code').text()) == 0) {
                         if ($(respuesta).find('body').text() !== null
                                 && $(respuesta).find('body').text() !== "null"
                                 && $(respuesta).find('body').text() !== "") {
-                            if ($(respuesta).find('body').text() === "success") {
+                            if ($(respuesta).find('body').text() == "success") {
                                 solicitarDefensor(actividad, estatusId, titulo, formaID);
                             } else {
                                 alertDinamico($(respuesta).find('body').text());
@@ -4945,8 +4945,8 @@
              */
             function recargarBandejaAccPenalPriv() {
 
-                if (<%=request.getParameter("recargarBandejaAccPenalPriv")%> === true
-                        && typeof window.parent.cargaGirdSolicitudesAccPenalPrivadaPJENC === 'function') {
+                if (<%=request.getParameter("recargarBandejaAccPenalPriv")%> == true
+                        && typeof window.parent.cargaGirdSolicitudesAccPenalPrivadaPJENC == 'function') {
                     window.parent.cargaGirdSolicitudesAccPenalPrivadaPJENC('<%=EstatusTurno.ESPERA.getValorId()%>');
                 }
             }
@@ -4958,7 +4958,7 @@
              */
             function nuevaSolicitudPJATP() {
 
-                if (idWindowVisorAtnPublicoSol === 0) {
+                if (idWindowVisorAtnPublicoSol == 0) {
                     var numeroDeCausa = numeroExpediente;
                     var accPenalPrivada = "true";
 
@@ -5057,7 +5057,7 @@
                     dataType: 'xml',
                     success: function (xml) {
                         var resp = $(xml).find('boolean').text();
-                        if (resp === "true") {
+                        if (resp == "true") {
                             $('#btnConclusionExpe').hide();
                         }
                     }
@@ -5108,7 +5108,7 @@
                     if (idRdb !== "")
                     {
                         var resp = jQuery("#gridDelitosAgraviados").jqGrid('getRowData', idRdb);
-                        if (resp.Gravedad === "Yes")
+                        if (resp.Gravedad == "Yes")
                         {
                             //prendemos la badnera al encontrar un radio seleccionado
                             bandera = 1;
@@ -5139,7 +5139,7 @@
                 {
                     //revisamos el checkbox del renglon i-esimo para ver si es grave
                     var isGrave = jQuery("#gridDelitosAgraviados").jqGrid('getRowData', arrayIDs[i]);
-                    if (isGrave.Gravedad === "Yes")
+                    if (isGrave.Gravedad == "Yes")
                     {
                         bandera = true;
                     }
@@ -5165,7 +5165,7 @@
                     if (idRdb !== "")
                     {
                         var resp = jQuery("#gridDelitosAgraviados").jqGrid('getRowData', idRdb);
-                        if (resp.Gravedad === "No")
+                        if (resp.Gravedad == "No")
                         {
                             //prendemos la bandera al encontrar un radio seleccionado
                             bandera1 = 1;
@@ -5182,11 +5182,11 @@
                 {
                     var row = jQuery("#gridDelitosAgraviados").jqGrid('getRowData', arrayIDs[i]);
 
-                    if (row.GravedadFormateada === "Si")
+                    if (row.GravedadFormateada == "Si")
                         bandera2 = 0;
                 }
 
-                if (bandera2 === 1 && bandera1 === 0)
+                if (bandera2 == 1 && bandera1 == 0)
                     return 0;
                 else
                     return 1;
@@ -5210,7 +5210,7 @@
                 }
 
                 //validamos si no hay un delito grave, que al menos exista un delito principal
-                if (parseInt(existeUnDelitoPrincipalEnGrid()) === 0) {
+                if (parseInt(existeUnDelitoPrincipalEnGrid()) == 0) {
                     alertDinamico("Debe seleccionar un delito principal");
                     return;
                 }
@@ -5218,7 +5218,7 @@
                 //revisamos que si hay un delito grave se haya seleccionado
                 if (existeDelitoGraveEnGrid())
                 {
-                    if (parseInt(existeUnDelitoPrincipalGraveSeleccionado()) === 0)
+                    if (parseInt(existeUnDelitoPrincipalGraveSeleccionado()) == 0)
                     {
                         alertDinamico("Debe seleccionar un delito grave como principal");
                         return;
@@ -5252,7 +5252,7 @@
                     data: params,
                     async: true,
                     success: function (xml) {
-                        if (parseInt($(xml).find('code').text()) === 0)
+                        if (parseInt($(xml).find('code').text()) == 0)
                         {
                             isDelitoSaved = true;
                             //mostramos las leyendas de canalizacion debajo del grid
@@ -5277,7 +5277,7 @@
                                 data: params,
                                 async: true,
                                 success: function (xml) {
-                                    if (parseInt($(xml).find('code').text()) === 0)
+                                    if (parseInt($(xml).find('code').text()) == 0)
                                     {
                                         $("#actividadesXDelitosDelExpediente").empty();
                                         var actividades = "";
@@ -5291,7 +5291,7 @@
                                 }
                             });
 
-                            if (typeof cargaGridDelitosAgraviados === 'function') {
+                            if (typeof cargaGridDelitosAgraviados == 'function') {
                                 cargaGridDelitosAgraviados();
                             }
 
@@ -5322,7 +5322,7 @@
                 {
                     isGrave = retDos.Gravedad;
                 }
-                if (isGrave === "No")
+                if (isGrave == "No")
                 {
                     //revisamos que no exista un delito grave NO seleccionado
                     if (existeDelitoGraveEnGrid())
@@ -6701,10 +6701,10 @@
             $("#nuevoPericial").hide();
             //Documentos
             //Actuaciones
-            if (idRolActivo === '<%=Roles.DIRECTOR_GENERAL.getValorId()%>') {
+            if (idRolActivo == '<%=Roles.DIRECTOR_GENERAL.getValorId()%>') {
                 $("#btnAdjuntarDocumento").hide();
             }
-            if (idRolActivo === '<%=Roles.POLICIAMINISTER.getValorId()%>') {
+            if (idRolActivo == '<%=Roles.POLICIAMINISTER.getValorId()%>') {
                 $("#cbxAccionesTab").attr("disabled", "");
                 $("#cbxOficiosTab").attr("disabled", "");
             }

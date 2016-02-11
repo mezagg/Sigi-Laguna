@@ -686,8 +686,8 @@
 						var tipoCursoId = jQuery("#tipoCursoId").val();
 						var adminCursoCategoriaCursoId = jQuery("#adminCursoCategoriaCursoId").val();
 						var puntosCurso = jQuery("#puntosCurso").val();
-						if ((nombreCurso === "" || nombreCurso === null)
-								|| (puntosCurso === "" || puntosCurso === null || isNaN(puntosCurso) || puntosCurso<1)
+						if ((nombreCurso == "" || nombreCurso == null)
+								|| (puntosCurso == "" || puntosCurso == null || isNaN(puntosCurso) || puntosCurso<1)
 								|| (tipoCursoId < 1)
 								|| (adminCursoCategoriaCursoId < 1)
 							){

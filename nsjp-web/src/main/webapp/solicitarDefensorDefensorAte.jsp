@@ -209,7 +209,7 @@
 			var numeroDeCaso = "";
 			numeroDeCaso =  trim($('#txtNumCaso').val());
 
-			if(numeroDeCaso === undefined || numeroDeCaso == null || numeroDeCaso == '' ){
+			if(numeroDeCaso == undefined || numeroDeCaso == null || numeroDeCaso == '' ){
 				customAlert("Debe ingresar un n&uacute;mero de caso");
 				limpiarGridGenerico($("#tblGridInvolucradosExpedientes"), funcionLimpiezaGridSolicitud, false, "idDivContInvolucrados");
 				return;

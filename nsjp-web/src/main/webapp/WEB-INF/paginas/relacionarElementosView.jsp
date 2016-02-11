@@ -106,7 +106,7 @@
 				loadComplete: function(){
 					rows = jQuery("#tablaRelacionesDeElemento").getDataIDs().length;
 					
-					if(rows>0 && !(esCoordinadorAmpGeneral===true)){
+					if(rows>0 && !(esCoordinadorAmpGeneral==true)){
 						$("#btnAnularRelaciones").show();
 					}
 					else{

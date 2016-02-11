@@ -93,7 +93,7 @@ function cargaGridSolsXAtndr(tipoSolicitud, estatus) {
 			sortorder: "desc",
 			ondblClickRow: function(id) {
 				var datosSol = jQuery("#gridSolsXAtndr").jqGrid('getRowData',id);
-				if (datosSol.id === undefined || datosSol.id === "undefined"){
+				if (datosSol.id == undefined || datosSol.id == "undefined"){
 					datosSol.id = id;
 				}
 				dblClickRowDocumentosPorSolicitud(datosSol, estatusConsulta);

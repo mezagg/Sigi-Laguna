@@ -236,8 +236,8 @@
 		$("#datosGeneralesCmpNumeroTransporteOf").val($(xml).find('numEcoTransporte').text());
 		$("#datosGeneralesCmpAsunto").val($(xml).find('asunto').text());
 
-		if($(xml).find('faltaIph').find('catFaltaAdministrativa').find('nombreFalta') === null ||
-			$(xml).find('faltaIph').find('catFaltaAdministrativa').find('nombreFalta').text() === ""){
+		if($(xml).find('faltaIph').find('catFaltaAdministrativa').find('nombreFalta') == null ||
+			$(xml).find('faltaIph').find('catFaltaAdministrativa').find('nombreFalta').text() == ""){
 			$("#motivoCmpTipoEvento").val('1'); //combo
 			buscaSubTipoEvento();
 			$("#motivoCmpSubtipoEvento").val($(xml).find('InformePolicialHomologadoDTO').find('InvolucradoDTO').first().find('delitosCometidos').first().find('catDelitoDTO').first().find('catDelitoId').first().text()); //combo
@@ -315,47 +315,47 @@
 	function mostrarInvolucrados(xml){
 		$(xml).find('InformePolicialHomologadoDTO').find('involucradosDTO').find('InvolucradoDTO').each(function(){
 
-	      	if($(this).find('valorIdCalidad').find('idCampo').first().text() === '<%= Calidades.DENUNCIANTE.getValorId() %>') {
+	      	if($(this).find('valorIdCalidad').find('idCampo').first().text() == '<%= Calidades.DENUNCIANTE.getValorId() %>') {
 		      	var idInvolucrado = $(this).find('elementoId').first().text(); 
 	      		var nombreDenunciante = $(this).find('nombre').first().text() + ' ' + $(this).find('apellidoPaterno').first().text() + ' ' + $(this).find('apellidoMaterno').first().text();
-	      		nombreDenunciante = nombreDenunciante === "" ? 'An&oacute;nimo' : nombreDenunciante;
+	      		nombreDenunciante = nombreDenunciante == "" ? 'An&oacute;nimo' : nombreDenunciante;
 				$('#tblDenunciante').append('<tr id="' + idInvolucrado + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificarDenuncianteDatos('+idInvolucrado+');">'+ nombreDenunciante + '</a></td></tr>');
-				if($(this).find('condicion').first().text() === 1){
+				if($(this).find('condicion').first().text() == 1){
 					$('#tblVictima').append('<tr id="v' + idInvolucrado + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificarDenuncianteDatos('+idInvolucrado+');">'+ nombreDenunciante + '</a></td></tr>');
 				}
 				$("#crearDenunciante").hide();
 	      	}
 	      	
-	      	if($(this).find('valorIdCalidad').find('idCampo').first().text() === '<%= Calidades.DENUNCIANTE_ORGANIZACION.getValorId() %>'){
+	      	if($(this).find('valorIdCalidad').find('idCampo').first().text() == '<%= Calidades.DENUNCIANTE_ORGANIZACION.getValorId() %>'){
 	      		var idInvolucrado = $(this).find('elementoId').first().text();
 	      		var nombreDenunciante = $(this).find('nombreOrganizacion').first().text();
-	      		nombreDenunciante = nombreDenunciante === "" ? 'An&oacute;nimo' : nombreDenunciante;
+	      		nombreDenunciante = nombreDenunciante == "" ? 'An&oacute;nimo' : nombreDenunciante;
 				$('#tblDenunciante').append('<tr id="' + idInvolucrado + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificarDenuncianteDatos('+idInvolucrado+');">'+ nombreDenunciante + '</a></td></tr>');
-				if($(this).find('condicion').first().text() === 1){
+				if($(this).find('condicion').first().text() == 1){
 					$('#tblVictima').append('<tr id="' + idInvolucrado + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificarVictima('+idInvolucrado+');">'+ nombreDenunciante + '</a></td></tr>');
 				}				
 				$("#crearDenunciante").hide();
 	      	}
 
-	      	if($(this).find('valorIdCalidad').find('idCampo').first().text() === '<%= Calidades.VICTIMA_PERSONA.getValorId() %>'){
+	      	if($(this).find('valorIdCalidad').find('idCampo').first().text() == '<%= Calidades.VICTIMA_PERSONA.getValorId() %>'){
 	      		var idInvolucrado = $(this).find('elementoId').first().text();
 	      		var nombreVictima = $(this).find('nombre').first().text() + ' ' + $(this).find('apellidoPaterno').first().text() + ' ' + $(this).find('apellidoMaterno').first().text();
       			$('#tblVictima').append('<tr id="' + idInvolucrado + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificarVictima('+idInvolucrado+');">'+ nombreVictima + '</a></td></tr>');	
 	      	}
 	      
-	      	if($(this).find('valorIdCalidad').find('idCampo').first().text() === '<%= Calidades.PROBABLE_RESPONSABLE_PERSONA.getValorId() %>'){
+	      	if($(this).find('valorIdCalidad').find('idCampo').first().text() == '<%= Calidades.PROBABLE_RESPONSABLE_PERSONA.getValorId() %>'){
 	      		var idInvolucrado = $(this).find('elementoId').first().text(); 
 	      		var nombreResponsable = $(this).find('nombre').first().text() + ' ' + $(this).find('apellidoPaterno').first().text() + ' ' + $(this).find('apellidoMaterno').first().text();
 				$('#tblProbableResponsable').append('<tr id="' + idInvolucrado + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificarProbableResponsable('+idInvolucrado+');">'+ nombreResponsable + '</a></td></tr>');
 	      	}
 
-	      	if($(this).find('valorIdCalidad').find('idCampo').first().text() === '<%= Calidades.PROBABLE_RESPONSABLE_ORGANIZACION.getValorId() %>'){
+	      	if($(this).find('valorIdCalidad').find('idCampo').first().text() == '<%= Calidades.PROBABLE_RESPONSABLE_ORGANIZACION.getValorId() %>'){
 	      		var idInvolucrado = $(this).find('elementoId').first().text();
 	      		var nombreResponsable = $(this).find('nombreOrganizacion').first().text();
 				$('#tblProbableResponsable').append('<tr id="' + idInvolucrado + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificarProbableResponsable('+idInvolucrado+');">'+ nombreResponsable + '</a></td></tr>');
 	      	}
 	      	
-	      	if($(this).find('valorIdCalidad').find('idCampo').first().text() === '<%= Calidades.TESTIGO.getValorId() %>'){
+	      	if($(this).find('valorIdCalidad').find('idCampo').first().text() == '<%= Calidades.TESTIGO.getValorId() %>'){
 	      		var idInvolucrado = $(this).find('elementoId').first().text();
 		      	var nombreTestigo = $(this).find('nombre').first().text() + ' ' + $(this).find('apellidoPaterno').first().text() + ' ' + $(this).find('apellidoMaterno').first().text();
 				$('#tblTestigo').append('<tr id="' + idInvolucrado + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificarTestigo('+idInvolucrado+');">'+ nombreTestigo + '</a></td></tr>');
@@ -580,7 +580,7 @@
 		var regreso = guardarDatosGeneralesIPH();
 		muestraMensajeInfo('Enviando IPH...');
                 
-		if(regreso === "ok" && iphReplica==="false"){
+		if(regreso == "ok" && iphReplica=="false"){
 			var idAgencia = parseInt($("#cbxAgencia option:selected").val());
 			$.ajax({								
 			  	  type: 'POST',
@@ -604,11 +604,11 @@
 				
 			});
 		}
-		else if(regreso === "fail"){
+		else if(regreso == "fail"){
 			//customAlert("Ocurri&oacute; un problema durante el guardado, intente de nuevo");	
                         muestraMensajeError('Ocurrio un problema durante el guardado, intente de nuevo.');
                          $('#generaInformeBtn').removeClass('cargando');
-		}else if(iphReplica==="true"){
+		}else if(iphReplica=="true"){
 			
                         muestraMensajeError('El IPH  ya ha sido enviado a Procuraduria');
                          $('#generaInformeBtn').removeClass('cargando');
@@ -648,12 +648,12 @@
 		    success: function(xml){
 			    	var contAgencias=0;
                                 var respuesta= $(xml).find('respuesta');
-                                if(respuesta.find('codigo').text()==='OK'){
+                                if(respuesta.find('codigo').text()=='OK'){
                                     respuesta.find('lista').find('catDiscriminanteDTO').each(function(){
                                                     $('#cbxAgencia').append('<option value="' + $(this).find('catDiscriminanteId').text() + '">' + $(this).find('clave').text()+"-"+ $(this).find('nombre').text() + '</option>');
                                                     contAgencias++;
                                             });
-                                    if(contAgencias === 0){
+                                    if(contAgencias == 0){
                                            // alertDinamico('<bean:message key="mensajeAgenciaValidarDistrito"/>');
                                              $('#cbxAgenciaError').addClass('Error');
                                              $('#cbxAgenciaError').text('<bean:message key="mensajeAgenciaValidarDistrito"/>');
@@ -801,11 +801,11 @@
 			url: '<%= request.getContextPath()%>/consultarSubtipoEvento.do?tipoEvento='+selected+'',
 			dataType: 'xml',
 			success: function(xml){
-				if(selected === "1"){
+				if(selected == "1"){
 					$(xml).find('delito').each(function(){
 						$('#motivoCmpSubtipoEvento').append('<option title="'+ $(this).find('catDelitoId').text()+'" value="' + $(this).find('catDelitoId').text() + '">' + $(this).find('nombre').text() + '</option>');
 					});
-				}else if(selected === "2"){
+				}else if(selected == "2"){
 					$(xml).find('falta').each(function(){
 						$('#motivoCmpSubtipoEvento').append('<option title="'+ $(this).find('catDelitoId').text()+'" svalue="' + $(this).find('catFaltaAdministrativaId').text() + '">' + $(this).find('nombreFalta').text() + '</option>');
 					});
@@ -1263,7 +1263,7 @@
 					$('#Armas').html($(xml).find('totalArmas').text()+': '+$(xml).find('armas').text());
 					$('#Explosivos').html($(xml).find('totalExplosivos').text()+': '+$(xml).find('explosivos').text());
 					$('#Numerario').html($(xml).find('totalNumerarios').text()+': '+$(xml).find('numerarios').text());
-					$('#Denunciantes').html($(xml).find('totalDenunciantes').text() === "" ? 'An&oacute;nimo' : $(xml).find('totalDenunciantes').text()+': '+$(xml).find('denunciantes').text());
+					$('#Denunciantes').html($(xml).find('totalDenunciantes').text() == "" ? 'An&oacute;nimo' : $(xml).find('totalDenunciantes').text()+': '+$(xml).find('denunciantes').text());
 					$('#Victimas').html($(xml).find('totalVictimas').text()+': '+$(xml).find('victimas').text());
 					$('#ProbablesResponsables').html($(xml).find('totalProbablesResposables').text()+': '+$(xml).find('probablesResposables').text());
 					$('#Testigos').html($(xml).find('totalTestigos').text()+': '+$(xml).find('testigos').text());
@@ -1339,7 +1339,7 @@
 
 	function cargaGridDocumentosDigitalesPropios(){ 
 
-		if(primeraVezGridDocumentosDigitalesPropios === true){
+		if(primeraVezGridDocumentosDigitalesPropios == true){
 			jQuery("#gridDocumentosDigitalesPropios").jqGrid({
 				url:'<%=request.getContextPath()%>/ConsultaExpedientesDocumento.do?numeroExpedienteId='+numeroExpedienteId+'',
 				datatype: "xml", 
@@ -1466,10 +1466,10 @@
 	function customCargaGrid(id, tipoObjeto, esPrimeraVez, funcDblClic){
 		//alert('Entra a cargar grid iph');
 
-		if(esPrimeraVez === true){
+		if(esPrimeraVez == true){
 			var names;
 			var model;
-			if (tipoObjeto === '<%=Objetos.VEHICULO.getValorId()%>'){
+			if (tipoObjeto == '<%=Objetos.VEHICULO.getValorId()%>'){
 				names = ['Tipo','Placas']; 
 				model = [ 	{name:'tipo',index:'1',width:350, align:'center'},
 									{name:'placas',index:'2',width:500, align:'center'}];

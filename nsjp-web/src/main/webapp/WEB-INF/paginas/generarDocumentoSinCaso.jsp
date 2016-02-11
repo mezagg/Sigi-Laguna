@@ -194,7 +194,7 @@
 			}
 			
 			$("#btnRegistroDetencion").bind("click",registraDetencion);
-			if(actividadId===null || actividadId===undefined || actividadId===""){
+			if(actividadId==null || actividadId==undefined || actividadId==""){
 				$.ajax({
 			    	type: 'POST',
 			    	url: '<%=request.getContextPath()%>/cargarActividadGuardadoParcial.do',
@@ -522,7 +522,7 @@
 					}
 		   		});
 			}
-			else if (actividadId === '<%=Actividades.GENERAR_DETERMINACION_DE_ARCHIVO_TEMPORAL_CON_IMPUTADO_DESCONOCIDO.getValorId() %>'){
+			else if (actividadId == '<%=Actividades.GENERAR_DETERMINACION_DE_ARCHIVO_TEMPORAL_CON_IMPUTADO_DESCONOCIDO.getValorId() %>'){
 				var tituloConfirm="Aviso";
 				var mensajeDeValidacion = 'Ha aceptado archivar temporalmente su expediente.<br/>&#191;Desea Continuar?';
 				customConfirm('<span style="font-size:20px">'+ mensajeDeValidacion +'</span>',tituloConfirm,

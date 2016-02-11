@@ -68,7 +68,7 @@ var gridExpedientesPorEstatus = {
 			sortorder: "asc",					
 			ondblClickRow: function(id) {
 				var datosExp = jQuery("#gridGeneral").jqGrid('getRowData',id);
-				if (datosExp.id === undefined || datosExp.id === "undefined"){
+				if (datosExp.id == undefined || datosExp.id == "undefined"){
 					datosExp.id = id;
 				}
 				muestraPopupSeleccionarDestinatario(datosExp);
@@ -182,7 +182,7 @@ function cargaGridExpedientesPorEstatus(estatus,fechaIni,fechaFin){
 	if(estatus == estatusPorAtender) {
 		gridExpedientesPorEstatus.ondblClickRow = function(id) {
 				var datosExp = jQuery("#gridGeneral").jqGrid('getRowData',id);
-				if (datosExp.id === undefined || datosExp.id === "undefined"){
+				if (datosExp.id == undefined || datosExp.id == "undefined"){
 					datosExp.id = id;
 				}
 				muestraPopupSeleccionarDestinatario(datosExp);
@@ -231,7 +231,7 @@ function cargaGridExpedientesPorEstatus(estatus,fechaIni,fechaFin){
 		} else if(estatus == estatusCerrado) {
 			gridSolicitudesGeneradas.ondblClickRow = function(id) {
 					var datosSol = jQuery("#gridGeneral").jqGrid('getRowData',id);
-					if (datosSol.id === undefined || datosSol.id === "undefined"){
+					if (datosSol.id == undefined || datosSol.id == "undefined"){
 						datosSol.id = id;
 					}
 					dblClickRowBandejaSolicitudes(datosSol, estatusConsulta,
@@ -267,7 +267,7 @@ function cargaGridExpedientesPorEstatus(estatus,fechaIni,fechaFin){
 		
 		gridSolicitudesXAtndr.ondblClickRow = function(id) {
 					var datosSol = jQuery("#gridGeneral").jqGrid('getRowData',id);
-					if (datosSol.id === undefined || datosSol.id === "undefined"){
+					if (datosSol.id == undefined || datosSol.id == "undefined"){
 						datosSol.id = id;
 					}
 					dblClickRowBandejaSolicitudes(datosSol, estatusConsulta,

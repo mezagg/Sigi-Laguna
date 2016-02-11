@@ -225,7 +225,7 @@ response.setDateHeader("Expires", 0);
 			ambiente = "";
 		}
 		$("#ambienteLb").html('<strong><big>'+ambiente+'</big></strong>');
-		if(institucion==='<%=Instituciones.DEF.getValorId()%>'){
+		if(institucion=='<%=Instituciones.DEF.getValorId()%>'){
 			$("#bitacoras").hide();
 			$("#bitacorasDiv").hide();
 			$("#adminModulosRol").hide();

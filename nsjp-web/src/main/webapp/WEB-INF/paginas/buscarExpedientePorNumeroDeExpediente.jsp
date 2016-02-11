@@ -40,9 +40,9 @@
 													onSelectRow: function(id){
 														var ret = jQuery("#tablaBuscarPorNumeroDeExpediente").jqGrid('getRowData',id);
 														var numExp = ret.expediente;
-														if(id==='-1'){
+														if(id=='-1'){
 															customAlert("El expediente no ha sido asignado a la unidad.","");
-														}else if(id==='-2'){
+														}else if(id=='-2'){
 															customAlert("Usted no es el due&ntilde;o del expediente,<br> y no cuenta con permisos para consultarlo.","");
 														}else{
 															detEvi(id, numExp);
@@ -56,9 +56,9 @@
 															var idExp = id;
 															parent.cerrarEtapa(idExp,numExp);															
 														}else if(tipoOrigen > 2){
-															if(id==='-1'){
+															if(id=='-1'){
 																customAlert("El expediente no ha sido asignado a la unidad.","");
-															}else if(id==='-2'){
+															}else if(id=='-2'){
 																customAlert("Usted no es el due&ntilde;o del expediente,<br> y no cuenta con permisos para consultarlo.","");
 															}else{
 																detExp(id);	

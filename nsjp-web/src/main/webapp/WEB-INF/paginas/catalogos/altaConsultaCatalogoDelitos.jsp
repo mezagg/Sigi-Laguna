@@ -555,12 +555,12 @@
 			alertDinamico("El nombre del delito no puede empezar con espacios");
 			return false;
 		}
-		else if($("input[name='esGraveDelito']:checked").val() === undefined){
+		else if($("input[name='esGraveDelito']:checked").val() == undefined){
 			
 			alertDinamico("Seleccione si el delito es grave o no");
 			return false;
 		}
-		else if($("input[name='esAccPenalPriv']:checked").val() === undefined){
+		else if($("input[name='esAccPenalPriv']:checked").val() == undefined){
 			
 			alertDinamico("Seleccione si el delito es acci&oacute;n penal privada");
 			return false;

@@ -240,7 +240,7 @@
 					$( this ).dialog( "close" );
 					$( "#dialog:ui-dialog" ).dialog( "destroy" );
 					var idAgencia=$("#cbxAgencias option:selected").val();
-					if(idAgencia===-1){
+					if(idAgencia==-1){
 						customAlert ("Seleccione una agencia.", "Aviso");
 					}else{
 						busquedaExpedientesGridCoorATAgencia(idTipoBusqueda,idAgencia);
@@ -258,7 +258,7 @@
 	
 	function popupUsuario(idTipoBusqueda){
 		var area=0;
-		if(idTipoBusqueda===4){
+		if(idTipoBusqueda==4){
 			area="<%=Areas.ATENCION_TEMPRANA_PG_PENAL.parseLong()%>";
 		}else{
 			area="<%=Areas.ATENCION_TEMPRANA_PG_NO_PENAL.parseLong()%>"
@@ -302,7 +302,7 @@
 					$( this ).dialog( "close" );
 					$( "#dialog:ui-dialog" ).dialog( "destroy" );
 					var idFuncionario=$("#cbxFuncionarios option:selected").val();
-					if(idFuncionario===-1){
+					if(idFuncionario==-1){
 						customAlert ("Seleccione un funcionario.", "Aviso");
 					}else{
 						busquedaExpedientesGridCoorAT(idTipoBusqueda,idFuncionario);	

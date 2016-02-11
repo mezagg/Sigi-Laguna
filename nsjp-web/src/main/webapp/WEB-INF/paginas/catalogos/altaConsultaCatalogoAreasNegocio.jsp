@@ -166,7 +166,7 @@
 			customAlert("Seleccione una institucion");
 			return false;
 		}
-		else if($("input[name='esEspecializada']:checked").val() === undefined){
+		else if($("input[name='esEspecializada']:checked").val() == undefined){
 			
 			customAlert("Seleccione si el area de negocio es especializada");
 			return false;

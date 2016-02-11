@@ -520,7 +520,7 @@
 
 		var idDefensor = jQuery("#tblGridAsignarDefensor").jqGrid('getGridParam','selrow');
 		
-		if(idDefensor === undefined || idDefensor == null){
+		if(idDefensor == undefined || idDefensor == null){
 			customAlert("Debe seleccionar un defensor");
 			return;
 		}
@@ -556,7 +556,7 @@
 		
 		var idDefensor = jQuery("#tblGridAsignarDefensor").jqGrid('getGridParam','selrow');
 		
-		if(idDefensor === undefined || idDefensor == null || idDefensor == 'undefined'){
+		if(idDefensor == undefined || idDefensor == null || idDefensor == 'undefined'){
 			customAlert("Debe seleccionar un defensor");
 			return;
 		}

@@ -244,13 +244,13 @@ DD P {
 			
                         jQuery(document).ajaxStop(desbloquearPantalla());
                         
-			if((isDetenidoExist!==null) && (isDetenidoExist===true)){
+			if((isDetenidoExist!==null) && (isDetenidoExist==true)){
 				$('#chkPResponsableDetenido').attr('checked',true);
 				habilitaDetenido();
 			}		
 
 			//Si viene de CoordinadorAMP, policiaMinister &oacute; agenteMP se muestra el campo de detenido
-			if(muestraDetenido === 1){
+			if(muestraDetenido == 1){
 					$("#etiquetaDetenido").show();
 					$("#chkPResponsableDetenido").show();
                                         
@@ -391,7 +391,7 @@ DD P {
 		}
 		
 		//Si es sistema tradicional ocultamos buscar reincidencias
-		if (sistemaTrad===true) {			
+		if (sistemaTrad==true) {			
 			$("#btnBuscarReincidencia").hide();
 			$("#btnConsultarExpedientes").hide();
 		}
@@ -423,7 +423,7 @@ DD P {
 		*si el id del prob responsable ,es null, no se ejecuta la consulta
 		*/			
 		var id=idElemento;
-		if(id===null){
+		if(id==null){
 			id=<%=request.getAttribute("idIndividuoProp")%>;
 			if(id!==null){
 				var estaDetenido =$('#chkPResponsableDetenido').is(':checked');
@@ -449,7 +449,7 @@ DD P {
 
 		//Instruccion pensada solo para el caso de policia ministerial
 		//Para el caso de Defensoria, si la calidad es DEFENDIDO
-		if(deshabilitarCampos === true || deshabilitarCampos == 'true'){
+		if(deshabilitarCampos == true || deshabilitarCampos == 'true'){
 			$(":enabled").attr('disabled','disabled');
 			$("#btnBuscarReincidencia").removeAttr('disabled');
 			$("#btnConsultarExpedientes").removeAttr('disabled');	
@@ -485,7 +485,7 @@ DD P {
                 } else if (rolId == Roles.DEFENSOR.getValorId() || rolId == Roles.DEFENSORATE.getValorId() || rolId == Roles.COORDINADORDEF.getValorId()) {
                 %>
                         habilitaDatosEspecificos();
-			if (calidadInv === "DEFENDIDO"){
+			if (calidadInv == "DEFENDIDO"){
 				$("#anularInvolucrado").hide();
 				$("#iVictimaBtnModificarDatos").attr('disabled',false);
 				$("#iVictimaBtnGuardar").attr('disabled',false);
@@ -522,8 +522,8 @@ DD P {
 			//Cuando una audiencia se encuentra finalizada, no se permiten realizar cambios
 			//var deshabilitarProbResp=<%=request.getParameter("deshabilitar")%>;
                         
-			//if((rolId === <%=Roles.ENCARGADOSALA.getValorId()%>
-			//		|| rolId === <%=Roles.JUEZPJ.getValorId()%>) && deshabilitarProbResp===true){
+			//if((rolId == <%=Roles.ENCARGADOSALA.getValorId()%>
+			//		|| rolId == <%=Roles.JUEZPJ.getValorId()%>) && deshabilitarProbResp==true){
 			//	 $('#iVictimaBtnModificarDatos').hide();
 			//}
                 <%
@@ -539,17 +539,17 @@ DD P {
 	*/
 	function habilitarPantallaPorRol(){
 
-		if (rolId === <%=Roles.DEFENSOR.getValorId()%> 
-				|| rolId === <%=Roles.DEFENSORATE.getValorId()%>
-					|| rolId === <%=Roles.COORDINADORDEF.getValorId()%> ){
-			if (calidadInv === "DEFENDIDO"){
+		if (rolId == <%=Roles.DEFENSOR.getValorId()%> 
+				|| rolId == <%=Roles.DEFENSORATE.getValorId()%>
+					|| rolId == <%=Roles.COORDINADORDEF.getValorId()%> ){
+			if (calidadInv == "DEFENDIDO"){
 				$('#anularInvolucrado').hide();
 				$("#btnBuscarReincidencia").hide();
 				$("#btnConsultarExpedientes").hide();
 			}
-		}else if(rolId === <%=Roles.ENCARGADOCAUSA.getValorId()%>
-					|| rolId === <%=Roles.ENCARGADOSALA.getValorId()%>
-						|| rolId === <%=Roles.JUEZPJ.getValorId()%>){
+		}else if(rolId == <%=Roles.ENCARGADOCAUSA.getValorId()%>
+					|| rolId == <%=Roles.ENCARGADOSALA.getValorId()%>
+						|| rolId == <%=Roles.JUEZPJ.getValorId()%>){
 			$("#anularInvolucrado").hide();
 			$('#btnBuscarReincidencia').hide();
 			$('#btnConsultarExpedientes').hide();
@@ -750,7 +750,7 @@ DD P {
 	   */		
 		function muestraDatosDetenido(xml){
 			
-			if($(xml).find('esDetenido').first().text() === 'true'){
+			if($(xml).find('esDetenido').first().text() == 'true'){
 				 $("#chkPResponsableDetenido").click();
 			}
 			$('#textNarrativa').val($(xml).find('expedienteDTO').find('narrativa').text());
@@ -2196,7 +2196,7 @@ DD P {
 					customAlert("Es necesario escribir el nombre completo para poder consultar la reincidencia");
 				else{
 					
-					if(esCoordinadorAmpGeneral===true){
+					if(esCoordinadorAmpGeneral==true){
 						muestraPopupReincidenciaConsulta();						
 					}
 					else{
@@ -2245,7 +2245,7 @@ DD P {
 						buttons: {
 							"Relacionar": function() {
 								
-								if(deshabilitarCampos === false){
+								if(deshabilitarCampos == false){
 								
 									var longitudTabla = jQuery("#gridReincidenciaElemento").getDataIDs();
 									var numeroExpedientes = longitudTabla.length;

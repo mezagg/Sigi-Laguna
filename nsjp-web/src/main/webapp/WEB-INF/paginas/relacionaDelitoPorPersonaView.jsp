@@ -185,7 +185,7 @@
 				}
 			}
 			
-			if(esValida === true)
+			if(esValida == true)
 			{
 				
 				//mandamos guardar a BD

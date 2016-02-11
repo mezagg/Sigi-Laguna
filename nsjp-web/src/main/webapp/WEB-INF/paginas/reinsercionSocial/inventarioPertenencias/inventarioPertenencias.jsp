@@ -95,7 +95,7 @@
 					caption:"Pertenencias",
 					viewrecords: true,
 					onSelectRow: function(id){ 
-						if($('#definitivo').attr('checked') === false){
+						if($('#definitivo').attr('checked') == false){
 							jQuery("#btnModificarPertenencia").button( "option", "disabled", false );
 							jQuery("#btnEliminarPertenencia").button( "option", "disabled", false );							
 						}
@@ -142,7 +142,7 @@
 						}
 				);
 				
-				if($('#definitivo').attr('checked') === false){					
+				if($('#definitivo').attr('checked') == false){					
 					jQuery( "#btnImprimirRecibo" ).button().click(
 							function() {
 								jQuery("#dialogConfirmDefinitivo").dialog("open");
@@ -363,7 +363,7 @@
 	}
 	
 	function deshabilitarBotones(){
-		if($('#definitivo').attr('checked') === true){
+		if($('#definitivo').attr('checked') == true){
 			jQuery("#btnNuevaPertenencia").button( "option", "disabled", true );
 //			jQuery("#btnImprimirRecibo").button( "option", "disabled", true );
 		}

@@ -263,7 +263,7 @@
 				}
 				$("#trEsVivo,#trEsMuerto,#trEsDesconocido").show();
 				//reviso si isUavd existe, ocultaremos algunos campos en la vista
-				if(isUavd===null || isUavd==='null')
+				if(isUavd==null || isUavd=='null')
 				{
 					$("#trEsVivo,#trEsMuerto,#trEsDesconocido").show();
 				}
@@ -284,7 +284,7 @@
 					$('#iVictimaBtnModificarDatos').hide();
 				}
 				
-				if(muerto==='false'){
+				if(muerto=='false'){
 			    	  cargaVistaMuerto();
 				}
 				
@@ -299,9 +299,9 @@
 
 				var esCoordinadorAmpGeneral = <%=esCoordinadorAmpGeneral%>; 
 				
-				if(idRolActivo === '<%=Roles.PROCURADOR.getValorId()%>' || idRolActivo === '<%=Roles.SUBPROCURADOR.getValorId()%>' ||
-						   idRolActivo === '<%=Roles.DIRECTOR_GENERAL.getValorId()%>' || idRolActivo === '<%=Roles.DIRECTOR_UI.getValorId()%>' || 
-						   idRolActivo === '<%=Roles.COORDINADORAMPGENERAL.getValorId()%>'){
+				if(idRolActivo == '<%=Roles.PROCURADOR.getValorId()%>' || idRolActivo == '<%=Roles.SUBPROCURADOR.getValorId()%>' ||
+						   idRolActivo == '<%=Roles.DIRECTOR_GENERAL.getValorId()%>' || idRolActivo == '<%=Roles.DIRECTOR_UI.getValorId()%>' || 
+						   idRolActivo == '<%=Roles.COORDINADORAMPGENERAL.getValorId()%>'){
 							
     				$(":enabled").attr('disabled','disabled');
     				$('input[type="submit"]').hide();
@@ -311,14 +311,14 @@
 							
 				}
 				
-				if (rolId === '<%=Roles.DEFENSOR.getValorId()%>' || rolId === '<%=Roles.DEFENSORATE.getValorId()%>' || rolId === '<%=Roles.COORDINADORDEF.getValorId()%>' ){
+				if (rolId == '<%=Roles.DEFENSOR.getValorId()%>' || rolId == '<%=Roles.DEFENSORATE.getValorId()%>' || rolId == '<%=Roles.COORDINADORDEF.getValorId()%>' ){
 					$('#iVictimaBtnModificarDatos').hide();
 					$('#anularInvolucrado').hide();
 					habilitaDatosEspecificos();
 				}
 
-				if (rolId === '<%=Roles.ENCARGADOCAUSA.getValorId()%>' || rolId === '<%=Roles.ENCARGADOSALA.getValorId()%>'
-						|| rolId === '<%=Roles.JUEZPJ.getValorId()%>'){
+				if (rolId == '<%=Roles.ENCARGADOCAUSA.getValorId()%>' || rolId == '<%=Roles.ENCARGADOSALA.getValorId()%>'
+						|| rolId == '<%=Roles.JUEZPJ.getValorId()%>'){
 					$('#anularInvolucrado').hide();
 					$('#cbxDenuncianteTipoPerosona').attr("disabled","disabled");
 				}

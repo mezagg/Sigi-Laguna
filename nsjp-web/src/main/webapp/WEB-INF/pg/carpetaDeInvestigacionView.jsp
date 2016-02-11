@@ -490,7 +490,7 @@
 
 		if(nombreGrid == "gridDetalleFrmPrincipal") {
 			divGrid += "divGridSolicitudes";
-			if(visualizaMenuAsignarExps == 1 && tieneRolAgentemp===true){
+			if(visualizaMenuAsignarExps == 1 && tieneRolAgentemp==true){
 				// Muestra el bot&oacute;n de asignaci&oacute;n de expedientes
 				if(menuExpedienteAsignado==false){
 					jQuery("#gridDetalleFrmPrincipal").setGridParam({ multiboxonly: true }).showCol('cb');
@@ -871,7 +871,7 @@
        			ondblClickRow: function(id) {
        				// Muestra el detalle del n&uacute;mero de expediente, si el coordinadorAmp
        				// no tiene el rol de agentemp y la bandera esta apagada
-       				if(!(visualizaMenuAsignarExps == 1 && tieneRolAgentemp===true)){
+       				if(!(visualizaMenuAsignarExps == 1 && tieneRolAgentemp==true)){
 	       				nuevoNumeroExpediente(id);
        				}
        			},
@@ -880,7 +880,7 @@
 
        		gridRecargaExpediente=false;
        		
-    		if(visualizaMenuAsignarExps == 1 && tieneRolAgentemp===true ){
+    		if(visualizaMenuAsignarExps == 1 && tieneRolAgentemp==true ){
     			ajustarGridPrincipalAlCentro($("#gridDetalleFrmPrincipal"));
     			$("#botonesExpedientes").show();
     		}
@@ -907,7 +907,7 @@
     	var height = 0;
     	grid.setGridWidth($("#mainContent").width() - 5, true);
     	
-    	if (params === undefined){
+    	if (params == undefined){
     		height = (($("#mainContent").height() - $("#ui-layout-south").height()) - 60);
     	} else {
     		try {
@@ -958,7 +958,7 @@
     		success: function(xml){    		
     			regresaGrid();
     			var resultado=$(xml).find('boolean').text();
-    			if(resultado===true || resultado=="true"){        		
+    			if(resultado==true || resultado=="true"){        		
     				customAlert("Se realiz&oacute; de manera correcta la asignaci&oacute;n de carpetas de investigaci&oacute;n");
     			}
     			else{

@@ -29,7 +29,7 @@
 //ON READY	
 $(document).ready(function(){
 	try{
-		if(deshabilitarCamposPM === true){
+		if(deshabilitarCamposPM == true){
 			$("#tblEstablecerModosYGrados :enabled").attr('disabled','disabled');
 		}
 	}catch(e){};
@@ -72,7 +72,7 @@ $(document).ready(function(){
 				gridComplete: function () {
 					seleccionarItems($(this));
 					try{
-						if(deshabilitarCamposPM === true){
+						if(deshabilitarCamposPM == true){
 							$("#tblEstablecerModosYGrados :enabled").attr('disabled','disabled');
 						}
 					}catch(e){};
@@ -194,7 +194,7 @@ $(document).ready(function(){
 		if(actualizarConsulta){
 			//Actualiaza los atributos de una relacion, en especifico
 			idsRelacionesSeleccionadas = idRelConsultada;
-			if(idRelConsultada == null || idRelConsultada === undefined){
+			if(idRelConsultada == null || idRelConsultada == undefined){
 				customAlert("Imposible capturar los atributos, intente nuevamente","Error!");
 				return;
 			}

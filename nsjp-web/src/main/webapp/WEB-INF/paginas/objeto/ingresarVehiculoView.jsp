@@ -1090,7 +1090,7 @@
             function revisaLongitudFechasEspecifica()
             {
                                //si la fecha de fin seleccioanda es el dia de hoy seteamos la hora maxima 
-                               if($("#idFechaDate").val()===fechaMax)
+                               if($("#idFechaDate").val()==fechaMax)
                                {
                                        $("#idHora").timeEntry('destroy');
                                        $("#idHora").timeEntry({show24Hours: false,defaultTime: timeMax,maxTime: timeMax});

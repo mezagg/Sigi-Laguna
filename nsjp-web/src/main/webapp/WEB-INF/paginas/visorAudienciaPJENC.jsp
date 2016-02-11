@@ -996,7 +996,7 @@
 	
 	function limpiarJSON(){
 			for (var key in jsonParam) {
-			if(typeof jsonParam[key].involucradoId === "undefined"){
+			if(typeof jsonParam[key].involucradoId == "undefined"){
 				//try para funcion recursiva que elimina los elementos vacios del arreglo de JSON 
 				try {
 					jsonParam.splice(key, 1);

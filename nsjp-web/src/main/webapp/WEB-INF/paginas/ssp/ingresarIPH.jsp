@@ -333,7 +333,7 @@
             function generarInformeIPH() {
                 $('#generaInformeBtn').addClass('cargando');
                 var regreso = guardarDatosGeneralesIPH();
-                if(regreso === false){
+                if(regreso == false){
                     $('#generaInformeBtn').removeClass('cargando');
                     return;
                 }
@@ -350,7 +350,7 @@
                                 success: function (xml) {
                                      $('#generaInformeBtn').removeClass('cargando');
                                     var idExpedienteIPH = $(xml).find('body').find('RespuestaDTO').find('idNuevoExpedienteIPH').text();
-                                    if (parseInt(idExpedienteIPH) === 0) {//Ocurrio un error en la replica del caso
+                                    if (parseInt(idExpedienteIPH) == 0) {//Ocurrio un error en la replica del caso
                                         alertDinamico($(xml).find('body').find('RespuestaDTO').find('mensajeDeError').text());
                                     } else {
                                         var idDocumento = $(xml).find('body').find('RespuestaDTO').find('idDocumentoIPH').text();
@@ -493,11 +493,11 @@
                     url: '<%= request.getContextPath()%>/consultarSubtipoEvento.do?tipoEvento=' + selected + '',
                     dataType: 'xml',
                     success: function (xml) {
-                        if (selected === "1") {
+                        if (selected == "1") {
                             $(xml).find('delito').each(function () {
                                 $('#motivoCmpSubtipoEvento').append('<option value="' + $(this).find('catDelitoId').text() + '">' + $(this).find('nombre').text() + '</option>');
                             });
-                        } else if (selected === "2") {
+                        } else if (selected == "2") {
                             $(xml).find('falta').each(function () {
                                 $('#motivoCmpSubtipoEvento').append('<option value="' + $(this).find('catFaltaAdministrativaId').text() + '">' + $(this).find('nombreFalta').text() + '</option>');
                             });
@@ -679,9 +679,9 @@
 
             function cargaVehiculo(id, tipo, placas) {
                 $('#tblVehiculo tr:#' + id).remove();
-                if (tipo === "")
+                if (tipo == "")
                     tipo = "Sin Tipo";
-                if (placas === "")
+                if (placas == "")
                     placas = "Sin Placas";
 
                 $('#tblVehiculo').append('<tr id="' + id + '"><td class="noSub">&nbsp;&nbsp;&nbsp;<a id="consultarVehiculo_' + id + '" style="cursor:pointer;" onclick="consultarVehiculo(' + id + ')">' + tipo + ' ' + placas + '</a></td></tr>');
@@ -929,12 +929,12 @@
                         success: function(xml){
                                     var contAgencias=0;
                                     var respuesta= $(xml).find('respuesta');
-                                    if(respuesta.find('codigo').text()==='OK'){
+                                    if(respuesta.find('codigo').text()=='OK'){
                                         respuesta.find('lista').find('catDiscriminanteDTO').each(function(){
                                                         $('#cbxAgencia').append('<option value="' + $(this).find('catDiscriminanteId').text() + '">' + $(this).find('clave').text()+"-"+ $(this).find('nombre').text() + '</option>');
                                                         contAgencias++;
                                                 });
-                                        if(contAgencias === 0){
+                                        if(contAgencias == 0){
                                                // alertDinamico('<bean:message key="mensajeAgenciaValidarDistrito"/>');
                                                  $('#cbxAgenciaError').addClass('Error');
                                                  $('#cbxAgenciaError').text('<bean:message key="mensajeAgenciaValidarDistrito"/>');

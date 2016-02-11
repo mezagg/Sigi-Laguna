@@ -79,7 +79,7 @@
 		gridVictimas();
 		
 		try{
-			if(deshabilitarCamposPM === true){
+			if(deshabilitarCamposPM == true){
 				$("#idTblEstablecerRelacionesDelitoPersona :enabled").attr('disabled','disabled');
 			}
 		}catch(e){};
@@ -94,7 +94,7 @@
 		*/
 		function configurarCamposPantalla(){
 			
-			if(deshabilitarCampos === true){
+			if(deshabilitarCampos == true){
 				
 				$("#pasar").hide();
 				$("#pasarD").hide();
@@ -105,7 +105,7 @@
 			}
 
 			//Oculta campos
-			if(esCoordinadorAmpGeneral === true){
+			if(esCoordinadorAmpGeneral == true){
 				$("#pasar").hide();
 				$("#pasarD").hide();
 				$("#btnGuardarDelitosAg").hide();
@@ -405,7 +405,7 @@
 					gridComplete: function () {
 						seleccionarItems($(this));
 						try{
-							if(deshabilitarCamposPM === true){
+							if(deshabilitarCamposPM == true){
 								$("#idTblEstablecerRelacionesDelitoPersona :enabled").attr('disabled','disabled');
 							}
 						}catch(e){};
@@ -466,7 +466,7 @@
 					gridComplete: function () {
 						seleccionarItems($(this));
 						try{
-							if(deshabilitarCamposPM === true){
+							if(deshabilitarCamposPM == true){
 								$("#idTblEstablecerRelacionesDelitoPersona :enabled").attr('disabled','disabled');
 							}
 						}catch(e){};
@@ -502,7 +502,7 @@
 		*/
 		function gridRelacionesDelitoPersona(delitoId){
 
-			if(delitoId === undefined){
+			if(delitoId == undefined){
 				jQuery("#gridRelacionesDelitoPersonaPG").jqGrid('setGridParam', {url:'<%=request.getContextPath()%>/limpiarGrid.do?numeroColumnas=3',datatype: "xml"});
 				$("#gridRelacionesDelitoPersonaPG").trigger("reloadGrid");		
 			}

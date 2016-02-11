@@ -686,7 +686,7 @@
 				},
 
 				loadComplete: function(){
-					if (validaInvolucrados === true){
+					if (validaInvolucrados == true){
 						validarInvolucradosGrid();	
 					}
 				}
@@ -779,7 +779,7 @@
 				sortname: 'fecha',
 				viewrecords: true,
 				loadComplete: function(){
-					if (validaAudiencias === true){
+					if (validaAudiencias == true){
 						if (jQuery('#gridAudiencias').jqGrid('getGridParam','records') == '0'){
 							alertDinamico("La causa seleccionada no cuenta con audiencias, por lo que no se puede enviar la solicitud. <br/>"
 									+"Por favor seleccione una causa que tenga audiencias asociadas");

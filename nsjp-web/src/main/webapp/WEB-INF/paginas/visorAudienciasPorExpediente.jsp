@@ -74,7 +74,7 @@
 			sortorder:"desc",
 			loadComplete: function(){
 				var listaIds = jQuery('#gridAudiencias').getDataIDs();
-				if(listaIds==null || listaIds.length<=0 || listaIds === undefined || listaIds == "undefined"){
+				if(listaIds==null || listaIds.length<=0 || listaIds == undefined || listaIds == "undefined"){
 					top.customAlert("No existen audiencias asociadas a la causa seleccionada.","");	
 				}
 			},

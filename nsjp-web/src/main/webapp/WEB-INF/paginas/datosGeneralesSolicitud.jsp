@@ -328,7 +328,7 @@
 							 pintaDatosDomicilio(xml);
 							 pintaDatosDefendido(xml);
 							 idindi = $(xml).find("solicitud").find("expedienteDTO").find("involucradosDTO").find("involucradoDTO").find("elementoId").text();
-							 if (typeof idIndividuo === 'undefined' || idIndividuo == 0 || !idIndividuo ){
+							 if (typeof idIndividuo == 'undefined' || idIndividuo == 0 || !idIndividuo ){
 								 idIndividuo = $(this).find("elementoId").text(); 
 							 }
 							 mediosContactoTelefonoActualiza();

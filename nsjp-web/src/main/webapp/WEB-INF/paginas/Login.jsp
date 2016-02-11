@@ -90,11 +90,11 @@
 			function(){
 				var error = "";
 				var sinError = true; 
-				if( $("#username").val().length === 0 ) {
+				if( $("#username").val().length == 0 ) {
 					error += "El campo <b>Usuario</b> es requerido<br/>";
 					sinError = false;
         		}
-				if( $("#password").val().length === 0 ) {
+				if( $("#password").val().length == 0 ) {
 					error += "El campo <b>Contrase&ntilde;a</b> es requerido<br/>";
 					sinError = false;
         		}
