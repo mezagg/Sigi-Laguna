@@ -101,11 +101,10 @@ public class BusquedaExpedienteAction extends GenericAction{
 		UsuarioDTO usuarioDTO =  getUsuarioFirmado(request);
 		
 		String tipoRespuesta = request.getParameter("tipoRespuesta");
-		log.info("TIPO DE RESPUESTA SOLICITADA ACTION BUSQUEDA INICIAL CASOS::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::"+tipoRespuesta);
+		log.info("TIPO DE RESPUESTA SOLICITADA ACTION BUSQUEDA INICIAL CASO::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::"+tipoRespuesta);
 		
 		try {
 			if(tipoRespuesta != null && Long.parseLong(tipoRespuesta)== 1L){
-				
 				List<CasoDTO> listaCasos = casoDelegate.consultarCasosConEventosHistoricos(usuarioDTO);
 				converter.alias("casos", java.util.List.class);
 				converter.alias("caso", CasoDTO.class);

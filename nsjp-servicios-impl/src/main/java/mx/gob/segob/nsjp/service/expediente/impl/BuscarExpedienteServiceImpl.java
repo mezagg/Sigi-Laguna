@@ -53,6 +53,7 @@ import mx.gob.segob.nsjp.dao.expediente.BitacoraPermisoExpedienteDAO;
 import mx.gob.segob.nsjp.dao.expediente.ExpedienteDAO;
 import mx.gob.segob.nsjp.dao.expediente.NumeroExpedienteDAO;
 import mx.gob.segob.nsjp.dao.expediente.PermisoExpedienteDAO;
+import mx.gob.segob.nsjp.dao.funcionario.FuncionarioDAO;
 import mx.gob.segob.nsjp.dao.institucion.ConfInstitucionDAO;
 import mx.gob.segob.nsjp.dao.institucion.JerarquiaOrganizacionalDAO;
 import mx.gob.segob.nsjp.dao.involucrado.DefensaInvolucradoDAO;
@@ -1244,6 +1245,7 @@ public class BuscarExpedienteServiceImpl implements BuscarExpedienteService {
         if (logger.isDebugEnabled()) {
             logger.debug("/**** SERVICIO PARA OBTENER LOS EXPEEDIENTES CORRESPONDIENTES A UNA ACTIVIDAD, AREA Y A&Ntilde;O ****/");
         }
+
         if (filtroExpedienteDTO.getAnio() == null
                 || filtroExpedienteDTO.getIdArea() == null
                 || filtroExpedienteDTO.getIdActividad() == null) {
@@ -1325,7 +1327,6 @@ public class BuscarExpedienteServiceImpl implements BuscarExpedienteService {
                 expsRespuesta = expedienteDAO.consultarExpedientesActividadAreaAnio(filtroExpedienteDTO);
             }
         }
-
         if (filtroExpedienteDTO.getestatusMenuCoorJAR() != null) {
             List<NumeroExpediente> listaAlterna = expsRespuesta;
             expsRespuesta = new ArrayList<NumeroExpediente>();
