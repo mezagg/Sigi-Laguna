@@ -9,7 +9,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Ingresar Traductor</title>
 			<!--	Hoja de estilo para los gadgets-->
-			<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/jquery-ui.css" />
+			<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css" />
 			<!--    Hoja de estilo para easyaccordion-->
 			<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/jquery.easyaccordion.css" />
 			<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css" />
@@ -273,9 +273,9 @@ DD P {
 			    });
 
 				idindi=id;
-				desavilitarDatosGenerales();
+				deshabilitarDatosGenerales();
 				deshabilitaDatosDomicilio();
-				desavilitarDatosIdentificacion();
+				deshabilitarDatosIdentificacion();
 				mediosContactoCorreoActualiza();
 				mediosContactoTelefonoActualiza();
 				$('#iVictimaBtnModificarDatos').show();
@@ -284,18 +284,18 @@ DD P {
 
 			function avilitaDatos(){
 				$("img.ui-datepicker-trigger").show();
-				avilitarDatosGenerales();
+				habilitarDatosGenerales();
 				avilitarDatosDomicilio();
-				avilitarDatosIdentificacion();
+				habilitarDatosIdentificacion();
 				$('#anularInvolucrado').show();
 				$('#iVictimaBtnGuardar').show();
 				$('#iVictimaBtnModificarDatos').hide();
 				modificaGrid=true;
 			}
 			function desavilitaDatos(){
-				desavilitarDatosGenerales();
+				deshabilitarDatosGenerales();
 				deshabilitaDatosDomicilio();
-				desavilitarDatosIdentificacion();
+				deshabilitarDatosIdentificacion();
 				mediosContactoCorreoActualiza();
 				mediosContactoTelefonoActualiza();
 				$('#iVictimaBtnModificarDatos').show();

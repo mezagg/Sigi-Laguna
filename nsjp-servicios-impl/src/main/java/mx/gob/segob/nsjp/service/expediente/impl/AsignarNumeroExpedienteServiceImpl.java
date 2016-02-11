@@ -202,13 +202,13 @@ public class AsignarNumeroExpedienteServiceImpl
         }
         String incrementoString = "";
         if (ultimoNumero != null) {
-            String consecutivo = ultimoNumero.substring(ultimoNumero.length() - 5, ultimoNumero.length());
-            incrementoString = ConsecutivosUtil.incrementarConsecutivo(consecutivo, 5);
+            String consecutivo = ultimoNumero.substring(ultimoNumero.length() - 6, ultimoNumero.length());
+            incrementoString = ConsecutivosUtil.incrementarConsecutivo(consecutivo, 6);
         } else {
-            incrementoString = ConsecutivosUtil.incrementarConsecutivo(null, 5);
+            incrementoString = ConsecutivosUtil.incrementarConsecutivo(null, 6);
         }
 
-        StringUtils.leftPad(incrementoString, 5, "0");
+        StringUtils.leftPad(incrementoString, 6, "0");
 
         //YUC se hace referencia al mismo servicio que consulta el prefijo del estado.
         entidadFederativa = asignarNumeroCasoService.obtenerPrefijoDelEstado();
@@ -230,7 +230,7 @@ public class AsignarNumeroExpedienteServiceImpl
         				&& aoUsuarioFirmado.getFuncionario().getDiscriminante().getClave() != null ? 
         						aoUsuarioFirmado.getFuncionario().getDiscriminante().getClave() : "---");
         	}else{
-        		numeroExpediente=numeroExpediente+"000";
+        		numeroExpediente=numeroExpediente+"0000";
         	}
         	
         	
@@ -680,7 +680,7 @@ public class AsignarNumeroExpedienteServiceImpl
 	
 	    			}
 	    			// Si el expediente trae la jerarqu?a Policia Mninisterial y tiene al menos un n?mero 
-	    			// de expediente asociado con la jerarqu?a UI, se debe conservar el ?ltimo n?mero de
+	    			// de expediente asoc   iado con la jerarqu?a UI, se debe conservar el ?ltimo n?mero de
 	    			// expediente, en caso contrario, es el flujo normal.
 	    			else if(inputExpediente.getArea().getAreaId()==Areas.COORDINACION_POLICIA_MINISTERIAL.ordinal()){
 	

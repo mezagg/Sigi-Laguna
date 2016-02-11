@@ -20,7 +20,7 @@
 
 <!--css para el estilos de jquery-->
 <link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/css/jquery-ui.css" />
+	href="<%=request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css" />
 
 <!--css para estilo de los arboles-->
 <link rel="stylesheet" type="text/css"

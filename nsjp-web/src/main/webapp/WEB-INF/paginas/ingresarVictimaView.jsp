@@ -15,7 +15,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Ingresar V&iacute;ctima</title>
 	
-		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/jquery-ui.css" />
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css" />
 		<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/jquery.easyaccordion.css" />
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css" />
 
@@ -398,11 +398,11 @@
 			*/
 			function configuraPantallaModoConsulta(){
 
-				desavilitarDatosGenerales();
+				deshabilitarDatosGenerales();
 				deshabilitaDatosDomicilio();
 				deshabilitaDatosDefuncion();
 				deshabilitaDatosMediaFiliacion();
-				desavilitarDatosIdentificacion();
+				deshabilitarDatosIdentificacion();
 				bloqueaCamposMediosDeContactoGrid();
 				mediosContactoCorreoActualiza();
 				mediosContactoTelefonoActualiza();
@@ -425,11 +425,11 @@
 
 			function avilitaDatos(){
 				$("img.ui-datepicker-trigger").show();
-				avilitarDatosGenerales();
+				habilitarDatosGenerales();
 				avilitarDatosDomicilio();
 				habilitaDatosDefuncion();
 				habilitaDatosMediaFiliacion();
-				avilitarDatosIdentificacion();
+				habilitarDatosIdentificacion();
 				desbloqueaCamposMediosDeContactoGrid();
 				$('#iVictimaBtnGuardar').show();
 				$('#iVictimaBtnModificarDatos').hide();
@@ -442,11 +442,11 @@
 			}
 			
 			function desavilitaDatos(){
-				desavilitarDatosGenerales();
+				deshabilitarDatosGenerales();
 				deshabilitaDatosDomicilio();
 				deshabilitaDatosDefuncion();
 				deshabilitaDatosMediaFiliacion();
-				desavilitarDatosIdentificacion();
+				deshabilitarDatosIdentificacion();
 				bloqueaCamposMediosDeContactoGrid();
 				mediosContactoCorreoActualiza();
 				mediosContactoTelefonoActualiza();
@@ -1401,7 +1401,7 @@
 						    	  url: '<%= request.getContextPath()%>/guardarOrganizacion.do',
 						    	  data: params,				
 						    	  dataType: 'xml',
-						    	  async: false,
+						    	  async: true,
 						    	  success: function(xml){
 						    		  if(parseInt($(xml).find('code').text())==0)
 						    		  {  

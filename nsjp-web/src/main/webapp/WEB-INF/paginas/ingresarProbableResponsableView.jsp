@@ -20,7 +20,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 			<title><bean:message key="ingProbaleResponsableTitulo"/></title>
 				
-	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/jquery-ui.css" />
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/jquery.easyaccordion.css" />
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css" />
 
@@ -1478,7 +1478,7 @@ DD P {
 						//llamamos al ajax que guardara la informacion de la organizacion
 						$.ajax({								
 					    	  type: 'POST',
-					    	  true,
+					    	  async: true,
 					    	  url: '<%=request.getContextPath()%>/guardarOrganizacion.do',
 					    	  data: params,				
 					    	  dataType: 'xml',

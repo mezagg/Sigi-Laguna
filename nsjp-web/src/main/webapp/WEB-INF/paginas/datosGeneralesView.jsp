@@ -426,7 +426,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 			   return lsDatosGenerales;
 		   }
 
-			function desavilitarDatosGenerales(){
+			function deshabilitarDatosGenerales(){
 				 $('#datosGeneralesCmpNombres').attr("disabled","disabled");
 				 $('#datosGeneralesCmpApaterno').attr("disabled","disabled");
 				 $('#datosGeneralesCmpMaterno').attr("disabled","disabled");
@@ -475,7 +475,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 				   $widget.multiselect(state ? 'disable' : 'enable');*/
  			}
 			
-			function avilitarDatosGenerales(){
+			function habilitarDatosGenerales(){
 				$('#datosGeneralesCmpNombres').attr("disabled","");
 				$('#datosGeneralesCmpApaterno').attr("disabled","");
 				 $('#datosGeneralesCmpMaterno').attr("disabled","");
@@ -636,7 +636,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 		   * @param esConsulta parametro que determina si es modo consulta o edici&oacute;n
 		   */
 		   function cambiarModoConsultaMultiselect(esConsulta){
-			   //Versión anterior de habilitar  ver avilitarDatosGenerales()
+			   //Versión anterior de habilitar  ver habilitarDatosGenerales()
 			   /* var $widget = $("#datosGeneralesCmpAlias,#datosGeneralesCmpOcupacion,#datosGeneralesCmpNacionalidad").multiselect(),state = true;
 			   state = !state;
 			   $widget.multiselect( ? 'disable' : 'enable'); */

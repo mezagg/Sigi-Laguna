@@ -6,46 +6,55 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Ingresar Hechos</title>
-		<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css"/>
-		<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/jquery.easyaccordion.css" />	
-		<link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/jquery.windows-engine.css"/>				
-		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/estilos.css" media="screen" />			
-		<style type="text/css">
-			dd p{line-height:120%}
-			#iHechosAccordionPane {width:1000px;height:385px;padding:1px;background:#fff;border:0px solid #b5c9e8}
-			#iHechosAccordionPane dl{width:1000px;height:385px}	
-			#iHechosAccordionPane dt{height:46px;line-height:44px;text-align:right;padding:0 15px 0 0;font-size:1.1em;font-weight:bold;font-family: Tahoma, Geneva, sans-serif;text-transform:uppercase;letter-spacing:1px;background:#fff url(<%= request.getContextPath() %>/images/jquery/plugins/easyaccordion/slide-title-inactive-1.jpg) 0 0 no-repeat;color:#1C94C4}
-			#iHechosAccordionPane dt.inactive{height:46px;line-height:44px;text-align:right;padding:0 15px 0 0;font-size:1.1em;font-weight:bold;font-family: Tahoma, Geneva, sans-serif;text-transform:uppercase;letter-spacing:1px;background:#fff url(<%= request.getContextPath() %>/images/jquery/plugins/easyaccordion/slide-title-inactive-1.jpg) 0 0 no-repeat;color:#68889b}
-			#iHechosAccordionPane dt.active{cursor:pointer;color:#E78F08;background:#fff url(<%= request.getContextPath() %>/images/jquery/plugins/easyaccordion/slide-title-active-1.jpg) 0 0 no-repeat}
-			#iHechosAccordionPane dt.hover{color:#E78F08;}
-			#iHechosAccordionPane dt.active.hover{color:#1C94C4}
-			#iHechosAccordionPane dd{padding:1px;background:url(<%= request.getContextPath() %>/images/jquery/plugins/easyaccordion/slide.jpg) bottom left repeat-x;border:1px solid #ffffff;border-left:0;margin-right:1px}
-			#iHechosAccordionPane .slide-number{color:#68889b;left:10px;font-weight:bold}
-			#iHechosAccordionPane .active .slide-number{color:#fff;}
-			#iHechosAccordionPane a{color:#68889b}
-			#iHechosAccordionPane dd img{float:right;margin:0 0 0 0px;}
-			#iHechosAccordionPane h2{font-size:2.5em;margin-top:10px}
-			#iHechosAccordionPane .more{padding-top:10px;display:block}
-		</style>
-		
-		<script type="text/javascript" src="<%= request.getContextPath()%>/js/jquery-1.5.1.min.js"></script>
-		<script type="text/javascript" src="<%= request.getContextPath()%>/themes/1.8.10/jquery-ui.min.js"></script>
-		<script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery.easyAccordion.js"></script>
-		<script type="text/javascript" src="<%= request.getContextPath() %>/resources/js/jquery.windows-engine.js"></script>
-		
-	   <!--Scripts necesarios para la ejecucion del editor-->
-	   <script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/ckeditor/ckeditor.js"></script>
-	   <script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/ckeditor/adapters/jquery.js"></script>
-	   <script type="text/javascript" src="<%=request.getContextPath()%>/js/bloqueaTecla.js?n=1"></script>
-	   <script type="text/javascript" src="<%=request.getContextPath()%>/js/comun.js?n=1"></script>
-	   <script src="<%=request.getContextPath()%>/resources/js/wdCalendar/Plugins/jquery.ui.datepicker-es.js"></script>
-	   
-	   <%@page import="mx.gob.segob.nsjp.dto.usuario.UsuarioDTO"%>
-	   <%@ page import="mx.gob.segob.nsjp.comun.enums.seguridad.Roles" %>
-	   
+            <!-- ingresarHechosView -->
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <title>Ingresar Hechos</title>
+            <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css"/>
+            <link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/jquery.easyaccordion.css" />	
+            <link type="text/css" rel="stylesheet" href="<%= request.getContextPath()%>/resources/css/jquery.windows-engine.css"/>				
+            <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/estilos.css" media="screen" />			
+            <style type="text/css">
+                    dd p{line-height:120%}
+                    #iHechosAccordionPane {width:1000px;height:385px;padding:1px;background:#fff;border:0px solid #b5c9e8}
+                    #iHechosAccordionPane dl{width:1000px;height:385px}	
+                    #iHechosAccordionPane dt{height:46px;line-height:44px;text-align:right;padding:0 15px 0 0;font-size:1.1em;font-weight:bold;font-family: Tahoma, Geneva, sans-serif;text-transform:uppercase;letter-spacing:1px;background:#fff url(<%= request.getContextPath()%>/images/jquery/plugins/easyaccordion/slide-title-inactive-1.jpg) 0 0 no-repeat;color:#1C94C4}
+                    #iHechosAccordionPane dt.inactive{height:46px;line-height:44px;text-align:right;padding:0 15px 0 0;font-size:1.1em;font-weight:bold;font-family: Tahoma, Geneva, sans-serif;text-transform:uppercase;letter-spacing:1px;background:#fff url(<%= request.getContextPath()%>/images/jquery/plugins/easyaccordion/slide-title-inactive-1.jpg) 0 0 no-repeat;color:#68889b}
+                    #iHechosAccordionPane dt.active{cursor:pointer;color:#E78F08;background:#fff url(<%= request.getContextPath()%>/images/jquery/plugins/easyaccordion/slide-title-active-1.jpg) 0 0 no-repeat}
+                    #iHechosAccordionPane dt.hover{color:#E78F08;}
+                    #iHechosAccordionPane dt.active.hover{color:#1C94C4}
+                    #iHechosAccordionPane dd{padding:1px;background:url(<%= request.getContextPath()%>/images/jquery/plugins/easyaccordion/slide.jpg) bottom left repeat-x;border:1px solid #ffffff;border-left:0;margin-right:1px}
+                    #iHechosAccordionPane .slide-number{color:#68889b;left:10px;font-weight:bold}
+                    #iHechosAccordionPane .active .slide-number{color:#fff;}
+                    #iHechosAccordionPane a{color:#68889b}
+                    #iHechosAccordionPane dd img{float:right;margin:0 0 0 0px;}
+                    #iHechosAccordionPane h2{font-size:2.5em;margin-top:10px}
+                    #iHechosAccordionPane .more{padding-top:10px;display:block}
+            </style>
+
+            <script type="text/javascript" src="<%= request.getContextPath()%>/js/jquery-1.5.1.min.js"></script>
+            <script type="text/javascript" src="<%= request.getContextPath()%>/themes/1.8.10/jquery-ui.min.js"></script>
+            <script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery.easyAccordion.js"></script>
+            <script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery.windows-engine.js"></script>
+
+
+            <script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jqgrid/i18n/grid.locale-es.js"></script>
+            <script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jqgrid/jquery.jqGrid.min.js"></script>
+
+
+            <!--Scripts necesarios para la ejecucion del editor-->
+            <script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/ckeditor/ckeditor.js"></script>
+            <script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/ckeditor/adapters/jquery.js"></script>
+            <script type="text/javascript" src="<%=request.getContextPath()%>/js/bloqueaTecla.js?n=1"></script>
+
+            <script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery.blockUI.js"></script>
+            <script type="text/javascript" src="<%=request.getContextPath()%>/js/comun.js?n=1"></script>
+            <script src="<%=request.getContextPath()%>/resources/js/wdCalendar/Plugins/jquery.ui.datepicker-es.js"></script>
+
+            <%@page import="mx.gob.segob.nsjp.dto.usuario.UsuarioDTO"%>
+            <%@ page import="mx.gob.segob.nsjp.comun.enums.seguridad.Roles" %>
+
 	   <% 
+               
 	   	UsuarioDTO usuario = (UsuarioDTO) request.getSession().getAttribute("KEY_SESSION_USUARIO_FIRMADO");
 		String rolUsuarioSesion = "";
 		Long idRolActivo = 0L;
@@ -56,7 +65,8 @@
 	%>
 	   
 		<script type="text/javascript">
-		
+                        var contextoPagina = '<%= request.getContextPath()%>';
+
 			//CONSTANTES DEFINIDAS
 			var ATPENAL = 1;
 			var COORDINADOR_JAR = 2;

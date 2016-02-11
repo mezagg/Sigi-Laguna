@@ -92,7 +92,7 @@ public class ConfActividadDocumentoDAOImpl
         sb.append(" order by ");
         sb.append("conf.tipoActividad.valor");
         
-        logger.info("CONSULTA PARA consultarConfActividadDocumento CON Y SIN CATUIE: " + sb);
+        //logger.info("CONSULTA PARA consultarConfActividadDocumento CON Y SIN CATUIE: " + sb);
 
         Query query = super.getSession().createQuery(sb.toString());
         return query.list();
@@ -269,7 +269,7 @@ public class ConfActividadDocumentoDAOImpl
         StringBuffer queryString = new StringBuffer();
         queryString.append("SELECT duie.catDiscriminante.catDiscriminanteId FROM DiscriminanteUIEspecializada duie").
                 append(" WHERE duie.catUIEspecializada.catUIEId = ").append(catDiscriminanteId);
-        logger.info("CONSULTA PARA consultarCatUieIdFuncionario: " + queryString);
+        //logger.info("CONSULTA PARA consultarCatUieIdFuncionario: " + queryString);
         Query qry = super.getSession().createQuery(queryString.toString());
 
         return (Long) qry.uniqueResult();

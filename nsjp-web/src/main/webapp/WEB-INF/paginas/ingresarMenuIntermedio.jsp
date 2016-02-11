@@ -56,7 +56,7 @@
         <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery.windows-engine.css"/>
 
         <!--Hojas de estilos para los componentes UI de Jquery-->
-        <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css"/>
+        <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css"/>
         <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css" />
 
         <!--Hoja de estilos para el grid-->
@@ -375,7 +375,7 @@
                                     $.ajax({
                                         type: 'POST',
                                         url: '<%=request.getContextPath()%>/cargarActividadGuardadoParcial.do',
-                                        async: false,
+                                        async: true,
                                         data: {
                                             documento: id
                                         },
@@ -407,7 +407,7 @@
                 jQuery("#gridDetalleAlertas").jqGrid({
                     url: '<%=request.getContextPath()%>/consultarAlertas.do?idExpedienteop=' + idNumeroExpedienteConsul,
                     datatype: "xml",
-                    colNames: ['Fecha y Hora', 'Descripción'],
+                    colNames: ['Fecha y Hora', 'Descripci&oacute;n'],
                     colModel: [{name: 'FechaHora', index: 'fechaHora', width: 160},
                         {name: 'Descripcion', index: 'descripcion', width: 450}
                     ],
@@ -931,7 +931,7 @@
                 });
 
                 //llenamos los combos de UI e IE de la pestaña de Acciones
-                cargaInstitucionesExternas();
+                //cargaInstitucionesExternas();
                 mostraDivGenerarOficioCanalizacion(0);
 
                 $("#btnGenerarAcciones").click(muestraDivInformativoCanalizacion);
@@ -1017,7 +1017,7 @@
                     jQuery("#gridObjsEquipoComputo").jqGrid({
                         url: '<%=request.getContextPath()%>/limpiarGrid.do?numeroColumnas=3',
                         datatype: "xml",
-                        colNames: ['Equipo de Cómputo', 'Folio de cadena de custodia', 'No. de casos asociados'],
+                        colNames: ['Equipo de C&oacute;mputo', 'Folio de cadena de custodia', 'No. de casos asociados'],
                         colModel: [{name: 'EquipoComputo', index: 'equipoComputon', width: 150},
                             {name: 'FolioCadCus', index: 'folioCadCus', width: 150},
                             {name: 'NoExpedientes', index: 'noExpedientes', width: 200, hidden: true},
@@ -1662,6 +1662,7 @@
                     url: '<%=request.getContextPath()%>/consultarInfoResumenVisitaduria.do',
                     data: 'idExpediente=' + idNumeroExpedienteConsul,
                     dataType: 'xml',
+                    async: true,
                     success: function (xml) {
                         $(xml).find('AuditoriaDTO').each(function () {
                             $("#spanNombrDuenoExpAud").text($(this).find('nombreCompleto').text());
@@ -1885,7 +1886,7 @@
                     url: '<%= request.getContextPath()%>/cargarActuaciones.do?idCategoria=<%= CategoriasActividad.POLICIAL.getValorId()%>&numeroExpediente=' + numeroExpediente,
                     data: '',
                     dataType: 'xml',
-                    async: false,
+                    async: true,
                     success: function (xml) {
                         $(xml).find('catActuaciones').each(function () {
                             $('#cbxAccionesTab9').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
@@ -1910,7 +1911,7 @@
                     url: '<%= request.getContextPath()%>/registraActividadExpediente.do?idExpediente=' + idExpedienteop + '&idNumeroExpediente=' + idNumeroExpedienteOp + '&actuacion=' + actuacionID + '&estatus=' + estatusId + '&numExpe=' + numeroExpediente + '&cveFuncionarioAsignado=' + idFuncionario,
                     data: '',
                     dataType: 'xml',
-                    async: false,
+                    async: true,
                     success: function (xml) {
                         if (parseInt(banderaMensaje) === 1)
                         {
@@ -1929,15 +1930,15 @@
                         url: '<%= request.getContextPath()%>/registrafuncionarioNumeroExpediente.do?funcionario=' + funcio + '&idNumeroExpediente=' + idNumeroExpedienteOp,
                         data: '',
                         dataType: 'xml',
-                        async: false,
+                        async: true,
                         success: function (xml) {
 
                         }
                     });
                     registrarActividadExpediente(151, 1712, 0, funcio);
-                    alertDinamico("Se asignó correctamente la carpeta de investigación");
+                    alertDinamico("Se asign&oacute; correctamente la carpeta de investigaci&oacute;n");
                 } else {
-                    alertDinamico("Debe seleccionar un agente para realizar la asignación");
+                    alertDinamico("Debe seleccionar un agente para realizar la asignaci&oacute;n");
                 }
             }
 
@@ -1950,7 +1951,7 @@
                         url: '<%= request.getContextPath()%>/registrafuncionarioNumeroExpediente.do?funcionario=' + funcio + '&idNumeroExpediente=' + idNumeroExpedienteOp,
                         data: '',
                         dataType: 'xml',
-                        async: false,
+                        async: true,
                         success: function (xml) {
                             if ($(xml).find('respuesta').find('bandera').text() === '1') {
                                 //Sele colocara la funcion para signar agente ke aun no esta realizada
@@ -1958,18 +1959,18 @@
                                 $("#idAsignarFacilitador").hide();
                                 //$("#idReasignarFacilitador").show();
                                 $("#cbxAgentesCoorJAR").hide();
-                                alertDinamico("Se asignó correctamente el expediente");
+                                alertDinamico("Se asign&oacute; correctamente el expediente");
                             }
                             if ($(xml).find('respuesta').find('bandera').text() === '0') {
                                 $("#idAsignarFacilitador").show();
                                 $("#idReasignarFacilitador").hide();
                                 $("#cbxAgentesCoorJAR").show();
-                                alertDinamico("No se logró asignar el expediente");
+                                alertDinamico("No se logr&oacute; asignar el expediente");
                             }
                         }
                     });
                 } else {
-                    alertDinamico("Debe seleccionar un facilitador para realizar la asignación");
+                    alertDinamico("Debe seleccionar un facilitador para realizar la asignaci&oacute;n");
                 }
             }
 
@@ -2001,7 +2002,7 @@
                     url: url,
                     data: '',
                     dataType: 'xml',
-                    async: false,
+                    async: true,
                     success: function (xml) {
                         actividad = $(xml).find('confActividadDocumentoDTO').find('tipoActividadId').text();
                         formaID = $(xml).find('confActividadDocumentoDTO').find('formaId').text();
@@ -2018,6 +2019,7 @@
                     data: 'idParametro=' + idParametro,
                     async: false,
                     dataType: 'xml',
+                    async: true,
                     success: function (xml) {
                         parametroConfirm = $(xml).find('body').find('respuesta').text();
                     }
@@ -2124,12 +2126,12 @@
                         //verificamos si se tienen relaciones de delito-persona o delito-delito
                         if (consultaTotalRelacionesDelitoPorTodos() > 0)
                         {
-                            $.newWindow({id: "iframewindowGenerarDocumento", statusBar: true, posx: 20, posy: 20, width: 940, height: 350, title: "Solicitud de Ayuda a la Unidad de Atención a V&iacute;ctimas", type: "iframe"});
+                            $.newWindow({id: "iframewindowGenerarDocumento", statusBar: true, posx: 20, posy: 20, width: 940, height: 350, title: "Solicitud de Ayuda a la Unidad de Atenci&oacute;n a V&iacute;ctimas", type: "iframe"});
                             $.updateWindowContent("iframewindowGenerarDocumento", '<iframe src="<%= request.getContextPath()%>/solicitarAyudaPsicologicaUAVD.do?formaId=' + formaID + '&idExpedienteop=' + idExpedienteop + '&numeroCaso=' + numeroCaso + '&numeroUnicoExpediente=' + numeroExpediente + '&idNumeroExpedienteOp=' + idNumeroExpedienteOp + '"    width="1140" height="550" />');
                             $("#" + "iframewindowGenerarDocumento" + " .window-maximizeButton").click();
                         } else
                         {
-                            var texto = "Debe tener registrada la relación de la v&iacute;ctima \n con el " +
+                            var texto = "Debe tener registrada la relaci&oacute;n de la v&iacute;ctima \n con el " +
                                     msjProbableResponsableProp +
                                     " y el delito"
                             alertDinamico(texto);
@@ -2202,7 +2204,7 @@
                                         if (pantallaSolicitada !== null && (pantallaSolicitada == AGENTE_MP || pantallaSolicitada == COORDINADOR_AMP)) {
                                             validacionDeDelitoUSC(actividad, estatusId, titulo, formaID, numeroExpediente);
                                         } else {
-                                            alertDinamico("Sólo los tipo de expediente 'Reporte' se pueden canalizar a JAR");
+                                            alertDinamico("S&oacute;lo los tipo de expediente 'Reporte' se pueden canalizar a JAR");
                                         }
                                     }
                                 } else {//En caso de no aplicar la regla de reporte
@@ -2386,7 +2388,7 @@
                     url: '<%= request.getContextPath()%>/obtenerConfActividadDocumento.do?idConf=' + confActividadId,
                     data: '',
                     dataType: 'xml',
-                    async: false,
+                    async: true,
                     success: function (xml) {
                         actividad = $(xml).find('confActividadDocumentoDTO').find('tipoActividadId').text();
                         formaID = $(xml).find('confActividadDocumentoDTO').find('formaId').text();
@@ -2446,7 +2448,8 @@
                     url: '<%= request.getContextPath()%>' + '/ObtenerListaIndividuos.do',
                     data: 'calidadDelIndividuo=0',
                     dataType: 'xml',
-                    async: false,
+                    async: true,
+
                     success: function (xml) {
                         $(xml).find('involucradoViewDTO').each(function () {
                             var liga = '<tr><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="consultarProbableResponsable(' + $(this).find('involucradoId').text() + ');">';
@@ -2497,7 +2500,7 @@
                 var row = $('#tblProbableResponsable tr:#' + id);
                 $(row).remove();
 
-                var texto = "Se anuló exitosamente el " + msjProbableResponsableProp;
+                var texto = "Se anul&oacute; exitosamente el " + msjProbableResponsableProp;
 
                 alertDinamico(texto);
             }
@@ -2527,7 +2530,7 @@
                     url: '<%= request.getContextPath()%>/ObtenerListaIndividuos.do',
                     data: 'calidadDelIndividuo=2',
                     dataType: 'xml',
-                    async: false,
+                    async: true,
                     success: function (xml) {
                         $(xml).find('involucradoViewDTO').each(function () {
                             var liga = '<tr><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="consultarVictima(' + $(this).find('involucradoId').text() + ');">';
@@ -2576,7 +2579,7 @@
                     url: '<%= request.getContextPath()%>/registraStatusExpediente.do?idExpediente=' + idExpedienteop + '&idNumeroExpediente=' + idNumeroExpedienteOp + '&estatus=' + estatus,
                     data: '',
                     dataType: 'xml',
-                    async: false,
+                    async: true,
                     success: function (xml) {
 
                     }
@@ -2590,7 +2593,7 @@
                         url: '<%=request.getContextPath()%>/ConsultaInvolucradosExpediente.do',
                         data: 'idNumeroExpediente=' + idNumeroExpediente,
                         dataType: 'xml',
-                        async: false,
+                        async: true,
                         success: function (xml) {
                             $(xml).find('involucradoViewDTO').each(function () {
                                 if ($(this).find('calidad').text() === '<%= Calidades.DENUNCIANTE.getValorId()%>' || $(this).find('calidad').text() === '<%= Calidades.DENUNCIANTE_ORGANIZACION.getValorId()%>') {
@@ -2694,7 +2697,7 @@
                     url: '<%=request.getContextPath()%>/ConsultaHechoExpediente.do',
                     data: 'idNumeroExpediente=' + idNumeroExpediente,
                     dataType: 'xml',
-                    async: false,
+                    async: true,
                     success: function (xml) {
                         if (parseInt($(xml).find('code').text()) === 0)
                         {
@@ -2720,7 +2723,7 @@
                     url: '<%= request.getContextPath()%>/ObtenerListaIndividuos.do',
                     data: 'calidadDelIndividuo=4',
                     dataType: 'xml',
-                    async: false,
+                    async: true,
                     success: function (xml) {
                         $(xml).find('involucradoViewDTO').each(function () {
                             var idIn = $(this).find('involucradoId').text();
@@ -2748,7 +2751,7 @@
                 var row = $('#tblDenunciante tr:#' + id);
                 $(row).remove();
                 $('#crearDenunciante').show();
-                alertDinamico("Se anuló exitosamente el denunciante");
+                alertDinamico("Se anul&oacute; exitosamente el denunciante");
             }
 
             /*
@@ -2784,7 +2787,7 @@
                     url: '<%= request.getContextPath()%>/ObtenerListaIndividuos.do',
                     data: 'calidadDelIndividuo=5',
                     dataType: 'xml',
-                    async: false,
+                    async: true,
                     success: function (xml) {
                         $(xml).find('involucradoViewDTO').each(function () {
                             var liga = '<tr id="' + $(this).find('involucradoId').text() + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="consultarTestigo(' + $(this).find('involucradoId').text() + ');">';
@@ -2832,7 +2835,7 @@
                     url: '<%= request.getContextPath()%>/ObtenerListaIndividuos.do',
                     data: 'calidadDelIndividuo=7',
                     dataType: 'xml',
-                    async: false,
+                    async: true,
                     success: function (xml) {
                         $(xml).find('involucradoViewDTO').each(function () {
                             var liga = '<tr><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="consultarTraductor(' + $(this).find('involucradoId').text() + ');">';
@@ -2867,7 +2870,7 @@
                     url: '<%= request.getContextPath()%>/ObtenerListaIndividuos.do',
                     data: 'calidadDelIndividuo=8',
                     dataType: 'xml',
-                    async: false,
+                    async: true,
                     success: function (xml) {
                         $(xml).find('involucradoViewDTO').each(function () {
                             var liga = '<tr><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="consultarQuienDetuvo(' + $(this).find('involucradoId').text() + ');">';
@@ -2961,7 +2964,7 @@
             function consultarContactoDeUnaOrganizacion() {
 
                 idWindowConsultarContactoDeUnaOrganizacion++;
-                $.newWindow({id: "iframewindowConsultarContactoDeUnaOrganizacion" + idWindowConsultarContactoDeUnaOrganizacion, statusBar: true, posx: 250, posy: 150, width: 1050, height: 620, title: "Consultar contacto de una organización", type: "iframe"});
+                $.newWindow({id: "iframewindowConsultarContactoDeUnaOrganizacion" + idWindowConsultarContactoDeUnaOrganizacion, statusBar: true, posx: 250, posy: 150, width: 1050, height: 620, title: "Consultar contacto de una organizaci&oacute;n", type: "iframe"});
                 $.updateWindowContent("iframewindowConsultarContactoDeUnaOrganizacion" + idWindowConsultarContactoDeUnaOrganizacion, '<iframe src="<%= request.getContextPath()%>/ConsultarIndividuo.do?idInvolucrado=1001&idCalidad=CONTACTO_ORGANIZACION" width="1100" height="530" />');
             }
 
@@ -2984,7 +2987,7 @@
             function eliminaVictimaDeMenuIntermedio(id) {
                 var row = $('#tblVictima tr:#' + id);
                 $(row).remove();
-                alertDinamico("Se anuló exitosamente la v&iacute;ctima");
+                alertDinamico("Se anul&oacute; exitosamente la v&iacute;ctima");
             }
 
             //Abre una nueva ventana de probable responsable
@@ -3044,14 +3047,14 @@
             function eliminaTestigoDeMenuIntermedio(id) {
                 var row = $('#tblTestigo tr:#' + id);
                 $(row).remove();
-                alertDinamico("Se anuló exitosamente el testigo");
+                alertDinamico("Se anul&oacute; exitosamente el testigo");
             }
 
             //Crea una ventana de un nuevo contacti de una organizacion		
             function creaNuevoContactoDeUnaOrganizacion() {
 
                 idWindowIngresarContactoDeUnaOrganizacion++;
-                $.newWindow({id: "iframewindowIngresarContactoDeUnaOrganizacion" + idWindowIngresarContactoDeUnaOrganizacion, statusBar: true, posx: 75, posy: 30, width: 1100, height: 530, title: "Contacto de una organización", type: "iframe"});
+                $.newWindow({id: "iframewindowIngresarContactoDeUnaOrganizacion" + idWindowIngresarContactoDeUnaOrganizacion, statusBar: true, posx: 75, posy: 30, width: 1100, height: 530, title: "Contacto de una organizaci&oacute;n", type: "iframe"});
                 $.updateWindowContent("iframewindowIngresarContactoDeUnaOrganizacion" + idWindowIngresarContactoDeUnaOrganizacion, '<iframe src="<%= request.getContextPath()%>/IngresarContactoDeUnaOrganizacion.do" width="1100" height="530"  />');
             }
 
@@ -3590,7 +3593,7 @@
                     url: '<%= request.getContextPath()%>/ConsultarCatalogoOcupacion.do',
                     data: '',
                     dataType: 'xml',
-                    async: false,
+                    async: true,
                     success: function (xml) {
                         var option;
 
@@ -3617,7 +3620,7 @@
                     url: '<%= request.getContextPath()%>/consultarInstitucionesExternas.do',
                     data: '',
                     dataType: 'xml',
-                    async: false,
+                    async: true,
                     success: function (xml) {
                         $('#cbxCanalizaAIE').empty();
                         $('#cbxCanalizaAIE').append('<option value="-1" selected="selected">-Seleccione-</option>');
@@ -4031,7 +4034,7 @@
 
             function abrirDenuncia() {
                 $.newWindow({id: "iframewindowAbrirDenuncia", statusBar: true, posx: 200, posy: 50, width: 1140, height: 400, title: "Denuncia", type: "iframe"});
-                $.updateWindowContent("iframewindowAbrirDenuncia", '<iframe src="<%= request.getContextPath()%>/resources/images/Denuncia en Atención Temprana _JAS.pdf" width="1140" height="400" />');
+                $.updateWindowContent("iframewindowAbrirDenuncia", '<iframe src="<%= request.getContextPath()%>/resources/images/Denuncia_en_Atencion_Temprana_JAS.pdf" width="1140" height="400" />');
 
             }
 
@@ -4043,7 +4046,7 @@
 
 
             <%--@deprecated  function lanzaCarpetaInvestigacionDefensoria() {
-                    $.newWindow({id:"iframewindowAbrirteoria", statusBar: true, posx:20,posy:20,width:310,height:231,title:"Enviar Carpeta Investigación", type:"iframe"});
+                    $.newWindow({id:"iframewindowAbrirteoria", statusBar: true, posx:20,posy:20,width:310,height:231,title:"Enviar Carpeta Investigaci&oacute;n", type:"iframe"});
                 $.updateWindowContent("iframewindowAbrirteoria",'<iframe src="<%= request.getContextPath() %>/enviarCarpetaInvestigacionDefensoria.do" width="310" height="231" />');
 		      		
             } --%>
@@ -4055,7 +4058,7 @@
                     url: '<%= request.getContextPath()%>/cargarDatosGenerales.do?idNumeroExpedienteOp=' + idNumeroExpedienteOp,
                     data: '',
                     dataType: 'xml',
-                    async: false,
+                    async: true,
                     success: function (xml) {
                         $('#Vehiculos').html($(xml).find('totalVehiculos').text() + ': ' + $(xml).find('vehiculos').text());
                         if ($(xml).find('ve').text() !== "1") {
@@ -4269,7 +4272,7 @@
             }
 
             function abreLineasInvestiga() {
-                $.newWindow({id: "iframewindowLineaInvestigacion", statusBar: true, posx: 20, posy: 20, width: 1300, height: 550, title: "Investigación", type: "iframe"});
+                $.newWindow({id: "iframewindowLineaInvestigacion", statusBar: true, posx: 20, posy: 20, width: 1300, height: 550, title: "Investigaci&oacute;n", type: "iframe"});
                 $.updateWindowContent("iframewindowLineaInvestigacion", '<iframe src="<%= request.getContextPath()%>/lineasInvestigacion.do?numeroUnicoExpediente=' + numeroExpediente + '&idNumeroUnicoExpediente=' + idNumeroExpedienteConsul + '&pantalla=' + pantallaSolicitada + '"    width="1300" height="550" />');
                 $("#" + "iframewindowLineaInvestigacion" + " .window-maximizeButton").click();
             }
@@ -4341,7 +4344,7 @@
                     url: '<%= request.getContextPath()%>/obtenerConfActividadDocumento.do?idConf=135',
                     data: '',
                     dataType: 'xml',
-                    async: false,
+                    async: true,
                     success: function (xml) {
                         actividad = $(xml).find('confActividadDocumentoDTO').find('tipoActividadId').text();
                         formaID = $(xml).find('confActividadDocumentoDTO').find('formaId').text();
@@ -4350,7 +4353,7 @@
                         estatusId = $(xml).find('confActividadDocumentoDTO').find('estadoCambioExpediente').find('idCampo').text();
                     }
                 });
-                $.newWindow({id: "iframewindowElaborarSolicitud", statusBar: true, posx: 20, posy: 20, width: 1140, height: 550, title: "Notificación Auditor&iacute;a", type: "iframe"});
+                $.newWindow({id: "iframewindowElaborarSolicitud", statusBar: true, posx: 20, posy: 20, width: 1140, height: 550, title: "Notificaci&oacute;n Auditor&iacute;a", type: "iframe"});
                 $.updateWindowContent("iframewindowElaborarSolicitud", '<iframe src="<%= request.getContextPath()%>/elaborarNotificacionAuditoria.do?formaId=' + formaID + '&numeroUnicoExpediente=' + idNumeroExpedienteOp + '"    width="1140" height="550" />');
                 $("#" + "iframewindowElaborarSolicitud" + " .window-maximizeButton").click();
             }
@@ -4380,7 +4383,7 @@
                     url: '<%= request.getContextPath()%>/ConsultarTamanoDelitosAsociadosPorTodos.do?idExpediente=' + idExpedienteop + '',
                     data: '',
                     dataType: 'xml',
-                    async: false,
+                    async: true,
                     success: function (xml) {
                         numeroRelaciones = $(xml).find('relacionTodosLosDelitos').find('tamanoLista').text();
                     }
@@ -4439,6 +4442,7 @@
                     data: '',
                     async: false,
                     dataType: 'xml',
+                    async: true,
                     success: function (xml) {
                         existeDelitoGraveEnExpediente = $(xml).find('boolean').text();
                     }
@@ -4458,7 +4462,7 @@
                     url: '<%=request.getContextPath()%>/existeReincidenciaDeProbablesResponsables.do',
                     data: 'numeroExpediente=' + numeroExpediente + '',
                     dataType: 'xml',
-                    async: false,
+                    async: true,
                     success: function (xml) {
                         existeProbRespReincidente = $(xml).find('boolean').text();
                     }
@@ -4480,7 +4484,7 @@
                     url: '<%=request.getContextPath()%>/excedeMediaAritmeticaDelitos.do',
                     data: 'numeroExpedienteId=' + numeroExpedienteId + '',
                     dataType: 'xml',
-                    async: false,
+                    async: true,
                     success: function (xml) {
                         resultado = $(xml).find('boolean').text();
                     }
@@ -4503,7 +4507,8 @@
                     url: '<%=request.getContextPath()%>/consultaOrigenExpediente.do',
                     data: 'idExpediente=' + idExpedienteop,
                     dataType: 'xml',
-                    async: false,
+                    async: true,
+
                     success: function (xml) {
                         tipoExpediente = $(xml).find('valorDTO').find('idCampo').text();
                         tipoExpediente = tipoExpediente === "" ? 0 : tipoExpediente;
@@ -4569,7 +4574,7 @@
                 if (existeDelitoGraveEnExpediente !== "") {
                     //Valida Delito Grave deshabilitado 
                     if (validaDelitoGrave !== null && (validaDelitoGrave === "0" || validaDelitoGrave === 0)) {
-                        //Mostrar ventana de Canalización a la Unidad de Fiscales Investigadores
+                        //Mostrar ventana de Canalizaci&oacute;n a la Unidad de Fiscales Investigadores
                         idWindowPantallaActuaciones++;
                         $.newWindow({id: "iframewindowGenerarDocumento" + idWindowPantallaActuaciones, statusBar: true, posx: 200, posy: 50, width: 1140, height: 400, title: "", type: "iframe", confirmarCierreVentana: confirmarCierreVentana});
                         $.updateWindowContent("iframewindowGenerarDocumento" + idWindowPantallaActuaciones, '<iframe src="<%= request.getContextPath()%>/canalizarAUnidadFiscalesInv.do?formaId=' + formaID + '&numeroUnicoExpediente=' + numeroExpediente + '&actividadId=' + actividad + '&numeroExpedienteId=' + numeroExpedienteId + '&esTransaccional=' + true + '&idWindowPantallaActuaciones=' + idWindowPantallaActuaciones + '" width="1140" height="400" />');
@@ -4726,7 +4731,7 @@
                     type: 'POST',
                     url: '<%=request.getContextPath()%>/consultarParametro.do',
                     data: 'idParametro=' + idParametro,
-                    async: false,
+                    async: true,
                     dataType: 'xml',
                     success: function (xml) {
                         parametroConfirm = $(xml).find('body').find('respuesta').text();
@@ -4985,7 +4990,7 @@
                     url: '<%= request.getContextPath()%>/cargarTipoConclusion.do',
                     data: '',
                     dataType: 'xml',
-                    async: false,
+                    async: true,
                     success: function (xml) {
                         var option;
                         $(xml).find('catTipoConclusion').each(function () {
@@ -5028,7 +5033,7 @@
                         url: '<%= request.getContextPath()%>/cargarTipoSubConclusion.do?tipoConclusion=' + tipoConclusion + '',
                         data: '',
                         dataType: 'xml',
-                        async: false,
+                        async: true,
                         success: function (xml) {
                             var option;
                             $(xml).find('catTipoSubConclusion').each(function () {
@@ -5048,7 +5053,7 @@
                     type: 'POST',
                     url: '<%=request.getContextPath()%>/guardarConclusionNumeroExpe.do',
                     data: 'tipoConclusion=' + tipoConclusion + '&subTipoConclusion=' + subTipoConclusion + '&fechaConclusion=' + fechaConclusion + '&idNumeroExpediente=' + idNumeroExpedienteOp,
-                    async: false,
+                    async: true,
                     dataType: 'xml',
                     success: function (xml) {
                         var resp = $(xml).find('boolean').text();
@@ -5065,7 +5070,7 @@
                     type: 'POST',
                     url: '<%=request.getContextPath()%>/consultarConclusionNumeroExpe.do',
                     data: 'idNumeroExpediente=' + idNumeroExpedienteOp,
-                    async: false,
+                    async: true,
                     dataType: 'xml',
                     success: function (xml) {
 
@@ -5245,7 +5250,7 @@
                     dataType: 'xml',
                     Type: 'POST',
                     data: params,
-                    async: false,
+                    async: true,
                     success: function (xml) {
                         if (parseInt($(xml).find('code').text()) === 0)
                         {
@@ -5270,7 +5275,7 @@
                                 dataType: 'xml',
                                 Type: 'POST',
                                 data: params,
-                                async: false,
+                                async: true,
                                 success: function (xml) {
                                     if (parseInt($(xml).find('code').text()) === 0)
                                     {
@@ -5295,7 +5300,7 @@
                         } else
                         {
                             isDelitoSaved = false;
-                            alertDinamico("Ocurrió un error al tratar de guardar los delitos agraviados");
+                            alertDinamico("Ocurri&oacute; un error al tratar de guardar los delitos agraviados");
                         }
                     }
                 });
@@ -5782,7 +5787,7 @@
                         <td width="19" style="font-size:14px; background-color:" >&nbsp;</td>
                         <td width="4">&nbsp;</td>
                         <td align="left" width="507" style="font-size:14px; background-color:">
-                            <strong>Estatus de Actuación:</strong>&nbsp;
+                            <strong>Estatus de Actuaci&oacute;n:</strong>&nbsp;
                             <label id="estatusActuacion"></label>
                         </td>
                         <td id="idsNumerosDelExpediente" width="250" style="font-size:14px; background-color:">
@@ -5819,12 +5824,12 @@
                                     <td id="imgVehiculo" width="25"><img title="Contiene mas registros" width="10px" src='<%= request.getContextPath()%>/resources/images/add.png'></td>
                                 </tr>
                                 <tr>
-                                    <td align="right" style="background-color:">Equipos de cómputo:</td>
+                                    <td align="right" style="background-color:">Equipos de c&oacute;mputo:</td>
                                     <td id="EquiposDeComputo" >&nbsp;</td>
                                     <td id="imgEquiposDeComputo" width="25"><img title="Contiene mas registros" width="10px" src='<%= request.getContextPath()%>/resources/images/add.png'></td>
                                 </tr>
                                 <tr>
-                                    <td align="right" style="background-color:">Equipos Telefónicos:</td>
+                                    <td align="right" style="background-color:">Equipos Telef&oacute;nicos:</td>
                                     <td id="EquiposTelefonicos">&nbsp;</td>
                                     <td id="imgEquiposTelefonicos" width="25"><img title="Contiene mas registros" width="10px" src='<%= request.getContextPath()%>/resources/images/add.png'></td>
                                 </tr>
@@ -5854,7 +5859,7 @@
                                     <td id="imgAeronaves" width="25"><img title="Contiene mas registros" width="10px" src='<%= request.getContextPath()%>/resources/images/add.png'></td>
                                 </tr>
                                 <tr>
-                                    <td align="right" style="background-color:">Embarcación:</td>
+                                    <td align="right" style="background-color:">Embarcaci&oacute;n:</td>
                                     <td id="Embarcacion">&nbsp;</td>
                                     <td id="imgEmbarcacion" width="25"><img title="Contiene mas registros" width="10px" src='<%= request.getContextPath()%>/resources/images/add.png'></td>
                                 </tr>
@@ -5975,7 +5980,7 @@
                         <td align="right"><span id="spanGralJAR">Justicia Alternativa Restaurativa</span></td>
                     </tr>
                     <tr>
-                        <td align="right"><span id="spanGralUI">Unidad de Investigación: </span><span id="spanInfoGralUI"></span></td>
+                        <td align="right"><span id="spanGralUI">Unidad de Investigaci&oacute;n: </span><span id="spanInfoGralUI"></span></td>
                     </tr>
                     <tr>
                         <td align="right"><span id="spanGralIE">Instituci&oacute;n Externa: </span><span id="spanInfoGralIE"></span></td>
@@ -6001,8 +6006,10 @@
                     <ul>
                         <li class="tabTabsAccionesHijo"><a href="#tabschild7-1">Actuaciones</a></li>
                         <li class="tabTabsAccionesHijo"><a href="#tabschild7-2">Asignar Carpeta</a></li>
-                        <li><a href="#tabschild7-3" id="tapRelacionarInfoDeExp">Relacionar Información del expediente</a></li>					
+                        <li><a href="#tabschild7-3" id="tapRelacionarInfoDeExp">Relacionar Informaci&oacute;n del expediente</a></li>					
                     </ul>
+                    
+                    
                     <div id="tabschild7-1">
                         <table width="100%" border="0" cellspacing="0" cellpadding="0" id="tablaAcuseNoPenalCbx">
                             <tr id="trActuaciones">
@@ -6067,7 +6074,7 @@
                                     </tr>
                                     <!-- <tr id="idbotoncarpeta" style="display: none;">
                                             <td>
-                                                    <button value="Enviar de Investigacion" class="ui-button ui-corner-all ui-widget" onclick="lanzaCarpetaInvestigacionDefensoria()">Enviar carpeta de investigación</button>
+                                                    <button value="Enviar de Investigacion" class="ui-button ui-corner-all ui-widget" onclick="lanzaCarpetaInvestigacionDefensoria()">Enviar carpeta de investigaci&oacute;n</button>
                                             </td>
                                     </tr> -->
                                 </table>
@@ -6077,7 +6084,7 @@
                                     <table>
                                         <tr>
                                             <td>
-                                                Mediación
+                                                Mediaci&oacute;n
                                             </td>
                                             <td>
                                                 <input type="radio" name="rbConci" id="raio1" checked="checked" />
@@ -6085,7 +6092,7 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                Conciliación
+                                                Conciliaci&oacute;n
                                             </td>
                                             <td>
                                                 <input type="radio" name="rbConci" id="raio2" />
@@ -6160,7 +6167,7 @@
                                             <!-- 								<option value="-1">-Seleccione-</option> -->
                                         </select></td>
                                     <td>
-                                        <input type="button" id="idInvestiga" onclick="abreLineasInvestiga()" value="Iniciar Investigación" class="ui-button ui-corner-all ui-widget"/>
+                                        <input type="button" id="idInvestiga" onclick="abreLineasInvestiga()" value="Iniciar Investigaci&oacute;n" class="ui-button ui-corner-all ui-widget"/>
                                     </td>
                                 </tr>
                             </table>
@@ -6205,7 +6212,7 @@
                                         &nbsp;
                                     </td>
                                     <td>
-                                        <input type="button" id="btnTranscripcionAudiencia" value="Transcripción de audiencia" class="ui-button ui-corner-all ui-widget" style="display: none;">
+                                        <input type="button" id="btnTranscripcionAudiencia" value="Transcripci&oacute;n de audiencia" class="ui-button ui-corner-all ui-widget" style="display: none;">
                                     </td>
                                 </tr>
                             </table>
@@ -6243,7 +6250,7 @@
                             <input type="radio" name="noImputado" id="imputadoSi" onclick="validaCriterios()">
                         </td>
                         <td>
-                            <input type="radio" name="noImputado" id="imputadoNo" onclick="validaCriterios()"> El Imputado sufrió daños graves.
+                            <input type="radio" name="noImputado" id="imputadoNo" onclick="validaCriterios()"> El Imputado sufri&oacute; daños graves.
                         </td>
                     </tr>
                     <tr>
@@ -6267,7 +6274,7 @@
                             <input type="button" id="btnInformeCriterio" onclick="dialigoDictamenOprtunidad()" value="Informar criterio de oportunidad" class="ui-button ui-corner-all ui-widget">
                         </td>
                         <td>
-                            <input type="button"  id="btnTurnarInpugna" onclick="dialigoImpugnacion()" value="Turnar inpugnación de criterio de oportunidad" class="ui-button ui-corner-all ui-widget">
+                            <input type="button"  id="btnTurnarInpugna" onclick="dialigoImpugnacion()" value="Turnar inpugnaci&oacute;n de criterio de oportunidad" class="ui-button ui-corner-all ui-widget">
                         </td>
                     </tr>
                 </table>
@@ -6616,13 +6623,13 @@
             </p>
         </div>
         <!-- DIV para el dialogo de inpugnacion de criterio -->
-        <div id="dialogImpugnacion-confirm" title="Criterio de Opotunidad Impugnación " >
+        <div id="dialogImpugnacion-confirm" title="Criterio de Opotunidad Impugnaci&oacute;n " >
             <p align="left">
                 ¿Desea impugnar el criterio de oportunidad? 
             </p>
         </div>
         <!-- DIV para el dialogo de inpugnacion de criterio para archivo -->
-        <div id="dialogImpugnacionARchivo-confirm" title="Criterio de Opotunidad Impugnación " >
+        <div id="dialogImpugnacionARchivo-confirm" title="Criterio de Opotunidad Impugnaci&oacute;n " >
             <p align="left">
                 Seleccionar Archivo a adjuntar:
                 <input type="file">

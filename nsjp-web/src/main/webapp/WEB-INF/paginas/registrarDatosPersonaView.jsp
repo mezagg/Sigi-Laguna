@@ -124,7 +124,7 @@ DD P {
 
 <!--	Hoja de estilo para los gadgets-->
 <link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/css/jquery-ui.css" />
+	href="<%=request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css" />
 
 <!--    Hoja de estilo para easyaccordion-->
 <link rel="stylesheet" type="text/css" media="screen"
@@ -141,7 +141,7 @@ DD P {
 
 <!--Hojas de estilos para los componentes UI de Jquery-->
 <link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/css/jquery-ui.css" />
+	href="<%=request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css" />
 <!-- <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css" /> -->
 
 <!--Hoja de estilos para el grid-->
@@ -399,7 +399,7 @@ DD P {
 							$("#btnModificar").show();
 						}
 						pintaDatosGeneralesActaCirc(xml);
-						desavilitarDatosGenerales();
+						deshabilitarDatosGenerales();
 						pintaDatosDomicilio(xml);
 						pintaDatosContacto(xml);
 						pintaDatosTipoDocIdentificacion(xml);
@@ -784,9 +784,9 @@ DD P {
 		function deshabilitaCampos()
 		{			
 			try{
-				desavilitarDatosGenerales();
+				deshabilitarDatosGenerales();
 				deshabilitaDatosDomicilio();
-				desavilitarDatosIdentificacion();
+				deshabilitarDatosIdentificacion();
 				bloqueaCamposMediosDeContactoGrid();
 				$("#codigoPostalButton").attr("disabled","disabled");
 				bloqueaCamposMediosDeContactoGrid();		
@@ -803,9 +803,9 @@ DD P {
 		function habilitaCampos()
 		{
 			try{
-				avilitarDatosGenerales();
+				habilitarDatosGenerales();
 				avilitarDatosDomicilio();
-				avilitarDatosIdentificacion();
+				habilitarDatosIdentificacion();
 				desbloqueaCamposMediosDeContactoGrid();
 				$("#codigoPostalButton").attr("disabled","");
 				desbloqueaCamposMediosDeContactoGrid();

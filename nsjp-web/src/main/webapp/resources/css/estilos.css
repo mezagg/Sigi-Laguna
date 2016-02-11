@@ -334,7 +334,7 @@ img {
 .pleca_bottom {
 	/*background-image: url(../images/pleca_bottom.png);
 	background-repeat: repeat-x;*/
-        background-image: url(south-street/images/ui-bg_highlight-soft_25_67b021_1x100.png)
+        background-image: url(../../themes/1.8.10/south-street/images/ui-bg_highlight-soft_25_67b021_1x100.png)
 }
 .back_izq_gral {
 	background-image: url(../images/back_izq_gral.png);
@@ -822,23 +822,3 @@ label.vinculo {
 		background-repeat: no-repeat;
 		background-position: center;
 }
-
-/*Ajusta el renglon del grid al tamanio del texto*/
-.ui-jqgrid tr.jqgrow td {
-    white-space: normal;
-    height:auto;
-    vertical-align:text-middle;
-    text-align:center;
-    padding-top:2px;
-}
-/*Ajusta la columna del grid al tamanio del texto*/						
-.ui-jqgrid .ui-jqgrid-htable th.ui-th-column {
-    white-space: normal;
-    height:auto;
-    vertical-align:text-middle;
-    text-align:center;
-    padding-top:2px;
-}
-
-
-

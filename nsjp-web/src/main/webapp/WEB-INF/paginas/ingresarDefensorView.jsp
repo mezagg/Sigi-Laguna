@@ -7,7 +7,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Ingresar Victima</title>
 		<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/estilos.css" media="screen" />
-		<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css"/>
+		<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css"/>
 		<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/jquery.easyaccordion.css" />				
 		<style type="text/css">
 			DD P {
@@ -97,8 +97,10 @@
 		<script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery.easyAccordion.js"></script>
 		<script type="text/javascript" src="<%= request.getContextPath() %>/resources/js/jquery.windows-engine.js"></script>
 		<script type="text/javascript" src="<%=request.getContextPath()%>/js/bloqueaTecla.js?n=1"></script>
+                <script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery.blockUI.js"></script>
 		<script type="text/javascript" src="<%=request.getContextPath()%>/js/comun.js?n=1"></script>
-		
+                
+                
 		<!--Hoja de estilo para los popups-->
       	<link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/jquery.windows-engine.css"/>
 		<script type="text/javascript"><!--
@@ -188,9 +190,9 @@
 				});
 
 			function avilitaDatos(){
-				avilitarDatosGenerales();
+				habilitarDatosGenerales();
 				avilitarDatosDomicilio();
-				avilitarDatosIdentificacion();
+				habilitarDatosIdentificacion();
 				desbloqueaCamposMediosDeContactoGrid();
 				$('#guardarDenuncia').show();
 				$('#modificarDatos').hide();
@@ -242,9 +244,9 @@
 					  }
 			    });
 				idindi=id;
-				desavilitarDatosGenerales();
+				deshabilitarDatosGenerales();
 				deshabilitaDatosDomicilio();
-				desavilitarDatosIdentificacion();
+				deshabilitarDatosIdentificacion();
 				bloqueaCamposMediosDeContactoGrid();
 				$('#modificarDatos').show();
 				$('#guardarDenuncia').hide();
@@ -449,9 +451,9 @@
 					    		  alertDinamicoCerrar('Defensor guardado');				    		  
 					    	  }
 					    	});
-						desavilitarDatosGenerales();
+						deshabilitarDatosGenerales();
 						deshabilitaDatosDomicilio();
-						desavilitarDatosIdentificacion();
+						deshabilitarDatosIdentificacion();
 						bloqueaCamposMediosDeContactoGrid();
 						$('#modificarDatos').show();
 						$('#guardarDenuncia').hide();
@@ -494,6 +496,7 @@
 					    	  url: '<%= request.getContextPath()%>/guardarOrganizacion.do',
 					    	  data: params,				
 					    	  dataType: 'xml',
+                                                  async: true,
 					    	  success: function(xml){
 					    		  if(parseInt($(xml).find('code').text())==0)
 					    		  {

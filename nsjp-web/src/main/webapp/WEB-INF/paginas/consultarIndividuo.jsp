@@ -38,7 +38,7 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/bloqueaTecla.js?n=1"></script>
 <script src="<%= request.getContextPath()%>/resources/js/jqgrid/i18n/grid.locale-es.js" type="text/javascript"></script>
 <script src="<%= request.getContextPath()%>/resources/js/jqgrid/jquery.jqGrid.min.js" type="text/javascript"></script>
-<link href="<%= request.getContextPath()%>/resources/css/jquery-ui.css" rel="stylesheet" type="text/css"/>
+<link href="<%= request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css" rel="stylesheet" type="text/css"/>
 
 
 <script type="text/javascript">

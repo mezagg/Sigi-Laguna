@@ -48,7 +48,7 @@
 	   $('#documentoIdentificacion').find("option[value='"+id+"']").attr("selected","selected");
 	}
 
-   function desavilitarDatosIdentificacion(){
+   function deshabilitarDatosIdentificacion(){
 	   $('#folioDocumentoIdentificacion').attr("disabled","disabled");
 	   $('#documentoIdentificacion').attr("disabled","disabled");
 //	   var $widget = $("select").multiselect();
@@ -57,7 +57,7 @@
 //	   $widget.multiselect(state ? 'disable' : 'enable');
 	}
 
-   function avilitarDatosIdentificacion(){
+   function habilitarDatosIdentificacion(){
 	   $('#folioDocumentoIdentificacion').attr("disabled","");
 	   $('#documentoIdentificacion').attr("disabled","");
 //	   var $widget = $("select").multiselect();

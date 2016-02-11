@@ -275,7 +275,7 @@ UL.toolbar {
 	LIST-STYLE-TYPE: none;
 	MARGIN: 0px;
 	WIDTH: 100%;
-	BACKGROUND: url(south-street/images/ui-bg_highlight-hard_15_459e00_1x100.png) #d6d6d6 repeat-x 0px 50%;
+	BACKGROUND: url(../../themes/1.8.10/south-street/images/ui-bg_highlight-hard_15_459e00_1x100.png) #d6d6d6 repeat-x 0px 50%;
 	HEIGHT: auto;
 	OVERFLOW: hidden;
 	BORDER-TOP: #bbb 1px solid;

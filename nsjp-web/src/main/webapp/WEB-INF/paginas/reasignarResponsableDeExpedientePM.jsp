@@ -42,7 +42,7 @@ input.error {
 <link type="text/css" rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/css/jquery.windows-engine.css" />
 <link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/css/jquery-ui.css" />
+	href="<%=request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css" />
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/resources/css/estilos.css"
 	media="screen" />

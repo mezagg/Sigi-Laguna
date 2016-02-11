@@ -17,7 +17,7 @@
 	<!--Hoja de estilos ultrasist-->
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/estilos.css" media="screen" />	
 	<!--Hojas de estilos para los componentes UI de Jquery-->
-	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css"/>
+	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css"/>
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/themes/1.8.10/south-street/jquery-ui.css" />
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/comun.js?n=1"></script>
 

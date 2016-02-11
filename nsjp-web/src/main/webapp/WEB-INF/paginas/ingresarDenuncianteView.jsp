@@ -9,7 +9,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Ingresar Denunciante</title>
-		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/jquery-ui.css" />
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css" />
 		<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/jquery.easyaccordion.css" />
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css" />
 		
@@ -106,6 +106,7 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.easyAccordion.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.windows-engine.js"></script>
 <!--Scrip para el idioma del calendario-->
+<script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery.blockUI.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/wdCalendar/Plugins/jquery.ui.datepicker-es.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/comun.js?n=1"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jqgrid/i18n/grid.locale-es.js"></script>
@@ -256,9 +257,9 @@
 					
 			function avilitaDatos(){
 				$("img.ui-datepicker-trigger").show();
-				avilitarDatosGenerales();
+				habilitarDatosGenerales();
 				avilitarDatosDomicilio();
-				avilitarDatosIdentificacion();
+				habilitarDatosIdentificacion();
 				desbloqueaCamposMediosDeContactoGrid();
 				
 				$('#guardarDenuncia').show();
@@ -275,9 +276,9 @@
 			}
 			
 			function desavilitaDatos(){
-				desavilitarDatosGenerales();				
+				deshabilitarDatosGenerales();				
 				deshabilitaDatosDomicilio();
-				desavilitarDatosIdentificacion();
+				deshabilitarDatosIdentificacion();
 				bloqueaCamposMediosDeContactoGrid();
 				
 				$('#modificarDatos').show();
@@ -338,9 +339,9 @@
 			}
 
 			function desavilitaDatos(){
-				desavilitarDatosGenerales();				
+				deshabilitarDatosGenerales();				
 				deshabilitaDatosDomicilio();
-				desavilitarDatosIdentificacion();
+				deshabilitarDatosIdentificacion();
 				bloqueaCamposMediosDeContactoGrid();
 				
                 $('#iAnonimo').attr('disabled','disabled');
@@ -749,7 +750,7 @@
 						//llamamos al ajax que guardara la informacion de la organizacion
 						$.ajax({								
 					    	  type: 'POST',
-					    	  async:false,
+					    	  async:true,
 					    	  url: '<%= request.getContextPath()%>/guardarOrganizacion.do',
 					    	  data: params,				
 					    	  dataType: 'xml',

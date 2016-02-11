@@ -7,7 +7,7 @@
 	<head>
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/estilos.css" media="screen" />
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/layout_complex.css" media="screen" />
-	<!--link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css" /-->
+	<!--link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css" /-->
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/themes/1.8.10/south-street/jquery-ui.css" />
 	
 	<script type="text/javascript" src="<%= request.getContextPath()%>/js/jquery-1.5.1.min.js"></script>
@@ -167,7 +167,7 @@
 	                </tr>
 	                <tr>
 	                <td colspan="6"> 
-			                <table width="100%" border="0" cellpadding="0" cellspacing="0" class="toolbar">
+			                <table width="100%" border="0" cellpadding="0" cellspacing="0" class="toolbar back_pleca_h">
 						    <tr>
 						    	<!--  <td height="15">&nbsp;</td> -->
 						    	<td align="center" style="border-left:#FFFFFF; border-top:#FFFFFF;">

@@ -7,7 +7,7 @@
     <title>Generar integraci&oacute;n de carpeta de investigaci&oacute;n</title>
     
 	<!--	Hojas de estilo -->
-    <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery-ui.css"/>
+    <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css"/>
     <link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/jquery.easyaccordion.css" />
     <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/themes/1.8.10/south-street/jquery-ui.css" />
 	<!--    Estilo para el acordeon de ingresar probable responsable-->
