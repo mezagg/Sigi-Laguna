@@ -375,7 +375,7 @@
                                     $.ajax({
                                         type: 'POST',
                                         url: '<%=request.getContextPath()%>/cargarActividadGuardadoParcial.do',
-                                        async: true,
+                                        async: false,
                                         data: {
                                             documento: id
                                         },
@@ -1701,6 +1701,7 @@
              *Funcion que dispara el Action para consultar el los agentes mp
              */
             function cargaAgenteJAR() {
+             $('#cbxAgentesCoorJAR').addClass("cargando");
                 $.ajax({
                     type: 'POST',
                     url: '<%=request.getContextPath()%>/consultarAgentesJAR.do',
@@ -1712,6 +1713,7 @@
                         $(xml).find('funcionarioDTO').each(function () {
                             var nombreFuncionario = $(this).find('nombreFuncionario').text() + " " + $(this).find('apellidoPaternoFuncionario').text() + " " + $(this).find('apellidoMaternoFuncionario').text();
                             $('#cbxAgentesCoorJAR').append('<option value="' + $(this).find('claveFuncionario').text() + '">' + nombreFuncionario + '</option>');
+                            $('#cbxAgentesCoorJAR').removeClass("cargando");
                         });
                     }
                 });
@@ -1911,7 +1913,7 @@
                     url: '<%= request.getContextPath()%>/registraActividadExpediente.do?idExpediente=' + idExpedienteop + '&idNumeroExpediente=' + idNumeroExpedienteOp + '&actuacion=' + actuacionID + '&estatus=' + estatusId + '&numExpe=' + numeroExpediente + '&cveFuncionarioAsignado=' + idFuncionario,
                     data: '',
                     dataType: 'xml',
-                    async: true,
+                    async: false,
                     success: function (xml) {
                         if (parseInt(banderaMensaje) == 1)
                         {
@@ -1930,7 +1932,7 @@
                         url: '<%= request.getContextPath()%>/registrafuncionarioNumeroExpediente.do?funcionario=' + funcio + '&idNumeroExpediente=' + idNumeroExpedienteOp,
                         data: '',
                         dataType: 'xml',
-                        async: true,
+                        async: false,
                         success: function (xml) {
 
                         }
@@ -1951,7 +1953,7 @@
                         url: '<%= request.getContextPath()%>/registrafuncionarioNumeroExpediente.do?funcionario=' + funcio + '&idNumeroExpediente=' + idNumeroExpedienteOp,
                         data: '',
                         dataType: 'xml',
-                        async: true,
+                        async: false,
                         success: function (xml) {
                             if ($(xml).find('respuesta').find('bandera').text() == '1') {
                                 //Sele colocara la funcion para signar agente ke aun no esta realizada
@@ -2002,7 +2004,7 @@
                     url: url,
                     data: '',
                     dataType: 'xml',
-                    async: true,
+                    async: false,
                     success: function (xml) {
                         actividad = $(xml).find('confActividadDocumentoDTO').find('tipoActividadId').text();
                         formaID = $(xml).find('confActividadDocumentoDTO').find('formaId').text();
@@ -2019,7 +2021,6 @@
                     data: 'idParametro=' + idParametro,
                     async: false,
                     dataType: 'xml',
-                    async: true,
                     success: function (xml) {
                         parametroConfirm = $(xml).find('body').find('respuesta').text();
                     }
@@ -2102,7 +2103,7 @@
                         url: '<%= request.getContextPath()%>/enviarReplicaCaso.do?idExpediente=' + idExpedienteop,
                         data: '',
                         dataType: 'xml',
-                        async: true
+                        async: false
                     });
                 }
                 if (usaeditor == "true") {
@@ -2388,7 +2389,7 @@
                     url: '<%= request.getContextPath()%>/obtenerConfActividadDocumento.do?idConf=' + confActividadId,
                     data: '',
                     dataType: 'xml',
-                    async: true,
+                    async: false,
                     success: function (xml) {
                         actividad = $(xml).find('confActividadDocumentoDTO').find('tipoActividadId').text();
                         formaID = $(xml).find('confActividadDocumentoDTO').find('formaId').text();
@@ -2579,7 +2580,7 @@
                     url: '<%= request.getContextPath()%>/registraStatusExpediente.do?idExpediente=' + idExpedienteop + '&idNumeroExpediente=' + idNumeroExpedienteOp + '&estatus=' + estatus,
                     data: '',
                     dataType: 'xml',
-                    async: true,
+                    async: false,
                     success: function (xml) {
 
                     }
@@ -3849,7 +3850,7 @@
                     dataType: 'xml',
                     Type: 'POST',
                     data: params,
-                    async: true,
+                    async: false,
                     success: function (xml) {
                         if (parseInt($(xml).find('code').text()) == 0)
                         {
@@ -4058,7 +4059,7 @@
                     url: '<%= request.getContextPath()%>/cargarDatosGenerales.do?idNumeroExpedienteOp=' + idNumeroExpedienteOp,
                     data: '',
                     dataType: 'xml',
-                    async: true,
+                    async: false,
                     success: function (xml) {
                         $('#Vehiculos').html($(xml).find('totalVehiculos').text() + ': ' + $(xml).find('vehiculos').text());
                         if ($(xml).find('ve').text() !== "1") {
@@ -4174,7 +4175,7 @@
                     url: '<%= request.getContextPath()%>/buscarNumerosExpediente.do?idExpedienteop=' + idExpedienteop,
                     data: '',
                     dataType: 'xml',
-                    async: true,
+                    async: false,
                     success: function (xml) {
                         $(xml).find('numero').each(function () {
                             $('#cbxNumerosExpediente').append('<option value="' + "" + '">' +
@@ -4344,7 +4345,7 @@
                     url: '<%= request.getContextPath()%>/obtenerConfActividadDocumento.do?idConf=135',
                     data: '',
                     dataType: 'xml',
-                    async: true,
+                    async: false,
                     success: function (xml) {
                         actividad = $(xml).find('confActividadDocumentoDTO').find('tipoActividadId').text();
                         formaID = $(xml).find('confActividadDocumentoDTO').find('formaId').text();
@@ -4383,7 +4384,7 @@
                     url: '<%= request.getContextPath()%>/ConsultarTamanoDelitosAsociadosPorTodos.do?idExpediente=' + idExpedienteop + '',
                     data: '',
                     dataType: 'xml',
-                    async: true,
+                    async: false,
                     success: function (xml) {
                         numeroRelaciones = $(xml).find('relacionTodosLosDelitos').find('tamanoLista').text();
                     }
@@ -4412,7 +4413,7 @@
                     url: '<%= request.getContextPath()%>/obtenerConfActividadDocumento.do?idConf=' + confActividadDocumentoId + '',
                     data: '',
                     dataType: 'xml',
-                    async: false,
+                    async: true,
                     success: function (xml) {
                         actividad = $(xml).find('confActividadDocumentoDTO').find('tipoActividadId').text();
                         formaID = $(xml).find('confActividadDocumentoDTO').find('formaId').text();
@@ -4440,9 +4441,8 @@
                     type: 'POST',
                     url: '<%= request.getContextPath()%>/ExisteDelitoGravePorIdExpediente.do?idNumeroExpediente=' + idExpedienteop + '&numeroExpedienteId=' + numeroExpedienteId + '',
                     data: '',
-                    async: false,
                     dataType: 'xml',
-                    async: true,
+                    async: false,
                     success: function (xml) {
                         existeDelitoGraveEnExpediente = $(xml).find('boolean').text();
                     }
@@ -4462,7 +4462,7 @@
                     url: '<%=request.getContextPath()%>/existeReincidenciaDeProbablesResponsables.do',
                     data: 'numeroExpediente=' + numeroExpediente + '',
                     dataType: 'xml',
-                    async: true,
+                    async: false,
                     success: function (xml) {
                         existeProbRespReincidente = $(xml).find('boolean').text();
                     }
@@ -4484,7 +4484,7 @@
                     url: '<%=request.getContextPath()%>/excedeMediaAritmeticaDelitos.do',
                     data: 'numeroExpedienteId=' + numeroExpedienteId + '',
                     dataType: 'xml',
-                    async: true,
+                    async: false,
                     success: function (xml) {
                         resultado = $(xml).find('boolean').text();
                     }
@@ -4507,7 +4507,7 @@
                     url: '<%=request.getContextPath()%>/consultaOrigenExpediente.do',
                     data: 'idExpediente=' + idExpedienteop,
                     dataType: 'xml',
-                    async: true,
+                    async: false,
 
                     success: function (xml) {
                         tipoExpediente = $(xml).find('valorDTO').find('idCampo').text();
@@ -4731,7 +4731,7 @@
                     type: 'POST',
                     url: '<%=request.getContextPath()%>/consultarParametro.do',
                     data: 'idParametro=' + idParametro,
-                    async: true,
+                    async: false,
                     dataType: 'xml',
                     success: function (xml) {
                         parametroConfirm = $(xml).find('body').find('respuesta').text();
@@ -4983,6 +4983,7 @@
             function cargaTipoConclusion() {
 
                 $('#cbxTipoConclusion').empty();
+                $('#cbxTipoConclusion').addClass("cargando");
                 $('#cbxTipoConclusion').append('<option value="-1">-Seleccione-</option>');
 
                 $.ajax({
@@ -4990,12 +4991,13 @@
                     url: '<%= request.getContextPath()%>/cargarTipoConclusion.do',
                     data: '',
                     dataType: 'xml',
-                    async: true,
+                    async: false,
                     success: function (xml) {
                         var option;
                         $(xml).find('catTipoConclusion').each(function () {
                             $('#cbxTipoConclusion').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
                         });
+                         $('#cbxTipoConclusion').removeClass("cargando");
                     }
                 });
             }
@@ -5033,7 +5035,7 @@
                         url: '<%= request.getContextPath()%>/cargarTipoSubConclusion.do?tipoConclusion=' + tipoConclusion + '',
                         data: '',
                         dataType: 'xml',
-                        async: true,
+                        async: false,
                         success: function (xml) {
                             var option;
                             $(xml).find('catTipoSubConclusion').each(function () {
@@ -5053,7 +5055,7 @@
                     type: 'POST',
                     url: '<%=request.getContextPath()%>/guardarConclusionNumeroExpe.do',
                     data: 'tipoConclusion=' + tipoConclusion + '&subTipoConclusion=' + subTipoConclusion + '&fechaConclusion=' + fechaConclusion + '&idNumeroExpediente=' + idNumeroExpedienteOp,
-                    async: true,
+                    async: false,
                     dataType: 'xml',
                     success: function (xml) {
                         var resp = $(xml).find('boolean').text();
@@ -5070,7 +5072,7 @@
                     type: 'POST',
                     url: '<%=request.getContextPath()%>/consultarConclusionNumeroExpe.do',
                     data: 'idNumeroExpediente=' + idNumeroExpedienteOp,
-                    async: true,
+                    async: false,
                     dataType: 'xml',
                     success: function (xml) {
 
@@ -5250,7 +5252,7 @@
                     dataType: 'xml',
                     Type: 'POST',
                     data: params,
-                    async: true,
+                    async: false,
                     success: function (xml) {
                         if (parseInt($(xml).find('code').text()) == 0)
                         {
@@ -5275,7 +5277,7 @@
                                 dataType: 'xml',
                                 Type: 'POST',
                                 data: params,
-                                async: true,
+                                async: false,
                                 success: function (xml) {
                                     if (parseInt($(xml).find('code').text()) == 0)
                                     {
