@@ -27,14 +27,6 @@
  });
 
 
-jQuery().ready(	function () {
-
-	$("#situacionJuridicaCombo").one("click", function () {
-		if( $("#situacionJuridicaCombo option").length <= 1 )
-			cargaSituacionJuridica();
-	});
-
-});
 
 
     /*
@@ -125,7 +117,7 @@ jQuery().ready(	function () {
 		   	 $("#idHoraDateLapsoFin").attr('disabled','disabled');
 		   	 $("#idHoraDateLapsoInicio").attr('disabled','disabled');
 		   	 $("#idHoraDateLapsoFin").attr('disabled','disabled');
-			 $("#situacionJuridicaCombo").attr('disabled','disabled');
+			// $("#situacionJuridicaCombo").attr('disabled','disabled');
     	}
     	else
     	{
@@ -135,7 +127,7 @@ jQuery().ready(	function () {
 	       	 $("#idHoraDateLapsoFin").attr('disabled','');
 	       	 $("#idHoraDateLapsoInicio").attr('disabled','');
 	       	 $("#idHoraDateLapsoFin").attr('disabled','');
-			 $("#situacionJuridicaCombo").attr('disabled','');
+			// $("#situacionJuridicaCombo").attr('disabled','');
     	}    	
      }
 
@@ -243,26 +235,7 @@ jQuery().ready(	function () {
 		}
 	}
 
-function cargaSituacionJuridica(valorSituacion){
-	$('#situacionJuridicaCombo').addClass("cargando");
 
-	$.ajax({
-		type: 'POST',
-		url: '<%=request.getContextPath()%>/ConsultarCatalogoSituacionJuridicaDetenido.do',
-		data: '',
-		dataType: 'xml',
-		async: true,
-		success: function(xml){
-			var option;
-			$(xml).find('catSituacionJuridicaDetenido').each(function(){
-				$('#situacionJuridicaCombo').append('<option value="' + $(this).find('clave').text() + '">'+ $(this).find('valor').text() + '</option>');
-			});
-
-			$('#situacionJuridicaCombo').removeClass("cargando");
-			$('#situacionJuridicaCombo').val(valorSituacion);
-		}
-	});
-}
   
 </script>
 
@@ -300,11 +273,5 @@ function cargaSituacionJuridica(valorSituacion){
 		<input type="text" id="idHoraDateLapsoFin" size="10" class="timeRange" value="8:00" onblur="cuandoCambien(this.id);"/>
 		</div></td>
 	</tr>
-	<tr>
-		<td align="right" nowrap>Situaci&oacute;n Juridica:</td>
-		<td><select id="situacionJuridicaCombo"
-					name="situacionJuridicaCombo" style="width: 180px;" >
-			<option value="">- Selecciona -</option>
-		</select></td>
-	</tr>
+	
 </table>
