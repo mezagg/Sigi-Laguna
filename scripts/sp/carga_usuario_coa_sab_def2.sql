@@ -1,0 +1,271 @@
+USE [coa-sab-def]
+
+exec i_Funcionario_sp 'reginicial1', 'reginicial', 'reginicial', 'NULL', 2004, 2004, 43, 2004, 1234, 3, NULL, 1, 'reginicial1', 1
+exec i_Funcionario_sp 'reginicial2', 'reginicial', 'reginicial', 'NULL', 2004, 2004, 43, 2004, 1234, 3, NULL, 1, 'reginicial2', 1
+exec i_Funcionario_sp 'reginicial3', 'reginicial', 'reginicial', 'NULL', 2004, 2004, 43, 2004, 1234, 3, NULL, 1, 'reginicial3', 1
+exec i_Funcionario_sp 'reginicial4', 'reginicial', 'reginicial', 'NULL', 2004, 2004, 43, 2004, 1234, 3, NULL, 1, 'reginicial4', 1
+exec i_Funcionario_sp 'reginicial5', 'reginicial', 'reginicial', 'NULL', 2004, 2004, 43, 2004, 1234, 3, NULL, 1, 'reginicial5', 1
+exec i_Funcionario_sp 'reginicial6', 'reginicial', 'reginicial', 'NULL', 2004, 2004, 43, 2004, 1234, 3, NULL, 1, 'reginicial6', 1
+exec i_Funcionario_sp 'reginicial7', 'reginicial', 'reginicial', 'NULL', 2004, 2004, 43, 2004, 1234, 3, NULL, 1, 'reginicial7', 1
+exec i_Funcionario_sp 'reginicial8', 'reginicial', 'reginicial', 'NULL', 2004, 2004, 43, 2004, 1234, 3, NULL, 1, 'reginicial8', 1
+exec i_Funcionario_sp 'reginicial9', 'reginicial', 'reginicial', 'NULL', 2004, 2004, 43, 2004, 1234, 3, NULL, 1, 'reginicial9', 1
+exec i_Funcionario_sp 'reginicial10', 'reginicial', 'reginicial', 'NULL', 2004, 2004, 43, 2004, 1234, 3, NULL, 1, 'reginicial10', 1
+exec i_Funcionario_sp 'reginicial11', 'reginicial', 'reginicial', 'NULL', 2004, 2004, 43, 2004, 1234, 3, NULL, 1, 'reginicial11', 1
+exec i_Funcionario_sp 'reginicial12', 'reginicial', 'reginicial', 'NULL', 2004, 2004, 43, 2004, 1234, 3, NULL, 1, 'reginicial12', 1
+exec i_Funcionario_sp 'reginicial13', 'reginicial', 'reginicial', 'NULL', 2004, 2004, 43, 2004, 1234, 3, NULL, 1, 'reginicial13', 1
+exec i_Funcionario_sp 'reginicial14', 'reginicial', 'reginicial', 'NULL', 2004, 2004, 43, 2004, 1234, 3, NULL, 1, 'reginicial14', 1
+exec i_Funcionario_sp 'reginicial15', 'reginicial', 'reginicial', 'NULL', 2004, 2004, 43, 2004, 1234, 3, NULL, 1, 'reginicial15', 1
+exec i_Funcionario_sp 'reginicial16', 'reginicial', 'reginicial', 'NULL', 2004, 2004, 43, 2004, 1234, 3, NULL, 1, 'reginicial16', 1
+exec i_Funcionario_sp 'reginicial17', 'reginicial', 'reginicial', 'NULL', 2004, 2004, 43, 2004, 1234, 3, NULL, 1, 'reginicial17', 1
+exec i_Funcionario_sp 'reginicial18', 'reginicial', 'reginicial', 'NULL', 2004, 2004, 43, 2004, 1234, 3, NULL, 1, 'reginicial18', 1
+exec i_Funcionario_sp 'reginicial19', 'reginicial', 'reginicial', 'NULL', 2004, 2004, 43, 2004, 1234, 3, NULL, 1, 'reginicial19', 1
+exec i_Funcionario_sp 'reginicial20', 'reginicial', 'reginicial', 'NULL', 2004, 2004, 43, 2004, 1234, 3, NULL, 1, 'reginicial20', 1
+exec i_Funcionario_sp 'reginicial21', 'reginicial', 'reginicial', 'NULL', 2004, 2004, 43, 2004, 1234, 3, NULL, 1, 'reginicial21', 1
+exec i_Funcionario_sp 'reginicial22', 'reginicial', 'reginicial', 'NULL', 2004, 2004, 43, 2004, 1234, 3, NULL, 1, 'reginicial22', 1
+exec i_Funcionario_sp 'reginicial23', 'reginicial', 'reginicial', 'NULL', 2004, 2004, 43, 2004, 1234, 3, NULL, 1, 'reginicial23', 1
+exec i_Funcionario_sp 'reginicial24', 'reginicial', 'reginicial', 'NULL', 2004, 2004, 43, 2004, 1234, 3, NULL, 1, 'reginicial24', 1
+exec i_Funcionario_sp 'reginicial25', 'reginicial', 'reginicial', 'NULL', 2004, 2004, 43, 2004, 1234, 3, NULL, 1, 'reginicial25', 1
+exec i_Funcionario_sp 'reginicial26', 'reginicial', 'reginicial', 'NULL', 2004, 2004, 43, 2004, 1234, 3, NULL, 1, 'reginicial26', 1
+exec i_Funcionario_sp 'reginicial27', 'reginicial', 'reginicial', 'NULL', 2004, 2004, 43, 2004, 1234, 3, NULL, 1, 'reginicial27', 1
+exec i_Funcionario_sp 'reginicial28', 'reginicial', 'reginicial', 'NULL', 2004, 2004, 43, 2004, 1234, 3, NULL, 1, 'reginicial28', 1
+exec i_Funcionario_sp 'reginicial29', 'reginicial', 'reginicial', 'NULL', 2004, 2004, 43, 2004, 1234, 3, NULL, 1, 'reginicial29', 1
+exec i_Funcionario_sp 'reginicial30', 'reginicial', 'reginicial', 'NULL', 2004, 2004, 43, 2004, 1234, 3, NULL, 1, 'reginicial30', 1
+exec i_Funcionario_sp 'reginicial31', 'reginicial', 'reginicial', 'NULL', 2004, 2004, 43, 2004, 1234, 3, NULL, 1, 'reginicial31', 1
+exec i_Funcionario_sp 'reginicial32', 'reginicial', 'reginicial', 'NULL', 2004, 2004, 43, 2004, 1234, 3, NULL, 1, 'reginicial32', 1
+exec i_Funcionario_sp 'reginicial33', 'reginicial', 'reginicial', 'NULL', 2004, 2004, 43, 2004, 1234, 3, NULL, 1, 'reginicial33', 1
+exec i_Funcionario_sp 'reginicial34', 'reginicial', 'reginicial', 'NULL', 2004, 2004, 43, 2004, 1234, 3, NULL, 1, 'reginicial34', 1
+exec i_Funcionario_sp 'reginicial35', 'reginicial', 'reginicial', 'NULL', 2004, 2004, 43, 2004, 1234, 3, NULL, 1, 'reginicial35', 1
+
+
+
+
+
+exec i_Funcionario_sp 'coordinadorDef1', 'coordinadorDef', 'coordinadorDef', 'M', 2006, 2006, 18, 2006, 112233445566, 3, NULL, 13, 'coordinadorDef1', 13
+exec i_Funcionario_sp 'coordinadorDef2', 'coordinadorDef', 'coordinadorDef', 'M', 2006, 2006, 18, 2006, 112233445566, 3, NULL, 13, 'coordinadorDef2', 13
+exec i_Funcionario_sp 'coordinadorDef3', 'coordinadorDef', 'coordinadorDef', 'M', 2006, 2006, 18, 2006, 112233445566, 3, NULL, 13, 'coordinadorDef3', 13
+exec i_Funcionario_sp 'coordinadorDef4', 'coordinadorDef', 'coordinadorDef', 'M', 2006, 2006, 18, 2006, 112233445566, 3, NULL, 13, 'coordinadorDef4', 13
+exec i_Funcionario_sp 'coordinadorDef5', 'coordinadorDef', 'coordinadorDef', 'M', 2006, 2006, 18, 2006, 112233445566, 3, NULL, 13, 'coordinadorDef5', 13
+exec i_Funcionario_sp 'coordinadorDef6', 'coordinadorDef', 'coordinadorDef', 'M', 2006, 2006, 18, 2006, 112233445566, 3, NULL, 13, 'coordinadorDef6', 13
+exec i_Funcionario_sp 'coordinadorDef7', 'coordinadorDef', 'coordinadorDef', 'M', 2006, 2006, 18, 2006, 112233445566, 3, NULL, 13, 'coordinadorDef7', 13
+exec i_Funcionario_sp 'coordinadorDef8', 'coordinadorDef', 'coordinadorDef', 'M', 2006, 2006, 18, 2006, 112233445566, 3, NULL, 13, 'coordinadorDef8', 13
+exec i_Funcionario_sp 'coordinadorDef9', 'coordinadorDef', 'coordinadorDef', 'M', 2006, 2006, 18, 2006, 112233445566, 3, NULL, 13, 'coordinadorDef9', 13
+exec i_Funcionario_sp 'coordinadorDef10', 'coordinadorDef', 'coordinadorDef', 'M', 2006, 2006, 18, 2006, 112233445566, 3, NULL, 13, 'coordinadorDef10', 13
+exec i_Funcionario_sp 'coordinadorDef11', 'coordinadorDef', 'coordinadorDef', 'M', 2006, 2006, 18, 2006, 112233445566, 3, NULL, 13, 'coordinadorDef11', 13
+exec i_Funcionario_sp 'coordinadorDef12', 'coordinadorDef', 'coordinadorDef', 'M', 2006, 2006, 18, 2006, 112233445566, 3, NULL, 13, 'coordinadorDef12', 13
+exec i_Funcionario_sp 'coordinadorDef13', 'coordinadorDef', 'coordinadorDef', 'M', 2006, 2006, 18, 2006, 112233445566, 3, NULL, 13, 'coordinadorDef13', 13
+exec i_Funcionario_sp 'coordinadorDef14', 'coordinadorDef', 'coordinadorDef', 'M', 2006, 2006, 18, 2006, 112233445566, 3, NULL, 13, 'coordinadorDef14', 13
+exec i_Funcionario_sp 'coordinadorDef15', 'coordinadorDef', 'coordinadorDef', 'M', 2006, 2006, 18, 2006, 112233445566, 3, NULL, 13, 'coordinadorDef15', 13
+exec i_Funcionario_sp 'coordinadorDef16', 'coordinadorDef', 'coordinadorDef', 'M', 2006, 2006, 18, 2006, 112233445566, 3, NULL, 13, 'coordinadorDef16', 13
+exec i_Funcionario_sp 'coordinadorDef17', 'coordinadorDef', 'coordinadorDef', 'M', 2006, 2006, 18, 2006, 112233445566, 3, NULL, 13, 'coordinadorDef17', 13
+exec i_Funcionario_sp 'coordinadorDef18', 'coordinadorDef', 'coordinadorDef', 'M', 2006, 2006, 18, 2006, 112233445566, 3, NULL, 13, 'coordinadorDef18', 13
+exec i_Funcionario_sp 'coordinadorDef19', 'coordinadorDef', 'coordinadorDef', 'M', 2006, 2006, 18, 2006, 112233445566, 3, NULL, 13, 'coordinadorDef19', 13
+exec i_Funcionario_sp 'coordinadorDef20', 'coordinadorDef', 'coordinadorDef', 'M', 2006, 2006, 18, 2006, 112233445566, 3, NULL, 13, 'coordinadorDef20', 13
+exec i_Funcionario_sp 'coordinadorDef21', 'coordinadorDef', 'coordinadorDef', 'M', 2006, 2006, 18, 2006, 112233445566, 3, NULL, 13, 'coordinadorDef21', 13
+exec i_Funcionario_sp 'coordinadorDef22', 'coordinadorDef', 'coordinadorDef', 'M', 2006, 2006, 18, 2006, 112233445566, 3, NULL, 13, 'coordinadorDef22', 13
+exec i_Funcionario_sp 'coordinadorDef23', 'coordinadorDef', 'coordinadorDef', 'M', 2006, 2006, 18, 2006, 112233445566, 3, NULL, 13, 'coordinadorDef23', 13
+exec i_Funcionario_sp 'coordinadorDef24', 'coordinadorDef', 'coordinadorDef', 'M', 2006, 2006, 18, 2006, 112233445566, 3, NULL, 13, 'coordinadorDef24', 13
+exec i_Funcionario_sp 'coordinadorDef25', 'coordinadorDef', 'coordinadorDef', 'M', 2006, 2006, 18, 2006, 112233445566, 3, NULL, 13, 'coordinadorDef25', 13
+exec i_Funcionario_sp 'coordinadorDef26', 'coordinadorDef', 'coordinadorDef', 'M', 2006, 2006, 18, 2006, 112233445566, 3, NULL, 13, 'coordinadorDef26', 13
+exec i_Funcionario_sp 'coordinadorDef27', 'coordinadorDef', 'coordinadorDef', 'M', 2006, 2006, 18, 2006, 112233445566, 3, NULL, 13, 'coordinadorDef27', 13
+exec i_Funcionario_sp 'coordinadorDef28', 'coordinadorDef', 'coordinadorDef', 'M', 2006, 2006, 18, 2006, 112233445566, 3, NULL, 13, 'coordinadorDef28', 13
+exec i_Funcionario_sp 'coordinadorDef29', 'coordinadorDef', 'coordinadorDef', 'M', 2006, 2006, 18, 2006, 112233445566, 3, NULL, 13, 'coordinadorDef29', 13
+exec i_Funcionario_sp 'coordinadorDef30', 'coordinadorDef', 'coordinadorDef', 'M', 2006, 2006, 18, 2006, 112233445566, 3, NULL, 13, 'coordinadorDef30', 13
+exec i_Funcionario_sp 'coordinadorDef31', 'coordinadorDef', 'coordinadorDef', 'M', 2006, 2006, 18, 2006, 112233445566, 3, NULL, 13, 'coordinadorDef31', 13
+exec i_Funcionario_sp 'coordinadorDef32', 'coordinadorDef', 'coordinadorDef', 'M', 2006, 2006, 18, 2006, 112233445566, 3, NULL, 13, 'coordinadorDef32', 13
+exec i_Funcionario_sp 'coordinadorDef33', 'coordinadorDef', 'coordinadorDef', 'M', 2006, 2006, 18, 2006, 112233445566, 3, NULL, 13, 'coordinadorDef33', 13
+exec i_Funcionario_sp 'coordinadorDef34', 'coordinadorDef', 'coordinadorDef', 'M', 2006, 2006, 18, 2006, 112233445566, 3, NULL, 13, 'coordinadorDef34', 13
+exec i_Funcionario_sp 'coordinadorDef35', 'coordinadorDef', 'coordinadorDef', 'M', 2006, 2006, 18, 2006, 112233445566, 3, NULL, 13, 'coordinadorDef35', 13
+
+
+
+
+exec i_Funcionario_sp 'coordinadorPer1', 'coordinadorPer', 'coordinadorPer', 'NULL', 2004, 2004, 13, 2004, 84568, 3, NULL, 4, 'coordinadorPer1', 35
+exec i_Funcionario_sp 'coordinadorPer2', 'coordinadorPer', 'coordinadorPer', 'NULL', 2004, 2004, 13, 2004, 84568, 3, NULL, 4, 'coordinadorPer2', 35
+exec i_Funcionario_sp 'coordinadorPer3', 'coordinadorPer', 'coordinadorPer', 'NULL', 2004, 2004, 13, 2004, 84568, 3, NULL, 4, 'coordinadorPer3', 35
+exec i_Funcionario_sp 'coordinadorPer4', 'coordinadorPer', 'coordinadorPer', 'NULL', 2004, 2004, 13, 2004, 84568, 3, NULL, 4, 'coordinadorPer4', 35
+exec i_Funcionario_sp 'coordinadorPer5', 'coordinadorPer', 'coordinadorPer', 'NULL', 2004, 2004, 13, 2004, 84568, 3, NULL, 4, 'coordinadorPer5', 35
+exec i_Funcionario_sp 'coordinadorPer6', 'coordinadorPer', 'coordinadorPer', 'NULL', 2004, 2004, 13, 2004, 84568, 3, NULL, 4, 'coordinadorPer6', 35
+exec i_Funcionario_sp 'coordinadorPer7', 'coordinadorPer', 'coordinadorPer', 'NULL', 2004, 2004, 13, 2004, 84568, 3, NULL, 4, 'coordinadorPer7', 35
+exec i_Funcionario_sp 'coordinadorPer8', 'coordinadorPer', 'coordinadorPer', 'NULL', 2004, 2004, 13, 2004, 84568, 3, NULL, 4, 'coordinadorPer8', 35
+exec i_Funcionario_sp 'coordinadorPer9', 'coordinadorPer', 'coordinadorPer', 'NULL', 2004, 2004, 13, 2004, 84568, 3, NULL, 4, 'coordinadorPer9', 35
+exec i_Funcionario_sp 'coordinadorPer10', 'coordinadorPer', 'coordinadorPer', 'NULL', 2004, 2004, 13, 2004, 84568, 3, NULL, 4, 'coordinadorPer10', 35
+exec i_Funcionario_sp 'coordinadorPer11', 'coordinadorPer', 'coordinadorPer', 'NULL', 2004, 2004, 13, 2004, 84568, 3, NULL, 4, 'coordinadorPer11', 35
+exec i_Funcionario_sp 'coordinadorPer12', 'coordinadorPer', 'coordinadorPer', 'NULL', 2004, 2004, 13, 2004, 84568, 3, NULL, 4, 'coordinadorPer12', 35
+exec i_Funcionario_sp 'coordinadorPer13', 'coordinadorPer', 'coordinadorPer', 'NULL', 2004, 2004, 13, 2004, 84568, 3, NULL, 4, 'coordinadorPer13', 35
+exec i_Funcionario_sp 'coordinadorPer14', 'coordinadorPer', 'coordinadorPer', 'NULL', 2004, 2004, 13, 2004, 84568, 3, NULL, 4, 'coordinadorPer14', 35
+exec i_Funcionario_sp 'coordinadorPer15', 'coordinadorPer', 'coordinadorPer', 'NULL', 2004, 2004, 13, 2004, 84568, 3, NULL, 4, 'coordinadorPer15', 35
+exec i_Funcionario_sp 'coordinadorPer16', 'coordinadorPer', 'coordinadorPer', 'NULL', 2004, 2004, 13, 2004, 84568, 3, NULL, 4, 'coordinadorPer16', 35
+exec i_Funcionario_sp 'coordinadorPer17', 'coordinadorPer', 'coordinadorPer', 'NULL', 2004, 2004, 13, 2004, 84568, 3, NULL, 4, 'coordinadorPer17', 35
+exec i_Funcionario_sp 'coordinadorPer18', 'coordinadorPer', 'coordinadorPer', 'NULL', 2004, 2004, 13, 2004, 84568, 3, NULL, 4, 'coordinadorPer18', 35
+exec i_Funcionario_sp 'coordinadorPer19', 'coordinadorPer', 'coordinadorPer', 'NULL', 2004, 2004, 13, 2004, 84568, 3, NULL, 4, 'coordinadorPer19', 35
+exec i_Funcionario_sp 'coordinadorPer20', 'coordinadorPer', 'coordinadorPer', 'NULL', 2004, 2004, 13, 2004, 84568, 3, NULL, 4, 'coordinadorPer20', 35
+exec i_Funcionario_sp 'coordinadorPer21', 'coordinadorPer', 'coordinadorPer', 'NULL', 2004, 2004, 13, 2004, 84568, 3, NULL, 4, 'coordinadorPer21', 35
+exec i_Funcionario_sp 'coordinadorPer22', 'coordinadorPer', 'coordinadorPer', 'NULL', 2004, 2004, 13, 2004, 84568, 3, NULL, 4, 'coordinadorPer22', 35
+exec i_Funcionario_sp 'coordinadorPer23', 'coordinadorPer', 'coordinadorPer', 'NULL', 2004, 2004, 13, 2004, 84568, 3, NULL, 4, 'coordinadorPer23', 35
+exec i_Funcionario_sp 'coordinadorPer24', 'coordinadorPer', 'coordinadorPer', 'NULL', 2004, 2004, 13, 2004, 84568, 3, NULL, 4, 'coordinadorPer24', 35
+exec i_Funcionario_sp 'coordinadorPer25', 'coordinadorPer', 'coordinadorPer', 'NULL', 2004, 2004, 13, 2004, 84568, 3, NULL, 4, 'coordinadorPer25', 35
+exec i_Funcionario_sp 'coordinadorPer26', 'coordinadorPer', 'coordinadorPer', 'NULL', 2004, 2004, 13, 2004, 84568, 3, NULL, 4, 'coordinadorPer26', 35
+exec i_Funcionario_sp 'coordinadorPer27', 'coordinadorPer', 'coordinadorPer', 'NULL', 2004, 2004, 13, 2004, 84568, 3, NULL, 4, 'coordinadorPer27', 35
+exec i_Funcionario_sp 'coordinadorPer28', 'coordinadorPer', 'coordinadorPer', 'NULL', 2004, 2004, 13, 2004, 84568, 3, NULL, 4, 'coordinadorPer28', 35
+exec i_Funcionario_sp 'coordinadorPer29', 'coordinadorPer', 'coordinadorPer', 'NULL', 2004, 2004, 13, 2004, 84568, 3, NULL, 4, 'coordinadorPer29', 35
+exec i_Funcionario_sp 'coordinadorPer30', 'coordinadorPer', 'coordinadorPer', 'NULL', 2004, 2004, 13, 2004, 84568, 3, NULL, 4, 'coordinadorPer30', 35
+exec i_Funcionario_sp 'coordinadorPer31', 'coordinadorPer', 'coordinadorPer', 'NULL', 2004, 2004, 13, 2004, 84568, 3, NULL, 4, 'coordinadorPer31', 35
+exec i_Funcionario_sp 'coordinadorPer32', 'coordinadorPer', 'coordinadorPer', 'NULL', 2004, 2004, 13, 2004, 84568, 3, NULL, 4, 'coordinadorPer32', 35
+exec i_Funcionario_sp 'coordinadorPer33', 'coordinadorPer', 'coordinadorPer', 'NULL', 2004, 2004, 13, 2004, 84568, 3, NULL, 4, 'coordinadorPer33', 35
+exec i_Funcionario_sp 'coordinadorPer34', 'coordinadorPer', 'coordinadorPer', 'NULL', 2004, 2004, 13, 2004, 84568, 3, NULL, 4, 'coordinadorPer34', 35
+exec i_Funcionario_sp 'coordinadorPer35', 'coordinadorPer', 'coordinadorPer', 'NULL', 2004, 2004, 13, 2004, 84568, 3, NULL, 4, 'coordinadorPer35', 35
+
+
+
+
+exec i_Funcionario_sp 'peritoDef1', 'peritoDef', 'peritoDef', 'NULL', 2004, 2004, 21, 2004, 89524, 3, NULL, 19, 'peritoDef1', 37
+exec i_Funcionario_sp 'peritoDef2', 'peritoDef', 'peritoDef', 'NULL', 2004, 2004, 21, 2004, 89524, 3, NULL, 19, 'peritoDef2', 37
+exec i_Funcionario_sp 'peritoDef3', 'peritoDef', 'peritoDef', 'NULL', 2004, 2004, 21, 2004, 89524, 3, NULL, 19, 'peritoDef3', 37
+exec i_Funcionario_sp 'peritoDef4', 'peritoDef', 'peritoDef', 'NULL', 2004, 2004, 21, 2004, 89524, 3, NULL, 19, 'peritoDef4', 37
+exec i_Funcionario_sp 'peritoDef5', 'peritoDef', 'peritoDef', 'NULL', 2004, 2004, 21, 2004, 89524, 3, NULL, 19, 'peritoDef5', 37
+exec i_Funcionario_sp 'peritoDef6', 'peritoDef', 'peritoDef', 'NULL', 2004, 2004, 21, 2004, 89524, 3, NULL, 19, 'peritoDef6', 37
+exec i_Funcionario_sp 'peritoDef7', 'peritoDef', 'peritoDef', 'NULL', 2004, 2004, 21, 2004, 89524, 3, NULL, 19, 'peritoDef7', 37
+exec i_Funcionario_sp 'peritoDef8', 'peritoDef', 'peritoDef', 'NULL', 2004, 2004, 21, 2004, 89524, 3, NULL, 19, 'peritoDef8', 37
+exec i_Funcionario_sp 'peritoDef9', 'peritoDef', 'peritoDef', 'NULL', 2004, 2004, 21, 2004, 89524, 3, NULL, 19, 'peritoDef9', 37
+exec i_Funcionario_sp 'peritoDef10', 'peritoDef', 'peritoDef', 'NULL', 2004, 2004, 21, 2004, 89524, 3, NULL, 19, 'peritoDef10', 37
+exec i_Funcionario_sp 'peritoDef11', 'peritoDef', 'peritoDef', 'NULL', 2004, 2004, 21, 2004, 89524, 3, NULL, 19, 'peritoDef11', 37
+exec i_Funcionario_sp 'peritoDef12', 'peritoDef', 'peritoDef', 'NULL', 2004, 2004, 21, 2004, 89524, 3, NULL, 19, 'peritoDef12', 37
+exec i_Funcionario_sp 'peritoDef13', 'peritoDef', 'peritoDef', 'NULL', 2004, 2004, 21, 2004, 89524, 3, NULL, 19, 'peritoDef13', 37
+exec i_Funcionario_sp 'peritoDef14', 'peritoDef', 'peritoDef', 'NULL', 2004, 2004, 21, 2004, 89524, 3, NULL, 19, 'peritoDef14', 37
+exec i_Funcionario_sp 'peritoDef15', 'peritoDef', 'peritoDef', 'NULL', 2004, 2004, 21, 2004, 89524, 3, NULL, 19, 'peritoDef15', 37
+exec i_Funcionario_sp 'peritoDef16', 'peritoDef', 'peritoDef', 'NULL', 2004, 2004, 21, 2004, 89524, 3, NULL, 19, 'peritoDef16', 37
+exec i_Funcionario_sp 'peritoDef17', 'peritoDef', 'peritoDef', 'NULL', 2004, 2004, 21, 2004, 89524, 3, NULL, 19, 'peritoDef17', 37
+exec i_Funcionario_sp 'peritoDef18', 'peritoDef', 'peritoDef', 'NULL', 2004, 2004, 21, 2004, 89524, 3, NULL, 19, 'peritoDef18', 37
+exec i_Funcionario_sp 'peritoDef19', 'peritoDef', 'peritoDef', 'NULL', 2004, 2004, 21, 2004, 89524, 3, NULL, 19, 'peritoDef19', 37
+exec i_Funcionario_sp 'peritoDef20', 'peritoDef', 'peritoDef', 'NULL', 2004, 2004, 21, 2004, 89524, 3, NULL, 19, 'peritoDef20', 37
+exec i_Funcionario_sp 'peritoDef21', 'peritoDef', 'peritoDef', 'NULL', 2004, 2004, 21, 2004, 89524, 3, NULL, 19, 'peritoDef21', 37
+exec i_Funcionario_sp 'peritoDef22', 'peritoDef', 'peritoDef', 'NULL', 2004, 2004, 21, 2004, 89524, 3, NULL, 19, 'peritoDef22', 37
+exec i_Funcionario_sp 'peritoDef23', 'peritoDef', 'peritoDef', 'NULL', 2004, 2004, 21, 2004, 89524, 3, NULL, 19, 'peritoDef23', 37
+exec i_Funcionario_sp 'peritoDef24', 'peritoDef', 'peritoDef', 'NULL', 2004, 2004, 21, 2004, 89524, 3, NULL, 19, 'peritoDef24', 37
+exec i_Funcionario_sp 'peritoDef25', 'peritoDef', 'peritoDef', 'NULL', 2004, 2004, 21, 2004, 89524, 3, NULL, 19, 'peritoDef25', 37
+exec i_Funcionario_sp 'peritoDef26', 'peritoDef', 'peritoDef', 'NULL', 2004, 2004, 21, 2004, 89524, 3, NULL, 19, 'peritoDef26', 37
+exec i_Funcionario_sp 'peritoDef27', 'peritoDef', 'peritoDef', 'NULL', 2004, 2004, 21, 2004, 89524, 3, NULL, 19, 'peritoDef27', 37
+exec i_Funcionario_sp 'peritoDef28', 'peritoDef', 'peritoDef', 'NULL', 2004, 2004, 21, 2004, 89524, 3, NULL, 19, 'peritoDef28', 37
+exec i_Funcionario_sp 'peritoDef29', 'peritoDef', 'peritoDef', 'NULL', 2004, 2004, 21, 2004, 89524, 3, NULL, 19, 'peritoDef29', 37
+exec i_Funcionario_sp 'peritoDef30', 'peritoDef', 'peritoDef', 'NULL', 2004, 2004, 21, 2004, 89524, 3, NULL, 19, 'peritoDef30', 37
+exec i_Funcionario_sp 'peritoDef31', 'peritoDef', 'peritoDef', 'NULL', 2004, 2004, 21, 2004, 89524, 3, NULL, 19, 'peritoDef31', 37
+exec i_Funcionario_sp 'peritoDef32', 'peritoDef', 'peritoDef', 'NULL', 2004, 2004, 21, 2004, 89524, 3, NULL, 19, 'peritoDef32', 37
+exec i_Funcionario_sp 'peritoDef33', 'peritoDef', 'peritoDef', 'NULL', 2004, 2004, 21, 2004, 89524, 3, NULL, 19, 'peritoDef33', 37
+exec i_Funcionario_sp 'peritoDef34', 'peritoDef', 'peritoDef', 'NULL', 2004, 2004, 21, 2004, 89524, 3, NULL, 19, 'peritoDef34', 37
+exec i_Funcionario_sp 'peritoDef35', 'peritoDef', 'peritoDef', 'NULL', 2004, 2004, 21, 2004, 89524, 3, NULL, 19, 'peritoDef35', 37
+
+
+
+
+exec i_Funcionario_sp 'defensor1', 'defensor', 'defensor', 'M', 2006, 2006, 19, 2006, 2343465, 3, NULL, 15, 'defensor1', 14
+exec i_Funcionario_sp 'defensor2', 'defensor', 'defensor', 'M', 2006, 2006, 19, 2006, 2343465, 3, NULL, 15, 'defensor2', 14
+exec i_Funcionario_sp 'defensor3', 'defensor', 'defensor', 'M', 2006, 2006, 19, 2006, 2343465, 3, NULL, 15, 'defensor3', 14
+exec i_Funcionario_sp 'defensor4', 'defensor', 'defensor', 'M', 2006, 2006, 19, 2006, 2343465, 3, NULL, 15, 'defensor4', 14
+exec i_Funcionario_sp 'defensor5', 'defensor', 'defensor', 'M', 2006, 2006, 19, 2006, 2343465, 3, NULL, 15, 'defensor5', 14
+exec i_Funcionario_sp 'defensor6', 'defensor', 'defensor', 'M', 2006, 2006, 19, 2006, 2343465, 3, NULL, 15, 'defensor6', 14
+exec i_Funcionario_sp 'defensor7', 'defensor', 'defensor', 'M', 2006, 2006, 19, 2006, 2343465, 3, NULL, 15, 'defensor7', 14
+exec i_Funcionario_sp 'defensor8', 'defensor', 'defensor', 'M', 2006, 2006, 19, 2006, 2343465, 3, NULL, 15, 'defensor8', 14
+exec i_Funcionario_sp 'defensor9', 'defensor', 'defensor', 'M', 2006, 2006, 19, 2006, 2343465, 3, NULL, 15, 'defensor9', 14
+exec i_Funcionario_sp 'defensor10', 'defensor', 'defensor', 'M', 2006, 2006, 19, 2006, 2343465, 3, NULL, 15, 'defensor10', 14
+exec i_Funcionario_sp 'defensor11', 'defensor', 'defensor', 'M', 2006, 2006, 19, 2006, 2343465, 3, NULL, 15, 'defensor11', 14
+exec i_Funcionario_sp 'defensor12', 'defensor', 'defensor', 'M', 2006, 2006, 19, 2006, 2343465, 3, NULL, 15, 'defensor12', 14
+exec i_Funcionario_sp 'defensor13', 'defensor', 'defensor', 'M', 2006, 2006, 19, 2006, 2343465, 3, NULL, 15, 'defensor13', 14
+exec i_Funcionario_sp 'defensor14', 'defensor', 'defensor', 'M', 2006, 2006, 19, 2006, 2343465, 3, NULL, 15, 'defensor14', 14
+exec i_Funcionario_sp 'defensor15', 'defensor', 'defensor', 'M', 2006, 2006, 19, 2006, 2343465, 3, NULL, 15, 'defensor15', 14
+exec i_Funcionario_sp 'defensor16', 'defensor', 'defensor', 'M', 2006, 2006, 19, 2006, 2343465, 3, NULL, 15, 'defensor16', 14
+exec i_Funcionario_sp 'defensor17', 'defensor', 'defensor', 'M', 2006, 2006, 19, 2006, 2343465, 3, NULL, 15, 'defensor17', 14
+exec i_Funcionario_sp 'defensor18', 'defensor', 'defensor', 'M', 2006, 2006, 19, 2006, 2343465, 3, NULL, 15, 'defensor18', 14
+exec i_Funcionario_sp 'defensor19', 'defensor', 'defensor', 'M', 2006, 2006, 19, 2006, 2343465, 3, NULL, 15, 'defensor19', 14
+exec i_Funcionario_sp 'defensor20', 'defensor', 'defensor', 'M', 2006, 2006, 19, 2006, 2343465, 3, NULL, 15, 'defensor20', 14
+exec i_Funcionario_sp 'defensor21', 'defensor', 'defensor', 'M', 2006, 2006, 19, 2006, 2343465, 3, NULL, 15, 'defensor21', 14
+exec i_Funcionario_sp 'defensor22', 'defensor', 'defensor', 'M', 2006, 2006, 19, 2006, 2343465, 3, NULL, 15, 'defensor22', 14
+exec i_Funcionario_sp 'defensor23', 'defensor', 'defensor', 'M', 2006, 2006, 19, 2006, 2343465, 3, NULL, 15, 'defensor23', 14
+exec i_Funcionario_sp 'defensor24', 'defensor', 'defensor', 'M', 2006, 2006, 19, 2006, 2343465, 3, NULL, 15, 'defensor24', 14
+exec i_Funcionario_sp 'defensor25', 'defensor', 'defensor', 'M', 2006, 2006, 19, 2006, 2343465, 3, NULL, 15, 'defensor25', 14
+exec i_Funcionario_sp 'defensor26', 'defensor', 'defensor', 'M', 2006, 2006, 19, 2006, 2343465, 3, NULL, 15, 'defensor26', 14
+exec i_Funcionario_sp 'defensor27', 'defensor', 'defensor', 'M', 2006, 2006, 19, 2006, 2343465, 3, NULL, 15, 'defensor27', 14
+exec i_Funcionario_sp 'defensor28', 'defensor', 'defensor', 'M', 2006, 2006, 19, 2006, 2343465, 3, NULL, 15, 'defensor28', 14
+exec i_Funcionario_sp 'defensor29', 'defensor', 'defensor', 'M', 2006, 2006, 19, 2006, 2343465, 3, NULL, 15, 'defensor29', 14
+exec i_Funcionario_sp 'defensor30', 'defensor', 'defensor', 'M', 2006, 2006, 19, 2006, 2343465, 3, NULL, 15, 'defensor30', 14
+exec i_Funcionario_sp 'defensor31', 'defensor', 'defensor', 'M', 2006, 2006, 19, 2006, 2343465, 3, NULL, 15, 'defensor31', 14
+exec i_Funcionario_sp 'defensor32', 'defensor', 'defensor', 'M', 2006, 2006, 19, 2006, 2343465, 3, NULL, 15, 'defensor32', 14
+exec i_Funcionario_sp 'defensor33', 'defensor', 'defensor', 'M', 2006, 2006, 19, 2006, 2343465, 3, NULL, 15, 'defensor33', 14
+exec i_Funcionario_sp 'defensor34', 'defensor', 'defensor', 'M', 2006, 2006, 19, 2006, 2343465, 3, NULL, 15, 'defensor34', 14
+exec i_Funcionario_sp 'defensor35', 'defensor', 'defensor', 'M', 2006, 2006, 19, 2006, 2343465, 3, NULL, 15, 'defensor35', 14
+
+
+
+
+exec i_Funcionario_sp 'defensorAte1', 'defensorAte', 'defensorAte', 'F', 4413, 4413, 17, 4413, qwe123, 7, NULL, 12, 'defensorAte1', 15
+exec i_Funcionario_sp 'defensorAte2', 'defensorAte', 'defensorAte', 'F', 4413, 4413, 17, 4413, qwe123, 7, NULL, 12, 'defensorAte2', 15
+exec i_Funcionario_sp 'defensorAte3', 'defensorAte', 'defensorAte', 'F', 4413, 4413, 17, 4413, qwe123, 7, NULL, 12, 'defensorAte3', 15
+exec i_Funcionario_sp 'defensorAte4', 'defensorAte', 'defensorAte', 'F', 4413, 4413, 17, 4413, qwe123, 7, NULL, 12, 'defensorAte4', 15
+exec i_Funcionario_sp 'defensorAte5', 'defensorAte', 'defensorAte', 'F', 4413, 4413, 17, 4413, qwe123, 7, NULL, 12, 'defensorAte5', 15
+exec i_Funcionario_sp 'defensorAte6', 'defensorAte', 'defensorAte', 'F', 4413, 4413, 17, 4413, qwe123, 7, NULL, 12, 'defensorAte6', 15
+exec i_Funcionario_sp 'defensorAte7', 'defensorAte', 'defensorAte', 'F', 4413, 4413, 17, 4413, qwe123, 7, NULL, 12, 'defensorAte7', 15
+exec i_Funcionario_sp 'defensorAte8', 'defensorAte', 'defensorAte', 'F', 4413, 4413, 17, 4413, qwe123, 7, NULL, 12, 'defensorAte8', 15
+exec i_Funcionario_sp 'defensorAte9', 'defensorAte', 'defensorAte', 'F', 4413, 4413, 17, 4413, qwe123, 7, NULL, 12, 'defensorAte9', 15
+exec i_Funcionario_sp 'defensorAte10', 'defensorAte', 'defensorAte', 'F', 4413, 4413, 17, 4413, qwe123, 7, NULL, 12, 'defensorAte10', 15
+exec i_Funcionario_sp 'defensorAte11', 'defensorAte', 'defensorAte', 'F', 4413, 4413, 17, 4413, qwe123, 7, NULL, 12, 'defensorAte11', 15
+exec i_Funcionario_sp 'defensorAte12', 'defensorAte', 'defensorAte', 'F', 4413, 4413, 17, 4413, qwe123, 7, NULL, 12, 'defensorAte12', 15
+exec i_Funcionario_sp 'defensorAte13', 'defensorAte', 'defensorAte', 'F', 4413, 4413, 17, 4413, qwe123, 7, NULL, 12, 'defensorAte13', 15
+exec i_Funcionario_sp 'defensorAte14', 'defensorAte', 'defensorAte', 'F', 4413, 4413, 17, 4413, qwe123, 7, NULL, 12, 'defensorAte14', 15
+exec i_Funcionario_sp 'defensorAte15', 'defensorAte', 'defensorAte', 'F', 4413, 4413, 17, 4413, qwe123, 7, NULL, 12, 'defensorAte15', 15
+exec i_Funcionario_sp 'defensorAte16', 'defensorAte', 'defensorAte', 'F', 4413, 4413, 17, 4413, qwe123, 7, NULL, 12, 'defensorAte16', 15
+exec i_Funcionario_sp 'defensorAte17', 'defensorAte', 'defensorAte', 'F', 4413, 4413, 17, 4413, qwe123, 7, NULL, 12, 'defensorAte17', 15
+exec i_Funcionario_sp 'defensorAte18', 'defensorAte', 'defensorAte', 'F', 4413, 4413, 17, 4413, qwe123, 7, NULL, 12, 'defensorAte18', 15
+exec i_Funcionario_sp 'defensorAte19', 'defensorAte', 'defensorAte', 'F', 4413, 4413, 17, 4413, qwe123, 7, NULL, 12, 'defensorAte19', 15
+exec i_Funcionario_sp 'defensorAte20', 'defensorAte', 'defensorAte', 'F', 4413, 4413, 17, 4413, qwe123, 7, NULL, 12, 'defensorAte20', 15
+exec i_Funcionario_sp 'defensorAte21', 'defensorAte', 'defensorAte', 'F', 4413, 4413, 17, 4413, qwe123, 7, NULL, 12, 'defensorAte21', 15
+exec i_Funcionario_sp 'defensorAte22', 'defensorAte', 'defensorAte', 'F', 4413, 4413, 17, 4413, qwe123, 7, NULL, 12, 'defensorAte22', 15
+exec i_Funcionario_sp 'defensorAte23', 'defensorAte', 'defensorAte', 'F', 4413, 4413, 17, 4413, qwe123, 7, NULL, 12, 'defensorAte23', 15
+exec i_Funcionario_sp 'defensorAte24', 'defensorAte', 'defensorAte', 'F', 4413, 4413, 17, 4413, qwe123, 7, NULL, 12, 'defensorAte24', 15
+exec i_Funcionario_sp 'defensorAte25', 'defensorAte', 'defensorAte', 'F', 4413, 4413, 17, 4413, qwe123, 7, NULL, 12, 'defensorAte25', 15
+exec i_Funcionario_sp 'defensorAte26', 'defensorAte', 'defensorAte', 'F', 4413, 4413, 17, 4413, qwe123, 7, NULL, 12, 'defensorAte26', 15
+exec i_Funcionario_sp 'defensorAte27', 'defensorAte', 'defensorAte', 'F', 4413, 4413, 17, 4413, qwe123, 7, NULL, 12, 'defensorAte27', 15
+exec i_Funcionario_sp 'defensorAte28', 'defensorAte', 'defensorAte', 'F', 4413, 4413, 17, 4413, qwe123, 7, NULL, 12, 'defensorAte28', 15
+exec i_Funcionario_sp 'defensorAte29', 'defensorAte', 'defensorAte', 'F', 4413, 4413, 17, 4413, qwe123, 7, NULL, 12, 'defensorAte29', 15
+exec i_Funcionario_sp 'defensorAte30', 'defensorAte', 'defensorAte', 'F', 4413, 4413, 17, 4413, qwe123, 7, NULL, 12, 'defensorAte30', 15
+exec i_Funcionario_sp 'defensorAte31', 'defensorAte', 'defensorAte', 'F', 4413, 4413, 17, 4413, qwe123, 7, NULL, 12, 'defensorAte31', 15
+exec i_Funcionario_sp 'defensorAte32', 'defensorAte', 'defensorAte', 'F', 4413, 4413, 17, 4413, qwe123, 7, NULL, 12, 'defensorAte32', 15
+exec i_Funcionario_sp 'defensorAte33', 'defensorAte', 'defensorAte', 'F', 4413, 4413, 17, 4413, qwe123, 7, NULL, 12, 'defensorAte33', 15
+exec i_Funcionario_sp 'defensorAte34', 'defensorAte', 'defensorAte', 'F', 4413, 4413, 17, 4413, qwe123, 7, NULL, 12, 'defensorAte34', 15
+exec i_Funcionario_sp 'defensorAte35', 'defensorAte', 'defensorAte', 'F', 4413, 4413, 17, 4413, qwe123, 7, NULL, 12, 'defensorAte35', 15
+
+
+
+exec i_Funcionario_sp 'administrador1', 'administrador', 'administrador', 'M', 4413, 4413, 42, 4413, 9, 3, NULL, 9, 'administrador1', 36
+exec i_Funcionario_sp 'administrador2', 'administrador', 'administrador', 'M', 4413, 4413, 42, 4413, 9, 3, NULL, 9, 'administrador2', 36
+exec i_Funcionario_sp 'administrador3', 'administrador', 'administrador', 'M', 4413, 4413, 42, 4413, 9, 3, NULL, 9, 'administrador3', 36
+exec i_Funcionario_sp 'administrador4', 'administrador', 'administrador', 'M', 4413, 4413, 42, 4413, 9, 3, NULL, 9, 'administrador4', 36
+exec i_Funcionario_sp 'administrador5', 'administrador', 'administrador', 'M', 4413, 4413, 42, 4413, 9, 3, NULL, 9, 'administrador5', 36
+exec i_Funcionario_sp 'administrador6', 'administrador', 'administrador', 'M', 4413, 4413, 42, 4413, 9, 3, NULL, 9, 'administrador6', 36
+exec i_Funcionario_sp 'administrador7', 'administrador', 'administrador', 'M', 4413, 4413, 42, 4413, 9, 3, NULL, 9, 'administrador7', 36
+exec i_Funcionario_sp 'administrador8', 'administrador', 'administrador', 'M', 4413, 4413, 42, 4413, 9, 3, NULL, 9, 'administrador8', 36
+exec i_Funcionario_sp 'administrador9', 'administrador', 'administrador', 'M', 4413, 4413, 42, 4413, 9, 3, NULL, 9, 'administrador9', 36
+exec i_Funcionario_sp 'administrador10', 'administrador', 'administrador', 'M', 4413, 4413, 42, 4413, 9, 3, NULL, 9, 'administrador10', 36
+exec i_Funcionario_sp 'administrador11', 'administrador', 'administrador', 'M', 4413, 4413, 42, 4413, 9, 3, NULL, 9, 'administrador11', 36
+exec i_Funcionario_sp 'administrador12', 'administrador', 'administrador', 'M', 4413, 4413, 42, 4413, 9, 3, NULL, 9, 'administrador12', 36
+exec i_Funcionario_sp 'administrador13', 'administrador', 'administrador', 'M', 4413, 4413, 42, 4413, 9, 3, NULL, 9, 'administrador13', 36
+exec i_Funcionario_sp 'administrador14', 'administrador', 'administrador', 'M', 4413, 4413, 42, 4413, 9, 3, NULL, 9, 'administrador14', 36
+exec i_Funcionario_sp 'administrador15', 'administrador', 'administrador', 'M', 4413, 4413, 42, 4413, 9, 3, NULL, 9, 'administrador15', 36
+exec i_Funcionario_sp 'administrador16', 'administrador', 'administrador', 'M', 4413, 4413, 42, 4413, 9, 3, NULL, 9, 'administrador16', 36
+exec i_Funcionario_sp 'administrador17', 'administrador', 'administrador', 'M', 4413, 4413, 42, 4413, 9, 3, NULL, 9, 'administrador17', 36
+exec i_Funcionario_sp 'administrador18', 'administrador', 'administrador', 'M', 4413, 4413, 42, 4413, 9, 3, NULL, 9, 'administrador18', 36
+exec i_Funcionario_sp 'administrador19', 'administrador', 'administrador', 'M', 4413, 4413, 42, 4413, 9, 3, NULL, 9, 'administrador19', 36
+exec i_Funcionario_sp 'administrador20', 'administrador', 'administrador', 'M', 4413, 4413, 42, 4413, 9, 3, NULL, 9, 'administrador20', 36
+exec i_Funcionario_sp 'administrador21', 'administrador', 'administrador', 'M', 4413, 4413, 42, 4413, 9, 3, NULL, 9, 'administrador21', 36
+exec i_Funcionario_sp 'administrador22', 'administrador', 'administrador', 'M', 4413, 4413, 42, 4413, 9, 3, NULL, 9, 'administrador22', 36
+exec i_Funcionario_sp 'administrador23', 'administrador', 'administrador', 'M', 4413, 4413, 42, 4413, 9, 3, NULL, 9, 'administrador23', 36
+exec i_Funcionario_sp 'administrador24', 'administrador', 'administrador', 'M', 4413, 4413, 42, 4413, 9, 3, NULL, 9, 'administrador24', 36
+exec i_Funcionario_sp 'administrador25', 'administrador', 'administrador', 'M', 4413, 4413, 42, 4413, 9, 3, NULL, 9, 'administrador25', 36
+exec i_Funcionario_sp 'administrador26', 'administrador', 'administrador', 'M', 4413, 4413, 42, 4413, 9, 3, NULL, 9, 'administrador26', 36
+exec i_Funcionario_sp 'administrador27', 'administrador', 'administrador', 'M', 4413, 4413, 42, 4413, 9, 3, NULL, 9, 'administrador27', 36
+exec i_Funcionario_sp 'administrador28', 'administrador', 'administrador', 'M', 4413, 4413, 42, 4413, 9, 3, NULL, 9, 'administrador28', 36
+exec i_Funcionario_sp 'administrador29', 'administrador', 'administrador', 'M', 4413, 4413, 42, 4413, 9, 3, NULL, 9, 'administrador29', 36
+exec i_Funcionario_sp 'administrador30', 'administrador', 'administrador', 'M', 4413, 4413, 42, 4413, 9, 3, NULL, 9, 'administrador30', 36
+exec i_Funcionario_sp 'administrador31', 'administrador', 'administrador', 'M', 4413, 4413, 42, 4413, 9, 3, NULL, 9, 'administrador31', 36
+exec i_Funcionario_sp 'administrador32', 'administrador', 'administrador', 'M', 4413, 4413, 42, 4413, 9, 3, NULL, 9, 'administrador32', 36
+exec i_Funcionario_sp 'administrador33', 'administrador', 'administrador', 'M', 4413, 4413, 42, 4413, 9, 3, NULL, 9, 'administrador33', 36
+exec i_Funcionario_sp 'administrador34', 'administrador', 'administrador', 'M', 4413, 4413, 42, 4413, 9, 3, NULL, 9, 'administrador34', 36
+exec i_Funcionario_sp 'administrador35', 'administrador', 'administrador', 'M', 4413, 4413, 42, 4413, 9, 3, NULL, 9, 'administrador35', 36
