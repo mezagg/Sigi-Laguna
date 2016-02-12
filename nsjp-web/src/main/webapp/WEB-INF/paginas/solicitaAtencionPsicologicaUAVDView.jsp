@@ -45,7 +45,7 @@
         <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/ckeditor/adapters/jquery.js"></script>
 
         <!--script de jquery UI-->
-        <script type="text/javascript" src="<%= request.getContextPath()%>/js/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="<%= request.getContextPath()%>/js/jquery-1.5.1.min.js"></script>
         <script type="text/javascript" src="<%= request.getContextPath()%>/js/prettify.js"></script>
         
 
