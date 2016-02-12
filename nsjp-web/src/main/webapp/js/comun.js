@@ -527,19 +527,20 @@ else
 	 }
   }   
   else  {
+          alert("La fecha l\u00edmite debe de ser mayor a la fecha de solicitud");
 	  return(false); 
 
 
-	  alert("La fecha l\u00edmite debe de ser mayor a la fecha de solicitud");
+	  
 	  }
 	    
 }   
 }   
 else  {
 
- alert("La fecha l\u00edmite debe de ser mayor a la fecha de solicitud");
+    alert("La fecha l\u00edmite debe de ser mayor a la fecha de solicitud");
 
-      return(false);
+    return(false);
 
  }
   

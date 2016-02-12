@@ -17,27 +17,29 @@
         <!--script de jquery UI-->
         <script type="text/javascript" src="<%=request.getContextPath()%>/js/prettify.js"></script>
 
-        <!--Hojas de estilos para los componentes UI de Jquery-->
-        <link rel="stylesheet" type="text/css"	href="<%=request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css" />
-
-        <!--Hoja de estilos para el grid-->
-        <link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/jqgrid/ui.jqgrid.css" />
-
-        <!--scripts de java script-->
-        <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery-1.5.1.js"></script>
-
-        <script type="text/javascript" src="<%= request.getContextPath()%>/themes/1.8.10/jquery-ui.min.js"></script>
         <!--Hoka de estilo para el texto dentro de los acordeones-->
         <!--Hoja de estilos ultrasist-->
         <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/estilos.css" media="screen" />
         <!--Hoja de estilo para los popups-->
         <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jquery.windows-engine.css" />
+        
+        <!--Hoja de estilos para el grid-->
+        <link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/jqgrid/ui.jqgrid.css" />
+
+        <!--scripts de java script-->
+        
+        <script type="text/javascript" src="<%= request.getContextPath()%>/js/jquery-1.5.1.min.js"></script>
+
+        <script type="text/javascript" src="<%= request.getContextPath()%>/themes/1.8.10/jquery-ui.min.js"></script>
+        
+        
+        <script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery.windows-engine.js"></script>
 
         <!--Scripts necesarios para el funcionamiento de la JSP-->
 
-<!-- <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery-1.5.1.js"></script> -->
+        
         <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.easyAccordion.js"></script>
-        <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.windows-engine.js"></script>
+        
         <!--Scrip para el idioma del calendario-->
         <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/wdCalendar/Plugins/jquery.ui.datepicker-es.js"></script>
 
@@ -46,7 +48,6 @@
         <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/ckeditor/adapters/jquery.js"></script>
 
         <!--script de jquery UI-->
-        <script type="text/javascript" src="<%= request.getContextPath()%>/js/jquery-1.5.1.min.js"></script>
         <script type="text/javascript" src="<%= request.getContextPath()%>/js/prettify.js"></script>
         
 
