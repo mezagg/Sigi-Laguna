@@ -26,6 +26,7 @@
         <!--scripts de java script-->
         <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery-1.5.1.js"></script>
 
+        <script type="text/javascript" src="<%= request.getContextPath()%>/themes/1.8.10/jquery-ui.min.js"></script>
         <!--Hoka de estilo para el texto dentro de los acordeones-->
         <!--Hoja de estilos ultrasist-->
         <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/estilos.css" media="screen" />
