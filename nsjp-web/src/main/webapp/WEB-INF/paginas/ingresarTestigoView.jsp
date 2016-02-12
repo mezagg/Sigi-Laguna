@@ -357,7 +357,7 @@ DD P {
 			function avilitaDatos(){
 				$("img.ui-datepicker-trigger").show();
 				habilitarDatosGenerales();
-				avilitarDatosDomicilio();
+				habilitarDatosDomicilio();
 				habilitarDatosIdentificacion();
 				desbloqueaCamposMediosDeContactoGrid();
 				if (solicitante=="true" || rolId == '<%=Roles.ENCARGADOCAUSA.getValorId()%>'

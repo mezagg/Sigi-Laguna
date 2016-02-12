@@ -285,7 +285,7 @@ DD P {
 			function avilitaDatos(){
 				$("img.ui-datepicker-trigger").show();
 				habilitarDatosGenerales();
-				avilitarDatosDomicilio();
+				habilitarDatosDomicilio();
 				habilitarDatosIdentificacion();
 				$('#anularInvolucrado').show();
 				$('#iVictimaBtnGuardar').show();

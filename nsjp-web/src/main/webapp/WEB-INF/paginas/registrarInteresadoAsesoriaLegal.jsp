@@ -432,7 +432,7 @@
   			$('#btnGuardar').show();
   			
   			habilitarDatosGenerales();
-  			avilitarDatosDomicilio();
+  			habilitarDatosDomicilio();
   			desbloqueaCamposMediosDeContactoGrid();
   		}
   		

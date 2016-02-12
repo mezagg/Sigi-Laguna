@@ -961,7 +961,7 @@ DD P {
 		
 				
 		function cambiaOtro(){
-		  if(!$("#divLapso").is(':visible')||!("#divEspecifico").is(':visible')){
+		  if(!$("#divLapso").is(':visible')||!$("#divEspecifico").is(':visible')){
 			$("#divLapso").css("display", "none");
 			$("#divEspecifico").css("display", "none"); 
 			$("#divOtro").css("display", "block");
@@ -2534,9 +2534,9 @@ DD P {
                                 </td>                 
                             </tr-->
 							<tr>
-								<td align="left" id="etiquetaDetenido" style="display: none">Detenido</td>
+								<td align="left" id="etiquetaDetenido" style="">Detenido</td>
 								<td><input type="checkbox" id="chkPResponsableDetenido"
-									style="display: none" /></td>
+									style="" /></td>
 							</tr>
 							<tr>
 								<td align="left" nowrap><span id="lblDefensor">Con Defensor</span></td>

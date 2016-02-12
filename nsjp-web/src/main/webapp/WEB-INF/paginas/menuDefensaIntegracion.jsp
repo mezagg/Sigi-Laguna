@@ -983,7 +983,7 @@
 		
 				
 		function cambiaOtro(){
-		  if(!$("#divLapso").is(':visible')||!("#divEspecifico").is(':visible')){
+		  if(!$("#divLapso").is(':visible')||!$("#divEspecifico").is(':visible')){
 			$("#divLapso").css("display", "none");
 			$("#divEspecifico").css("display", "none"); 
 			$("#divOtro").css("display", "block");

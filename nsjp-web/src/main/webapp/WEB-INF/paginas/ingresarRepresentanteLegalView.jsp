@@ -301,7 +301,7 @@
 				
 				function habilitaDatosRepLegal() {
 					habilitarDatosGenerales();
-					avilitarDatosDomicilio();
+					habilitarDatosDomicilio();
 					habilitarDatosIdentificacion();					
 				}
 				

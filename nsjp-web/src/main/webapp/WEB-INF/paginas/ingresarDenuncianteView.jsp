@@ -258,7 +258,7 @@
 			function avilitaDatos(){
 				$("img.ui-datepicker-trigger").show();
 				habilitarDatosGenerales();
-				avilitarDatosDomicilio();
+				habilitarDatosDomicilio();
 				habilitarDatosIdentificacion();
 				desbloqueaCamposMediosDeContactoGrid();
 				

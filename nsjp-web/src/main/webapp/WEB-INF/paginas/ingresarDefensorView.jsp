@@ -191,7 +191,7 @@
 
 			function avilitaDatos(){
 				habilitarDatosGenerales();
-				avilitarDatosDomicilio();
+				habilitarDatosDomicilio();
 				habilitarDatosIdentificacion();
 				desbloqueaCamposMediosDeContactoGrid();
 				$('#guardarDenuncia').show();

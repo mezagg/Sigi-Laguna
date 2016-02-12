@@ -89,7 +89,7 @@
 		$('#RadioResguardaEV_1').attr("disabled","");
 		$('#fechaAlta').attr("disabled","");
 		$('#codigoPostalButton').show();
-		avilitarDatosDomicilio();		
+		habilitarDatosDomicilio();		
 	}
 
 	function consultaAlmacen(){
@@ -143,7 +143,7 @@
 	}
 
 	function deshabilitaCampos(){
-		desavilitarDatosDomicilio();
+		deshabilitarDatosDomicilio();
 		//Se deshabilita datos de la evidencia
 	 	$('#nombreAlmacen').attr("disabled","disabled");
 	 	$('#RadioEsVirtual_0').attr("disabled","disabled");

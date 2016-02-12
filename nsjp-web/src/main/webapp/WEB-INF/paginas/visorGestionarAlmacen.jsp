@@ -81,7 +81,7 @@
 		$('#RadioResguardaEV_1').attr("disabled","");
 		$('#fechaAlta').attr("disabled","");
 		$('#codigoPostalButton').show();
-		avilitarDatosDomicilio();		
+		habilitarDatosDomicilio();		
 	}
 
 	function consultaAlmacen(){

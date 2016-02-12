@@ -1304,7 +1304,7 @@
 		 $('#codigoPostalButton').hide();
 	}
 
-	function avilitarDatosDomicilio(){
+	function habilitarDatosDomicilio(){
 		$('#codigoPostalButton').show();
 		 $('#cbxPais').attr("disabled","");
 		 $('#codigoPostal').attr("disabled","");

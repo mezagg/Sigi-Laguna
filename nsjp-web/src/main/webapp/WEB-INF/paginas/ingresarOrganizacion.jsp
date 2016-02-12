@@ -69,7 +69,7 @@
 	  var bandera=false;
 	  var idTipoOrganizacion=-1;
 	  idTipoOrganizacion=	$("#cbxIngOrgTiposOrganizacion option:selected").val();
-	  avilitarDatosDomicilio();
+	  habilitarDatosDomicilio();
 	  switch(tipoOrganizacion)
 		{
 			case 230://Formal

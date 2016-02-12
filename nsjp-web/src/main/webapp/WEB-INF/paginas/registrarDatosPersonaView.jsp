@@ -804,7 +804,7 @@ DD P {
 		{
 			try{
 				habilitarDatosGenerales();
-				avilitarDatosDomicilio();
+				habilitarDatosDomicilio();
 				habilitarDatosIdentificacion();
 				desbloqueaCamposMediosDeContactoGrid();
 				$("#codigoPostalButton").attr("disabled","");

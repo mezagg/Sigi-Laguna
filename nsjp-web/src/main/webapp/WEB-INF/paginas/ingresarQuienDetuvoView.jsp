@@ -483,7 +483,7 @@ DD P {
 		$("img.ui-datepicker-trigger").show();
 		$('#cmbProbablesResponsablesDetenidos').attr("disabled", "");
 		habilitarDatosGenerales();
-		avilitarDatosDomicilio();
+		habilitarDatosDomicilio();
 		habilitarDatosIdentificacion();
 		$('#iDetieneBtnGuardar').show();
 		$('#iDetieneBtnModificar').hide();
