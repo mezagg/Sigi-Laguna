@@ -55,7 +55,7 @@ function cargaTurno(){
     <td colspan="2" >Bienvenido a Unidad  de Atenci&oacute;n Integral.</td> 
   </tr>
   <tr align="center">
-    <td >Generar Turno.</td><td width="80" align="right" >N&uacute;mero de Turno: <input type="text" id="tiem" style="border: 0;" maxlength="30" > </td>
+    <td >Generar Turno.</td><td width="80" align="right" >N&uacute;mero de Turno: <input type="text" id="tiem" style="border: 0;" maxlength="30" value=""> </td>
   </tr>
  
   <tr align="center" onclick="turno()">

@@ -473,6 +473,9 @@ DD P {
 		configurarPantallaPorRol();		
 		//$('#iVictimaBtnModificarDatos').hide();	
 		
+                
+                cargaSituacionJuridica();
+            	
   });//FIN funcion onready
 
 
@@ -586,7 +589,7 @@ DD P {
 		    	  url:  '<%=request.getContextPath()%>/consultarInvolucrado.do',
 		    	  data: 'idInvolucrado='+id,
 		    	  dataType: 'xml',
-		    	  async: true,
+		    	  async: false,
 		    	  success: function(xml){
 		    		  datosXML=xml;
 		    		  muestraDatosCondicion(xml);
@@ -851,14 +854,14 @@ DD P {
 
 		function habilitaDetenido() {
 		  if ($("#chkPResponsableDetenido").is(':checked')) {
-			$("#datosDetenido").toggle();		
+			//$("#datosDetenido").toggle();		
 			if ($('#idFechaDateLapso').val() == '' || $('#idFechaDateLapso2').val() == '') {
 				 limpiaFechas();	
 			}				
 		  }
 		  else{
 			
-			$("#datosDetenido").toggle();
+			//$("#datosDetenido").toggle();
 			$("#ingresarTiempoEspecificamentePResponsable").attr('disabled', 'disabled');															
 			$("#ingresarTiempoLapsoPResponsable").attr('disabled', '');
 			$("#ingresarTiempoOtroPResponsable").attr('disabled', 'disabled');		
@@ -925,7 +928,26 @@ DD P {
 			}
 		}
 		
-			
+		function cargaSituacionJuridica(valorSituacion){
+                    $('#situacionJuridicaCombo').addClass("cargando");
+
+                    $.ajax({
+                            type: 'POST',
+                            url: '<%=request.getContextPath()%>/ConsultarCatalogoSituacionJuridicaDetenido.do',
+                            data: '',
+                            dataType: 'xml',
+                            async: true,
+                            success: function(xml){
+                                    var option;
+                                    $(xml).find('catSituacionJuridicaDetenido').each(function(){
+                                            $('#situacionJuridicaCombo').append('<option value="' + $(this).find('clave').text() + '">'+ $(this).find('valor').text() + '</option>');
+                                    });
+
+                                    $('#situacionJuridicaCombo').removeClass("cargando");
+                                    $('#situacionJuridicaCombo').val(valorSituacion);
+                            }
+                    });
+                }	
 		function limpiaFechas(){
 
 		  $("#idFechaDate").val("");
@@ -2560,16 +2582,29 @@ DD P {
 
                                                 <td width="30%" align="center">
 						<table id="datosDetenido"  border="0"
-							cellspacing="0" cellpadding="0" style="display: none;">
+							cellspacing="0" cellpadding="0" >
 							<tr>
 								<td colspan="2" height="20" valign="middle" class="seccion">INGRESAR
 								DATOS DE DETENCI&Oacute;N</td>
 							</tr>
+                                                        
+                                                            <tr>
+                                                                <td align="right" nowrap>
+                                                                    Situaci&oacute;n Juridica:
+                                                                </td>
+                                                                <td>
+                                                                    <select id="situacionJuridicaCombo"
+                                                                                        name="situacionJuridicaCombo" style="width: 180px;" >
+                                                                        <option value="">- Selecciona -</option>
+                                                                </select>
+                                                                </td>
+                                                             </tr>
+
 							<tr>
 								<td align="left"><input type="submit"
 									id="ingresarTiempoEspecificamentePResponsable"
 									value="Espec&iacute;ficamente" /></td>
-								<td >
+								<td colspan="2">
 								<div id="divEspecifico" style="display: block;"><jsp:include
 									page="/WEB-INF/paginas/ingresarTiempoEspecificamente.jsp"
 									flush="true"></jsp:include></div>
@@ -2582,10 +2617,10 @@ DD P {
 								</td>
 							</tr>
 							<tr>
-								<td align="left"></td>
+								<td align="left" colspan="2"></td>
 							</tr>
 							<tr>
-								<td align="left"><input style="width: 112px" type="submit"
+								<td align="left" colspan="2"><input style="width: 112px" type="submit"
 									id="ingresarTiempoOtroPResponsable" value="Otro" /></td>
 							</tr>
 						</table>
