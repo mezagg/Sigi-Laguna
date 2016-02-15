@@ -431,8 +431,22 @@ DD P {
 					consulta(id);
 				}
 			}
+			//control de radio vivo o muerto
+            var RADIO_VIVO=1
+            $("input:radio[name=radio]").change(function(){
+                var valor=$("input:radio[name=radio]:checked").val();
+                $("#tableUAVDOpsHide :checkbox").attr('checked', false);
+                $("#datosDetenido").hide();
+                if(valor == RADIO_VIVO ){
+                         $('#chkDefensor').removeAttr('disabled');
+                         $('#chkPResponsableDetenido').removeAttr('disabled');
+                }else{
+                         $('#chkDefensor').attr("disabled","disabled");
+                         $('#chkPResponsableDetenido').attr("disabled","disabled");
+                }
+            });
 		}
-		 $('#chkDefensor').attr("disabled","disabled");
+		 //$('#chkDefensor').attr("disabled","disabled");
 		if(id!==null){
 			muestraDatosProbResponsable(id);
 		}
@@ -2452,7 +2466,6 @@ DD P {
 			fechaTemp = hr+":"+fechaTemp.substring(14,16);
 			return fechaTemp;
 		}
-		
     </script>
   </head>
   <body>
@@ -2540,7 +2553,7 @@ DD P {
 							</tr>
 							<tr>
 								<td align="left" nowrap><span id="lblDefensor">Con Defensor</span></td>
-								<td><input type="checkbox" id="chkDefensor" /></td>
+								<td><input type="checkbox" id="chkDefensor"  /></td>
 							</tr>
 						</table>
 						</td>
