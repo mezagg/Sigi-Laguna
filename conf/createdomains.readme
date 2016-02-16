@@ -1,0 +1,14 @@
+
+./asadmin create-domain --portbase 1000 domain_ces 
+./asadmin create-domain --portbase domain_pg 
+./asadmin create-domain --portbase 2000 domain_def 
+./asadmin create-domain --portbase 3000 domain_pj 
+
+./asadmin --user admin --port 4848 create-jdbc-connection-pool --driverclassname='com.p6spy.engine.spy.P6SpyDriver' --restype java.sql.Driver --property "user=nsjp:password=nsjp:url='jdbc:p6spy:sqlserver://cloud.lucasianmexico.com:1433;databaseName=coa-sab-pj;'" sigi-pool-spy
+
+./asadmin --user admin --port 4848 create-jdbc-connection-pool --driverclassname='com.p6spy.engine.spy.P6SpyDriver' --restype java.sql.Driver --property "user=nsjp:password=nsjp:url='jdbc:p6spy:sqlserver://cloud.lucasianmexico.com:1433;databaseName=coa-sab-pj;'" sigi-pool-spy
+
+
+#create resource ref for sigi pool
+./asadmin create-resource-ref --user admin --port 4848   jdbc/nsjpDS
+

@@ -225,7 +225,7 @@
 			$('#liPestanaTres').hide();
 			//abrimos el popup con las cadenas de custodia del expediente
 			
-			//dialigoCadenasCustodiaDelExpediente();-->-->-->
+			//dialigoCadenasCustodiaDelExpediente();
 			
 			//mostramos el boton de anular tanto en insercion como en consulta
 			$("#idEliminarEvidencia").show();

@@ -63,7 +63,15 @@ public class DocumentoDTO extends GenericDTO {
 	private Short origenDocumento;
 	private String textoParcial;
 	private ArchivoDigitalDTO archivoDigital;
-	
+	private String NUC;
+
+    public String getNUC() {
+        return NUC;
+    }
+
+    public void setNUC(String NUC) {
+        this.NUC = NUC;
+    }
 	private ExpedienteDTO expedienteDTO;
 	
 	private List<ElementoDTO> elementos = new ArrayList<ElementoDTO>();

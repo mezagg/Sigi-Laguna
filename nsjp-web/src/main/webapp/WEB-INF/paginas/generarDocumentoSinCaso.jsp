@@ -54,7 +54,7 @@
 	
 	<!--		Hojas de estilos asociadas-->
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/estilos.css" media="screen" />
-	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css"/>
+        
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css" />
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/layout_complex.css" media="screen" />
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/jquery.windows-engine.css"/>	
@@ -63,10 +63,17 @@
 	<script type="text/javascript" src="<%=request.getContextPath()%>/themes/1.8.10/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="<%= request.getContextPath() %>/resources/js/jquery.windows-engine.js"></script>
 	<script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery.treeview.js"></script>
+        
+        
+        <!--scripts del grid-->
+        <script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jqgrid/i18n/grid.locale-es.js"></script>
+        <script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jqgrid/jquery.jqGrid.min.js"></script>
+        
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/bloqueaTecla.js?n=1"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/comun.js?n=1"></script>
 	<script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/jquery.blockUI.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/arbolExpediente.js"></script>
+        
 	<jsp:include page="/WEB-INF/paginas/encabezadoDocumentos.jsp"/>
 	<script type="text/javascript">
 	
@@ -79,7 +86,7 @@
 	var idAudiencia= '<%=request.getParameter("idAudiencia")!=null?request.getParameter("idAudiencia"):""%>';
 	var idDistritoUsuario = '<%= idDistritoUsuario %>';
 	var idAgenciaUsuario = '<%= idAgenciaUsuario %>';
-	
+	var nuevoNUC="";
 	var enviarAvisoDetencionSSP = <%=request.getParameter("enviarAvisoDetencionSSP")!=null?"true":"false"%>;
 	var ocultarGuardadoParcial = <%=request.getParameter("ocultarGuardadoParcial")!=null?"true":"false"%>;
 	var ocultarNumeroOficio = <%=request.getParameter("ocultarNumeroOficio")!=null?"true":"false"%>;
@@ -618,7 +625,11 @@
 				try{window.parent.documentoGenerado();}catch(e){}
 				pintaChecksTipoAtencion();
 				consultaPDF(idDocumento);
-				customAlert("El documento se ha generado exitosamente.", "", cerrarVentaDocumentoActualizarGrid);
+                                if(nuevoNUC!="")
+                                    msg = "Se generó el NUC: " + nuevoNUC+".";
+                                else
+                                    msg = "El documento se ha generado exitosamente."
+				customAlert(msg, "", cerrarVentaDocumentoActualizarGrid);
 			}else{
 				customAlert("Ocurri&oacute; un error al generar el documento");
 			}
@@ -767,6 +778,9 @@
 			    success: function(xml){
 					activarAvisoAlCerrarVentanEnVisorDocumentos(idFrame, false);
 			    	idDocumento = parseInt($(xml).find('documentoDTO').find('documentoId').text());
+                                
+                                nuevoNUC = $(xml).find('documentoDTO').find('NUC').text();
+                                
 			    	if (actividadId == "<%=Actividades.ELABORAR_ACUERDO_CANCELACION_INICIO_PROCEDIMIENTO_EJECUCION.getValorId()%>"){
 			    		actualizarEstatusSentencia(<%=EstatusExpediente.RECHAZADO.getValorId()%>,idNumeroExpediente, <%=Instituciones.PJ.getValorId()%>);
 			    	}else if (actividadId == "<%=Actividades.ELABORAR_ACUERDO_RECEPCION_SENTENCIA.getValorId()%>"){
