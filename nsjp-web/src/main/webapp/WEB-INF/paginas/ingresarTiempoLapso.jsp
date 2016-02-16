@@ -22,8 +22,10 @@
  	}
  }
   
- $(function(){
+ jQuery().ready(function () {
    $('#idHoraDateLapsoInicio,#idHoraDateLapsoFin').timeEntry({beforeShow: customRange,timeSteps:[1,1,0],ampmPrefix: ' '});
+   $(".timeEntry_control").attr('disabled', 'disabled');
+   $(".timeEntry_control").css("display", "none");
  });
 
 
@@ -102,7 +104,7 @@
 		 //alert("valorSituacionJuridica: "+$(xml).find('valorSituacionJuridica').find('valor').first().text());
 		 //$('#situacionJuridicaCombo').val($(xml).find('valorSituacionJuridica').find('valor').first().text());
 
-		cargaSituacionJuridica($(xml).find('valorSituacionJuridica').find('idCampo').first().text());
+		 $('#situacionJuridicaVal').val($(xml).find('valorSituacionJuridica').find('idCampo').first().text());
 
 	 }
      
@@ -117,7 +119,7 @@
 		   	 $("#idHoraDateLapsoFin").attr('disabled','disabled');
 		   	 $("#idHoraDateLapsoInicio").attr('disabled','disabled');
 		   	 $("#idHoraDateLapsoFin").attr('disabled','disabled');
-			// $("#situacionJuridicaCombo").attr('disabled','disabled');
+			 $("#situacionJuridicaCombo").attr('disabled','disabled');
     	}
     	else
     	{
@@ -127,7 +129,7 @@
 	       	 $("#idHoraDateLapsoFin").attr('disabled','');
 	       	 $("#idHoraDateLapsoInicio").attr('disabled','');
 	       	 $("#idHoraDateLapsoFin").attr('disabled','');
-			// $("#situacionJuridicaCombo").attr('disabled','');
+			 $("#situacionJuridicaCombo").attr('disabled','');
     	}    	
      }
 
@@ -273,5 +275,5 @@
 		<input type="text" id="idHoraDateLapsoFin" size="10" class="timeRange" value="8:00" onblur="cuandoCambien(this.id);"/>
 		</div></td>
 	</tr>
-	
 </table>
+<input type="hidden" name="opcion" id="situacionJuridicaVal" >

@@ -19,7 +19,7 @@
             <!-- ingresarProbableResponsableView -->
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 			<title><bean:message key="ingProbaleResponsableTitulo"/></title>
-				
+
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/jquery.easyaccordion.css" />
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css" />
@@ -149,30 +149,30 @@ DD P {
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/mediaFiliacion.js"></script>
 
 <link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/cssGrid/ui.jqgrid.css" />
-	
-<% 
+
+<%
    	UsuarioDTO usuario = (UsuarioDTO) request.getSession().getAttribute("KEY_SESSION_USUARIO_FIRMADO");
 	Long rolId = 0L;
 	Boolean esCoordinadorAmpGeneral = false;
-	
+
 	if(usuario!=null &&
 	   usuario.getRolACtivo()!=null &&
 	   usuario.getRolACtivo().getRol()!=null &&
 	   usuario.getRolACtivo().getRol().getRolId()!=null){
 		rolId=usuario.getRolACtivo().getRol().getRolId();
 	}
-   	
+
    	if(rolId.equals(Roles.COORDINADORAMPGENERAL.getValorId())){
    		esCoordinadorAmpGeneral = true;
    	}
-   	
+
 %>
 
 <script type="text/javascript">
 		var contextoPagina = "${pageContext.request.contextPath}";
 		var esCoordinadorAmpGeneral = <%=esCoordinadorAmpGeneral%>;
 		var rolId =  <%=rolId%>;
-		
+
 		//Permite mostrar en pantalla Probable Responsable o Probable participe en base al Rol del usuario
 		var probableResponsableProp = '<bean:message key="probableResponsable"/>';
 		var msjProbableResponsableProp = '<bean:message key="msjProbableResponsable"/>';
@@ -182,53 +182,51 @@ DD P {
 	  	var idWindowIngresarDefensor=1;
 
 	  	var verAlias=0;
-		
+
 		//CAMBIO-ACT var idWindowIngContOrganizacion = 1;
-		
+
 		var idWindowIngTutor = 1;
-		
-		var varNombre;		
-		
+
+		var varNombre;
+
 		var banderaDenuncia=0;
-		
+
 		var banderaDenuncianteQuerellante=0;
 
 		var banderaNarrativa=0;
 
 		var idindi=0;
 		var idElementoOrganizaion=0;
-		
+
 		var numeroExpediente="";
-		
+
 		var idOrganizacion=0;
 		var idExpedienteop;
 		var elemntoNuevo="no";
-		
+
 		var isUavd = '<%= request.getParameter("isUavd")%>';
-		
+
 		var idElemento = <%=request.getParameter("idProbableResponsable")%>;
 		// muestra el campo de detenido si el valor es 1
                 <%
                 String muestraDetenido =  request.getParameter("detenido");
                 boolean isDetenidoExist= request.getParameter("idProbableResponsable")!=null;
-                
                 if(muestraDetenido==null)
                     muestraDetenido = (String)request.getAttribute("detenido");
                 %>
 		var muestraDetenido = <%=muestraDetenido%>;
-		
+
 
 		var muestraDetenidoModificar=0;
-		
-		var isDetenidoExist = <%=isDetenidoExist%>;
+
+		var isProbableResponsable = <%=isDetenidoExist%>;
 		var deshabilitarCampos = window.parent.deshabilitarCamposPM;
 		var modificaGrid=true;
-		
 		//variables para setear las fechas y horas maximas
 		var fechaServidor="";
 		var fechaMax="";
 		var timeMax="";
-		
+
 		var sistemaTrad=true;
 		var detenidoText=false;
  		var idRolActivo = <%=rolId%>;
@@ -236,31 +234,32 @@ DD P {
  		var PERSONA_FISICA = 1;
  		var esPersonaFisica=false;
 		var PERSONA_MORAL = 0;
-		
+
 		var valorCalidad="";
 
-		
+
 		jQuery().ready(function () {
-			
+
                         jQuery(document).ajaxStop(desbloquearPantalla());
-                        
-			if((isDetenidoExist!==null) && (isDetenidoExist==true)){
+
+			/*if((isDetenidoExist!==null) && (isDetenidoExist==true)){
 				$('#chkPResponsableDetenido').attr('checked',true);
 				habilitaDetenido();
-			}		
+				bloqueaCamposTiempoLapso(0);
+			}*/
 
 			//Si viene de CoordinadorAMP, policiaMinister &oacute; agenteMP se muestra el campo de detenido
 			if(muestraDetenido == 1){
 					$("#etiquetaDetenido").show();
 					$("#chkPResponsableDetenido").show();
-                                        
-					muestraDetenidoModificar = 1;				
-			}  
-										
+
+					muestraDetenidoModificar = 1;
+			}
+
 				$("#cbxProbResponsableTipoResp").change(onSelectChangeTipoPersonaMoral);
-				
+
 				valorCalidad ='<%=request.getParameter("calidadInv")%>';
-				
+
 				if (idElemento !== null && idElemento !== 0 && <%=request.getParameter("idProbableResponsable")%> !== null){
 					//esta linea se comento porque al entrar cuando aun no hay foto oculta la imagen
 					$("#imgConFoto").attr("src",'<%=request.getContextPath()%>/obtenImagenDelElemento.do?elementoID=<%=request.getParameter("idProbableResponsable")%>');
@@ -268,7 +267,7 @@ DD P {
 				}else{
 					$("#imgConFoto").attr("src","<%=request.getContextPath()%>/resources/images/foto.png");
 				}
-				
+
 			numeroExpediente='<%=request.getParameter("numeroExpediente")%>';
 			calidadInv='<%=request.getParameter("calidadInv")%>';
 			idExpedienteop='<%=request.getParameter("idExpedienteop")%>';
@@ -278,9 +277,9 @@ DD P {
 			var nombreDefensor=parent.nombreDefensor;
 			//agregamos el listener del evento onchange del combo de tipo de persona
 			//$("#cbxProbResponsableTipoResp").change(onSelectChangeTipoPersonaMoral);
-			//Se muestra o se oculta la secci&oacute;n de datos para ingresa organzacion 
+			//Se muestra o se oculta la secci&oacute;n de datos para ingresa organzacion
 			$('#iIngresarOrgWorkSheet').hide();
-			$('#iVictimaBtnModificarDatos').hide();	
+			$('#iVictimaBtnModificarDatos').hide();
 			//recuperamos la fecha del servidor
 			fechaServidor= consultaFechaHoraMaximaServer();
 			fechaMax=getFechaMaximaServerHechos(fechaServidor);
@@ -301,7 +300,7 @@ DD P {
 				changeYear: true,
 				showOn: "button",
 				buttonImage: "<%=request.getContextPath()%>/resources/images/date.png",
-				buttonImageOnly: true			
+				buttonImageOnly: true
 			});
 			$("#idFechaDateLapso").datepicker({
 				dateFormat: 'dd/mm/yy',
@@ -324,12 +323,12 @@ DD P {
 				changeYear: true,
 				showOn: "button",
 				buttonImage: "<%=request.getContextPath()%>/resources/images/date.png",
-				buttonImageOnly: true			
+				buttonImageOnly: true
 			});
 			$("#idFechaDateLapso2").datepicker({
 				dateFormat: 'dd/mm/yy',
 				yearRange: '-111:+0',
-				maxDate: fechaMax, 
+				maxDate: fechaMax,
 				minDate: fechaMax,
 				onSelect: function(date) {
 					//sette la hora maxima del inicio
@@ -347,7 +346,7 @@ DD P {
 				changeYear: true,
 				showOn: "button",
 				buttonImage: "<%=request.getContextPath()%>/resources/images/date.png",
-				buttonImageOnly: true			
+				buttonImageOnly: true
 			});
 			//$("#ingresarTiempoLapsoPResponsable").click(cambiaLapso);
 			$("#ingresarTiempoLapsoPResponsable").click(enviaAvisoDetencion);
@@ -357,46 +356,46 @@ DD P {
 			$("#ingresarTiempoEspecificamentePResponsable").click(deshabilitaBotonDosTres);
 			//$("#ingresarTiempoLapsoPResponsable").click(deshabilitaBotonUnoTres);
 			$("#ingresarTiempoOtroPResponsable").click(deshabilitaBotonUnoDos);
-			$("#btnPResponsableDesconocido").click(deshabilitaDatosGeneralesDomicilio);										
-			$("#iVictimaBtnModificarDatos").click(habilitaDatos);										
-			//$("#btnPResponsableEsVivo").click(deshabilitaDatosGeneralesDomicilio);										
-		  
+			$("#btnPResponsableDesconocido").click(deshabilitaDatosGeneralesDomicilio);
+			$("#iVictimaBtnModificarDatos").click(habilitaDatos);
+			//$("#btnPResponsableEsVivo").click(deshabilitaDatosGeneralesDomicilio);
+
 			$("#chkPResponsableDetenido").click(habilitaDetenido);
-			$("#chkDefensor").click(muestraDefensor);				
+			$("#chkDefensor").click(muestraDefensor);
 			//Se crea el acordeon para menor de edad
-			$("#iProbResponsableAccordionDialogoMenorEdad").dialog({ autoOpen: false, 
-			  modal: true, 
-			  title: 'Menor de Edad', 
-			  dialogClass: 'alert', 
+			$("#iProbResponsableAccordionDialogoMenorEdad").dialog({ autoOpen: false,
+			  modal: true,
+			  title: 'Menor de Edad',
+			  dialogClass: 'alert',
 			  width: 500 ,
 			  maxWidth: 600,
 			  buttons: {"Aceptar":function(){
 				  $(this).dialog("close");
 				}
 			  }
-			
+
 		});
 
-			$('#iProbResponsablePane').easyAccordion({ 
-		  autoStart: false, 
+			$('#iProbResponsablePane').easyAccordion({
+		  autoStart: false,
 		  slideInterval: 3000
 		});
-		
+
 		//reviso si isUavd existe, ocultaremos algunos campos en la vista
-		
+
 		if(isUavd>=0)
-		
+
 		{
-			$("#tableUAVDOpsHide,#btnBuscarReincidencia,#btnConsultarExpedientes,#uploadArchivo").hide();					
+			$("#tableUAVDOpsHide,#btnBuscarReincidencia,#btnConsultarExpedientes,#uploadArchivo").hide();
 		}
-		
+
 		//Si es sistema tradicional ocultamos buscar reincidencias
-		if (sistemaTrad==true) {			
+		if (sistemaTrad==true) {
 			$("#btnBuscarReincidencia").hide();
 			$("#btnConsultarExpedientes").hide();
 		}
 
-			
+
 		$("#chkPResponsableMenor").click(creaNuevoTutor);
 		//cargaTipoOrganizacion();
 		//CAMBIO-ACT $("#iIngOrgBtnIngresarContacto").click(creaNuevoContactoOrganizacion);
@@ -415,48 +414,46 @@ DD P {
 		$('#anularInvolucrado').hide();
 		$("#anularInvolucrado").click(eliminarProbableResponsable);
 
-		
-		
+
+
 		configuraEventosCombosDeMediaFiliacion();
 	   /*
 		*Funcion que se utiliza para llamar al CU Consultar probable responsable
 		*si el id del prob responsable ,es null, no se ejecuta la consulta
-		*/			
+		*/
 		var id=idElemento;
 		if(id==null){
 			id=<%=request.getAttribute("idIndividuoProp")%>;
 			if(id!==null){
-				var estaDetenido =$('#chkPResponsableDetenido').is(':checked');
-				if(estaDetenido){
 					consulta(id);
-				}
 			}
-			//control de radio vivo o muerto
-            var RADIO_VIVO=1
-            $("input:radio[name=radio]").change(function(){
-                var valor=$("input:radio[name=radio]:checked").val();
-                $("#tableUAVDOpsHide :checkbox").attr('checked', false);
-                $("#datosDetenido").hide();
-                if(valor == RADIO_VIVO ){
-                         $('#chkDefensor').removeAttr('disabled');
-                         $('#chkPResponsableDetenido').removeAttr('disabled');
-                }else{
-                         $('#chkDefensor').attr("disabled","disabled");
-                         $('#chkPResponsableDetenido').attr("disabled","disabled");
-                }
-            });
 		}
+
+		//control de radio vivo o muerto
+                    var RADIO_VIVO=1
+                    $("input:radio[name=radio]").change(function(){
+                        var valor=$("input:radio[name=radio]:checked").val();
+                        $("#tableUAVDOpsHide :checkbox").attr('checked', false);
+                        $("#datosDetenido").hide();
+                        if(valor == RADIO_VIVO ){
+                                 $('#chkDefensor').removeAttr('disabled');
+                                 $('#chkPResponsableDetenido').removeAttr('disabled');
+                        }else{
+                                 $('#chkDefensor').attr("disabled","disabled");
+                                 $('#chkPResponsableDetenido').attr("disabled","disabled");
+                        }
+                    });
 		 //$('#chkDefensor').attr("disabled","disabled");
 		if(id!==null){
 			muestraDatosProbResponsable(id);
 		}
-		
+
 		var idProbableResponsable=<%=request.getParameter("idProbableResponsable")%>;
 		if(idProbableResponsable !== null){
 			$("img.ui-datepicker-trigger").hide();
 			$('#anularInvolucrado').show();
 			consulta(idProbableResponsable);
-		}   
+		}
 		else{
 			inicializaDatosGenerales();
 		}
@@ -466,25 +463,25 @@ DD P {
 		if(deshabilitarCampos == true || deshabilitarCampos == 'true'){
 			$(":enabled").attr('disabled','disabled');
 			$("#btnBuscarReincidencia").removeAttr('disabled');
-			$("#btnConsultarExpedientes").removeAttr('disabled');	
+			$("#btnConsultarExpedientes").removeAttr('disabled');
 		}
-		
+
 		//Configura pantalla de aucerdo al rol del usuario logeado
-		configurarPantallaPorRol();		
-		//$('#iVictimaBtnModificarDatos').hide();	
-		
-                
-                cargaSituacionJuridica();
-            	
+		configurarPantallaPorRol();
+		//$('#iVictimaBtnModificarDatos').hide();
+
+        var valor_combo = $('#situacionJuridicaVal').val();
+        cargaSituacionJuridica(valor_combo);
+
   });//FIN funcion onready
 
 
 	/*
-	*Funcion que encapsula la configuracion de la pantalla, con base al 
+	*Funcion que encapsula la configuracion de la pantalla, con base al
 	*rol del usuario logeado, independiente de la institucion
 	*/
 	function configurarPantallaPorRol(){
-                        
+
                 <%
                     if (rolId == Roles.PROCURADOR.getValorId() || rolId == Roles.SUBPROCURADOR.getValorId() || rolId == Roles.DIRECTOR_GENERAL.getValorId()
                             || rolId == Roles.DIRECTOR_UI.getValorId() || rolId == Roles.COORDINADORAMPGENERAL.getValorId()) {
@@ -495,7 +492,7 @@ DD P {
 			bloqueaCamposMediosDeContactoGrid();
 			habilitaDatosEspecificos();
 			$('#btnBuscarReincidencia').show();
-			$('#btnConsultarExpedientes').show();			
+			$('#btnConsultarExpedientes').show();
 			$('#btnBuscarReincidencia').attr("disabled","");
 			$('#btnConsultarExpedientes').attr("disabled","");
                 <%
@@ -525,8 +522,8 @@ DD P {
 			$("#cbxProbResponsableTipoResp").attr('disabled','disabled');
 			$('#chkDefensor').hide();
 			$('#lblDefensor').hide();
-						
-			$("#vivo").hide(); 
+
+			$("#vivo").hide();
 			$("#btnPResponsableEsVivo").hide();
 			$("#muerto").hide();
 			$("#btnPResponsableEsMuerto").hide();
@@ -535,10 +532,10 @@ DD P {
 			if(muestraDetenido !== 1){
 				$("#lblcondicion").hide();
 			}
-						
+
 			//Cuando una audiencia se encuentra finalizada, no se permiten realizar cambios
 			//var deshabilitarProbResp=<%=request.getParameter("deshabilitar")%>;
-                        
+
 			//if((rolId == <%=Roles.ENCARGADOSALA.getValorId()%>
 			//		|| rolId == <%=Roles.JUEZPJ.getValorId()%>) && deshabilitarProbResp==true){
 			//	 $('#iVictimaBtnModificarDatos').hide();
@@ -546,17 +543,17 @@ DD P {
                 <%
                     }
                 %>
-		
+
 	}
 
-  
+
 	/*
-	*Funcion que muestra los campos correspondientes, con base al 
+	*Funcion que muestra los campos correspondientes, con base al
 	*rol del usuario logeado, independiente de la institucion
 	*/
 	function habilitarPantallaPorRol(){
 
-		if (rolId == <%=Roles.DEFENSOR.getValorId()%> 
+		if (rolId == <%=Roles.DEFENSOR.getValorId()%>
 				|| rolId == <%=Roles.DEFENSORATE.getValorId()%>
 					|| rolId == <%=Roles.COORDINADORDEF.getValorId()%> ){
 			if (calidadInv == "DEFENDIDO"){
@@ -574,8 +571,8 @@ DD P {
 			$('#chkDefensor').hide();
 			$('#lblDefensor').hide();
 			$("#chkPResponsableDetenido").attr('disabled','disabled');
-			
-			
+
+
 		}else{
 			$('#anularInvolucrado').show();
 			$("#btnBuscarReincidencia").show();
@@ -597,15 +594,20 @@ DD P {
 		  				$('#btnPResponsableDesconocido').attr('checked','checked');
 		  				deshabilitaDatosGeneralesDomicilio();
 		  			  }
-		    		  detalleXMLDeInvolucrado = xml; 
+		  			  if($(xml).find('esDetenido').first().text() == "true"){
+                      	    $('#chkPResponsableDetenido').attr('checked',true);
+                      		habilitaDetenido();
+                      		bloqueaCamposTiempoLapso(0);
+                      }
+		    		  detalleXMLDeInvolucrado = xml;
 		    		  pintaDatosGenerales(xml);
-		    		  pintaDatosMultiselect(xml);  
+		    		  pintaDatosMultiselect(xml);
 		    		  pintaDatosDomicilio(xml);
 		    		  if($(xml).find('involucradoDTO').find('esMismoDomicilio').text() == "false"){
 				    	  pintaDatosDomicilioNotif(xml);
     				  }
-						
-						if($(xml).find('tipoPersona').text() == PERSONA_MORAL){							
+
+						if($(xml).find('tipoPersona').text() == PERSONA_MORAL){
 							if ($(xml).find('representanteLegal').find('elementoId').text()!="") {
 								var nomRepLegal = $(xml).find('representanteLegal').find('nombresDemograficoDTO').find('nombre').text();
 								var apPatRepLegal = $(xml).find('representanteLegal').find('nombresDemograficoDTO').find('apellidoPaterno').text();
@@ -613,10 +615,10 @@ DD P {
 								var nomComRepLegal = nomRepLegal+" "+apPatRepLegal+" "+apMatRepLegal;
 								cargaRepLegal(nomComRepLegal,$(xml).find('representanteLegal').find('elementoId').text());
 							}
-							
+
 							pintaDatosDomicilioOrganizacion(xml);
 							habilitaDeshabilitaCamposIngOrganizacion(0);
-							
+
 							esPersonaFisica=false;
 						}else{
 							esPersonaFisica=true;
@@ -634,7 +636,7 @@ DD P {
 		    			  $("#etiquetaDetenido").show();
 			    		  //habilitaDetenido(); No se debe invocar
 			    		  idDetencion = $(xml).find('involucradoDTO').find('detenciones').find('DetencionDTO').find('detencionId').first().text();
-			    		  
+
 			    	  }
 				  }
 		    });
@@ -667,17 +669,17 @@ DD P {
 						if($(xml).find('involucradoIdDefensor').text()!=""){
 			    		 	cargaDefensor(nombre,$(xml).find('involucradoIdDefensor').text());
 			    		 	$('#chkDefensor').attr("checked","checked");
-			    		 	$('#chkDefensor').attr("disabled","disabled");		    		 	
+			    		 	$('#chkDefensor').attr("disabled","disabled");
 						}
-						else{
-							$('#chkDefensor').attr("disabled","");						
-						}
-		    			
+						/*else{
+							$('#chkDefensor').attr("disabled","");
+						}*/
+
 					  }
 			    });
   			}
 		}
-		
+
   	  /*
   	  	Funcion para habilitar y deshabilirar las opciones de la tabla UAVD
   	  */
@@ -689,7 +691,7 @@ DD P {
 			   	 $("#btnPResponsableEsMuerto").attr('disabled','disabled');
 			   	 $("#btnPResponsableDesconocido").attr('disabled','disabled');
 			   	 $("#chkPResponsableDetenido").attr('disabled','disabled');
-			   	 //$("#chkDefensor").attr('disabled','disabled');
+			   	 $("#chkDefensor").attr('disabled','disabled');
 	  	}
 	  	else
 	  	{
@@ -703,11 +705,11 @@ DD P {
 
 /*
  *COMIENZAN FUNCIONES PARA EL CU CONSULTAR PROBABLE RESPONSABLE
- */  
+ */
  function habilitaDatos(){
-	 
+
 	 	$("img.ui-datepicker-trigger").show();
-	 	
+
 		habilitarDatosGenerales();
 		habilitarDatosDomicilio();
 		habilitaDatosMediaFiliacion();
@@ -718,14 +720,14 @@ DD P {
 
 		$('#iVictimaBtnGuardar').show();
 		$('#iVictimaBtnModificarDatos').hide();
-		
+
 		//Habilitar los demas componentes
 		$(":disabled").attr('disabled',false);
 
 		habilitarPantallaPorRol();
 		modificaGrid=true;
 	}
- 
+
 	 	/*
 	  	 *Funcion que realiza la consulta de los datos del probable responsable
 	     */
@@ -754,7 +756,7 @@ DD P {
 			else if($(xml).find('esVivo').first().text() == "false"){
 				$("#btnPResponsableEsMuerto").attr('checked','checked');
 			}
-			if($(xml).find('desconocido').text() == "true"){	
+			if($(xml).find('desconocido').text() == "true"){
 				$("#btnPResponsableDesconocido").attr('checked','checked');
 				deshabilitaDatosGeneralesDomicilio();
 				//$("#btnPResponsableDesconocido").click();
@@ -764,21 +766,21 @@ DD P {
 	  /*
 	   *Funcion que muestra los datos de la detencion, cuando el prob responsable es
 	   *persona fisica
-	   */		
+	   */
 		function muestraDatosDetenido(xml){
-			
+
 			if($(xml).find('esDetenido').first().text() == 'true'){
-				 $("#chkPResponsableDetenido").click();
+				habilitaDetenido();
 			}
-			$('#textNarrativa').val($(xml).find('expedienteDTO').find('narrativa').text());
+			/*$('#textNarrativa').val($(xml).find('expedienteDTO').find('narrativa').text());
 			cambiaOtro();
-			banderaNarrativa=1;
+			banderaNarrativa=1;*/
 		}
 
 	  /*
 	   *Funcion que verifica si el prob responsable es una persona f&iacute;sica o moral
 	   *y oculta o muestra los datos dependiendo de ello
-	   */	
+	   */
 		function muestraDatosPersona(xml){
 
 			var idTipoPersona = $(xml).find('tipoPersona').first().text();
@@ -788,10 +790,10 @@ DD P {
 				$('#btnPResponsableDesconocido').attr('checked','checked');
 				deshabilitaDatosGeneralesDomicilio();
 			}
- 						
+
 			$('#cbxProbResponsableTipoResp').find("option[value='"+idTipoPersona+"']").attr("selected","selected");
 			//$('#cbxProbResponsableTipoResp').find("option[value='"+0+"']").attr("selected","selected");
-			
+
 			if($(xml).find('tipoPersona').first().text() == "1"){
 			//if( idTipoPersona == 1){
 				muestraDatosCondicion(xml);
@@ -807,10 +809,10 @@ DD P {
 				seteaDatosPersonaMoralConsOrg(xml);
 				onSelectChangeTipoPersonaMoral();
 
-				
+
 			}
 		}
-			
+
 		/*CAMBIO-ACT
 		*Funcion para pintar los datos provenientes de la consulta de una organizacion
 		*/
@@ -841,7 +843,7 @@ DD P {
 		//	}
 		//	else
 		//	{
-		//		//habilito los campos 
+		//		//habilito los campos
 		//		$("#txtIngOrgNombreOrg").attr("disabled","");
 		//		$("#txtIngOrgNombreCortoOrg").attr("disabled","");
 		//		$("#txtIngOrgDirInternet").attr("disabled","");
@@ -851,30 +853,33 @@ DD P {
 /*
  *TERMINAN FUNCIONES PARA EL CU CONSULTAR PROBABLE RESPONSABLE
  */
-
+       var OPCION_DETENIDO_SITUCION_JUR=3703 //VALOR POR DEFAULT PARA SITUACION JURIDICA
+       var valor_sit_juridico=  ($('#situacionJuridicaVal').val()== undefined)? OPCION_DETENIDO_SITUCION_JUR :$('#situacionJuridicaVal').val()
 		function habilitaDetenido() {
 		  if ($("#chkPResponsableDetenido").is(':checked')) {
-			//$("#datosDetenido").toggle();		
+			$("#datosDetenido").css("display", "block");
+            $('#situacionJuridicaCombo').val(valor_sit_juridico);
 			if ($('#idFechaDateLapso').val() == '' || $('#idFechaDateLapso2').val() == '') {
-				 limpiaFechas();	
-			}				
+				 limpiaFechas();
+			}
 		  }
 		  else{
-			
-			//$("#datosDetenido").toggle();
-			$("#ingresarTiempoEspecificamentePResponsable").attr('disabled', 'disabled');															
+
+            $('#situacionJuridicaVal').val(OPCION_DETENIDO_SITUCION_JUR);
+			$("#datosDetenido").hide();
+			$("#ingresarTiempoEspecificamentePResponsable").attr('disabled', 'disabled');
 			$("#ingresarTiempoLapsoPResponsable").attr('disabled', '');
-			$("#ingresarTiempoOtroPResponsable").attr('disabled', 'disabled');		
+			$("#ingresarTiempoOtroPResponsable").attr('disabled', 'disabled');
 			limpiaFechas();
-		
-		  } 
+
+		  }
 		  $('#ingresarTiempoEspecificamentePResponsable').hide();
-		  $('#ingresarTiempoOtroPResponsable').hide(); 
+		  $('#ingresarTiempoOtroPResponsable').hide();
 		  habilitaTextDetenido();
 		  detenidoText=true;
 		  cambiaLapso();
 		}
-		
+
 		function anularDefensor(){
 			var datosPestania;
 			var params = '';
@@ -886,7 +891,7 @@ DD P {
 			datosPestania = obtenerParametrosDatosGenerales();//Frame de datos generales
 			params += datosPestania;
 			datosPestania = obtenerParametrosDatosNacimiento();
-			params += datosPestania;	
+			params += datosPestania;
 			datosPestania = obtenerParametrosDomicilio();
 			params += datosPestania;
 			datosPestania = obtenerMedios();
@@ -895,30 +900,30 @@ DD P {
 			params += '&';
 			params += datosPestania;
 			params += '&anular='+true;
-						
-			$.ajax({								
+
+			$.ajax({
 		    	  type: 'POST',
 		    	  url: '<%= request.getContextPath()%>/guardarIndividuo.do?numeroExpediente='+numeroExpediente +'',
-		    	  data: params,				
+		    	  data: params,
 		    	  dataType: 'xml',
 		    	  success: function(xml){
-		    		  customAlert('Defensor Anulado');		    		  
-		    		var row=$('#'+idConDefensor);					
+		    		  customAlert('Defensor Anulado');
+		    		var row=$('#'+idConDefensor);
 					$(row).remove();
-					$("#etiquetaDefensor").remove();		    		  
+					$("#etiquetaDefensor").remove();
 		    	  }
 		    });
-		}		
+		}
 
 		function muestraDefensor() {
 			if ($("#chkDefensor").is(':checked')) {
 				idWindowIngresarDefensor++;
 				$.newWindow({id:"iframewindowIngresarDefensor" + idWindowIngresarDefensor, statusBar: true, posx:150,posy:20,width:1040,height:570,title:"Ingresar Defensor", type:"iframe"});
-			    $.updateWindowContent("iframewindowIngresarDefensor" + idWindowIngresarDefensor,'<iframe src="<%=request.getContextPath()%>/ingresarDefensorView.do?numeroExpediente='+numeroExpediente +'&idPropPapa='+idindi+'" width="1040" height="570" />');		
+			    $.updateWindowContent("iframewindowIngresarDefensor" + idWindowIngresarDefensor,'<iframe src="<%=request.getContextPath()%>/ingresarDefensorView.do?numeroExpediente='+numeroExpediente +'&idPropPapa='+idindi+'" width="1040" height="570" />');
 			}
 			else{
 				if(idConDefensor!=null && idConDefensor!="null" && idConDefensor!=0){
-	                if (confirm("&iquest;Desea anular el defensor asociado?")){                      
+	                if (confirm("&iquest;Desea anular el defensor asociado?")){
 	                	anularDefensor();
 	                }
 					else{
@@ -927,10 +932,9 @@ DD P {
 				}
 			}
 		}
-		
+
 		function cargaSituacionJuridica(valorSituacion){
                     $('#situacionJuridicaCombo').addClass("cargando");
-
                     $.ajax({
                             type: 'POST',
                             url: '<%=request.getContextPath()%>/ConsultarCatalogoSituacionJuridicaDetenido.do',
@@ -944,27 +948,27 @@ DD P {
                                     });
 
                                     $('#situacionJuridicaCombo').removeClass("cargando");
-                                    $('#situacionJuridicaCombo').val(valorSituacion);
+                                     $('#situacionJuridicaCombo').val(valorSituacion);
                             }
                     });
-                }	
+        }
 		function limpiaFechas(){
 
 		  $("#idFechaDate").val("");
 		  $("#idFechaDateLapso").val("");
 		  $("#idFechaDateLapso2").val("");
-		  $("#textNarrativa").val("");							
+		  $("#textNarrativa").val("");
 		}
-		
-			
+
+
 		function creaNuevaNarrativa() {
 			if(!$("#divEspecifico").is(':visible')){
-				$("#divEspecifico").css("display", "none"); 
-				$("#divLapso").css("display", "none");  	 
+				$("#divEspecifico").css("display", "none");
+				$("#divLapso").css("display", "none");
 			}
 			if(!$("#divLapso").is(':visible')){
 				$("#divLapso").css("display", "none");
-				$("#divEspecifico").css("display", "none");  
+				$("#divEspecifico").css("display", "none");
 			}
 			cambiaOtro();
 			idWindowIngresarNarrativa++;
@@ -973,50 +977,50 @@ DD P {
 			}
 			else{
 				$.newWindow({id:"iframeWindowNarrativa" + idWindowIngresarNarrativa, statusBar: true, posx:410,posy:240,width:370,height:470,title:"Ingresar Narrativa", type:"iframe"});
-				$.updateWindowContent("iframeWindowNarrativa" + idWindowIngresarNarrativa,'<iframe src="<%=request.getContextPath()%>/IngresarNarrativaPro.do" width="1050" height="600" />');		
+				$.updateWindowContent("iframeWindowNarrativa" + idWindowIngresarNarrativa,'<iframe src="<%=request.getContextPath()%>/IngresarNarrativaPro.do" width="1050" height="600" />');
 			}
 		}
 
-			
+
 		function cambiaEspecifico(){
 		  if(!$("#divEspecifico").is(':visible')){
 			$("#divLapso").css("display", "none");
-			$("#divEspecifico").css("display", "block");  
-			$("#divOtro").css("display", "none"); 
+			$("#divEspecifico").css("display", "block");
+			$("#divOtro").css("display", "none");
 		  }
 		}
-		
-			
+
+
 		function cambiaLapso(){
 		  if(!$("#divLapso").is(':visible')){
 			$("#divLapso").css("display", "block");
 			$("#divEspecifico").css("display", "none");
-			$("#divOtro").css("display", "none"); 
+			$("#divOtro").css("display", "none");
 		  }
 		}
-		
-				
+
+
 		function cambiaOtro(){
 		  if(!$("#divLapso").is(':visible')||!$("#divEspecifico").is(':visible')){
 			$("#divLapso").css("display", "none");
-			$("#divEspecifico").css("display", "none"); 
+			$("#divEspecifico").css("display", "none");
 			$("#divOtro").css("display", "block");
 		  }
 		}
 
-			
+
 		/*
 		*Funcion para ocultar los datos generales y el domicilio
 		*en caso de que el probable responsable sea desconocido
 		*/
 		function deshabilitaDatosGeneralesDomicilio(){
-			
+
 		  if ($("#btnPResponsableDesconocido").is(':checked')) {
 			habilitaDeshabilitaTabAcordeon("cejaDatosGenerales","cejaMediaFiliacion",0);
 			habilitaDeshabilitaTabAcordeon("cejaDomicilio","cejaMediaFiliacion",0);
 			habilitaDeshabilitaTabAcordeon("cejaDocumentosIdentificacion","cejaMediaFiliacion",0);
 			habilitaDeshabilitaTabAcordeon("cejaMediosContacto","cejaMediaFiliacion",0);
-			
+
 		  }
 		  else{
 			habilitaDeshabilitaTabAcordeon("cejaDatosGenerales","cejaDatosGenerales",1);
@@ -1026,15 +1030,15 @@ DD P {
 			$('#datosGeneralesCmpNombres').val('');
 		  }
 		}
-			
-				
+
+
 		/*
 		 *Funcion para atender el evento onchange del combo de tipo de persona
 		 */
 		function onSelectChangeTipoPersonaMoral() {
-		
+
 		var selected = $("#cbxProbResponsableTipoResp option:selected");
-		  
+
 		  if (parseInt(selected.val()) == 1 ){
 			//Persona Fisica
 			$('#iProbResponsableWorkSheet').show();
@@ -1046,22 +1050,22 @@ DD P {
 			liveDomicilioNotificaciones();
 		  }
 		  else if (parseInt(selected.val()) == 0 ){
-			
+
 			//En caso de que previamente se haya seleccionado que el
 			//probable responsable esta detenido, hay que habilitar las cejas
-			$('#btnPResponsableDesconocido').attr('checked', false);	
-			deshabilitaDatosGeneralesDomicilio();	
+			$('#btnPResponsableDesconocido').attr('checked', false);
+			deshabilitaDatosGeneralesDomicilio();
 			//Persona Moral
 			$('#iProbResponsableWorkSheet').hide();
 			$('#iIngresarOrgWorkSheet').show();
 			habilitaDeshabilitaTabAcordeon("cejaDatosGenerales","cejaDomicilio",0);
 			habilitaDeshabilitaTabAcordeon("cejaMediaFiliacion","cejaDomicilio",0);
-			habilitaDeshabilitaTabAcordeon("cejaDocumentosIdentificacion","cejaDomicilio",0);		
+			habilitaDeshabilitaTabAcordeon("cejaDocumentosIdentificacion","cejaDomicilio",0);
 			killDomicilioNotificaciones();
 		  }
 		}
 
-				
+
 		/*
 		 * Funcion para deshabilitar el tab de un acordeon, se pasa el id del elemento DT a
 		 * deshabilitar y el id del elemento dt, para activar su pesta&ntilde;a correspondiente
@@ -1076,15 +1080,15 @@ DD P {
 		  }
 		  else{						//habilita los tabs del acordeon
 			  $("#"+idTabAcordeon).removeClass('inactive').addClass('no-more-active');
-			  $("#"+idTabAcordeon).click(function(){		
+			  $("#"+idTabAcordeon).click(function(){
 				  jQuery($("#"+idTabAcordeon)).activateSlide();
 			  });
 		  }
 		}
-			
-			
+
+
 		/*
-		 *Imprime los datos que vienen de la funcion espejoDatos de datos generales, 
+		 *Imprime los datos que vienen de la funcion espejoDatos de datos generales,
 		 *en la pantalla ingresar probable responsable
 		 */
 		function imprimeDatosPadre(nombre, apPat, apMat){
@@ -1092,8 +1096,8 @@ DD P {
 		  document.getElementById('apPatProbResponsable').innerHTML=apPat;
 		  document.getElementById('apMatProbResponsable').innerHTML=apMat;
 		}
-		
-		
+
+
 		/*
 		 *Imprime los datos que vienen de la funcion espejoDatosNarrativa de texto narrativa
 		 *en la pantalla ingresar probable responsable
@@ -1101,8 +1105,8 @@ DD P {
 		function imprimeDatosPadreNarrativa(textoNarrativa){
 		  $("#textNarrativa").val(textoNarrativa);
 		}
-			
-			
+
+
 		//Oculta botones Lapso y Otro
 		function deshabilitaBotonDosTres(){
 		  $("#ingresarTiempoLapsoPResponsable").attr('disabled', 'disabled');
@@ -1111,7 +1115,7 @@ DD P {
 
 
 		//Oculta botones Especificamente y Otro
-		function deshabilitaBotonUnoTres(){		
+		function deshabilitaBotonUnoTres(){
 		  $("#ingresarTiempoEspecificamentePResponsable").attr('disabled', 'disabled');
 		  $("#ingresarTiempoOtroPResponsable").attr('disabled', 'disabled');
 		}
@@ -1124,21 +1128,21 @@ DD P {
 
 
 		/*
-		*Limpia los datos de la ceja datos generales 
+		*Limpia los datos de la ceja datos generales
 		*/
 		function limpiaCejaDatosGenerales(){
 		  //El padre invoca una funci&oacute;n del hijo
-		  cleanDatosGenerales();  
-		}			
-			
-			
+		  cleanDatosGenerales();
+		}
+
+
        /*CAMBIO-ACT
 		*Funcion que dispara el Action para consultar el Tipo de Organizacion
-		*/		
-		//function cargaTipoOrganizacion(){ 
+		*/
+		//function cargaTipoOrganizacion(){
 		//	$.ajax({
 		//		type: 'POST',
-		
+
 		//		data: '',
 		//		dataType: 'xml',
 		//		success: function(xml){
@@ -1150,20 +1154,20 @@ DD P {
 		//		}
 		//	});
 		//}
-			
-			
+
+
 	   /*CAMBIO-ACT
 	  	*Funcion que crea una nueva ventana de un contacto de una organizacion
-		*/	
+		*/
 		//function creaNuevoContactoOrganizacion() {
 		//  idWindowIngContOrganizacion++;
 		//  $.newWindow({id:"iframewindow" + idWindowIngContOrganizacion, statusBar: true, posx:200,posy:50,width:1050,height:600,title:"Ingresar Contacto De Una Organizacion", type:"iframe"});
-		//  $.updateWindowContent("iframewindow" + idWindowIngContOrganizacion,'<iframe src="<%=request.getContextPath()%>/IngresarContactoDeUnaOrganizacion.do" width="1050" height="600" />');		
+		//  $.updateWindowContent("iframewindow" + idWindowIngContOrganizacion,'<iframe src="<%=request.getContextPath()%>/IngresarContactoDeUnaOrganizacion.do" width="1050" height="600" />');
 		//}
 
 		/*
 	  	*Funcion que crea una nueva ventana de un nuevo tutor
-		*/	
+		*/
 		function creaNuevoTutor() {
 		  idWindowIngTutor++;
 		  if ($("#chkPResponsableMenor").is(':checked')) {
@@ -1171,7 +1175,7 @@ DD P {
 			  $.updateWindowContent("iframewindow" + idWindowIngTutor,'<iframe src="<%=request.getContextPath()%>/IngresarTutor.do" width="1050" height="600" />');
 		  }
 		}
-			
+
 		/*CAMBIO-ACT
 		*Funcion para validar los datos generales de una organizacion
 		*/
@@ -1184,7 +1188,7 @@ DD P {
 		//		  //es probable responsable como Denunciante
 		//		  if(banderaDenunciaQuerella==1){
 		//			  //es denuncia
-		//			  
+		//
 		//		  }
 		//		  else{
 		//			  //es querella
@@ -1194,19 +1198,19 @@ DD P {
 		//		//revisamos la obligatoriedad de nombre de la organizacion
 		//		if(txtIngOrgNombreOrg.html().length>0){
 		//			bandera=true;
-		//		}	
+		//		}
 		//	  }
 		// }
 		//  return bandera;
 		//}
-		 
-		   
+
+
 		function btnGuardarOrganizacionCU(){
 			validaDatosGeneralesOrganizacion();
 		}
 
 		function deshabilitacheckboxdefensor(){
-		 	$('#chkDefensor').attr("disabled","disabled");		    
+		 	$('#chkDefensor').attr("disabled","disabled");
 		}
 
 		/**
@@ -1223,7 +1227,7 @@ DD P {
 			var fechasDetencion;
 			var validaRFC_CURP;
 			validaRFC_CURP=camposGeneralesValidos();
-			
+
 			if(validaRFC_CURP==1){
 				if(nombreGeneralOP=="" && desconocidoOp!=true && tipoResponsable == PERSONA_FISICA){
 					customAlert('Favor de capturar el nombre del involucrado correctamente');
@@ -1238,18 +1242,18 @@ DD P {
 								}
 							}
 						%>
-				  
+
 					var params = '';
-					
+
 					if (calidadInv == "DEFENDIDO"){
 						params += 'calidadDelIndividuo=12';
 					}
 					else { //Probable responsable
 						params += 'calidadDelIndividuo=0';
 					}
-					
-					params += '&numeroExpediente='+numeroExpediente;				
-					
+
+					params += '&numeroExpediente='+numeroExpediente;
+
 					if(tipoResponsable == PERSONA_FISICA){//Tipo de responsable fisico
 						params += '&idIndividuo='+idindi;
 						params+='&esPersonaMoral=false';
@@ -1257,43 +1261,43 @@ DD P {
 						params+='&esVivo=' + $('#btnPResponsableEsVivo').is(':checked');
 						params+='&esDesconocido=' + $('#btnPResponsableDesconocido').is(':checked');
 						params+='&esMenorDeEdad=' + $('#chkPResponsableMenor').is(':checked');
-						
+
 						var estaDetenido =$('#chkPResponsableDetenido').is(':checked');
 						if(estaDetenido){
 							 $('#ingresarTiempoLapsoPResponsable').attr("disabled","");
 						}
 						params+='&estaDetenido=' + estaDetenido;
-						if(estaDetenido){//Cuando el check detenido es palomeado 
+						if(estaDetenido){//Cuando el check detenido es palomeado
 							//Datos de detencion
 							var datosPestania =	"&"+recuperaDatosTiempoLapso();
-							params += datosPestania;	
+							params += datosPestania;
 							params += '&idDetencion='+ idDetencion;
-						}		
+						}
 						//Datos generales, media filiacion, medios de contacto, documentos de identificacion
 						datosPestania = obtenerParametrosDatosGenerales();//Include de datos generales
 						params += datosPestania;
-		
+
 						//Datos nacimiento
 						datosPestania = obtenerParametrosDatosNacimiento();
 						params += datosPestania;
-						
+
 						//Domicilio
 						datosPestania = obtenerParametrosDomicilio();
 						params += datosPestania;
-		
+
 						//Media Filiacion
 						datosPestania = obtenerParametrosMediaFiliacion();
 						params += datosPestania;
-		
+
 						//Medios de contacto
 						datosPestania = obtenerMedios();
 						params += datosPestania;
-		
+
 						//Documento de identificacion
 						datosPestania = '&';
 						datosPestania += recuperaDatosTipoDocIdentificacion();
 						params += datosPestania;
-	
+
 						//verificar que cuando esta marcado Detenido, lleve las fechas
 						if(estaDetenido && ($('#idFechaDateLapso').val() == '' || $('#idFechaDateLapso2').val() == '')) {
 							customAlert("Debes ingresar tanto la fecha de inicio como la de fin");
@@ -1303,12 +1307,12 @@ DD P {
 						    try{
 								$('#iVictimaBtnGuardar').unbind();
 							}catch(e){};
-						
+
 							var op=0;
-							$.ajax({								
+							$.ajax({
 						    	  type: 'POST',
 						    	  url: '<%=request.getContextPath()%>/guardarIndividuo.do',
-						    	  data: params,				
+						    	  data: params,
 						    	  dataType: 'xml',
 						    	  success: function(xml){
 						    		if(elemntoNuevo=="si"){
@@ -1341,7 +1345,7 @@ DD P {
 						    	});
 						}
 					} //end persona fisica
-					
+
 					else{//Tipo de responsable moral
 						if(validaNombreYTipo()){
 							$("#iIngOrgBtnGuardar").click(guardarProbResponsable);
@@ -1353,13 +1357,13 @@ DD P {
 						params += '&calidadPersonaMoral='+calidadInv;
 						params += '&'+extraeDatosPersonaMoralIngOrg();//datos generales de organizacion
 						params += obtenerParametrosDomicilio();//datos del domicilio de la organizacion
-						params += obtenerMedios();//datos de los medios de contacto de la organizacion					
+						params += obtenerMedios();//datos de los medios de contacto de la organizacion
 						//llamamos al ajax que guardara la informacion de la organizacion
-						$.ajax({								
+						$.ajax({
 					    	  type: 'POST',
 					    	  async: true,
 					    	  url: '<%=request.getContextPath()%>/guardarOrganizacion.do',
-					    	  data: params,				
+					    	  data: params,
 					    	  dataType: 'xml',
 					    	  success: function(xml){
 					    		  if(parseInt($(xml).find('code').text())==0)
@@ -1367,7 +1371,7 @@ DD P {
 					    			//el guardado fue exitoso
 					    			idOrganizacion=$(xml).find('organizacionId').text();//seteamos el id de la nueva organizacion
 					    			idElementoOrganizaion=$(xml).find('organizacionDTO').find('elementoId').first().text();
-					    			//revisamos si se elimino el objeto durante la actualizacion  
+					    			//revisamos si se elimino el objeto durante la actualizacion
 									if($('#anularInvolucrado').is(':checked')=='false' || $('#anularInvolucrado').is(':checked')==false)
 									{
 						    			  var nombre =$(xml).find('organizacionDTO').find('nombreOrganizacion').text();
@@ -1393,33 +1397,33 @@ DD P {
 					    			  idOrganizacion=0;
 					    			  customAlert("Ocurri&oacute; un error al guardar la organizaci&oacute;n");
 					    			  op=1;
-					    		  }				    		
-					    	  }					
+					    		  }
+					    	  }
 					    	});
 					  }//end responsable moral
-					  
+
 					 <%
-						
+
 						if(confInstitucionDTO != null && confInstitucionDTO.getConfInstitucionId()!= null) {
 							if (confInstitucionDTO.getConfInstitucionId() != Instituciones.SSP.getValorId()) {
-				
+
 					%>
 							}//end validacion isnumeroDecimal
-							
+
 					<%
 							}
 						}
 					%>
-					  
-					  
+
+
 				}//end validacion nombre
-				
+
 				else if(  desconocidoOp!="true" || desconocidoOp==true){
 					var params = '';
-					
+
 					params +='esVivo=' + $('#btnPResponsableEsVivo').is(':checked');
 					params += '&calidadDelIndividuo=0';
-					params += '&numeroExpediente='+numeroExpediente;				
+					params += '&numeroExpediente='+numeroExpediente;
 					var tipoResponsable = $("#cbxProbResponsableTipoResp option:selected").val();
 					if(tipoResponsable == PERSONA_FISICA){ //Tipo de responsable fisico
 						params += '&idIndividuo='+idindi;
@@ -1427,53 +1431,53 @@ DD P {
 						params+='&idCondicion=' + $(':radio[name=radio]:checked').val();
 						params+='&esDesconocido=' + $('#btnPResponsableDesconocido').is(':checked');
 						params+='&esMenorDeEdad=' + $('#chkPResponsableMenor').is(':checked');
-						
+
 						var estaDetenido =$('#chkPResponsableDetenido').is(':checked');
 						if(estaDetenido){
 							 $('#ingresarTiempoLapsoPResponsable').attr("disabled","");
 						}
 						params+='&estaDetenido=' + estaDetenido;
-						if(estaDetenido){//Cuando el check detenido es palomeado 
+						if(estaDetenido){//Cuando el check detenido es palomeado
 							//Datos de detencion
 							var datosPestania =	"&"+recuperaDatosTiempoLapso();
-							params += datosPestania;	
+							params += datosPestania;
 							params += '&idDetencion='+ idDetencion;
-						}		
+						}
 						//Datos generales, media filiacion, medios de contacto, documentos de identificacion
 						datosPestania = obtenerParametrosDatosGenerales();//Include de datos generales
 						params += datosPestania;
-		
+
 						//Datos nacimiento
 						datosPestania = obtenerParametrosDatosNacimiento();
 						params += datosPestania;
-						
+
 						//Domicilio
 						datosPestania = obtenerParametrosDomicilio();
 						params += datosPestania;
-		
+
 						//Media Filiacion
 						datosPestania = obtenerParametrosMediaFiliacion();
 						params += datosPestania;
-		
+
 						//Medios de contacto
 						datosPestania = obtenerMedios();
 						params += datosPestania;
-		
+
 						//Documento de identificacion
 						datosPestania = '&';
 						datosPestania += recuperaDatosTipoDocIdentificacion();
 						params += datosPestania;
-	
+
 						if(estaDetenido && ($('#idFechaDateLapso').val() == '' || $('#idFechaDateLapso2').val() == '')) {
 							customAlert("Debes ingresar tanto la fecha de inicio como la de fin");
 							fechasDetencion = false;
 						}
 						else{
 							var op=0;
-							$.ajax({								
+							$.ajax({
 						    	  type: 'POST',
 						    	  url: '<%=request.getContextPath()%>/guardarIndividuo.do',
-						    	  data: params,				
+						    	  data: params,
 						    	  dataType: 'xml',
 						    	  success: function(xml){
 						    		if(elemntoNuevo=="si"){
@@ -1485,7 +1489,7 @@ DD P {
 										 try{
 								    		  window.parent.muestraMenuQuienDetuvo();
 										  }catch(e){};
-									}	
+									}
 									idindi=$(xml).find('IngresarIndividuoForm').find('idIndividuo').text();
 									idElemento = idindi;
 									op=1;
@@ -1493,8 +1497,8 @@ DD P {
 									var texto = probableResponsableProp + " guardado";
 									customAlert(texto);
 									enviaImagenDeElemento(idElemento,idindi);
-									
-									
+
+
 						    	  }
 						    	});
 						}
@@ -1510,13 +1514,13 @@ DD P {
 						params += '&'+extraeDatosPersonaMoralIngOrg();//datos generales de organizacion
 						params += obtenerParametrosDomicilio();//datos del domicilio de la organizacion
 						params += obtenerMedios();//datos de los medios de contacto de la organizacion
-						
+
 						//llamamos al ajax que guardara la informacion de la organizacion
-						$.ajax({								
+						$.ajax({
 					    	  type: 'POST',
 					    	  async: true,
 					    	  url: '<%=request.getContextPath()%>/guardarOrganizacion.do',
-					    	  data: params,				
+					    	  data: params,
 					    	  dataType: 'xml',
 					    	  success: function(xml){
 					    		  if(parseInt($(xml).find('code').text())==0)
@@ -1524,7 +1528,7 @@ DD P {
 					    			  //el guardado fue exitoso
 					    			  idOrganizacion=$(xml).find('organizacionId').text();//seteamos el id de la nueva organizacion
 					    			  idElementoOrganizaion=$(xml).find('organizacionDTO').find('elementoId').first().text();
-						    		//revisamos si se elimino el objeto durante la actualizacion  
+						    		//revisamos si se elimino el objeto durante la actualizacion
 										if($('#anularInvolucrado').is(':checked')=='false' || $('#anularInvolucrado').is(':checked')==false)
 										{
 							    			  var nombre =$(xml).find('organizacionDTO').find('nombreOrganizacion').text();
@@ -1550,15 +1554,15 @@ DD P {
 					    			  idOrganizacion=0;
 					    			  customAlert("Ocurri&oacute; un error al guardar la organizaci&oacute;n");
 					    			  op=1;
-					    		  }	    		 
-					    	  }					
+					    		  }
+					    	  }
 					    	});
 					}
 				}else{
 					customAlert('Favor de capturar el nombre del involucrado correctamente');
 				}
 			}
-			
+
 		}//end validar RFC
 		else if(validaRFC_CURP==0){
 			customAlert("Favor de verificar que el CURP ingresado este correcto");
@@ -1567,34 +1571,34 @@ DD P {
 			customAlert("Favor de verificar que el RFC ingresado este correcto");
 		}
 			$("#iIngOrgBtnGuardar").click(guardarProbResponsable);
-	}				
+	}
 
-		
-		function eliminarProbableResponsable(){					
+
+		function eliminarProbableResponsable(){
 			guardarProbableResponsableEliminar();
 			//window.parent.eliminaProbableResponsableDeMenuIntermedio(idindi);
-			//window.parent.cerrarVentanaProbableResponsable();					
+			//window.parent.cerrarVentanaProbableResponsable();
 		}
-		
+
 		function guardarProbableResponsableEliminar(){
 			if(idindi!='null' && idindi!=0)
 			{
 				//debemos mostrar un confirm
-				
+
 				var texto = "&iquest;Est&aacute; seguro que desea anular al " +
 							msjProbableResponsableProp + "?";
 				customConfirm (texto, "", anularInvolucrado);
 			}
 		}
-		
-		
+
+
 		//Funcion que manda a anular al involucrado en la BD
 		function anularInvolucrado(){
 			//primero revisaremos si el involucrado cuenta con relaciones
-			$.ajax({								
+			$.ajax({
 		    	  type: 'POST',
 		    	  url: '<%= request.getContextPath()%>/consultarRelacionesElementoXId.do',
-		    	  data: 'idElemento='+idindi,				
+		    	  data: 'idElemento='+idindi,
 		    	  dataType: 'xml',
 		    	  success: function(xml){
 		    		  	   //revisamo si hubo relaciones o no
@@ -1638,15 +1642,15 @@ DD P {
 		    	  }
 		    });
 		}
-		
+
 		//Funcion que manda a borrar un elemento con sus relaciones
 		function anularInvolucradoCnRelaciones()
 		{
 			//el elemento no cuenta con relaciones por lo tanto se puede anular
-	    	   $.ajax({								
+	    	   $.ajax({
 			    	  type: 'POST',
 			    	  url: '<%= request.getContextPath()%>/anularElemento.do',
-			    	  data: 'idIndividuo='+idindi,				
+			    	  data: 'idIndividuo='+idindi,
 			    	  dataType: 'xml',
 			    	  success: function(xml){
 			    		//procederemos a tratar de eliminar la evidencia
@@ -1656,7 +1660,7 @@ DD P {
 								var texto = "S&eacute; logr&oacute; anular al " +
 								msjProbableResponsableProp +
 								" con &eacute;xito";
-									
+
 								window.parent.customAlert(texto);
 								cerrarCustomVentana();
 								//window.parent.cerrarVentanaVictima();
@@ -1682,22 +1686,22 @@ DD P {
 	//Funcionalidad agregada a peticion de lupita (esta pendiente de aceptacion) 16/05/2011
 		function buscarExpediente() {
 			$.newWindow({id:"iframewindowBuscarExpediente", statusBar: true, posx:255,posy:110,width:653,height:400,title:"Buscar Expediente", type:"iframe"});
-		   	$.updateWindowContent("iframewindowBuscarExpediente",'<iframe src="<%=request.getContextPath()%>/buscarExpediente.do" width="653" height="400" />');		
+		   	$.updateWindowContent("iframewindowBuscarExpediente",'<iframe src="<%=request.getContextPath()%>/buscarExpediente.do" width="653" height="400" />');
 		}
 
-		
+
 		function buscarCaso() {
 			$.newWindow({id:"iframewindowBuscarCaso", statusBar: true, posx:255,posy:110,width:653,height:400,title:"Buscar Caso", type:"iframe"});
-	    	$.updateWindowContent("iframewindowBuscarCaso",'<iframe src="<%=request.getContextPath()%>/buscarCaso.do" width="653" height="400" />');		
+	    	$.updateWindowContent("iframewindowBuscarCaso",'<iframe src="<%=request.getContextPath()%>/buscarCaso.do" width="653" height="400" />');
 		}
-		
+
 		 function obtenerParametrosMediaFiliacion()
-		   {	
+		   {
 			 <%
-				
+
 				if(confInstitucionDTO != null && confInstitucionDTO.getConfInstitucionId()!= null) {
 					if (confInstitucionDTO.getConfInstitucionId() == Instituciones.SSP.getValorId()) {
-		
+
 			%>
 					return ""; // si es SSP no regresa Media Afiliacion
 			<%
@@ -1767,25 +1771,25 @@ DD P {
 					 parametros += '&defectosSenas=' + "0";
 				}
 				 parametros += '&defectosSenasText=' +$('#Defectostext').val();
-				 
-				 
+
+
 				 parametros += '&factorrhOtros=' + $('#cmpFactorRH option:selected').val();
-			    
+
 					if($("#lentes1").is(':checked')){
 						 parametros += '&lentesOtros=' + "1";
 					}else{
 						 parametros += '&lentesOtros=' + "0";
 					}
 					parametros += '&tipoSangreOtros=' + $('#cmpTipoSangre option:selected').val();
-						
+
 						parametros += '&complexion=' + $('#cmpComplexion option:selected').val();
-								  
+
 								parametros += '&direccionCeja=' + $('#cmpDireccionCejas option:selected').val();
 
 								parametros += '&helixOriginal=' + $('#cmpHelixOriginal option:selected').val();
 
 								parametros += '&orejaLobContorno=' + $('#cmplobuloContorno option:selected').val();
-								
+
 					 if($("#barba1").is(':checked')){
 						 parametros += '&barbaOtros=' + "1";
 					}else{
@@ -1798,8 +1802,8 @@ DD P {
 					}else{
 						 parametros += '&bigoteOtros=' + "0";
 					}
-					 parametros += '&estauraOtros=' +$('#estatura').val();						
-		       
+					 parametros += '&estauraOtros=' +$('#estatura').val();
+
                         //Jacob
 		        parametros += '&alturaNasoLabial=' + $('#altura_nasal option:selected').val();
 		        parametros += '&comisuras=' + $('#comisuras option:selected').val();
@@ -1814,10 +1818,10 @@ DD P {
 		        parametros += '&frenteAncho=' + $('#frente_ancho option:selected').val();
 		        parametros += '&inclinacionFrente=' + $('#inclinacion_frente option:selected').val();
                         // Fin Jacob
-		        
+
 		        return parametros;
 		   }
-	    
+
 		    function pintaDatosMediaFiliacion(xml){
 				 //Media Filiacion Cara
 				 var tamanoBoca=$(xml).find('involucradoDTO').find('mediaFiliacionDTO').find('tamanioBoca').find('idCampo').text();
@@ -1844,7 +1848,7 @@ DD P {
 				 $('#cmpCabelloImplantacion').find("option[value='"+cabelloImplantacion+"']").attr("selected","selected");
 				 var cantidadCabello=$(xml).find('involucradoDTO').find('mediaFiliacionDTO').find('cabelloCantidad').find('idCampo').text();
 				 $('#cmpCantidadCabello').find("option[value='"+cantidadCabello+"']").attr("selected","selected");
-				 
+
 				 //Media Filiacion Oreja
 				 var tamanoOreja=$(xml).find('involucradoDTO').find('mediaFiliacionDTO').find('orejaTamanio').find('idCampo').text();
 				 $('#cmpTamanoOreja').find("option[value='"+tamanoOreja+"']").attr("selected","selected");
@@ -1864,7 +1868,7 @@ DD P {
 				 $('#cmpHelixAdherencia').find("option[value='"+helixAdherencia+"']").attr("selected","selected");
 				 var formaOreja=$(xml).find('involucradoDTO').find('mediaFiliacionDTO').find('formaOreja').find('idCampo').text();
 				 $('#cmpFormaOreja').find("option[value='"+formaOreja+"']").attr("selected","selected");
-				 
+
 				 //Media Filiacion Ojos
 				 var tamanoOjos=$(xml).find('involucradoDTO').find('mediaFiliacionDTO').find('tamanioOjo').find('idCampo').text();
 				 $('#cmpTamanoOjos').find("option[value='"+tamanoOjos+"']").attr("selected","selected");
@@ -1892,7 +1896,7 @@ DD P {
 				 $('#raiz_nariz').find("option[value='"+raiznariz+"']").attr("selected","selected");
 				 var baseNariz=$(xml).find('involucradoDTO').find('mediaFiliacionDTO').find('baseNariz').find('idCampo').text();
 				 $('#base_nariz').find("option[value='"+baseNariz+"']").attr("selected","selected");
-				 
+
 				 var alturaFrente=$(xml).find('involucradoDTO').find('mediaFiliacionDTO').find('frenteAltura').find('idCampo').text();
 				 $('#frente_altura').find("option[value='"+alturaFrente+"']").attr("selected","selected");
 				 var anchoFrente=$(xml).find('involucradoDTO').find('mediaFiliacionDTO').find('frenteAncho').find('idCampo').text();
@@ -1934,7 +1938,7 @@ DD P {
                 	$('#Defectos1').attr("checked","checked");
                 }else{
                 	$('#Defectos2').attr("checked","checked");
-                }	
+                }
                 var defectosPartiText=$(xml).find('involucradoDTO').find('mediaFiliacionDTO').find('seniaParticularDTO').find('descripcionDefectosFisicos').text();
                 $('#Defectostext').val(defectosPartiText);
                 var protesisParti=$(xml).find('involucradoDTO').find('mediaFiliacionDTO').find('seniaParticularDTO').find('tieneProtesis').text();
@@ -1968,7 +1972,7 @@ DD P {
 				 var complexion=$(xml).find('involucradoDTO').find('mediaFiliacionDTO').find('complexion').find('idCampo').text();
 				 $('#cmpComplexion').find("option[value='"+complexion+"']").attr("selected","selected");
 
-				   
+
 				 var lobuloContorno=$(xml).find('involucradoDTO').find('mediaFiliacionDTO').find('orejaLobContorno').find('idCampo').text();
 				 $('#cmplobuloContorno').find("option[value='"+lobuloContorno+"']").attr("selected","selected");
 
@@ -1977,8 +1981,8 @@ DD P {
 
 				 var direccionCejas=$(xml).find('involucradoDTO').find('mediaFiliacionDTO').find('direccionCeja').find('idCampo').text();
 				 $('#cmpDireccionCejas').find("option[value='"+direccionCejas+"']").attr("selected","selected");
-				 
-				
+
+
 				 var barba=$(xml).find('involucradoDTO').find('mediaFiliacionDTO').find('tieneBarba').text();
                     if(barba=="true"){
                     	$('#barba1').attr("checked","checked");
@@ -1995,7 +1999,7 @@ DD P {
                     }else{
                     	$('#bigote2').attr("checked","checked");
                     }
-                    
+
 			}
 
 			function deshabilitaDatosMediaFiliacion(){
@@ -2011,7 +2015,7 @@ DD P {
 				 $('#cmpCalvieTipo').attr("disabled","disabled");
 				 $('#cmpCabelloImplantacion').attr("disabled","disabled");
 				 $('#cmpCantidadCabello').attr("disabled","disabled");
-				 
+
 				 $('#cmpTamanoOreja').attr("disabled","disabled");
 				 $('#cmpLobuloParticularidad').attr("disabled","disabled");
 				 $('#cmpLobuloDimension').attr("disabled","disabled");
@@ -2072,7 +2076,7 @@ DD P {
 				  $('#cmpHelixOriginal').attr("disabled","disabled");
 				  $('#cmpDireccionCejas').attr("disabled","disabled");
 				  $('#cmpFormaOreja').attr("disabled","disabled");
-				  
+
 			}
 
 			/*
@@ -2080,9 +2084,9 @@ DD P {
 			*de defensor&iacute;a
 			*/
 			function enviaAvisoDetencion(){
-				
+
 				var params = '';
-				
+
 				params += 'idIndividuo='+idindi;
 				params += '&calidadDelIndividuo=0';
 				params += '&numeroExpediente='+numeroExpediente;
@@ -2090,7 +2094,7 @@ DD P {
 				params+='&idCondicion=' + $(':radio[name=radio]:checked').val();
 				params+='&esDesconocido=' + $('#btnPResponsableDesconocido').is(':checked');
 				params+='&esMenorDeEdad=' + $('#chkPResponsableMenor').is(':checked');
-					
+
 				var estaDetenido =$('#chkPResponsableDetenido').is(':checked');
 
 				if(estaDetenido){
@@ -2098,27 +2102,27 @@ DD P {
 				}
 				params+='&estaDetenido=' + estaDetenido;
 				//Datos generales, media filiacion, medios de contacto, documentos de identificacion
-				
+
 				var datosPestania = obtenerParametrosDatosGenerales();//Include de datos generales
 
 				params += datosPestania;
 				//DAtos fechas
 				datosPestania = "&"+recuperaDatosTiempoLapso();
 				params += datosPestania;
-				
+
 				var op=0;
 				bloquearPantalla();
-				$.ajax({								
+				$.ajax({
 					type: 'POST',
 			    	url: '<%=request.getContextPath()%>/enviarAvisosDetencion.do',
-			    	data: params,				
+			    	data: params,
 			    	dataType: 'xml',
 			    	success: function(xml){
 			    		if(parseInt($(xml).find('code').text())==0){
-							if($(xml).find('body').text() != null 
+							if($(xml).find('body').text() != null
 									&& $(xml).find('body').text() != "null"
 										&& $(xml).find('body').text() != ""){
-								alertDinamico($(xml).find('body').text());								
+								alertDinamico($(xml).find('body').text());
 								//bloqueaCamposTiempoLapso(0);
 							}
 						}else{
@@ -2134,10 +2138,10 @@ DD P {
 
 			function habilitaDatosMediaFiliacion(){
 			//	var $widget = $("select").multiselect();
-			//	var	state = true; 
-			 //  state = !state; 
-			  // $widget.multiselect(state ? 'disable' : 'enable'); 
-				
+			//	var	state = true;
+			 //  state = !state;
+			  // $widget.multiselect(state ? 'disable' : 'enable');
+
 				 $('#cmpTamanoBoca').attr("disabled","");
 				 $('#cmpTipoCara').attr("disabled","");
 				 $('#cmpFormaMenton').attr("disabled","");
@@ -2150,7 +2154,7 @@ DD P {
 				 $('#cmpCalvieTipo').attr("disabled","");
 				 $('#cmpCabelloImplantacion').attr("disabled","");
 				 $('#cmpCantidadCabello').attr("disabled","");
-				 
+
 				 $('#cmpTamanoOreja').attr("disabled","");
 				 $('#cmpLobuloParticularidad').attr("disabled","");
 				 $('#cmpLobuloDimension').attr("disabled","");
@@ -2213,27 +2217,27 @@ DD P {
 				  $('#cmpDireccionCejas').attr("disabled","");
 				  $('#cmpFormaOreja').attr("disabled","");
 			}
-			
+
 			//Llena el grid con los resultados de la busqueda
 			var banderaCargarORecargar=0;
 			function cargaGridReincidenciaElemento() {
 				var valorCampoNombre = document.getElementById('datosGeneralesCmpNombres').value;
 				var valorCampoApPat  = document.getElementById('datosGeneralesCmpApaterno').value;
 				var valorCampoApMat = document.getElementById('datosGeneralesCmpMaterno').value;
-				
+
 				if(valorCampoNombre == "")
 					valorCampoNombre = null
 				if(valorCampoApPat == "")
 					valorCampoApPat = null
 				if(valorCampoApMat == "")
 					valorCampoApMat = null
-										
-				if(valorCampoNombre == null || valorCampoApPat == null ||  valorCampoApMat == null)	
+
+				if(valorCampoNombre == null || valorCampoApPat == null ||  valorCampoApMat == null)
 					customAlert("Es necesario escribir el nombre completo para poder consultar la reincidencia");
 				else{
-					
+
 					if(esCoordinadorAmpGeneral==true){
-						muestraPopupReincidenciaConsulta();						
+						muestraPopupReincidenciaConsulta();
 					}
 					else{
 						muestraPopupReincidenciaElemento();
@@ -2241,11 +2245,11 @@ DD P {
 					//Inicia grid
 					if(banderaCargarORecargar==0){
 						jQuery("#gridReincidenciaElemento").jqGrid({
-										url:'<%=request.getContextPath()%>/buscarReincidenciaDePersona.do?idElemento='+idElemento+'&nombre='+valorCampoNombre +'&paterno='+valorCampoApPat+'&materno='+valorCampoApMat+ '&numeroExpediente='+ numeroExpediente+'', 
+										url:'<%=request.getContextPath()%>/buscarReincidenciaDePersona.do?idElemento='+idElemento+'&nombre='+valorCampoNombre +'&paterno='+valorCampoApPat+'&materno='+valorCampoApMat+ '&numeroExpediente='+ numeroExpediente+'',
 										datatype: "xml",
 										colNames:['Numero General del caso','Fecha de Apertura','Estatus'],
 										colModel:[ 	{name:'NumeroGeneralCaso',index:'numeroGeneralCaso', width:200},
-													{name:'FechaApertura',index:'fechaApertura', width:120},							
+													{name:'FechaApertura',index:'fechaApertura', width:120},
 													{name:'Estatus',index:'estatus', width:100}
 													],
 							pager: jQuery('#paginadorReincidenciaElemento'),
@@ -2269,23 +2273,23 @@ DD P {
 				    }//Fin grid
 				}
 			}
-			
+
 			//Inician cambios de RGG
 			function muestraPopupReincidenciaElemento()
-			{	
+			{
 					$( "#dialog-Reincidencia").dialog({
 						resizable: true,
 						width:500,
-						height:320,					
+						height:320,
 						modal: true,
 						buttons: {
 							"Relacionar": function() {
-								
+
 								if(deshabilitarCampos == false){
-								
+
 									var longitudTabla = jQuery("#gridReincidenciaElemento").getDataIDs();
 									var numeroExpedientes = longitudTabla.length;
-									
+
 						       		if(numeroExpedientes>0){
 						       			if(jQuery("#gridReincidenciaElemento").jqGrid('getGridParam','selarrrow') != ""){
 											registrarReincidenciasXElemento();
@@ -2295,7 +2299,7 @@ DD P {
 									}
 									else{
 										customAlert("No hay expedientes por relacionar");
-									}			       											
+									}
 								}
 							},
 
@@ -2306,15 +2310,15 @@ DD P {
 							}
 						}
 					});
-					$( ".ui-icon-closethick,.ui-dialog-titlebar-close" ).hide();	
+					$( ".ui-icon-closethick,.ui-dialog-titlebar-close" ).hide();
 			}
 
 			function muestraPopupReincidenciaConsulta()
-			{	
+			{
 					$( "#dialog-Reincidencia").dialog({
 						resizable: true,
 						width:500,
-						height:320,					
+						height:320,
 						modal: true,
 						buttons: {
 							"Cerrar": function() {
@@ -2324,7 +2328,7 @@ DD P {
 							}
 						}
 					});
-					$( ".ui-icon-closethick,.ui-dialog-titlebar-close" ).hide();	
+					$( ".ui-icon-closethick,.ui-dialog-titlebar-close" ).hide();
 			}
 
 			//Llena el grid con los resultados de la busqueda de las relaciones entre un elemento y los casos registrados en BD
@@ -2338,7 +2342,7 @@ DD P {
 										datatype: "xml",
 										colNames:['Numero General del caso','Fecha de Apertura','Estatus'],
 										colModel:[ 	{name:'NumeroGeneralCaso',index:'numeroGeneralCaso', width:200},
-													{name:'FechaApertura',index:'fechaApertura', width:120},							
+													{name:'FechaApertura',index:'fechaApertura', width:120},
 													{name:'Estatus',index:'estatus', width:100}
 													],
 							pager: jQuery('#paginadorReincidenciaElementoCaso'),
@@ -2355,20 +2359,20 @@ DD P {
 					}
 					else{
 				    	jQuery("#gridReincidenciaElementoCaso").jqGrid('setGridParam',{
-				    		url:'<%=request.getContextPath()%>/consultarReincidenciaXElemento.do?numeroExpediente='+numeroExpediente+'&idElemento='+idElemento + 
+				    		url:'<%=request.getContextPath()%>/consultarReincidenciaXElemento.do?numeroExpediente='+numeroExpediente+'&idElemento='+idElemento +
 							'',datatype: "xml" });
 						$("#gridReincidenciaElementoCaso").trigger("reloadGrid");
-				    }//Fin grid		
+				    }//Fin grid
 			}
 
-			
+
 			//Inician cambios de RGG
 			function muestraPopupReincidenciaElementoCaso()
-			{	
+			{
 					$( "#dialog-ReincidenciaCaso").dialog({
 						resizable: true,
 						width:500,
-						height:320,					
+						height:320,
 						modal: true,
 						buttons: {
 							"Cerrar": function() {
@@ -2378,8 +2382,8 @@ DD P {
 							}
 						}
 					});
-					$( ".ui-icon-closethick,.ui-dialog-titlebar-close" ).hide();	
-			}	
+					$( ".ui-icon-closethick,.ui-dialog-titlebar-close" ).hide();
+			}
 
 
 			function registrarReincidenciasXElemento(){
@@ -2391,10 +2395,10 @@ DD P {
 			    	$.ajax({
 						type: 'POST',
 						url: '<%=request.getContextPath()%>/registrarReincidenciasXElemento.do',
-						data: params, 
+						data: params,
 						async: true,
 						dataType: 'xml',
-						success: function(xml){								
+						success: function(xml){
 								cargaGridReincidenciaElemento();
 								customAlert("La(s) relaci\u00F3n(es) se registraron de forma correcta");
 						}
@@ -2402,7 +2406,7 @@ DD P {
 			    }
 			    else
 			    	customAlert("Debe de guardar primero el elemento");
-			    	
+
 		}
 
 		/*Funcion que permite guardar una imagen y la asocia a un elemento*/
@@ -2424,14 +2428,14 @@ DD P {
 			$(row).remove();
 			$("#etiquetaDefensor").remove();
 			$('#idDefensor').append('<tr id="etiquetaDefensor"><td>&nbsp;&nbsp;&nbsp;&nbsp;Defensor:</td></tr><tr id="'+id+'"><td class="noSub"><a id="consultarDefensor" onclick="modificaDefensor('+id+')">&nbsp;&nbsp;&nbsp;&nbsp;'+nombre+'</a></td></tr>');
-			
-		} 
+
+		}
 		function modificaDefensor(id) {
 				idWindowIngresarDefensor++;
 				$.newWindow({id:"iframewindowIngresarDefensor" + idWindowIngresarDefensor, statusBar: true, posx:150,posy:20,width:1040,height:570,title:"Ingresar Defensor", type:"iframe"});
 			    $.updateWindowContent("iframewindowIngresarDefensor" + idWindowIngresarDefensor,'<iframe src="<%=request.getContextPath()%>/ingresarDefensorView.do?numeroExpediente='+numeroExpediente+ '&idDenunciante='+ id+ '&idPropPapa='+id+'" width="1040" height="570" />');
 		}
-		
+
 		/*
 		*Funcion para traer la fecha y hora del servidor en el formato : YYYY-MM-DD HH:MI:SS
 		*/
@@ -2449,7 +2453,7 @@ DD P {
 					});
 			return fecha;
 		}
-		
+
 		/*
 		 * Funcion para regresar la fecha maxima obtenida desde el servidor
 		 * fechaCompleta - cadena con el siguiente formato : YYYY-MM-DD HH:MI:SS
@@ -2471,14 +2475,14 @@ DD P {
 		{
 			var arrFechaHora=fechaCompleta;
 			var horaC=arrFechaHora[1].substring(0,5);
-			
+
 			return horaC;
 		}
-		
+
 		function horaServer(){
 			fechaTemp = consultaFechaHoraMaximaServer();
 			hora = parseInt(fechaTemp.substring(11,13),10);
-			
+
 			var hr;
 			if( hora < 10){
 				hr = "0"+hora
@@ -2498,7 +2502,7 @@ DD P {
 	<span id="divAlertTexto"></span>
 	</td>
 	</tr>
-	</table>	
+	</table>
 	</div>
     <table border="0">
 	<tr>
@@ -2509,9 +2513,9 @@ DD P {
 		</select>
 		<td>
 		<td><input type="button" class="ui-button ui-corner-all ui-widget" id="anularInvolucrado" value="Anular Involucrado">
-                <input type="button" class="ui-button ui-corner-all ui-widget" value="Modificar Datos" id="iVictimaBtnModificarDatos" /> 
-                <input type="button" class="ui-button ui-corner-all ui-widget" value="Guardar" id="iVictimaBtnGuardar"/> 
-                <input type="button" class="ui-button ui-corner-all ui-widget" id="btnBuscarReincidencia"	value="Buscar reincidencia"	onclick="cargaGridReincidenciaElemento()" /> 
+                <input type="button" class="ui-button ui-corner-all ui-widget" value="Modificar Datos" id="iVictimaBtnModificarDatos" />
+                <input type="button" class="ui-button ui-corner-all ui-widget" value="Guardar" id="iVictimaBtnGuardar"/>
+                <input type="button" class="ui-button ui-corner-all ui-widget" id="btnBuscarReincidencia"	value="Buscar reincidencia"	onclick="cargaGridReincidenciaElemento()" />
                 <input type="button" class="ui-button ui-corner-all ui-widget" id="btnConsultarExpedientes" value="Expedientes relacionados" onclick="cargaGridReincidenciasXElemento()" />
                 </td>
 	</tr>
@@ -2533,7 +2537,7 @@ DD P {
                                             </td>
                                     </tr>
 					<tr>
-                                            
+
 						<td width="10%" height="130" align="center"><img
 							src="<%=request.getContextPath()%>/resources/images/foto.png"
 							alt="" width="105" height="105" id="imgConFoto" /></td>
@@ -2548,7 +2552,7 @@ DD P {
 							</tr>
 							<tr>
 								<td align="left"><div id="vivo">Vivo</div></td>
-								<td width="3%"><input type="radio" name="radio" 
+								<td width="3%"><input type="radio" name="radio"
 										id="btnPResponsableEsVivo" value="1" checked="checked" /></td>
 							</tr>
 							<tr>
@@ -2566,7 +2570,7 @@ DD P {
                                 <td align="left">Menor de edad</td>
                                 <td>
                                     <input type="checkbox" id="chkPResponsableMenor" />
-                                </td>                 
+                                </td>
                             </tr-->
 							<tr>
 								<td align="left" id="etiquetaDetenido" style="">Detenido</td>
@@ -2581,13 +2585,13 @@ DD P {
 						</td>
 
                                                 <td width="30%" align="center">
-						<table id="datosDetenido"  border="0"
+						<table id="datosDetenido"  border="0"  style="display:  none;"
 							cellspacing="0" cellpadding="0" >
 							<tr>
 								<td colspan="2" height="20" valign="middle" class="seccion">INGRESAR
 								DATOS DE DETENCI&Oacute;N</td>
 							</tr>
-                                                        
+
                                                             <tr>
                                                                 <td align="right" nowrap>
                                                                     Situaci&oacute;n Juridica:
@@ -2595,17 +2599,17 @@ DD P {
                                                                 <td>
                                                                     <select id="situacionJuridicaCombo"
                                                                                         name="situacionJuridicaCombo" style="width: 180px;" >
-                                                                        <option value="">- Selecciona -</option>
+                                                                        <option value="0">- Selecciona -</option>
                                                                 </select>
                                                                 </td>
                                                              </tr>
 
 							<tr>
-								<td align="left"><input type="submit"
+								<td align="left"><input type="submit" style="display:  none;"
 									id="ingresarTiempoEspecificamentePResponsable"
 									value="Espec&iacute;ficamente" /></td>
 								<td colspan="2">
-								<div id="divEspecifico" style="display: block;"><jsp:include
+								<div id="divEspecifico" style="display:  none;"><jsp:include
 									page="/WEB-INF/paginas/ingresarTiempoEspecificamente.jsp"
 									flush="true"></jsp:include></div>
 								<div id="divLapso" style="display: none;"><jsp:include
@@ -2627,7 +2631,7 @@ DD P {
 						</td>
 
 						<td width="30%" height="130" align="center" valign="top">
-						
+
 						<table width="100%" height="143" cellpadding="0" cellspacing="0"
 							class="celda2">
 							<tr>
@@ -2646,18 +2650,18 @@ DD P {
                                                              <td align="center" valign="top" colspan="2">
                                                                 <form id="frmImagenElemento" name="frmImagenElemento" method="post" enctype="multipart/form-data">
 
-                                                                    <input type="hidden" name="muestraDetenidoModificar" /> 
-                                                                    <input type="hidden" name="elementoID" /> 
-                                                                    <input type="hidden" name="idIndividuo" /> 
-                                                                    <input type="file" name="archivo" id="uploadArchivo" style="display: " onclick="$(this).val('')"> 
+                                                                    <input type="hidden" name="muestraDetenidoModificar" />
+                                                                    <input type="hidden" name="elementoID" />
+                                                                    <input type="hidden" name="idIndividuo" />
+                                                                    <input type="file" name="archivo" id="uploadArchivo" style="display: " onclick="$(this).val('')">
                                                                     <input type="text" name="numeroExpediente" id="numeroExpediente" style="display: none">
                                                                 </form>
                                                             </td>
                                                         </tr>
-                                                                
-                                    
+
+
 						</table>
-						
+
 						</td>
 					</tr>
                                         <tr>
@@ -2671,7 +2675,7 @@ DD P {
 			</tr>
 			<tr valign="top">
 				<td colspan="4">
-                                    
+
 				</td>
 			</tr>
 
@@ -2693,12 +2697,12 @@ DD P {
 					<dt id="cejaDomicilio">Domicilio</dt>
 					<dd><jsp:include page="ingresarDomicilioView.jsp" /></dd>
 					<%
-					
+
 						if(confInstitucionDTO != null && confInstitucionDTO.getConfInstitucionId()!= null) {
 							if (confInstitucionDTO.getConfInstitucionId() != Instituciones.SSP.getValorId()) {
-				
+
 					%>
-					<dt id="cejaMediaFiliacion">Media Filiaci&oacute;n (Opcional)</dt>  
+					<dt id="cejaMediaFiliacion">Media Filiaci&oacute;n (Opcional)</dt>
 						<dd>
 							<jsp:include page="mediaFiliacionView.jsp" />
 						</dd>
@@ -2706,8 +2710,8 @@ DD P {
 							}
 						}
 					%>
-					
-					
+
+
 					<dt id="cejaMediosContacto">Medios de Contacto</dt>
 					<dd><jsp:include page="ingresarMediosContactoView.jsp" /></dd>
 					<dt id="cejaDocumentosIdentificacion">Documentos de
