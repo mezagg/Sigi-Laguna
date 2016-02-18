@@ -40,7 +40,7 @@
 		
 		jQuery(document).ajaxStop(jQuery.unblockUI);
 			      
-	      if((typeof(numeroExpediente) !== "undefined") && !isEmpty(numeroExpediente)){
+	      if((typeof(numeroExpediente) != "undefined") && !isEmpty(numeroExpediente)){
 	      	params += '&numeroExpediente=' + numeroExpediente;
 	      }else if(!isEmpty($("#numExpPJATP").val())){
 	    	params += '&numeroExpediente=' + $("#numExpPJATP").val();  

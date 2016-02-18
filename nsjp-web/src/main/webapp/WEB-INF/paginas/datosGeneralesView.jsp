@@ -28,7 +28,7 @@ var TESTIGO="testigo";
 var probableResponsable = "PROBABLE_RESPONSABLE";
    jQuery().ready(	function () {
 	   
-	   if ((typeof(esVictimaMuerta) !== "undefined") && !isEmpty(esVictimaMuerta)&& esVictimaMuerta ){
+	   if ((typeof(esVictimaMuerta) != "undefined") && !isEmpty(esVictimaMuerta)&& esVictimaMuerta ){
 		   $("#tdDatosGrlsVictimaMuerta").show();
 			$("#tdSexoNoEspecificado").show();   
 	   }else{		   
@@ -52,14 +52,14 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 		selected = $('#selected'),
 		newItem = $('#newItem');
 		
-		if (typeof (valorCalidad) !== "undefined" && valorCalidad != null 
+		if (typeof (valorCalidad) != "undefined" && valorCalidad != null 
 				&& valorCalidad == TESTIGO) {
 			cargaCalendarioFechaNacimientoParaTestigo()
 		} else {
 			cargaCalendarioFechaNacimientoDefault();
 		}
 		
-	 	if (typeof (valorCalidad) !== "undefined" && valorCalidad != null 
+	 	if (typeof (valorCalidad) != "undefined" && valorCalidad != null 
 				&& valorCalidad == probableResponsable) {
 			muestraCombosEdosFisicoConsciencia();
 			cargaComboEdoFisico();

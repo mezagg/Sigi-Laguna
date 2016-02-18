@@ -242,7 +242,7 @@ DD P {
 
                         jQuery(document).ajaxStop(desbloquearPantalla());
 
-			/*if((isDetenidoExist!==null) && (isDetenidoExist==true)){
+			/*if((isDetenidoExist!=null) && (isDetenidoExist==true)){
 				$('#chkPResponsableDetenido').attr('checked',true);
 				habilitaDetenido();
 				bloqueaCamposTiempoLapso(0);
@@ -260,7 +260,7 @@ DD P {
 
 				valorCalidad ='<%=request.getParameter("calidadInv")%>';
 
-				if (idElemento !== null && idElemento !== 0 && <%=request.getParameter("idProbableResponsable")%> !== null){
+				if (idElemento != null && idElemento != 0 && <%=request.getParameter("idProbableResponsable")%> != null){
 					//esta linea se comento porque al entrar cuando aun no hay foto oculta la imagen
 					$("#imgConFoto").attr("src",'<%=request.getContextPath()%>/obtenImagenDelElemento.do?elementoID=<%=request.getParameter("idProbableResponsable")%>');
 					//$("#imgConFoto").attr("src","<%=request.getContextPath()%>/resources/images/foto.png");
@@ -424,7 +424,7 @@ DD P {
 		var id=idElemento;
 		if(id==null){
 			id=<%=request.getAttribute("idIndividuoProp")%>;
-			if(id!==null){
+			if(id!=null){
 					consulta(id);
 			}
 		}
@@ -444,12 +444,12 @@ DD P {
                         }
                     });
 		 //$('#chkDefensor').attr("disabled","disabled");
-		if(id!==null){
+		if(id!=null){
 			muestraDatosProbResponsable(id);
 		}
 
 		var idProbableResponsable=<%=request.getParameter("idProbableResponsable")%>;
-		if(idProbableResponsable !== null){
+		if(idProbableResponsable != null){
 			$("img.ui-datepicker-trigger").hide();
 			$('#anularInvolucrado').show();
 			consulta(idProbableResponsable);
@@ -529,7 +529,7 @@ DD P {
 			$("#btnPResponsableEsMuerto").hide();
 			$("#desconocido").hide();
 			$("#btnPResponsableDesconocido").hide();
-			if(muestraDetenido !== 1){
+			if(muestraDetenido != 1){
 				$("#lblcondicion").hide();
 			}
 

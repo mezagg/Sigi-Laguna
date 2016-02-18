@@ -369,7 +369,7 @@
             function buscarFuncionario() {
                 var numeroEmpleado = $('#datosGeneralesCmpNumeroEmpleado').val();
                 $('#datosGeneralesCmpOficial').addClass("cargando");
-                if (numeroEmpleado !== "") {
+                if (numeroEmpleado != "") {
                     $.ajax({
                         type: 'POST',
                         url: '<%=request.getContextPath()%>/consultarPersonalOperativoIPH.do?numeroEmpleado=' + numeroEmpleado + '',
@@ -379,7 +379,7 @@
                         success: function (xml) {
                             var nombre = $(xml).find('funcionarioDTO').find('nombreFuncionario').first().text() + ' ' + $(xml).find('funcionarioDTO').find('apellidoPaternoFuncionario').first().text();
                             var sector = $(xml).find('funcionarioDTO').find('departamento').find('area').find('nombre').first().text();
-                            if (nombre !== "" && nombre !== null) {
+                            if (nombre != "" && nombre != null) {
                                 $('#datosGeneralesCmpOficial').val(nombre);
                                 $('#datosGeneralesCmpSector').val(sector);
                                 var claveFuncionario = $(xml).find('funcionarioDTO').find('claveFuncionario').first().text();
@@ -399,7 +399,7 @@
 
             function obtenerSuperior(claveFuncionario) {
                 $("#datosGeneralesCmpDirigidoA").addClass('cargando');
-                if (claveFuncionario !== "" && claveFuncionario !== null) {
+                if (claveFuncionario != "" && claveFuncionario != null) {
                     $.ajax({
                         type: 'POST',
                         url: '<%=request.getContextPath()%>/consultaFuncionarioSuperior.do?claveFuncionario=' + claveFuncionario + '',
@@ -713,7 +713,7 @@
             }
             function cargaAeronave(id, tipo) {
                 $('#tblAeronave tr:#' + id).remove();
-                if (tipo !== "")
+                if (tipo != "")
                 {
                     $('#tblAeronave').append('<tr id="' + id + '"><td class="noSub" >&nbsp;&nbsp;&nbsp;<a style="cursor:pointer;" id="consultarAeronave_' + id + '" onclick="consultarAeronave(' + id + ')">' + tipo + '</a></td></tr>');
                 }
@@ -740,7 +740,7 @@
             }
             function cargaEmbarcacion(id, tipo) {
                 $('#tblEmbarcacion tr:#' + id).remove();
-                if (tipo !== "")
+                if (tipo != "")
                 {
                     $('#tblEmbarcacion').append('<tr id="' + id + '"><td class="noSub">&nbsp;&nbsp;&nbsp;<a style="cursor:pointer;" id="consultarEmbarcacion_' + id + '" onclick="consultarEmbarcacion(' + id + ')">' + tipo + '</a></td></tr>');
                 }
@@ -768,7 +768,7 @@
 
             function cargaArma(id, tipo) {
                 $('#tblArma tr:#' + id).remove();
-                if (tipo !== "")
+                if (tipo != "")
                 {
                     $('#tblArma').append('<tr id="' + id + '"><td class="noSub">&nbsp;&nbsp;&nbsp;<a style="cursor:pointer;" id="consultarArma_' + id + '" onclick="consultarArma(' + id + ')">' + tipo + '</a></td></tr>');
                 }
@@ -795,7 +795,7 @@
             }
             function cargaExplosivo(id, tipo) {
                 $('#tblExplosivos tr:#' + id).remove();
-                if (tipo !== "")
+                if (tipo != "")
                 {
                     $('#tblExplosivos').append('<tr id="' + id + '"><td class="noSub" >&nbsp;&nbsp;&nbsp;<a style="cursor:pointer;" id="consultarExplosivo_' + id + '" onclick="consultarExplosivo(' + id + ')">' + tipo + '</a></td></tr>');
                 }
@@ -821,7 +821,7 @@
             }
             function cargaSustancia(id, tipo) {
                 $('#tblSustancia tr:#' + id).remove();
-                if (tipo !== "")
+                if (tipo != "")
                 {
                     $('#tblSustancia').append('<tr id="' + id + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a id="consultarSustancia_' + id + '" onclick="consultarSustancia(' + id + ')">' + tipo + '</a></td></tr>');
                 }
@@ -847,7 +847,7 @@
             }
             function cargaNumerario(id, tipo) {
                 $('#tblNumerario tr:#' + id).remove();
-                if (tipo !== "")
+                if (tipo != "")
                 {
                     $('#tblNumerario').append('<tr id="' + id + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a id="consultarNumerario_' + id + '" onclick="consultarNumerario(' + id + ')">' + tipo + '</a></td></tr>');
                 }
@@ -878,7 +878,7 @@
 
             function cargaOtros(id, nombre) {
                 $('#tblOtros tr:#' + id).remove();
-                if (nombre !== "")
+                if (nombre != "")
                 {
                     $('#tblOtros').append('<tr id="' + id + '"><td class="noSub" >&nbsp;&nbsp;&nbsp;<a style="cursor:pointer;" id="consultarOtros_' + id + '" onclick="consultarOtros(' + id + ')">' + nombre + '</a></td></tr>');
                 }

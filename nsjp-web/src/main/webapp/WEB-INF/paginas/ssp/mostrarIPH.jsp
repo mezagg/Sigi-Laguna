@@ -248,7 +248,7 @@
 		}
 		
 		$("#datosGeneralesCmpNumeroEmpleado").val($(xml).find('funcionarioDestinatario').find('numeroEmpleado').text());
-		if($("#datosGeneralesCmpNumeroEmpleado").val() !== null && $("#datosGeneralesCmpNumeroEmpleado").val() !== ""){
+		if($("#datosGeneralesCmpNumeroEmpleado").val() != null && $("#datosGeneralesCmpNumeroEmpleado").val() != ""){
   			buscarFuncionario();	  		  	
 		}
 		
@@ -263,7 +263,7 @@
 
 		$("#editor1").val($(xml).find('objetivosGenerales').text());
 
-		if ($(xml).find('operativo').find('operativoId') !== null &&	$(xml).find('operativo').find('operativoId').text() !== ""){
+		if ($(xml).find('operativo').find('operativoId') != null &&	$(xml).find('operativo').find('operativoId').text() != ""){
 			$("#divOperativo").show();
 			$('#chkOperativo').attr("checked","checked");
 			$("#datosGeneralesCmpNombreOperativo").val($(xml).find('operativo').find('nombre').last().text());
@@ -277,9 +277,9 @@
 		idExpedienteop = numeroExpedienteId;
 		numeroExpediente = $(xml).find('expediente').find('numeroExpediente').first().text();
 		expedienteId=$(xml).find('expediente').find('expedienteId').first().text();
-		if($(xml).find('operativo').find('operativoId').first().text() !== null && $(xml).find('operativo').find('operativoId').first().text() !== ""){
+		if($(xml).find('operativo').find('operativoId').first().text() != null && $(xml).find('operativo').find('operativoId').first().text() != ""){
 			
-			if($(xml).find('operativo').find('operativoId').first().text()!=="null"){
+			if($(xml).find('operativo').find('operativoId').first().text()!="null"){
 				operativoId = $(xml).find('operativo').find('operativoId').first().text();
 			}else{
 				operativoId = null;
@@ -511,7 +511,7 @@
 	    var txtArea = $('.jquery_ckeditor').val();
 		lsDatosGenerales+='&observaciones=' + escape(txtArea);
 	   
-		if ($("#cbxDistrito option:selected").val() !== "" && $("#cbxAgencia option:selected").val() !== ""){
+		if ($("#cbxDistrito option:selected").val() != "" && $("#cbxAgencia option:selected").val() != ""){
 			lsDatosGenerales+='&fCatDistritoId=' + $("#cbxDistrito option:selected").val();	
 			lsDatosGenerales+='&fCatDiscriminanteId=' + $("#cbxAgencia option:selected").val();
 		}
@@ -682,7 +682,7 @@
 	function buscarFuncionario(){
 		var numeroEmpleado = $('#datosGeneralesCmpNumeroEmpleado').val();
                 $('#datosGeneralesCmpNumeroEmpleado').addClass("cargando");
-		if(numeroEmpleado !== ""){
+		if(numeroEmpleado != ""){
 	    	$.ajax({
 	    		type: 'POST',
 	    	    url: '<%=request.getContextPath()%>/consultarPersonalOperativoIPH.do?numeroEmpleado='+numeroEmpleado+'',
@@ -692,7 +692,7 @@
 	    	    success: function(xml){
 				   var nombre =  $(xml).find('funcionarioDTO').find('nombreFuncionario').first().text()+' '+$(xml).find('funcionarioDTO').find('apellidoPaternoFuncionario').first().text();
 				   var sector =  $(xml).find('funcionarioDTO').find('departamento').find('area').find('nombre').first().text();
-				   if(nombre !== "" && nombre !== null){
+				   if(nombre != "" && nombre != null){
 					   $('#datosGeneralesCmpOficial').val(nombre);
 					   $('#datosGeneralesCmpSector').val(sector);
 					   var claveFuncionario =  $(xml).find('funcionarioDTO').find('claveFuncionario').first().text();
@@ -710,7 +710,7 @@
 	}
 
 	function obtenerSuperior(claveFuncionario){
-		if(claveFuncionario !== "" && claveFuncionario !== null){
+		if(claveFuncionario != "" && claveFuncionario != null){
 	    	$.ajax({
 	    		type: 'POST',
 	    	    url: '<%=request.getContextPath()%>/consultaFuncionarioSuperior.do?claveFuncionario='+claveFuncionario+'',
@@ -1280,57 +1280,57 @@
 	}
 
 	function ocultaImgResumen(xml){
-		if($(xml).find('ve').text()!=="1"){
+		if($(xml).find('ve').text()!="1"){
 			$('#imgVehiculo').hide();
 		}else{
 			$('#imgVehiculo').show();
 		}
-		if($(xml).find('aero').text()!=="1"){
+		if($(xml).find('aero').text()!="1"){
 			$('#imgAeronaves').hide();
 		}else{
 			$('#imgAeronaves').show();
 		}
-		if($(xml).find('embar').text()!=="1"){
+		if($(xml).find('embar').text()!="1"){
 			$('#imgEmbarcacion').hide();
 		}else{
 			$('#imgEmbarcacion').show();
 		}					
-		if($(xml).find('sus').text()!=="1"){
+		if($(xml).find('sus').text()!="1"){
 			$('#imgSustancias').hide();
 		}else{
 			$('#imgSustancias').show();
 		}
-		if($(xml).find('arm').text()!=="1"){
+		if($(xml).find('arm').text()!="1"){
 			$('#imgArmas').hide();
 		}else{
 			$('#imgArmas').show();
 		}
-		if($(xml).find('expl').text()!=="1"){
+		if($(xml).find('expl').text()!="1"){
 			$('#imgExplosivos').hide();
 		}else{
 			$('#imgExplosivos').show();
 		}
-		if($(xml).find('nume').text()!=="1"){
+		if($(xml).find('nume').text()!="1"){
 			$('#imgNumerario').hide();
 		}else{
 			$('#imgNumerario').show();
 		}
-		if($(xml).find('denun').text()!=="1"){
+		if($(xml).find('denun').text()!="1"){
 			$('#imgDenunciantes').hide();
 		}else{
 			$('#imgDenunciantes').show();
 		}
-		if($(xml).find('vic').text()!=="1"){
+		if($(xml).find('vic').text()!="1"){
 			$('#imgVictimas').hide();
 		}else{
 			$('#imgVictimas').show();	
 		}
-		if($(xml).find('proba').text()!=="1"){
+		if($(xml).find('proba').text()!="1"){
 			$('#imgProbablesResponsables').hide();
 		}else{
 			$('#imgProbablesResponsables').show();
 		}
-		if($(xml).find('test').text()!=="1"){
+		if($(xml).find('test').text()!="1"){
 			$('#imgTestigos').hide();
 		}else{
 			$('#imgTestigos').show();
@@ -1376,7 +1376,7 @@
 	*Funcion que abre el PDF para ver los documentos asociados al numero de causa
 	*/
 	function abrirDocsDigAsociadosASol(documentoAsocId){
-		if(documentoAsocId !== null && documentoAsocId !== ""){
+		if(documentoAsocId != null && documentoAsocId != ""){
 		$("#visorDocsPropiosFrame").attr("src","<%= request.getContextPath()%>/consultarArchivoDigitalIframe.do?documentoId="+documentoAsocId+"&inFrame=true");
 			
 		}

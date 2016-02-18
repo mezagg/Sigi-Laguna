@@ -199,7 +199,7 @@
 				elemntoNuevo='<%= request.getParameter("elemento")%>';
 				$('#iVictimaBtnModificarDatos').hide();	
 				var num=parent.num;
-				if(num!==null && num!=="0"){
+				if(num!=null && num!="0"){
 					$("#anularInvolucrado").hide();
 				}
 				$( "#tabs,#tabstutor" ).tabs();
@@ -246,14 +246,14 @@
 				}); 
 
 
-				if(idVictima !== "null"){
+				if(idVictima != "null"){
 					consulta(idVictima);
 				}
 				else{
 					inicializaDatosGenerales();
 				}
 
-				if(id!==null){
+				if(id!=null){
 					datosVictima(id);					
 				}
 				
@@ -652,7 +652,7 @@
 							alertDinamico("Favor de ingresar el nombre del desconocido &oacute; ingresar los apellidos");									
 						}							
 						
-						if(nombreGeneralOP!==""){							
+						if(nombreGeneralOP!=""){							
 							params += 'idIndividuo='+idindi;
 							params += '&calidadDelIndividuo=2';
 							params += '&esVivo='+esVivo;

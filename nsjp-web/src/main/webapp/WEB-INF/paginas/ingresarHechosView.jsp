@@ -115,7 +115,7 @@
 					
 					var auxiliar='<%= request.getParameter("menuIntermedio")%>';
 					
-					if(auxiliar!==null){
+					if(auxiliar!=null){
 						flagMenuIntermedio=auxiliar;
 					}
 					
@@ -128,12 +128,12 @@
 					isIPH = '<%=request.getParameter("iphFuncionalidadHidden")%>';
 					pantallaSolicitada = '<%=request.getParameter("pantallaSolicitada")%>';
 					
-					if(validaTipoExpedienteReporte !==null && (validaTipoExpedienteReporte == "0" || validaTipoExpedienteReporte==0)){
+					if(validaTipoExpedienteReporte !=null && (validaTipoExpedienteReporte == "0" || validaTipoExpedienteReporte==0)){
 						$('#spanRdbTipoReporte').hide();
 					}else{
 						//Permite manipular el radio button en base al rol del usuario loggeado
 						$('#rdbTipoReporte').attr('disabled', 'disabled');	
-						if(pantallaSolicitada !== null){
+						if(pantallaSolicitada != null){
 							if(pantallaSolicitada == AGENTE_MP || pantallaSolicitada == COORDINADOR_AMP ||
 							   pantallaSolicitada == POLICIA_MINISTERIAL_DENUNCIA || pantallaSolicitada == POLICIA_MINISTERIAL){
 								//Oculta radio button de Reporte
@@ -243,7 +243,7 @@
 					killDomicilioNotificaciones();
 					
 					
-					if(idHecho!==null && parseInt(idHecho)!==0)
+					if(idHecho!=null && parseInt(idHecho)!=0)
 					{
 						$("#btnGuardarHechos").hide();
 						$("#btnModificarHechos").show();
@@ -418,7 +418,7 @@
 				    	      //Seteamos los campos de conclusion
 				    	      cargaCalendarioTipoConclusion();
 				    	      var fechaConclusion = $(xml).find('conclusionHechoDTO').find('fechaConclusion').text();
-				    			 if( fechaConclusion !== null && fechaConclusion.length>0){
+				    			 if( fechaConclusion != null && fechaConclusion.length>0){
 				    				 var fechaConclusion = fechaConclusion.split(' ');
 				    				 var fchConclusionBien = fechaConclusion[0].split('-');
 				    				 $('#fechaConclusion').val(fchConclusionBien[2]+"/"+fchConclusionBien[1]+"/"+fchConclusionBien[0]);
