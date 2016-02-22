@@ -2,7 +2,11 @@
 <%@ page import="mx.gob.segob.nsjp.dto.configuracion.ConfiguracionDTO"%>
 <%@ page import="mx.gob.segob.nsjp.web.login.action.LoginAction"%>
 <%@ page import="mx.gob.segob.nsjp.comun.enums.configuracion.Parametros"%>
+<%@ taglib prefix="c" 
+       uri="http://java.sun.com/jsp/jstl/core" %>
 
+<%@ taglib prefix="fn" 
+       uri="http://java.sun.com/jsp/jstl/functions" %>
 <html>
 	<head>
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/estilos.css" media="screen" />
@@ -22,61 +26,62 @@
 	var contextoPagina = "${pageContext.request.contextPath}";
 	
 	jQuery().ready(function () {
-		
+                            
 		$("#username").focus();
-		var error='<%= request.getAttribute("error")%>'
-		var captcha='<%= request.getAttribute("captcha")%>'
-		if(error==0){
-			customAlert("Usuario y/o Contrase&ntilde;a Inv&aacute;lidos,<br/> favor de verificar.", 
+                <c:choose >
+                    <c:when test="${error==0}">
+                        customAlert("Usuario y/o Contrase&ntilde;a Inv&aacute;lidos,<br/> favor de verificar.", 
 						"Error", 
 						function() { $("#username").focus(); }
 			);
 			$('#errorLogin').val('Credenciales Invalidas');
-			//errorlog(error);					
-		}else if(error==2){
-			customAlert("Cuenta Bloqueada, <br/>favor de verificar con el administrador del sistema.", 
+                    </c:when>
+                    <c:when test="${error==2}">
+                        customAlert("Cuenta Bloqueada, <br/>favor de verificar con el administrador del sistema.", 
 						"Error",
 						function() { $("#username").focus(); }
 			);
 			$('#errorLogin').val('Credenciales Invalidas');
-		}else if(error==3){
-			customAlert("C&oacute;digo Captcha err&oacute;neo,<br/>  favor de verificar.", 
+                    </c:when>
+                    <c:when test="${error==3}">
+                        customAlert("C&oacute;digo Captcha err&oacute;neo,<br/>  favor de verificar.", 
 						"Error",
 						function() { $("#password").focus(); } 
 			);
 			$('#errorLogin').val('Credenciales Invalidas');
-		}else{
-			$('#errorLogin').val('');
-		}
+                    </c:when>
+                    <c:otherwise>
+                        $('#errorLogin').val('');
+                    </c:otherwise>
+                </c:choose>
+		var error='<%= request.getAttribute("error")%>'
+		var captcha='<%= request.getAttribute("captcha")%>'
 		
-		if(captcha==0){
-			$("#captchaJPG").hide();
+		<c:choose >
+                    <c:when test="${captcha==0}">
+                        $("#captchaJPG").hide();
 			$("#captchaTXT").hide();
-		}else{
-			switch (captcha) {
-				case "1" : 
-					customAlert("Existe una sesi&oacute;n iniciada en sistema,<br/> favor de volver a ingresar su informaci&oacute;n de usuario.",
+                    </c:when>
+                    <c:when test="${captcha==1}">
+                        customAlert("Existe una sesi&oacute;n iniciada en sistema,<br/> favor de volver a ingresar su informaci&oacute;n de usuario.",
 								"Error", 
-								function() { $("#password").focus(); }
-					);
-					$('#errorLogin').val('Sesi&oacute;n Duplicada');
-					$("#captchaJPG").show();
-					$("#captchaTXT").show();
-					break;
-				
-				case "2" :
-					customAlert("C&oacute;digo Captcha err&oacute;neo,<br/> favor de verificar.",
+                                                function() { $("#password").focus(); }
+                        );
+                        $('#errorLogin').val('Sesi&oacute;n Duplicada');
+                        $("#captchaJPG").show();
+                        $("#captchaTXT").show();
+                    </c:when>
+                    <c:when test="${captcha==2}">
+                        customAlert("C&oacute;digo Captcha err&oacute;neo,<br/> favor de verificar.",
 								"Error",
-								function() { $("#password").focus(); }
-					);
-					$('#errorLogin').val('C&oacute;digo Captcha Err&oacute;neo');
-					$("#captchaJPG").show();
-					$("#captchaTXT").show();
-					break;
-				default:
-					break;				
-			}
-		}
+                        function() { $("#password").focus(); }
+                        );
+                        $('#errorLogin').val('C&oacute;digo Captcha Err&oacute;neo');
+                        $("#captchaJPG").show();
+                        $("#captchaTXT").show();
+                    </c:when>
+                </c:choose>
+		
 		<%
 			if (request.getAttribute("nombreUsuario") != null){
 		%>
