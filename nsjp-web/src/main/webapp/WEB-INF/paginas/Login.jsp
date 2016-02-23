@@ -7,6 +7,8 @@
 
 <%@ taglib prefix="fn" 
        uri="http://java.sun.com/jsp/jstl/functions" %>
+
+
 <html>
 	<head>
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/estilos.css" media="screen" />
@@ -157,7 +159,20 @@
 	                                    <table align="center" cellpadding="2" cellspacing="2">
 	                                        <tr>
 	                                            <td>&nbsp;</td>
-	                                            <td>&nbsp;</td>
+	                                            <td>&nbsp;
+                                                        <select>
+                                                            
+                                                            <c:forEach items="${applicationScope.paises}"  var="pais" >
+                                                            <option value='<c:out value="${pais.clave}"/>'> <c:out value="${pais.valor}"/> </option>
+                                                            </c:forEach>
+                                                        </select>
+                                                         <select>
+                                                            
+                                                            <c:forEach items="${applicationScope.nacionalidades}"  var="pais" >
+                                                            <option value='<c:out value="${pais.clave}"/>'> <c:out value="${pais.valor}"/> </option>
+                                                            </c:forEach>
+                                                        </select>
+                                                    </td>
 	                                            <td>&nbsp;</td>
 	                                        </tr>
 	                                    </table>
