@@ -35,6 +35,7 @@ import java.util.Set;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.actividad.Actividades;
 import mx.gob.segob.nsjp.comun.enums.calidad.Calidades;
 import mx.gob.segob.nsjp.comun.enums.catalogo.Catalogos;
@@ -713,6 +714,7 @@ public class BuscarExpedienteAction extends GenericAction{
 			
 			List<CatalogoDTO> listaCatalogo=catDelegate.recuperarCatalogo(Catalogos.TIPO_OBJETO);
 
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catEvidencia", CatalogoDTO.class);
 			
@@ -839,6 +841,7 @@ public class BuscarExpedienteAction extends GenericAction{
 			expedienteDTO.setExpedienteId(idExp);
 			ExpedienteDTO expedienteDTO2=expedienteDelegate.obtenerExpediente(expedienteDTO);
 			
+			XStream converter=new XStream();
 			converter.alias("expediente", ExpedienteDTO.class);
 			
 			String xml = converter.toXML(expedienteDTO2);
@@ -924,6 +927,7 @@ public class BuscarExpedienteAction extends GenericAction{
 			log.debug("##################listExpedienteDTOs::::::::: " + listExpedienteDTOs.size());
 			
 
+			XStream converter=new XStream();
 			converter.alias("listExpedienteDTOs", java.util.List.class);
 			converter.alias("expedienteDTO", ExpedienteDTO.class);
 			String xml = converter.toXML(listExpedienteDTOs);
@@ -1404,6 +1408,7 @@ public class BuscarExpedienteAction extends GenericAction{
 			}else{
 				log.info("respuesta: NULO");
 }
+			XStream converter=new XStream();
 			converter.alias("boolean", java.lang.Boolean.class);
 			String xml = converter.toXML(respuesta);
 			escribir(response, xml,null);

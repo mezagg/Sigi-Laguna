@@ -25,6 +25,7 @@ import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.calidad.Calidades;
 import mx.gob.segob.nsjp.delegate.involucrado.InvolucradoDelegate;
 import mx.gob.segob.nsjp.dto.catalogo.ValorDTO;
@@ -82,18 +83,18 @@ public class IngresarDenuncianteAction extends GenericAction{
 			involucrado.setExpedienteDTO(expedienteDTO);
 			log.info("Ejecutando Action buscarDenunciante mas denunciante:"+involucradoDelegate);
 			InvolucradoDTO involucradoDTO=involucradoDelegate.consultarIndividuo(involucrado);
-			
-			
-			converter.alias("calidadDTO", CalidadDTO.class);
-			converter.alias("valorDTO", ValorDTO.class);
-			converter.alias("medioDeContactoDTO", MedioDeContactoDTO.class);
-			converter.alias("nombreDemograficoDTO", NombreDemograficoDTO.class);
-			converter.alias("elementoDTO", ElementoDTO.class);
-			converter.alias("personaDTO", PersonaDTO.class);
-			converter.alias("involucradoDTO", InvolucradoDTO.class);
-			converter.alias("expedienteDTO", ExpedienteDTO.class);
-			converter.alias("domicilioDTO", DomicilioDTO.class);
-			converter.alias("aliasInvolucradoDTO", AliasInvolucradoDTO.class);
+
+			XStream converter=new XStream();
+			XStream converter=new XStream(); 			converter.alias("calidadDTO", CalidadDTO.class);
+			XStream converter=new XStream(); 			converter.alias("valorDTO", ValorDTO.class);
+			XStream converter=new XStream(); 			converter.alias("medioDeContactoDTO", MedioDeContactoDTO.class);
+			XStream converter=new XStream(); 			converter.alias("nombreDemograficoDTO", NombreDemograficoDTO.class);
+			XStream converter=new XStream(); 			converter.alias("elementoDTO", ElementoDTO.class);
+			XStream converter=new XStream(); 			converter.alias("personaDTO", PersonaDTO.class);
+			XStream converter=new XStream(); 			converter.alias("involucradoDTO", InvolucradoDTO.class);
+			XStream converter=new XStream(); 			converter.alias("expedienteDTO", ExpedienteDTO.class);
+			XStream converter=new XStream(); 			converter.alias("domicilioDTO", DomicilioDTO.class);
+			XStream converter=new XStream(); 			converter.alias("aliasInvolucradoDTO", AliasInvolucradoDTO.class);
 			
 			String xml = converter.toXML(involucradoDTO);
 			

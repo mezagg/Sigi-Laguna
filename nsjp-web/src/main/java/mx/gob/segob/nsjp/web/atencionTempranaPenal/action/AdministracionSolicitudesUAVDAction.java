@@ -8,6 +8,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.calidad.Calidades;
 import mx.gob.segob.nsjp.comun.enums.institucion.Areas;
 import mx.gob.segob.nsjp.comun.enums.solicitud.EstatusSolicitud;
@@ -235,6 +236,7 @@ public class AdministracionSolicitudesUAVDAction extends GenericAction{
 											
 			SolicitudDTO solicitudDTO2 = solicitudDelegate.obtenerDetalleSolicitud(solicitudDTO);
 			log.info("depues del delegate::: solicitudDTO" + solicitudDTO2);
+			XStream converter=new XStream();
 			converter.alias("solicitudDTO", SolicitudDTO.class);
 			String xml = converter.toXML(solicitudDTO2);
 			log.info("xml de la solicitud respuesta: :::::::::"+ solicitudId);
@@ -298,7 +300,7 @@ public class AdministracionSolicitudesUAVDAction extends GenericAction{
 			expedienteDTO.setFechaApertura(new Date());			
 								
 			expedienteDTO = expedienteDelegate.asignarNumeroExpediente(expedienteDTO);
-			converter.alias("expedienteDTO", ExpedienteDTO.class);
+			XStream converter=new XStream(); 			converter.alias("expedienteDTO", ExpedienteDTO.class);
 			String xml = converter.toXML(expedienteDTO);
 			escribir(response, xml,null);
 				

@@ -10,6 +10,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.calidad.Calidades;
 //import mx.gob.segob.nsjp.comun.enums.expediente.EstatusExpediente;
 //import mx.gob.segob.nsjp.comun.enums.seguridad.Roles;
@@ -60,6 +61,7 @@ public class AsignarPermisosAFuncionarioSobreExpedienteAction extends
 			//expedientes = funcionarioDelegate.consultarExpedientesDelFuncionario(claveFuncionario);
 			expedientes = funcionarioDelegate.consultarExpedientesDelFuncionario(usuarioFirmado, null);
 			
+			XStream converter=new XStream();
 			converter.alias("listaExpPropios", java.util.List.class);
 			converter.alias("expedienteDTO", ExpedienteDTO.class);
 			if(logger.isDebugEnabled())

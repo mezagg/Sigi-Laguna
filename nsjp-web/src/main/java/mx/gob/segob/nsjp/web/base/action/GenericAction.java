@@ -83,8 +83,8 @@ public abstract class GenericAction extends MappingDispatchAction {
     public final static String GUION = "-";
     public final static String NA = "- NA -";
     
-    @Autowired
-    protected XStream converter;
+    /*@Autowired
+    protected XStream converter;*/
 
     @Autowired
     protected CatalogoDelegate catDelegate;

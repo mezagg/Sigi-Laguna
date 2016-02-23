@@ -26,6 +26,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.actividad.ActividadesRS;
 import mx.gob.segob.nsjp.comun.enums.actividad.ConfActividadDocumento;
 import mx.gob.segob.nsjp.comun.enums.centrosdetencion.TipoCentroDetencion;
@@ -165,6 +166,7 @@ public class EnvioDocumentosReinsercionAction extends GenericAction {
 					asignacionCentroDetencionDTO.setCmotivo(null);
 					asignacionCentroDetencionDTO =  asignacionProgramaDelegate.asignarCentroDetencionaSentencia(asignacionCentroDetencionDTO);
 					
+					XStream converter=new XStream();
 					converter.alias("respuesta",AsignacionCentroDetencionDTO.class);
 					String respuesta = converter.toXML(asignacionCentroDetencionDTO);
 					escribirRespuesta(response, respuesta);												

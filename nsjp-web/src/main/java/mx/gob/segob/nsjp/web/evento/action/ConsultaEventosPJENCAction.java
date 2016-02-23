@@ -16,6 +16,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.constants.ConstantesGenerales;
 import mx.gob.segob.nsjp.comun.enums.actividad.Actividades;
 import mx.gob.segob.nsjp.comun.enums.actividad.ConfActividadDocumento;
@@ -823,7 +824,7 @@ public class ConsultaEventosPJENCAction extends GenericAction{
 			}
 			if(idInvolucrado != null && idInvolucrado > 0){
 				MedidaCautelarDTO medidaCautelar= medidasCaulelaresDelegate.obtenerDetalleMedidaCautelar(idMedidaCautelar, idInvolucrado);
-
+				XStream converter=new XStream();
 				converter.alias("medidaCautelar", MedidaCautelarDTO.class);
 				converter.alias("involucrado", InvolucradoDTO.class);
 				converter.alias("nombresDemograficoDTO", NombreDemograficoDTO.class);
@@ -874,7 +875,7 @@ public class ConsultaEventosPJENCAction extends GenericAction{
 				
 				if(idInvolucrado != null && idInvolucrado > 0){
 					MedidaAlternaDTO medidaAlterna= medidasAlternasDelegate.obtenerDetalleMedidaAlterna(idMedidaAlternativa, idInvolucrado);
-
+					XStream converter=new XStream();
 					converter.alias("medidaAlterna", MedidaAlternaDTO.class);
 					converter.alias("involucrado", InvolucradoDTO.class);
 					converter.alias("nombresDemograficoDTO", NombreDemograficoDTO.class);
@@ -1348,6 +1349,7 @@ public class ConsultaEventosPJENCAction extends GenericAction{
 
 			String xml = null;
 			PrintWriter pw = null;
+			XStream converter=new XStream();
 			converter.alias("medidaCautelarForm", MedidaCautelarForm.class);
 			xml = converter.toXML(medidaCautelarForm);
 			response.setContentType("text/xml");
@@ -1383,7 +1385,7 @@ public class ConsultaEventosPJENCAction extends GenericAction{
 		Long idMedidaCautelar     =	NumberUtils.toLong(request.getParameter("medidaCautelarId"), 0L);
 		
 		log.info("enviarMedidaCautelarInstitucion --- "+idInstitucionDestino);
-		
+		XStream converter=new XStream();
 		try {
 			if(!idInstitucionDestino.equals(0L) && !idMedidaCautelar.equals(0L)){
 				Instituciones institucionDestino = Instituciones.getByValor(idInstitucionDestino);
@@ -1428,13 +1430,14 @@ public class ConsultaEventosPJENCAction extends GenericAction{
 			
 			mandamientoJudicialDelegate.enviarMandamientoJudicial(mandamientoJudId);
 			
+			XStream converter=new XStream();
 			converter.alias("respuesta",String.class);
-			converter.alias("respuesta",Long.class);
+		    converter.alias("respuesta",Long.class);
 			escribirRespuesta(response,converter.toXML(mandamientoJudId));
 			
 		} catch (NSJPNegocioException e) {
 			//Significa que no se pudo enviar el mandamiento
-			converter.alias("respuesta",String.class);
+			XStream converter=new XStream(); 			converter.alias("respuesta",String.class);
 			escribirRespuesta(response,converter.toXML("fallo_envio_de_mandamiento_judicial"));
 			log.error(e.getMessage(),e);
 			
@@ -1552,6 +1555,7 @@ public class ConsultaEventosPJENCAction extends GenericAction{
 			
 			List<InvolucradoViewDTO> jueces = funcionarioDelegate.validarFuncionariosPorRol(funcionarios, Roles.JUEZPJ.getValorId());
 			
+			XStream converter=new XStream();
 			converter.alias("listaJueces", LinkedList.class);
 			converter.alias("juez", InvolucradoViewDTO.class);
 			escribirRespuesta(response, converter.toXML(jueces));
@@ -2188,7 +2192,7 @@ public class ConsultaEventosPJENCAction extends GenericAction{
 				}
 			
 			}
-
+			XStream converter=new XStream();
 			escribirRespuesta(response, converter.toXML(mandamiento));
 
 		} catch (NSJPNegocioException e) {
@@ -2339,6 +2343,7 @@ public class ConsultaEventosPJENCAction extends GenericAction{
 			}
 			
 		}
+		XStream converter=new XStream();
 		escribirRespuesta(response, converter.toXML(idsDeSolicitudes));
 		return  null;
 	}
@@ -2586,6 +2591,7 @@ public class ConsultaEventosPJENCAction extends GenericAction{
 			medidaCautelarForm.setMedidaCautelarId(resultado);
 			String xml = null;
 			PrintWriter pw = null;
+			XStream converter=new XStream();
 			converter.alias("medidaCautelarForm",MedidaCautelarForm.class);
 			xml = converter.toXML(medidaCautelarForm);
 			response.setContentType("text/xml");
@@ -2612,6 +2618,7 @@ public class ConsultaEventosPJENCAction extends GenericAction{
 			
 			String xml = null;
 			PrintWriter pw = null;
+			XStream converter=new XStream();
 			converter.alias("medidaCautelarForm",MedidaCautelarForm.class);
 			xml = converter.toXML("");
 			response.setContentType("text/xml");
@@ -2784,6 +2791,7 @@ public class ConsultaEventosPJENCAction extends GenericAction{
 			super.setExpedienteTrabajo(request, expedienteDTO);
 			//expedienteDTO.setConsulta(false);
 			request.getSession().setAttribute("numeroExpediente", expedienteDTO.getNumeroExpediente());
+			XStream converter=new XStream();
 			converter.alias("expedienteDTO", ExpedienteDTO.class);
 			escribirRespuesta(response, converter.toXML(expedienteDTO));
 		}

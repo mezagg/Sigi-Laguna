@@ -423,7 +423,7 @@ public class InventarioPertenenciasAction extends GenericAction {
 		}catch(Exception e){
 			respuesta = "error";	
 		}finally {
-			converter.alias("respuesta", String.class);
+			XStream converter=new XStream(); 			converter.alias("respuesta", String.class);
 			respuesta = converter.toXML(respuesta);
 			escribirRespuesta(response, respuesta);
 		}

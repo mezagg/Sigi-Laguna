@@ -69,8 +69,8 @@ public class IngresarVictimaAction extends GenericAction{
 //				if (lstCondicion.size()!=0){
 //					String xml = null;
 //					PrintWriter pw = null;
-//					converter.alias("lstCondicion", java.util.List.class);
-//					converter.alias("condicionDTO", CatCondicionProbableResponsableDTO.class);
+//					XStream converter=new XStream(); 			converter.alias("lstCondicion", java.util.List.class);
+//					XStream converter=new XStream(); 			converter.alias("condicionDTO", CatCondicionProbableResponsableDTO.class);
 //					xml = converter.toXML(lstCondicion);
 //					log.info(xml.toString());
 //					response.setContentType("text/xml");

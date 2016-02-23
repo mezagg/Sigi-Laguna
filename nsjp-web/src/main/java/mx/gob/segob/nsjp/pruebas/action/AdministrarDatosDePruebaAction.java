@@ -8,6 +8,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.util.tl.PaginacionThreadHolder;
 import mx.gob.segob.nsjp.delegate.involucrado.InvolucradoDelegate;
 import mx.gob.segob.nsjp.delegate.prueba.PruebaDelegate;
@@ -134,6 +135,7 @@ public class AdministrarDatosDePruebaAction extends GenericAction{
 				
 				datoPruebaDTO = pruebaDelegate.consultarDatoPrueba(datoPruebaId);
 				
+				XStream converter=new XStream();
 				converter.alias("datoPrueba", DatoPruebaDTO.class);
 				String xml = converter.toXML(datoPruebaDTO);
 				escribir(response,xml,null);

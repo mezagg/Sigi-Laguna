@@ -201,13 +201,13 @@ public class ElaborarSolicitudAction extends GenericAction {
 			// correspondiente
 			if (solicitudDTO2 != null
 					&& solicitudDTO2.getDocumentoId() != null) {
-				converter.alias("SolicitudDTO", SolicitudDTO.class);
+				XStream converter=new XStream(); 			converter.alias("SolicitudDTO", SolicitudDTO.class);
 				String xml = converter.toXML(solicitudDTO2);
 				LOG.info(xml);
 				escribirRespuesta(response, xml);
 			} else {
 				solicitudDTO2.setDocumentoId(0L);
-				converter.alias("SolicitudDTO", SolicitudDTO.class);
+				XStream converter=new XStream(); 			converter.alias("SolicitudDTO", SolicitudDTO.class);
 				String xml = converter.toXML(solicitudDTO2);
 				LOG.info(xml);
 				escribirRespuesta(response, xml);

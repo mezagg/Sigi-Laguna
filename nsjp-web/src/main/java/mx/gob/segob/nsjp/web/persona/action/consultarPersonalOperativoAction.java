@@ -230,7 +230,7 @@ public class consultarPersonalOperativoAction extends GenericAction {
 			{
 				funcionario = resultados.get(0);
 			}
-			converter.alias("funcionarioDTO", FuncionarioDTO.class);
+			XStream converter=new XStream(); 			converter.alias("funcionarioDTO", FuncionarioDTO.class);
 			String xml = converter.toXML(funcionario);
 			log.info("respuesta consulta funcionario IPH ------- "+xml);
 			
@@ -267,8 +267,8 @@ public class consultarPersonalOperativoAction extends GenericAction {
 			
 			List<CatalogoDTO> listaCatalogoEspecialidades = catDelegate
 					.recuperarCatalogo(Catalogos.ESPECIALIDAD_FUNCIONARIO);							
-			converter.alias("listaCatalogoEspecialidades", java.util.List.class);
-			converter.alias("especialidad", CatalogoDTO.class);
+			XStream converter=new XStream(); 			converter.alias("listaCatalogoEspecialidades", java.util.List.class);
+			XStream converter=new XStream(); 			converter.alias("especialidad", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogoEspecialidades);
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();

@@ -92,7 +92,7 @@ public class ConsultarTodasSolicitudesUAVDAction extends GenericAction {
                 writer.print("<cell><![CDATA[<div class='celdaGrid'>" + DateUtils.formatear(solicitudDTO.getFechaCreacion()) + " </div>]]></cell>");
                 writer.print("<cell><![CDATA[<div class='celdaGrid'>" + DateUtils.formatearHora(solicitudDTO.getFechaCreacion()) + " </div>]]></cell>");
 
-                converter.alias("expedienteDTO", ExpedienteDTO.class);
+                XStream converter=new XStream(); 			converter.alias("expedienteDTO", ExpedienteDTO.class);
                 if (expediente.getInvolucradoByCalidad(Calidades.VICTIMA_PERSONA) == null || expediente.getInvolucradoByCalidad(Calidades.VICTIMA_PERSONA).size() == 0) {
                     if (expediente
                             .getInvolucradoByCalidad(Calidades.DENUNCIANTE) != null
@@ -180,7 +180,7 @@ public class ConsultarTodasSolicitudesUAVDAction extends GenericAction {
                     writer.print("<row id='" + solicitudDTO.getDocumentoId() + "," + expediente.getExpedienteId() + "," + expediente.getNumeroExpediente() + "," + expediente.getNumeroExpedienteId() + "," + solicitudDTO.getTipoSolicitudDTO().getIdCampo() + "'>");
                     writer.print("<cell><![CDATA[<div class='celdaGrid'>" + expediente.getNumeroExpediente() + " </div>]]></cell>");
                     writer.print("<cell><![CDATA[<div class='celdaGrid'>" + DateUtils.formatear(solicitudDTO.getFechaCreacion()) + " </div>]]></cell>");
-                    converter.alias("expedienteDTO", ExpedienteDTO.class);
+                    XStream converter=new XStream(); 			converter.alias("expedienteDTO", ExpedienteDTO.class);
                     if (expediente.getInvolucradoByCalidad(Calidades.VICTIMA_PERSONA) == null || expediente.getInvolucradoByCalidad(Calidades.VICTIMA_PERSONA).size() == 0) {
                         if (expediente.getInvolucradoByCalidad(Calidades.DENUNCIANTE) != null
                                 && expediente.getInvolucradoByCalidad(
@@ -368,7 +368,7 @@ public class ConsultarTodasSolicitudesUAVDAction extends GenericAction {
             writer.print("<cell><![CDATA[<div class='celdaGrid'>" + DateUtils.formatear(solicitudDTO.getFechaCreacion()) + " </div>]]></cell>");
             writer.print("<cell><![CDATA[<div class='celdaGrid'>" + DateUtils.formatearHora(solicitudDTO.getFechaCreacion()) + " </div>]]></cell>");
 
-            converter.alias("expedienteDTO", ExpedienteDTO.class);
+            XStream converter=new XStream(); 			converter.alias("expedienteDTO", ExpedienteDTO.class);
             logger.info("expedienteDTO_UAVD:: " + converter.toXML(expediente));
             if (expediente.getInvolucradoByCalidad(Calidades.VICTIMA_PERSONA) == null || expediente.getInvolucradoByCalidad(Calidades.VICTIMA_PERSONA).size() == 0) {
                 if (expediente
@@ -442,7 +442,7 @@ public class ConsultarTodasSolicitudesUAVDAction extends GenericAction {
                 writer.print("<row id='" + solicitudDTO.getDocumentoId() + "," + expediente.getExpedienteId() + "," + expediente.getNumeroExpediente() + "," + expediente.getNumeroExpedienteId() + "," + solicitudDTO.getTipoSolicitudDTO().getIdCampo() + "'>");
                 writer.print("<cell><![CDATA[<div class='celdaGrid'>" + expediente.getNumeroExpediente() + " </div>]]></cell>");
                 writer.print("<cell><![CDATA[<div class='celdaGrid'>" + DateUtils.formatear(solicitudDTO.getFechaCreacion()) + " </div>]]></cell>");
-                converter.alias("expedienteDTO", ExpedienteDTO.class);
+                XStream converter=new XStream(); 			converter.alias("expedienteDTO", ExpedienteDTO.class);
                 if (expediente.getInvolucradoByCalidad(Calidades.VICTIMA_PERSONA) == null || expediente.getInvolucradoByCalidad(Calidades.VICTIMA_PERSONA).size() == 0) {
                     if (expediente.getInvolucradoByCalidad(Calidades.DENUNCIANTE) != null
                             && expediente.getInvolucradoByCalidad(

@@ -34,6 +34,7 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.constants.ConstantesGenerales;
 import mx.gob.segob.nsjp.comun.enums.audiencia.EstatusAudiencia;
 import mx.gob.segob.nsjp.comun.enums.seguridad.Roles;
@@ -96,7 +97,9 @@ public class ReporteIndicadorAction extends GenericAction {
 
             listaIndicadoresDTO = indicadorDelegate.consultarIndicadorPorInstitucionActual(paraGraficas);
 
+            XStream converter=new XStream();
             converter.alias("listaIndicadores", java.util.List.class);
+
             converter.alias("indicadorDTO", IndicadorDTO.class);
             String xml = converter.toXML(listaIndicadoresDTO);
 

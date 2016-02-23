@@ -27,6 +27,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.calidad.Calidades;
 import mx.gob.segob.nsjp.comun.enums.catalogo.Catalogos;
 import mx.gob.segob.nsjp.comun.enums.organizacion.TipoOrganizacion;
@@ -94,8 +95,8 @@ public class ConsultarIndividuoAction extends GenericAction{
 //			lstCalidadDTO = calidadBDelegate.obtenerCalidadCmb();
 //			log.info("lstCalidad::::IngresarIndividuoAction"+lstCalidadDTO);
 //			log.info("lista"+lstCalidadDTO.get(0).getGcDescripcion());
-//			converter.alias("listaCalidades", java.util.List.class);
-//			converter.alias("calidades", CalidadDTO.class);				
+//			XStream converter=new XStream(); 			converter.alias("listaCalidades", java.util.List.class);
+//			XStream converter=new XStream(); 			converter.alias("calidades", CalidadDTO.class);
 //			String xml = converter.toXML(lstCalidadDTO);				
 //			response.setContentType("text/xml");				
 //			PrintWriter pw = response.getWriter();
@@ -400,6 +401,7 @@ public class ConsultarIndividuoAction extends GenericAction{
 			//involucradoDTO.setDetenciones(null);
 			String xml = null;
 			PrintWriter pw = null;
+			XStream converter=new XStream();
 			converter.alias("involucradoDTO",InvolucradoDTO.class);
 			converter.alias("AsentamientoDTO",AsentamientoDTO.class);
 			converter.alias("mediaFiliacionDTO",MediaFiliacionDTO.class);
@@ -629,7 +631,7 @@ public class ConsultarIndividuoAction extends GenericAction{
 			
 			String xml = null;
 			PrintWriter pw = null;
-			converter.alias("involucrado",InvolucradoViewDTO.class);
+			XStream converter=new XStream(); 			converter.alias("involucrado",InvolucradoViewDTO.class);
 			xml = converter.toXML(listaInvolucradosPersonasFisicasView);
 			response.setContentType("text/xml");
 			pw = response.getWriter();

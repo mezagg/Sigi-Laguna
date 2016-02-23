@@ -9,7 +9,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
- 
+
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.catalogo.TipoDiscriminante;
 import mx.gob.segob.nsjp.comun.enums.expediente.EstatusExpediente;
 import mx.gob.segob.nsjp.comun.enums.institucion.Areas;
@@ -88,6 +89,7 @@ public class VisitaduriaAction extends GenericAction{
 			JerarquiaOrganizacionalDTO nodoTodasLasAreas= new JerarquiaOrganizacionalDTO(0L,"Todas las �reas");
 			listaDeptosXInstitucion.add(0, nodoTodasLasAreas);
 			
+			XStream converter=new XStream();
 			converter.alias("listaDepartamentos", java.util.List.class);
 			converter.alias("departamentos", JerarquiaOrganizacionalDTO.class);
 			String xml = converter.toXML(listaDeptosXInstitucion);
@@ -118,6 +120,7 @@ public class VisitaduriaAction extends GenericAction{
 			List<Long> idsDepartamentosADescartar = Arrays.asList(idDepartamentos);
 			List<JerarquiaOrganizacionalDTO> listaDeptosXInstitucion= catDelegate.consultarDepartamentosExceptoAreasYDepartamentos(null,idsAreasADescartar,idsDepartamentosADescartar); 
 			
+			XStream converter=new XStream();
 			converter.alias("listaDepartamentos", java.util.List.class);
 			converter.alias("departamentos", JerarquiaOrganizacionalDTO.class);
 			String xml = converter.toXML(listaDeptosXInstitucion);
@@ -147,6 +150,7 @@ public class VisitaduriaAction extends GenericAction{
 			log.info("ejecutando Action consultar de estatus por departamento");
 			//consultamos los estatus
 			List<ValorDTO> listaEstatus= confActividadDocumentoDelegate.consultarEstadosPorJerarquiaOrganizacional(Areas.VISITADURIA.parseLong());
+			XStream converter=new XStream();
 			converter.alias("listaEstatusDep", java.util.List.class);
 			converter.alias("estatus", ValorDTO.class);
 			String xml = converter.toXML(listaEstatus);
@@ -177,6 +181,7 @@ public class VisitaduriaAction extends GenericAction{
 			log.info("ejecutando Action consultar de estatus por departamento");
 			//consultamos los estatus
 			List<ValorDTO> listaEstatus= confActividadDocumentoDelegate.consultarEstadosPorJerarquiaOrganizacional(Long.parseLong(area));
+			XStream converter=new XStream();
 			converter.alias("listaEstatusDep", java.util.List.class);
 			converter.alias("estatus", ValorDTO.class);
 			String xml = converter.toXML(listaEstatus);
@@ -441,7 +446,7 @@ public class VisitaduriaAction extends GenericAction{
 			RelNumExpedienteAuditoriaDTO infoVisitaduriaDTO= expedienteDelegate.consultarRelacionPorIdAuditoria(Long.parseLong(idNumeroExpediente)); 
 			
 			//consultamos la informacion de detalle
-			converter.alias("AuditoriaDTO", RelNumExpedienteAuditoriaDTO.class);
+			XStream converter=new XStream(); 			converter.alias("AuditoriaDTO", RelNumExpedienteAuditoriaDTO.class);
 			String xml = converter.toXML(infoVisitaduriaDTO);
 			if(log.isDebugEnabled())
 			{
@@ -497,6 +502,7 @@ public class VisitaduriaAction extends GenericAction{
 			}
 			Collections.sort(listaCatalogo);
 
+			XStream converter=new XStream();
 			converter.alias("CatDiscriminanteDTO", java.util.List.class);
 			converter.alias("catDiscriminanteDTO", CatDiscriminanteDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -519,8 +525,9 @@ public class VisitaduriaAction extends GenericAction{
 		log.info("/**** ACTION PARA ONSULTAR CAT ****/");
 		try {
 			List<CatUIEspecializadaDTO> catUIEList = catUIEDelegate.consultarUnidadesIEspecializadas();
+			XStream converter=new XStream();
 			converter.alias("consultarEstadosPorDepartamento", java.util.List.class);
-			converter.alias("unidad", CatUIEspecializadaDTO.class);						
+			converter.alias("unidad", CatUIEspecializadaDTO.class);
 			
 			String xml = converter.toXML(catUIEList);
 			log.info(" XML :: "+xml);

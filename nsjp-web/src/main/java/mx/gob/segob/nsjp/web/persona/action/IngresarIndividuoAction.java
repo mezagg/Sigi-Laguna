@@ -40,6 +40,7 @@ import java.util.StringTokenizer;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.calidad.Calidades;
 import mx.gob.segob.nsjp.comun.enums.elemento.Elementos;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
@@ -175,6 +176,7 @@ public class IngresarIndividuoAction extends GenericAction {
 
 			String xml = null;
 			PrintWriter pw = null;
+			XStream converter=new XStream();
 			converter.alias("IngresarIndividuoForm",IngresarIndividuoForm.class);
 			if(involucradoDTO.getEsDetenido() != null && involucradoDTO.getEsDetenido()){
 				retorno.setEstaDetenido(involucradoDTO.getEsDetenido());
@@ -198,6 +200,7 @@ public class IngresarIndividuoAction extends GenericAction {
 			logger.info(e.getCause(), e);
 			IngresarIndividuoForm retorno = new IngresarIndividuoForm();
 			retorno.setIdIndividuo(0L);
+			XStream converter=new XStream();
 			String xml = converter.toXML(retorno);
 			PrintWriter pw = null;
 			response.setContentType("text/xml");
@@ -345,6 +348,7 @@ public class IngresarIndividuoAction extends GenericAction {
 
 			String xml = null;
 			PrintWriter pw = null;
+			XStream converter=new XStream();
 			converter.alias("IngresarIndividuoForm",IngresarIndividuoForm.class);
 			IngresarIndividuoForm retorno = new IngresarIndividuoForm();
 			xml = converter.toXML(retorno);
@@ -533,6 +537,7 @@ public class IngresarIndividuoAction extends GenericAction {
 					lstInvolucrados.add(involucradoView);
 				}
 			}
+			XStream converter=new XStream();
 			converter.alias("lstInvolucrados", java.util.List.class);
 			converter.alias("involucradoViewDTO", InvolucradoViewDTO.class);
 			response.setContentType("text/xml");
@@ -1043,25 +1048,25 @@ public class IngresarIndividuoAction extends GenericAction {
 				actaDTO=expedienteDelegate.consultarActaCircunstaciada(expedienteDTOConsul);
 				// regresamos el XML del acata circunstanciada recien ingresada
 				if (actaDTO != null && actaDTO.getHechoDTO()!= null && actaDTO.getHechoDTO().getHechoId()>0) {
-					converter.alias("actaDTO", ActaCircunstanciadaDTO.class);
+					XStream converter=new XStream(); 			converter.alias("actaDTO", ActaCircunstanciadaDTO.class);
 					String xml = converter.toXML(actaDTO);
 					logger.info("acta_circunstanciada:: "+xml);
 					escribirRespuesta(response, xml);
 				} else {
 					ActaCircunstanciadaDTO actadosDTO=new ActaCircunstanciadaDTO(null, new HechoDTO(0L));
-					converter.alias("actaDTO", ActaCircunstanciadaDTO.class);
+					XStream converter=new XStream(); 			converter.alias("actaDTO", ActaCircunstanciadaDTO.class);
 					String xml = converter.toXML(actadosDTO);
 					logger.info("acta_circunstanciada_vacia:: "+xml);
 					escribirRespuesta(response, xml);
 				}
 				
-//				converter.alias("expedienteDTO", ExpedienteDTO.class);
+//				XStream converter=new XStream(); 			converter.alias("expedienteDTO", ExpedienteDTO.class);
 //				String xml = converter.toXML(expedienteDTO);
 //				logger.info("XML_registrarActaCircunstanciada:: "+xml);
 //				escribirRespuesta(response, xml);
 			} else {
 				expedienteDTO.setExpedienteId(0L);
-				converter.alias("expedienteDTO", ExpedienteDTO.class);
+				XStream converter=new XStream(); 			converter.alias("expedienteDTO", ExpedienteDTO.class);
 				String xml = converter.toXML(expedienteDTO);
 				logger.info("XML_registrarActaCircunstanciada:: "+xml);
 				escribirRespuesta(response, xml);
@@ -1134,13 +1139,13 @@ public class IngresarIndividuoAction extends GenericAction {
 			
 			// correspondiente
 			if (actaDTO != null && actaDTO.getHechoDTO()!= null && actaDTO.getHechoDTO().getHechoId()>0) {
-				converter.alias("actaDTO", ActaCircunstanciadaDTO.class);
+				XStream converter=new XStream(); 			converter.alias("actaDTO", ActaCircunstanciadaDTO.class);
 				String xml = converter.toXML(actaDTO);
 				logger.info("acta_circunstanciada:: "+xml);
 				escribirRespuesta(response, xml);
 			} else {
 				ActaCircunstanciadaDTO actadosDTO=new ActaCircunstanciadaDTO(null, new HechoDTO(0L));
-				converter.alias("actaDTO", ActaCircunstanciadaDTO.class);
+				XStream converter=new XStream(); 			converter.alias("actaDTO", ActaCircunstanciadaDTO.class);
 				String xml = converter.toXML(actadosDTO);
 				logger.info("acta_circunstanciada_vacia:: "+xml);
 				escribirRespuesta(response, xml);
@@ -1148,7 +1153,7 @@ public class IngresarIndividuoAction extends GenericAction {
 			logger.info("Termina ejecucion Action guardar ACTA CIRCUNSTANCIAL - FIN ");
 		} catch (NSJPNegocioException e) {
 			ActaCircunstanciadaDTO actadosDTO=new ActaCircunstanciadaDTO(null, new HechoDTO(0L));
-			converter.alias("actaDTO", ActaCircunstanciadaDTO.class);
+			XStream converter=new XStream(); 			converter.alias("actaDTO", ActaCircunstanciadaDTO.class);
 			String xml = converter.toXML(actadosDTO);
 			logger.info(xml);
 			logger.error(e.getMessage(), e);
@@ -1171,6 +1176,7 @@ public class IngresarIndividuoAction extends GenericAction {
 			List<TelefonoDTO> telefonoDTOs = new ArrayList<TelefonoDTO>();
 			telefonoDTOs= involucradoDTO.getTelefonosDTO();
 				
+			XStream converter=new XStream();
 			converter.alias("listaTelefonos", java.util.ArrayList.class);
 			converter.alias("TelefonoDTO", TelefonoDTO.class);
 			logger.info("tels_medios_contacto:: "+converter.toXML(telefonoDTOs));
@@ -1249,6 +1255,7 @@ public class IngresarIndividuoAction extends GenericAction {
 			List<CorreoElectronicoDTO> correoElectronicoDTOs = new ArrayList<CorreoElectronicoDTO>();
 			correoElectronicoDTOs= involucradoDTO.getCorreosDTO();
 			
+			XStream converter=new XStream();
 			converter.alias("listaCorreos", java.util.ArrayList.class);
 			converter.alias("CorreoElectronicoDTO", CorreoElectronicoDTO.class);
 			logger.info("tels_medios_contacto:: "+converter.toXML(correoElectronicoDTOs));

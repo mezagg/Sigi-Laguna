@@ -2,17 +2,89 @@
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
 	<!--APPENDERS -->
-	<appender name="consola" class="org.apache.log4j.ConsoleAppender">
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern"
 				value="[%d{dd-MM-yy HH:mm:ss,SSS}] %5p (%45C{4}-%30M:%4L) -> %m%n" />
 		</layout>
 	</appender>
+
+	<appender name="console_action" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="C:/Users/Sarahi/Documents/SIGI/logs/console_action.log" />
+		<param name="append" value="false" />
+		<param name="Threshold" value="debug" />
+		<param name="MaxFileSize" value="50MB" />
+		<param name="MaxBackupIndex" value="1" />
+			<layout class="org.apache.log4j.PatternLayout">
+				<param name="ConversionPattern"
+				   value="%n%d{yyyy-MM-dd HH:mm:ss} [%-5p] [%l] %n%m%n" />
+			</layout>
+	</appender>
+
+	<appender name="console_service" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="C:/Users/Sarahi/Documents/SIGI/logs/console_service.log" />
+		<param name="append" value="false" />
+		<param name="Threshold" value="debug" />
+		<param name="MaxFileSize" value="50MB" />
+		<param name="MaxBackupIndex" value="1" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				   value="%n%d{yyyy-MM-dd HH:mm:ss} [%-5p] [%l] %n%m%n" />
+		</layout>
+	</appender>
+
+
+	<appender name="console_persistencia" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="C:/Users/Sarahi/Documents/SIGI/logs/console_persistencia.log" />
+		<param name="append" value="false" />
+		<param name="Threshold" value="debug" />
+		<param name="MaxFileSize" value="50MB" />
+		<param name="MaxBackupIndex" value="1" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				   value="%n%d{yyyy-MM-dd HH:mm:ss} [%-5p] [%l] %n%m%n" />
+		</layout>
+	</appender>
+
+
+	<appender name="console_all" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="C:/Users/Sarahi/Documents/SIGI/logs/console.log" />
+		<param name="append" value="false" />
+		<param name="Threshold" value="debug" />
+		<param name="MaxFileSize" value="50MB" />
+		<param name="MaxBackupIndex" value="1" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				   value="%n%d{yyyy-MM-dd HH:mm:ss} [%-5p] [%l] %n%m%n" />
+		</layout>
+	</appender>
+
 	<!--ROOT -->
 	<root>
 		<level value="info" />
-		<appender-ref ref="consola" />
+		<appender-ref ref="console" />
+		<appender-ref ref="console_all" />
 	</root>
 	<!--ROOT -->
+
 	<!--LOGGERS -->
+	<logger  name="org.hibernate.SQL" additivity="false">
+		<level value="debug" />
+		<appender-ref ref="console_persistencia" />
+	</logger>
+
+	<!--CATEGORIES -->
+	<category name="mx.gob.segob.nsjp.web">
+		<appender-ref ref="console_action" />
+	</category>
+
+	<category name="mx.gob.segob.nsjp.service">
+		<appender-ref ref="console_service" />
+	</category>
+
+	<category name="mx.gob.segob.nsjp.dao">
+		<appender-ref ref="console_persistencia" />
+	</category>
+
+
 </log4j:configuration>

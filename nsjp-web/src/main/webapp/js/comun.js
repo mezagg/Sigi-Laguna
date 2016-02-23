@@ -50,7 +50,7 @@ function ejecutaAction(pathAction, funcionSucces, parametros, esSincrono){
  * pathAction = "/consultarCatalogoTipoBajaEvidencia"
  * idElemento = "tipoDeBaja"
  * aliasDto = "evidencia" En el action, "evidencia" corresponde a:
- *             converter.alias("evidencia", CatalogoDTO.class);
+ *             XStream converter=new XStream(); 			converter.alias("evidencia", CatalogoDTO.class);
  */
 function cargaCatalogo(pathAction, idElemento, aliasDto){
     ejecutaAction(pathAction, function(respuesta){

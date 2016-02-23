@@ -62,8 +62,8 @@ public class IngresarMediosDeContactoAction extends GenericAction{
 //			ArrayList<CatTipoTelefonoDTO> listaTipoTelefonoDto = null;
 //			listaTipoTelefonoDto = iMedioDeContactoBDelegate.consultarTiposDeTelefono();
 //			
-//			converter.alias("listaTipoTelefono", java.util.List.class);
-//			converter.alias("telefono", CatTipoTelefonoDTO.class);
+//			XStream converter=new XStream(); 			converter.alias("listaTipoTelefono", java.util.List.class);
+//			XStream converter=new XStream(); 			converter.alias("telefono", CatTipoTelefonoDTO.class);
 //			
 //			String xml = converter.toXML(listaTipoTelefonoDto);
 //			

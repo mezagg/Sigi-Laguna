@@ -34,6 +34,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.constants.ConstantesGenerales;
 import mx.gob.segob.nsjp.comun.enums.actividad.Actividades;
 import mx.gob.segob.nsjp.comun.enums.actividad.ActividadesRS;
@@ -343,6 +344,7 @@ public class GeneradorDocumentoAction extends ReporteBaseAction {
                     ejecutarAccion(request, documento);
                 }
             } else {
+                XStream converter=new XStream();
                 escribirRespuesta(response, converter.toXML(documentoId + "," + numeroFolio));
             }
         } catch (NSJPNegocioException e) {
@@ -523,6 +525,7 @@ public class GeneradorDocumentoAction extends ReporteBaseAction {
                     ejecutarAccion(request, documento);
                 }
             } else {
+                XStream converter=new XStream();
                 escribirRespuesta(response, converter.toXML(documentoId));
             }
             return mapping.findForward("success");
@@ -805,6 +808,7 @@ public class GeneradorDocumentoAction extends ReporteBaseAction {
                 logger.debug("cargarArbolExpediente - listaCatalogoUIE :::: " + listaCatalogoUIE);
 
                 //Para el catalogo de unidades de investigacion
+                XStream converter=new XStream();
                 converter.alias("listaCatalogo", java.util.List.class);
                 converter.alias("CatUIEspecializadaDTO", CatUIEspecializadaDTO.class);
 
@@ -835,6 +839,7 @@ public class GeneradorDocumentoAction extends ReporteBaseAction {
             List<CatUIEspecializadaDTO> listaCatalogoUIE = catUIEspecializadaDelegate.consultarUnidadesIEspecializadas();
 
             //Para el catalogo de unidades de investigacion
+            XStream converter=new XStream();
             converter.alias("listaCatalogo", java.util.List.class);
             converter.alias("CatUIEspecializadaDTO", CatUIEspecializadaDTO.class);
 
@@ -861,6 +866,7 @@ public class GeneradorDocumentoAction extends ReporteBaseAction {
      * @return
      */
     private String escribirXMLArbolExpediente(ParametrosDocumentoDTO resumen) {
+        XStream converter=new XStream();
         converter.alias("expedienteResumenDTO", ParametrosDocumentoDTO.class);
         converter.alias("involucradoDTO", InvolucradoDTO.class);
         converter.alias("calidadDTO", CalidadDTO.class);
@@ -1070,6 +1076,7 @@ public class GeneradorDocumentoAction extends ReporteBaseAction {
                 logger.debug("documentoId :: " + documentoId);
                 logger.debug("tipoDocumt :: " + tipoDocumt);
             }
+            XStream converter=new XStream();
             converter.alias("expedienteDTO", ExpedienteDTO.class);
             logger.info(converter.toXML("MMM::" + expTrabajo));
 
@@ -1209,7 +1216,7 @@ public class GeneradorDocumentoAction extends ReporteBaseAction {
             }
 
             Long documentoId = documentoDelegate.guardarDocumento(documento, expTrabajo, null, null);
-
+            XStream converter=new XStream();
             escribirRespuesta(response, converter.toXML(documentoId));
 
         } catch (NSJPNegocioException e) {
@@ -1381,7 +1388,7 @@ public class GeneradorDocumentoAction extends ReporteBaseAction {
                     null, idActividadExistente);
             logger.debug("Se coloca la solicitud el expediente de UAVD");
             expedienteDelegate.asociarNumCarpetaASolicitud(expedienteNuevoUAVD, idSolici);
-
+            XStream converter=new XStream();
             if (!parcial) {
                 escribirReporte(response, archivoPDF, forma.getNombre());
                 logger.debug("expediente_ayuda_psicoliga:: " + converter.toXML(expedienteNuevoUAVD));
@@ -1919,14 +1926,14 @@ public class GeneradorDocumentoAction extends ReporteBaseAction {
             documentoDTO.setDocumentoId(documentoId);
 
             documentoDTO.setExpedienteDTO(expediente);
-            converter.alias("documentoDTO", DocumentoDTO.class);
+            XStream converter=new XStream(); 			converter.alias("documentoDTO", DocumentoDTO.class);
             String xml = converter.toXML(documentoDTO);
             escribirRespuesta(response, xml);
 
         } catch (Exception e) {
             DocumentoDTO documentoDTO = new DocumentoDTO();
             documentoDTO.setDocumentoId(0L);
-            converter.alias("documentoDTO", DocumentoDTO.class);
+            XStream converter=new XStream(); 			converter.alias("documentoDTO", DocumentoDTO.class);
             String xml = converter.toXML(documentoDTO);
             escribirRespuesta(response, xml);
             logger.error(e.getMessage(), e);

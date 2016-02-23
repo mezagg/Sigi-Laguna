@@ -6,6 +6,7 @@ import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.institucion.Areas;
 import mx.gob.segob.nsjp.delegate.avisodetencion.AvisoDetencionDelegate;
 import mx.gob.segob.nsjp.delegate.expediente.ExpedienteDelegate;
@@ -68,6 +69,7 @@ public class SeguridadPublicaAction extends GenericAction{
 				hecho = hechoDelegate.ingresarHecho(hecho);
 				expRespuesta.setHechoDTO(hecho);
 			}
+			XStream converter=new XStream();
 			converter.alias("expedienteDTO", ExpedienteDTO.class);
 			converter.alias("hechoDTO", HechoDTO.class);
 			String xml = converter.toXML(expRespuesta);

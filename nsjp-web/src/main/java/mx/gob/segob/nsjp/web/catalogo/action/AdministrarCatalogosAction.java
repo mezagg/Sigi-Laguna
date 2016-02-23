@@ -11,6 +11,7 @@ import java.util.StringTokenizer;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.catalogo.Catalogos;
 import mx.gob.segob.nsjp.comun.enums.catalogo.TipoDiscriminante;
 import mx.gob.segob.nsjp.comun.enums.configuracion.Parametros;
@@ -111,6 +112,7 @@ public class AdministrarCatalogosAction extends GenericAction {
 			Long idCatalogo = NumberUtils.toLong(request.getParameter("idCatalogo"), 0L);
 			CatalogoCompletoDTO valores = administrarCatalogoDelegate.obtenerCatalogo(idCatalogo);
 			
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("CatalogoDTO", CatalogoDTO.class);
 			String xml = converter.toXML("valores_catalogo_admin:: "+valores);
@@ -168,9 +170,9 @@ public class AdministrarCatalogosAction extends GenericAction {
 			logger.info("id de la consulta del Catalogo:::::"+idCatalogo);
 			CatalogoCompletoDTO valores = administrarCatalogoDelegate.obtenerCatalogo(idCatalogo);
 			//catalogoCompletoDTO valores catalogoDTO valoresExras valorDTO
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
-			converter.alias("catalogoCompletoDTO", CatalogoCompletoDTO.class);
-			
+		    converter.alias("catalogoCompletoDTO", CatalogoCompletoDTO.class);
 			//converter.alias("valores");
 			converter.alias("catalogoDTO", CatalogoDTO.class);
 			//converter.alias("valoresExras");
@@ -592,7 +594,7 @@ public class AdministrarCatalogosAction extends GenericAction {
 			
 			salaAudienciaDto = catalogoDelegate.guardarActualizarSalaAudiencia(salaAudienciaDto);
 			estado = salaAudienciaDto.getSalaAudienciaId();
-			
+			XStream converter=new XStream();
 			String xml = converter.toXML(estado);
 			response.setContentType("text/xml");
 			
@@ -620,8 +622,8 @@ public class AdministrarCatalogosAction extends GenericAction {
 			
 			if(catDelitoId != 0L){
 				resultado = catalogoDelegate.eliminarCatDelito(catDelitoId);
-			}				
-			
+			}
+			XStream converter=new XStream();
 			String xml = converter.toXML(resultado);
 			response.setContentType("text/xml");
 			
@@ -663,6 +665,7 @@ public class AdministrarCatalogosAction extends GenericAction {
 			 * Si el resultado es 2 el area de negocio no existe
 			 * Si el resultado es -1 hay funcionarios asociados a esa area de neg
 			 */
+			XStream converter=new XStream();
 			String xml = converter.toXML(resultado);
 			response.setContentType("text/xml");
 			
@@ -681,7 +684,7 @@ public class AdministrarCatalogosAction extends GenericAction {
 			HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
 		try {
-		    
+			XStream converter=new XStream();
 			Long clave = NumberUtils.toLong(request.getParameter("clave"), 0);
 			Long idCampo = NumberUtils.toLong(request.getParameter("idCampo"), 0);
 			String value = request.getParameter("valor");
@@ -775,9 +778,9 @@ public class AdministrarCatalogosAction extends GenericAction {
 					administrarCatalogoDelegate.registrarValor(input);
 				}
 			}
-				
-			
-			
+
+
+
 			String mensaje = "exito";
 			String xml = converter.toXML(mensaje);			
 			response.setContentType("text/xml");
@@ -789,6 +792,7 @@ public class AdministrarCatalogosAction extends GenericAction {
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
 			String mensaje = "fallo";
+			XStream converter=new XStream();
 			String xml = converter.toXML(mensaje);			
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();
@@ -802,6 +806,7 @@ public class AdministrarCatalogosAction extends GenericAction {
 	public ActionForward eliminarValorDeCatalogo(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
+		XStream converter=new XStream();
 		try {
 			
 			logger.info("EJECUTANDO ELMINAR VALOR DE CATALOGOS");
@@ -878,7 +883,7 @@ public class AdministrarCatalogosAction extends GenericAction {
 			Long res = distritoDelegate.registrarDiscriminante(catDiscriminanteDTO);
 			
 			logger.info("despues del Delegate imprime res="+res);
-			
+			XStream converter=new XStream();
 			String xml = converter.toXML(res);			
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();
@@ -961,7 +966,7 @@ public class AdministrarCatalogosAction extends GenericAction {
 		}catch (Exception e) {		
 			logger.info(e.getCause(),e);				
 		}finally{
-			converter.alias("respuesta",String.class);
+			XStream converter=new XStream(); 			converter.alias("respuesta",String.class);
 			escribirRespuesta(response,converter.toXML(respuesta.toString()));
 			
 		}
@@ -984,7 +989,7 @@ public class AdministrarCatalogosAction extends GenericAction {
 				if(loParametroDTO != null && loParametroDTO.getValor() != null){
 					respuesta = loParametroDTO.getValor().toString();
 				}
-				converter.alias("respuesta",String.class);
+				XStream converter=new XStream(); 			converter.alias("respuesta",String.class);
 				escribirRespuesta(response,converter.toXML(respuesta.toString()));
 				
 				//TODO Manejo de Error, en caso de que no se tenga el parametro consultado.

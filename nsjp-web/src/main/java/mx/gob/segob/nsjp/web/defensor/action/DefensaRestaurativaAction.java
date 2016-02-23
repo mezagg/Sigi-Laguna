@@ -264,16 +264,16 @@ public class DefensaRestaurativaAction extends GenericAction {
 			}
 			String xml = null;
 			PrintWriter pw = null;
-			converter.alias("expediente",  ExpedienteDTO.class);
-			converter.alias("nombreDemografico", NombreDemograficoDTO.class);
-			converter.alias("involucradoDTO", InvolucradoDTO.class);
-			converter.alias("detencionDTO", DetencionDTO.class);
-			converter.alias("delitoDTO", DelitoDTO.class);
-			converter.alias("avisoDesignacionDTO", AvisoDesignacionDTO.class);
-			converter.alias("etapasExpediente", EtapasExpediente.class);
-			converter.alias("domicilio", DomicilioDTO.class);
-			converter.alias("telefono", TelefonoDTO.class);
-			converter.alias("correo", CorreoElectronicoDTO.class);
+			XStream converter=new XStream(); 			converter.alias("expediente",  ExpedienteDTO.class);
+			XStream converter=new XStream(); 			converter.alias("nombreDemografico", NombreDemograficoDTO.class);
+			XStream converter=new XStream(); 			converter.alias("involucradoDTO", InvolucradoDTO.class);
+			XStream converter=new XStream(); 			converter.alias("detencionDTO", DetencionDTO.class);
+			XStream converter=new XStream(); 			converter.alias("delitoDTO", DelitoDTO.class);
+			XStream converter=new XStream(); 			converter.alias("avisoDesignacionDTO", AvisoDesignacionDTO.class);
+			XStream converter=new XStream(); 			converter.alias("etapasExpediente", EtapasExpediente.class);
+			XStream converter=new XStream(); 			converter.alias("domicilio", DomicilioDTO.class);
+			XStream converter=new XStream(); 			converter.alias("telefono", TelefonoDTO.class);
+			XStream converter=new XStream(); 			converter.alias("correo", CorreoElectronicoDTO.class);
 			
 			xml = converter.toXML(expedienteDTO);
 			log.info("EXPEDIENTE DEFENSA RESTAURATIVA : xml : " + xml);

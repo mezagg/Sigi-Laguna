@@ -24,6 +24,7 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
 import mx.gob.segob.nsjp.delegate.numeroExpedienteAlterno.NumeroExpedienteAlternoDelegate;
 import mx.gob.segob.nsjp.dto.expediente.ExpedienteDTO;
@@ -88,6 +89,7 @@ public class ConsultarNumeroExpedienteAlternoAction extends GenericAction{
 				numeroExpedienteAlterno = numeroExpedienteAlternoDelegate.obtenerNumeroExpedienteAlterno(super.getUsuarioFirmado(request),expedienteDto,null);
 			}
 
+			XStream converter=new XStream();
 			converter.alias("respuesta", String.class);
 			String xml = converter.toXML(numeroExpedienteAlterno);
 			escribirRespuesta(response, xml);
@@ -132,7 +134,7 @@ public class ConsultarNumeroExpedienteAlternoAction extends GenericAction{
 				numeroExpedienteAlterno = numeroExpedienteAlternoDelegate.consultarNumeroExpedienteAlterno(expedienteDto);
 			}
 
-			converter.alias("respuesta", String.class);
+			XStream converter=new XStream(); 			converter.alias("respuesta", String.class);
 			String xml = converter.toXML(numeroExpedienteAlterno);
 			escribirRespuesta(response, xml);
 

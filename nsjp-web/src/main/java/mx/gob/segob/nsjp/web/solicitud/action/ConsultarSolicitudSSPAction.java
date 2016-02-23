@@ -28,6 +28,7 @@ import java.util.StringTokenizer;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.catalogo.Catalogos;
 import mx.gob.segob.nsjp.comun.enums.institucion.Instituciones;
 import mx.gob.segob.nsjp.comun.enums.quejaciudadana.EstatusQueja;
@@ -193,6 +194,7 @@ public class ConsultarSolicitudSSPAction extends GenericAction {
 			String xml = null;
 			PrintWriter pw = null;
 			//converter.alias("defensorDTOs",  java.util.List.class);
+			XStream converter=new XStream();
 			converter.alias("expedienteDTO", ExpedienteDTO.class);
 			xml = converter.toXML(expedienteDTO);
 			response.setContentType("text/xml");
@@ -349,6 +351,7 @@ public class ConsultarSolicitudSSPAction extends GenericAction {
 			
 			String xml = null;
 			PrintWriter pw = null;
+			XStream converter=new XStream();
 			converter.alias("quejaDTO", QuejaCiudadanaDTO.class);
 			xml = converter.toXML(queja);
 			log.info("XML Queja--- "+xml);
@@ -569,6 +572,7 @@ public class ConsultarSolicitudSSPAction extends GenericAction {
 			
 			String xml = null;
 			PrintWriter pw = null;
+			XStream converter=new XStream();
 			converter.alias("quejaCiudadanaDTO", QuejaCiudadanaDTO.class);
 			xml = converter.toXML(quejaCiudadanaDTO);
 			log.info("Termina queja Ciudadana :::xml::::"+xml);
@@ -590,6 +594,7 @@ public class ConsultarSolicitudSSPAction extends GenericAction {
     		log.info("ejecutando Action Cargar Combo Tipo queja"); 
     		List<CatalogoDTO> listaCatalogo=catDelegate.recuperarCatalogo(Catalogos.TIPO_QUEJA);
     	
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catTipoQueja", CatalogoDTO.class);
 			
@@ -614,6 +619,7 @@ public class ConsultarSolicitudSSPAction extends GenericAction {
     		log.info("ejecutando Action Cargar Combo Tipo queja"); 
     		List<CatalogoDTO> listaCatalogo=catDelegate.recuperarCatalogo(Catalogos.CAUSA_RECHAZO_QUEJA_CIUDADANA);
     	
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catRechazoQueja", CatalogoDTO.class);
 			
@@ -653,6 +659,7 @@ public class ConsultarSolicitudSSPAction extends GenericAction {
 			
 			String xml = null;
 			PrintWriter pw = null;
+			XStream converter=new XStream();
 			converter.alias("quejaDTO", QuejaCiudadanaDTO.class);
 			xml = converter.toXML(valor);
 			log.info("XML asignarMotivoRechazoQuejaCiudadana--- "+xml);
@@ -689,6 +696,7 @@ public class ConsultarSolicitudSSPAction extends GenericAction {
 			
 			String xml = null;
 			PrintWriter pw = null;
+			XStream converter=new XStream();
 			converter.alias("funcionarioDTO", FuncionarioDTO.class);
 			xml = converter.toXML(funcionarioDTO);
 			response.setContentType("text/xml");
@@ -719,6 +727,7 @@ public class ConsultarSolicitudSSPAction extends GenericAction {
 		try {
     		List<CatalogoDTO> listaCatalogo=catDelegate.recuperarCatalogo(Catalogos.CAUSA_RECHAZO_AVISO_AUXILIO);
     	
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catRechazoAviso", CatalogoDTO.class);
 			

@@ -116,7 +116,7 @@ public class SolicitarServiciosPericialesAction extends GenericAction {
 			 }			
 			
 			log.info("USUARIO"+usuario);
-			converter.alias("usuarioDTO", UsuarioDTO.class);
+			XStream converter=new XStream(); 			converter.alias("usuarioDTO", UsuarioDTO.class);
 			String xml = converter.toXML(usuario);
 			log.info("consultarDatosUsuario() ... " + xml);
 			escribir(response, xml,null);
@@ -158,7 +158,7 @@ public class SolicitarServiciosPericialesAction extends GenericAction {
 				funcs = funcionarioDelegate.consultarFuncionariosPorRol(puestoId);
 				
 				if(funcs != null & funcs.size()>0){
-					converter.alias("funcionarioDTO", FuncionarioDTO.class);
+					XStream converter=new XStream(); 			converter.alias("funcionarioDTO", FuncionarioDTO.class);
 					String xml = converter.toXML(funcs.get(0));
 					escribir(response, xml,null);
 				}
@@ -1376,7 +1376,7 @@ public class SolicitarServiciosPericialesAction extends GenericAction {
 			SolicitudDTO solicitudDTO2 = solicitudDelegate.obtenerDetalleSolicitud(solicitudDTO);
 			log.info("depues del delegate::: solicitudDTO" + solicitudDTO2);
 			log.info("Folio de la solicitud: " + solicitudDTO2.getFolioSolicitud());
-			converter.alias("solicitudDTO", SolicitudDTO.class);
+			XStream converter=new XStream(); 			converter.alias("solicitudDTO", SolicitudDTO.class);
 			String xml = converter.toXML(solicitudDTO2);
 			log.info("xml de la solicitud respuesta: :::::::::"+ xml);
 			

@@ -10,6 +10,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.configuracion.Parametros;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
 import mx.gob.segob.nsjp.comun.util.DateUtils;
@@ -237,8 +238,9 @@ public class AdministracionSistemaAction extends ReporteBaseAction{
 			response.setContentType("text/xml; charset=UTF-8");
 			response.setHeader("Cache-Control", "no-cache");
 			PrintWriter writer = response.getWriter();
-			
+			XStream converter=new XStream();
 			if (esCombo) {
+
 				converter.alias("lstRolDTO", java.util.List.class);
 				converter.alias("rolDTO", RolDTO.class);
 				String xml = converter.toXML(lstRolDTO);
@@ -350,6 +352,7 @@ public class AdministracionSistemaAction extends ReporteBaseAction{
 			log.error(e.getMessage(), e);
 		}finally{
 			try {
+				XStream converter=new XStream();
 				String xml = converter.toXML(exito);
 				response.setContentType("text/xml");
 				PrintWriter pw = response.getWriter();
@@ -381,6 +384,7 @@ public class AdministracionSistemaAction extends ReporteBaseAction{
 			
 			List<FuncionarioDTO> funcionarioDTOs = funcionarioDelegate.obtenerFuncionariosConUsuario();
 			
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("funcionariosRegistrados", FuncionarioDTO.class);
 			String xml = converter.toXML(funcionarioDTOs);
@@ -416,7 +420,7 @@ public class AdministracionSistemaAction extends ReporteBaseAction{
 			
 			UsuarioDTO usuarioDTO = usuarioDelegate.consultarUsuarioPorClaveFuncionario(Long.parseLong(claveFuncionario));
 						
-			converter.alias("usuarioDTO", UsuarioDTO.class);
+			XStream converter=new XStream(); 			converter.alias("usuarioDTO", UsuarioDTO.class);
 			String xml = converter.toXML(usuarioDTO);
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();
@@ -503,6 +507,7 @@ public class AdministracionSistemaAction extends ReporteBaseAction{
 							
 				actualizacion=usuarioDelegate.actualizarUsuario(usuarioDTO,rolDTOs);			
 			}
+			XStream converter=new XStream();
 			String xml = converter.toXML(actualizacion);
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();
@@ -514,6 +519,7 @@ public class AdministracionSistemaAction extends ReporteBaseAction{
 			log.error(e.getMessage(), e);
 		}finally{
 			try {
+				XStream converter=new XStream();
 				String xml = converter.toXML(actualizacion);
 				response.setContentType("text/xml");
 				PrintWriter pw = response.getWriter();
@@ -656,6 +662,7 @@ public class AdministracionSistemaAction extends ReporteBaseAction{
 				log.error(e.getMessage(), e);
 			}finally{
 				try {
+					XStream converter=new XStream();
 					String xml = converter.toXML(anular);
 					response.setContentType("text/xml");
 					PrintWriter pw = response.getWriter();
@@ -748,6 +755,7 @@ public class AdministracionSistemaAction extends ReporteBaseAction{
 				UsuarioDTO usuarioDTO=new UsuarioDTO();
 				usuarioDTO.setIdUsuario(Long.parseLong(idUsuario));
 				sesion = usuarioDelegate.buscarUsuarioEnSesion(usuarioDTO);
+				XStream converter=new XStream();
 				String xml = converter.toXML(sesion);
 				response.setContentType("text/xml");
 				PrintWriter pw = response.getWriter();

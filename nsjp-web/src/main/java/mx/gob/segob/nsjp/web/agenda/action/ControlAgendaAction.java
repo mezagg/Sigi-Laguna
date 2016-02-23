@@ -12,6 +12,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.eventocita.EstatusEventoCita;
 import mx.gob.segob.nsjp.comun.enums.tarea.TipoEvento;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
@@ -227,8 +228,9 @@ public class ControlAgendaAction extends GenericAction{
 		
 		LinkedHashMap  mapa  = new LinkedHashMap ();
 		mapa.put("IsSuccess", true);
-		mapa.put("Msg", "Evento Eliminado");	
-		
+		mapa.put("Msg", "Evento Eliminado");
+		XStream converter=new XStream();
+
 		String xml = converter.toXML("success");
 		escribir(response, xml,null);
 		
@@ -322,6 +324,7 @@ public class ControlAgendaAction extends GenericAction{
 		}catch (Exception e) {
 			mensaje = "fatalFail";
 		}
+		XStream converter=new XStream();
 		converter.alias("mensaje", String.class);
 		escribirRespuesta(response, converter.toXML(mensaje));
 		return null;

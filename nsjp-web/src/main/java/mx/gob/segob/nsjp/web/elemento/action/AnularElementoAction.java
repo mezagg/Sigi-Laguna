@@ -9,6 +9,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
 import mx.gob.segob.nsjp.delegate.elemento.ElementoDelegate;
 import mx.gob.segob.nsjp.delegate.eslabon.EslabonDelegate;
@@ -144,8 +145,9 @@ public class AnularElementoAction extends GenericAction {
 				if(listaRelaciones!=null)
 				{
 					if(listaRelaciones.size()>0){
-					converter.alias("listaRelaciones", java.util.List.class);
-					converter.alias("cadena", java.lang.String.class);
+						XStream converter=new XStream();
+						converter.alias("listaRelaciones", java.util.List.class);
+						converter.alias("cadena", java.lang.String.class);
 					String xml = converter.toXML(listaRelaciones);
 					xml=xml+"<numRel>"+listaRelaciones.size()+"</numRel>";
 					escribirRespuesta(response, xml);

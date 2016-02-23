@@ -8,6 +8,7 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.delegate.documento.DocumentoDelegate;
 import mx.gob.segob.nsjp.dto.documento.CuerpoOficioEstructuradoDTO;
 import mx.gob.segob.nsjp.dto.documento.DocumentoDTO;
@@ -73,6 +74,7 @@ public class AdministrarPliegoDeConsignacionAction extends GenericAction{
 			
 			log.info("PLIEGO DE CONSIGNACION DTO### DOCUMENTO::::"+documentoDTO);
 			String xml = "";
+			XStream converter=new XStream();
 			converter.alias("documentoDTO", DocumentoDTO.class);
 			converter.alias("cuerpoOficioEstructuradoDTO", CuerpoOficioEstructuradoDTO.class);
 			xml = converter.toXML(documentoDTO);

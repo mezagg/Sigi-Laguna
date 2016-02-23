@@ -11,6 +11,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.excepciones.CodigoError;
 import mx.gob.segob.nsjp.comun.enums.tarea.TipoEvento;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
@@ -217,6 +218,7 @@ public class RegistroVacacionesIncapacidadesAction extends GenericAction {
 				try{
 					funcionarioDelegate.registrarVacacionesIncapacidad(funcionario, periodo, super.getUsuarioFirmado(request));
 					
+					XStream converter=new XStream();
 					converter.alias("mensaje",String.class);
 					String xml = converter.toXML("El registro se ha realizado con exito");
 					escribirRespuesta(response, xml);
@@ -224,7 +226,7 @@ public class RegistroVacacionesIncapacidadesAction extends GenericAction {
 				}catch(NSJPNegocioException e){
 					if(e.getCodigo() == CodigoError.EJCUCION_OPERACION_ESTADO_INCORRECTO){
 						
-						converter.alias("mensaje",String.class);
+						XStream converter=new XStream(); 			converter.alias("mensaje",String.class);
 						String xml = converter.toXML("No se puede registrar el evento por que el periodo coincide con un periodo registrado");
 						escribirRespuesta(response, xml);
 						

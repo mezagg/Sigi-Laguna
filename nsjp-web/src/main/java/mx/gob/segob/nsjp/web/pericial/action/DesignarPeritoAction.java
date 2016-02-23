@@ -28,6 +28,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.seguridad.Roles;
 import mx.gob.segob.nsjp.comun.enums.solicitud.EstatusSolicitud;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
@@ -286,7 +287,7 @@ public class DesignarPeritoAction extends GenericAction {
 					for(String idPerito:idsPeritos){
 						solicitud.getPeritosDesignados().add(new FuncionarioDTO(NumberUtils.toLong(idPerito)));
 					}
-					
+					XStream converter=new XStream();
 					solicitudPericialDelegate.registrarActulizarSolicitudPericial(solicitud);
 					escribirRespuesta(response,converter.toXML(idsPeritosString));
 				}
@@ -379,7 +380,7 @@ public class DesignarPeritoAction extends GenericAction {
 			log.info("EJECUTANDO ACTION CONSULTAR ASIGNACIONES NO ATENDIDAS DE UN PERITO--- ");
 			
 			Long solicitudPericialId= NumberUtils.toLong(request.getParameter("solicitudPericialId"));
-				
+			XStream converter=new XStream();
 				solicitudDelegate.actualizaEstatusSolicitud(new SolicitudDTO(solicitudPericialId), EstatusSolicitud.EN_PROCESO);
 				String xml = converter.toXML("ok");
 				escribir(response, xml,null);										
@@ -598,7 +599,7 @@ public class DesignarPeritoAction extends GenericAction {
 			log.info("evidenciaId===="+evidenciaId);
 			log.info("peritoId===="+peritoId);
 			log.info("solicitudPericialId===="+solicitudPericialId);
-			
+			XStream converter=new XStream();
 			String xml = converter.toXML("ok");
 			escribir(response, xml,null);
 

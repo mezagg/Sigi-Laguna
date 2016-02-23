@@ -25,6 +25,7 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.excepciones.CodigoError;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
 import mx.gob.segob.nsjp.delegate.solicitud.SolicitudDelegate;
@@ -85,7 +86,8 @@ public class AdministrarNumeroExpedienteSolicitudAudienciaAction extends
 			Boolean sePuedeEditar = solicitudDelegate
 					.editarNumeroExpedienteSolicitudAudiencia(expedienteDTO);
 
-			converter.alias("sePuedeEditar", boolean.class);		
+			XStream converter=new XStream();
+			converter.alias("sePuedeEditar", boolean.class);
 			String xml = converter.toXML(sePuedeEditar);
 			escribirRespuesta(response, xml);
 
@@ -137,7 +139,7 @@ public class AdministrarNumeroExpedienteSolicitudAudienciaAction extends
 			Boolean seActualizo = solicitudDelegate
 					.actualizarNumeroExpedienteSolicitudAudiencia(expedienteDTO);
 
-			converter.alias("seActualizo", boolean.class);		
+			XStream converter=new XStream(); 			converter.alias("seActualizo", boolean.class);
 			String xml = converter.toXML(seActualizo);
 			escribirRespuesta(response, xml);
 

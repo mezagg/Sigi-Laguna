@@ -27,6 +27,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.institucion.Areas;
 import mx.gob.segob.nsjp.delegate.expediente.ExpedienteDelegate;
 import mx.gob.segob.nsjp.delegate.funcionario.FuncionarioDelegate;
@@ -97,6 +98,7 @@ public class ConsignacionAction extends GenericAction {
 										.getDistrito().getCatDistritoId());
 			}
 
+			XStream converter=new XStream();
 			converter.alias("listaFuncionarios", java.util.List.class);
 			converter.alias("FuncionarioDTO", FuncionarioDTO.class);
 			String xml = converter.toXML(listaFuncionarios);
@@ -162,7 +164,7 @@ public class ConsignacionAction extends GenericAction {
 					xml = "succes";
 				}
 			}
-			converter.alias("respuesta", String.class);
+			XStream converter=new XStream(); 			converter.alias("respuesta", String.class);
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();
 			pw.print(xml);
@@ -200,7 +202,7 @@ public class ConsignacionAction extends GenericAction {
 			}
 			
 			if(estatusExpediente != null && estatusExpediente > 0L){
-				converter.alias("estatusNumeroExpediente", String.class);
+				XStream converter=new XStream(); 			converter.alias("estatusNumeroExpediente", String.class);
 				String xml = converter.toXML(Long.toString(estatusExpediente));
 				escribirRespuesta(response, xml);
 				

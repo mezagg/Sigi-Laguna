@@ -9,7 +9,8 @@ import java.util.logging.Level;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
- 
+
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.documento.EstatusNotificacion;
 import mx.gob.segob.nsjp.comun.enums.excepciones.CodigoError;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
@@ -55,13 +56,15 @@ public class GenerarNotificacionAction extends GenericAction {
             }
             FuncionarioDTO funcionarioDto = getUsuarioFirmado(request).getFuncionario();
             NotificacionDTO notificacionDto = notificacionDelegate.consultarUltimaNotificacionPorAnio(funcionarioDto);
-            converter.alias("Notificacion", NotificacionDTO.class);
+            XStream converter=new XStream();
+			converter.alias("Notificacion", NotificacionDTO.class);
             notificacionDto.setMotivo("Informe de notificaci�n");
             String notificacionXml = converter.toXML(notificacionDto);
             if (logger.isDebugEnabled()) {
                 logger.debug("notificacionXml = " + notificacionXml);
             }
-            converter.alias("Funcionario", FuncionarioDTO.class);
+
+			converter.alias("Funcionario", FuncionarioDTO.class);
             String funcionarioXML = converter.toXML(funcionarioDto);
             if (logger.isDebugEnabled()) {
                 logger.debug("funcionarioXML = " + funcionarioXML);
@@ -204,7 +207,7 @@ public class GenerarNotificacionAction extends GenericAction {
 	
 			String xml = null;
 			PrintWriter pw = null;
-			converter.alias("NotificacionDTO", NotificacionDTO.class);
+			XStream converter=new XStream(); 			converter.alias("NotificacionDTO", NotificacionDTO.class);
 			xml = converter.toXML(notificacion);
 			response.setContentType("text/xml");
 			pw = response.getWriter();
@@ -282,7 +285,7 @@ public class GenerarNotificacionAction extends GenericAction {
 			notificacionDelegate.actualizarNotificacion(notificacionDTO);
 			
 			String xml = null;
-			converter.alias("NotificacionDTO", NotificacionDTO.class);
+			XStream converter=new XStream(); 			converter.alias("NotificacionDTO", NotificacionDTO.class);
 			xml = converter.toXML(notificacionDTO);
 			escribirRespuesta(response, xml);
 			

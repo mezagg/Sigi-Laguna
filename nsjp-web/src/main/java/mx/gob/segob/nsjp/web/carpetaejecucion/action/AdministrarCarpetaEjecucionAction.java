@@ -153,7 +153,7 @@ public class AdministrarCarpetaEjecucionAction extends GenericAction {
 		try {
 			expediente = carpetaEjecucionDelegate.consultarDatosGeneralesExpedienteCarpetaDeEjecucion(numeroExpedienteId);
 				log.info("Datos Generales para carpeta ..."+expediente);		
-			converter.alias("expedienteDTO",ExpedienteDTO.class);
+			XStream converter=new XStream(); 			converter.alias("expedienteDTO",ExpedienteDTO.class);
 			String xml = converter.toXML(expediente);
 			escribir(response, xml,null);
 			
@@ -663,8 +663,8 @@ public class AdministrarCarpetaEjecucionAction extends GenericAction {
 			
 			String xml = null;
 			PrintWriter pw = null;
-			//converter.alias("expedienteDTO",  java.util.List.class);
-			converter.alias("expedienteDTO", ExpedienteDTO.class);
+			//XStream converter=new XStream(); 			converter.alias("expedienteDTO",  java.util.List.class);
+			XStream converter=new XStream(); 			converter.alias("expedienteDTO", ExpedienteDTO.class);
 			xml = converter.toXML(expedienteDTO);
 			response.setContentType("text/xml");
 			pw = response.getWriter();

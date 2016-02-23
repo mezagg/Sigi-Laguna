@@ -11,6 +11,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.util.DateUtils;
 import mx.gob.segob.nsjp.delegate.expediente.ConvenioDelegate;
 import mx.gob.segob.nsjp.delegate.expediente.ExpedienteDelegate;
@@ -110,14 +111,17 @@ public class ConvenioAction extends GenericAction {
 			ConvenioDTO resultado = new ConvenioDTO();
 			log.info("guarda con exito" + idConvenio);
 			// revisamos si el guardado fue exitoso para mandar el xml
+			XStream converter=new XStream();
 			if (idConvenio != null && idConvenio>0) {
 				resultado.setConvenioID(idConvenio);
+
 				converter.alias("ConvenioDTO", ConvenioDTO.class);
 				String xml = converter.toXML(resultado);
 				log.info(xml);
 				escribirRespuesta(response, xml);
 			} else {
 				resultado.setConvenioID(0L);
+
 				converter.alias("ConvenioDTO", ConvenioDTO.class);
 				String xml = converter.toXML(resultado);
 				log.info(xml);
@@ -208,7 +212,7 @@ public class ConvenioAction extends GenericAction {
 				loConvenio = convenios.get(0);
 			}
 			
-			converter.alias("loConvenio", ConvenioDTO.class);
+			XStream converter=new XStream(); 			converter.alias("loConvenio", ConvenioDTO.class);
 			String xml = converter.toXML(loConvenio);
 			log.info("xml del convenio respuesta: :::::::::"+ xml);
 			
@@ -321,7 +325,7 @@ public class ConvenioAction extends GenericAction {
 			log.info("Convenio Dto del convenio respuesta: :::::::::"+ convenioDTO);
 			convenioDTO.setFechaFinString(DateUtils.formatear(convenioDTO.getFechaFin()));
 			convenioDTO.setFechaInicioString(DateUtils.formatear(convenioDTO.getFechaInicio()));
-			converter.alias("convenioDTO", ConvenioDTO.class);
+			XStream converter=new XStream(); 			converter.alias("convenioDTO", ConvenioDTO.class);
 			String xml = converter.toXML(convenioDTO);
 			log.info("xml del convenio respuesta: :::::::::"+ xml);
 			
@@ -377,7 +381,7 @@ public class ConvenioAction extends GenericAction {
 			
 			log.info("Convenio Dto del convenio respuesta: :::::::::"+ convenioDTO);
 			
-			converter.alias("fechaCompromisoDTO", ConvenioDTO.class);
+			XStream converter=new XStream(); 			converter.alias("fechaCompromisoDTO", ConvenioDTO.class);
 			String xml = converter.toXML(fechaCompromisoDTO);
 			log.info("xml del convenio respuesta: :::::::::"+ xml);
 			
@@ -465,7 +469,7 @@ public class ConvenioAction extends GenericAction {
 			
 			log.info("Convenio Hora Fecha Actual: :::::::::"+ horayFecha);
 			
-			converter.alias("horayFecha", Date.class);
+			XStream converter=new XStream(); 			converter.alias("horayFecha", Date.class);
 			String xml = converter.toXML(horayFecha);
 			log.info("xml del convenio respuesta horayFecha: :::::::::"+ xml);
 			
@@ -501,7 +505,7 @@ public class ConvenioAction extends GenericAction {
 			fechaCompromisoDTO.setFechaCumplimientoString(DateUtils.formatear(fechaCompromisoDTO.getFechaCumplimiento()));
 			fechaCompromisoDTO.setHoraCumplimientoString(DateUtils.formatearHora(fechaCompromisoDTO.getFechaCumplimiento()));
 			
-			converter.alias("fechaCompromisoDTO", FechaCompromisoDTO.class);
+			XStream converter=new XStream(); 			converter.alias("fechaCompromisoDTO", FechaCompromisoDTO.class);
 			String xml = converter.toXML(fechaCompromisoDTO);
 			log.info("xml del convenio respuesta: :::::::::"+ xml);
 			

@@ -26,6 +26,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.catalogo.Catalogos;
 import mx.gob.segob.nsjp.dto.catalogo.CatalogoDTO;
 import mx.gob.segob.nsjp.web.base.action.GenericAction;
@@ -59,7 +60,9 @@ public class AsociarIndividuoAction extends GenericAction{
 		try {
 			log.info("Ejecutando Action cargaCatalogos");
 			List<CatalogoDTO> listaCatalogo=catDelegate.recuperarCatalogo(Catalogos.VACIO);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
+
 			converter.alias("catCatalogo", CatalogoDTO.class);
 			
 			String xml = converter.toXML(listaCatalogo);

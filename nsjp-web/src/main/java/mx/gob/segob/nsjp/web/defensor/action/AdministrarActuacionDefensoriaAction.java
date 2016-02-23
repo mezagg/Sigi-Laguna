@@ -9,6 +9,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.calidad.Calidades;
 import mx.gob.segob.nsjp.comun.enums.expediente.EtapasExpediente;
 import mx.gob.segob.nsjp.comun.util.DateUtils;
@@ -41,6 +42,7 @@ public class AdministrarActuacionDefensoriaAction extends GenericAction {
 			UsuarioDTO usuarioDTO = super.getUsuarioFirmado(request);
 			List<ExpedienteDTO> expedienteDTOs = new ArrayList<ExpedienteDTO>();
 			expedienteDTOs = expedienteDelegate.consultarExpedientesUsuarioArea(usuarioDTO);			
+			XStream converter=new XStream();
 			converter.alias("lista", java.util.List.class);
 			converter.alias("expedienteDTOs", ExpedienteDTO.class);
 			String xml = converter.toXML(expedienteDTOs);
@@ -68,6 +70,7 @@ public class AdministrarActuacionDefensoriaAction extends GenericAction {
 			
 			List<CatEtapaDTO> catEtapasDTO = expedienteDelegate.consultarEtapasJerarquiaPorPadre(esEtapaExpediente );
 
+			XStream converter=new XStream();
 			converter.alias("listaCatEtapas", java.util.List.class);
 			converter.alias("catEtapa", CatEtapaDTO.class);
 			

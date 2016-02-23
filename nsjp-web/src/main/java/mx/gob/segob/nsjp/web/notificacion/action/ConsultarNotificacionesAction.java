@@ -5,6 +5,8 @@ import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
 import mx.gob.segob.nsjp.delegate.notificacion.NotificacionDelegate;
 import mx.gob.segob.nsjp.dto.catalogo.ValorDTO;
@@ -47,6 +49,7 @@ public class ConsultarNotificacionesAction extends GenericAction {
             Long idNotificacion = parsea(idNotificacionParam, 0);
             consulta.setDocumentoId(idNotificacion);
             NotificacionDTO notificacion = notificacionDelegate.consultaNotificacion(consulta);
+            XStream converter=new XStream();
             converter.alias("notificacion", NotificacionDTO.class);
             String notificacionXml = converter.toXML(notificacion);
             escribirRespuesta(response, notificacionXml);

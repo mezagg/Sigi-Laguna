@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- Nombre del Programa : web.xml Autor : Jose Luis Compania : Ultrasist 
-	Proyecto : NSJP Fecha: dd/mm/aaaa Marca de cambio : N/A Descripcion General 
-	: Archivo de configuración de la aplicacion web Programa Dependiente: N/A 
-	Programa Subsecuente: N/A Cond. de ejecucion : N/A Dias de ejecucion : N/A 
-	Horario: N/A MODIFICACIONES Autor : N/A Compania : N/A Proyecto : N/A Fecha: 
+<!-- Nombre del Programa : web.xml Autor : Jose Luis Compania : Ultrasist
+	Proyecto : NSJP Fecha: dd/mm/aaaa Marca de cambio : N/A Descripcion General
+	: Archivo de configuración de la aplicacion web Programa Dependiente: N/A
+	Programa Subsecuente: N/A Cond. de ejecucion : N/A Dias de ejecucion : N/A
+	Horario: N/A MODIFICACIONES Autor : N/A Compania : N/A Proyecto : N/A Fecha:
 	N/A Modificacion : N/A -->
 
 <web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:j2ee="http://java.sun.com/xml/ns/javaee"
@@ -21,6 +21,19 @@
 		<filter-name>GenericNSJPFilter</filter-name>
 		<servlet-name>action</servlet-name>
 	</filter-mapping>
+
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>
+			org.apache.struts2.dispatcher.FilterDispatcher
+		</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
   <listener>
 		<listener-class>mx.gob.segob.nsjp.web.base.listener.ManejadorSesion</listener-class>
 	</listener>
@@ -53,7 +66,7 @@
 	<servlet>
 		<servlet-name>action</servlet-name>
 		<servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
-		<!-- init-param> <param-name>chainConfig</param-name> <param-value>org/apache/struts/tiles/chain-config.xml</param-value> 
+		<!-- init-param> <param-name>chainConfig</param-name> <param-value>org/apache/struts/tiles/chain-config.xml</param-value>
 			</init-param -->
 		<init-param>
 			<param-name>config</param-name>
@@ -85,7 +98,7 @@
         <servlet-name>Kaptcha</servlet-name>
         <url-pattern>/kaptcha.jpg</url-pattern>
     </servlet-mapping>
-    
+
 	<!-- Standard Action Servlet Mapping -->
 	<servlet-mapping>
 		<servlet-name>action</servlet-name>
@@ -102,11 +115,11 @@
 		<param-name>log4jConfigLocation</param-name>
 		<param-value>/WEB-INF/log4j-config.xml</param-value>
 	</context-param>
-	
+
 	<context-param>
 	<param-name>contextConfigLocation</param-name>
 		<param-value>
-			/WEB-INF/action-servlet.xml 
+			/WEB-INF/action-servlet.xml
 		</param-value>
 	</context-param>
 

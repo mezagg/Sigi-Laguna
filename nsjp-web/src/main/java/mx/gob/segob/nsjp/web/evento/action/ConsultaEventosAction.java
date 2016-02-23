@@ -22,6 +22,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.audiencia.BandejaNotificador;
 import mx.gob.segob.nsjp.comun.enums.audiencia.EstatusAudiencia;
 import mx.gob.segob.nsjp.comun.enums.audiencia.Eventos;
@@ -264,6 +265,7 @@ public class ConsultaEventosAction extends GenericAction {
 
                     setExpedienteTrabajo(request, eventoDTO.getExpediente());
                 }
+                XStream converter=new XStream();
                 converter.alias("eventoDTO", EventoDTO.class);
                 String xml = converter.toXML(eventoDTO);
                 escribir(response, xml, null);
@@ -1021,7 +1023,7 @@ public class ConsultaEventosAction extends GenericAction {
                             log.info("FUNCIONARIO_DTO, OBTENIDO:::::" + func);
                         }
                     }
-                    converter.alias("funcionario", FuncionarioDTO.class);
+                    XStream converter=new XStream(); 			converter.alias("funcionario", FuncionarioDTO.class);
                     xml = converter.toXML(funcionario);
                 }
 
@@ -1029,7 +1031,7 @@ public class ConsultaEventosAction extends GenericAction {
                     // LISTA DE FUNCIONARIOS EXTERNOS
                     FuncionarioExternoDTO funcionarioExternoDTO = new FuncionarioExternoDTO(funcionarioExternoId);
                     funcionarioExternoDTO = funcionarioExternoService.consultarFuncionarioExternoPorId(funcionarioExternoDTO);
-                    converter.alias("funcionarioExterno", FuncionarioExternoDTO.class);
+                    XStream converter=new XStream(); 			converter.alias("funcionarioExterno", FuncionarioExternoDTO.class);
                     xml = converter.toXML(funcionarioExternoDTO);
                 }
 
@@ -1041,7 +1043,7 @@ public class ConsultaEventosAction extends GenericAction {
                             log.info("INVOLUCRADO_DTO, OBTENIDO:::::" + invo);
                         }
                     }
-                    converter.alias("involucrado", InvolucradoDTO.class);
+                    XStream converter=new XStream(); 			converter.alias("involucrado", InvolucradoDTO.class);
                     xml = converter.toXML(involucrado);
                 }
 
@@ -1439,7 +1441,7 @@ public class ConsultaEventosAction extends GenericAction {
             if (idEvento > 0) {
                 audienciaDelegate.asociarInvolucradoAAudiencia(involucradoNuevo.getElementoId(), idEvento);
             }
-
+            XStream converter=new XStream();
             String xml = converter.toXML("ok");
             escribir(response, xml, null);
 
@@ -1609,6 +1611,7 @@ public class ConsultaEventosAction extends GenericAction {
             if (idMandamientoJudicial != null && idMandamientoJudicial > 0) {
                 MandamientoDTO loMandamiento = mandamientoJudicialDelegate.consultarMandamientoPorId(idMandamientoJudicial);
 
+                XStream converter=new XStream();
                 converter.alias("mandamientoJudicial", MandamientoDTO.class);
                 converter.alias("involucrado", InvolucradoDTO.class);
                 converter.alias("nombresDemograficoDTO", NombreDemograficoDTO.class);

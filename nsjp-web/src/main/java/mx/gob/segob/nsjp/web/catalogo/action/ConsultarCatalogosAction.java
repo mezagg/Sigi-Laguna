@@ -29,6 +29,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.audiencia.TipoAudiencia;
 import mx.gob.segob.nsjp.comun.enums.catalogo.Catalogos;
 import mx.gob.segob.nsjp.comun.enums.catalogo.TipoDiscriminante;
@@ -164,6 +165,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar tipo de objetos");
 			List<CatalogoDTO> listaCatalogo = catDelegate
 					.recuperarCatalogo(Catalogos.TIPO_OBJETO);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catTipoObjetos", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -194,6 +196,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar tipo de vehiculo");
 			List<CatalogoDTO> listaCatalogo = catDelegate
 					.recuperarCatalogo(Catalogos.TIPO_VEHICULO);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catTiposVehiculo", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -227,6 +230,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			VehiculoForm forma =(VehiculoForm) form;
 			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogoDependiente(Catalogos.MARCA_VEHICULO,forma.getGlTipoVehiculoId());
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catMarcasVehiculo", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -258,6 +262,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			
 			log.info("ejecutando Action consultar tipo de vehiculo");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogoDependiente(Catalogos.SUBMARCA_VEHICULO,forma.getGlMarcaVehiculoId());
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catSubMarcasVehiculo", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -299,6 +304,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar tipo de vehiculo");
 			List<CausaDTO> listaCausa = catDelegate.consultarCausasVehiculo(idCausaPadre);
 			
+			XStream converter=new XStream();
 			converter.alias("listaCausa", java.util.List.class);
 			converter.alias("catCausaVehiculo", CausaDTO.class);
 			String xml = converter.toXML(listaCausa);
@@ -329,6 +335,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			
 			log.info("EJECUTANDO ACTION CONSULTAR COLORES");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.COLOR);		
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catColores", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -360,6 +367,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			
 			log.info("EJECUTANDO ACTION CONSULTAR CONDICION");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.CONDICION_FISICA_OBJETO);		
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catCondicion", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -391,6 +399,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			
 			log.info("EJECUTANDO ACTION CONSULTAR TIPO DE EMPAQUE");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.TIPO_EMPAQUE);		
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catEmpaque", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -423,6 +432,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			
 			log.info("EJECUTANDO ACTION CONSULTAR TIPO DE MEDIDA");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.UNIDAD_MEDIDA);		
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catUnidadMedida", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -455,6 +465,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar tipo de equipo de computo");
 			List<CatalogoDTO> listaCatalogo = catDelegate
 					.recuperarCatalogo(Catalogos.TIPO_EQUIPO_COMPUTO);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catTiposEquipoComputo", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -485,6 +496,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar marca equipo de computo");
 			List<CatalogoDTO> listaCatalogo = catDelegate
 					.recuperarCatalogo(Catalogos.MARCA_EQUIPO_COMPUTO);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catMarcasEquipoComputo", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -516,6 +528,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar tipo de equipo telefonico");
 			List<CatalogoDTO> listaCatalogo = catDelegate
 					.recuperarCatalogo(Catalogos.TIPO_EQUIPO_TELEFONICO);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catTiposEquipoTel", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -548,6 +561,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar marca equipo telefonico");
 			List<CatalogoDTO> listaCatalogo = catDelegate
 					.recuperarCatalogo(Catalogos.MARCA_TELEFONO);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catMarcasEquipoTel", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -578,6 +592,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar tipo de arma");
 			List<CatalogoDTO> listaCatalogo = catDelegate
 					.recuperarCatalogo(Catalogos.TIPO_ARMA);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catTiposArma", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -610,6 +625,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar marca de la arma");
 			List<CatalogoDTO> listaCatalogo = catDelegate
 					.recuperarCatalogo(Catalogos.MARCA_ARMA);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catMarcasArma", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -640,6 +656,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar tipo de explosivo");
 			List<CatalogoDTO> listaCatalogo = catDelegate
 					.recuperarCatalogo(Catalogos.TIPO_EXPLOSIVO);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catTiposExplosivo", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -671,6 +688,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar tipo de sustancia");
 			List<CatalogoDTO> listaCatalogo = catDelegate
 					.recuperarCatalogo(Catalogos.TIPO_SUSTANCIA);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catTiposSustancia", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -702,6 +720,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar tipo de animal");
 			List<CatalogoDTO> listaCatalogo = catDelegate
 					.recuperarCatalogo(Catalogos.TIPO_ANIMAL);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catTiposAnimal", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -733,6 +752,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar tipo aeronave");
 			List<CatalogoDTO> listaCatalogo = catDelegate
 					.recuperarCatalogo(Catalogos.TIPO_AERONAVE);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catTiposAeronave", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -764,6 +784,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			AeronaveForm forma =(AeronaveForm) form;
 			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogoDependiente(Catalogos.MARCA_AERONAVE,forma.getGlTipoAeronaveId());
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catMarcasAeronave", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -796,6 +817,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			AeronaveForm forma =(AeronaveForm) form;		
 			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogoDependiente(Catalogos.SUBMARCA_AERONAVE,forma.getGlMarcaAeronaveId());
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catSubMarcasAeronave", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -828,6 +850,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			
 			List<CatalogoDTO> listaCatalogo = catDelegate
 					.recuperarCatalogo(Catalogos.TIPO_EMBARCACION);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catTiposEmbarcacion", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -859,6 +882,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			EmbarcacionForm forma =(EmbarcacionForm) form;
 			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogoDependiente(Catalogos.MARCA_EMBARCACION,forma.getGlTipoEmbarcacionId());
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catMarcasEmbarcacion", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -891,6 +915,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			EmbarcacionForm forma =(EmbarcacionForm) form;	
 			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogoDependiente(Catalogos.SUBMARCA_EMBARCACION,forma.getGlMarcaEmbarcacionId());
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catSubMarcasEmbarcacion", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -921,6 +946,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar tipo de inmueble");	
 			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.TIPO_INMUEBLE);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catTiposInmueble", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -951,6 +977,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar tipo de construccion");	
 			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.TIPO_CONSTRUCCION);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catTiposConstruccion", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -981,6 +1008,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar tipo de vegetal");	
 			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.TIPO_VEGETAL);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catTiposVegetal", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -1011,6 +1039,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar tipo de documento oficial");	
 			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.TIPO_DOCUMENTO_OFICIAL);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catTiposDocOficial", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -1040,6 +1069,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar tipo de joya");	
 			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.TIPO_JOYA);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catTiposJoya", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -1070,6 +1100,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar tipo de obra de arte");	
 			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.TIPO_OBRA_ARTE);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catTiposObraArte", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -1098,6 +1129,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar catalogos Instituciones");	
 			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.INSTITUCION_CON_NSJP);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("instituciones", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -1126,6 +1158,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar catalogos de areas");	
 			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.AREA);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("areas", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -1155,6 +1188,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar catalogos de Unidades Investigacion Especializadas");	
 			
 			List<CatUIEspecializadaDTO> listaCatalogoUIE = catUIEspecializadaDelegate.consultarUnidadesIEspecializadas();
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("CatUIEspecializadaDTO", CatUIEspecializadaDTO.class);
 			String xml = converter.toXML(listaCatalogoUIE);
@@ -1184,6 +1218,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar catalogos de puestos");	
 			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.PUESTO_SERVIDOR_PUBLICO);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("puestos", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -1213,6 +1248,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar catalogos de tipo especialidad");
 			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.TIPO_ESPECIALIDAD_FUNCIONARIO);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("tipoEspecialidad", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -1244,6 +1280,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			FuncionarioDTO funcionario = new FuncionarioDTO();
 			List<FuncionarioDTO> listaFuncionarios = solicitudPericialDelegate.consultarFuncionarioPorFiltro(funcionario,null);
 			
+			XStream converter=new XStream();
 			converter.alias("listaFuncionarios", java.util.List.class);
 			converter.aliasAttribute("funcionarioJefe", "funcionarioJefe");
 			String xml = converter.toXML(listaFuncionarios);
@@ -1513,6 +1550,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			List<CatalogoDTO> listaCatalogoEspecialidades = catDelegate
 					.recuperarCatalogoDependiente(Catalogos.ESPECIALIDAD_FUNCIONARIO,
 							Long.parseLong(tipoEspecialidad));
+			XStream converter=new XStream();
 			converter.alias("listaCatalogoEspecialidades", java.util.List.class);
 			converter.alias("especialidad", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogoEspecialidades);
@@ -1546,6 +1584,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			List<CatalogoDTO> listaCatalogoEspecialidades = catDelegate
 					.recuperarCatalogoDependiente(Catalogos.ESTUDIO_PERICIAL,
 							Long.parseLong(especialidadId));
+			XStream converter=new XStream();
 			converter.alias("listaCatalogoEstudios", java.util.List.class);
 			converter.alias("estudio", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogoEspecialidades);
@@ -1586,6 +1625,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar catalogos departamentos");	
 			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.DEPARTAMENTO);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("departamentos", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -1615,6 +1655,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar catalogos departamentos");	
 			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.INSTITUCION);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("departamentos", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -1642,6 +1683,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar catalogos departamentos");	
 			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.TIPO_OBRA_ARTE);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("departamentos", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -1668,6 +1710,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar tipo solicitud");	
 			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.TIPO_SOLICITUD);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("tipoSolicitud", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -1694,6 +1737,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar Institucion");	
 			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.INSTITUCION_CON_NSJP);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("institucion", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -1720,6 +1764,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar Catalogo");	
 			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.TIPO_AUDIENCIA);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("institucion", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -1752,6 +1797,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			if( tipoAudienciaActual > 0){
 			 
 				List<CatalogoDTO> listaCatalogo = audienciaDelegate.consultarTipoSolicitudAudienciaSiguientes(TipoAudiencia.getByValor(tipoAudienciaActual));
+				XStream converter=new XStream();
 				converter.alias("listaCatalogo", java.util.List.class);
 				converter.alias("institucion", CatalogoDTO.class);
 				String xml = converter.toXML(listaCatalogo);
@@ -1835,6 +1881,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar Normas");	
 			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.TIPO_NORMA);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("norma", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -1862,6 +1909,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar Catalogo MedidasCautelares");	
 			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.TIPO_MEDIDA_CAUTELAR);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("medidasCautelares", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -1889,6 +1937,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar Catalogo Encargados Seguimiento");	
 			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.TIPO_MEDIDA_CAUTELAR);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("encargadoSeguimiento", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -1915,6 +1964,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 		try {
 			log.info("ejecutando Action consultar modo de participacion de delito");			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.MODO_PARTICIPACION_DELITO);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("ModoParticipacionDelito", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -1944,6 +1994,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 		try {
 			log.info("ejecutando Action consultar Clasificacion de delito");			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.CLASIFICACION_DELITO);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("ModoParticipacionDelito", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -1973,6 +2024,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 		try {
 			log.info("ejecutando Action consultar Lugar de delito");			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.LUGAR_DELITO);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("ModoParticipacionDelito", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -2002,6 +2054,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 		try {
 			log.info("ejecutando Action consultar Modalidad de delito");			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.MODALIDAD_DELITO);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("ModoParticipacionDelito", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -2031,6 +2084,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 		try {
 			log.info("ejecutando Action consultar Modalidad de delito");			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.MODUS_DELITO);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("ModoParticipacionDelito", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -2060,6 +2114,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 		try {
 			log.info("ejecutando Action consultar Modalidad de delito");			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.CAUSA_DELITO);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("ModoParticipacionDelito", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -2090,6 +2145,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 		try {
 			log.info("ejecutando Action consultar modo de participacion de delito");			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogoDependiente(Catalogos.ESPECIALIDAD_FUNCIONARIO, TipoEspecialidad.PERICIAL.getValorId());
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catEspecialidadPericial", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -2122,6 +2178,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 		try {
 			log.info("ejecutando Action consultar catalogo tipo de diligencia");			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.TIPO_DILIGENCIA);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("tipoDiligencia", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -2152,6 +2209,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 		try {
 			log.info("ejecutando Action consultar catalogo tipo Tarea");			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.TIPO_TAREA);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("tarea", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -2183,6 +2241,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 		try {
 			log.info("ejecutando Action consultar catalogo tipo de diligencia");			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.ETAPA_EXPEDIENTE);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("etapaExpediente", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -2204,6 +2263,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 		try {
 			log.info("ejecutando Action consultar catalogo situacion juridica");			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.SITUACION_JURIDICA);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("situacionJuridica", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -2235,6 +2295,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 		try {
 			log.info("ejecutando Action consultar catalogo tipos de forma");			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.TIPOS_FORMAS);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catDocumentos", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -2265,6 +2326,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 		try {
 			log.info("ejecutando Action consultar catalogo tipos de eslabon");			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.TIPO_ESLABON);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catEslabon", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -2295,6 +2357,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultarCatalogoTipoParticipacion");	
 			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.TIPO_PARTICIPACION);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("tipoParticipacion", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -2324,6 +2387,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultaCatalogTipoMandamiento");	
 			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.TIPO_MANDAMIENTO);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("tipoMandamiento", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -2354,6 +2418,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			
 			List<CatalogoDTO> listaCatalogo =  catDelegate.recuperarCatalogo(Catalogos.TIPO_SENTENCIA);
 //			List<CatalogoDTO> listaCatalogo =  catDelegate.recuperarCatalogo(TipoSentencia.ABSOLUTORIA.getCampoCatalogoId());			
+			XStream converter=new XStream();
 			converter.alias("listaTipoSentencia", java.util.List.class);
 			converter.alias("tipoSentencia", CatalogoDTO.class);
 			
@@ -2416,6 +2481,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			}else{//Devuelve el catalogo completo
 				listaCatalogo = listaCatalogoTemp;
 			}
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("estatusMandamiento", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -2446,6 +2512,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			
 			log.info("EJECUTANDO ACTION CONSULTAR RELACIONES HECHOS");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.RELACION_HECHOS);		
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catRelacionesHechos", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -2478,6 +2545,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			
 			log.info("EJECUTANDO ACTION CONSULTAR RELACIONES HECHOS");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.PERIODICIDAD);		
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catPeriodicidad", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -2511,6 +2579,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar Catalogo MedidasCautelares");	
 			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.MEDIDA_ALTERNA);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("medidasAlternativas", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -2552,6 +2621,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 					
 			List<FuncionarioDTO> listaFuncionarios = solicitudPericialDelegate.consultarFuncionarioPorFiltro(funcionario,null);
 			
+			XStream converter=new XStream();
 			converter.alias("listaFuncionarios", java.util.List.class);
 			converter.alias("funcionario", FuncionarioDTO.class);
 			String xml = converter.toXML(listaFuncionarios);
@@ -2581,6 +2651,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar catalogos de calidades");	
 			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.CALIDAD);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("calidades", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -2626,6 +2697,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			List<CatalogoDTO> listaCatalogo = new ArrayList<CatalogoDTO>();
 			listaCatalogo.addAll(listaAreaCatalogo);
 //			listaCatalogo.addAll(listaDepartamentoCatalogo);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("areas", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -2657,6 +2729,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			String idArea = request.getParameter("idArea");
 			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogoDependiente(Catalogos.DEPARTAMENTO, Long.parseLong(idArea));
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("departamentos", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -2686,6 +2759,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar catalogos de tipos de asesoria");	
 						
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.TIPO_ASESORIA);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("tipoAsesoria", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -2715,6 +2789,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar catalogos de nivel socioecon&oacute;mico");	
 						
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogoCompleto(Catalogos.NIVEL_SOCIOECONOMICO);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("nivel", CatalogoDTO.class);
 			converter.alias("cuota", ValorDTO.class);
@@ -2745,6 +2820,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar catalogos de tipos de centros de detencion");	
 						
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogoCompleto(Catalogos.TIPO_CENTRO_DETENCION);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catTipoLugarDetencion", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -2775,6 +2851,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar lineas de investigacion");
 			List<CatalogoDTO> listaCatalogo = catDelegate
 					.recuperarCatalogo(Catalogos.LINEAS_INVESTIGACION);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catLineasDeInvestigacion", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -2805,6 +2882,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar tipos de pertenencia");
 			List<CatalogoDTO> listaCatalogo = catDelegate
 					.recuperarCatalogo(Catalogos.TIPO_PERTENENCIA);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catTipoDePertenencia", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -2854,6 +2932,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			
 			List<EventoCitaDTO> listaEventos = eventoCitaDelegate.consultarEventosCitasPorUsuario(usuario, fechaInicio, fechaFin);
 
+			XStream converter=new XStream();
 			converter.alias("lista", java.util.List.class);
 			converter.alias("actividad", EventoCitaDTO.class);
 			String xml = converter.toXML(listaEventos);
@@ -2899,6 +2978,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			if(tipoDiscriminante.equalsIgnoreCase("fantasma")){
 				listaCatalogo = distritoDelegate.consultarDiscriminantes(TipoDiscriminante.FANTASMA);
 			}
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catDiscriminante", CatDiscriminanteDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -2936,7 +3016,8 @@ public class ConsultarCatalogosAction extends GenericAction{
 			if(distritoId > 0L){
 				listaCatalogo = catDiscriminanteDelegate.consultarTribunalesPorDistrito(distritoId, Instituciones.PJ);
 			}			
-			converter.alias("listaDiscriminantes", java.util.List.class);
+			XStream converter=new XStream();
+		    converter.alias("listaDiscriminantes", java.util.List.class);
 			converter.alias("catDiscriminante", CatDiscriminanteDTO.class);
 			String xml = converter.toXML(listaCatalogo);
 			response.setContentType("text/xml");
@@ -2970,7 +3051,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 				
 				List<CatDiscriminanteDTO> listaCatalogo = distritoDelegate
 						.consultarDiscriminantesXDistrito(distritoId,TipoDiscriminante.TRIBUNAL);
-				
+				XStream converter=new XStream();
 				converter.alias("CatDiscriminanteDTO", java.util.List.class);
 				converter.alias("catDiscriminanteDTO", CatDiscriminanteDTO.class);
 				String xml = converter.toXML(listaCatalogo);
@@ -3006,6 +3087,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			List<CatDiscriminanteDTO> listaCatalogo = distritoDelegate
 					.consultarDiscriminantesXDistritoYTipoInstitucion(distritoId);
 				
+				XStream converter=new XStream();
 				converter.alias("CatDiscriminanteDTO", java.util.List.class);
 				converter.alias("catDiscriminanteDTO", CatDiscriminanteDTO.class);
 				String xml = converter.toXML(listaCatalogo);
@@ -3039,7 +3121,8 @@ public class ConsultarCatalogosAction extends GenericAction{
         	        	
         	List<FuncionarioDTO> funcionariosDTO=funcionarioDelegate.consultarFuncionariosPorDicriminanteYRol(catDiscriminanteId, idRol, 0L);
         	
-        	converter.alias("funcionariosDTO", java.util.LinkedList.class);
+        	XStream converter=new XStream();
+			converter.alias("funcionariosDTO", java.util.LinkedList.class);
         	converter.alias("funcionarioDTO", FuncionarioDTO.class);
 			
 			String xml = converter.toXML(funcionariosDTO);
@@ -3079,7 +3162,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("LLEGA tribunalId="+tribunalId);
 			
 			List<FuncionarioDTO> listaFuncionarios = funcionarioDelegate.consultarFuncionariosXTribunal(tribunalId,Instituciones.PJ);
-			
+			XStream converter=new XStream();
 			converter.alias("listaFuncionarios", java.util.List.class);
 			converter.alias("funcionario", FuncionarioDTO.class);
 			converter.alias("persona", PersonaDTO.class);
@@ -3128,6 +3211,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			filtro.setJerarquiaOrganizacional(jerarquiaOrganizacional);
 			
 			List<FuncionarioDTO> listaFuncionarios = solicitudPericialDelegate.consultarFuncionarioPorFiltro(filtro,null);
+			XStream converter=new XStream();
 			converter.alias("listaFuncionarios",java.util.List.class);
 			converter.alias("funcionario", FuncionarioDTO.class);
 			converter.alias("persona", PersonaDTO.class);
@@ -3167,6 +3251,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 				log.info("ejecutando Action consultar tipo de objetos");
 				List<CatalogoDTO> listaCatalogo = catDelegate
 						.recuperarCatalogo(Catalogos.TIPO_ATENCION);
+				XStream converter=new XStream();
 				converter.alias("listaCatalogo", java.util.List.class);
 				converter.alias("catTipoAtencion", CatalogoDTO.class);
 				String xml = converter.toXML(listaCatalogo);
@@ -3209,6 +3294,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 				listaCatalogo = distritoDelegate.consultarDistritos();
 			}
 			
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catDistritoDTO", CatDistritoDTO.class);
 			
@@ -3261,7 +3347,8 @@ public class ConsultarCatalogosAction extends GenericAction{
                         respuesta.setCodigo(CodigoRespuestaWS.ERROR);
                         respuesta.setCodigoError(ne.getCodigo());
                     }
-                converter.alias("respuesta", mx.gob.segob.nsjp.dto.catalogo.RespuestaWSDTO.class);
+                XStream converter=new XStream();
+				converter.alias("respuesta", mx.gob.segob.nsjp.dto.catalogo.RespuestaWSDTO.class);
                 converter.alias("listaCatalogo", java.util.List.class);
                 converter.alias("catDiscriminanteDTO", CatDiscriminanteDTO.class);
                 
@@ -3293,6 +3380,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 				log.info("ejecutando Action consultar tipo de objetos");
 				List<CatalogoDTO> listaCatalogo = catDelegate
 						.recuperarCatalogo(Catalogos.TIPO_VISITA);
+				XStream converter=new XStream();
 				converter.alias("listaCatalogo", java.util.List.class);
 				converter.alias("catTipoVisita", CatalogoDTO.class);
 				String xml = converter.toXML(listaCatalogo);
@@ -3326,6 +3414,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			List<CatAreasNegocioDTO> listaAreasNegocio = new ArrayList<CatAreasNegocioDTO>();
 			listaAreasNegocio = catDelegate.consultarAreasDeNegocio();
 			
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("areas", CatAreasNegocioDTO.class);
 			String xml = converter.toXML(listaAreasNegocio);
@@ -3348,6 +3437,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			List<EntidadFederativaDTO> entidadFederativaDTOList = new ArrayList<EntidadFederativaDTO>();
 			entidadFederativaDTOList = entidadFederativaDelegate.consultarEndidadesFederativasTodas();
 
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("entidades", EntidadFederativaDTO.class);
 			String xml = converter.toXML(entidadFederativaDTOList);
@@ -3370,6 +3460,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			List<RegionDTO> regionDTOList = new ArrayList<RegionDTO>();
 			regionDTOList = regionDelegate.consultarTodos();
 
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("regiones", RegionDTO.class);
 			String xml = converter.toXML(regionDTOList);
@@ -3399,6 +3490,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			try {
 				
 				List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.CAT_FORMAS_NOTIFICACION);
+				XStream converter=new XStream();
 				converter.alias("listaCatalogo", java.util.List.class);
 				converter.alias("catFormaNotificacion", CatalogoDTO.class);
 				String xml = converter.toXML(listaCatalogo);
@@ -3466,6 +3558,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			}else{//Devuelve el catalogo completo
 				listaCatalogo = listaCatalogoTemp;
 			}
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("estatusMedida", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -3587,6 +3680,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar las categorias de indicio");
 			List<CatalogoDTO> listaCatalogo = catDelegate
 					.recuperarCatalogo(Catalogos.CATEGORIA_DE_INDICIO);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catalogo", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -3610,6 +3704,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			String idCategoriaIndicio = request.getParameter("idCategoriaIndicio");
 			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogoDependiente(Catalogos.INDICIOS, Long.parseLong(idCategoriaIndicio));
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("indicios", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -3643,6 +3738,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			
 			listaCatalogo = catalogoDelegate.consultarEstatusDeExpedientesDiferentes();
 			
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("valorDTO", ValorDTO.class);
 			
@@ -3677,6 +3773,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			
 			listaCatalogo = catalogoDelegate.consultarAniosParaBusquedaAvanzadaExpediente();
 			
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("valor", Integer.class);
 			
@@ -3708,6 +3805,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar tipo de diligencia");	
 			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.DILIGENCIADO);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catEstatusExhorto", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -3728,6 +3826,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 		try {
 			
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.ESTATUS_AMPARO);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catEstatusAmparo", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -3759,6 +3858,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			List<CatalogoDTO> listaCatalogo = new ArrayList<CatalogoDTO>();
 					
 			listaCatalogo =	catDelegate.recuperarCatalogoCompleto(Catalogos.TIPO_DELITO);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("ModoParticipacionDelito", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -3789,6 +3889,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar la Calificacion del delito");	
 						
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogoCompleto(Catalogos.CALIFICACION_DELITO);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("ModoParticipacionDelito", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -3819,6 +3920,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar el Concurso del delito");	
 						
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogoCompleto(Catalogos.CONCURSO_DELITO);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("ModoParticipacionDelito", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -3849,6 +3951,7 @@ public class ConsultarCatalogosAction extends GenericAction{
 			log.info("ejecutando Action consultar Orden de Resultado del delito");	
 						
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogoCompleto(Catalogos.ORDEN_RES_DELITO);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("ModoParticipacionDelito", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);

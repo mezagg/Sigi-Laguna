@@ -15,6 +15,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.constants.ConstantesGenerales;
 import mx.gob.segob.nsjp.comun.enums.audiencia.EstatusAudiencia;
 import mx.gob.segob.nsjp.comun.enums.audiencia.Eventos;
@@ -353,6 +354,7 @@ public class ConsultaEventosPJENSAction extends ReporteBaseAction{
 			filtroExpedienteDTO.setNumeroExpediente(numCausa);
 			List<ExpedienteDTO> listExpedientes= expedienteDelegate.buscarExpedientes(filtroExpedienteDTO);
 			
+			XStream converter=new XStream();
 			converter.alias("expedienteDTO", ExpedienteDTO.class);
 			String xml = converter.toXML(listExpedientes);
 			escribir(response, xml,null);
@@ -384,6 +386,7 @@ public class ConsultaEventosPJENSAction extends ReporteBaseAction{
 			
 			
 			
+			XStream converter=new XStream();
 			converter.alias("Respuesta", String.class);
 			String xml = converter.toXML(resp);
 			escribir(response, xml,null);
@@ -426,6 +429,7 @@ public class ConsultaEventosPJENSAction extends ReporteBaseAction{
 			request.getSession().setAttribute("documentoId", documentoId);
 			
 			
+			XStream converter=new XStream();
 			converter.alias("exhorto", ExhortoDTO.class);
 			String xml = converter.toXML(exhortoDTO);
 			escribir(response, xml,null);
@@ -576,6 +580,7 @@ public class ConsultaEventosPJENSAction extends ReporteBaseAction{
 			setExpedienteTrabajo(request, audienciaDTO.getExpediente());
 			log.info("Seteando expediente de trabajo ::::: "+audienciaDTO.getExpediente().getExpedienteId());
 			log.info("depues del delegate::: eventoDTO"+ audienciaDTO);
+			XStream converter=new XStream();
 			converter.alias("audienciaDTO", AudienciaDTO.class);
 			String xml = converter.toXML(audienciaDTO);
 			escribir(response, xml,null);
@@ -880,7 +885,7 @@ public class ConsultaEventosPJENSAction extends ReporteBaseAction{
 					}
 				}
 				log.info("imputadosId:"+ listaProbablesResponsables);
-				
+				XStream converter=new XStream();
 				SolicitudDefensorDTO solicitudDefensorDTO = solicitudDelegate
 						.registrarSolicitudDefensorPJ(audienciaDTO, listaProbablesResponsables);
 				log.info("Registro de solicitudPJ:"
@@ -957,6 +962,7 @@ public class ConsultaEventosPJENSAction extends ReporteBaseAction{
 				if(!imputadosIdRelacionados.isEmpty()){
 					sb = new StringBuilder(sb.substring(0, sb.length()-1));
 				}
+				XStream converter=new XStream();
 				converter.alias("string", String.class);
 				escribirRespuesta(response, converter.toXML(sb.toString()));		
 			}			
@@ -1136,7 +1142,7 @@ public class ConsultaEventosPJENSAction extends ReporteBaseAction{
 			
 			Long idResolutivo = audienciaDelegate.registrarResolutivoAudiencia(resolutivo);
 			log.info("llega id del resolutivo" + idResolutivo);
-			
+			XStream converter=new XStream();
 			escribirRespuesta(response, converter.toXML(idResolutivo));
 			
 		} catch (Exception e) {		
@@ -1180,7 +1186,7 @@ public class ConsultaEventosPJENSAction extends ReporteBaseAction{
 			resolutivo.setTemporizador(fechaTemporizador);
 			
 			audienciaDelegate.modificarResolutivoAudiencia(resolutivo);
-			
+			XStream converter=new XStream();
 			escribirRespuesta(response, converter.toXML(idResolutivo));
 			
 		} catch (Exception e) {		
@@ -1212,7 +1218,7 @@ public class ConsultaEventosPJENSAction extends ReporteBaseAction{
 			resolutivo.setResolutivoId(idResolutivo);
 			
 			audienciaDelegate.eliminarResolutivoAudiencia(resolutivo);
-			
+			XStream converter=new XStream();
 			escribirRespuesta(response, converter.toXML(idResolutivo));
 			
 		} catch (Exception e) {		
@@ -1250,6 +1256,7 @@ public class ConsultaEventosPJENSAction extends ReporteBaseAction{
 			
 			request.getSession().setAttribute("involucradoDTO", involucradoDTO);
 			
+			XStream converter=new XStream();
 			converter.alias("involucradoDTO", InvolucradoDTO.class);
 			String xml = converter.toXML(involucradoDTO);
 			escribir(response, xml,null);
@@ -1729,6 +1736,7 @@ public class ConsultaEventosPJENSAction extends ReporteBaseAction{
 			mensaje = e.getCodigo().toString();
 			log.info(mensaje);
 		}
+		XStream converter=new XStream();
 		converter.alias("mensaje", String.class);
 		escribirRespuesta(response, converter.toXML(mensaje));
 		return null;
@@ -2286,7 +2294,8 @@ public class ConsultaEventosPJENSAction extends ReporteBaseAction{
     		
     		
     		
-    		converter.alias("valorDTO", ValorDTO.class);
+    		XStream converter=new XStream();
+			converter.alias("valorDTO", ValorDTO.class);
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catParticipacion", CatalogoDTO.class);
 			
@@ -2317,6 +2326,7 @@ public class ConsultaEventosPJENSAction extends ReporteBaseAction{
     		
     		
     	
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catParticipacion", CatalogoDTO.class);
 			
@@ -2369,6 +2379,7 @@ public class ConsultaEventosPJENSAction extends ReporteBaseAction{
 			
 			log.info("LISTA DE INVOLUCRADOS CON DELITOS" + listaInvolucrados);
 
+			XStream converter=new XStream();
 			converter.alias("listaInvolucrados", java.util.List.class);
 			converter.alias("InvolucradoViewDTO", InvolucradoViewDTO.class);
 			converter.alias("ValorDTO", ValorDTO.class);
@@ -2484,6 +2495,7 @@ public class ConsultaEventosPJENSAction extends ReporteBaseAction{
 					ordenDeAprehensionDelegate.registrarOrdenDeAprehension(ordenDeAprehensionDTO);
 				}
 				
+				XStream converter=new XStream();
 				converter.alias("mandamientoDTO", MandamientoDTO.class);
 				//setExpedienteTrabajo(request, mandamiento.getResolutivo().getAudiencia().getExpediente());
 				log.info("MANDAMIENTO JUDICIAL, RESPUESTA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!::::::::::::::::::::::::::::::::::::::::::::::::::::="+mandamiento);
@@ -2520,7 +2532,8 @@ public class ConsultaEventosPJENSAction extends ReporteBaseAction{
 			Long audiencia;
 		audiencia = audienciaDelegate.crearAudienciaSiguiente(audienciaDTO);
 		
-		converter.alias("audienciaDTO", AudienciaDTO.class);
+		XStream converter=new XStream();
+			converter.alias("audienciaDTO", AudienciaDTO.class);
 		String xml = converter.toXML(audiencia);
 		response.setContentType("text/xml");
 		PrintWriter pw = response.getWriter();
@@ -2554,8 +2567,8 @@ public class ConsultaEventosPJENSAction extends ReporteBaseAction{
 		} catch (NSJPNegocioException e) {
 			log.error(e.getMessage(),e);
 		}
-		
-		
+
+		XStream converter=new XStream();
 		escribirRespuesta(response, converter.toXML(involucradoId));
 		
 		return null;
@@ -2602,6 +2615,7 @@ public class ConsultaEventosPJENSAction extends ReporteBaseAction{
 			}
 			expedienteDto.setInvolucradosDTO(involucradoDTOs);
 			super.setExpedienteTrabajo(request, expedienteDto);
+			XStream converter=new XStream();
 			converter.alias("expedienteDto", ExpedienteDTO.class);
 			converter.alias("delitoDto", DelitoDTO.class);
 			converter.alias("involucradoDTO", InvolucradoDTO.class);
@@ -2648,6 +2662,7 @@ public class ConsultaEventosPJENSAction extends ReporteBaseAction{
 				audienciaDTO.setId(idAudiencia);	
 				List<InvolucradoViewDTO> listaImputados = involucradoDelegate.obtenerImputadosAudiencia(audienciaDTO);
 				
+				XStream converter=new XStream();
 				converter.alias("listaImputados", java.util.List.class);
 				converter.alias("imputado", InvolucradoViewDTO.class);
 				String xml = converter.toXML(listaImputados);
@@ -2689,7 +2704,7 @@ public class ConsultaEventosPJENSAction extends ReporteBaseAction{
 		} catch (NSJPNegocioException e) {
 			log.error(e.getMessage(),e);
 		}
-		
+		XStream converter=new XStream();
 		escribirRespuesta(response, converter.toXML(organizacionId));
 		
 		return null;
@@ -2863,6 +2878,7 @@ public class ConsultaEventosPJENSAction extends ReporteBaseAction{
 				MandamientoDTO mandamiento = mandamientoDelegate
 						.consultarMandamientoPorResolutivo(resolutivoDto);
 
+				XStream converter=new XStream();
 				converter.alias("mandamientoDTO", MandamientoDTO.class);
 				log.info("MANDAMIENTO JUDICIAL, RESPUESTA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!::::::::::::::::::::::::::::::::::::::::::::::::::::="
 						+ mandamiento);

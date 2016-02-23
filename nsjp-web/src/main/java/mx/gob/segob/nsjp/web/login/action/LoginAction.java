@@ -33,6 +33,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.configuracion.Parametros;
 import mx.gob.segob.nsjp.comun.enums.menu.TipoMenu;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
@@ -663,7 +664,9 @@ public class LoginAction extends GenericAction {
 			// log.info("usuarioRolDTO.size::" + rolDTO2.getNombreRol());
 			// }
 
+			XStream converter=new XStream();
 			converter.alias("rolDTOs", java.util.List.class);
+
 			converter.alias("RolDTO", RolDTO.class);
 			String xml = converter.toXML(rolDTOs);
 			if (log.isDebugEnabled()) {
@@ -791,7 +794,7 @@ public class LoginAction extends GenericAction {
 						usuario.setDatosIncorrectos(true);
 					}
 					
-					converter.alias("usuarioDTO", UsuarioDTO.class);
+					XStream converter=new XStream(); 			converter.alias("usuarioDTO", UsuarioDTO.class);
 					String xml = converter.toXML(usuario);
 					request.getSession().removeAttribute(
 							Constants.KAPTCHA_SESSION_KEY);
@@ -801,7 +804,7 @@ public class LoginAction extends GenericAction {
 					usuario.setDatosIncorrectos(false);
 					//se guarda mensaje de error en idSesion
 					usuario.setIdSesion("Código captcha erróneo,<br/> favor de verificar.");
-					converter.alias("usuarioDTO", UsuarioDTO.class);
+					XStream converter=new XStream(); 			converter.alias("usuarioDTO", UsuarioDTO.class);
 					String xml = converter.toXML(usuario);
 					// request.getSession().removeAttribute(Constants.KAPTCHA_SESSION_KEY);
 					// Aqui se tiene que responder un mensaje de error
@@ -812,7 +815,7 @@ public class LoginAction extends GenericAction {
 				usuario.setDatosIncorrectos(false);
 				//se guarda mensaje de error en idSesion
 				usuario.setIdSesion("La sesión ha sido terminada,<br/> favor de volver a iniciar sesión.");
-				converter.alias("usuarioDTO", UsuarioDTO.class);
+				XStream converter=new XStream(); 			converter.alias("usuarioDTO", UsuarioDTO.class);
 				String xml = converter.toXML(usuario);
 				escribir(response, xml, null);
 			}

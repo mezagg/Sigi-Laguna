@@ -12,6 +12,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.calidad.Calidades;
 import mx.gob.segob.nsjp.comun.enums.excepciones.CodigoError;
 import mx.gob.segob.nsjp.comun.enums.institucion.Areas;
@@ -124,6 +125,7 @@ public class SolicitarAudienciaAction extends GenericAction {
                 }
                 throw new NSJPNegocioException(CodigoError.EJCUCION_OPERACION_ESTADO_INCORRECTO);
             } else {
+				XStream converter=new XStream();
                 String xml = converter.toXML(casoDTO);
                 escribirRespuesta(response, xml);
                 response.setContentType("text/xml");
@@ -228,9 +230,9 @@ public class SolicitarAudienciaAction extends GenericAction {
 					}
 				}
 
+				XStream converter=new XStream();
 				converter.alias("involucrado", InvolucradoDTO.class);
-				converter
-						.alias("nombreDemografico", NombreDemograficoDTO.class);
+				converter.alias("nombreDemografico", NombreDemograficoDTO.class);
 				converter.alias("organizacion", OrganizacionDTO.class);
 
 				String xml = converter.toXML(involucradosToSend);
@@ -432,6 +434,7 @@ public class SolicitarAudienciaAction extends GenericAction {
                 casoDTO.setNumeroGeneralCaso(numeroDeCaso);
                 List<CasoDTO> casos = casoDelegate.consultarCasoPorNumero(casoDTO);
                 Boolean existeCaso = casos != null && casos.size() > 0;
+				XStream converter=new XStream();
                 String existeCasoXML = converter.toXML(existeCaso);
                 escribirRespuesta(response, existeCasoXML);
             }

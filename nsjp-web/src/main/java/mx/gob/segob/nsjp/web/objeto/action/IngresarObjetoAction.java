@@ -30,6 +30,7 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.constants.ConstantesGenerales;
 import mx.gob.segob.nsjp.comun.enums.calidad.Calidades;
 import mx.gob.segob.nsjp.comun.enums.catalogo.Catalogos;
@@ -393,6 +394,7 @@ public class IngresarObjetoAction extends GenericAction {
 			Long resp = objetoDelegate.ingresarVehiculo(vehiculoDTO);	
 			String xml = null;
 			//PrintWriter pw = null;
+			XStream converter=new XStream();
 			converter.alias("VehiculoForm",VehiculoForm.class);
 			retorno.setGlTipoVehiculoId(resp);
 
@@ -408,7 +410,7 @@ public class IngresarObjetoAction extends GenericAction {
 		} catch (Exception e) {
 			VehiculoForm retorno = new VehiculoForm();
 			String xml = null;
-			converter.alias("VehiculoForm",VehiculoForm.class);
+			XStream converter=new XStream(); 			converter.alias("VehiculoForm",VehiculoForm.class);
 			retorno.setGlTipoVehiculoId(0L);
 			xml = converter.toXML(retorno);
 			escribir(response, xml, null);
@@ -547,7 +549,7 @@ public class IngresarObjetoAction extends GenericAction {
 			
 			String xml = null;
 			//PrintWriter pw = null;
-			converter.alias("EquipoDeComputoForm",EquipoDeComputoForm.class);
+			XStream converter=new XStream(); 			converter.alias("EquipoDeComputoForm",EquipoDeComputoForm.class);
 			retorno.setGlTipoEquipoComputoId(resp);
 			
 			xml = converter.toXML(retorno);
@@ -566,7 +568,7 @@ public class IngresarObjetoAction extends GenericAction {
 		} catch (Exception e) {
 			EquipoDeComputoForm retorno = new EquipoDeComputoForm();
 			String xml = null;
-			converter.alias("EquipoDeComputoForm",EquipoDeComputoForm.class);
+			XStream converter=new XStream(); 			converter.alias("EquipoDeComputoForm",EquipoDeComputoForm.class);
 			retorno.setGlTipoEquipoComputoId(0L);
 			xml = converter.toXML(retorno);
 			escribir(response, xml, null);
@@ -698,7 +700,7 @@ public class IngresarObjetoAction extends GenericAction {
 			
 			String xml = null;
 			//PrintWriter pw = null;
-			converter.alias("EquipoTelefonicoForm",EquipoTelefonicoForm.class);
+			XStream converter=new XStream(); 			converter.alias("EquipoTelefonicoForm",EquipoTelefonicoForm.class);
 			
 			retorno.setGlTipoEquipoTelefId(resp);
 
@@ -713,7 +715,7 @@ public class IngresarObjetoAction extends GenericAction {
 		} catch (Exception e) {
 			EquipoTelefonicoForm retorno = new EquipoTelefonicoForm();
 			String xml = null;
-			converter.alias("EquipoTelefonicoForm",EquipoTelefonicoForm.class);
+			XStream converter=new XStream(); 			converter.alias("EquipoTelefonicoForm",EquipoTelefonicoForm.class);
 			retorno.setGlTipoEquipoTelefId(0L);
 			xml = converter.toXML(retorno);
 			escribir(response, xml, null);
@@ -851,7 +853,7 @@ public class IngresarObjetoAction extends GenericAction {
 				
 			String xml = null;
 			//PrintWriter pw = null;
-			converter.alias("ArmaForm",ArmaForm.class);
+			XStream converter=new XStream(); 			converter.alias("ArmaForm",ArmaForm.class);
 			
 			retorno.setGlTipoArmaId(resp);
 
@@ -866,7 +868,7 @@ public class IngresarObjetoAction extends GenericAction {
 		} catch (Exception e) {
 			ArmaForm retorno = new ArmaForm();
 			String xml = null;
-			converter.alias("ArmaForm",ArmaForm.class);
+			XStream converter=new XStream(); 			converter.alias("ArmaForm",ArmaForm.class);
 			retorno.setGlTipoArmaId(0L);
 			xml = converter.toXML(retorno);
 			escribir(response, xml, null);
@@ -992,7 +994,7 @@ public class IngresarObjetoAction extends GenericAction {
 			Long resp = objetoDelegate.ingresarExplosivo(explosivoDTO);
 				
 			String xml = null;
-			converter.alias("ExplosivoForm",ExplosivoForm.class);
+			XStream converter=new XStream(); 			converter.alias("ExplosivoForm",ExplosivoForm.class);
 			retorno.setGlTipoExplosivoId(resp);
 			xml = converter.toXML(retorno);
 			log.info(xml);
@@ -1001,7 +1003,7 @@ public class IngresarObjetoAction extends GenericAction {
 			
 			ExplosivoForm retorno = new ExplosivoForm();
 			String xml = null;
-			converter.alias("ExplosivoForm",ExplosivoForm.class);
+			XStream converter=new XStream(); 			converter.alias("ExplosivoForm",ExplosivoForm.class);
 			retorno.setGlTipoExplosivoId(0L);
 			xml = converter.toXML(retorno);
 			escribir(response, xml, null);
@@ -1134,7 +1136,7 @@ public class IngresarObjetoAction extends GenericAction {
 			Long resp = objetoDelegate.ingresarSustancia(SustanciaDTO);	
 			
 			String xml = null;
-			converter.alias("SustanciaForm",SustanciaForm.class);
+			XStream converter=new XStream(); 			converter.alias("SustanciaForm",SustanciaForm.class);
 			retorno.setGlTipoSustanciaId(resp);
 			xml = converter.toXML(retorno);
 			log.info(xml);
@@ -1142,7 +1144,7 @@ public class IngresarObjetoAction extends GenericAction {
 		} catch (Exception e) {
 			SustanciaForm retorno = new SustanciaForm();
 			String xml = null;
-			converter.alias("SustanciaForm",SustanciaForm.class);
+			XStream converter=new XStream(); 			converter.alias("SustanciaForm",SustanciaForm.class);
 			retorno.setGlTipoSustanciaId(0L);
 			xml = converter.toXML(retorno);
 			escribir(response, xml, null);
@@ -1265,7 +1267,7 @@ public class IngresarObjetoAction extends GenericAction {
 			Long resp = objetoDelegate.ingresarAnimal(animalDTO );
 			
 			String xml = null;
-			converter.alias("AnimalForm",AnimalForm.class);
+			XStream converter=new XStream(); 			converter.alias("AnimalForm",AnimalForm.class);
 			retorno.setGlTipoAnimalId(resp);
 			xml = converter.toXML(retorno);
 			log.info(xml);
@@ -1273,7 +1275,7 @@ public class IngresarObjetoAction extends GenericAction {
 		} catch (Exception e) {
 			AnimalForm retorno = new AnimalForm();
 			String xml = null;
-			converter.alias("AnimalForm",AnimalForm.class);
+			XStream converter=new XStream(); 			converter.alias("AnimalForm",AnimalForm.class);
 			retorno.setGlTipoAnimalId(0L);
 			xml = converter.toXML(retorno);
 			escribir(response, xml, null);
@@ -1448,7 +1450,7 @@ public class IngresarObjetoAction extends GenericAction {
 				Long resp = objetoDelegate.ingresarAeronave(aeronaveDTO);
 				
 				String xml = null;
-				converter.alias("AeronaveForm",AeronaveForm.class);
+				XStream converter=new XStream(); 			converter.alias("AeronaveForm",AeronaveForm.class);
 				retorno.setIdAeronave(resp);
 				xml = converter.toXML(retorno);
 				log.info(xml);
@@ -1457,7 +1459,7 @@ public class IngresarObjetoAction extends GenericAction {
 		} catch (Exception e) {
 			AeronaveForm retorno = new AeronaveForm();
 			String xml = null;
-			converter.alias("AeronaveForm",AeronaveForm.class);
+			XStream converter=new XStream(); 			converter.alias("AeronaveForm",AeronaveForm.class);
 			retorno.setGlTipoAeronaveId(0L);
 			xml = converter.toXML(retorno);
 			escribir(response, xml, null);
@@ -1628,7 +1630,7 @@ public class IngresarObjetoAction extends GenericAction {
 			
 				
 			String xml = null;
-			converter.alias("EmbarcacionForm",EmbarcacionForm.class);
+			XStream converter=new XStream(); 			converter.alias("EmbarcacionForm",EmbarcacionForm.class);
 			retorno.setGlTipoEmbarcacionId(resp);
 			xml = converter.toXML(retorno);
 			log.info(xml);
@@ -1637,7 +1639,7 @@ public class IngresarObjetoAction extends GenericAction {
 		} catch (Exception e) {
 			EmbarcacionForm retorno = new EmbarcacionForm();
 			String xml = null;
-			converter.alias("EmbarcacionForm",EmbarcacionForm.class);
+			XStream converter=new XStream(); 			converter.alias("EmbarcacionForm",EmbarcacionForm.class);
 			retorno.setGlTipoEmbarcacionId(0L);
 			xml = converter.toXML(retorno);
 			escribir(response, xml, null);
@@ -1775,7 +1777,7 @@ public class IngresarObjetoAction extends GenericAction {
 			Long resp = objetoDelegate.ingresarNumerario(numerarioDTO);
 			
 			String xml = null;
-			converter.alias("NumerarioForm",NumerarioForm.class);
+			XStream converter=new XStream(); 			converter.alias("NumerarioForm",NumerarioForm.class);
 			retorno.setIdNumerario(resp);
 			xml = converter.toXML(retorno);
 			log.info(xml);
@@ -1784,7 +1786,7 @@ public class IngresarObjetoAction extends GenericAction {
 		} catch (Exception e) {
 			NumerarioForm retorno = new NumerarioForm();
 			String xml = null;
-			converter.alias("NumerarioForm",NumerarioForm.class);
+			XStream converter=new XStream(); 			converter.alias("NumerarioForm",NumerarioForm.class);
 			retorno.setIdNumerario(0L);
 			xml = converter.toXML(retorno);
 			escribir(response, xml, null);
@@ -1916,7 +1918,7 @@ public class IngresarObjetoAction extends GenericAction {
 			Long resp = objetoDelegate.ingresarVegetal(vegetalDTO);
 			
 			String xml = null;
-			converter.alias("VegetalForm",VegetalForm.class);
+			XStream converter=new XStream(); 			converter.alias("VegetalForm",VegetalForm.class);
 			retorno.setGlTipoVegetalId(resp);
 			xml = converter.toXML(retorno);
 			log.info(xml);
@@ -1925,7 +1927,7 @@ public class IngresarObjetoAction extends GenericAction {
 		} catch (Exception e) {
 			VegetalForm retorno = new VegetalForm();
 			String xml = null;
-			converter.alias("VegetalForm",VegetalForm.class);
+			XStream converter=new XStream(); 			converter.alias("VegetalForm",VegetalForm.class);
 			retorno.setGlTipoVegetalId(0L);
 			xml = converter.toXML(retorno);
 			escribir(response, xml, null);
@@ -2044,7 +2046,7 @@ public class IngresarObjetoAction extends GenericAction {
 			Long resp = objetoDelegate.ingresarDocumentoOficial(documentoOficialDTO);
 			
 			String xml = null;
-			converter.alias("DocumentoOficialForm",DocumentoOficialForm.class);
+			XStream converter=new XStream(); 			converter.alias("DocumentoOficialForm",DocumentoOficialForm.class);
 			retorno.setGlTipoDocOficialId(resp);
 			xml = converter.toXML(retorno);
 			log.info(xml);
@@ -2054,7 +2056,7 @@ public class IngresarObjetoAction extends GenericAction {
 						
 			DocumentoOficialForm retorno = new DocumentoOficialForm();
 			String xml = null;
-			converter.alias("DocumentoOficialForm",DocumentoOficialForm.class);
+			XStream converter=new XStream(); 			converter.alias("DocumentoOficialForm",DocumentoOficialForm.class);
 			retorno.setGlTipoDocOficialId(0L);
 			xml = converter.toXML(retorno);
 			escribir(response, xml, null);
@@ -2178,7 +2180,7 @@ public class IngresarObjetoAction extends GenericAction {
 			Long resp = objetoDelegate.ingresarJoya(joyaDTO);
 			
 			String xml = null;
-			converter.alias("JoyaForm",JoyaForm.class);
+			XStream converter=new XStream(); 			converter.alias("JoyaForm",JoyaForm.class);
 			retorno.setGlTipoJoyaId(resp);
 			xml = converter.toXML(retorno);
 			log.info(xml);
@@ -2187,7 +2189,7 @@ public class IngresarObjetoAction extends GenericAction {
 			
 			JoyaForm retorno = new JoyaForm();
 			String xml = null;
-			converter.alias("JoyaForm",JoyaForm.class);
+			XStream converter=new XStream(); 			converter.alias("JoyaForm",JoyaForm.class);
 			retorno.setGlTipoJoyaId(0L);
 			xml = converter.toXML(retorno);
 			escribir(response, xml, null);
@@ -2306,7 +2308,7 @@ public class IngresarObjetoAction extends GenericAction {
 			Long resp = objetoDelegate.ingresarObraArte(obraDeArteDTO);
 		
 			String xml = null;
-			converter.alias("ObraArteForm",ObraDeArteForm.class);
+			XStream converter=new XStream(); 			converter.alias("ObraArteForm",ObraDeArteForm.class);
 			retorno.setGlTipoObraArteId(resp);
 			xml = converter.toXML(retorno);
 			log.info(xml);
@@ -2314,7 +2316,7 @@ public class IngresarObjetoAction extends GenericAction {
 		} catch (Exception e) {
 			ObraDeArteForm retorno = new ObraDeArteForm();
 			String xml = null;
-			converter.alias("ObraArteForm",ObraDeArteForm.class);
+			XStream converter=new XStream(); 			converter.alias("ObraArteForm",ObraDeArteForm.class);
 			retorno.setGlTipoObraArteId(0L);
 			xml = converter.toXML(retorno);
 			escribir(response, xml, null);
@@ -2422,7 +2424,7 @@ public class IngresarObjetoAction extends GenericAction {
 			Long resp = objetoDelegate.ingresarOtroObjeto(otrosDTO);
 			
 			String xml = null;
-			converter.alias("OtrosForm",OtrosForm.class);
+			XStream converter=new XStream(); 			converter.alias("OtrosForm",OtrosForm.class);
 			retorno.setIdOtros(resp);
 			xml = converter.toXML(retorno);
 			log.info(xml);
@@ -2430,7 +2432,7 @@ public class IngresarObjetoAction extends GenericAction {
 		} catch (Exception e) {
 			OtrosForm retorno = new OtrosForm();
 			String xml = null;
-			converter.alias("OtrosForm",OtrosForm.class);
+			XStream converter=new XStream(); 			converter.alias("OtrosForm",OtrosForm.class);
 			retorno.setIdOtros(0L);
 			xml = converter.toXML(retorno);
 			escribir(response, xml, null);
@@ -2537,6 +2539,7 @@ public class IngresarObjetoAction extends GenericAction {
 			// Carga catalogo Tipo Objeto
 			log.debug("ejecutando Action cargarTiposObjetos");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.TIPO_OBJETO);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catTipoObjetos", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -2647,7 +2650,7 @@ public class IngresarObjetoAction extends GenericAction {
 			Long resp = objetoDelegate.ingresarObjetoPericial(objetoPericialDTO);
 		
 			String xml = null;
-			converter.alias("ObjetoPericialForm",ObjetoPericialForm.class);
+			XStream converter=new XStream(); 			converter.alias("ObjetoPericialForm",ObjetoPericialForm.class);
 			retorno.setIdOtros(resp);
 			xml = converter.toXML(retorno);
 			log.info(xml);
@@ -2655,7 +2658,7 @@ public class IngresarObjetoAction extends GenericAction {
 		} catch (Exception e) {
 			ObjetoPericialForm retorno = new ObjetoPericialForm();
 			String xml = null;
-			converter.alias("ObjetoPericialForm",ObjetoPericialForm.class);
+			XStream converter=new XStream(); 			converter.alias("ObjetoPericialForm",ObjetoPericialForm.class);
 			retorno.setIdOtros(0L);
 			xml = converter.toXML(retorno);
 			escribir(response, xml, null);
@@ -2739,7 +2742,7 @@ public class IngresarObjetoAction extends GenericAction {
 			Long elementoID= NumberUtils.toLong(request.getParameter("elementoID"), 0L);
 			Boolean respuesta = false;
 			
-			converter.alias("respuesta",String.class);
+			XStream converter=new XStream(); 			converter.alias("respuesta",String.class);
 			
 			if( elementoID > 0){		
 				respuesta = objetoDelegate.existeCadenaDeCustodiaPorIdObjeto(elementoID);
@@ -2751,7 +2754,7 @@ public class IngresarObjetoAction extends GenericAction {
 			}
 		}catch(NSJPNegocioException ne){
 			log.info(ne.getCause(), ne);
-				converter.alias("respuesta",String.class);
+				XStream converter=new XStream(); 			converter.alias("respuesta",String.class);
 				escribirRespuesta(response,converter.toXML("-1"));
 		}
 		
@@ -2766,7 +2769,7 @@ public class IngresarObjetoAction extends GenericAction {
 			Long elementoID= NumberUtils.toLong(request.getParameter("elementoID"), 0L);
 			Boolean respuesta = false;
 			
-			converter.alias("respuesta",String.class);
+			XStream converter=new XStream(); 			converter.alias("respuesta",String.class);
 			
 			if( elementoID > 0){		
 				respuesta = objetoDelegate.existenEslabonesPorIdObjeto(elementoID);
@@ -2778,7 +2781,7 @@ public class IngresarObjetoAction extends GenericAction {
 			}
 		}catch(NSJPNegocioException ne){
 			log.info(ne.getCause(), ne);
-				converter.alias("respuesta",String.class);
+				XStream converter=new XStream(); 			converter.alias("respuesta",String.class);
 				escribirRespuesta(response,converter.toXML("-1"));
 		}
 		
@@ -2909,7 +2912,7 @@ public class IngresarObjetoAction extends GenericAction {
 						default: 	tipo = ObjetoDTO.class;
 									break;
 					}
-					converter.alias("lista"+aliasObjeto, java.util.List.class);				
+					XStream converter=new XStream(); 			converter.alias("lista"+aliasObjeto, java.util.List.class);
 					converter.alias(aliasObjeto, tipo);
 					
 					xml.append(converter.toXML(listaObjetos));

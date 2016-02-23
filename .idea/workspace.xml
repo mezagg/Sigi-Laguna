@@ -2,358 +2,127 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="483a50da-16bf-4dd2-9ba6-b2b91cc4c701" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jdbc/sqljdbc4.jar" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/resources/css/ui-lightness/images/ui-bg_gloss-wave_35_f6a828_500x100.png" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/resources/css/ui-lightness/images/ui-bg_gloss-wave_35_f6a828_500x100.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/resources/css/ui-lightness/images/ui-icons_228ef1_256x240.png" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/resources/css/ui-lightness/images/ui-icons_228ef1_256x240.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/comun/cambiarResponsableExpediente.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/comun/cambiarResponsableExpediente.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginaPrincipal/paginaPrincipal.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginaPrincipal/paginaPrincipal.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/AcumulacionGridIncludeView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/AcumulacionGridIncludeView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/DefensaProbableResponsable.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/DefensaProbableResponsable.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ExhortosGridIncludeView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ExhortosGridIncludeView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/Login.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/Login.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/NotificacionesIncludeView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/NotificacionesIncludeView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/SeleccionarAMPView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/SeleccionarAMPView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/VisorGraficas.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/VisorGraficas.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/actividadesDefensor.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/actividadesDefensor.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/actuacionesPerito.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/actuacionesPerito.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/actualizarTareaDefensor.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/actualizarTareaDefensor.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/adjuntarDocumento.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/adjuntarDocumento.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/adjuntarDocumentoAElementoGenerico.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/adjuntarDocumentoAElementoGenerico.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/administrarDestinoLegalEvidencias.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/administrarDestinoLegalEvidencias.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/administrarDiasInhabiles.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/administrarDiasInhabiles.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/administrarMandamientoJudicial.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/administrarMandamientoJudicial.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/administrarPermisoRol.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/administrarPermisoRol.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/administrarResolutivosImputado.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/administrarResolutivosImputado.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/administrarSubRoles.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/administrarSubRoles.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/almacenCadenaCustodia.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/almacenCadenaCustodia.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/asentarBitacoraDefensor.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/asentarBitacoraDefensor.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/asentarRegCadenaCustodiaView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/asentarRegCadenaCustodiaView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/asignaTranscripcion.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/asignaTranscripcion.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/asignacionDeEvidencia.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/asignacionDeEvidencia.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/asignarAbogado.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/asignarAbogado.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/asignarCancelarAMP.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/asignarCancelarAMP.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/asignarNumeroExpedienteDefensor.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/asignarNumeroExpedienteDefensor.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/asignarSalaTemporalPJENA.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/asignarSalaTemporalPJENA.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/asignarTareaDefensor.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/asignarTareaDefensor.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/asistiolaVictimaView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/asistiolaVictimaView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/asociarIndividuoView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/asociarIndividuoView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/asociarSolicitudAExpedienteManual.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/asociarSolicitudAExpedienteManual.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/atencionSolicitudAudienciaInformatica.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/atencionSolicitudAudienciaInformatica.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/atencionSolicitudAudienciaNotificador.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/atencionSolicitudAudienciaNotificador.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/atencionSolicitudAudienciaSala.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/atencionSolicitudAudienciaSala.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/autorizarEvidencia.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/autorizarEvidencia.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/buscaCarpetaEjecucion.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/buscaCarpetaEjecucion.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/buscarCasoPorFechaDeCreacion.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/buscarCasoPorFechaDeCreacion.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/buscarExpediente.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/buscarExpediente.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/buscarExpedienteConSP.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/buscarExpedienteConSP.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/buscarExpedienteGeneral.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/buscarExpedienteGeneral.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/buscarPerito.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/buscarPerito.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/busquedaAvanzadaDeExpedienteConSP.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/busquedaAvanzadaDeExpedienteConSP.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/busquedaExpedienteCaso.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/busquedaExpedienteCaso.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/cambiarContrasenaEnSistema.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/cambiarContrasenaEnSistema.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/canalizarAUnidadFiscalesInvestigadores.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/canalizarAUnidadFiscalesInvestigadores.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/catalogos/administrarCatalogos.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/catalogos/administrarCatalogos.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/catalogos/altaConsultaCatalogoAreasNegocio.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/catalogos/altaConsultaCatalogoAreasNegocio.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/catalogos/altaConsultaCatalogoDelitos.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/catalogos/altaConsultaCatalogoDelitos.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/catalogos/altaConsultaCatalogoSalaAudiencia.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/catalogos/altaConsultaCatalogoSalaAudiencia.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/catalogos/consultaCatalogo.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/catalogos/consultaCatalogo.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/catalogos/verModificarCatalogo.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/catalogos/verModificarCatalogo.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/configurarComplejidadDeAudiencia.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/configurarComplejidadDeAudiencia.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/consultaBitacoraMovObjetosAlmacenView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/consultaBitacoraMovObjetosAlmacenView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/consultaDelitoPersona.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/consultaDelitoPersona.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/consultaMandamientoJudXProbResponsable.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/consultaMandamientoJudXProbResponsable.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/consultaQuejaCiudadana.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/consultaQuejaCiudadana.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/consultarCadenaCustodiaDirector.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/consultarCadenaCustodiaDirector.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/consultarExpedientesAsociadosADefensores.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/consultarExpedientesAsociadosADefensores.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/consultarFuncionario.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/consultarFuncionario.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/consultarIndividuo.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/consultarIndividuo.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/consultarLeyesCodigos.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/consultarLeyesCodigos.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/consultarPersonalOperativoView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/consultarPersonalOperativoView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/conveniosConciliacionMediacion.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/conveniosConciliacionMediacion.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/datosGeneralesSolicitud.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/datosGeneralesSolicitud.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/datosGeneralesView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/datosGeneralesView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/defensaIntegracion.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/defensaIntegracion.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/defensoria/involucradoDefensoria.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/defensoria/involucradoDefensoria.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/defensoria/involucrados.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/defensoria/involucrados.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/defensoria/visorExpedienteDefensoria.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/defensoria/visorExpedienteDefensoria.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/detalleSolicitudPermisos.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/detalleSolicitudPermisos.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/detalleSolsGeneradasView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/detalleSolsGeneradasView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/detalleSolsXAtndrUIView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/detalleSolsXAtndrUIView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/elaborarDocumentoPerito.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/elaborarDocumentoPerito.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/elaborarNotasDocumento.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/elaborarNotasDocumento.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/elaborarNotificacionAuditoria.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/elaborarNotificacionAuditoria.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/elaborarSolicitud.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/elaborarSolicitud.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/elaborarSolicitudAyudaPsicologica.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/elaborarSolicitudAyudaPsicologica.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/encargadoCausa/sentencia/datosGeneralesSentencia.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/encargadoCausa/sentencia/datosGeneralesSentencia.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/entradasAlmacen.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/entradasAlmacen.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/enviarCarpetaInvestigacionDefensoria.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/enviarCarpetaInvestigacionDefensoria.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/exhortosIncludeView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/exhortosIncludeView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/expedientesAuditadosView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/expedientesAuditadosView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/garantiaEconomica.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/garantiaEconomica.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/generarConvenioView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/generarConvenioView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/generarDetalleDeBusquedaDeCaso.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/generarDetalleDeBusquedaDeCaso.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/generarDetalleDeBusquedaDeExpediente.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/generarDetalleDeBusquedaDeExpediente.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/generarDocumento.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/generarDocumento.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/generarDocumentoSinCaso.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/generarDocumentoSinCaso.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/generarDocumentoSincrono.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/generarDocumentoSincrono.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/generarMandamientoJudicial.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/generarMandamientoJudicial.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/generarSeguimientoConvenioDetalle.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/generarSeguimientoConvenioDetalle.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/generarSeguimientoConvenioView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/generarSeguimientoConvenioView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/gridExhortos.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/gridExhortos.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/hechos/realizarValoracionHechos.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/hechos/realizarValoracionHechos.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/historialExpedienteView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/historialExpedienteView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarAbogadoManualmente.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarAbogadoManualmente.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarConclusionOrdenAprensionView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarConclusionOrdenAprensionView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarDenuncianteView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarDenuncianteView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarDomicilioView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarDomicilioView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarJuezManualmente.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarJuezManualmente.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarJuezSalaManualmente.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarJuezSalaManualmente.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarLugarDeDetencion.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarLugarDeDetencion.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarLugarDeLosHechos.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarLugarDeLosHechos.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarLugarDefuncionView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarLugarDefuncionView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarLugarIPHView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarLugarIPHView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarLugarView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarLugarView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarMandamientoJudicial.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarMandamientoJudicial.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarMedidasAlternativasPJADE.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarMedidasAlternativasPJADE.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarMedidasAlternativasPJENC.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarMedidasAlternativasPJENC.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarMedidasCautelaresPJENC.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarMedidasCautelaresPJENC.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarMediosContactoView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarMediosContactoView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarMenuIntermedio.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarMenuIntermedio.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarMenuIntermedioPJENA.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarMenuIntermedioPJENA.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarMenuIntermedioPoliciaMinisterialView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarMenuIntermedioPoliciaMinisterialView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarMenuIntermedioSistemaTradicional.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarMenuIntermedioSistemaTradicional.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarNotaExpedienteView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarNotaExpedienteView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarProbableResponsableView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarProbableResponsableView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarQuienDetuvoView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarQuienDetuvoView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarSalaManualmente.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarSalaManualmente.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarTestigoView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarTestigoView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarTraductorView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarTraductorView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarVictimaView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ingresarVictimaView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/inspeccionesDefensoria.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/inspeccionesDefensoria.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/inventarioDeEvidenciasView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/inventarioDeEvidenciasView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/invocacionAppletView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/invocacionAppletView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/leyesyCodigos.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/leyesyCodigos.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/lineasInvestigacionView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/lineasInvestigacionView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/llamadasAuxilioView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/llamadasAuxilioView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/menuDefensaIntegracion.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/menuDefensaIntegracion.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/menuGestionarAlmacen.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/menuGestionarAlmacen.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/menuJusticiaRestaurativa.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/menuJusticiaRestaurativa.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/menuUAVD.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/menuUAVD.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/mostrarGenerarDetencion.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/mostrarGenerarDetencion.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/mostrarRegistroDetencion.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/mostrarRegistroDetencion.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/multasYSancionesDefensoria.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/multasYSancionesDefensoria.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/nuevoExpedienteCausa.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/nuevoExpedienteCausa.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/nuevoPerito.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/nuevoPerito.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/nuevoVisorPJENS.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/nuevoVisorPJENS.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/objeto/ingresarAeronaveView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/objeto/ingresarAeronaveView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/objeto/ingresarAnimalView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/objeto/ingresarAnimalView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/objeto/ingresarArmaView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/objeto/ingresarArmaView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/objeto/ingresarDocumentoOficialView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/objeto/ingresarDocumentoOficialView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/objeto/ingresarEmbarcacionView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/objeto/ingresarEmbarcacionView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/objeto/ingresarEquipoDeComputoView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/objeto/ingresarEquipoDeComputoView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/objeto/ingresarEquipoTelefonicoView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/objeto/ingresarEquipoTelefonicoView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/objeto/ingresarExplosivoView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/objeto/ingresarExplosivoView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/objeto/ingresarJoyaView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/objeto/ingresarJoyaView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/objeto/ingresarNumerarioView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/objeto/ingresarNumerarioView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/objeto/ingresarObjetoTipoPericialView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/objeto/ingresarObjetoTipoPericialView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/objeto/ingresarObraDeArteView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/objeto/ingresarObraDeArteView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/objeto/ingresarOtrosView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/objeto/ingresarOtrosView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/objeto/ingresarSustanciaView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/objeto/ingresarSustanciaView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/objeto/ingresarVegetalView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/objeto/ingresarVegetalView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/objeto/ingresarVehiculoView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/objeto/ingresarVehiculoView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/permisosExpediente/asignarPermisoSobreExpediente.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/permisosExpediente/asignarPermisoSobreExpediente.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/pruebaTablaHTML.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/pruebaTablaHTML.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/quejaCiudadana.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/quejaCiudadana.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/quejaCiudadanaConcluida.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/quejaCiudadanaConcluida.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/reasignarDefensor.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/reasignarDefensor.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/reasignarResponsableDeExpedientePM.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/reasignarResponsableDeExpedientePM.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/registrarDatosPersona.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/registrarDatosPersona.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/registrarDatosPersonaUavd.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/registrarDatosPersonaUavd.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/registrarDatosPersonaUavdDos.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/registrarDatosPersonaUavdDos.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/registrarDatosPersonaView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/registrarDatosPersonaView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/registrarEntradaAlmacen.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/registrarEntradaAlmacen.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/registrarFuncionario.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/registrarFuncionario.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/registrarInformePolicialHomologado.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/registrarInformePolicialHomologado.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/registrarInteresadoAsesoriaLegal.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/registrarInteresadoAsesoriaLegal.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/registrarSalidaAlmacen.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/registrarSalidaAlmacen.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/registroVacacionesIncapacidad.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/registroVacacionesIncapacidad.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/reinsercionSocial/elaborarSolicitudRS.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/reinsercionSocial/elaborarSolicitudRS.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/reinsercionSocial/generales/datosGenerales.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/reinsercionSocial/generales/datosGenerales.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/relacionarElementosView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/relacionarElementosView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/relacionarExpedienteCaso.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/relacionarExpedienteCaso.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/reprogramarAudiencia.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/reprogramarAudiencia.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/salidaAlmacen.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/salidaAlmacen.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/seguimientoAAudiencias.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/seguimientoAAudiencias.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/seguimientoAMedidasCautelaresOAlternativas.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/seguimientoAMedidasCautelaresOAlternativas.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/seleccionarAlmacenExpediente.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/seleccionarAlmacenExpediente.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/seleccionarDestinatarioView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/seleccionarDestinatarioView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/solicitaAtencionPsicologicaUAVDView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/solicitaAtencionPsicologicaUAVDView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/solicitarInvestigacionPericial.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/solicitarInvestigacionPericial.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/solicitarServicioPericial.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/solicitarServicioPericial.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/solicitarServicioPolicial.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/solicitarServicioPolicial.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/solicitudDePeritoExterno.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/solicitudDePeritoExterno.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/solicitudPermisosVisitaduria.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/solicitudPermisosVisitaduria.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/solicitudSeguimientoEstucioSocioEconomico.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/solicitudSeguimientoEstucioSocioEconomico.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ssp/ingresarIPH.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ssp/ingresarIPH.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ssp/mostrarIPH.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ssp/mostrarIPH.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/transcriptorSolicitudes.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/transcriptorSolicitudes.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ubicarExpediente.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/ubicarExpediente.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/verRelDelitoPersonaProbResponsable.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/verRelDelitoPersonaProbResponsable.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorAdministrarCarpetaDeEjecucionPJOAE.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorAdministrarCarpetaDeEjecucionPJOAE.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorAlmacenDirector.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorAlmacenDirector.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorAtencionSolicitudesPericiales.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorAtencionSolicitudesPericiales.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorAtnAlPublicoAudiencias.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorAtnAlPublicoAudiencias.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorAtnAlPublicoRecepciones.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorAtnAlPublicoRecepciones.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorAtnAlPublicoSolicitudes.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorAtnAlPublicoSolicitudes.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorAtnAlPublicoSolicitudesEnPG.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorAtnAlPublicoSolicitudesEnPG.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorAudienciaCDEF.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorAudienciaCDEF.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorAudienciaPJENC.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorAudienciaPJENC.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorAudienciasPJENS.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorAudienciasPJENS.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorAudienciasPorExpediente.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorAudienciasPorExpediente.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorCargasDeTrabajo.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorCargasDeTrabajo.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorConciliacionMediacion.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorConciliacionMediacion.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorCoorPeriDefensoriaBandSolicitudes.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorCoorPeriDefensoriaBandSolicitudes.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorCrearOEditarPlantilla.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorCrearOEditarPlantilla.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorDatoPruebaPJENS.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorDatoPruebaPJENS.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorDefensaCoordinadorSolicitudes.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorDefensaCoordinadorSolicitudes.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorDesignacionesCDEF.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorDesignacionesCDEF.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorDesignarPerito.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorDesignarPerito.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorDetalleATDEF.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorDetalleATDEF.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorDetalleAudiencia.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorDetalleAudiencia.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorDetallePermisoAudiencia.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorDetallePermisoAudiencia.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorDoctosPerito.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorDoctosPerito.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorDocumentos.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorDocumentos.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorEncargadoCausasAudiencias.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorEncargadoCausasAudiencias.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorEncargadoCausasExpedientes.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorEncargadoCausasExpedientes.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorEncargadoCausasSolicitudes.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorEncargadoCausasSolicitudes.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorEntrevistaComplementaria.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorEntrevistaComplementaria.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorEntrevistaInicial.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorEntrevistaInicial.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorGenerarDevolucionDeEvidencia.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorGenerarDevolucionDeEvidencia.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorGestionarAlmacen.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorGestionarAlmacen.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorGrafica.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorGrafica.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorMandamientoJudicial.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorMandamientoJudicial.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorMedidaCautelar.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorMedidaCautelar.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorMedidasAlternas.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorMedidasAlternas.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorMedidasAlternativasPJADE.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorMedidasAlternativasPJADE.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorMedidasCautelares.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorMedidasCautelares.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorMedioPruebaPJENS.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorMedioPruebaPJENS.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorPresentaciones.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorPresentaciones.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorReasignarSolicitud.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorReasignarSolicitud.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorRecursoPJENC.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorRecursoPJENC.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorRecursoPJENSI.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorRecursoPJENSI.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorReportesAdministrador.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorReportesAdministrador.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorSolicitudAudienciaPJENA.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorSolicitudAudienciaPJENA.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorSolicitudPJENA.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorSolicitudPJENA.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorSolicitudesDirectorPeritos.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorSolicitudesDirectorPeritos.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorTranscripcionDeAudiencia.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorTranscripcionDeAudiencia.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorTraslados.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorTraslados.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorbuscarInvolucradosAudienciaPorCausa.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/visorbuscarInvolucradosAudienciaPorCausa.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/tiles/LayoutVentana.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/tiles/LayoutVentana.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/tiles/LayoutVentanaAdmin.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/tiles/LayoutVentanaAdmin.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/adjuntarDocumentoAAudiencia.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/adjuntarDocumentoAAudiencia.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/adjuntarDocumentoAExpedienteGenerico.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/adjuntarDocumentoAExpedienteGenerico.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/adjuntarDocumentoAMandamientoJudicial.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/adjuntarDocumentoAMandamientoJudicial.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/adjuntarDocumentoAMedida.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/adjuntarDocumentoAMedida.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/administrarAudienciaDeControl.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/administrarAudienciaDeControl.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/administrarDetencionDePersona.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/administrarDetencionDePersona.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/asentarAcuerdosRestaurativos.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/asentarAcuerdosRestaurativos.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/atencionTempranaAdministrativaView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/atencionTempranaAdministrativaView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/atencionVictimasDelDelito.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/atencionVictimasDelDelito.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/atencionVictimasDelDelitoAtnJuridica.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/atencionVictimasDelDelitoAtnJuridica.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/atencionVictimasDelDelitoPsicologico.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/atencionVictimasDelDelitoPsicologico.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/atencionVictimasDelDelitoTrabajoSocial.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/atencionVictimasDelDelitoTrabajoSocial.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/autorizarEvidencia.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/autorizarEvidencia.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/carpetaDeInvestigacionView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/carpetaDeInvestigacionView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/consultarDetalleNotificaciones.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/consultarDetalleNotificaciones.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/consultarEventosCitas.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/consultarEventosCitas.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/consultarNotificaciones.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/consultarNotificaciones.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/coordinacionPericialesDefensoria.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/coordinacionPericialesDefensoria.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/coordinacionPericialesProcuraduria.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/coordinacionPericialesProcuraduria.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/coordinadorVisitaduria.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/coordinadorVisitaduria.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/darDeBajaIndicioOEvidencia.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/darDeBajaIndicioOEvidencia.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/descarcelacionNADirecCentroDetencionSSP.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/descarcelacionNADirecCentroDetencionSSP.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/descarcelacionNAPoliciaSSP.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/descarcelacionNAPoliciaSSP.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/designarAbogadoDefensorView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/designarAbogadoDefensorView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/elaborarDetencionPorCasoUrgente.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/elaborarDetencionPorCasoUrgente.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/encargadoAdministrativoPJ.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/encargadoAdministrativoPJ.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/encargadoCausas.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/encargadoCausas.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/encargadoInformatica.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/encargadoInformatica.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/encargadoNotificador.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/encargadoNotificador.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/encargadoSala.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/encargadoSala.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/encargadoSegundaInstancia.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/encargadoSegundaInstancia.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/enviarAvisoDetencion.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/enviarAvisoDetencion.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/examenMedico.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/examenMedico.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/garantiaEconomica.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/garantiaEconomica.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/generarIntCarpInvView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/generarIntCarpInvView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/generarNotificacion.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/generarNotificacion.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/gridSelectDocumentos.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/gridSelectDocumentos.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/index2.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/index2.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexAMPVisitaduria.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexAMPVisitaduria.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexAdministradorView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexAdministradorView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexAdministrativoEjecucion.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexAdministrativoEjecucion.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexAlmacen.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexAlmacen.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexAlmacenDeExpedientes.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexAlmacenDeExpedientes.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexConsignadorViewSistemaTradicional.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexConsignadorViewSistemaTradicional.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexCoordConsigViewSistemaTradicional.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexCoordConsigViewSistemaTradicional.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexDGEPMCView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexDGEPMCView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexDefensoriaAtencionTemprana.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexDefensoriaAtencionTemprana.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexDefensoriaCoordinador.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexDefensoriaCoordinador.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexDefensoriaDefensor.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexDefensoriaDefensor.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexDirCentroDetencionProvisionalSSP.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexDirCentroDetencionProvisionalSSP.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexDirectorPolicialSSP.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexDirectorPolicialSSP.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexMedidasCautelares.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexMedidasCautelares.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexPeritoView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexPeritoView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexPeritoViewDef.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexPeritoViewDef.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexPoderJudicialAtencionAlPublico.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexPoderJudicialAtencionAlPublico.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexPoliciaMinisterial.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexPoliciaMinisterial.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexProcuraduriaAlmacenDeEvidencias.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexProcuraduriaAlmacenDeEvidencias.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexProcuraduriaEnviarNotificaciones.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexProcuraduriaEnviarNotificaciones.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexProcuraduriaViewSistemaTradicional.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexProcuraduriaViewSistemaTradicional.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexSSPAMP.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexSSPAMP.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexSeguridadPublicaPoliciaMinisterial.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexSeguridadPublicaPoliciaMinisterial.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexSeguridadPublicaPoliciaProcesal.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexSeguridadPublicaPoliciaProcesal.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexUAVD.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/indexUAVD.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/ingresoCedepro.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/ingresoCedepro.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/inicio.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/inicio.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/inicioDefensoria.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/inicioDefensoria.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/inicioPoderJudicial.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/inicioPoderJudicial.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/juezPJJUE.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/juezPJJUE.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/oficialADMEjecucionPJ.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/oficialADMEjecucionPJ.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/perito.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/perito.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/pliegoDeConsignacion.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/pliegoDeConsignacion.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/poderJudicialTranscriptor.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/poderJudicialTranscriptor.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/realizarDiligenciasInvestigacion.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/realizarDiligenciasInvestigacion.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/reasignarUIEDeExpediente.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/reasignarUIEDeExpediente.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/recibirAvisoHechoDelictivo.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/recibirAvisoHechoDelictivo.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/registrarAmparo.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/registrarAmparo.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/registrarDenunciaExterna.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/registrarDenunciaExterna.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/resources/css/ui-lightness/jquery-ui-1.8.11.custom.css" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/resources/css/ui-lightness/jquery-ui-1.8.11.custom.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/respaldos/JusticiaRestaurativa.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/respaldos/JusticiaRestaurativa.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/respaldos/JusticiaRestaurativaCoordinadorAMP.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/respaldos/JusticiaRestaurativaCoordinadorAMP.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/respaldos/atencionTemprana.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/respaldos/atencionTemprana.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/respaldos/atencionTempranaPenalView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/respaldos/atencionTempranaPenalView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/respaldos/defensoria/indexDefensoriaDefensor.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/respaldos/defensoria/indexDefensoriaDefensor.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/respaldos/defensoria/involucradoDefensoria.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/respaldos/defensoria/involucradoDefensoria.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/respaldos/defensoria/involucrados.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/respaldos/defensoria/involucrados.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/respaldos/defensoria/visorExpedienteDefensoria.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/respaldos/defensoria/visorExpedienteDefensoria.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/respaldos/indexProcuraduriaView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/respaldos/indexProcuraduriaView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/respaldos/juezEjecucionPJJUE.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/respaldos/juezEjecucionPJJUE.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/serviciosPericiales.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/serviciosPericiales.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/solicitarAudiencia.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/solicitarAudiencia.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/solicitarDefensor.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/solicitarDefensor.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/solicitarDefensorDefensorAte.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/solicitarDefensorDefensorAte.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/solicitarDetencion.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/solicitarDetencion.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/solicitarDictamenPericial.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/solicitarDictamenPericial.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/solicitudDeEvidencia.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/solicitudDeEvidencia.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/solicitudDePericial.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/solicitudDePericial.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/solicitudDePeritoExterno.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/solicitudDePeritoExterno.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/solicitudesSSPAMP.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/solicitudesSSPAMP.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/ssp/indexSeguridadPublicaMedico.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/ssp/indexSeguridadPublicaMedico.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/ssp/indexSeguridadPublicaPolicia.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/ssp/indexSeguridadPublicaPolicia.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/ssp/indexUnidadCapturaView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/ssp/indexUnidadCapturaView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/teoriaDelCasoView.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/teoriaDelCasoView.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/visitaduria.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/visitaduria.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/25112015.sql" afterPath="$PROJECT_DIR$/scripts/25112015.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/sp/carga_usuarios_sigi_coa.xlsx" afterPath="$PROJECT_DIR$/scripts/sp/carga_usuarios_sigi_coa.xlsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-persistencia/src/main/resources/sessionFactory-nsjp-context.xml" afterPath="$PROJECT_DIR$/nsjp-persistencia/src/main/resources/sessionFactory-nsjp-context.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/administrarAudienciaJavs/action/AdministrarAudienciaJavsAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/administrarAudienciaJavs/action/AdministrarAudienciaJavsAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/administrarAudienciaJavs/action/PermisosAudienciaJavsAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/administrarAudienciaJavs/action/PermisosAudienciaJavsAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/almacen/action/AdministrarAlmacenAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/almacen/action/AdministrarAlmacenAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/almacen/action/DarDeBajaIndicioOEvidencia.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/almacen/action/DarDeBajaIndicioOEvidencia.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/pruebas/action/AdministrarDatosDePruebaAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/pruebas/action/AdministrarDatosDePruebaAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/pruebas/action/AdministrarMediosDePruebaAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/pruebas/action/AdministrarMediosDePruebaAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/MedidasAlternas/action/MedidasAlternasAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/MedidasAlternas/action/MedidasAlternasAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/MedidasCautelares/Action/AdministrarMedidasCautelaresSSPAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/MedidasCautelares/Action/AdministrarMedidasCautelaresSSPAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/MedidasCautelares/Action/MedidasCautelaresAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/MedidasCautelares/Action/MedidasCautelaresAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/administrador/action/AdministracionSistemaAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/administrador/action/AdministracionSistemaAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/agenda/action/ControlAgendaAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/agenda/action/ControlAgendaAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/atencionTempranaPenal/action/AdministracionSolicitudesUAVDAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/atencionTempranaPenal/action/AdministracionSolicitudesUAVDAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/atencionTempranaPenal/action/AtencionTempranaAdministrativaAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/atencionTempranaPenal/action/AtencionTempranaAdministrativaAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/atencionTempranaPenal/action/AtencionTempranaPenalAction.bkp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/atencionTempranaPenal/action/AtencionTempranaPenalAction.bkp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/atencionTempranaPenal/action/AtencionTempranaPenalAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/atencionTempranaPenal/action/AtencionTempranaPenalAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/atencionTempranaPenal/action/RelacionarElementosAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/atencionTempranaPenal/action/RelacionarElementosAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/aviso/action/SolicitudApoyoAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/aviso/action/SolicitudApoyoAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/base/action/GenericAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/base/action/GenericAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/cadenadecustodia/action/IngresarCadenaCustodiaAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/cadenadecustodia/action/IngresarCadenaCustodiaAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/carpetaejecucion/action/AdministrarCarpetaEjecucionAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/carpetaejecucion/action/AdministrarCarpetaEjecucionAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/AsociarIndividuoAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/AsociarIndividuoAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/BuscarCasoAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/BuscarCasoAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/ConsultaAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/ConsultaAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/DelitoAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/DelitoAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/GenerarTurnoAtencionAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/GenerarTurnoAtencionAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/IngresarDenuncianteAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/IngresarDenuncianteAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/IngresarDomicilioAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/IngresarDomicilioAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/IngresarMediosDeContactoAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/IngresarMediosDeContactoAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/IngresarNarrativaAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/IngresarNarrativaAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/IngresarOrganizacionAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/IngresarOrganizacionAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/IngresarProbableResponsableAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/IngresarProbableResponsableAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/IngresarTipoDeDocumentoDeIdentificacionAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/IngresarTipoDeDocumentoDeIdentificacionAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/IngresarTutorAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/IngresarTutorAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/IngresarVictimaAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/IngresarVictimaAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/ModificarTutorAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/ModificarTutorAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/catalogo/action/AdministrarCatalogosAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/catalogo/action/AdministrarCatalogosAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/catalogo/action/ConsultarCatalogosAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/catalogo/action/ConsultarCatalogosAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/configuracion/action/ConfiguracionAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/configuracion/action/ConfiguracionAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/convenio/action/ConvenioAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/convenio/action/ConvenioAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/defensor/action/AdministrarActuacionDefensoriaAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/defensor/action/AdministrarActuacionDefensoriaAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/defensor/action/AudienciasDefensorAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/defensor/action/AudienciasDefensorAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/defensor/action/DefensaRestaurativaAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/defensor/action/DefensaRestaurativaAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/defensor/action/DefensaTecnicaAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/defensor/action/DefensaTecnicaAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/defensor/action/DefensaenIntegracionAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/defensor/action/DefensaenIntegracionAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/defensor/action/MultasDefensorAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/defensor/action/MultasDefensorAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/defensor/action/RegistroVacacionesIncapacidadesAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/defensor/action/RegistroVacacionesIncapacidadesAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/defensor/action/SolicitarDiligenciasAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/defensor/action/SolicitarDiligenciasAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/documento/action/ConsultarDocumentoAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/documento/action/ConsultarDocumentoAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/documento/action/DocumentoAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/documento/action/DocumentoAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/documento/action/GeneradorDocumentoAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/documento/action/GeneradorDocumentoAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/elemento/action/AnularElementoAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/elemento/action/AnularElementoAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/elemento/action/BuscarReincidenciasDeElementoAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/elemento/action/BuscarReincidenciasDeElementoAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/evento/action/ConsultaEventosAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/evento/action/ConsultaEventosAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/evento/action/ConsultaEventosPJATPAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/evento/action/ConsultaEventosPJATPAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/evento/action/ConsultaEventosPJENCAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/evento/action/ConsultaEventosPJENCAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/evento/action/ConsultaEventosPJENSAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/evento/action/ConsultaEventosPJENSAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/evento/action/ConsultaEventosPJENSIAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/evento/action/ConsultaEventosPJENSIAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/expdiente/action/AsignarNumeroDeExpedienteAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/expdiente/action/AsignarNumeroDeExpedienteAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/expdiente/action/AsignarPermisosAFuncionarioSobreExpedienteAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/expdiente/action/AsignarPermisosAFuncionarioSobreExpedienteAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/expdiente/action/BuscarExpedienteAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/expdiente/action/BuscarExpedienteAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/expdiente/action/BuscarExpedienteGeneralAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/expdiente/action/BuscarExpedienteGeneralAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/expdiente/action/BusquedaExpedienteAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/expdiente/action/BusquedaExpedienteAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/expdiente/action/ConsultarNarrativaAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/expdiente/action/ConsultarNarrativaAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/expdiente/action/UbicarExpedienteAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/expdiente/action/UbicarExpedienteAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/funcionacioExterno/action/ConsultarFuncionarioExternoAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/funcionacioExterno/action/ConsultarFuncionarioExternoAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/funcionario/action/AdministrarFuncionarioAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/funcionario/action/AdministrarFuncionarioAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/funcionario/action/ConsultarFuncionarioAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/funcionario/action/ConsultarFuncionarioAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/hecho/action/IngresarHechosAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/hecho/action/IngresarHechosAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/hecho/action/PosibleHechoDelictivoAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/hecho/action/PosibleHechoDelictivoAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/indicador/action/ReporteIndicadorAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/indicador/action/ReporteIndicadorAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/lineadeinvestigacion/action/LineaInvestigacionAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/lineadeinvestigacion/action/LineaInvestigacionAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/login/action/LoginAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/login/action/LoginAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/mandamientojudicial/action/AdministrarMandamientoJudicialAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/mandamientojudicial/action/AdministrarMandamientoJudicialAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/notificacion/action/ConsultarNotificacionesAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/notificacion/action/ConsultarNotificacionesAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/notificacion/action/GenerarNotificacionAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/notificacion/action/GenerarNotificacionAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/numeroExpedienteAlterno/action/ConsultarNumeroExpedienteAlternoAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/numeroExpedienteAlterno/action/ConsultarNumeroExpedienteAlternoAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/objeto/action/IngresarObjetoAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/objeto/action/IngresarObjetoAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/organizacion/action/IngresarOrganizacionAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/organizacion/action/IngresarOrganizacionAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/pericial/action/AtenderSolicitudPericialAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/pericial/action/AtenderSolicitudPericialAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/pericial/action/DesignarPeritoAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/pericial/action/DesignarPeritoAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/pericial/action/SolicitarServiciosPericialesAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/pericial/action/SolicitarServiciosPericialesAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/persona/action/ConsultarIndividuoAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/persona/action/ConsultarIndividuoAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/persona/action/EnviarCarpetaInvestigacionAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/persona/action/EnviarCarpetaInvestigacionAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/persona/action/IngresarDatosGeneralesAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/persona/action/IngresarDatosGeneralesAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/persona/action/IngresarIndividuoAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/persona/action/IngresarIndividuoAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/persona/action/IngresarLugarDefuncionAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/persona/action/IngresarLugarDefuncionAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/persona/action/IngresarMediaFiliacionAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/persona/action/IngresarMediaFiliacionAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/persona/action/IngresarMediosContactoAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/persona/action/IngresarMediosContactoAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/persona/action/consultarPersonalOperativoAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/persona/action/consultarPersonalOperativoAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/pliegoDeConsignacion/action/AdministrarPliegoDeConsignacionAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/pliegoDeConsignacion/action/AdministrarPliegoDeConsignacionAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/reinsercionsocial/action/DatosGeneralesReinsercionAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/reinsercionsocial/action/DatosGeneralesReinsercionAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/reinsercionsocial/action/DocumentosReinsercionAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/reinsercionsocial/action/DocumentosReinsercionAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/reinsercionsocial/action/EnvioDocumentosReinsercionAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/reinsercionsocial/action/EnvioDocumentosReinsercionAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/reinsercionsocial/action/InventarioPertenenciasAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/reinsercionsocial/action/InventarioPertenenciasAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/rol/action/ConfiguracionSubRolAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/rol/action/ConfiguracionSubRolAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/rol/action/GuardarModulosRolAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/rol/action/GuardarModulosRolAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/seguridadPublica/action/RegistroDetencionAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/seguridadPublica/action/RegistroDetencionAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/sistemaTradicional/action/ConsignacionAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/sistemaTradicional/action/ConsignacionAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/solicitud/action/AdministrarNumeroExpedienteSolicitudAudienciaAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/solicitud/action/AdministrarNumeroExpedienteSolicitudAudienciaAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/solicitud/action/AdministrarSolicitudesTranscripcionAudioVideo.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/solicitud/action/AdministrarSolicitudesTranscripcionAudioVideo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/solicitud/action/ConsultarSolicitudSSPAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/solicitud/action/ConsultarSolicitudSSPAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/solicitud/action/ConsultarSolicitudesPJEAAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/solicitud/action/ConsultarSolicitudesPJEAAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/solicitud/action/ConsultarTodasSolicitudesUAVDAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/solicitud/action/ConsultarTodasSolicitudesUAVDAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/solicitud/action/ElaborarSolicitudAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/solicitud/action/ElaborarSolicitudAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/solicitud/action/SolicitarAudienciaAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/solicitud/action/SolicitarAudienciaAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/solicitud/action/SolicitudBeneficiosPreliberacionPJAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/solicitud/action/SolicitudBeneficiosPreliberacionPJAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/solicitud/action/SolicitudCiudadanaDefensorAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/solicitud/action/SolicitudCiudadanaDefensorAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/solicitud/action/SolicitudDefensorAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/solicitud/action/SolicitudDefensorAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/ssp/action/InformePHAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/ssp/action/InformePHAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/ssp/action/SeguridadPublicaAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/ssp/action/SeguridadPublicaAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/uavd/action/UnidadAtencionVictimasDelitoAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/uavd/action/UnidadAtencionVictimasDelitoAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/visitaduria/action/VisitaduriaAction.java" afterPath="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/visitaduria/action/VisitaduriaAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/action-servlet.xml" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/action-servlet.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/log4j-config.xml" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/log4j-config.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/struts-config.xml" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/struts-config.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/web.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/js/comun.js" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/js/comun.js" />
     </list>
     <ignored path="nsjp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -384,18 +153,7 @@
     <favorites_list name="nsjp" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="cambiarResponsableExpediente.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/comun/cambiarResponsableExpediente.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4219554">
-              <caret line="42" column="58" selection-start-line="42" selection-start-column="58" selection-end-line="42" selection-end-column="58" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -408,7 +166,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/comun/cambiarResponsableExpediente.jsp" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/expdiente/action/BuscarExpedienteGeneralAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/agenda/action/ControlAgendaAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/rol/action/GuardarModulosRolAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/rol/action/ConfiguracionSubRolAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/documento/action/GeneradorDocumentoAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/lineadeinvestigacion/action/LineaInvestigacionAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/visitaduria/action/VisitaduriaAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/pruebas/action/AdministrarMediosDePruebaAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/defensor/action/DefensaTecnicaAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/expdiente/action/AsignarPermisosAFuncionarioSobreExpedienteAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/notificacion/action/ConsultarNotificacionesAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/evento/action/ConsultaEventosAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/objeto/action/IngresarObjetoAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/documento/action/ConsultarDocumentoAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/defensor/action/SolicitarDiligenciasAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/catalogo/action/AdministrarCatalogosAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/solicitud/action/ConsultarSolicitudesPJEAAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/funcionario/action/AdministrarFuncionarioAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/solicitud/action/SolicitudCiudadanaDefensorAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/atencionTempranaPenal/action/AdministracionSolicitudesUAVDAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/atencionTempranaPenal/action/AtencionTempranaPenalAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/defensor/action/MultasDefensorAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/defensor/action/AudienciasDefensorAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/seguridadPublica/action/RegistroDetencionAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/IngresarTipoDeDocumentoDeIdentificacionAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/defensor/action/RegistroVacacionesIncapacidadesAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/atencionTempranaPenal/action/RelacionarElementosAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/IngresarNarrativaAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/defensor/action/AdministrarActuacionDefensoriaAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/evento/action/ConsultaEventosPJENSAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/evento/action/ConsultaEventosPJENSIAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/hecho/action/IngresarHechosAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/persona/action/EnviarCarpetaInvestigacionAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/persona/action/IngresarIndividuoAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/solicitud/action/SolicitudBeneficiosPreliberacionPJAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/catalogo/action/ConsultarCatalogosAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/solicitud/action/AdministrarSolicitudesTranscripcionAudioVideo.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/MedidasCautelares/Action/MedidasCautelaresAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/persona/action/ConsultarIndividuoAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/solicitud/action/ConsultarSolicitudSSPAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/ConsultaAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/defensor/action/DefensaenIntegracionAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/evento/action/ConsultaEventosPJENCAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/numeroExpedienteAlterno/action/ConsultarNumeroExpedienteAlternoAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/DelitoAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/IngresarDomicilioAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/expdiente/action/BuscarExpedienteAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/hecho/action/PosibleHechoDelictivoAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/sistemaTradicional/action/ConsignacionAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/solicitud/action/SolicitarAudienciaAction.java" />
+        <option value="$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/elemento/action/BuscarReincidenciasDeElementoAction.java" />
       </list>
     </option>
   </component>
@@ -418,6 +226,21 @@
         <option name="mavenHome" value="Bundled (Maven 3)" />
       </MavenGeneralSettings>
     </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+      </PATH>
+    </treeState>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
@@ -450,8 +273,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -461,51 +282,31 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nsjp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SIGI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nsjp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SIGI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nsjp-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="132" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="134" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="161" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="162" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="162" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="164" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="837" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="832" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="155" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="157" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="153" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="154" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="155" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="158" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="829" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="823" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -714,6 +515,18 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <envs />
+      <method />
+    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -800,33 +613,66 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView" selected-index="3">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25326797" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32569557" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32569557" sideWeight="0.5030257" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38729197" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32405892" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25326797" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2753404" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32569557" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -840,7 +686,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -848,105 +696,415 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/resources/mx/gob/segob/nsjp/resources/version.properties">
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/defensor/action/DefensaTecnicaAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42857143">
+          <caret line="223" column="44" selection-start-line="223" selection-start-column="44" selection-end-line="223" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/notificacion/action/ConsultarNotificacionesAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="51" column="16" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/expdiente/action/AsignarPermisosAFuncionarioSobreExpedienteAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31092438">
+          <caret line="64" column="40" selection-start-line="64" selection-start-column="40" selection-end-line="64" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/evento/action/ConsultaEventosAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46614584">
+          <caret line="586" column="7" selection-start-line="586" selection-start-column="7" selection-end-line="586" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/objeto/action/IngresarObjetoAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3809524">
+          <caret line="2542" column="12" selection-start-line="2542" selection-start-column="12" selection-end-line="2542" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/documento/action/ConsultarDocumentoAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.875">
+          <caret line="312" column="40" selection-start-line="312" selection-start-column="40" selection-end-line="312" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/catalogo/action/AdministrarCatalogosAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29411766">
+          <caret line="885" column="44" selection-start-line="885" selection-start-column="44" selection-end-line="885" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/defensor/action/SolicitarDiligenciasAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47619048">
+          <caret line="50" column="17" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/solicitud/action/ConsultarSolicitudesPJEAAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.1092436">
+          <caret line="1653" column="40" selection-start-line="1653" selection-start-column="40" selection-end-line="1653" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/funcionario/action/AdministrarFuncionarioAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1232493">
+          <caret line="795" column="20" selection-start-line="795" selection-start-column="20" selection-end-line="795" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/solicitud/action/SolicitudCiudadanaDefensorAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0703125">
+          <caret line="214" column="56" selection-start-line="214" selection-start-column="56" selection-end-line="214" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/atencionTempranaPenal/action/AdministracionSolicitudesUAVDAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35854343">
+          <caret line="238" column="17" selection-start-line="238" selection-start-column="17" selection-end-line="238" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/atencionTempranaPenal/action/AtencionTempranaPenalAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3802817">
+          <caret line="6176" column="12" selection-start-line="6176" selection-start-column="12" selection-end-line="6176" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/defensor/action/MultasDefensorAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.6296296">
+          <caret line="211" column="36" selection-start-line="211" selection-start-column="36" selection-end-line="211" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/defensor/action/AudienciasDefensorAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40616247">
+          <caret line="59" column="12" selection-start-line="59" selection-start-column="12" selection-end-line="59" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/seguridadPublica/action/RegistroDetencionAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="1218" column="12" selection-start-line="1218" selection-start-column="12" selection-end-line="1218" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/defensor/action/RegistroVacacionesIncapacidadesAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35854343">
+          <caret line="220" column="23" selection-start-line="220" selection-start-column="23" selection-end-line="220" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/almacen/action/AdministrarEntradasDeAlmacenAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.114583336">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/almacen/action/AdministrarSalidasDeAlmacenAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.953125">
+          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/almacen/action/RegistrarSalidasDelAlmacenAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.78125">
+          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/almacen/action/SeleccionarAlmacenDeEvidenciasAction.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/resources/mx/gob/segob/nsjp/resources/ApplicationResource_es_MX.properties">
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/atencionTempranaPenal/action/RelacionarElementosAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.724138">
-          <caret line="20" column="50" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="ResourceBundle">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/webapp/resources/css/jquery-ui.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.52380955">
+          <caret line="217" column="12" selection-start-line="217" selection-start-column="12" selection-end-line="217" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/webapp/resources/css/themes/south-street/images/ui-icons_808080_256x240.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/webapp/resources/css/themes/south-street/images/ui-icons_847e71_256x240.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/webapp/resources/css/themes/south-street/images/ui-icons_8dc262_256x240.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/webapp/resources/css/themes/south-street/images/ui-icons_cd0a0a_256x240.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/webapp/resources/css/themes/south-street/images/ui-icons_eeeeee_256x240.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/webapp/resources/css/themes/south-street/images/ui-icons_ffffff_256x240.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/webapp/resources/css/themes/south-street/images/ui-bg_glass_55_fcf0ba_1x400.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/webapp/resources/css/themes/south-street/images/ui-bg_inset-soft_15_2b2922_1x100.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/webapp/resources/css/themes/south-street/images/ui-bg_gloss-wave_100_ece8da_500x100.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/webapp/resources/css/themes/south-street/images/ui-bg_highlight-hard_15_459e00_1x100.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/webapp/resources/css/themes/ui-lightness/images/ui-bg_diagonals-thick_18_b81900_40x40.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/webapp/resources/css/default/bottom_mid.gif">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nsjp-comun/src/main/java/mx/gob/segob/nsjp/comun/enums/forma/Formas.java">
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/base/action/ExpedienteSesionTransformer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33246073">
-          <caret line="42" column="111" selection-start-line="42" selection-start-column="111" selection-end-line="42" selection-end-column="111" />
+        <state vertical-scroll-proportion="0.33239436">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/comun/cambiarResponsableExpediente.jsp">
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/atencionTempranaPenal/action/DatosPersonaUAVDAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4219554">
-          <caret line="42" column="58" selection-start-line="42" selection-start-column="58" selection-end-line="42" selection-end-column="58" />
+        <state vertical-scroll-proportion="0.33239436">
+          <caret line="151" column="28" selection-start-line="151" selection-start-column="25" selection-end-line="151" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/IngresarNarrativaAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35854343">
+          <caret line="65" column="15" selection-start-line="65" selection-start-column="15" selection-end-line="65" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/defensor/action/AdministrarActuacionDefensoriaAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="73" column="12" selection-start-line="73" selection-start-column="12" selection-end-line="73" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/evento/action/ConsultaEventosPJENSAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33231708">
+          <caret line="1144" column="25" selection-start-line="1144" selection-start-column="20" selection-end-line="1144" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/evento/action/ConsultaEventosPJENSIAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3597561">
+          <caret line="165" column="13" selection-start-line="165" selection-start-column="13" selection-end-line="165" selection-end-column="13" />
+          <folding>
+            <element signature="e#2447#2461#0" expanded="true" />
+            <element signature="e#8606#8620#0" expanded="true" />
+            <element signature="e#11115#11129#0" expanded="true" />
+            <element signature="e#13171#13182#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/hecho/action/IngresarHechosAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33231708">
+          <caret line="468" column="35" selection-start-line="468" selection-start-column="29" selection-end-line="468" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/evento/action/ConsultaEventosPJJUAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33239436">
+          <caret line="34" column="16" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/persona/action/EnviarCarpetaInvestigacionAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3802817">
+          <caret line="48" column="10" selection-start-line="48" selection-start-column="10" selection-end-line="48" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/persona/action/IngresarIndividuoAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38414633">
+          <caret line="1258" column="12" selection-start-line="1258" selection-start-column="12" selection-end-line="1258" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/solicitud/action/SolicitudBeneficiosPreliberacionPJAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33231708">
+          <caret line="138" column="26" selection-start-line="138" selection-start-column="20" selection-end-line="138" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/catalogo/action/ConsultarCatalogosAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.331307">
+          <caret line="232" column="26" selection-start-line="232" selection-start-column="20" selection-end-line="232" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/solicitud/action/AdministrarSolicitudesTranscripcionAudioVideo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3809524">
+          <caret line="241" column="40" selection-start-line="241" selection-start-column="40" selection-end-line="241" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/MedidasCautelares/Action/MedidasCautelaresAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33231708">
+          <caret line="483" column="31" selection-start-line="483" selection-start-column="25" selection-end-line="483" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/persona/action/ConsultarIndividuoAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3567073">
+          <caret line="403" column="44" selection-start-line="403" selection-start-column="44" selection-end-line="403" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/solicitud/action/ConsultarSolicitudSSPAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38414633">
+          <caret line="730" column="12" selection-start-line="730" selection-start-column="12" selection-end-line="730" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/ConsultaAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.82913166">
+          <caret line="812" column="12" selection-start-line="812" selection-start-column="12" selection-end-line="812" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/defensor/action/DefensaenIntegracionAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3597561">
+          <caret line="435" column="18" selection-start-line="435" selection-start-column="18" selection-end-line="435" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/evento/action/ConsultaEventosPJENCAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="28.651686">
+          <caret line="878" column="26" selection-start-line="878" selection-start-column="20" selection-end-line="878" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/evento/action/ConsultaEventosPJENAAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33146068">
+          <caret line="19" column="16" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/expdiente/action/BuscarExpedienteAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.421875">
+          <caret line="348" column="35" selection-start-line="348" selection-start-column="35" selection-end-line="348" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/IngresarDomicilioAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33231708">
+          <caret line="359" column="26" selection-start-line="359" selection-start-column="20" selection-end-line="359" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/DelitoAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38414633">
+          <caret line="510" column="12" selection-start-line="510" selection-start-column="12" selection-end-line="510" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/numeroExpedienteAlterno/action/ConsultarNumeroExpedienteAlternoAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35854343">
+          <caret line="91" column="17" selection-start-line="91" selection-start-column="17" selection-end-line="91" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/hecho/action/PosibleHechoDelictivoAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33231708">
+          <caret line="197" column="33" selection-start-line="197" selection-start-column="28" selection-end-line="197" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/sistemaTradicional/action/ConsignacionAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3597561">
+          <caret line="100" column="15" selection-start-line="100" selection-start-column="15" selection-end-line="100" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/solicitud/action/SolicitarAudienciaAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33231708">
+          <caret line="437" column="45" selection-start-line="437" selection-start-column="39" selection-end-line="437" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/elemento/action/BuscarReincidenciasDeElementoAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3597561">
+          <caret line="230" column="15" selection-start-line="230" selection-start-column="15" selection-end-line="230" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/java/mx/gob/segob/nsjp/web/caso/action/IngresarTipoDeDocumentoDeIdentificacionAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.106770836">
+          <caret line="70" column="12" selection-start-line="70" selection-start-column="12" selection-end-line="70" selection-end-column="12" />
           <folding />
         </state>
       </provider>

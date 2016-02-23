@@ -26,6 +26,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.evidencia.EstatusEvidencia;
 import mx.gob.segob.nsjp.comun.enums.objeto.Objetos;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
@@ -240,7 +241,7 @@ public class IngresarCadenaCustodiaAction extends GenericAction {
 		    custodiaDTO.setInstitucionTraslado(forma.getInstitutionTraslada());
 			//Mandamos guardar la cadena de custodia a la BD
 		    custodiaDTO=cadenaCustodiaDelegate.guardarCadenaCustodia(custodiaDTO, expedienteDTO);
-
+			XStream converter=new XStream();
 			//mandamos la respuesta a la vista
 			if(custodiaDTO!=null && custodiaDTO.getCadenaDeCustodiaId()!=null)
 			{
@@ -296,6 +297,7 @@ public class IngresarCadenaCustodiaAction extends GenericAction {
 			List<EvidenciaDTO> evidencias=evidenciaDelegate.consultarEvidenciasXCadenaCustodia(cadenaDTO);
 			
 			
+			XStream converter=new XStream();
 			converter.alias("listaEvidencias", java.util.List.class);
 			converter.alias("evidenciaDTO", EvidenciaDTO.class);
 			String xml = converter.toXML(evidencias);
@@ -430,6 +432,7 @@ public class IngresarCadenaCustodiaAction extends GenericAction {
 			List<ObjetoDTO> listaObjetos=objetoDelegate.consultarObjetosNoEvidencia(expedienteDTO);
 			
 		
+			XStream converter=new XStream();
 			converter.alias("listaObjetos", java.util.List.class);
 			converter.alias("objetoDTO", DelitoDTO.class);
 			String xml = converter.toXML(listaObjetos);
@@ -676,7 +679,7 @@ public class IngresarCadenaCustodiaAction extends GenericAction {
 			
 			// Consultamos las evidencias de la cadena de custodia
 			List<EvidenciaDTO> evidencias=evidenciaDelegate.consultarEvidenciasXCadenaCustodia(cadenaDTO);
-				
+			XStream converter=new XStream();
 			converter.alias("listaEvidencias", java.util.List.class);
 			converter.alias("evidenciaDTO", EvidenciaDTO.class);
 			String xml = converter.toXML(evidencias);
@@ -1086,7 +1089,7 @@ public class IngresarCadenaCustodiaAction extends GenericAction {
 			FuncionarioDTO funcionario=user.getFuncionario();
 			
 			String xml = null;
-			converter.alias("funcionarioDTO",FuncionarioDTO.class);
+			XStream converter=new XStream(); 			converter.alias("funcionarioDTO",FuncionarioDTO.class);
 			xml = converter.toXML(funcionario);
 			log.info("usuario_firmado - consultarFuncionarioFirmado: "+xml);
 			escribirRespuesta(response, xml);
@@ -1198,6 +1201,7 @@ public class IngresarCadenaCustodiaAction extends GenericAction {
 				
 			if(log.isDebugEnabled())
 			{
+				XStream converter=new XStream();
 				converter.alias("listaCadenas", java.util.List.class);
 				converter.alias("cadenaDeCustodiaDTO", DelitoDTO.class);
 				String xml = converter.toXML(listaCadenas);
@@ -1262,7 +1266,7 @@ public class IngresarCadenaCustodiaAction extends GenericAction {
 			cadenaDTO=cadenaDeCustodiaDelegate.consultarCadenaCustodia(cadenaDTO);
 			
 			String xml = null;
-			converter.alias("cadenaDTO",CadenaDeCustodiaDTO.class);
+			XStream converter=new XStream(); 			converter.alias("cadenaDTO",CadenaDeCustodiaDTO.class);
 			xml = converter.toXML(cadenaDTO);
 			log.info(xml);
 			escribirRespuesta(response, xml);
@@ -1302,6 +1306,7 @@ public class IngresarCadenaCustodiaAction extends GenericAction {
 			List<EslabonDTO> listaEslabones = eslabonDelegate.consultarEslabonesPorEvidencia(evidenciaDTO);
 			log.info("Numero_de_eslabones_de_evidencia ["+idCadena+"] --- "+listaEslabones.size());
 			String xml = null;
+			XStream converter=new XStream();
 			converter.alias("eslabonesDTO",java.util.List.class);
 			converter.alias("eslabonDTO",EslabonDTO.class);
 			xml = converter.toXML(listaEslabones);
@@ -1347,7 +1352,7 @@ public class IngresarCadenaCustodiaAction extends GenericAction {
 				{
 					funcionario = funcionarioDelegate.consultarFuncionarioXNumeroEmpleado(funcionario).get(0);
 					String xml = null;
-					converter.alias("usuarioDTO",FuncionarioDTO.class);
+					XStream converter=new XStream(); 			converter.alias("usuarioDTO",FuncionarioDTO.class);
 					xml = converter.toXML(funcionario);
 					log.info("cadCusUsuario_busqueda_no_presente:: "+xml);
 					escribirRespuesta(response, "<bandera>1</bandera>"+xml);
@@ -1408,7 +1413,7 @@ public class IngresarCadenaCustodiaAction extends GenericAction {
 				if(usuarioDTO!=null)
 				{
 				String xml = null;
-				converter.alias("usuarioDTO",UsuarioDTO.class);
+				XStream converter=new XStream(); 			converter.alias("usuarioDTO",UsuarioDTO.class);
 				xml = converter.toXML(usuarioDTO);
 				log.info("cadCusUsuario_busqueda_presente:: "+xml);
 				escribirRespuesta(response, "<bandera>1</bandera>"+xml);

@@ -26,6 +26,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.catalogo.Catalogos;
 import mx.gob.segob.nsjp.dto.catalogo.CatalogoDTO;
 import mx.gob.segob.nsjp.web.base.action.GenericAction;
@@ -65,6 +66,7 @@ public class IngresarTipoDeDocumentoDeIdentificacionAction extends GenericAction
 //			ArrayList <CatTipoIdentificacionDTO> listaCatTipoIdentificacionDto= new ArrayList <CatTipoIdentificacionDTO>();
 //			listaCatTipoIdentificacionDto=iCatTipoIdentificacionBDelegate.consultarTiposDocumentoIdentificacion();
 //			
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catTipoIdentificacion", CatalogoDTO.class);
 			

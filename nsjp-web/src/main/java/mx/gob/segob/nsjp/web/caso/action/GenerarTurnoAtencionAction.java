@@ -31,6 +31,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.expediente.TipoTurno;
 import mx.gob.segob.nsjp.comun.util.DateUtils;
 import mx.gob.segob.nsjp.delegate.expediente.TurnoDelegate;
@@ -107,6 +108,7 @@ public class GenerarTurnoAtencionAction extends ReporteBaseAction {
             request.getSession().setAttribute(KEY_SESSION_TURNO_GENERADO,
                     turnoDTO);
             
+            XStream converter=new XStream();
             converter.alias("turnoDTO", TurnoDTO.class);
             log.debug("ejecutando Action generarTurno2");
             
@@ -181,7 +183,7 @@ public class GenerarTurnoAtencionAction extends ReporteBaseAction {
             }
             request.getSession().setAttribute(KEY_SESSION_TURNO_GENERADO,
                     turnoDTO);
-            converter.alias("turnoDTO", TurnoDTO.class);
+            XStream converter=new XStream(); 			converter.alias("turnoDTO", TurnoDTO.class);
             log.info("ejecutando Action generarTurno2");
             String xml = converter.toXML(turnoDTO);
             log.info("turnoDTO - generaTurno: "+xml);
@@ -288,8 +290,8 @@ public class GenerarTurnoAtencionAction extends ReporteBaseAction {
         // for(int i=0;i<lstTurno.size();i++)
         // log.info(lstTurno.get(i).getGcNumeroTurno());
         // }
-        // converter.alias("asociarturno", java.util.List.class);
-        // converter.alias("aturno", TurnoDTO.class);
+        // XStream converter=new XStream(); 			converter.alias("asociarturno", java.util.List.class);
+        // XStream converter=new XStream(); 			converter.alias("aturno", TurnoDTO.class);
         //
         // String xml = converter.toXML(lstTurno);
         // response.setContentType("text/xml");
@@ -329,8 +331,8 @@ public class GenerarTurnoAtencionAction extends ReporteBaseAction {
         // for(int i=0;i<lstTurno.size();i++)
         // log.info(lstTurno.get(i).getGcNumeroTurno());
         // }
-        // converter.alias("unidadturno", java.util.List.class);
-        // converter.alias("uturno", TurnoDTO.class);
+        // XStream converter=new XStream(); 			converter.alias("unidadturno", java.util.List.class);
+        // XStream converter=new XStream(); 			converter.alias("uturno", TurnoDTO.class);
         //
         // String xml = converter.toXML(lstTurno);
         // response.setContentType("text/xml");
@@ -369,8 +371,8 @@ public class GenerarTurnoAtencionAction extends ReporteBaseAction {
         // for(int i=0;i<lstTurno.size();i++)
         // log.info(lstTurno.get(i).getGcNumeroTurno());
         // }
-        // converter.alias("expedienteturno", java.util.List.class);
-        // converter.alias("eturno", TurnoDTO.class);
+        // XStream converter=new XStream(); 			converter.alias("expedienteturno", java.util.List.class);
+        // XStream converter=new XStream(); 			converter.alias("eturno", TurnoDTO.class);
         //
         // String xml = converter.toXML(lstTurno);
         // response.setContentType("text/xml");
@@ -416,7 +418,7 @@ public class GenerarTurnoAtencionAction extends ReporteBaseAction {
             log.debug("*_*Usuario Firmado::" +usuario);
             turnoDTO.setUsuario(usuario);
             turnoDTO = turnoDelegate.generarTurnoAtencion(turnoDTO);
-
+            XStream converter=new XStream();
             escribirRespuesta(response,
                     converter.toXML(turnoDTO.getNumeroTurno()));
 
@@ -490,7 +492,7 @@ public class GenerarTurnoAtencionAction extends ReporteBaseAction {
             response.setContentType("text/xml; charset=UTF-8");
             response.setHeader("Cache-Control", "no-cache");
                 
-                converter.alias("turnoDTO", TurnoDTO.class);
+                XStream converter=new XStream(); 			converter.alias("turnoDTO", TurnoDTO.class);
                 log.info("ejecutando Action generarTurno2");
                 String xml = converter.toXML(turnos);
                 log.info("turnos - obtenerUltimosTurnos: "+xml);

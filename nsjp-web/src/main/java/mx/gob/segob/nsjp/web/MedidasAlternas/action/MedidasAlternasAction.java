@@ -8,6 +8,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.documento.EstatusMedida;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
 import mx.gob.segob.nsjp.comun.util.tl.PaginacionThreadHolder;
@@ -159,6 +160,7 @@ public class MedidasAlternasAction extends GenericAction{
 			MedidaAlternaDTO medidaAlternaDTO = new MedidaAlternaDTO();
 			medidaAlternaDTO = medidasAlternasDelegate.consultarMedidasAlternasPorId(dto);
 			
+			XStream converter=new XStream();
 			converter.alias("MedidaAlternaDTO", MedidaAlternaDTO.class);
 			String xml = converter.toXML(medidaAlternaDTO);
 			log.debug("xml consultarMedidaAlternaPorId() ... " + xml);

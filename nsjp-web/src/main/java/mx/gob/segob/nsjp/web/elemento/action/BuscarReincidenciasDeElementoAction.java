@@ -8,6 +8,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.calidad.Calidades;
 import mx.gob.segob.nsjp.comun.util.DateUtils;
 import mx.gob.segob.nsjp.comun.util.PaginadorUtil;
@@ -227,7 +228,8 @@ public class BuscarReincidenciasDeElementoAction extends GenericAction{
 			
 			log.info(":::EXISTEN REINCIDENCIAS: "+existeReincidencias);
 			
-			converter.alias("reincidencia", java.lang.Boolean.class);		
+			XStream converter=new XStream();
+			converter.alias("reincidencia", java.lang.Boolean.class);
 			String xml = converter.toXML(existeReincidencias);
 			if(log.isDebugEnabled())
 			{
@@ -322,12 +324,12 @@ public class BuscarReincidenciasDeElementoAction extends GenericAction{
 			List<RelacionReincidenciaDTO> llReincidencias = elementoDelegate.registrarReinicidencias(idElemento, idCasosPersisitir, idFuncionario);
 			
 			if (llReincidencias != null){
-				converter.alias("RelacionReincidenciaDTO", RelacionReincidenciaDTO.class);
+				XStream converter=new XStream(); 			converter.alias("RelacionReincidenciaDTO", RelacionReincidenciaDTO.class);
 				String xml = converter.toXML(llReincidencias);
 				log.info(xml);
 				escribirRespuesta(response, xml);
 			} else {
-				converter.alias("RelacionReincidenciaDTO", RelacionReincidenciaDTO.class);
+				XStream converter=new XStream(); 			converter.alias("RelacionReincidenciaDTO", RelacionReincidenciaDTO.class);
 				String xml = converter.toXML(0);
 				log.info(xml);
 				escribirRespuesta(response, xml);

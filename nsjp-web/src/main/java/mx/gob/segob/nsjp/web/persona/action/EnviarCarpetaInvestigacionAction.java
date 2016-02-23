@@ -9,6 +9,7 @@ import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.delegate.expediente.ExpedienteDelegate;
 import mx.gob.segob.nsjp.dto.expediente.ExpedienteDTO;
 import mx.gob.segob.nsjp.web.base.action.GenericAction;
@@ -45,7 +46,8 @@ public class EnviarCarpetaInvestigacionAction extends GenericAction {
     	String xml = null;
 		PrintWriter pw = null;
 		//converter.alias("defensorDTOs",  java.util.List.class);
-		converter.alias("expedienteDTO", ExpedienteDTO.class);
+		XStream converter=new XStream();
+            converter.alias("expedienteDTO", ExpedienteDTO.class);
 		xml = converter.toXML(expedienteDTO);
 		response.setContentType("text/xml");
 		pw = response.getWriter();

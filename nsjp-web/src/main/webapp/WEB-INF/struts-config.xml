@@ -1532,15 +1532,17 @@
 		</action>
 		
 		<!-- TERMINAN ACCIONES DEL CU INGRESAR TIPO DOCUMENTO DE IDENTIFICACION -->
-		
-		
-		<action path="/CargarCondicionProbableResponsable"
+
+		<!--
+		<action path="/IngresarProbResponsable"
 				type="mx.gob.segob.nsjp.web.caso.action.IngresarProbableResponsableAction"
-				name=""
+				name="IngresarProbResponsable"
 				scope="request"
-                parameter="cargarCondicionProbableResponsable"
-                validate="false"/>
-                
+                parameter="IngresarProbResponsable"
+                validate="false">
+				<forward name="success" path="/WEB-INF/paginas/ingresarProbableResponsableView.jsp"/>
+		</action>
+		-->
          
          <!-- Accion para el CU ingresar organizacion -->
 		<action path="/ConsultarTiposOrganizacion"
@@ -1661,7 +1663,7 @@
 				validate="false">				
 					
 		</action>
-		
+
 		<action path="/buscarExpedientePorNombreDePersona"
 				type="mx.gob.segob.nsjp.web.expdiente.action.BuscarExpedienteAction"
 				name="BuscarExpedientePorNombreDePersonaForm"
@@ -2006,6 +2008,7 @@
 		<action path="/IngresarProbResponsable"
 			forward="/WEB-INF/paginas/ingresarProbableResponsableView.jsp">
 		</action>
+
 		<!-- TERMINAN ACCIONES DEL CU INGRESAR CONTACTO DE UNA ORGANIZACION-->
 		
 		<!-- COMIENZAN ACCIONES DEL CU INGRESAR CONTACTO DE UNA ORGANIZACION-->

@@ -141,7 +141,7 @@ public class ConsultarFuncionarioAction extends GenericAction {
 			FuncionarioDTO funcionario = funcionarioDelegate.obtenerInformacionDefensor(funcionarioConsulta);
 			log.info("funcionario RESP :::" + funcionario.getNombreCompleto());
 			
-			converter.alias("funcionario", FuncionarioDTO.class);
+			XStream converter=new XStream(); 			converter.alias("funcionario", FuncionarioDTO.class);
 			
 			String xml = converter.toXML(funcionario);
 			log.info("funcionario xml :::" + xml);
@@ -224,8 +224,8 @@ public class ConsultarFuncionarioAction extends GenericAction {
 			List<MedioDeContactoDTO> medioDeContactoDTOs = new ArrayList<MedioDeContactoDTO>();
 			 medioDeContactoDTOs= funcionario.getMediosContacto();
 			
-			converter.alias("medioDeContactoDTOs", java.util.ArrayList.class);
-			converter.alias("medioDeContactoDTO", MedioDeContactoDTO.class);
+			XStream converter=new XStream(); 			converter.alias("medioDeContactoDTOs", java.util.ArrayList.class);
+			XStream converter=new XStream(); 			converter.alias("medioDeContactoDTO", MedioDeContactoDTO.class);
 			log.info("tels_medios_contacto:: "+converter.toXML(medioDeContactoDTOs));
 			
 			log.info("Lista de Telefonos" + medioDeContactoDTOs);
@@ -307,8 +307,8 @@ public class ConsultarFuncionarioAction extends GenericAction {
 			medioDeContactoDTOs=funcionario.getMediosContacto();
 			//correoElectronicoDTOs= involucradoDTO.getCorreosDTO();
 			
-			converter.alias("medioDeContactoDTOs", java.util.ArrayList.class);
-			converter.alias("MedioDeContactoDTO", CorreoElectronicoDTO.class);
+			XStream converter=new XStream(); 			converter.alias("medioDeContactoDTOs", java.util.ArrayList.class);
+			XStream converter=new XStream(); 			converter.alias("MedioDeContactoDTO", CorreoElectronicoDTO.class);
 			log.info("tels_medios_contacto:: "+converter.toXML(MedioDeContactoDTO.class));
 			
 			log.info("Lista de Correo" + medioDeContactoDTOs);
@@ -441,8 +441,8 @@ public class ConsultarFuncionarioAction extends GenericAction {
         	List<FuncionarioDTO> funcionariosDTO=funcionarioDelegate.consultarFuncionariosPorDicriminanteYRol(catDiscriminanteId, idRol, idUIE);
 
         	
-        	converter.alias("funcionariosDTO", java.util.List.class);
-        	converter.alias("funcionarioDTO", FuncionarioDTO.class);
+        	XStream converter=new XStream(); 			converter.alias("funcionariosDTO", java.util.List.class);
+        	XStream converter=new XStream(); 			converter.alias("funcionarioDTO", FuncionarioDTO.class);
 			
 			String xml = converter.toXML(funcionariosDTO);
 			log.info("funcionarios xml :::" + xml);
@@ -473,8 +473,8 @@ public class ConsultarFuncionarioAction extends GenericAction {
         	List<FuncionarioDTO> funcionariosDTO=funcionarioDelegate.consultarFuncionariosPorDicriminanteYRol(catDiscriminanteId, rolId, null);
 
         	
-        	converter.alias("funcionariosDTO", java.util.List.class);
-        	converter.alias("funcionarioDTO", FuncionarioDTO.class);
+        	XStream converter=new XStream(); 			converter.alias("funcionariosDTO", java.util.List.class);
+        	XStream converter=new XStream(); 			converter.alias("funcionarioDTO", FuncionarioDTO.class);
 			
 			String xml = converter.toXML(funcionariosDTO);
 			log.info("funcionarios xml :::" + xml);
@@ -512,8 +512,8 @@ public class ConsultarFuncionarioAction extends GenericAction {
 			List<FuncionarioDTO> listaFuncionario=funcionarioDelegate.consultarFuncionariosPorRolMultiRol(rolId);
 			
 			//parseo todos los delitos a XML
-			converter.alias("listaFuncionario", java.util.List.class);
-			converter.alias("funcionarioDTO", FuncionarioDTO.class);
+			XStream converter=new XStream(); 			converter.alias("listaFuncionario", java.util.List.class);
+			XStream converter=new XStream(); 			converter.alias("funcionarioDTO", FuncionarioDTO.class);
 			
 			response.setContentType("text/xml; charset=UTF-8");
 			response.setHeader("Cache-Control", "no-cache");

@@ -28,6 +28,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.actividad.Actividades;
 import mx.gob.segob.nsjp.comun.enums.calidad.Calidades;
 import mx.gob.segob.nsjp.comun.enums.expediente.EstatusExpediente;
@@ -195,6 +196,7 @@ public class ConsultaAction extends GenericAction{
 			log.info("Ejecutando Action buscarDenunciante mas denunciante:"+involucradoDelegate);
 			//Codigo se elimina cuando se pasen bien las calidades
 			request.getSession().setAttribute("narrativa", involucradoDTO.getExpedienteDTO().getNarrativa());
+			XStream converter=new XStream();
 			converter.alias("calidadDTO", CalidadDTO.class);
 			converter.alias("valorDTO", ValorDTO.class);
 			converter.alias("medioDeContactoDTO", MedioDeContactoDTO.class);
@@ -261,6 +263,7 @@ public class ConsultaAction extends GenericAction{
 				
 			}
 			
+			XStream converter=new XStream();
 			converter.alias("lstInvolucradosDetenidos", java.util.List.class);
 			converter.alias("involucrado", InvolucradoDTO.class);
 			converter.alias("nombreDemograficoDTO", NombreDemograficoDTO.class);
@@ -335,7 +338,7 @@ public class ConsultaAction extends GenericAction{
 			log.info("************************************** Metodo nuevoExpediente el id del numero de expediente  es: "+expedienteDTO.getNumeroExpediente());
 			log.info("************************************** Metodo nuevoExpediente el id del numero de expediente  es: "+expedienteDTO.getExpedienteId());
 			super.setExpedienteTrabajo(request, expedienteDTO);
-			converter.alias("expedienteDTO", ExpedienteDTO.class);
+			XStream converter=new XStream(); 			converter.alias("expedienteDTO", ExpedienteDTO.class);
 			String xml = converter.toXML(expedienteDTO);
 			//super.escribirRespuesta(response, xml);
 			response.setContentType("text/xml");
@@ -365,7 +368,7 @@ public class ConsultaAction extends GenericAction{
 			expedienteDTO = expedienteDelegate.asignarNumeroExpedienteSinCaso(turno);
 			expedienteDTO.setConsulta(false);
 			super.setExpedienteTrabajo(request, expedienteDTO);
-			converter.alias("expedienteDTO", ExpedienteDTO.class);
+			XStream converter=new XStream(); 			converter.alias("expedienteDTO", ExpedienteDTO.class);
 			String xml = converter.toXML(expedienteDTO);
 			request.getSession().setAttribute("numeroExpedienteTempAdmin", expedienteDTO.getNumeroExpediente());
 			request.getSession().setAttribute("numeroUnicoExpediente", expedienteDTO.getNumeroExpediente());
@@ -450,7 +453,7 @@ public class ConsultaAction extends GenericAction{
 			log.info("************************************** Metodo nuevoNumeroExpediente el id del numero de expediente  es: "+expedienteDTO.getNumeroExpediente());
 			log.info("************************************** Metodo nuevoNumeroExpediente el id del numero de expediente nuevo es: "+expedienteDTO.getNumeroExpedienteId());
 			super.setExpedienteTrabajo(request, expedienteDTO);
-			converter.alias("expedienteDTO", ExpedienteDTO.class);
+			XStream converter=new XStream(); 			converter.alias("expedienteDTO", ExpedienteDTO.class);
 			String xml = converter.toXML(expedienteDTO);
 			//super.escribirRespuesta(response, xml);
 			response.setContentType("text/xml");
@@ -507,7 +510,7 @@ public class ConsultaAction extends GenericAction{
 				
 			}
 								
-			converter.alias("respuesta", Boolean.class);			
+			XStream converter=new XStream(); 			converter.alias("respuesta", Boolean.class);
 			String xml = converter.toXML(resultado);
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();
@@ -668,7 +671,7 @@ public class ConsultaAction extends GenericAction{
 				expedienteDelegate.actualizarTipoExpediente( expedienteDTO, OrigenExpediente.INCOMPETENCIA);
 			}
 			
-			converter.alias("expedienteDTO", ExpedienteDTO.class);
+			XStream converter=new XStream(); 			converter.alias("expedienteDTO", ExpedienteDTO.class);
 			String xml = converter.toXML(expedienteDTO);
 			//super.escribirRespuesta(response, xml);
 			response.setContentType("text/xml");
@@ -736,7 +739,7 @@ public class ConsultaAction extends GenericAction{
 				expedienteDelegate.actualizarTipoExpediente( expedienteDTO, OrigenExpediente.INCOMPETENCIA);
 			}
 
-			converter.alias("expedienteDTO", ExpedienteDTO.class);
+			XStream converter=new XStream(); 			converter.alias("expedienteDTO", ExpedienteDTO.class);
 			String xml = converter.toXML(expedienteDTO);
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();
@@ -782,7 +785,8 @@ public class ConsultaAction extends GenericAction{
             {
             	request.getSession().setAttribute("narrativa", personaDTO.getExpedienteDTO().getNarrativa());
             }
-            converter.alias("calidadDTO", CalidadDTO.class);
+            XStream converter=new XStream();
+			converter.alias("calidadDTO", CalidadDTO.class);
 
             converter.alias("valorDTO", ValorDTO.class);
 

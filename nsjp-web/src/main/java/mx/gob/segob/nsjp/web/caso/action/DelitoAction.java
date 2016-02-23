@@ -27,6 +27,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
 import mx.gob.segob.nsjp.comun.util.tl.PaginacionThreadHolder;
 import mx.gob.segob.nsjp.delegate.actividad.ActividadDelegate;
@@ -81,6 +82,7 @@ public class DelitoAction extends GenericAction{
 			log.info("ejecutando DelitoAction - Carga combo delitos");
 			List<CatDelitoDTO> listaDelitos=catDelegate.consultarDelito();
 			//parseo todos los delitos a XML
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catDelitoDTO", CatDelitoDTO.class);
 			String delitosXml = converter.toXML(listaDelitos);
@@ -160,8 +162,9 @@ public class DelitoAction extends GenericAction{
 			consultarDelitosSeleccionables(valor);			
 			
 			//parseo todos los delitos a XML
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
-			converter.alias("catDelitoDTO", CatDelitoDTO.class);                                                
+			converter.alias("catDelitoDTO", CatDelitoDTO.class);
 			String delitosXml = converter.toXML(listaDelitos);
 			delitosXml = "'" + delitosXml.replace("\n", "") + "'";
 			request.getSession().setAttribute("delitosXML", delitosXml);//subo los delitos a sesion
@@ -238,6 +241,7 @@ public class DelitoAction extends GenericAction{
 
 			List<CatDelitoDTO> listaDelitos = catDelegate.consultarCatDelitoPorFiltroExpediente(catDelitoFiltroDTO, expediente);
 			//parseo todos los delitos a XML
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catDelitoDTO", CatDelitoDTO.class);
 			String delitosXml = converter.toXML(listaDelitos);
@@ -400,6 +404,7 @@ public class DelitoAction extends GenericAction{
 				delitoDelegate.guardarDelito(listaDelitos, expedienteDTO);
 				log.info("FIN ejecutando Action asociarDelitosAgraviadosExpediente");
 				
+				XStream converter=new XStream();
 				converter.alias("listaDelitosDTO", java.util.List.class);
 				converter.alias("delitoDTO", DelitoDTO.class);
 				String xml = converter.toXML(listaDelitos);
@@ -470,6 +475,7 @@ public class DelitoAction extends GenericAction{
 					List<ValorDTO> listaActividadesDTO=actividadDelegate.consultarActividadesPorIdsCatDelito(delitosIDs);
 					log.info("FIN ejecutando Action consultarActividadesPorDelitosDelExpediente");
 					
+					XStream converter=new XStream();
 					converter.alias("listaActividadesDTO", java.util.List.class);
 					converter.alias("ValorDTO", ValorDTO.class);
 					String xml = converter.toXML(listaActividadesDTO);
@@ -501,6 +507,7 @@ public class DelitoAction extends GenericAction{
 
 			List<CatDelitoDTO> listaDelitos=catDelegate.consultarDelito();
 			
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("delitos", CatDelitoDTO.class);
 			String xml = converter.toXML(listaDelitos);
@@ -606,7 +613,7 @@ public class DelitoAction extends GenericAction{
 
 			DelitoPersonaDTO loDelitoPersonaDTO =delitoDelegate.consultarDelitoPersonaPorId(idDelitoPersona);
 			
-			converter.alias("DelitoPersonaDTO", DelitoPersonaDTO.class);
+			XStream converter=new XStream(); 			converter.alias("DelitoPersonaDTO", DelitoPersonaDTO.class);
 			String xml = converter.toXML(loDelitoPersonaDTO);
 			
 			log.info("ejecutando Action consultar delito persona por identificador . "+xml);	
