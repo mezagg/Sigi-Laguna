@@ -61,6 +61,8 @@ import org.apache.struts.action.DynaActionForm;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.google.code.kaptcha.Constants;
+import org.apache.struts.chain.contexts.ActionContext;
+import org.apache.struts.chain.contexts.ServletActionContext;
 
 /**
  * Clase action login ejemplo
@@ -146,7 +148,7 @@ public class LoginAction extends GenericAction {
 			log.info("Los intentos de la IP " + visitanteDTO.getcIP()
 					+ " son: " + visitanteDTO.getiIntentos());
 			//FIXME Se recupera los datos de la configruación Global
-			
+                        
 			
 			if (visitanteDTO != null) {
 				if (visitanteDTO.getiIntentos() != null) {
@@ -194,7 +196,7 @@ public class LoginAction extends GenericAction {
 
 
 		try {
-	
+                        
 			DynaActionForm forma = (DynaActionForm) form;
 
 			String username = (String) forma.get("username");
@@ -205,7 +207,7 @@ public class LoginAction extends GenericAction {
 			String idSesion = request.getRequestedSessionId();
 			VisitanteDTO visitanteDTO = new VisitanteDTO(ip, 0);
                         
-                        
+                        inicializaCatalogos();
                         visitanteDTO = visitanteDelegate
 					.consultarVisitantePorIP(visitanteDTO);
 			if (visitanteDTO.getiIntentos() != null) {

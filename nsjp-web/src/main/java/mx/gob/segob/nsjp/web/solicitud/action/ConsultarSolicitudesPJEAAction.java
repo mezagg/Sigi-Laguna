@@ -80,7 +80,7 @@ import org.apache.log4j.Logger;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import org.apache.taglibs.standard.lang.jpath.adapter.Convert;
+//import org.apache.taglibs.standard.lang.jpath.adapter.Convert;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -1320,12 +1320,12 @@ public class ConsultarSolicitudesPJEAAction extends GenericAction {
 						converter.alias(STR_CONVERTER_GUARDAR_AUDIENCIA, String.class);
 						escribirRespuesta(response, converter.toXML(Evento.toString() + "," + listaSolicitudes.size()));
 					}else{
-						Evento = Convert.toString(idEvento);
+						Evento = String.valueOf(idEvento);
 						converter.alias(STR_CONVERTER_GUARDAR_AUDIENCIA, String.class);
 						escribirRespuesta(response, converter.toXML(Evento));
 					}
 				}else{
-					Evento = Convert.toString(idEvento);
+					Evento = String.valueOf(idEvento);
 					converter.alias(STR_CONVERTER_GUARDAR_AUDIENCIA, String.class);
 					escribirRespuesta(response, converter.toXML(Evento));
 				}

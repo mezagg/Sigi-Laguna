@@ -1,6 +1,12 @@
 <%@page import="mx.gob.segob.nsjp.comun.constants.ConstantesGenerales"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" 
+       uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%@ taglib prefix="fn" 
+       uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/multiselect/jquery.multiselect.css" />
 <link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/multiselect/style.css" />
 <link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/multiselect/prettify.css" />
@@ -164,7 +170,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 	*Funcion que dispara el Action para consultar el Idioma
 	*/		
     function cargaIdioma(){
-    	$('#datosGeneralesCmpIdioma').addClass("cargando");
+    	/*$('#datosGeneralesCmpIdioma').addClass("cargando");
 
 		//variables para seleccionar el idioma Español
 		var indexEsp, idioma=0;
@@ -184,13 +190,15 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
        			$('#datosGeneralesCmpIdioma').removeClass("cargando");
     		}
     	});
-    	$('#datosGeneralesCmpIdioma').attr('selectedIndex',indexEsp);
+    	$('#datosGeneralesCmpIdioma').attr('selectedIndex',indexEsp);*/
+        $('#datosGeneralesCmpNacionalidad').find("option[value='2056']").attr("selected","selected");
     }
 
     /*
 	*Funcion que dispara el Action para consultar Nacionalidad
 	*/		
     function cargaNacionalidad(){
+    /*
     	  	$.ajax({
     		type: 'POST',
     		url: '<%=request.getContextPath()%>/ConsultarCatalogoNacionalidad.do',
@@ -205,10 +213,12 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
     		$('#datosGeneralesCmpNacionalidad').find("option[value='2056']").attr("selected","selected");//default mexicana
     		}
     	});
+        */
+           $('#datosGeneralesCmpNacionalidad').find("option[value='2056']").attr("selected","selected");//default mexicana
     }    
     
     function cargaEscolaridad(){
-    	$('#datosGeneralesCmpEscolaridad').addClass("cargando");
+    	/*$('#datosGeneralesCmpEscolaridad').addClass("cargando");
 
     	$.ajax({
     		type: 'POST',
@@ -225,7 +235,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
     			$('#datosGeneralesCmpEscolaridad').removeClass("cargando");
 
     		}
-    	});
+    	});*/
     } 
 	  
    
@@ -1282,7 +1292,13 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 			onkeyup="espejoDatos();" onchange="calculaRFC_CURP_UNO_UNO()" tabindex="2"/></td>
 		<td  align="right">Nacionalidad:</td>
         <td><select id="datosGeneralesCmpNacionalidad" multiple="multiple"
-			name="datosGeneralesCmpNacionalidad" style="width: 180px;" tabindex="14"></select>		</td>
+                name="datosGeneralesCmpNacionalidad" style="width: 180px;" tabindex="14">
+                <c:forEach items="${applicationScope.nacionalidades}"  var="n" >
+                    <option value='<c:out value="${n.clave}"/>'> <c:out value="${n.valor}"/> </option>
+                </c:forEach>
+                   
+            </select>		
+        </td>
 
 		
 	</tr>
@@ -1381,6 +1397,9 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 		<td><select id="datosGeneralesCmpIdioma"
 			name="datosGeneralesCmpIdioma" style="width: 180px;" tabindex="10">
 			<option id="0">- Selecciona -</option>
+                        <c:forEach items="${applicationScope.idiomas}"  var="n" >
+                            <option value='<c:out value="${n.clave}"/>'> <c:out value="${n.valor}"/> </option>
+                        </c:forEach>
 		</select></td>
 		
 	</tr>
@@ -1394,10 +1413,15 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 	</tr-->
 	<tr>
 		<td align="right">Escolaridad:</td>
-		<td><select id="datosGeneralesCmpEscolaridad"
-			name="datosGeneralesCmpEscolaridad" style="width: 180px;" tabindex="11">
-			<option>- Selecciona -</option>
-		</select></td>
+                <td>
+                    <select id="datosGeneralesCmpEscolaridad"
+                            name="datosGeneralesCmpEscolaridad" style="width: 180px;" tabindex="11">
+                        <option>- Selecciona -</option>
+                        <c:forEach items="${applicationScope.escolaridades}"  var="n" >
+                            <option value='<c:out value="${n.clave}"/>'> <c:out value="${n.valor}"/> </option>
+                        </c:forEach>
+                    </select>
+                </td>
 	</tr>
 	<tr>
 		<td align="right">Estado Civil:</td>

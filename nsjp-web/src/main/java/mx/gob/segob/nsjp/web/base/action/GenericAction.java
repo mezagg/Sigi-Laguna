@@ -52,6 +52,13 @@ import org.apache.struts.actions.MappingDispatchAction;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.thoughtworks.xstream.XStream;
+import java.util.logging.Level;
+import javax.naming.Context;
+import javax.servlet.ServletContext;
+import mx.gob.segob.nsjp.comun.enums.catalogo.Catalogos;
+import mx.gob.segob.nsjp.dto.catalogo.CatalogoDTO;
+
+
 
 /**
  * @author vaguirre
@@ -83,8 +90,56 @@ public abstract class GenericAction extends MappingDispatchAction {
     protected CatalogoDelegate catDelegate;
     
     @Autowired
-	private RolService rolService;
+    private RolService rolService;
 
+    
+    public void inicializaCatalogos() {
+       // if (paises != null) {
+       ServletContext sc = this.getServlet().getServletContext();
+            try {
+                if (sc.getAttribute("nacionalidades") == null) {
+                    sc.setAttribute("nacionalidades", catDelegate.recuperarCatalogo(Catalogos.NACIONALIDAD));
+                }
+                if (sc.getAttribute("paises") == null) {
+                    sc.setAttribute("paises", catDelegate.recuperarCatalogo(Catalogos.PAISES));
+                }
+                if (sc.getAttribute("ocupaciones") == null){
+                    sc.setAttribute("ocupaciones", catDelegate.recuperarCatalogo(Catalogos.OCUPACION));
+                }
+                if (sc.getAttribute("idiomas") == null){
+                    sc.setAttribute("idiomas", catDelegate.recuperarCatalogo(Catalogos.IDIOMA));
+                }
+                if (sc.getAttribute("escolaridades") == null){
+                    sc.setAttribute("escolaridades", catDelegate.recuperarCatalogo(Catalogos.ESCOLARIDAD));
+                }
+                
+            } catch (NSJPNegocioException ex) {
+                log.error("Error al consultar las Nacionalidades", ex);
+            }
+        
+        
+    }
+
+    
+    
+    public GenericAction() {
+        
+    }
+    
+    
+  /*  
+    public 
+    try {
+            //catDelegate.consultarDelito();
+            //catDelegate.consultarFunciones();
+            Context context= ServletActionContext.getContext();
+            getApplication();
+            .put(Catalogos.NACIONALIDAD, catDelegate.recuperarCatalogo(Catalogos.NACIONALIDAD));
+            
+        } catch (NSJPNegocioException ex) {
+            java.util.logging.Logger.getLogger(GenericAction.class.getName()).log(Level.SEVERE, null, ex);
+        }
+*/
 
     /**
      * Escribe el XML de la respuesta en el response.
@@ -97,6 +152,7 @@ public abstract class GenericAction extends MappingDispatchAction {
      */
     protected void escribirRespuesta(HttpServletResponse response, String xml) {
         this.escribir(response, xml, null);
+        
     }
 
     /**
