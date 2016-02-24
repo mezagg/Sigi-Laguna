@@ -33,6 +33,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.configuracion.Parametros;
 import mx.gob.segob.nsjp.comun.enums.menu.TipoMenu;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
@@ -663,7 +664,9 @@ public class LoginAction extends GenericAction {
 			// log.info("usuarioRolDTO.size::" + rolDTO2.getNombreRol());
 			// }
 
+			XStream converter=new XStream();
 			converter.alias("rolDTOs", java.util.List.class);
+
 			converter.alias("RolDTO", RolDTO.class);
 			String xml = converter.toXML(rolDTOs);
 			if (log.isDebugEnabled()) {

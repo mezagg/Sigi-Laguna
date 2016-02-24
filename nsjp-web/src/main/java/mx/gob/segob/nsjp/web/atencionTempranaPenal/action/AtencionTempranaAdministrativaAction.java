@@ -7,6 +7,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.calidad.Calidades;
 import mx.gob.segob.nsjp.comun.enums.expediente.TipoTurno;
 import mx.gob.segob.nsjp.comun.enums.institucion.Areas;
@@ -136,6 +137,7 @@ public class AtencionTempranaAdministrativaAction extends GenericAction{
 	            
 				TurnoDTO turnDTO=turnoDelegate.obtenerTurnoParaAtencion(filtro);
 								
+				XStream converter=new XStream();
 				converter.alias("turnoDTO", TurnoDTO.class);
 				String xml = converter.toXML(turnDTO);
 				//mandamos la respuesta al cliente

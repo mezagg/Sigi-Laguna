@@ -33,6 +33,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.constants.ConstantesGenerales;
 import mx.gob.segob.nsjp.comun.enums.audiencia.EstatusAudiencia;
 import mx.gob.segob.nsjp.comun.enums.audiencia.TipoAudiencia;
@@ -296,6 +297,7 @@ public class ConsultarSolicitudesPJEAAction extends GenericAction {
 					log.info("depues del delegate::: detalleSolicitudAudienciaDTO"
 							+ detalleSolicitudAudienciaDTO);
 
+					XStream converter=new XStream();
 					converter.alias("audienciaDTO", AudienciaDTO.class);
 					String xml = converter.toXML(detalleSolicitudAudienciaDTO);
 
@@ -614,6 +616,7 @@ public class ConsultarSolicitudesPJEAAction extends GenericAction {
 			List<SalaAudienciaDTO> nombreSalas = audienciaDelegate.obtenerNombresSalas(usuarioDTO);
 			
 			 log.info("NUMERO DE SALAS"+nombreSalas);
+			 XStream converter=new XStream();
 			 converter.alias("ListaSalas", List.class);
 			 converter.alias("Sala", SalaAudienciaDTO.class);
 			 String xml = converter.toXML(nombreSalas);
@@ -697,6 +700,7 @@ public class ConsultarSolicitudesPJEAAction extends GenericAction {
 			log.info(diaDisponibilidadDTO);
 					
 //			 USADO PARA VER EL XML QUE REGRESA EL DELEGATE
+			 XStream converter=new XStream();
 			 converter.alias("DiaDisponibilidadDTO", DiaDisponibilidadDTO .class);
 			 converter.alias("SalaAudienciaDTO", SalaAudienciaDTO.class);
 			 converter.alias("EspacioCalendarioDTO", EspacioCalendarioDTO.class);
@@ -1281,7 +1285,7 @@ public class ConsultarSolicitudesPJEAAction extends GenericAction {
 				/*
 				 * Consulta si existen otras solicitudes de audiencia del mismo caso y del mismo tipo 
 				 */
-				
+				XStream converter=new XStream();
 				String numCasoSolicitudAudienciaDetalle = request.getParameter("numCasoSolicitudAudienciaDetalle");
 				
 				
@@ -1293,7 +1297,7 @@ public class ConsultarSolicitudesPJEAAction extends GenericAction {
 					casoDTO.setNumeroGeneralCaso(numCasoSolicitudAudienciaDetalle);
 					expedienteDTO.setCasoDTO(casoDTO);
 					solicitudAudienciaDTO.setExpedienteDTO(expedienteDTO);
-					
+
 					List<Long> lstIdEstatusSolicitud = new ArrayList<Long>();
 					List<Long> lstIdEstatusAudiencia = new ArrayList<Long>();
 					List<Long> lstIdTipoSolicitud = new ArrayList<Long>();
@@ -1330,6 +1334,7 @@ public class ConsultarSolicitudesPJEAAction extends GenericAction {
 					escribirRespuesta(response, converter.toXML(Evento));
 				}
 			}catch (NSJPNegocioException ne) {
+				XStream converter=new XStream();
 				log.info(ne.getCause(), ne);
 				if(ne.getCodigo().equals(CodigoError.RANGO_FECHAS_CRUZADAS)){
 					audienciaDelegate.cancelarAudienciaSistema(audienciaDTO.getId());
@@ -1344,6 +1349,7 @@ public class ConsultarSolicitudesPJEAAction extends GenericAction {
 		}
 		catch (Exception e) {
 			log.info(e.getCause(), e);
+			XStream converter=new XStream();
 			audienciaDelegate.cancelarAudienciaSistema(id);
 			escribirRespuesta(response,converter.toXML("failNoObs"));
 		}
@@ -1364,6 +1370,7 @@ public class ConsultarSolicitudesPJEAAction extends GenericAction {
 	public ActionForward guardarAudienciaProgramaNueva(ActionMapping mapping,
 			ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
+		XStream converter=new XStream();
 		try {
 			
 			log.info("EJECUTANDO ACTION ---- GUARDAR AUDIENCIA");
@@ -1553,6 +1560,7 @@ public class ConsultarSolicitudesPJEAAction extends GenericAction {
 	public ActionForward guardarEventoAudiencia(ActionMapping mapping,
 			ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
+		XStream converter=new XStream();
 		try {
 			
 			log.info("EJECUTANDO ACTION ---- GUARDAR EVENTO AUDIENCIA");
@@ -1643,6 +1651,7 @@ public class ConsultarSolicitudesPJEAAction extends GenericAction {
 	public ActionForward cancelarSolicitudesDeAudiencia(ActionMapping mapping,
 			ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
+		XStream converter=new XStream();
 		try {
 			
 			AudienciaDTO audienciaDTO = new AudienciaDTO();

@@ -12,6 +12,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.audiencia.TipoAudiencia;
 import mx.gob.segob.nsjp.comun.enums.documento.TipoForma;
 import mx.gob.segob.nsjp.comun.enums.expediente.EstatusExpediente;
@@ -135,6 +136,7 @@ private DocumentoDelegate documentoDelegate;
 			
 			String xml = null;
 			PrintWriter pw = null;
+			XStream converter=new XStream();
 			converter.alias("audienciaDTO", AudienciaDTO.class);
 			xml = converter.toXML(audienciaDTO);
 			response.setContentType("text/xml");

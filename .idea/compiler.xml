@@ -45,13 +45,6 @@
         <processorPath useClasspath="true" />
         <module name="nsjp-servicios-api" />
       </profile>
-      <profile default="false" name="Annotation profile for nsjp-web" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="nsjp-web" />
-      </profile>
       <profile default="false" name="Annotation profile for nsjp-persistencia" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -86,6 +79,13 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="nsjp-comun" />
+      </profile>
+      <profile default="false" name="Annotation profile for nsjp-web" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="nsjp-web" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

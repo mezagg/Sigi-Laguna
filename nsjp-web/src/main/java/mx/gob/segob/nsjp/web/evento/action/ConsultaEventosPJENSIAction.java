@@ -10,6 +10,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.documento.TipoDocumento;
 import mx.gob.segob.nsjp.comun.enums.expediente.TipoExpediente;
 import mx.gob.segob.nsjp.comun.enums.institucion.Areas;
@@ -162,6 +163,7 @@ public class ConsultaEventosPJENSIAction extends ReporteBaseAction{
 			
 			log.info("depues del delegate::: solicitudDTO"+ solicitudDTO);
 			
+			XStream converter=new XStream();
 			converter.alias("solicitudDTO", SolicitudDTO.class);
 			String xml = converter.toXML(solicitudDTO);
 			escribir(response, xml,null);

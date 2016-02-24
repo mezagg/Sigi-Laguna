@@ -11,6 +11,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.util.DateUtils;
 import mx.gob.segob.nsjp.delegate.expediente.ConvenioDelegate;
 import mx.gob.segob.nsjp.delegate.expediente.ExpedienteDelegate;
@@ -110,14 +111,17 @@ public class ConvenioAction extends GenericAction {
 			ConvenioDTO resultado = new ConvenioDTO();
 			log.info("guarda con exito" + idConvenio);
 			// revisamos si el guardado fue exitoso para mandar el xml
+			XStream converter=new XStream();
 			if (idConvenio != null && idConvenio>0) {
 				resultado.setConvenioID(idConvenio);
+
 				converter.alias("ConvenioDTO", ConvenioDTO.class);
 				String xml = converter.toXML(resultado);
 				log.info(xml);
 				escribirRespuesta(response, xml);
 			} else {
 				resultado.setConvenioID(0L);
+
 				converter.alias("ConvenioDTO", ConvenioDTO.class);
 				String xml = converter.toXML(resultado);
 				log.info(xml);

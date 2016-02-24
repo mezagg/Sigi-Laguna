@@ -10,6 +10,7 @@ import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.configuracion.Parametros;
 import mx.gob.segob.nsjp.comun.enums.excepciones.CodigoError;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
@@ -61,6 +62,7 @@ public class AdministrarAudienciaJavsAction extends GenericAction{
 				Long estatus = audienciaDelegate.consultarAudiencia(idAudiencia);
 				log.info("ESTATUS*********************"+estatus);
 
+				XStream converter=new XStream();
 				converter.alias("respuesta",Long.class);
 				String respuesta = converter.toXML(estatus);
 				escribirRespuesta(response, respuesta);
@@ -228,7 +230,7 @@ public class AdministrarAudienciaJavsAction extends GenericAction{
 			if( idAudiencia > 0){
 		
 				Resultado=audienciaDelegate.cancelarAudiencia(idAudiencia);
-				
+				XStream converter=new XStream();
 				String respuesta = converter.toXML(Resultado);
 				escribirRespuesta(response, respuesta);
 			}

@@ -25,6 +25,7 @@ import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.calidad.Calidades;
 import mx.gob.segob.nsjp.delegate.involucrado.InvolucradoDelegate;
 import mx.gob.segob.nsjp.dto.catalogo.ValorDTO;
@@ -82,8 +83,8 @@ public class IngresarDenuncianteAction extends GenericAction{
 			involucrado.setExpedienteDTO(expedienteDTO);
 			log.info("Ejecutando Action buscarDenunciante mas denunciante:"+involucradoDelegate);
 			InvolucradoDTO involucradoDTO=involucradoDelegate.consultarIndividuo(involucrado);
-			
-			
+
+			XStream converter=new XStream();
 			converter.alias("calidadDTO", CalidadDTO.class);
 			converter.alias("valorDTO", ValorDTO.class);
 			converter.alias("medioDeContactoDTO", MedioDeContactoDTO.class);

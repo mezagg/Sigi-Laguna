@@ -27,6 +27,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.catalogo.Catalogos;
 import mx.gob.segob.nsjp.dto.catalogo.CatalogoDTO;
 import mx.gob.segob.nsjp.web.base.action.GenericAction;
@@ -61,8 +62,10 @@ public class IngresarOrganizacionAction extends GenericAction{
 		try {
     		log.info("ejecutando Action Cargar Combo Tipo Organizacion"); 
     		List<CatalogoDTO> listaCatalogo=catDelegate.recuperarCatalogo(Catalogos.TIPO_ORGANIZACION);
-    		    	
+			XStream converter= new XStream();
+
 			converter.alias("listaCatalogo", java.util.List.class);
+
 			converter.alias("catTipoOrganizacion", CatalogoDTO.class);
 			
 			String xml = converter.toXML(listaCatalogo);
@@ -96,11 +99,13 @@ public class IngresarOrganizacionAction extends GenericAction{
 		try {
     		log.info("ejecutando Action Cargar Combo Tipo Organizacion"); 
     		StringBuilder sb=new StringBuilder();
-    		
+			XStream converter= new XStream();
     		//Tipos de Organizacion
     		sb.append("<raiz>");
     		List<CatalogoDTO> listaCatalogo=catDelegate.recuperarCatalogo(Catalogos.TIPO_ORGANIZACION);
-    		converter.alias("listaCatalogo", java.util.List.class);
+
+			converter.alias("listaCatalogo", java.util.List.class);
+
 			converter.alias("catTipoOrganizacion", CatalogoDTO.class);
 			sb.append(converter.toXML(listaCatalogo));
 			
@@ -116,7 +121,9 @@ public class IngresarOrganizacionAction extends GenericAction{
 			log.info("ejecutando Action Cargar Combo Tipo Organizacion Comunidad Virtual "); 
 			listaCatalogo=null;
     		listaCatalogo=catDelegate.recuperarCatalogo(Catalogos.TIPO_COMUNIDAD_VIRTUAL);//COMUNIDAD VIRTUAL
-    		converter.alias("listaCatalogo", java.util.List.class);
+
+			converter.alias("listaCatalogo", java.util.List.class);
+
 			converter.alias("catTipoOrganizacionVirtual", CatalogoDTO.class);
 			sb.append(converter.toXML(listaCatalogo));
 			
@@ -124,7 +131,7 @@ public class IngresarOrganizacionAction extends GenericAction{
 			log.info("ejecutando Action Cargar Combo Tipo Organizacion - Niveles de dependencias "); 
 			listaCatalogo=null;
     		listaCatalogo=catDelegate.recuperarCatalogo(Catalogos.NIVEL_DEPENDENCIA);//NIVELES DEPENDENCIAS
-    		converter.alias("listaCatalogo", java.util.List.class);
+			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catNivelesDependencias", CatalogoDTO.class);
 			sb.append(converter.toXML(listaCatalogo));
 			
@@ -162,6 +169,7 @@ public class IngresarOrganizacionAction extends GenericAction{
 			List<CatalogoDTO> listaTiposDependencias = catDelegate
 					.recuperarCatalogoDependiente(Catalogos.TIPO_DEPENDENCIA,
 							forma.getGlNivelDependencia());
+			XStream converter= new XStream();
 			converter.alias("listaTipoDependencias", java.util.List.class);
 			converter.alias("catTipoDependencias", CatalogoDTO.class);
 			log.info("FIN ejecutando Action Cargar Combo Tipo DEPENDENCIAS");
@@ -195,6 +203,7 @@ public class IngresarOrganizacionAction extends GenericAction{
 			List<CatalogoDTO> listaTiposDependencias = catDelegate
 					.recuperarCatalogoDependiente(Catalogos.ORGANIZACION_SECTOR_PUBLICO,
 							forma.getGlTipoDependencia());
+			XStream converter= new XStream();
 			converter.alias("listaOrgsSectorPublico", java.util.List.class);
 			converter.alias("catOrgsSectorPublico", CatalogoDTO.class);
 			log.info("FIN ejecutando Action Cargar Combo Organizaciones Sector Publico");

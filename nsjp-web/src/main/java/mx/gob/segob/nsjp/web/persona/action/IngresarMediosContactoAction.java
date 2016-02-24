@@ -25,6 +25,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.catalogo.Catalogos;
 import mx.gob.segob.nsjp.dto.catalogo.CatalogoDTO;
 import mx.gob.segob.nsjp.web.base.action.GenericAction;
@@ -60,7 +61,9 @@ public class IngresarMediosContactoAction extends GenericAction{
 			log.info("ejecutando Action cargarTipoTelefono");
 			List<CatalogoDTO> lstTiposTelefono = null;
 			lstTiposTelefono = catDelegate.recuperarCatalogo(Catalogos.TIPO_TELEFONO);
+			XStream converter=new XStream();
 			converter.alias("lstTiposTelefono", java.util.List.class);
+
 			converter.alias("catalogoDTO", CatalogoDTO.class);
 			response.setContentType("text/xml");
 			escribirRespuesta(response, converter.toXML(lstTiposTelefono));

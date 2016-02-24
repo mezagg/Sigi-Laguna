@@ -25,6 +25,7 @@ import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.delegate.configuracion.ConfiguracionDelegate;
 import mx.gob.segob.nsjp.dto.configuracion.ConfInstitucionDTO;
 import mx.gob.segob.nsjp.web.base.action.GenericAction;
@@ -58,6 +59,7 @@ public class ConfiguracionAction extends GenericAction{
 			log.info("EJECUTANDO ACTION CONSULTAR INSTALACION ACTUAL");
 			ConfInstitucionDTO institucionActual = configuracionDelegate.consultarInstitucionActual();
 			
+			XStream converter=new XStream();
 			converter.alias("institucionActual", ConfInstitucionDTO.class);
 			String xml = converter.toXML(institucionActual);
 			response.setContentType("text/xml");

@@ -27,6 +27,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.documento.EstatusNotificacion;
 import mx.gob.segob.nsjp.comun.enums.institucion.Areas;
 import mx.gob.segob.nsjp.comun.enums.solicitud.TiposSolicitudes;
@@ -194,6 +195,7 @@ public class PosibleHechoDelictivoAction extends GenericAction {
 				
 				if(notificacionDTO!=null && notificacionDTO.getDocumentoId()!=null)
 				{
+					XStream converter=new XStream();
 					converter.alias("notificacionDTO", NotificacionDTO.class);
 					String xml = converter.toXML(notificacionDTO);
 					LOG.info(xml);
@@ -290,6 +292,7 @@ public class PosibleHechoDelictivoAction extends GenericAction {
 				
 				List<ValorDTO> listaTipos=solicitudDelegate.consultarTipoSolictudesPorJerarquiaOrganizacional(areaSolicitudId);
 				
+				XStream converter=new XStream();
 				converter.alias("ListaTipos", java.util.List.class);
 				converter.alias("ValorDTO", ValorDTO.class);
 				String xml = converter.toXML(listaTipos);
@@ -335,6 +338,7 @@ public class PosibleHechoDelictivoAction extends GenericAction {
 				
 				if(solicitudDTO!=null)
 				{
+					XStream converter=new XStream();
 					converter.alias("SolicitudDTO", SolicitudDTO.class);
 					String xml = converter.toXML(solicitudDTO);
 					if(LOG.isDebugEnabled())
@@ -347,6 +351,7 @@ public class PosibleHechoDelictivoAction extends GenericAction {
 				{
 					solicitudDTO=new SolicitudDTO();
 					solicitudDTO.setDocumentoId(0L);
+					XStream converter=new XStream();
 					converter.alias("SolicitudDTO", SolicitudDTO.class);
 					String xml = converter.toXML(solicitudDTO);
 					escribirRespuesta(response, xml);
@@ -386,6 +391,7 @@ public class PosibleHechoDelictivoAction extends GenericAction {
 				
 				if(solicitudDTO!=null)
 				{
+					XStream converter=new XStream();
 					converter.alias("SolicitudDTO", SolicitudDTO.class);
 					String xml = converter.toXML(solicitudDTO);
 					if(LOG.isDebugEnabled())
@@ -398,6 +404,7 @@ public class PosibleHechoDelictivoAction extends GenericAction {
 				{
 					solicitudDTO=new SolicitudDTO();
 					solicitudDTO.setDocumentoId(0L);
+					XStream converter=new XStream();
 					converter.alias("SolicitudDTO", SolicitudDTO.class);
 					String xml = converter.toXML(solicitudDTO);
 					escribirRespuesta(response, xml);
@@ -452,7 +459,8 @@ public class PosibleHechoDelictivoAction extends GenericAction {
 					idAreaDestino = null;
 				}
 			    List<SolicitudDTO> listaSolicitudes= solicitudDelegate.consultarSolicitudesParaAtender(idsEstatus,idsTipSols, idAreaDestino, loUsuario.getFuncionario().getClaveFuncionario(),claveAgencia);
-			    converter.alias("ListaSols", java.util.List.class);
+			    XStream converter=new XStream();
+				converter.alias("ListaSols", java.util.List.class);
 				converter.alias("SolicitudDTO", SolicitudDTO.class);
 				String xml = converter.toXML(listaSolicitudes);
 				if(LOG.isDebugEnabled())
@@ -577,7 +585,8 @@ public class PosibleHechoDelictivoAction extends GenericAction {
 				}
 				//consultamos las solicitudes por atender
 			    List<SolicitudDTO> listaSolicitudes= solicitudDelegate.consultarSolicitudesGeneradas(idsEstatus,idsTipSols, super.getUsuarioFirmado(request).getAreaActual().getAreaId(), super.getUsuarioFirmado(request).getFuncionario().getClaveFuncionario());
-			    converter.alias("ListaSols", java.util.List.class);
+			    XStream converter=new XStream();
+				converter.alias("ListaSols", java.util.List.class);
 				converter.alias("SolicitudDTO", SolicitudDTO.class);
 				String xml = converter.toXML(listaSolicitudes);
 				if(LOG.isDebugEnabled())

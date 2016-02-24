@@ -12,6 +12,7 @@ import java.util.StringTokenizer;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.actividad.Actividades;
 import mx.gob.segob.nsjp.comun.enums.calidad.Calidades;
 import mx.gob.segob.nsjp.comun.enums.catalogo.Catalogos;
@@ -146,6 +147,7 @@ public class SolicitudCiudadanaDefensorAction extends GenericAction {
 
             TurnoDTO turnDTO = turnoDelegate.obtenerTurnoParaAtencion(filtro);
 
+            XStream converter=new XStream();
             converter.alias("turnoDTO", TurnoDTO.class);
             String xml = converter.toXML(turnDTO);
             log.debug("Response:: " + xml);
@@ -210,6 +212,7 @@ public class SolicitudCiudadanaDefensorAction extends GenericAction {
 
             String xml = null;
             PrintWriter pw = null;
+            XStream converter=new XStream();
             converter.alias("defensorDTOs", java.util.List.class);
             converter.alias("solicitudDefensorDTO", SolicitudDefensorDTO.class);
             xml = converter.toXML(defensorDTOs);
@@ -1223,6 +1226,7 @@ public class SolicitudCiudadanaDefensorAction extends GenericAction {
                 InvolucradoDTO involucrado = involucradoDTOs.get(0);
                 response.setContentType("text/xml");
                 PrintWriter pw = response.getWriter();
+                XStream converter=new XStream();
                 converter.alias("imputado", InvolucradoDTO.class);
                 converter.alias("nombredemografico", NombreDemograficoDTO.class);
                 pw.print(converter.toXML(involucrado));
@@ -1375,6 +1379,7 @@ public class SolicitudCiudadanaDefensorAction extends GenericAction {
 
             String xml = null;
             PrintWriter pw = null;
+            XStream converter=new XStream();
             converter.alias("miMapaFuncionarios", java.util.List.class);
             converter.alias("funcionarioDTO", FuncionarioDTO.class);
             converter.alias("DepartamentoDTO", DepartamentoDTO.class);
@@ -1427,6 +1432,7 @@ public class SolicitudCiudadanaDefensorAction extends GenericAction {
 
         } catch (Exception e) {
             log.error(e.getMessage(), e);
+            XStream converter=new XStream();
             String xml = converter.toXML("No se pueden registrar vacaciones por que el periodo coincide con un periodo registrado");
             escribir(response, xml, null);
         }
@@ -1476,6 +1482,7 @@ public class SolicitudCiudadanaDefensorAction extends GenericAction {
                 notificacionDelegate.designarAbogadoDefensor(avisoDesignacionDTO, true, true);
             }
 
+            XStream converter=new XStream();
             converter.alias("avisoDesignacionDTO", AvisoDesignacionDTO.class);
             converter.alias("solicitudDefensorDTO", SolicitudDefensorDTO.class);
             converter.alias("valorDTO", ValorDTO.class);
@@ -1553,6 +1560,7 @@ public class SolicitudCiudadanaDefensorAction extends GenericAction {
 
             String xml = null;
             PrintWriter pw = null;
+            XStream converter=new XStream();
             converter.alias("listaCatalogo", java.util.List.class);
             converter.alias("catEstadoExpediente", CatalogoDTO.class);
 
@@ -2174,6 +2182,7 @@ public class SolicitudCiudadanaDefensorAction extends GenericAction {
             log.info("clave del tipo de centro de detencionion" + claveTipoCentroDetencion);
 
             List<CentroDetencionDTO> centroDetencionDTOs = centroDetencionDelegate.consultarCentrosDetencionPorTipo(Long.parseLong(claveTipoCentroDetencion));
+            XStream converter=new XStream();
             converter.alias("listaCatalogo", java.util.List.class);
             converter.alias("catCentrosDetencion", CentroDetencionDTO.class);
             String xml = converter.toXML(centroDetencionDTOs);
@@ -2208,6 +2217,7 @@ public class SolicitudCiudadanaDefensorAction extends GenericAction {
             log.info("clave del tipo de centro de detencion" + claveCentroDetencion);
 
             CentroDetencionDTO centroDetencionDTO = centroDetencionDelegate.consultarCentroDetencion(Long.parseLong(claveCentroDetencion));
+            XStream converter=new XStream();
             converter.alias("centroDetencion", CentroDetencionDTO.class);
             converter.alias("entidadFed", EntidadFederativaDTO.class);
             String xml = converter.toXML(centroDetencionDTO);

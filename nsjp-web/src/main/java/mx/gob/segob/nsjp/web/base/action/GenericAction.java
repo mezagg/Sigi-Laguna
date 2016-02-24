@@ -82,7 +82,9 @@ public abstract class GenericAction extends MappingDispatchAction {
     public final static String EXITO="exito";
     public final static String GUION = "-";
     public final static String NA = "- NA -";
-    
+
+    //TODO: verificar que cada action tenga su propio converter, esto porque se utiliza por todas
+    //las llamadas asincronas y entra en conflicto con lo que genera.
     @Autowired
     protected XStream converter;
 

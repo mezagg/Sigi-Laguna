@@ -12,7 +12,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
- 
+
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.audiencia.EstatusAudiencia;
 import mx.gob.segob.nsjp.comun.enums.audiencia.Eventos;
 import mx.gob.segob.nsjp.comun.enums.calidad.Calidades;
@@ -436,6 +437,7 @@ public class ConsultaEventosPJATPAction extends GenericAction {
 				log.info("antes del delegate:::::");
 				audienciaDTO = audienciaDelegate.obtenerAudiencia(audienciaDTO);
 				log.info("depues del delegate::: eventoDTO" + audienciaDTO);
+				XStream converter=new XStream();
 				converter.alias("eventoDTO", EventoDTO.class);
 				String xml = converter.toXML(audienciaDTO);
 				escribir(response, xml, null);

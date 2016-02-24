@@ -29,6 +29,7 @@ import java.util.StringTokenizer;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.excepciones.CodigoError;
 import mx.gob.segob.nsjp.comun.enums.institucion.Areas;
 import mx.gob.segob.nsjp.comun.enums.seguridad.Roles;
@@ -224,10 +225,10 @@ public class AdministrarFuncionarioAction extends GenericAction{
 					}
 			
 			log.info("el valor es:" + resp);
-
+			XStream converter=new XStream();
 			String xml = null;
 			PrintWriter pw = null;
-			converter.alias("funcionarioDTO",FuncionarioDTO.class);			
+			converter.alias("funcionarioDTO",FuncionarioDTO.class);
 			xml = converter.toXML(resp);
 			log.info("el valor es:" + xml);
 			response.setContentType("text/xml");
@@ -790,7 +791,8 @@ public class AdministrarFuncionarioAction extends GenericAction{
 							writer.print("</row>");
 					}
 					writer.print("</rows>");
-				} else {					
+				} else {
+					XStream converter=new XStream();
 					converter.alias("funcionarioDTOs", java.util.List.class);
 					converter.alias("FuncionarioDTO", FuncionarioDTO.class);
 					String xml = converter.toXML(funcionarioDTOs);

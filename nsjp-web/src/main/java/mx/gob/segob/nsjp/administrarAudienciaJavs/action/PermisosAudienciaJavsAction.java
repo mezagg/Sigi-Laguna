@@ -13,6 +13,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.audiencia.EstatusPermisosAudiencia;
 import mx.gob.segob.nsjp.delegate.audiencia.AudienciaDelegate;
 import mx.gob.segob.nsjp.delegate.configuracion.ConfiguracionDelegate; 
@@ -572,6 +573,7 @@ public class PermisosAudienciaJavsAction extends GenericAction{
 	public ActionForward consultarCondicionesAudiencias(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
+		XStream converter=new XStream();
 		try {
 			
 			List<CatEstadoPermisoDTO> EPsDTO = new ArrayList<CatEstadoPermisoDTO>();
@@ -627,17 +629,17 @@ public class PermisosAudienciaJavsAction extends GenericAction{
 				
 				if(audienciaJAVSTransporteDTO!=null && audienciaJAVSTransporteDTO.getResultadoPermisoAudiencia()!=null){
 					resultado=audienciaJAVSTransporteDTO.getResultadoPermisoAudiencia();
-					converter.alias("long",Long.class);							
+					converter.alias("long",Long.class);
 					xml = converter.toXML(resultado.toString());
 				}
 				else{
-					converter.alias("long",Long.class);							
+					converter.alias("long",Long.class);
 					xml = converter.toXML(EstatusPermisosAudiencia.FALLO.getValorId());
 				}
 			}		
 
 			if(xml.equals("")){
-				converter.alias("long",Long.class);				
+				converter.alias("long",Long.class);
 				xml = converter.toXML(resultado.toString());
 			}
 			
@@ -749,7 +751,8 @@ public class PermisosAudienciaJavsAction extends GenericAction{
 				resultado=audienciaDelegate.cambiarEstadoPermisoAudiencia(estado, permisoAudiencia, fechaHoy, claveUsuarioAsignador);
 			}
 							
-			converter.alias("long", Long.class);			
+			XStream converter=new XStream();
+			converter.alias("long", Long.class);
 			String xml = converter.toXML(resultado);
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();

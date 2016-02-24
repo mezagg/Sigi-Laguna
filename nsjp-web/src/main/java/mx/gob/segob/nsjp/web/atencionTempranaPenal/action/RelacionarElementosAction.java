@@ -8,6 +8,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.util.PaginadorUtil;
 import mx.gob.segob.nsjp.comun.util.tl.PaginacionThreadHolder;
 import mx.gob.segob.nsjp.delegate.elemento.ElementoDelegate;
@@ -76,6 +77,7 @@ public class RelacionarElementosAction extends GenericAction{
 			
 			//recuperamos los elementos		
 			listaElementoDTOs = elementoDelegate.consultarElementosXIdExpedienteCatRelacion(expedienteDTO.getExpedienteId(), idCategoriaRelacion, esSujeto);
+			XStream converter=new XStream();
 			converter.alias("listaElementoDTOs", java.util.List.class);
 			converter.alias("ElementoDTO", ElementoDTO.class);
 			
@@ -122,6 +124,7 @@ public class RelacionarElementosAction extends GenericAction{
 			
 			//recupera los catRelacion		
 			listaCatRelacionesDTOs = relacionDelegate.consultarCatRelacionesXCatCategoriaRelacion(catCategoriaRelacionDTO);
+			XStream converter=new XStream();
 			converter.alias("listaCatRelacionesDTOs", java.util.List.class);
 			converter.alias("CatRelacionDTO", CatRelacionDTO.class);
 
@@ -163,6 +166,7 @@ public class RelacionarElementosAction extends GenericAction{
 			List<CatCategoriaRelacionDTO> listaCatCategoriaRelacionDTO= new ArrayList<CatCategoriaRelacionDTO>();
 			listaCatCategoriaRelacionDTO = relacionDelegate.consultarCatCategoriaRelacionSiDocumento(false);
 			log.info("CatCategoriaRelacionDTO.size(): " + listaCatCategoriaRelacionDTO.size());
+			XStream converter=new XStream();
 			converter.alias("listaCatCategoriaRelacionDTO", java.util.List.class);
 			converter.alias("CatCategoriaRelacionDTO", CatCategoriaRelacionDTO.class);
 			xml = converter.toXML(listaCatCategoriaRelacionDTO);
@@ -210,8 +214,9 @@ public class RelacionarElementosAction extends GenericAction{
 			String xml = "";
 			
 			Boolean esValida = relacionDelegate.validarRelacion(idCatRelacion, idElementoSujeto, idElementoComplemento);
+			XStream converter=new XStream();
 			converter.alias("RelacionDTO", RelacionDTO.class);
-			converter.alias("esValida", Boolean.class);			
+			converter.alias("esValida", Boolean.class);
 			xml = converter.toXML(esValida);
 			sb.append(xml);
 			

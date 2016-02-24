@@ -14,6 +14,7 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.util.DateUtils;
 import mx.gob.segob.nsjp.delegate.policiaministerial.ComentarioDelegate;
 import mx.gob.segob.nsjp.delegate.policiaministerial.LineaInvestigacionDelegate;
@@ -78,6 +79,7 @@ public class LineaInvestigacionAction extends GenericAction{
 				Long idHipotesisBD=seguimiento.guardarSeguimientoLI(loHipotesis);
 				SeguimientoLIDTO hipotesisBD=new SeguimientoLIDTO(idHipotesisBD);
 				
+				XStream converter=new XStream();
 				converter.alias("SeguimientoLIDTO", SeguimientoLIDTO.class);
 				String xml = converter.toXML(hipotesisBD);
 				if(logger.isDebugEnabled())
@@ -293,7 +295,8 @@ public class LineaInvestigacionAction extends GenericAction{
 					}
 				    respuesta.append("</div>");
 					respuesta.append("</div>");
-				}				
+				}
+				XStream converter=new XStream();
 				String xml = converter.toXML(respuesta);
 				if(logger.isDebugEnabled())
 				{
@@ -328,6 +331,7 @@ public class LineaInvestigacionAction extends GenericAction{
 					loSeguimientoBD = seguimientos.get(0);
 				}	
 				
+				XStream converter=new XStream();
 				converter.alias("SeguimientoLIDTO", SeguimientoLIDTO.class);
 				String xml = converter.toXML(loSeguimientoBD);
 				if(logger.isDebugEnabled())
@@ -421,7 +425,8 @@ public class LineaInvestigacionAction extends GenericAction{
 					          .append(" a las ").append(DateUtils.formatearHora(loComentario.getFechaCreacion()))
 					          .append("</td>");
 							respuesta.append("    </tr>");
-							respuesta.append("  </table>");								
+							respuesta.append("  </table>");
+				XStream converter=new XStream();
 				String xml = converter.toXML(respuesta);
 				if(logger.isDebugEnabled())
 				{

@@ -27,6 +27,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.catalogo.Catalogos;
 import mx.gob.segob.nsjp.comun.enums.objeto.Objetos;
 import mx.gob.segob.nsjp.comun.util.tl.PaginacionThreadHolder;
@@ -424,6 +425,7 @@ public class BuscarExpedienteGeneralAction extends GenericAction{
 			
 			List<CatalogoDTO> listaCatalogo=catDelegate.recuperarCatalogo(Catalogos.TIPO_OBJETO);
 
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catEvidencia", CatalogoDTO.class);
 			
@@ -550,8 +552,10 @@ public class BuscarExpedienteGeneralAction extends GenericAction{
 			expedienteDTO.setExpedienteId(idExp);
 			ExpedienteDTO expedienteDTO2=expedienteDelegate.obtenerExpediente(expedienteDTO);
 			
+			XStream converter=new XStream();
 			converter.alias("expediente", ExpedienteDTO.class);
-			
+
+
 			String xml = converter.toXML(expedienteDTO2);
 			
 			response.setContentType("text/xml");

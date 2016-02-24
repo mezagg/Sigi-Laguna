@@ -27,6 +27,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.calidad.Calidades;
 import mx.gob.segob.nsjp.comun.enums.expediente.EstatusExpediente;
 import mx.gob.segob.nsjp.comun.enums.involucrado.TipoEvento;
@@ -115,6 +116,7 @@ public class RegistroDetencionAction extends ReporteBaseAction{
 			Long centroDetencion = new Long(request.getParameter("centroDetencion"));
 						
 			List<CentroDetencionDTO> centroDetencionList = centroDetencionDelegate.consultarCentrosDetencionPorTipo(centroDetencion);
+			XStream converter=new XStream();
 			converter.alias("CentroDetencionDTO", CentroDetencionDTO.class);
 			String xml = converter.toXML(centroDetencionList);
 			
@@ -1129,7 +1131,8 @@ public class RegistroDetencionAction extends ReporteBaseAction{
 					lstInvolucradosDetenidosDTO.add(involucradoDTO);
 			}
 			
-			converter.alias("listaInvolucradoDTO", java.util.List.class);
+			XStream converter=new XStream();
+		converter.alias("listaInvolucradoDTO", java.util.List.class);
 			converter.alias("involucradoDTO", InvolucradoDTO.class);
 			String xml = converter.toXML(lstInvolucradosDetenidosDTO);
 			response.setContentType("text/xml");
@@ -1172,6 +1175,7 @@ public class RegistroDetencionAction extends ReporteBaseAction{
 			 * Se agrega este alias por la funcion pintaDatosDomicilio
 			 * en realidad se trata del lugar de detencion
 			 */
+
 			converter.alias("domicilio", LugarDTO.class);
 			String xml = converter.toXML(detencionDto);
 			log.info("hechoDTO:: " + xml);
@@ -1212,6 +1216,7 @@ public class RegistroDetencionAction extends ReporteBaseAction{
 			 * Se agrega este alias por la funcion pintaDatosDomicilio
 			 * en realidad se trata del lugar de detencion
 			 */
+
 			converter.alias("domicilio", DomicilioDTO.class);
 			String xml = converter.toXML(domicilioDto);
 			log.info("hechoDTO:: " + xml);

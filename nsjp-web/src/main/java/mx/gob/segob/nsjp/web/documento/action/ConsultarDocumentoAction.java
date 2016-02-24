@@ -37,6 +37,7 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.constants.ConstantesGenerales;
 import mx.gob.segob.nsjp.comun.enums.institucion.Areas;
 import mx.gob.segob.nsjp.comun.enums.pdf.PDFPropiedad;
@@ -309,7 +310,7 @@ try {
 			respuesta = 1L;
 			logger.error(e);
 		}
-		
+		XStream converter=new XStream();
 		escribirRespuesta(response,converter.toXML(respuesta));
     	
     	

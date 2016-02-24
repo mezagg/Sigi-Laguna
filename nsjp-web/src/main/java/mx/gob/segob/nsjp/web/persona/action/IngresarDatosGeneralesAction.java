@@ -28,6 +28,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.constants.ConstantesGenerales;
 import mx.gob.segob.nsjp.comun.enums.catalogo.Catalogos;
 import mx.gob.segob.nsjp.dto.catalogo.CatalogoDTO;
@@ -63,14 +64,11 @@ public ActionForward consultarCatalogoIdioma(ActionMapping mapping, ActionForm f
     	try {
     		log.info("ejecutando Action Cargar Combo idioma"); 
     		List<CatalogoDTO> listaCatalogo=catDelegate.recuperarCatalogo(Catalogos.IDIOMA);
-    		
-    		
-    		
-    	
-			converter.alias("listaCatalogo", java.util.List.class);
-			converter.alias("catIdioma", CatalogoDTO.class);
+			XStream converterIdioma= new XStream();
+			converterIdioma.alias("listaCatalogo", java.util.List.class);
+			converterIdioma.alias("catIdioma", CatalogoDTO.class);
 			
-			String xml = converter.toXML(listaCatalogo);
+			String xml = converterIdioma.toXML(listaCatalogo);
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();
 			pw.print(xml);
@@ -97,14 +95,12 @@ public ActionForward consultarCatalogoIdioma(ActionMapping mapping, ActionForm f
     	try {
     		log.info("ejecutando Action Cargar Combo Estado civil"); 
     		List<CatalogoDTO> listaCatalogo=catDelegate.recuperarCatalogo(Catalogos.ESTADO_CIVIL);
-    		
-    		
-    		
-    	
-			converter.alias("listaCatalogo", java.util.List.class);
-			converter.alias("catEstadoCivil", CatalogoDTO.class);
+			XStream converterEstCivil= new XStream();
+
+			converterEstCivil.alias("listaCatalogo", java.util.List.class);
+			converterEstCivil.alias("catEstadoCivil", CatalogoDTO.class);
 			
-			String xml = converter.toXML(listaCatalogo);
+			String xml = converterEstCivil.toXML(listaCatalogo);
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();
 			pw.print(xml);
@@ -128,14 +124,14 @@ public ActionForward consultarCatalogoIdioma(ActionMapping mapping, ActionForm f
 		try {
     		log.info("ejecutando Action Cargar Combo Escolaridad"); 
     		List<CatalogoDTO> listaCatalogo=catDelegate.recuperarCatalogo(Catalogos.ESCOLARIDAD);
-
+			XStream converterEscolaridad= new XStream();
 
 			int situacioId = Catalogos.SITUACION_JURIDICA_DETENIDO.ordinal();
-    	
-			converter.alias("listaCatalogo", java.util.List.class);
-			converter.alias("catEscolaridad", CatalogoDTO.class);
+
+			converterEscolaridad.alias("listaCatalogo", java.util.List.class);
+			converterEscolaridad.alias("catEscolaridad", CatalogoDTO.class);
 			
-			String xml = converter.toXML(listaCatalogo);
+			String xml = converterEscolaridad.toXML(listaCatalogo);
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();
 			pw.print(xml);
@@ -162,11 +158,11 @@ public ActionForward consultarCatalogoIdioma(ActionMapping mapping, ActionForm f
 			log.info("ejecutando Action Cargar Combo Escolaridad");
 			List<CatalogoDTO> listaCatalogo=catDelegate.recuperarCatalogo(Catalogos.SITUACION_JURIDICA);
 
+			XStream converterSituacion= new XStream();
+			converterSituacion.alias("listaCatalogo", java.util.List.class);
+			converterSituacion.alias("catSituacionJuridicaDetenido", CatalogoDTO.class);
 
-			converter.alias("listaCatalogo", java.util.List.class);
-			converter.alias("catSituacionJuridicaDetenido", CatalogoDTO.class);
-
-			String xml = converter.toXML(listaCatalogo);
+			String xml = converterSituacion.toXML(listaCatalogo);
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();
 			pw.print(xml);
@@ -184,16 +180,14 @@ public ActionForward consultarCatalogoIdioma(ActionMapping mapping, ActionForm f
 			HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
 		try {
+			XStream converterNacionalidad= new XStream();
     		log.info("ejecutando Action Cargar Combo Nacionalidad"); 
     		List<CatalogoDTO> listaCatalogo=catDelegate.recuperarCatalogo(Catalogos.NACIONALIDAD);
-    		
-    		
-    		
-    	
-			converter.alias("listaCatalogo", java.util.List.class);
-			converter.alias("catNacionalidad", CatalogoDTO.class);
+
+			converterNacionalidad.alias("listaCatalogo", java.util.List.class);
+			converterNacionalidad.alias("catNacionalidad", CatalogoDTO.class);
 			
-			String xml = converter.toXML(listaCatalogo);
+			String xml = converterNacionalidad.toXML(listaCatalogo);
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();
 			pw.print(xml);
@@ -220,12 +214,11 @@ public ActionForward consultarCatalogoIdioma(ActionMapping mapping, ActionForm f
 		try {
     		log.info("ejecutando Action Cargar Combo Religion"); 
     		List<CatalogoDTO> listaCatalogo=catDelegate.recuperarCatalogo(Catalogos.RELIGION);
-
-    	
-			converter.alias("listaCatalogo", java.util.List.class);
-			converter.alias("catReligion", CatalogoDTO.class);
+			XStream converterReligion= new XStream();
+			converterReligion.alias("listaCatalogo", java.util.List.class);
+			converterReligion.alias("catReligion", CatalogoDTO.class);
 			
-			String xml = converter.toXML(listaCatalogo);
+			String xml = converterReligion.toXML(listaCatalogo);
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();
 			pw.print(xml);
@@ -249,16 +242,14 @@ public ActionForward consultarCatalogoIdioma(ActionMapping mapping, ActionForm f
 			HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
 		try {
+			XStream converterOp= new XStream();
     		log.info("ejecutando Action Cargar Combo Ocupacion"); 
     		List<CatalogoDTO> listaCatalogo=catDelegate.recuperarCatalogo(Catalogos.OCUPACION);
-    		
-    		
-    		
-    	
-			converter.alias("listaCatalogo", java.util.List.class);
-			converter.alias("catOcupacion", CatalogoDTO.class);
+
+			converterOp.alias("listaCatalogo", java.util.List.class);
+			converterOp.alias("catOcupacion", CatalogoDTO.class);
 			
-			String xml = converter.toXML(listaCatalogo);
+			String xml = converterOp.toXML(listaCatalogo);
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();
 			pw.print(xml);
@@ -283,14 +274,12 @@ public ActionForward consultarCatalogoIdioma(ActionMapping mapping, ActionForm f
 		try {
     		log.info("ejecutando Action Cargar Combo Servicios Periciales"); 
     		List<CatalogoDTO> listaCatalogo=catDelegate.recuperarCatalogo(Catalogos.TIPO_SOLICITUD);
-    		
-    		
-    		
+			XStream converterServicio= new XStream();
     	
-			converter.alias("listaCatalogo", java.util.List.class);
-			converter.alias("catServicioPericial", CatalogoDTO.class);
+			converterServicio.alias("listaCatalogo", java.util.List.class);
+			converterServicio.alias("catServicioPericial", CatalogoDTO.class);
 			
-			String xml = converter.toXML(listaCatalogo);
+			String xml = converterServicio.toXML(listaCatalogo);
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();
 			pw.print(xml);
@@ -309,14 +298,11 @@ public ActionForward consultarCatalogoIdioma(ActionMapping mapping, ActionForm f
 		try {
     		log.info("ejecutando Action Cargar Combo Especialidad Pericial"); 
     		List<CatalogoDTO> listaCatalogo=catDelegate.recuperarCatalogo(Catalogos.TIPO_ESPECIALIDAD_FUNCIONARIO);
-    		
-    		
-    		
-    	
-			converter.alias("listaCatalogo", java.util.List.class);
-			converter.alias("catEspecialidadPericial", CatalogoDTO.class);
+			XStream converterEsp= new XStream();
+			converterEsp.alias("listaCatalogo", java.util.List.class);
+			converterEsp.alias("catEspecialidadPericial", CatalogoDTO.class);
 			
-			String xml = converter.toXML(listaCatalogo);
+			String xml = converterEsp.toXML(listaCatalogo);
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();
 			pw.print(xml);
@@ -338,10 +324,10 @@ public ActionForward consultarCatalogoIdioma(ActionMapping mapping, ActionForm f
 			Date fechaCaptura=new Date();
 			SimpleDateFormat formato= new SimpleDateFormat("dd/MM/yyyy");
 			String fech=formato.format(fechaCaptura);
-			    	
-			converter.alias("fechaActual", java.lang.String.class);
+			XStream converterFechaCap= new XStream();
+			converterFechaCap.alias("fechaActual", java.lang.String.class);
 						
-			String xml = converter.toXML(fech);
+			String xml = converterFechaCap.toXML(fech);
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();
 			pw.print(xml);
@@ -369,9 +355,8 @@ public ActionForward consultarCatalogoIdioma(ActionMapping mapping, ActionForm f
 			Date horaCaptura=new Date();
 			SimpleDateFormat formato= new SimpleDateFormat("HH:mm:ss");
 			String hora=formato.format(horaCaptura);
-			
+			XStream converter= new XStream();
 			converter.alias("horaActual", java.lang.String.class);
-			
 			String xml = converter.toXML(hora);
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();
@@ -398,8 +383,7 @@ public ActionForward consultarCatalogoIdioma(ActionMapping mapping, ActionForm f
 			
 			log.info("ejecutando Action Cargar Combo Estado Fisico"); 
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.DATOS_GRLS_EDO_FISICO);
-    		
-    		
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catEdoFisico", CatalogoDTO.class);
 			
@@ -423,7 +407,7 @@ public ActionForward consultarCatalogoIdioma(ActionMapping mapping, ActionForm f
 			
 			log.info("ejecutando Action Cargar Combo Estado Fisico"); 
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.DATOS_GRLS_EDO_CONSCIENCIA);
-    		
+			XStream converter= new XStream();
     		
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catEdoConsciencia", CatalogoDTO.class);
@@ -448,7 +432,7 @@ public ActionForward consultarCatalogoIdioma(ActionMapping mapping, ActionForm f
     		log.info("ejecutando Action Cargar Combo Estado Conciencia"); 
     		
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.DATOS_GRLS_EDO_CONSCIENCIA_INCONSCIENTE);
-				
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catEdoConscienciaInconsciente", CatalogoDTO.class);
 			
@@ -481,7 +465,7 @@ public ActionForward consultarCatalogoIdioma(ActionMapping mapping, ActionForm f
     		log.info("ejecutando Action Cargar Combo Edad Unidad"); 
     		    		
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.EDAD_UNIDAD);
-				
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catEdadUnidad", CatalogoDTO.class);
 			
@@ -514,7 +498,7 @@ public ActionForward consultarCatalogoIdioma(ActionMapping mapping, ActionForm f
     		log.info("ejecutando Action Cargar Combo Condicion Actividad"); 
     		    		
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.CONDICION_ACTIVIDAD);
-				
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catCondicionActividad", CatalogoDTO.class);
 			

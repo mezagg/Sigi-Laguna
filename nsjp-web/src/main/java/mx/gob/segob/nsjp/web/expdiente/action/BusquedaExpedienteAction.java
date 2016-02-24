@@ -7,7 +7,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
- 
+
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.expediente.TipoExpediente;
 import mx.gob.segob.nsjp.comun.enums.institucion.Areas;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
@@ -59,7 +60,7 @@ public class BusquedaExpedienteAction extends GenericAction{
 		
 		String tipoRespuesta = request.getParameter("tipoRespuesta");
 		log.info("TIPO DE RESPUESTA SOLICITADA ACTION BUSQUEDA CASOS::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::"+tipoRespuesta);
-		
+		XStream converter=new XStream();
 		try {
 			if(tipoRespuesta != null && Long.parseLong(tipoRespuesta)== 1L){
 				
@@ -102,7 +103,7 @@ public class BusquedaExpedienteAction extends GenericAction{
 		
 		String tipoRespuesta = request.getParameter("tipoRespuesta");
 		log.info("TIPO DE RESPUESTA SOLICITADA ACTION BUSQUEDA INICIAL CASO::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::"+tipoRespuesta);
-		
+		XStream converter=new XStream();
 		try {
 			if(tipoRespuesta != null && Long.parseLong(tipoRespuesta)== 1L){
 				List<CasoDTO> listaCasos = casoDelegate.consultarCasosConEventosHistoricos(usuarioDTO);
@@ -187,7 +188,8 @@ public class BusquedaExpedienteAction extends GenericAction{
 		try {
 				List<ExpedienteDTO> listaCausas = expedienteDelegate.consultarExpedientesPorFiltro
 				(cal.getTime(), null, null, TipoExpediente.CAUSA, null);
-				converter.alias("expedientes", java.util.List.class);
+				XStream converter=new XStream();
+			converter.alias("expedientes", java.util.List.class);
 				converter.alias("expedienteDTO", ExpedienteDTO.class);
 				response.setContentType("text/xml");
 				escribirRespuesta(response, converter.toXML(listaCausas));
@@ -221,6 +223,7 @@ public class BusquedaExpedienteAction extends GenericAction{
 				if(numeroExpedienteId >0){
 					List<ExpedienteDTO> listaCausas = expedienteDelegate.consultarExpedientesPorFiltro
 					(cal.getTime(), null, null, TipoExpediente.TOCA, numeroExpedienteId);
+					XStream converter=new XStream();
 					converter.alias("expedientes", java.util.List.class);
 					converter.alias("expedienteDTO", ExpedienteDTO.class);
 					response.setContentType("text/xml");
@@ -298,6 +301,7 @@ public class BusquedaExpedienteAction extends GenericAction{
 			ExpedienteDTO expedienteDto = expedienteDelegate
 					.consultarExpedientePorNumeroDeCaso(casoDto, usuarioDto);
 
+			XStream converter=new XStream();
 			converter.alias("ExpedienteDTO", ExpedienteDTO.class);
 			response.setContentType("text/xml");
 			escribirRespuesta(response, converter.toXML(expedienteDto));
@@ -352,6 +356,7 @@ public class BusquedaExpedienteAction extends GenericAction{
 			
 			try {
 					List<ExpedienteViewDTO> listaExpedientes = expedienteDelegate.consultaCiudadana(apaterno, amaterno, nombre, expediente);
+					XStream converter=new XStream();
 					converter.alias("expedientes", java.util.List.class);
 					converter.alias("ExpedienteViewDTO", ExpedienteViewDTO.class);
 					response.setContentType("text/xml");

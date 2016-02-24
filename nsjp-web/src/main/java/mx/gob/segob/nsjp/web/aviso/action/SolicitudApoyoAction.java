@@ -13,6 +13,7 @@ import java.util.StringTokenizer;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.calidad.Calidades;
 import mx.gob.segob.nsjp.comun.enums.documento.EstatusNotificacion;
 import mx.gob.segob.nsjp.comun.util.tl.PaginacionThreadHolder;
@@ -236,6 +237,7 @@ public class SolicitudApoyoAction extends GenericAction {
 			
 			String xml = null;
 			PrintWriter pw = null;
+			XStream converter=new XStream();
 			converter.alias("avisoHechoDTO", AvisoHechoDelictivoDTO.class);
 			xml = converter.toXML(avisoHechoDTO);
 			response.setContentType("text/xml");
@@ -518,6 +520,7 @@ public class SolicitudApoyoAction extends GenericAction {
 				}
 			}
 			
+			XStream converter=new XStream();
 			converter.alias("listaTelefonos", java.util.ArrayList.class);
 			converter.alias("TelefonoDTO", TelefonoDTO.class);
 			log.info("tels_medios_contacto:: "+converter.toXML(telefonoDTOs));
@@ -603,7 +606,9 @@ public class SolicitudApoyoAction extends GenericAction {
 				}
 			}
 			
+			XStream converter=new XStream();
 			converter.alias("listaCorreos", java.util.ArrayList.class);
+
 			converter.alias("CorreoElectronicoDTO", CorreoElectronicoDTO.class);
 			log.info("corr_medios_contacto:: "+converter.toXML(correoElectronicoDTOs));
 			

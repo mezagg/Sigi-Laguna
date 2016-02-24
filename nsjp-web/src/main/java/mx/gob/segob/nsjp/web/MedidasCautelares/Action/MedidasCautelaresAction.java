@@ -14,6 +14,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.actividad.Actividades;
 import mx.gob.segob.nsjp.comun.enums.actividad.ConfActividadDocumento;
 import mx.gob.segob.nsjp.comun.enums.documento.EstatusMedida;
@@ -478,6 +479,7 @@ public class MedidasCautelaresAction extends GenericAction{
 			MedidaCautelarDTO medidaCautelarDTO = new MedidaCautelarDTO();
 			medidaCautelarDTO = medidasCautelaresDelegate.consultarMedidasCautelaresPorId(medidaCautelarId);
 			
+			XStream converter=new XStream();
 			converter.alias("MedidaCautelarDTO", MedidaCautelarDTO.class);
 			String xml = converter.toXML(medidaCautelarDTO);
 			log.debug("xml consultarMedidaCautelarPorId() ... " + xml);
@@ -808,6 +810,7 @@ public class MedidasCautelaresAction extends GenericAction{
 			PrintWriter writer = response.getWriter();
 
 			String xml = null;
+			XStream converter=new XStream();
 			converter.alias("compromisoDTO", CompromisoPeriodicoDTO.class);
 			xml = converter.toXML(compromisoDTO);
 			response.setContentType("text/xml");

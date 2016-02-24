@@ -27,6 +27,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.calidad.Calidades;
 import mx.gob.segob.nsjp.comun.enums.catalogo.Catalogos;
 import mx.gob.segob.nsjp.comun.enums.expediente.OrigenExpediente;
@@ -455,6 +456,7 @@ public class IngresarHechosAction extends GenericAction {
 					
 				}
 				
+				XStream converter=new XStream();
 				converter.alias("hechoDTO", HechoDTO.class);
 				String xml = converter.toXML(hechoDTO);
 				log.info("hechoDTO:: "+xml);
@@ -526,6 +528,7 @@ public class IngresarHechosAction extends GenericAction {
 			}
 
 			if (hechoDTO != null && hechoDTO.getHechoId() != null) {
+				XStream converter=new XStream();
 				converter.alias("hechoDTO", HechoDTO.class);
 				String xml = converter.toXML(hechoDTO);
 				log.info("hechoDTO:: " + xml);
@@ -579,6 +582,7 @@ public class IngresarHechosAction extends GenericAction {
 
 			if (listaHechos != null && listaHechos.size() > 0 && listaHechos.get(0) != null) {
 				listaHechos.get(0).setUsuario(usuario);
+				XStream converter=new XStream();
 				converter.alias("usuarioDTO", UsuarioDTO.class);
 				converter.alias("hechoDTO", HechoDTO.class);
 				String xml = converter.toXML(listaHechos.get(0));
@@ -608,6 +612,7 @@ public class IngresarHechosAction extends GenericAction {
 			log.debug("ejecutando Action cargarCatalogos");
 			List<CatalogoDTO> listaCatalogo = service.recuperarCatalogo(Catalogos.TIPO_CONCLUSION);
 			
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catTipoConclusion", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -639,6 +644,7 @@ public class IngresarHechosAction extends GenericAction {
 			log.debug("ejecutando Action cargarCatalogos");
 			List<CatalogoDTO> listaCatalogo = service.recuperarCatalogoDependiente(Catalogos.TIPO_SUBCONCLUSION, tipoConclusion);
 			
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catTipoSubConclusion", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -685,6 +691,7 @@ public class IngresarHechosAction extends GenericAction {
 			if(!tipoConclusion.equals(-1L)){
 				 guardado=conclusionHechoDelegate.guardarConclusion(conclusion);
 			}
+			XStream converter=new XStream();
 			converter.alias("guardado", Boolean.class);
 			String xml = converter.toXML(guardado);
 			log.info("guardado:: "+xml);
@@ -707,6 +714,7 @@ public class IngresarHechosAction extends GenericAction {
 			if(idNumeroExpedinte!=null){
 				 conclusion=conclusionHechoDelegate.consultarConclusionNumeroExpe(idNumeroExpedinte);
 			}
+			XStream converter=new XStream();
 			converter.alias("conclusionNumeroExpedienteDTO", ConclusionNumeroExpedienteDTO.class);
 			String xml = converter.toXML(conclusion);
 			log.info("guardado:: "+xml);

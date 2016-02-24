@@ -11,6 +11,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.util.tl.PaginacionThreadHolder;
 import mx.gob.segob.nsjp.delegate.prueba.PruebaDelegate;
 import mx.gob.segob.nsjp.dto.archivo.ArchivoDigitalDTO;
@@ -595,6 +596,7 @@ public class AdministrarMediosDePruebaAction extends GenericAction{
 				
 				medioPruebaDto = pruebaDelegate.consultarMedioPrueba(medioPruebaId);
 				
+				XStream converter=new XStream();
 				converter.alias("medioPrueba", MedioPruebaDTO.class);
 				String xml = converter.toXML(medioPruebaDto);
 				escribir(response,xml,null);

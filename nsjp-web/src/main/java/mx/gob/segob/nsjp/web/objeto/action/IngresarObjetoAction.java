@@ -30,6 +30,7 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.constants.ConstantesGenerales;
 import mx.gob.segob.nsjp.comun.enums.calidad.Calidades;
 import mx.gob.segob.nsjp.comun.enums.catalogo.Catalogos;
@@ -393,6 +394,7 @@ public class IngresarObjetoAction extends GenericAction {
 			Long resp = objetoDelegate.ingresarVehiculo(vehiculoDTO);	
 			String xml = null;
 			//PrintWriter pw = null;
+			XStream converter=new XStream();
 			converter.alias("VehiculoForm",VehiculoForm.class);
 			retorno.setGlTipoVehiculoId(resp);
 
@@ -2537,6 +2539,7 @@ public class IngresarObjetoAction extends GenericAction {
 			// Carga catalogo Tipo Objeto
 			log.debug("ejecutando Action cargarTiposObjetos");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.TIPO_OBJETO);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catTipoObjetos", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -2909,7 +2912,7 @@ public class IngresarObjetoAction extends GenericAction {
 						default: 	tipo = ObjetoDTO.class;
 									break;
 					}
-					converter.alias("lista"+aliasObjeto, java.util.List.class);				
+					converter.alias("lista"+aliasObjeto, java.util.List.class);
 					converter.alias(aliasObjeto, tipo);
 					
 					xml.append(converter.toXML(listaObjetos));

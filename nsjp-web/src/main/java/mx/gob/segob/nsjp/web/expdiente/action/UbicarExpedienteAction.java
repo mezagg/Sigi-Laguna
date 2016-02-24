@@ -98,7 +98,7 @@ public class UbicarExpedienteAction extends GenericAction{
 			expedienteDTO.setNumeroExpedienteId(new Long(idNumeroExpediente));
 			ExpedienteDTO resultDTO = expedienteDelegate.obtenerExpediente(expedienteDTO);
 
-			converter.alias("expediente", ExpedienteDTO.class);		
+			converter.alias("expediente", ExpedienteDTO.class);
 			String xml = converter.toXML(resultDTO);
 			log.info("xml ... " + xml);
 			response.setContentType("text/xml");
@@ -152,7 +152,7 @@ public class UbicarExpedienteAction extends GenericAction{
 			estatus = "error";
 			log.error(e.getCause(),e);			
 		} finally{
-			converter.alias("estatus", java.lang.String.class);			
+			converter.alias("estatus", java.lang.String.class);
 			String xml = converter.toXML(estatus);
 			log.info(xml);
 			response.setContentType("text/xml");

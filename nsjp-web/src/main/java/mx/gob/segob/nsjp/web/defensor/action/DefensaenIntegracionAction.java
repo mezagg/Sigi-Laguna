@@ -12,6 +12,7 @@ import java.util.StringTokenizer;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.actividad.Actividades;
 import mx.gob.segob.nsjp.comun.enums.calidad.Calidades;
 import mx.gob.segob.nsjp.comun.enums.institucion.Areas;
@@ -432,6 +433,7 @@ public class DefensaenIntegracionAction extends GenericAction{
 			
 			String xml = null;
 			PrintWriter pw = null;
+			XStream converter=new XStream();
 			converter.alias("involucrado", InvolucradoDTO.class);
 			
 			xml = converter.toXML(recuperaInvolucrado);

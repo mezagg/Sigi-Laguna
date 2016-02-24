@@ -11,6 +11,7 @@ import java.util.StringTokenizer;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.calidad.Calidades;
 import mx.gob.segob.nsjp.comun.enums.documento.EstatusNotificacion;
 import mx.gob.segob.nsjp.comun.enums.institucion.Areas;
@@ -168,6 +169,7 @@ public class SolicitudDefensorAction extends GenericAction {
 						defendido.getElementoId()));
 			}
 			
+			XStream converter=new XStream();
 			converter.alias("solicitud", SolicitudDefensorDTO.class);
 			String xml = converter.toXML(solicitudDefensorRespuestaDTO);
 			escribirRespuesta(response, xml);
@@ -423,7 +425,7 @@ public class SolicitudDefensorAction extends GenericAction {
 			ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
 		try {
-
+			XStream converter=new XStream();
 			log.info("Consultar Defensor asignado");
 
 			String idExpediente = request.getParameter("idExpediente");
@@ -484,7 +486,7 @@ public class SolicitudDefensorAction extends GenericAction {
 
 			Long idExpediente = NumberUtils.toLong(request.getParameter("idExpediente"),0L);
 			log.info("llega idExpediente" + idExpediente);
-
+			XStream converter=new XStream();
 			if(idExpediente > 0){
 				ExpedienteDTO input = new ExpedienteDTO();
 				input.setNumeroExpedienteId(idExpediente);
@@ -859,7 +861,7 @@ public class SolicitudDefensorAction extends GenericAction {
 
 			String xml = null;
 			PrintWriter pw = null;
-
+			XStream converter=new XStream();
 			switch(tipoDocumento){
 				case 3: //AVISO DE DESIGNACION
 					AvisoDesignacionDTO designacion = notificacionDelegate.consultarAvisoDesignacion(idDocumento);
@@ -1222,7 +1224,7 @@ public class SolicitudDefensorAction extends GenericAction {
 			ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
 		try {
-
+			XStream converter=new XStream();
 			log.info("ACTION PARA OBTENER EL DETALLE DE UNA SOLICITUD");
 
 			Long idDocumento = NumberUtils.toLong(
@@ -1781,6 +1783,7 @@ public class SolicitudDefensorAction extends GenericAction {
 			
 			Long involucradoId = involucradoDelegate.guardarInvolucrado(solicitante);
 			
+			XStream converter=new XStream();
 			converter.alias("involucradoSolDefForm",SolicitudDefensorDesdeDefensorAteForm.class);
 			retorno.setIdIndividuo(involucradoId);
 			String xml = converter.toXML(retorno);

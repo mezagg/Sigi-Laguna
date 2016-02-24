@@ -31,6 +31,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.expediente.TipoTurno;
 import mx.gob.segob.nsjp.comun.util.DateUtils;
 import mx.gob.segob.nsjp.delegate.expediente.TurnoDelegate;
@@ -107,6 +108,7 @@ public class GenerarTurnoAtencionAction extends ReporteBaseAction {
             request.getSession().setAttribute(KEY_SESSION_TURNO_GENERADO,
                     turnoDTO);
             
+            XStream converter=new XStream();
             converter.alias("turnoDTO", TurnoDTO.class);
             log.debug("ejecutando Action generarTurno2");
             
@@ -416,7 +418,7 @@ public class GenerarTurnoAtencionAction extends ReporteBaseAction {
             log.debug("*_*Usuario Firmado::" +usuario);
             turnoDTO.setUsuario(usuario);
             turnoDTO = turnoDelegate.generarTurnoAtencion(turnoDTO);
-
+            XStream converter=new XStream();
             escribirRespuesta(response,
                     converter.toXML(turnoDTO.getNumeroTurno()));
 

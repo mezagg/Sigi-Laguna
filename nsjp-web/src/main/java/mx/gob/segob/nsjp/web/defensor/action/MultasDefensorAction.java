@@ -9,6 +9,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import org.apache.commons.lang.math.NumberUtils;
 import org.apache.log4j.Logger;
 import org.apache.struts.action.ActionForm;
@@ -84,6 +85,7 @@ public class MultasDefensorAction extends GenericAction {
 			}
 			String xml = null;
 			PrintWriter pw = null;
+			XStream converter=new XStream();
 			converter.alias("multaDTO", MultaSancionDTO.class);
 			xml = converter.toXML(multa);
 			log.info("XML Multa--- "+xml);
@@ -219,6 +221,7 @@ public class MultasDefensorAction extends GenericAction {
 			
 			String xml = null;
 			PrintWriter pw = null;
+			XStream converter=new XStream();
 			xml = converter.toXML(multaSancionDTO);
 			response.setContentType("text/xml");
 			pw = response.getWriter();

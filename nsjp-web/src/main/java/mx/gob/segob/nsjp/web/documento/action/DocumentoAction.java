@@ -7,6 +7,7 @@ import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.actividad.Actividades;
 import mx.gob.segob.nsjp.comun.enums.documento.TipoDocumento;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
@@ -207,6 +208,7 @@ public class DocumentoAction extends GenericAction {
 				respuesta = "1";			
 			}
 		}
+		XStream converter=new XStream();
 		converter.alias("respuesta",String.class);
 		escribirRespuesta(response,converter.toXML(respuesta.toString()));
 		

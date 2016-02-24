@@ -28,6 +28,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.swing.text.StyledEditorKit.BoldAction;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.solicitud.EstatusSolicitud;
 import mx.gob.segob.nsjp.comun.util.DateUtils;
 import mx.gob.segob.nsjp.comun.util.PaginadorUtil;
@@ -147,6 +148,7 @@ public class AtenderSolicitudPericialAction extends GenericAction {
 		Long solicitudPericialId = NumberUtils.toLong(request.getParameter("solicitudPericialId"),0);
 		SolicitudPericialDTO solicitud = solicitudPericialDelegate.consultarSolicitudPericialPorId(solicitudPericialId);
 		setExpedienteTrabajo(request, solicitud.getExpedienteDTO());
+		XStream converter=new XStream();
 		escribirRespuesta(response, converter.toXML(solicitud.getExpedienteDTO()));
 		return null;
 		
@@ -164,7 +166,7 @@ public class AtenderSolicitudPericialAction extends GenericAction {
 			throws Exception {
 		
 		Long solicitudPericialId = NumberUtils.toLong(request.getParameter("solicitudPericialId"),0);
-		
+		XStream converter=new XStream();
 		solicitudDelegate.actualizaEstatusSolicitud(new SolicitudDTO(solicitudPericialId),EstatusSolicitud.CERRADA);
 		escribirRespuesta(response, converter.toXML(solicitudPericialId));
 		return null;

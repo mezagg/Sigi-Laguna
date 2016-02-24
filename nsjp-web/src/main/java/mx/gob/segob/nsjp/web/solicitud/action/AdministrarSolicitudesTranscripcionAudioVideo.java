@@ -28,6 +28,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.solicitud.EstatusSolicitud;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
 import mx.gob.segob.nsjp.comun.util.DateUtils;
@@ -198,8 +199,8 @@ public class AdministrarSolicitudesTranscripcionAudioVideo extends GenericAction
 			}
 			
 			setExpedienteTrabajo(request, sol.getExpedienteDTO());
+			XStream converter=new XStream();
 			converter.alias("solicitudTranscripcionAudienciaDTO",SolicitudTranscripcionAudienciaDTO.class);
-			
 			escribirRespuesta(response,converter.toXML(sol));
 
 			
@@ -238,7 +239,7 @@ public class AdministrarSolicitudesTranscripcionAudioVideo extends GenericAction
 		} catch (NSJPNegocioException e) {
 			log.error(e.getMessage(),e);
 		}
-		
+		XStream converter=new XStream();
 		escribirRespuesta(response,converter.toXML(solicitudId));
 		
 		

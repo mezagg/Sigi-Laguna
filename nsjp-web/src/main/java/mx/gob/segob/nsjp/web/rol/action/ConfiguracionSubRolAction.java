@@ -10,6 +10,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import org.apache.log4j.Logger;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
@@ -48,6 +49,7 @@ public class ConfiguracionSubRolAction extends GenericAction {
 			if (idRol!=""){
 			resp= rolDelegate.consultarConfiguracionRol(new RolDTO(Long.valueOf(idRol)));
 			}
+			XStream converter= new XStream();
 			converter.alias("lstElementosMenu", java.util.List.class);
 			converter.alias("ElementoMenu", ElementoMenuDTO.class);
 			converter.alias("Actuacion",ConfActividadDocumentoDTO.class);
@@ -108,6 +110,7 @@ public class ConfiguracionSubRolAction extends GenericAction {
 			}
 			try{
 				resp=rolDelegate.actualizarConfiguracionRol(rolDTO);
+				XStream converter= new XStream();
 				converter.alias("resp", Boolean.class);
 				String xml = converter.toXML(resp);
 				log.info("Elementos Menu:: " + xml);

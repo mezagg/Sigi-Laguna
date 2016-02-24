@@ -12,6 +12,7 @@ import java.util.regex.Pattern;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import org.apache.log4j.Logger;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
@@ -67,7 +68,7 @@ public class GuardarModulosRolAction extends GenericAction {
 			request.setAttribute("guardar", 1);
 
 			boolean resp = rolDelegate.actualizarModulosRol(rolDTO);
-
+			XStream converter= new XStream();
 			converter.alias("resp", Boolean.class);
 			String xml = converter.toXML(resp);
 			log.info("Modulo:: " + xml);
@@ -91,6 +92,7 @@ public class GuardarModulosRolAction extends GenericAction {
 			if (rol != null && rol.getRolPadre() == null) {
 				resp = true;
 			}
+			XStream converter= new XStream();
 			converter.alias("resp", Boolean.class);
 			String xml = converter.toXML(resp);
 			log.info("Modulo:: " + xml);
@@ -198,6 +200,7 @@ public class GuardarModulosRolAction extends GenericAction {
 			} else {
 				resp = "nombreVacio";
 			}
+			XStream converter= new XStream();
 			converter.alias("resp", String.class);
 			String xml = converter.toXML(resp);
 			// mandamos la respuesta al cliente
@@ -212,6 +215,7 @@ public class GuardarModulosRolAction extends GenericAction {
 	public ActionForward editarSubRol(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
+		XStream converter=new XStream();
 		try {
 			String idRol = request.getParameter("idRol");
 			String resp = "error";
@@ -225,7 +229,7 @@ public class GuardarModulosRolAction extends GenericAction {
 				if (rolDTO != null) {
 					resp = "exito";
 					rolDTO.setRolPadre(null);
-					converter.alias("rol", RolDTO.class);
+				    converter.alias("rol", RolDTO.class);
 					xml += converter.toXML(rolDTO);
 				}
 			}

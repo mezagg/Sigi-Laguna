@@ -105,7 +105,7 @@
 	</bean>
     <bean name="/ConsultarCatalogoOcupacion" class="mx.gob.segob.nsjp.web.persona.action.IngresarDatosGeneralesAction">
 	</bean>
- <bean name="/ConsultarCatalogoNacionalidad" class="mx.gob.segob.nsjp.web.persona.action.IngresarDatosGeneralesAction">
+    <bean name="/ConsultarCatalogoNacionalidad" class="mx.gob.segob.nsjp.web.persona.action.IngresarDatosGeneralesAction">
 	</bean>
 	<bean name="/ConsultarFechaCaptura" class="mx.gob.segob.nsjp.web.persona.action.IngresarDatosGeneralesAction">
 	</bean>
@@ -2130,5 +2130,6 @@ Fin solicitar audiencia
 	<!-- INICIA MODULO DE RS -->
 	<!-- FINALIZA MODULO DE RS -->
 	
-	<bean name="/realizarConsultaCiudadana" class="mx.gob.segob.nsjp.web.expdiente.action.BusquedaExpedienteAction"/>	
+	<bean name="/realizarConsultaCiudadana" class="mx.gob.segob.nsjp.web.expdiente.action.BusquedaExpedienteAction"/>
+	<bean name="/IngresarProbResponsable" class="mx.gob.segob.nsjp.web.caso.action.IngresarProbableResponsableAction"/>
 </beans>

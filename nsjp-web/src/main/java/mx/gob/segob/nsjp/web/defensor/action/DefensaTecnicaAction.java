@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.calidad.Calidades;
 import mx.gob.segob.nsjp.comun.enums.excepciones.CodigoError;
 import mx.gob.segob.nsjp.comun.enums.expediente.EtapasExpediente;
@@ -149,6 +150,7 @@ public class DefensaTecnicaAction extends GenericAction {
 		String numeroExpediente = request.getParameter("numExpediente");
 		ExpedienteDTO expedienteDTO = expedienteDelegate.obtenerExpedientePorNumeroExpediente(numeroExpediente);
 		setExpedienteTrabajo(request, expedienteDTO);
+		XStream converter=new XStream();
 		escribirRespuesta(response, converter.toXML(expedienteDTO));
 		return null;
 		
@@ -219,6 +221,7 @@ public class DefensaTecnicaAction extends GenericAction {
 			if(!solicitudDTOs.isEmpty() &&  solicitudDTOs.size() == 1){
 				carpeta = solicitudDTOs.get(0).getEstatus().getIdCampo().longValue();
 			}
+			XStream converter=new XStream();
 			String xml = converter.toXML(carpeta);
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();

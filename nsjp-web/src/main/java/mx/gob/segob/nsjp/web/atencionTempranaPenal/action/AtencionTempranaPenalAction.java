@@ -17,6 +17,7 @@ import java.util.logging.Level;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.almacen.action.SeleccionarAlmacenDeEvidenciasAction;
 import mx.gob.segob.nsjp.comun.constants.ConstantesGenerales;
 import mx.gob.segob.nsjp.comun.enums.actividad.Actividades;
@@ -1170,6 +1171,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
 
             TurnoDTO turnDTO = turnoDelegate.obtenerTurnoParaAtencion(filtro);
 
+            XStream converter=new XStream();
             converter.alias("turnoDTO", TurnoDTO.class);
             String xml = converter.toXML(turnDTO);
             log.info("TURNO:: " + xml);
@@ -1486,6 +1488,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             }
             log.info("$$$$ numero el Expediente consultar involucrados  listaInvolucrados.size()$$$ : " + listaInvolucrados.size());
 
+            XStream converter=new XStream();
             converter.alias("listaInvolucrados", java.util.List.class);
             converter.alias("involucradoViewDTO", InvolucradoViewDTO.class);
 
@@ -1632,13 +1635,15 @@ public class AtencionTempranaPenalAction extends GenericAction {
             if (sinCatuie != null) {
                 listas.put("listaOficios", listaOficio);
                 listas.put("listaActuaciones", listaCatalogo);
+                XStream converter=new XStream();
                 converter.alias("listas", java.util.List.class);
                 converter.alias("catActuaciones", CatalogoDTO.class);
                 xml = converter.toXML(listas);
             } else {
+                XStream converter=new XStream();
                 converter.alias("listaCatalogo", java.util.List.class);
-		converter.alias("catActuaciones", CatalogoDTO.class);
-		xml = converter.toXML(listaCatalogo);
+		        converter.alias("catActuaciones", CatalogoDTO.class);
+		        xml = converter.toXML(listaCatalogo);
             }
 
            // log.info("ESTE ES EL XML:");
@@ -1777,6 +1782,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
                             + confActividadDocumentoDTO.getNombreActividad());
                 }
             }
+            XStream converter=new XStream();
             converter.alias("listaCatalogo", java.util.List.class);
             converter.alias("catActuaciones", CatalogoDTO.class);
             String xml = converter.toXML(listaCatalogo);
@@ -1832,6 +1838,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
              sb.append(xml);*/
             //recuperamos los objetos Equipo de Computo del DTO
             listaObjetoDTOs = expedienteDTO.getObjetosByTipo(Objetos.EQUIPO_TELEFONICO);
+            XStream converter=new XStream();
             converter.alias("listaObjetosDTO", java.util.List.class);
             converter.alias("TelefoniaDTO", TelefoniaDTO.class);
             xml = converter.toXML(listaObjetoDTOs);
@@ -2664,6 +2671,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
 
             log.info("$$$$ numero el Expediente consultar involucrados  listaInvolucrados.size()$$$ : " + listaInvolucrados.size());
 
+            XStream converter=new XStream();
             converter.alias("nombreDemografico", NombreDemograficoDTO.class);
             converter.alias("listaInvolucrados", java.util.List.class);
             converter.alias("involucradoDTO", InvolucradoDTO.class);
@@ -2905,6 +2913,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             List<DelitoDTO> listaDelitos = new ArrayList<DelitoDTO>();
             listaDelitos = delitoDelegate.consultarDelitosExpediente(expedienteDTO);
 
+            XStream converter=new XStream();
             converter.alias("listaDelitos", java.util.List.class);
             converter.alias("DelitoDTO", DelitoDTO.class);
 
@@ -3327,6 +3336,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
 
             listaNotas = expedienteDelegate.registrarActualizarNotasExpediente(listaNotas, expedienteDTO);
 
+            XStream converter=new XStream();
             converter.alias("listaNotas", java.util.List.class);
             converter.alias("NotaExpedienteDTO", NotaExpedienteDTO.class);
             String xml = converter.toXML(listaNotas);
@@ -3363,6 +3373,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             expedienteDTO.setResponsableTramite(funcionarioDTO);
 
             listaNotas = expedienteDelegate.consultarNotasPorExpediente(expedienteDTO);
+            XStream converter=new XStream();
             converter.alias("listaNotas", java.util.List.class);
             converter.alias("notaExpedienteDTO", NotaExpedienteDTO.class);
             String xml = converter.toXML(listaNotas);
@@ -3429,6 +3440,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             List<DelitoDTO> listaDelitos = new ArrayList<DelitoDTO>();
             listaDelitos = delitoDelegate.consultarDelitosExpediente(expedienteDTO);
 
+            XStream converter=new XStream();
             converter.alias("listaDelitos", java.util.List.class);
             converter.alias("delitoDTO", DelitoDTO.class);
             String xml = converter.toXML(listaDelitos);
@@ -3576,6 +3588,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             objetoDTO = objetoDelegate.obtenerObjeto(objetoDTO);
             String xml = "";
             //alias para vehiculo
+            XStream converter=new XStream();
             converter.alias("Vehiculo", ObjetoDTO.class);
             converter.alias("VehiculoDTO", VehiculoDTO.class);
             //alias para equipo de computo
@@ -3801,6 +3814,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
                 listIndiceEstructuradoDTO2.add(indiceEstructuradoDTO);
             }
             String xml = "";
+            XStream converter=new XStream();
             converter.alias("listIndiceEstructuradoDTO", java.util.List.class);
             converter.alias("indiceEstructuradoDTO", IndiceEstructuradoDTO.class);
             xml = converter.toXML(listIndiceEstructuradoDTO2);
@@ -4146,6 +4160,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
 
             log.info("consultarTeoriasDelCasoExpediente### documento::::" + documentoDTO);
             String xml = "";
+            XStream converter=new XStream();
             converter.alias("documentoDTO", DocumentoDTO.class);
             converter.alias("cuerpoOficioEstructuradoDTO", CuerpoOficioEstructuradoDTO.class);
             xml = converter.toXML(documentoDTO);
@@ -4494,6 +4509,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             }
             String xml = null;
             PrintWriter pw = null;
+            XStream converter=new XStream();
             converter.alias("listEslabonDTO", ArrayList.class);
             converter.alias("eslabonDTO", EslabonDTO.class);
             xml = converter.toXML(listEslabonDTO);
@@ -4514,6 +4530,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
         try {
             log.info("ejecutando Action Cargar Combo Elemento");
             List<CatalogoDTO> listaCatalogo = catalogoDelegate.recuperarCatalogo(Catalogos.TIPO_ELEMENTO);
+            XStream converter=new XStream();
             converter.alias("listaCatalogo", java.util.List.class);
             converter.alias("catElemnto", CatalogoDTO.class);
             String xml = converter.toXML(listaCatalogo);
@@ -4590,6 +4607,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             log.info("ejecutando Action AtencionTempranaPenal metodo consultarAlarmas");
             UsuarioDTO usuario = super.getUsuarioFirmado(request);
             List<AlertaDTO> listAlertaDTO = alarmaDelegate.consultarAlertasXUsuario(usuario, EstatusAlarmaAlerta.NO_EJECUTADA);
+            XStream converter=new XStream();
             converter.alias("listAlertaDTO", java.util.List.class);
             converter.alias("alertaDTO", AlertaDTO.class);
             for (AlertaDTO alertaDTO : listAlertaDTO) {
@@ -4832,6 +4850,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
                 log.info("%&/%% filtro: " + filtro);
                 listFuncionarioDTO = solicitudPericialDelegate.consultarFuncionarioPorFiltro(filtro, null);
             }
+            XStream converter=new XStream();
             converter.alias("listFuncionarioDTO", java.util.List.class);
             converter.alias("funcionarioDTO", FuncionarioDTO.class);
             String xml = converter.toXML(listFuncionarioDTO);
@@ -4863,6 +4882,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             departamentoDTO.setArea(areaDTO);
             filtro.setDepartamento(departamentoDTO);
             List<FuncionarioDTO> listFuncionarioDTO = solicitudPericialDelegate.consultarFuncionarioPorFiltro(filtro, null);
+            XStream converter=new XStream();
             converter.alias("listFuncionarioDTO", java.util.List.class);
             converter.alias("funcionarioDTO", FuncionarioDTO.class);
             String xml = converter.toXML(listFuncionarioDTO);
@@ -5187,6 +5207,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
                 expediente.setEstatus(valorDTO);
             }
             expedienteDelegate.actualizarEstatusExpediente(expediente);
+            XStream converter=new XStream();
             converter.alias("expedienteDTO", ExpedienteDTO.class);
             String xml = converter.toXML(expediente);
             if (log.isDebugEnabled()) {
@@ -5411,6 +5432,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             }
             log.info("$$$$ numero el Expediente consultar involucrados  listaInvolucrados.size()$$$ : " + listaInvolucrados.size());
 
+            XStream converter=new XStream();
             converter.alias("listaInvolucrados", java.util.List.class);
             converter.alias("involucradoViewDTO", InvolucradoViewDTO.class);
 
@@ -5828,6 +5850,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             expediente.setExpedienteId(expedienteId);
             List<String> listNumerosExpediente = expedienteDelegate.buscarNumerosExpedientesByIdExpediente(expediente);
 
+            XStream converter=new XStream();
             converter.alias("listaObjetosDTO", java.util.List.class);
             converter.alias("numero", java.lang.String.class);
             String xml = converter.toXML(listNumerosExpediente);
@@ -6150,6 +6173,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
                 }
             }
             //Fin
+            XStream converter=new XStream();
             converter.alias("listaCatalogo", java.util.List.class);
             converter.alias("catActuaciones", CatalogoDTO.class);
             String xml = converter.toXML(listaCatalogo);

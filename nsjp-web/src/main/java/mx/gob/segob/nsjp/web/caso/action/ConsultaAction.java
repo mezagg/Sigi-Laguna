@@ -28,6 +28,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.actividad.Actividades;
 import mx.gob.segob.nsjp.comun.enums.calidad.Calidades;
 import mx.gob.segob.nsjp.comun.enums.expediente.EstatusExpediente;
@@ -195,6 +196,7 @@ public class ConsultaAction extends GenericAction{
 			log.info("Ejecutando Action buscarDenunciante mas denunciante:"+involucradoDelegate);
 			//Codigo se elimina cuando se pasen bien las calidades
 			request.getSession().setAttribute("narrativa", involucradoDTO.getExpedienteDTO().getNarrativa());
+			XStream converter=new XStream();
 			converter.alias("calidadDTO", CalidadDTO.class);
 			converter.alias("valorDTO", ValorDTO.class);
 			converter.alias("medioDeContactoDTO", MedioDeContactoDTO.class);
@@ -261,6 +263,7 @@ public class ConsultaAction extends GenericAction{
 				
 			}
 			
+			XStream converter=new XStream();
 			converter.alias("lstInvolucradosDetenidos", java.util.List.class);
 			converter.alias("involucrado", InvolucradoDTO.class);
 			converter.alias("nombreDemograficoDTO", NombreDemograficoDTO.class);
@@ -507,7 +510,7 @@ public class ConsultaAction extends GenericAction{
 				
 			}
 								
-			converter.alias("respuesta", Boolean.class);			
+			converter.alias("respuesta", Boolean.class);
 			String xml = converter.toXML(resultado);
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();
@@ -782,7 +785,8 @@ public class ConsultaAction extends GenericAction{
             {
             	request.getSession().setAttribute("narrativa", personaDTO.getExpedienteDTO().getNarrativa());
             }
-            converter.alias("calidadDTO", CalidadDTO.class);
+            XStream converter=new XStream();
+			converter.alias("calidadDTO", CalidadDTO.class);
 
             converter.alias("valorDTO", ValorDTO.class);
 

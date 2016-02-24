@@ -26,6 +26,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.catalogo.Catalogos;
 import mx.gob.segob.nsjp.delegate.lugar.LugarDelegate;
 import mx.gob.segob.nsjp.dto.catalogo.CatalogoDTO;
@@ -73,6 +74,7 @@ public class IngresarDomicilioAction extends GenericAction {
 			log.debug("ejecutando Action cargarCatalogos");
 			List<CatalogoDTO> listaCatalogo = catDelegate
 					.recuperarCatalogo(Catalogos.PAISES);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catPaises", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -215,6 +217,7 @@ public class IngresarDomicilioAction extends GenericAction {
 			
 			List<CatalogoDTO> listaCatalogoAsentColonia = catDelegate.consultarAsentamiento(forma.getGlDelgMunId(), forma.getGlCatCiudadId(), forma.getGlCatTipoAsentamientoId());
 			
+			XStream converter=new XStream();
 			converter.alias("listaCatalogoAsentColonia", java.util.List.class);
 			converter.alias("catAsentColonia", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogoAsentColonia);
@@ -279,6 +282,7 @@ public class IngresarDomicilioAction extends GenericAction {
 			log.debug("ejecutando Action cargarTipoCalle");
 			List<CatalogoDTO> listaCatalogo = catDelegate
 					.recuperarCatalogo(Catalogos.TIPO_CALLE);
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catTipoCalle", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
@@ -320,7 +324,8 @@ public class IngresarDomicilioAction extends GenericAction {
 		 }
 		 
 		 List<AsentamientoDTO> asentamientos = lugarDelegate.completarAsentamientoXCodigoPostal(forma.getCodigoPostal());
-			converter.alias("asentamientos", java.util.List.class);
+			XStream converter=new XStream();
+			 converter.alias("asentamientos", java.util.List.class);
 			converter.alias("asentamiento", AsentamientoDTO.class);
 		
 		 String xml = converter.toXML(asentamientos);

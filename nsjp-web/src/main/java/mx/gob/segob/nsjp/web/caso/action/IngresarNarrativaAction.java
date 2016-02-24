@@ -28,6 +28,7 @@ import java.util.Collections;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.dto.catalogo.CatalogoDTO;
 import mx.gob.segob.nsjp.web.base.action.GenericAction;
 
@@ -62,6 +63,7 @@ public class IngresarNarrativaAction extends GenericAction{
 			
 //			List<CatalogoDTO> listaCatalogo=catDelegate.recuperarCatalogo(Catalogos.TIPO_NARRATIVA);
 //
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catTipoNarrativa", CatalogoDTO.class);
 //			

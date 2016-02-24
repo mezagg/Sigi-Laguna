@@ -11,6 +11,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.audiencia.EstatusAudiencia;
 import mx.gob.segob.nsjp.comun.enums.seguridad.Roles;
 import mx.gob.segob.nsjp.comun.enums.solicitud.EstatusSolicitud;
@@ -54,6 +55,7 @@ public class AudienciasDefensorAction extends GenericAction {
 			
 			String xml = null;
 			PrintWriter pw = null;
+			XStream converter=new XStream();
 			converter.alias("audiencia", AudienciaDTO.class);
 			converter.alias("involucrado", InvolucradoViewDTO.class);
 			xml = converter.toXML(audiencia);

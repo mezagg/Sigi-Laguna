@@ -10,6 +10,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.actividad.Actividades;
 import mx.gob.segob.nsjp.comun.enums.calidad.Calidades;
 import mx.gob.segob.nsjp.comun.enums.catalogo.Catalogos;
@@ -91,7 +92,9 @@ public class UnidadAtencionVictimasDelitoAction extends GenericAction{
     	try {
     		log.info("ejecutando Action - consultarCatalogoTipoAyuda"); 
     		List<CatalogoDTO> listaCatalogo=catalogoDelegate.recuperarCatalogo(Catalogos.TIPO_ELEMENTO);
-    		converter.alias("listaCatalogo", java.util.List.class);
+    		XStream converter=new XStream();
+			converter.alias("listaCatalogo", java.util.List.class);
+
 			converter.alias("catElemento", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
 			response.setContentType("text/xml");
@@ -124,8 +127,9 @@ public class UnidadAtencionVictimasDelitoAction extends GenericAction{
 			//List<FuncionarioDTO> listaFuncionario=funcionarioDelegate.consultarFuncionariosPorAreayPuesto(Areas.COORDINACION_ATENCION_VICTIMAS.parseLong(), Puestos.COORDINADOR_ATENCION_VICTIMAS.getValorId());
 			
 			//parseo todos los delitos a XML
+			XStream converter=new XStream();
 			converter.alias("listaFuncionario", java.util.List.class);
-			converter.alias("funcionarioDTO", FuncionarioDTO.class);
+
 			log.info("lista_destinatario_ayuda_psiciologica_uavd :: "+ converter.toXML(listaFuncionario));
 			
 			response.setContentType("text/xml; charset=UTF-8");
@@ -203,7 +207,9 @@ public class UnidadAtencionVictimasDelitoAction extends GenericAction{
 				else{
 					listaSolicitudes= solicitudDelegate.consultarSolicitudesParaAtender(idsEstatus,idsTipSols, super.getUsuarioFirmado(request).getAreaActual().getAreaId(), super.getUsuarioFirmado(request).getFuncionario().getClaveFuncionario(),null);
 				}
-			    converter.alias("ListaSols", java.util.List.class);
+			    XStream converter=new XStream();
+				converter.alias("ListaSols", java.util.List.class);
+
 				converter.alias("SolicitudDTO", SolicitudDTO.class);
 				String xml = converter.toXML(listaSolicitudes);
 				if(log.isDebugEnabled())
@@ -246,7 +252,8 @@ public class UnidadAtencionVictimasDelitoAction extends GenericAction{
 					writer.print("<cell><![CDATA[<div class='celdaGrid'>"+DateUtils.formatear(solicitudDTO.getFechaCreacion())+" </div>]]></cell>");
 					writer.print("<cell><![CDATA[<div class='celdaGrid'>"+DateUtils.formatearHora(solicitudDTO.getFechaCreacion())+" </div>]]></cell>");
 					
-					
+
+
 					converter.alias("expedienteDTO", ExpedienteDTO.class);
 					log.info("expedienteDTO_UAVD:: "+converter.toXML(expediente));
 					if(expediente.getInvolucradoByCalidad(Calidades.VICTIMA_PERSONA)==null || expediente.getInvolucradoByCalidad(Calidades.VICTIMA_PERSONA).size()==0)
@@ -390,7 +397,9 @@ public class UnidadAtencionVictimasDelitoAction extends GenericAction{
 								
 				List<FamiliarDTO> listaFamiliares = familiarDelegate.consultarFamiliaresPorIdEntrevistaComplementaria(entrevistaComplementariaDTO);
 				
+				XStream converter=new XStream();
 				converter.alias("ListaFamiliares", java.util.List.class);
+
 				converter.alias("FamiliarDTO", FamiliarDTO.class);
 				
 				String xml = converter.toXML(listaFamiliares);
@@ -742,6 +751,7 @@ public class UnidadAtencionVictimasDelitoAction extends GenericAction{
     		log.info("ejecutando Action consultarRelacionParentesco"); 
     		List<CatRelacionDTO> listaCatalogo=relacionDelegate.consultarParentescos();
     		
+			XStream converter=new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catParentesco", CatRelacionDTO.class);
 			

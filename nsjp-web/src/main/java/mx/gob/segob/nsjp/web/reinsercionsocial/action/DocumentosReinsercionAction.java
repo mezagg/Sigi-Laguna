@@ -32,6 +32,7 @@ import java.util.Set;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.constants.ConstantesGenerales;
 import mx.gob.segob.nsjp.comun.enums.actividad.ActividadesRS;
 import mx.gob.segob.nsjp.comun.enums.excepciones.CodigoError;
@@ -947,6 +948,7 @@ public class DocumentosReinsercionAction extends GenericAction {
 			documentoDelegate.guardarRelacionDocumento(relacion);
 			banderaRegistro = Boolean.TRUE;
 		}
+		XStream converter=new XStream();
 		converter.alias("banderaRegistro", Boolean.class);
 		escribirRespuesta(response, converter.toXML(banderaRegistro));
 		

@@ -59,7 +59,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 			
 			log.info("-------------EJECUTANDO ACTION CONSULTAR TamanoBoca------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.TAMANIO_BOCA);
-			
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catTamanoBoca", CatalogoDTO.class);
 			
@@ -84,7 +84,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 			
 			log.info("-------------EJECUTANDO ACTION CONSULTAR TipoCara------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.TIPO_CARA);
-			
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catTipoCara", CatalogoDTO.class);
 			
@@ -109,7 +109,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 			
 			log.info("-------------EJECUTANDO ACTION CONSULTAR FormaMenton------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.FORMA_MENTON);
-			
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catFormaMenton", CatalogoDTO.class);
 			
@@ -134,7 +134,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 			
 			log.info("-------------EJECUTANDO ACTION CONSULTAR TipoMenton------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.TIPO_MENTON);
-			
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catTipoMenton", CatalogoDTO.class);
 			
@@ -159,7 +159,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 			
 			log.info("-------------EJECUTANDO ACTION CONSULTAR Tez------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.TEZ);
-			
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catTez", CatalogoDTO.class);
 			
@@ -184,7 +184,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 			
 			log.info("-------------EJECUTANDO ACTION CONSULTAR InclinacionMenton------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.INCLINIACION_MENTON);
-			
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catInclinacionMenton", CatalogoDTO.class);
 			
@@ -209,7 +209,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 			
 			log.info("-------------EJECUTANDO ACTION CONSULTAR ColorCabello------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.COLOR_CABELLO);
-			
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catColorCabello", CatalogoDTO.class);
 			
@@ -234,7 +234,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 			
 			log.info("-------------EJECUTANDO ACTION CONSULTAR FormaCabello------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.FORMA_CABELLO);
-			
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catFormaCabello", CatalogoDTO.class);
 			
@@ -259,7 +259,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 			
 			log.info("-------------EJECUTANDO ACTION CONSULTAR CalvieTipo------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.CALVICIE_TIPO);
-			
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catCalvieTipo", CatalogoDTO.class);
 			
@@ -284,7 +284,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 			
 			log.info("-------------EJECUTANDO ACTION CONSULTAR CabelloImplantacion------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.CABELLO_IMPLANTACION);
-			
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catCabelloImplantacion", CatalogoDTO.class);
 			
@@ -309,7 +309,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 			
 			log.info("-------------EJECUTANDO ACTION CONSULTAR CantidadCabello------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.CANTIDAD_CABELLO);
-			
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catCantidadCabello", CatalogoDTO.class);
 			
@@ -334,7 +334,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 			
 			log.info("-------------EJECUTANDO ACTION CONSULTAR Oreja------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.FORMA_OREJA);
-			
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catOreja", CatalogoDTO.class);
 			
@@ -359,7 +359,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 			
 			log.info("-------------EJECUTANDO ACTION CONSULTAR tamañoOreja------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.OREJA_TAMANIO);
-			
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catTamanoOreja", CatalogoDTO.class);
 			
@@ -384,7 +384,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 			
 			log.info("-------------EJECUTANDO ACTION CONSULTAR LobuloParticularidad------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.OREJA_LOBULO_PARTICULARIDAD);
-			
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catLobuloParticularidad", CatalogoDTO.class);
 			
@@ -409,7 +409,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 			
 			log.info("-------------EJECUTANDO ACTION CONSULTAR LobuloDimension------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.OREJA_LOBULO_DIMENSION);
-			
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catLobuloDimension", CatalogoDTO.class);
 			
@@ -434,7 +434,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 			
 			log.info("-------------EJECUTANDO ACTION CONSULTAR LobuloAdherencia------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.OREJA_LOBULO_ADHERENCIA);
-			
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catLobuloAdherencia", CatalogoDTO.class);
 			
@@ -459,7 +459,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 			
 			log.info("-------------EJECUTANDO ACTION CONSULTAR HelixAnterior------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.HELIX_SUPERIOR);
-			
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catHelixAnterior", CatalogoDTO.class);
 			
@@ -484,7 +484,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 			
 			log.info("-------------EJECUTANDO ACTION CONSULTAR HelixPosterior------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.HELIX_POSTERIOR);
-			
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catHelixPosterior", CatalogoDTO.class);
 			
@@ -509,7 +509,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 			
 			log.info("-------------EJECUTANDO ACTION CONSULTAR HelixContorno------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.LOBULO_CONTORNO);
-			
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catHelixContorno", CatalogoDTO.class);
 			
@@ -534,7 +534,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 			
 			log.info("-------------EJECUTANDO ACTION CONSULTAR HelixAdherencia------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.HELIX_ADHERENCIA);
-			
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catHelixAdherencia", CatalogoDTO.class);
 			
@@ -559,7 +559,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 			
 			log.info("-------------EJECUTANDO ACTION CONSULTAR FormaOreja------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.FORMA_OREJA);
-			
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catFormaOreja", CatalogoDTO.class);
 			
@@ -584,7 +584,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 			
 			log.info("-------------EJECUTANDO ACTION CONSULTAR FormaOjos------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.FORMA_OJO);
-			
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catFormaOjos", CatalogoDTO.class);
 			
@@ -609,7 +609,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 
 			log.info("-------------EJECUTANDO ACTION CONSULTAR CatalogoAlturaNasoLabial------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.ALTURA_NASO_LABIAL);
-
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catAlturaNasoLabial", CatalogoDTO.class);
 
@@ -634,7 +634,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 
 			log.info("-------------EJECUTANDO ACTION CONSULTAR FormaOjos------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.COMISURAS_LABIOS);
-
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catCatalogoComisuras", CatalogoDTO.class);
 
@@ -659,7 +659,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 
 			log.info("-------------EJECUTANDO ACTION CONSULTAR ConsultarCatalogoEspesorLabioInferior------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.ESPESOR_LABIO);
-
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catEspesorLabioInferior", CatalogoDTO.class);
 
@@ -684,7 +684,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 
 			log.info("-------------EJECUTANDO ACTION CONSULTAR ConsultarCatalogoEspesorLabioSuperior------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.ESPESOR_LABIO);
-
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catEspesorLabioSuperior", CatalogoDTO.class);
 
@@ -709,7 +709,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 
 			log.info("-------------EJECUTANDO ACTION CONSULTAR ConsultarCatalogoProminencia------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.PROMINENCIA_LABIOS);
-
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catProminencia", CatalogoDTO.class);
 
@@ -734,7 +734,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 
 			log.info("-------------EJECUTANDO ACTION CONSULTAR ConsultarCatalogoAnchoNariz------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.ANCHO_NARIZ);
-
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catAnchoNariz", CatalogoDTO.class);
 
@@ -759,7 +759,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 
 			log.info("-------------EJECUTANDO ACTION CONSULTAR ConsultarCatalogoAlturaNariz------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.ALTURA_NARIZ);
-
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catAlturaNariz", CatalogoDTO.class);
 
@@ -783,7 +783,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 
 			log.info("-------------EJECUTANDO ACTION CONSULTAR consultarCatalogoBaseNariz------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.BASE_NARIZ);
-
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catBaseNariz", CatalogoDTO.class);
 
@@ -808,7 +808,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 
 			log.info("-------------EJECUTANDO ACTION CONSULTAR consultarCatalogoRaizNariz------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.RAIZ_NARIZ);
-
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catRaizNariz", CatalogoDTO.class);
 
@@ -833,7 +833,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 
 			log.info("-------------EJECUTANDO ACTION CONSULTAR consultarCatalogoFrenteAltura------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.FRENTE_ALTURA);
-
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catFrenteAltura", CatalogoDTO.class);
 
@@ -858,7 +858,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 
 			log.info("-------------EJECUTANDO ACTION CONSULTAR ConsultarCatalogoFrenteAncho------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.FRENTE_ANCHO);
-
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catFrenteAncho", CatalogoDTO.class);
 
@@ -883,7 +883,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 
 			log.info("-------------EJECUTANDO ACTION CONSULTAR ConsultarCatalogoInclinacionFrente------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.FRENTE_INCLINACION);
-
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catInclinacionFrente", CatalogoDTO.class);
 
@@ -908,7 +908,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 			
 			log.info("-------------EJECUTANDO ACTION CONSULTAR TamanoOjos------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.TAMANIO_OJO);
-			
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catTamanoOjos", CatalogoDTO.class);
 			
@@ -933,7 +933,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 			
 			log.info("-------------EJECUTANDO ACTION CONSULTAR ColorOjos------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.COLOR_OJO);
-			
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catColorOjos", CatalogoDTO.class);
 			
@@ -966,7 +966,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 			
 			log.info("-------------EJECUTANDO ACTION CONSULTAR Implantacion------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.IMPLANTACION_CEJA);
-			
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catImplantacionCeja", CatalogoDTO.class);
 			
@@ -1000,7 +1000,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 			
 			log.info("-------------EJECUTANDO ACTION CONSULTAR Forma------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.FORMA_CEJA);
-			
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catFormaCeja", CatalogoDTO.class);
 			
@@ -1034,7 +1034,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 			
 			log.info("-------------EJECUTANDO ACTION CONSULTAR Forma------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.TAMANIO_CEJA);
-			
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catTamanoCeja", CatalogoDTO.class);
 			
@@ -1068,7 +1068,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 			
 			log.info("-------------EJECUTANDO ACTION CONSULTAR Forma------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.TIPO_SANGRE);
-			
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catTipoSangre", CatalogoDTO.class);
 			
@@ -1105,7 +1105,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 			
 			log.info("-------------EJECUTANDO ACTION CONSULTAR Forma------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.COMPLEXION);
-			
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catComplexion", CatalogoDTO.class);
 			
@@ -1140,7 +1140,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 			
 			log.info("-------------EJECUTANDO ACTION CONSULTAR Forma------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.DIRECCION_CEJA);
-			
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catdireccionCeja", CatalogoDTO.class);
 			
@@ -1176,7 +1176,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 			
 			log.info("-------------EJECUTANDO ACTION CONSULTAR Forma------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.HELIX_ORIGINAL);
-			
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("cathelixOriginal", CatalogoDTO.class);
 			
@@ -1211,7 +1211,7 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 			
 			log.info("-------------EJECUTANDO ACTION CONSULTAR Forma------------");
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.HELIX_ORIGINAL);
-			
+			XStream converter= new XStream();
 			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catOrejaLobContorno", CatalogoDTO.class);
 			
@@ -1424,8 +1424,8 @@ public class IngresarMediaFiliacionAction extends GenericAction{
 	 * @param converter
 	 *            the converter to set
 	 */
-	public void setConverter(XStream converter) {
+	/*public void setConverter(XStream converter) {
 		this.converter = converter;
-	}
+	}*/
 
 }

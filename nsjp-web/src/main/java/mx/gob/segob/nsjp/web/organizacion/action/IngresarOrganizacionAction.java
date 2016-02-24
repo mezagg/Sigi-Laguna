@@ -28,6 +28,7 @@ import java.util.StringTokenizer;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.comun.enums.calidad.Calidades;
 import mx.gob.segob.nsjp.comun.enums.excepciones.CodigoError;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
@@ -630,6 +631,7 @@ public class IngresarOrganizacionAction extends GenericAction {
 					&& organizacionDTO.getOrganizacionId() != null) {
 				log.info("%%%%%%%% Organizacion ID: "+organizacionDTO.getElementoId());
 				log.info("%%%%%%%% Organizacion ID: "+organizacionDTO.getOrganizacionId());
+				XStream converter=new XStream();
 				converter.alias("organizacionDTO", OrganizacionDTO.class);
 				String xml = converter.toXML(organizacionDTO);
 				escribirRespuesta(response, xml);
@@ -1796,7 +1798,7 @@ public class IngresarOrganizacionAction extends GenericAction {
 			
 			
 			PersonaDTO personaDTO = organizacionDelegate.ingresarPersonaOrganizacion(contactoOrgDTO, organizacionDTO);
-
+			XStream converter=new XStream();
 			// revisamos si el guardado fue exitoso para mandar el xml
 			// correspondiente
 			if (organizacionDTO != null

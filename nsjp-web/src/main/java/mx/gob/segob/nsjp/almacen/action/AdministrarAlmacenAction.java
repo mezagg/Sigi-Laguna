@@ -27,6 +27,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
 import mx.gob.segob.nsjp.almacen.form.GestionarAlmacenForm;
 import mx.gob.segob.nsjp.comun.enums.calidad.Calidades;
 import mx.gob.segob.nsjp.comun.enums.institucion.Areas;
@@ -229,7 +230,7 @@ public class AdministrarAlmacenAction extends GenericAction {
 			log.info("id de la evidencia::::::::::"+ evidenciaId);			
 			EvidenciaDTO evidenciaDTO = evidenciaDelegate.consultaEvidencia(Long.parseLong(evidenciaId));
 			evidenciaDTO.getCadenaDeCustodia().setEvidencias(null);
-			
+			XStream converter=new XStream();
 			converter.alias("evidenciaDTO", EvidenciaDTO.class);
 			String xml = converter.toXML(evidenciaDTO);
 			log.info("xml de la solicitud respuesta: :::::::::"+ xml);
@@ -345,7 +346,7 @@ public class AdministrarAlmacenAction extends GenericAction {
 			
 					
 			Long idEvidencia= evidenciaDelegate.cambiarEstatusEvidencia(evidenciaDTO);
-			
+			XStream converter=new XStream();
 			converter.alias("idObjeto", Boolean.class);
 			String xml = converter.toXML(idEvidencia > 0? true : false);
 			log.info("xml de la evidencia respuesta: :::::::::"+ xml);
@@ -524,6 +525,7 @@ public class AdministrarAlmacenAction extends GenericAction {
 			almacenDTO.setEstatusActivo(true);
 			idAlmacen = almacenDelegate.registrarAlmacen(almacenDTO);
 			log.info("Datos Almacen Respuesta::::::"+idAlmacen);
+			XStream converter=new XStream();
 			converter.alias("almacen", AlmacenDTO.class);
 			
 			String xml = converter.toXML(idAlmacen);
@@ -555,7 +557,7 @@ public class AdministrarAlmacenAction extends GenericAction {
 			almacenistas = solicitudPericialDelegate.consultarFuncionarioPorFiltro(filtro,null);
 			//Permite consultar los Funcionarios que ya estan asignados a un almacen
 			List<FuncionarioDTO> funcionariosAsignados = encargadoAlmacenDelegate.consultarEncargadosDAlmacen(null);
-			
+			XStream converter=new XStream();
 			converter.alias("listaFuncionarioDTOs", List.class);
 			converter.alias("funcionarioDTO", FuncionarioDTO.class);
 			
@@ -668,7 +670,7 @@ public class AdministrarAlmacenAction extends GenericAction {
 			
 			//Long resultado=
 					encargadoAlmacenDelegate.asignarEncargadoDAlmacen(almacenDTO, funcionarioDTO);
-			
+			XStream converter=new XStream();
 			converter.alias("funcionarioDTO", java.util.List.class);
 			converter.alias("funcionarioDTO", FuncionarioDTO.class);
 			
@@ -707,7 +709,7 @@ public class AdministrarAlmacenAction extends GenericAction {
 			funcionarioDTO.setClaveFuncionario(NumberUtils.toLong(idFuncionario));
 			
 			encargadoAlmacenDelegate.removerEncargadoDAlmacen(almacenDTO, funcionarioDTO);
-			
+			XStream converter=new XStream();
 			converter.alias("almacenDTOs", java.util.List.class);
 			converter.alias("almacenDTO", AlmacenDTO.class);
 			
@@ -870,7 +872,7 @@ public class AdministrarAlmacenAction extends GenericAction {
 			log.info("Id del Almacen::::::" + idAlmacen);
 			AlmacenDTO almacenDTO = new AlmacenDTO();
 			almacenDTO = almacenDelegate.consultarDetalleAlmacenPorId(idAlmacen);
-			
+			XStream converter=new XStream();
 			converter.alias("almacenDTOs", java.util.List.class);
 			converter.alias("almacenDTO", AlmacenDTO.class);
 			
@@ -900,6 +902,7 @@ public class AdministrarAlmacenAction extends GenericAction {
 			EvidenciaDTO evidenciaDTO=new EvidenciaDTO(Long.parseLong(idCadena));
 			EslabonDTO loEslabon = eslabonDelegate.consultaUltimoEslabonXEvidenciaYTipo(evidenciaDTO, tipoEslabon);
 			String xml = null;
+			XStream converter=new XStream();
 			converter.alias("eslabonDTO",EslabonDTO.class);
 			xml = converter.toXML(loEslabon);
 			if(loEslabon!=null){
@@ -1021,6 +1024,7 @@ public class AdministrarAlmacenAction extends GenericAction {
 			
 			EslabonDTO loEslabon = eslabonDelegate.consultaEslabonPorId(idEslabon);
 			String xml = null;
+			XStream converter=new XStream();
 			converter.alias("eslabonDTO",EslabonDTO.class);
 			xml = converter.toXML(loEslabon);
 			escribirRespuesta(response, xml);
