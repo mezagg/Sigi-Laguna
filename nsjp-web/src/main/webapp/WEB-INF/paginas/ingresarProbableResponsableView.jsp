@@ -10,6 +10,7 @@
 
 <%@taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%
 					UsuarioDTO usuarioDTO = (UsuarioDTO) request.getSession().getAttribute("KEY_SESSION_USUARIO_FIRMADO");
 					ConfInstitucionDTO confInstitucionDTO = usuarioDTO.getInstitucion();%>

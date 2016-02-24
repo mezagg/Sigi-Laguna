@@ -1,3 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<%@ taglib prefix="c" 
+       uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%@ taglib prefix="fn" 
+       uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <script type="text/javascript">
 
 function seleccionaMexicoEnDatosNac(){
@@ -39,27 +48,8 @@ function seleccionaMexicoEnDatosNac(){
 	  }
 				
 								  
-	/*
-	*Funcion que realiza la carga del combo de Paises de nacimiento
-	*/
-	function cargaPaisesNacimiento() {
-		$('#cbxPaisNacimiento').addClass("cargando");
-		$.ajax({
-			async: false,
-			type: 'POST',
-			url: '<%= request.getContextPath()%>/cargarPaises.do',
-			data: '',
-			dataType: 'xml',
-			success: function(xml){
-				$(xml).find('catPaises').each(function(){
-					$('#cbxPaisNacimiento').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
-				});
-    			$('#cbxPaisNacimiento').removeClass("cargando");
-			}
-		});
-
 	
-}
+        
 
 /**
 * Si existe un cambio en el combo de paises se realiza la consulta de 
@@ -69,7 +59,7 @@ function seleccionaMexicoEnDatosNac(){
 function onSelectChangePaisNacimiento() {
 	var selected = $("#cbxPaisNacimiento option:selected");
 		
-	cleanAllCombosPaisNacimiento();							//Limpia todos los combo box´s
+	cleanAllCombosPaisNacimiento();							//Limpia todos los combo boxÂ´s
 	
 	if(selected.val() != "-1"){
 		$('#cbxEntFederativaNacimiento').addClass("cargando");
@@ -219,6 +209,9 @@ function obtenerParametrosDatosNacimiento(){
 		<td>
 			<select id="cbxPaisNacimiento" name="cbxPaisNacimiento"  style="width: 180px;">
 				<option value="-1">-Seleccione-</option>
+                                <c:forEach items="${applicationScope.paises}"  var="p" >
+                                    <option value='<c:out value="${p.clave}"/>'> <c:out value="${p.valor}"/> </option>
+                                </c:forEach>
 			</select>
 		</td>
 	</tr>
@@ -286,15 +279,15 @@ function obtenerParametrosDatosNacimiento(){
 		try{
 			if(idElemento != undefined && (idElemento == null || idElemento == "null"|| idElemento == "0")){
 				$("#cbxPaisNacimiento").one("click", function() {
-					cargaPaisesNacimiento();//Carga el combo de paises
+					//cargaPaisesNacimiento();//Carga el combo de paises
 					seleccionaMexicoEnDatosNac();
 				});	
 			}else{
-				cargaPaisesNacimiento();//Carga el combo de paises
+				//cargaPaisesNacimiento();//Carga el combo de paises
 				seleccionaMexicoEnDatosNac();
 			}	
 		}catch(e){
-			cargaPaisesNacimiento();//Carga el combo de paises
+			//cargaPaisesNacimiento();//Carga el combo de paises
 			seleccionaMexicoEnDatosNac();
 		}
 		

@@ -1,4 +1,12 @@
-    <!--CSS, modificada para las tabs del domicilio -->
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<%@ taglib prefix="c" 
+       uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%@ taglib prefix="fn" 
+       uri="http://java.sun.com/jsp/jstl/functions" %>    
+<!--CSS, modificada para las tabs del domicilio -->
     <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/estiloTab.css"/>
     <link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/multiselect/jquery.multiselect.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/multiselect/style.css" />
@@ -394,48 +402,7 @@
 		$('#cbxAsentamientoColoniaNotif').append('<option value="-1">-Seleccione-</option>');
 	  }
 	
-	/*
-	*Funcion que realiza la carga del combo de Paises
-	*/
-	function cargaPaises() {
-		 
-		$.ajax({
-			type: 'POST',
-			url: '<%= request.getContextPath()%>/cargarPaises.do',
-			data: '',
-			dataType: 'xml',
-			async: false,
-			success: function(xml){
-				$(xml).find('catPaises').each(function(){
-					$('#cbxPais').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
-				});
-			}
-		});
-	}
-
-
-	/*
-	*Funcion que realiza la carga del combo de Paises, para el Domicilio de notificaciones	
-	*/
-	function cargaPaisesNotif() {
-		  
-		$.ajax({
-			
-			type: 'POST',
-			url: '<%= request.getContextPath()%>/cargarPaises.do',
-			data: '',
-			dataType: 'xml',
-			async: false,
-			success: function(xml){
-				$(xml).find('catPaises').each(function(){
-					$('#cbxPaisNotif').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
-//					$('#cbxPaisNotif').multiselect('refresh');
-						});
-			}
-		  });
-	  }
-
-	
+        
 	/**
 	* Si existe un cambio en el combo de paises se realiza la consulta de 
 	* entidades federativas, y si la consulta es NO vac&iacute;a se leventa la 
@@ -447,7 +414,7 @@
 		var existenEntidades = "no";
 			
 				
-		cleanAllCombos();							//Limpia todos los combo box´s		
+		cleanAllCombos();							//Limpia todos los combo boxÂ´s		
 		hideControls(existenEntidades);				//Si la opcion seleccionada no contiene entidades federativas se esconden los cbx's
 		$.ajax({
 			async: false,									// la accion cargar estados y llena el combo con la consulta
@@ -479,7 +446,7 @@
 		var existenEntidades = "no";
 		
 		
-		cleanAllCombosNotif();						//Limpia todos los combo box´s
+		cleanAllCombosNotif();						//Limpia todos los combo boxÂ´s
 		hideControlsNotif(existenEntidades);		//Si la opcion seleccionada no contiene entidades federativas se esconden los cbx's
 		$.ajax({
 			async: false,									// la accion cargar estados y llena el combo con la consulta
@@ -617,7 +584,7 @@
 
 	/**
 	* Si existe un cambio en el combo de Ciudade, delegacion, o tipo de asentamiento
-	* se realiza la consulta de por medio de esos tres id´s para cargar el asentamiento/colonia
+	* se realiza la consulta de por medio de esos tres idÂ´s para cargar el asentamiento/colonia
 	*/ 	
 	function onSelectChangeCiudadMunicipioTipoAsentamiento() {
 
@@ -645,7 +612,7 @@
 	
 	/**
 	* Si existe un cambio en el combo de Ciudade, delegacion, o tipo de asentamiento
-	* se realiza la consulta de por medio de esos tres id´s 
+	* se realiza la consulta de por medio de esos tres idÂ´s 
 	* para cargar el asentamiento/colonia, para el domicilio notificaciones
 	*/ 	
 	function onSelectChangeCiudadMunicipioTipoAsentamientoNotif() {
@@ -1774,6 +1741,9 @@
           <td width="200" height="25">
             <select id="cbxPais" style="width:200px;" tabindex="1">						
                 <option value="-1">-Seleccione-</option>
+                <c:forEach items="${applicationScope.paises}"  var="p" >
+                    <option value='<c:out value="${p.clave}"/>'> <c:out value="${p.valor}"/> </option>
+                </c:forEach>
             </select>
           </td>
           <td width="135" height="25" align="right"><strong>Calle o Avenida:</strong></td>
@@ -1895,6 +1865,9 @@
           <td width="203" height="25">
             <select id="cbxPaisNotif" style="width:200px;" tabindex="17">						
                 <option value="-1">-Seleccione-</option>
+                <c:forEach items="${applicationScope.paises}"  var="p" >
+                    <option value='<c:out value="${p.clave}"/>'> <c:out value="${p.valor}"/> </option>
+                </c:forEach>
             </select>
           </td>
           <td width="135" height="25" align="right"><strong>Calle o Avenida:</strong></td>
@@ -2004,9 +1977,8 @@
 		/**
 		*Carga los escuchadores de eventos
 		*/
-		cargaPaises();					//Carga el combo de paises
-		cargaPaisesNotif();			//Carga el combo box de paises en el tab de domicilio de notificaciones
-
+		
+                
 		/**
 		*Carga los Combos con multiselect
 		*/	 
