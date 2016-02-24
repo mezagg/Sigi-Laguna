@@ -483,7 +483,7 @@ public class DefensaenIntegracionAction extends GenericAction{
 			
 			String xml = null;
 			PrintWriter pw = null;
-			XStream converter=new XStream(); 			converter.alias("involucrado", InvolucradoDTO.class);
+			converter.alias("involucrado", InvolucradoDTO.class);
 			
 			xml = converter.toXML(involucradoDTO);
 			response.setContentType("text/xml");
@@ -1053,7 +1053,7 @@ public class DefensaenIntegracionAction extends GenericAction{
 			
 			String xml = null;
 			PrintWriter pw = null;
-			XStream converter=new XStream(); 			converter.alias("involucrado", InvolucradoDTO.class);
+			converter.alias("involucrado", InvolucradoDTO.class);
 			
 			xml = converter.toXML(involucradoDTO);
 			response.setContentType("text/xml");
@@ -1089,7 +1089,7 @@ public class DefensaenIntegracionAction extends GenericAction{
 //			
 //			String xml = null;
 //			PrintWriter pw = null;
-//			XStream converter=new XStream(); 			converter.alias("involucrado", InvolucradoDTO.class);
+//			converter.alias("involucrado", InvolucradoDTO.class);
 //			
 //			xml = converter.toXML(involucradoDTO);
 //			response.setContentType("text/xml");
@@ -1140,7 +1140,7 @@ public class DefensaenIntegracionAction extends GenericAction{
 			
 			String xml = null;
 			PrintWriter pw = null;
-			XStream converter=new XStream(); 			converter.alias("archivoDigitalDTO", ArchivoDigitalDTO.class);
+			converter.alias("archivoDigitalDTO", ArchivoDigitalDTO.class);
 			
 			xml = converter.toXML(archivoDigitalDTO);
 			response.setContentType("text/xml");

@@ -106,7 +106,7 @@ public class IngresarDomicilioAction extends GenericAction {
 			List<CatalogoDTO> listaCatalogoEntidades = catDelegate
 					.recuperarCatalogoDependiente(Catalogos.ENTIDAD_FEDERATIVA,
 							forma.getGlCatPaisId());
-			XStream converter=new XStream(); 			converter.alias("listaCatalogoEntidades", java.util.List.class);
+			converter.alias("listaCatalogoEntidades", java.util.List.class);
 			converter.alias("catEntidadesFed", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogoEntidades);
 			response.setContentType("text/xml");
@@ -136,7 +136,7 @@ public class IngresarDomicilioAction extends GenericAction {
 			List<CatalogoDTO> listaCatalogoCiudades = catDelegate
 					.recuperarCatalogoDependiente(Catalogos.CIUDAD,
 							forma.getGlCatEntidadFederativaId());
-			XStream converter=new XStream(); 			converter.alias("listaCatalogoCiudades", java.util.List.class);
+			converter.alias("listaCatalogoCiudades", java.util.List.class);
 			converter.alias("catCiudades", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogoCiudades);
 			response.setContentType("text/xml");
@@ -167,7 +167,7 @@ public class IngresarDomicilioAction extends GenericAction {
 			List<CatalogoDTO> listaCatalogoDelegMun = catDelegate
 			.recuperarCatalogoDependiente(Catalogos.DELEGACION_MUNICIPIO,
 					forma.getGlCatEntidadFederativaId());		
-			XStream converter=new XStream(); 			converter.alias("listaCatalogoDelegMun", java.util.List.class);
+			converter.alias("listaCatalogoDelegMun", java.util.List.class);
 			converter.alias("catDelegMun", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogoDelegMun);
 			response.setContentType("text/xml");
@@ -249,7 +249,7 @@ public class IngresarDomicilioAction extends GenericAction {
 			log.debug("ejecutando Action cargarTipoAsentamiento");
 			List<CatalogoDTO> listaCatalogo = catDelegate
 					.recuperarCatalogo(Catalogos.TIPO_ASENTAMIENTO);
-			XStream converter=new XStream(); 			converter.alias("listaCatalogo", java.util.List.class);
+			converter.alias("listaCatalogo", java.util.List.class);
 			converter.alias("catTipoAsentamiento", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
 			response.setContentType("text/xml");
@@ -357,8 +357,8 @@ public class IngresarDomicilioAction extends GenericAction {
 		 AsentamientoDTO asentDTO = lugarDelegate.obtenerAentamientoPrId(idAsentamiento);
 		 log.debug("::::loCodigoPostaBD::::: " + asentDTO.getCodigoPostal());
 
-//			XStream converter=new XStream(); 			converter.alias("loCodigoPostaBD", String.class);
-			XStream converter=new XStream(); 			converter.alias("asentamiento", AsentamientoDTO.class);
+//			converter.alias("loCodigoPostaBD", String.class);
+			converter.alias("asentamiento", AsentamientoDTO.class);
 		
 		 String xml = converter.toXML(asentDTO);
 		 response.setContentType("text/xml");

@@ -69,7 +69,7 @@ public class ConsultarNarrativaAction extends GenericAction{
 //			//consultamos la narrativa
 //			narrativa=iNarrativaBDelegate.consultarNarrativa(null);
 //			//declaro los alias para los objetos a convertir a xml
-//			XStream converter=new XStream(); 			converter.alias("narrativa", NarrativaDTO.class);
+//			converter.alias("narrativa", NarrativaDTO.class);
 //			//convertimos los objetos y creamos la salida xml regresada por AJAX
 //			xml = converter.toXML(narrativa);
 //			response.setContentType("text/xml");

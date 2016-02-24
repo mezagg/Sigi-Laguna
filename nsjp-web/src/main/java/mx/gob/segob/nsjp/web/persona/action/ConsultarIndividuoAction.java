@@ -95,8 +95,8 @@ public class ConsultarIndividuoAction extends GenericAction{
 //			lstCalidadDTO = calidadBDelegate.obtenerCalidadCmb();
 //			log.info("lstCalidad::::IngresarIndividuoAction"+lstCalidadDTO);
 //			log.info("lista"+lstCalidadDTO.get(0).getGcDescripcion());
-//			XStream converter=new XStream(); 			converter.alias("listaCalidades", java.util.List.class);
-//			XStream converter=new XStream(); 			converter.alias("calidades", CalidadDTO.class);
+//			converter.alias("listaCalidades", java.util.List.class);
+//			converter.alias("calidades", CalidadDTO.class);
 //			String xml = converter.toXML(lstCalidadDTO);				
 //			response.setContentType("text/xml");				
 //			PrintWriter pw = response.getWriter();
@@ -631,7 +631,7 @@ public class ConsultarIndividuoAction extends GenericAction{
 			
 			String xml = null;
 			PrintWriter pw = null;
-			XStream converter=new XStream(); 			converter.alias("involucrado",InvolucradoViewDTO.class);
+			converter.alias("involucrado",InvolucradoViewDTO.class);
 			xml = converter.toXML(listaInvolucradosPersonasFisicasView);
 			response.setContentType("text/xml");
 			pw = response.getWriter();

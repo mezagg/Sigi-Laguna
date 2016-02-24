@@ -58,7 +58,7 @@ public class AsignarNumeroDeExpedienteAction extends GenericAction{
 //			String ultimoExpediente="";
 //			ultimoExpediente=iExpedienteBDelegate.consultarUltimoExpediente();
 //			log.info(ultimoExpediente); 
-//			XStream converter=new XStream(); 			converter.alias("ultimoExpediente", String.class);
+//			converter.alias("ultimoExpediente", String.class);
 //			
 //			String xml = converter.toXML(ultimoExpediente);
 //			
@@ -89,7 +89,7 @@ public class AsignarNumeroDeExpedienteAction extends GenericAction{
 						
 //			String nuevoExpediente="";
 //			nuevoExpediente=expedienteDelegate.asignarNumeroExpediente(expedienteDTO);
-//			XStream converter=new XStream(); 			converter.alias("nuevoExpediente", String.class);
+//			converter.alias("nuevoExpediente", String.class);
 //			
 //			String xml = converter.toXML(nuevoExpediente);
 //			

@@ -303,7 +303,7 @@ public class AdministrarFuncionarioAction extends GenericAction{
 			
 			 audienciaDelegate.ingresarFuncionarioAudiencia(funcionarioDTO, audienciaDTO);
 			
-			XStream converter=new XStream(); 			converter.alias("String",String.class);
+			converter.alias("String",String.class);
 			String xml = converter.toXML("ok");
 			escribir(response, xml,null);
 			
@@ -341,7 +341,7 @@ public class AdministrarFuncionarioAction extends GenericAction{
 			
 			audienciaDelegate.eliminarFuncionarioAudiencia(funcionarioDTO, audienciaDTO);
 			
-			XStream converter=new XStream(); 			converter.alias("String",String.class);
+			converter.alias("String",String.class);
 			String xml = converter.toXML("ok");
 			escribir(response, xml,null);
 			
@@ -416,7 +416,7 @@ public class AdministrarFuncionarioAction extends GenericAction{
 						claveFuncionario, idAudiencia, presente, esTitular);
 			}
 			log.info("Action registrarAsistenciaFuncionario: Asistencia guardada");
-			XStream converter=new XStream(); 			converter.alias("String",String.class);
+			converter.alias("String",String.class);
 			String xml = converter.toXML("ok");
 			escribir(response, xml,null);
 			
@@ -452,7 +452,7 @@ public class AdministrarFuncionarioAction extends GenericAction{
 			audienciaDelegate.registrarAsistenciaInvolucrado(claveFuncionario, idAudiencia, presente);
 			
 			log.info("Action registrarAsistenciaFuncionario: Asistencia guardada");
-			XStream converter=new XStream(); 			converter.alias("String",String.class);
+			converter.alias("String",String.class);
 			String xml = converter.toXML("ok");
 			escribir(response, xml,null);
 			
@@ -548,7 +548,7 @@ public class AdministrarFuncionarioAction extends GenericAction{
 
 			String xml = null;
 			PrintWriter pw = null;
-			XStream converter=new XStream(); 			converter.alias("FuncionarioForm",FuncionarioForm.class);
+			converter.alias("FuncionarioForm",FuncionarioForm.class);
 			
 			FuncionarioForm retorno = new FuncionarioForm();
 			xml = converter.toXML(retorno);

@@ -197,8 +197,8 @@ public class ConsultarFuncionarioExternoAction extends GenericAction {
 					.consultarFuncionarioExternoPorFiltroNoAsociadoALaAudiencia(
 							funcionarioExternoDTO, audienciaDTO);
 
-			XStream converter=new XStream(); 			converter.alias("listaFuncionariExternoDTO", java.util.List.class);
-			XStream converter=new XStream(); 			converter.alias("funcionarioExternoDTO",
+			converter.alias("listaFuncionariExternoDTO", java.util.List.class);
+			converter.alias("funcionarioExternoDTO",
 					FuncionarioExternoDTO.class);
 			String xml = converter.toXML(funcionarioExternoDTOList);
 			response.setContentType("text/xml");

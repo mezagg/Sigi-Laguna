@@ -212,7 +212,7 @@ public class ConvenioAction extends GenericAction {
 				loConvenio = convenios.get(0);
 			}
 			
-			XStream converter=new XStream(); 			converter.alias("loConvenio", ConvenioDTO.class);
+			converter.alias("loConvenio", ConvenioDTO.class);
 			String xml = converter.toXML(loConvenio);
 			log.info("xml del convenio respuesta: :::::::::"+ xml);
 			
@@ -325,7 +325,7 @@ public class ConvenioAction extends GenericAction {
 			log.info("Convenio Dto del convenio respuesta: :::::::::"+ convenioDTO);
 			convenioDTO.setFechaFinString(DateUtils.formatear(convenioDTO.getFechaFin()));
 			convenioDTO.setFechaInicioString(DateUtils.formatear(convenioDTO.getFechaInicio()));
-			XStream converter=new XStream(); 			converter.alias("convenioDTO", ConvenioDTO.class);
+			converter.alias("convenioDTO", ConvenioDTO.class);
 			String xml = converter.toXML(convenioDTO);
 			log.info("xml del convenio respuesta: :::::::::"+ xml);
 			
@@ -381,7 +381,7 @@ public class ConvenioAction extends GenericAction {
 			
 			log.info("Convenio Dto del convenio respuesta: :::::::::"+ convenioDTO);
 			
-			XStream converter=new XStream(); 			converter.alias("fechaCompromisoDTO", ConvenioDTO.class);
+			converter.alias("fechaCompromisoDTO", ConvenioDTO.class);
 			String xml = converter.toXML(fechaCompromisoDTO);
 			log.info("xml del convenio respuesta: :::::::::"+ xml);
 			
@@ -469,7 +469,7 @@ public class ConvenioAction extends GenericAction {
 			
 			log.info("Convenio Hora Fecha Actual: :::::::::"+ horayFecha);
 			
-			XStream converter=new XStream(); 			converter.alias("horayFecha", Date.class);
+			converter.alias("horayFecha", Date.class);
 			String xml = converter.toXML(horayFecha);
 			log.info("xml del convenio respuesta horayFecha: :::::::::"+ xml);
 			
@@ -505,7 +505,7 @@ public class ConvenioAction extends GenericAction {
 			fechaCompromisoDTO.setFechaCumplimientoString(DateUtils.formatear(fechaCompromisoDTO.getFechaCumplimiento()));
 			fechaCompromisoDTO.setHoraCumplimientoString(DateUtils.formatearHora(fechaCompromisoDTO.getFechaCumplimiento()));
 			
-			XStream converter=new XStream(); 			converter.alias("fechaCompromisoDTO", FechaCompromisoDTO.class);
+			converter.alias("fechaCompromisoDTO", FechaCompromisoDTO.class);
 			String xml = converter.toXML(fechaCompromisoDTO);
 			log.info("xml del convenio respuesta: :::::::::"+ xml);
 			

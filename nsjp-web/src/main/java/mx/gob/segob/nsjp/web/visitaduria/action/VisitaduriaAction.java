@@ -446,7 +446,7 @@ public class VisitaduriaAction extends GenericAction{
 			RelNumExpedienteAuditoriaDTO infoVisitaduriaDTO= expedienteDelegate.consultarRelacionPorIdAuditoria(Long.parseLong(idNumeroExpediente)); 
 			
 			//consultamos la informacion de detalle
-			XStream converter=new XStream(); 			converter.alias("AuditoriaDTO", RelNumExpedienteAuditoriaDTO.class);
+			converter.alias("AuditoriaDTO", RelNumExpedienteAuditoriaDTO.class);
 			String xml = converter.toXML(infoVisitaduriaDTO);
 			if(log.isDebugEnabled())
 			{

@@ -420,7 +420,7 @@ public class AdministracionSistemaAction extends ReporteBaseAction{
 			
 			UsuarioDTO usuarioDTO = usuarioDelegate.consultarUsuarioPorClaveFuncionario(Long.parseLong(claveFuncionario));
 						
-			XStream converter=new XStream(); 			converter.alias("usuarioDTO", UsuarioDTO.class);
+			converter.alias("usuarioDTO", UsuarioDTO.class);
 			String xml = converter.toXML(usuarioDTO);
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();

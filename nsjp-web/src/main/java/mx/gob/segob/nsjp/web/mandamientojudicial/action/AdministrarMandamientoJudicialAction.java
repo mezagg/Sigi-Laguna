@@ -477,7 +477,7 @@ public class AdministrarMandamientoJudicialAction extends GenericAction {
 
 			mandamientoDTO.setMandamientosPersona(null);
 
-			XStream converter=new XStream(); 			converter.alias("mandamientoJudicial", MandamientoDTO.class);
+			converter.alias("mandamientoJudicial", MandamientoDTO.class);
 			String xml = converter.toXML(mandamientoDTO);
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();
@@ -1766,8 +1766,8 @@ public class AdministrarMandamientoJudicialAction extends GenericAction {
 				}
 			}
 
-			XStream converter=new XStream(); 			converter.alias("listaSolCumplMandamiento", List.class);
-			XStream converter=new XStream(); 			converter.alias("solicitudMandamientoDTO",
+			converter.alias("listaSolCumplMandamiento", List.class);
+			converter.alias("solicitudMandamientoDTO",
 					SolicitudMandamientoDTO.class);
 			String xml = converter.toXML(listaSolicitudesDeMandamiento);
 			escribirRespuesta(response, xml);

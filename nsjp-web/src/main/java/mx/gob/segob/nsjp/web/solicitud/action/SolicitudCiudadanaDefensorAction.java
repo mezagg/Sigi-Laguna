@@ -190,7 +190,7 @@ public class SolicitudCiudadanaDefensorAction extends GenericAction {
             SolicitudDefensorDTO solicitudDefensorDTO = solicitudDelegate.registrarSolicitudAsesoriaLegal(expedienteDTO);
 
             String xml = null;
-            XStream converter=new XStream(); 			converter.alias("solicitudDTO", SolicitudDTO.class);
+            converter.alias("solicitudDTO", SolicitudDTO.class);
             xml = converter.toXML(solicitudDefensorDTO);
             escribirRespuesta(response, xml);
 
@@ -723,7 +723,7 @@ public class SolicitudCiudadanaDefensorAction extends GenericAction {
 
             String xml = null;
             PrintWriter pw = null;
-            XStream converter=new XStream(); 			converter.alias("solicitudDefensorDTO", SolicitudDefensorDTO.class);
+            converter.alias("solicitudDefensorDTO", SolicitudDefensorDTO.class);
             xml = converter.toXML(resp);
             response.setContentType("text/xml");
             pw = response.getWriter();
@@ -833,7 +833,7 @@ public class SolicitudCiudadanaDefensorAction extends GenericAction {
 
             String xml = null;
             PrintWriter pw = null;
-            XStream converter=new XStream(); 			converter.alias("involucradoDTO", InvolucradoDTO.class);
+            converter.alias("involucradoDTO", InvolucradoDTO.class);
             xml = converter.toXML(involucradoDTO);
             response.setContentType("text/xml");
             pw = response.getWriter();
@@ -1197,7 +1197,7 @@ public class SolicitudCiudadanaDefensorAction extends GenericAction {
 
             String xml = null;
             PrintWriter pw = null;
-            XStream converter=new XStream(); 			converter.alias("involucradoDTO", InvolucradoDTO.class);
+            converter.alias("involucradoDTO", InvolucradoDTO.class);
             xml = converter.toXML(involucradoDTO);
             response.setContentType("text/xml");
             pw = response.getWriter();
@@ -1272,7 +1272,7 @@ public class SolicitudCiudadanaDefensorAction extends GenericAction {
 
             String xml = null;
             PrintWriter pw = null;
-            XStream converter=new XStream(); 			converter.alias("exito", SolicitudDefensorDTO.class);
+            converter.alias("exito", SolicitudDefensorDTO.class);
 
             xml = converter.toXML(solicitudDefensorDTO);
             response.setContentType("text/xml");
@@ -1326,7 +1326,7 @@ public class SolicitudCiudadanaDefensorAction extends GenericAction {
                     listaDefensores);
 
             mapping.findForward("listaDefensorDTO");
-            XStream converter=new XStream(); 			converter.alias("listaDefensorDTO", ActionMapping.class);
+            converter.alias("listaDefensorDTO", ActionMapping.class);
 
             response.setContentType("text/xml; charset=UTF-8");
             response.setHeader("Cache-Control", "no-cache");
@@ -1531,7 +1531,7 @@ public class SolicitudCiudadanaDefensorAction extends GenericAction {
 
             notificacionDelegate.reasignarAbogadoDefensorExpediente(avisoDesignacionDto);
 
-            XStream converter=new XStream(); 			converter.alias("respuesta", String.class);
+            converter.alias("respuesta", String.class);
             escribirRespuesta(response, converter.toXML("exito"));
 
         } catch (NSJPNegocioException e) {
@@ -1629,7 +1629,7 @@ public class SolicitudCiudadanaDefensorAction extends GenericAction {
                     nuevoEstatusNumExpId, numeroExpedienteId);
 
             String xml = null;
-            XStream converter=new XStream(); 			converter.alias("respuesta", Boolean.class);
+            converter.alias("respuesta", Boolean.class);
             xml = converter.toXML(respuesta);
             escribirRespuesta(response, xml);
 
@@ -1673,7 +1673,7 @@ public class SolicitudCiudadanaDefensorAction extends GenericAction {
 
             String xml = null;
             PrintWriter pw = null;
-            XStream converter=new XStream(); 			converter.alias("avisoDetencionDTO", AvisoDetencionDTO.class);
+            converter.alias("avisoDetencionDTO", AvisoDetencionDTO.class);
             xml = converter.toXML(avisoDetencionDTO);
             response.setContentType("text/xml");
             pw = response.getWriter();
@@ -2096,7 +2096,7 @@ public class SolicitudCiudadanaDefensorAction extends GenericAction {
             designacion.setSolicitudDefensor(null);
             PrintWriter pw = response.getWriter();
             response.setContentType("text/xml");
-            XStream converter=new XStream(); 			converter.alias("designacion", AvisoDesignacionDTO.class);
+            converter.alias("designacion", AvisoDesignacionDTO.class);
             pw.print(converter.toXML(designacion));
             pw.flush();
             pw.close();

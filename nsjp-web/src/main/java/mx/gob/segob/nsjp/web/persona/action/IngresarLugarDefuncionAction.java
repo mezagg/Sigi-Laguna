@@ -67,8 +67,8 @@ public class IngresarLugarDefuncionAction extends GenericAction {
 			log.debug("ejecutando Action cargarCatalogos");
 			List<CatalogoDTO> listaCatalogo = service.recuperarCatalogo(Catalogos.TIPOS_DEFUNCION);
 			
-			XStream converter=new XStream(); 			converter.alias("listaCatalogo", java.util.List.class);
-			XStream converter=new XStream(); 			converter.alias("catTiposDefuncion", CatalogoDTO.class);
+			converter.alias("listaCatalogo", java.util.List.class);
+			converter.alias("catTiposDefuncion", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();
@@ -97,8 +97,8 @@ public class IngresarLugarDefuncionAction extends GenericAction {
 			log.debug("ejecutando Action cargarCatalogos");
 			List<CatalogoDTO> listaCatalogo = service.recuperarCatalogo(Catalogos.DEFUNCION_CERTIFICADA_POR);
 			
-			XStream converter=new XStream(); 			converter.alias("listaCatalogo", java.util.List.class);
-			XStream converter=new XStream(); 			converter.alias("catCertificadaPor", CatalogoDTO.class);
+			converter.alias("listaCatalogo", java.util.List.class);
+			converter.alias("catCertificadaPor", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();
@@ -127,8 +127,8 @@ public class IngresarLugarDefuncionAction extends GenericAction {
 			log.debug("ejecutando Action cargarCatalogos");
 			List<CatalogoDTO> listaCatalogo = service.recuperarCatalogo(Catalogos.SITIO_DEFUNCION);
 			
-			XStream converter=new XStream(); 			converter.alias("listaCatalogo", java.util.List.class);
-			XStream converter=new XStream(); 			converter.alias("catSitioDefuncion", CatalogoDTO.class);
+			converter.alias("listaCatalogo", java.util.List.class);
+			converter.alias("catSitioDefuncion", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();
@@ -157,8 +157,8 @@ public class IngresarLugarDefuncionAction extends GenericAction {
 			log.debug("ejecutando Action cargarCatalogos");
 			List<CatalogoDTO> listaCatalogo = service.recuperarCatalogo(Catalogos.DEFUNCION_SITIO_LESION);
 			
-			XStream converter=new XStream(); 			converter.alias("listaCatalogo", java.util.List.class);
-			XStream converter=new XStream(); 			converter.alias("catSitioLesion", CatalogoDTO.class);
+			converter.alias("listaCatalogo", java.util.List.class);
+			converter.alias("catSitioLesion", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();
@@ -187,8 +187,8 @@ public class IngresarLugarDefuncionAction extends GenericAction {
 			log.debug("ejecutando Action cargarCatalogos");
 			List<CatalogoDTO> listaCatalogo = service.recuperarCatalogo(Catalogos.DEFUNCION_FUE_EN_TRABAJO);
 			
-			XStream converter=new XStream(); 			converter.alias("listaCatalogo", java.util.List.class);
-			XStream converter=new XStream(); 			converter.alias("catFueEnTrabajo", CatalogoDTO.class);
+			converter.alias("listaCatalogo", java.util.List.class);
+			converter.alias("catFueEnTrabajo", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();
@@ -217,8 +217,8 @@ public class IngresarLugarDefuncionAction extends GenericAction {
 			log.debug("ejecutando Action cargarCatalogos");
 			List<CatalogoDTO> listaCatalogo = service.recuperarCatalogo(Catalogos.DEFUNCION_TIPO_EVENTO);
 			
-			XStream converter=new XStream(); 			converter.alias("listaCatalogo", java.util.List.class);
-			XStream converter=new XStream(); 			converter.alias("catTipoEvento", CatalogoDTO.class);
+			converter.alias("listaCatalogo", java.util.List.class);
+			converter.alias("catTipoEvento", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();
@@ -247,8 +247,8 @@ public class IngresarLugarDefuncionAction extends GenericAction {
 			log.debug("ejecutando Action cargarCatalogos");
 			List<CatalogoDTO> listaCatalogo = service.recuperarCatalogo(Catalogos.DEFUNCION_TIPO_VICTIMA);
 			
-			XStream converter=new XStream(); 			converter.alias("listaCatalogo", java.util.List.class);
-			XStream converter=new XStream(); 			converter.alias("catTipoVictima", CatalogoDTO.class);
+			converter.alias("listaCatalogo", java.util.List.class);
+			converter.alias("catTipoVictima", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();
@@ -277,8 +277,8 @@ public class IngresarLugarDefuncionAction extends GenericAction {
 			log.debug("ejecutando Action cargarCatalogos");
 			List<CatalogoDTO> listaCatalogo = service.recuperarCatalogo(Catalogos.DEFUNCION_TIPO_ARMA);
 			
-			XStream converter=new XStream(); 			converter.alias("listaCatalogo", java.util.List.class);
-			XStream converter=new XStream(); 			converter.alias("catTipoArma", CatalogoDTO.class);
+			converter.alias("listaCatalogo", java.util.List.class);
+			converter.alias("catTipoArma", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();
@@ -307,8 +307,8 @@ public class IngresarLugarDefuncionAction extends GenericAction {
 			log.debug("ejecutando Action cargarCatalogos");
 			List<CatalogoDTO> listaCatalogo = service.recuperarCatalogo(Catalogos.DEFUNCION_CONDICION_EMBARAZO);
 			
-			XStream converter=new XStream(); 			converter.alias("listaCatalogo", java.util.List.class);
-			XStream converter=new XStream(); 			converter.alias("catCondicionEmbarazo", CatalogoDTO.class);
+			converter.alias("listaCatalogo", java.util.List.class);
+			converter.alias("catCondicionEmbarazo", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();
@@ -337,8 +337,8 @@ public class IngresarLugarDefuncionAction extends GenericAction {
 			log.debug("ejecutando Action cargarCatalogos");
 			List<CatalogoDTO> listaCatalogo = service.recuperarCatalogo(Catalogos.DEFUNCION_PERIODO_POSPARTO);
 			
-			XStream converter=new XStream(); 			converter.alias("listaCatalogo", java.util.List.class);
-			XStream converter=new XStream(); 			converter.alias("catPeriodoPosparto", CatalogoDTO.class);
+			converter.alias("listaCatalogo", java.util.List.class);
+			converter.alias("catPeriodoPosparto", CatalogoDTO.class);
 			String xml = converter.toXML(listaCatalogo);
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();
@@ -368,8 +368,8 @@ public class IngresarLugarDefuncionAction extends GenericAction {
 //			List<CatalogoDTO> listaCatalogoEntidades = catDelegate
 //					.recuperarCatalogoDependiente(Catalogos.ENTIDAD_FEDERATIVA,
 //							forma.getGlCatPaisId());
-//			XStream converter=new XStream(); 			converter.alias("listaCatalogoEntidades", java.util.List.class);
-//			XStream converter=new XStream(); 			converter.alias("catEntidadesFed", CatalogoDTO.class);
+//			converter.alias("listaCatalogoEntidades", java.util.List.class);
+//			converter.alias("catEntidadesFed", CatalogoDTO.class);
 //			String xml = converter.toXML(listaCatalogoEntidades);
 //			response.setContentType("text/xml");
 //			PrintWriter pw = response.getWriter();
@@ -398,8 +398,8 @@ public class IngresarLugarDefuncionAction extends GenericAction {
 //			List<CatalogoDTO> listaCatalogoCiudades = catDelegate
 //					.recuperarCatalogoDependiente(Catalogos.CIUDAD,
 //							forma.getGlCatEntidadFederativaId());
-//			XStream converter=new XStream(); 			converter.alias("listaCatalogoCiudades", java.util.List.class);
-//			XStream converter=new XStream(); 			converter.alias("catCiudades", CatalogoDTO.class);
+//			converter.alias("listaCatalogoCiudades", java.util.List.class);
+//			converter.alias("catCiudades", CatalogoDTO.class);
 //			String xml = converter.toXML(listaCatalogoCiudades);
 //			response.setContentType("text/xml");
 //			PrintWriter pw = response.getWriter();
@@ -429,8 +429,8 @@ public class IngresarLugarDefuncionAction extends GenericAction {
 //			List<CatalogoDTO> listaCatalogoDelegMun = catDelegate
 //			.recuperarCatalogoDependiente(Catalogos.DELEGACION_MUNICIPIO,
 //					forma.getGlCatEntidadFederativaId());		
-//			XStream converter=new XStream(); 			converter.alias("listaCatalogoDelegMun", java.util.List.class);
-//			XStream converter=new XStream(); 			converter.alias("catDelegMun", CatalogoDTO.class);
+//			converter.alias("listaCatalogoDelegMun", java.util.List.class);
+//			converter.alias("catDelegMun", CatalogoDTO.class);
 //			String xml = converter.toXML(listaCatalogoDelegMun);
 //			response.setContentType("text/xml");
 //			PrintWriter pw = response.getWriter();
@@ -479,8 +479,8 @@ public class IngresarLugarDefuncionAction extends GenericAction {
 //			
 //			List<CatalogoDTO> listaCatalogoAsentColonia = catDelegate.consultarAsentamiento(forma.getGlDelgMunId(), forma.getGlCatCiudadId(), forma.getGlCatTipoAsentamientoId());
 //			
-//			XStream converter=new XStream(); 			converter.alias("listaCatalogoAsentColonia", java.util.List.class);
-//			XStream converter=new XStream(); 			converter.alias("catAsentColonia", CatalogoDTO.class);
+//			converter.alias("listaCatalogoAsentColonia", java.util.List.class);
+//			converter.alias("catAsentColonia", CatalogoDTO.class);
 //			String xml = converter.toXML(listaCatalogoAsentColonia);
 //			response.setContentType("text/xml");
 //			PrintWriter pw = response.getWriter();
@@ -510,8 +510,8 @@ public class IngresarLugarDefuncionAction extends GenericAction {
 //			log.debug("ejecutando Action cargarTipoAsentamiento");
 //			List<CatalogoDTO> listaCatalogo = catDelegate
 //					.recuperarCatalogo(Catalogos.TIPO_ASENTAMIENTO);
-//			XStream converter=new XStream(); 			converter.alias("listaCatalogo", java.util.List.class);
-//			XStream converter=new XStream(); 			converter.alias("catTipoAsentamiento", CatalogoDTO.class);
+//			converter.alias("listaCatalogo", java.util.List.class);
+//			converter.alias("catTipoAsentamiento", CatalogoDTO.class);
 //			String xml = converter.toXML(listaCatalogo);
 //			response.setContentType("text/xml");
 //			PrintWriter pw = response.getWriter();
@@ -543,8 +543,8 @@ public class IngresarLugarDefuncionAction extends GenericAction {
 //			log.debug("ejecutando Action cargarTipoCalle");
 //			List<CatalogoDTO> listaCatalogo = catDelegate
 //					.recuperarCatalogo(Catalogos.TIPO_CALLE);
-//			XStream converter=new XStream(); 			converter.alias("listaCatalogo", java.util.List.class);
-//			XStream converter=new XStream(); 			converter.alias("catTipoCalle", CatalogoDTO.class);
+//			converter.alias("listaCatalogo", java.util.List.class);
+//			converter.alias("catTipoCalle", CatalogoDTO.class);
 //			String xml = converter.toXML(listaCatalogo);
 //			response.setContentType("text/xml");
 //			PrintWriter pw = response.getWriter();
@@ -584,8 +584,8 @@ public class IngresarLugarDefuncionAction extends GenericAction {
 //		 }
 //		 
 //		 List<AsentamientoDTO> asentamientos = lugarDelegate.completarAsentamientoXCodigoPostal(forma.getCodigoPostal());
-//			XStream converter=new XStream(); 			converter.alias("asentamientos", java.util.List.class);
-//			XStream converter=new XStream(); 			converter.alias("asentamiento", AsentamientoDTO.class);
+//			converter.alias("asentamientos", java.util.List.class);
+//			converter.alias("asentamiento", AsentamientoDTO.class);
 //		
 //		 String xml = converter.toXML(asentamientos);
 //		 response.setContentType("text/xml");
@@ -616,8 +616,8 @@ public class IngresarLugarDefuncionAction extends GenericAction {
 //		 AsentamientoDTO asentDTO = lugarDelegate.obtenerAentamientoPrId(idAsentamiento);
 //		 log.debug("::::loCodigoPostaBD::::: " + asentDTO.getCodigoPostal());
 //
-////			XStream converter=new XStream(); 			converter.alias("loCodigoPostaBD", String.class);
-//			XStream converter=new XStream(); 			converter.alias("asentamiento", AsentamientoDTO.class);
+////			converter.alias("loCodigoPostaBD", String.class);
+//			converter.alias("asentamiento", AsentamientoDTO.class);
 //		
 //		 String xml = converter.toXML(asentDTO);
 //		 response.setContentType("text/xml");

@@ -1926,14 +1926,14 @@ public class GeneradorDocumentoAction extends ReporteBaseAction {
             documentoDTO.setDocumentoId(documentoId);
 
             documentoDTO.setExpedienteDTO(expediente);
-            XStream converter=new XStream(); 			converter.alias("documentoDTO", DocumentoDTO.class);
+            converter.alias("documentoDTO", DocumentoDTO.class);
             String xml = converter.toXML(documentoDTO);
             escribirRespuesta(response, xml);
 
         } catch (Exception e) {
             DocumentoDTO documentoDTO = new DocumentoDTO();
             documentoDTO.setDocumentoId(0L);
-            XStream converter=new XStream(); 			converter.alias("documentoDTO", DocumentoDTO.class);
+            converter.alias("documentoDTO", DocumentoDTO.class);
             String xml = converter.toXML(documentoDTO);
             escribirRespuesta(response, xml);
             logger.error(e.getMessage(), e);

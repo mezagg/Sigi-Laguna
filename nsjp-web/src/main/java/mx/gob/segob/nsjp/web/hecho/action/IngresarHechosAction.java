@@ -465,7 +465,7 @@ public class IngresarHechosAction extends GenericAction {
 			else
 			{
 				hechoDTO.setHechoId(0L);
-				XStream converter=new XStream(); 			converter.alias("hechoDTO", HechoDTO.class);
+				converter.alias("hechoDTO", HechoDTO.class);
 				String xml = converter.toXML(hechoDTO);
 				escribirRespuesta(response, xml);
 			}

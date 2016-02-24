@@ -359,7 +359,7 @@ public class UnidadAtencionVictimasDelitoAction extends GenericAction{
 			DatosGeneralesExpedienteUAVDDTO datosSolicitudUAVD = expedienteDlegate.obtenerResumenDeExpedienteUAVD(solicitud);
 			
 			//consultamos la informacion de detalle
-			XStream converter=new XStream(); 			converter.alias("DatosGeneralesExpedienteUAVDDTO", DatosGeneralesExpedienteUAVDDTO.class);
+			converter.alias("DatosGeneralesExpedienteUAVDDTO", DatosGeneralesExpedienteUAVDDTO.class);
 			String xml = converter.toXML(datosSolicitudUAVD);
 			if(log.isDebugEnabled())
 			{
@@ -466,7 +466,7 @@ public class UnidadAtencionVictimasDelitoAction extends GenericAction{
 			log.info("TERMINE consultando UAVD_entrevista_complementaria...");
 			
 			//regresamos la informacion a la vista
-			XStream converter=new XStream(); 			converter.alias("EntrevistaComplementariaDTO", EntrevistaComplementariaDTO.class);
+			converter.alias("EntrevistaComplementariaDTO", EntrevistaComplementariaDTO.class);
 			String xml = converter.toXML(entrevistaComplementariaDTO);
 			if(log.isDebugEnabled())
 			{
@@ -551,7 +551,7 @@ public class UnidadAtencionVictimasDelitoAction extends GenericAction{
 			entrevistaComplementariaDTO= sesionDelegate.guardarEntrevistaComplementaria(entrevistaComplementariaDTO);
 			
 			//regresamos la informacion a la vista
-			XStream converter=new XStream(); 			converter.alias("EntrevistaComplementariaDTO", EntrevistaComplementariaDTO.class);
+			converter.alias("EntrevistaComplementariaDTO", EntrevistaComplementariaDTO.class);
 			String xml = converter.toXML(entrevistaComplementariaDTO);
 			if(log.isDebugEnabled())
 			{
@@ -657,7 +657,7 @@ public class UnidadAtencionVictimasDelitoAction extends GenericAction{
 			}
 //			entrevistaInicialDTO.setMotivoAtencion("adwd");
 			//regresamos la informacion a la vista
-			XStream converter=new XStream(); 			converter.alias("EntrevistaInicialDTO", EntrevistaInicialDTO.class);
+			converter.alias("EntrevistaInicialDTO", EntrevistaInicialDTO.class);
 			String xml = converter.toXML(entrevistaInicialDTO);
 			if(log.isDebugEnabled())
 			{
@@ -721,7 +721,7 @@ public class UnidadAtencionVictimasDelitoAction extends GenericAction{
 			//operacion
 			entrevistaInicialDTO=sesionDelegate.guardarEntrevistaInicial(entrevistaInicialDTO);
 			//regresamos la informacion a la vista
-			XStream converter=new XStream(); 			converter.alias("EntrevistaInicialDTO", EntrevistaInicialDTO.class);
+			converter.alias("EntrevistaInicialDTO", EntrevistaInicialDTO.class);
 			String xml = converter.toXML(entrevistaInicialDTO);
 			if(log.isDebugEnabled())
 			{
@@ -795,7 +795,7 @@ public class UnidadAtencionVictimasDelitoAction extends GenericAction{
 //			notaEvolucionDTO.setObjetivo("Objetivo");
 //			notaEvolucionDTO.setAnalisisSesion("Analisis");
 //			notaEvolucionDTO.setPlanteamientoTerap("plantera");
-			XStream converter=new XStream(); 			converter.alias("NotaEvolucionDTO", NotaEvolucionDTO.class);
+			converter.alias("NotaEvolucionDTO", NotaEvolucionDTO.class);
 			String xml = converter.toXML(notaEvolucionDTO);
 			if(log.isDebugEnabled())
 			{
@@ -871,7 +871,7 @@ public class UnidadAtencionVictimasDelitoAction extends GenericAction{
 			}
 			notaEvolucionDTO=sesionDelegate.guardarNotaEvolucion(notaEvolucionDTO);
 			//regresamos la informacion a la vista
-			XStream converter=new XStream(); 			converter.alias("EntrevistaInicialDTO", EntrevistaInicialDTO.class);
+			converter.alias("EntrevistaInicialDTO", EntrevistaInicialDTO.class);
 			String xml = converter.toXML(notaEvolucionDTO);
 			if(log.isDebugEnabled())
 			{
@@ -926,7 +926,7 @@ public class UnidadAtencionVictimasDelitoAction extends GenericAction{
 				notaEvolucionDTO=sesionDelegate.guardarNotaEvolucion(notaEvolucionDTO);
 				
 				
-				XStream converter=new XStream(); 			converter.alias("NotaEvolucionDTO", EntrevistaInicialDTO.class);
+				converter.alias("NotaEvolucionDTO", EntrevistaInicialDTO.class);
 //				String xml = converter.toXML(notaEvolucionDTO);
 				if(log.isDebugEnabled())
 				{
@@ -1006,7 +1006,7 @@ public class UnidadAtencionVictimasDelitoAction extends GenericAction{
 						writer.print("<row id='"+solicitudDTO.getDocumentoId()+","+expediente.getExpedienteId()+","+expediente.getNumeroExpediente()+","+expediente.getNumeroExpedienteId()+","+solicitudDTO.getTipoSolicitudDTO().getIdCampo()+"'>");
 						writer.print("<cell><![CDATA[<div class='celdaGrid'>"+expediente.getNumeroExpediente()+" </div>]]></cell>");
 						writer.print("<cell><![CDATA[<div class='celdaGrid'>"+DateUtils.formatear(solicitudDTO.getFechaCreacion())+" </div>]]></cell>");
-						XStream converter=new XStream(); 			converter.alias("expedienteDTO", ExpedienteDTO.class);
+						converter.alias("expedienteDTO", ExpedienteDTO.class);
 						log.info("expedienteDTO_UAVD:: "+converter.toXML(expediente));
 						if(expediente.getInvolucradoByCalidad(Calidades.VICTIMA_PERSONA)==null || expediente.getInvolucradoByCalidad(Calidades.VICTIMA_PERSONA).size()==0)
 						{
@@ -1071,7 +1071,7 @@ public class UnidadAtencionVictimasDelitoAction extends GenericAction{
 			FuncionarioDTO funcionarioDTO=solicitud.getUsuarioSolicitante();
 			//funcionarioDTO=funcionarioDelegate.consultarFuncionarioXNumeroEmpleado(funcionarioDTO);
 			
-			XStream converter=new XStream(); 			converter.alias("FuncionarioDTO", FuncionarioDTO.class);
+			converter.alias("FuncionarioDTO", FuncionarioDTO.class);
 			String xml = converter.toXML(funcionarioDTO);
 			if(log.isDebugEnabled())
 			{
@@ -1138,7 +1138,7 @@ public class UnidadAtencionVictimasDelitoAction extends GenericAction{
 			SolicitudDTO solicitud=solicitudDelegate.consultarSolicitudXId(Long.parseLong(idSolicitud));
 			FuncionarioDTO funcionarioDTO=solicitud.getUsuarioSolicitante();
 			
-			XStream converter=new XStream(); 			converter.alias("FuncionarioDTO", FuncionarioDTO.class);
+			converter.alias("FuncionarioDTO", FuncionarioDTO.class);
 			String xml = converter.toXML(funcionarioDTO);
 			if(log.isDebugEnabled())
 			{

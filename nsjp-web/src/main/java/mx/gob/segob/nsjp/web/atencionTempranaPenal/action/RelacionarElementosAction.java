@@ -262,7 +262,7 @@ public class RelacionarElementosAction extends GenericAction{
 			String xml = "";
 			
 			relacionDelegate.registrarRelacion(idCatRelacion, idElementoSujeto, idElementoComplemento);
-			XStream converter=new XStream(); 			converter.alias("true", Boolean.class);
+			converter.alias("true", Boolean.class);
 			xml = converter.toXML(true);
 			sb.append(xml);
 			
@@ -362,7 +362,7 @@ public class RelacionarElementosAction extends GenericAction{
 			String xml = "";
 			
 			relacionDelegate.actualizarEsActivoRelaciones(idsRelacion);
-			XStream converter=new XStream(); 			converter.alias("true", Boolean.class);
+			converter.alias("true", Boolean.class);
 			xml = converter.toXML(true);
 			sb.append(xml);
 			

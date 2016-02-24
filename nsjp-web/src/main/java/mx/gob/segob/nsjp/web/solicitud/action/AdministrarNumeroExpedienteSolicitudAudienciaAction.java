@@ -139,7 +139,7 @@ public class AdministrarNumeroExpedienteSolicitudAudienciaAction extends
 			Boolean seActualizo = solicitudDelegate
 					.actualizarNumeroExpedienteSolicitudAudiencia(expedienteDTO);
 
-			XStream converter=new XStream(); 			converter.alias("seActualizo", boolean.class);
+			converter.alias("seActualizo", boolean.class);
 			String xml = converter.toXML(seActualizo);
 			escribirRespuesta(response, xml);
 

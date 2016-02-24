@@ -419,7 +419,7 @@ public class DatosGeneralesReinsercionAction extends GenericAction {
 			}
 			
 			datosGralesRF = obtenerDatosGenerales(datosGralesRF, sentenciaDTO, request);
-			XStream converter=new XStream(); 			converter.alias("datosGralesRF", DatosGeneralesReinsercionForm.class);
+			converter.alias("datosGralesRF", DatosGeneralesReinsercionForm.class);
 			String xml = converter.toXML(datosGralesRF);
 			//mandamos la respuesta al cliente
 			escribir(response, xml,null);

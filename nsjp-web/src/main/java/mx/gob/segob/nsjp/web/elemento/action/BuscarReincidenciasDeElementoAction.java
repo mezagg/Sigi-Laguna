@@ -324,12 +324,12 @@ public class BuscarReincidenciasDeElementoAction extends GenericAction{
 			List<RelacionReincidenciaDTO> llReincidencias = elementoDelegate.registrarReinicidencias(idElemento, idCasosPersisitir, idFuncionario);
 			
 			if (llReincidencias != null){
-				XStream converter=new XStream(); 			converter.alias("RelacionReincidenciaDTO", RelacionReincidenciaDTO.class);
+				converter.alias("RelacionReincidenciaDTO", RelacionReincidenciaDTO.class);
 				String xml = converter.toXML(llReincidencias);
 				log.info(xml);
 				escribirRespuesta(response, xml);
 			} else {
-				XStream converter=new XStream(); 			converter.alias("RelacionReincidenciaDTO", RelacionReincidenciaDTO.class);
+				converter.alias("RelacionReincidenciaDTO", RelacionReincidenciaDTO.class);
 				String xml = converter.toXML(0);
 				log.info(xml);
 				escribirRespuesta(response, xml);

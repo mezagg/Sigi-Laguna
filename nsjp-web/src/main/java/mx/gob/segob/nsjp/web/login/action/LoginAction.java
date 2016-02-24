@@ -794,7 +794,7 @@ public class LoginAction extends GenericAction {
 						usuario.setDatosIncorrectos(true);
 					}
 					
-					XStream converter=new XStream(); 			converter.alias("usuarioDTO", UsuarioDTO.class);
+					converter.alias("usuarioDTO", UsuarioDTO.class);
 					String xml = converter.toXML(usuario);
 					request.getSession().removeAttribute(
 							Constants.KAPTCHA_SESSION_KEY);
@@ -804,7 +804,7 @@ public class LoginAction extends GenericAction {
 					usuario.setDatosIncorrectos(false);
 					//se guarda mensaje de error en idSesion
 					usuario.setIdSesion("Código captcha erróneo,<br/> favor de verificar.");
-					XStream converter=new XStream(); 			converter.alias("usuarioDTO", UsuarioDTO.class);
+					converter.alias("usuarioDTO", UsuarioDTO.class);
 					String xml = converter.toXML(usuario);
 					// request.getSession().removeAttribute(Constants.KAPTCHA_SESSION_KEY);
 					// Aqui se tiene que responder un mensaje de error
@@ -815,7 +815,7 @@ public class LoginAction extends GenericAction {
 				usuario.setDatosIncorrectos(false);
 				//se guarda mensaje de error en idSesion
 				usuario.setIdSesion("La sesión ha sido terminada,<br/> favor de volver a iniciar sesión.");
-				XStream converter=new XStream(); 			converter.alias("usuarioDTO", UsuarioDTO.class);
+				converter.alias("usuarioDTO", UsuarioDTO.class);
 				String xml = converter.toXML(usuario);
 				escribir(response, xml, null);
 			}

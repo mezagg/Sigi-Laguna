@@ -629,17 +629,17 @@ public class PermisosAudienciaJavsAction extends GenericAction{
 				
 				if(audienciaJAVSTransporteDTO!=null && audienciaJAVSTransporteDTO.getResultadoPermisoAudiencia()!=null){
 					resultado=audienciaJAVSTransporteDTO.getResultadoPermisoAudiencia();
-					XStream converter=new XStream(); 			converter.alias("long",Long.class);
+					converter.alias("long",Long.class);
 					xml = converter.toXML(resultado.toString());
 				}
 				else{
-					XStream converter=new XStream(); 			converter.alias("long",Long.class);
+					converter.alias("long",Long.class);
 					xml = converter.toXML(EstatusPermisosAudiencia.FALLO.getValorId());
 				}
 			}		
 
 			if(xml.equals("")){
-				XStream converter=new XStream(); 			converter.alias("long",Long.class);
+				converter.alias("long",Long.class);
 				xml = converter.toXML(resultado.toString());
 			}
 			
@@ -678,7 +678,7 @@ public class PermisosAudienciaJavsAction extends GenericAction{
 				}
 			}
 
-			XStream converter=new XStream(); 			converter.alias("long",Long.class);
+			converter.alias("long",Long.class);
 			String xml = converter.toXML(resultado);
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();
@@ -715,7 +715,7 @@ public class PermisosAudienciaJavsAction extends GenericAction{
 				resultado = audienciaDelegate.solicitarPermisoExterno(audienciaId, usuarioDTO, confInstId);
 			}
 
-			XStream converter=new XStream(); 			converter.alias("long",Long.class);
+			converter.alias("long",Long.class);
 			String xml = converter.toXML(resultado);			
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();

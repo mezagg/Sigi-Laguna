@@ -1437,7 +1437,7 @@ public class ConsultaEventosPJENCAction extends GenericAction{
 			
 		} catch (NSJPNegocioException e) {
 			//Significa que no se pudo enviar el mandamiento
-			XStream converter=new XStream(); 			converter.alias("respuesta",String.class);
+			converter.alias("respuesta",String.class);
 			escribirRespuesta(response,converter.toXML("fallo_envio_de_mandamiento_judicial"));
 			log.error(e.getMessage(),e);
 			

@@ -966,7 +966,7 @@ public class AdministrarCatalogosAction extends GenericAction {
 		}catch (Exception e) {		
 			logger.info(e.getCause(),e);				
 		}finally{
-			XStream converter=new XStream(); 			converter.alias("respuesta",String.class);
+			converter.alias("respuesta",String.class);
 			escribirRespuesta(response,converter.toXML(respuesta.toString()));
 			
 		}
@@ -989,7 +989,7 @@ public class AdministrarCatalogosAction extends GenericAction {
 				if(loParametroDTO != null && loParametroDTO.getValor() != null){
 					respuesta = loParametroDTO.getValor().toString();
 				}
-				XStream converter=new XStream(); 			converter.alias("respuesta",String.class);
+				converter.alias("respuesta",String.class);
 				escribirRespuesta(response,converter.toXML(respuesta.toString()));
 				
 				//TODO Manejo de Error, en caso de que no se tenga el parametro consultado.

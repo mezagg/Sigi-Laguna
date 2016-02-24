@@ -333,7 +333,7 @@ try {
     	
     	try {
 			List<CamposFormaDTO> resultado = formaDelegate.consultarCamposForma();
-			XStream converter=new XStream(); 			converter.alias("camposFormaDTO", CamposFormaDTO.class);
+			converter.alias("camposFormaDTO", CamposFormaDTO.class);
 			escribirRespuesta(response,converter.toXML(resultado));
 		} catch (NSJPNegocioException e) {
 			logger.error(e);

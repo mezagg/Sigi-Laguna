@@ -379,8 +379,8 @@ public class BuscarCasoAction extends GenericAction{
 			
 			List<CatalogoDTO> listaCatalogo=catDelegate.recuperarCatalogo(Catalogos.TIPO_OBJETO);
 
-			XStream converter=new XStream(); 			converter.alias("listaCatalogo", java.util.List.class);
-			XStream converter=new XStream(); 			converter.alias("catEvidencia", CatalogoDTO.class);
+			converter.alias("listaCatalogo", java.util.List.class);
+			converter.alias("catEvidencia", CatalogoDTO.class);
 			
 			String xml = converter.toXML(listaCatalogo);
 			

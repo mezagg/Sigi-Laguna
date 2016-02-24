@@ -256,7 +256,7 @@ public class SolicitudApoyoAction extends GenericAction {
 			String xml = null;
 			PrintWriter pw = null;
 			AvisoHechoDelictivoDTO avisoHechoDTO = new AvisoHechoDelictivoDTO(0L);			
-			XStream converter=new XStream(); 			converter.alias("avisoHechoDTO", AvisoHechoDelictivoDTO.class);
+			converter.alias("avisoHechoDTO", AvisoHechoDelictivoDTO.class);
 			xml = converter.toXML(avisoHechoDTO);
 			response.setContentType("text/xml");
 			log.info("xml de la Notificacion" + xml );	
@@ -410,7 +410,7 @@ public class SolicitudApoyoAction extends GenericAction {
 			
 			String xml = null;
 			PrintWriter pw = null;
-			XStream converter=new XStream(); 			converter.alias("avisoHechoDTO", AvisoHechoDelictivoDTO.class);
+			converter.alias("avisoHechoDTO", AvisoHechoDelictivoDTO.class);
 			xml = converter.toXML(avisoHechoDTO);
 			log.info("xml consulta aviso====" + xml);
 			response.setContentType("text/xml");
@@ -436,7 +436,7 @@ public class SolicitudApoyoAction extends GenericAction {
 			
 			String xml = null;
 			PrintWriter pw = null;
-			//XStream converter=new XStream(); 			converter.alias("quejaCiudadanaDTO", QuejaCiudadanaDTO.class);
+			//converter.alias("quejaCiudadanaDTO", QuejaCiudadanaDTO.class);
 			//xml = converter.toXML(quejaCiudadanaDTO);
 			response.setContentType("text/xml");
 			pw = response.getWriter();
@@ -486,7 +486,7 @@ public class SolicitudApoyoAction extends GenericAction {
 			
 			String xml = null;
 			PrintWriter pw = null;
-			//XStream converter=new XStream(); 			converter.alias("quejaCiudadanaDTO", QuejaCiudadanaDTO.class);
+			//converter.alias("quejaCiudadanaDTO", QuejaCiudadanaDTO.class);
 			//xml = converter.toXML(quejaCiudadanaDTO);
 			response.setContentType("text/xml");
 			pw = response.getWriter();

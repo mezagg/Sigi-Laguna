@@ -301,7 +301,7 @@ public class AtencionTempranaAdministrativaAction extends GenericAction{
 							NumberUtils.toLong(tipoAtencion, 0L));
 			
 			log.info("RESULTADO numeroOcurrencias="+numeroOcurrencias);
-			XStream converter=new XStream(); 			converter.alias("numeroRegistros",java.lang.Long.class);
+			converter.alias("numeroRegistros",java.lang.Long.class);
 			String xml = converter.toXML(numeroOcurrencias);
 			//mandamos la respuesta al cliente
 			escribir(response, xml,null);	

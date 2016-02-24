@@ -183,7 +183,7 @@ public class DefensaTecnicaAction extends GenericAction {
 			ExpedienteDTO expe=expedienteDelegate.consultarExpedientePorNumeroDeCaso(caso, usuario);
 			HttpSession ses = request.getSession();
 			ses.setAttribute("ExpedienteJor",expe);
-			XStream converter=new XStream(); 			converter.alias("solicitud", SolicitudDTO.class);
+			converter.alias("solicitud", SolicitudDTO.class);
 			xml = converter.toXML(sol);
 			escribir(response, xml, null);
 		}catch(NSJPNegocioException nsje){

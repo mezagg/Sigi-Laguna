@@ -1023,7 +1023,7 @@ public class ConsultaEventosAction extends GenericAction {
                             log.info("FUNCIONARIO_DTO, OBTENIDO:::::" + func);
                         }
                     }
-                    XStream converter=new XStream(); 			converter.alias("funcionario", FuncionarioDTO.class);
+                    converter.alias("funcionario", FuncionarioDTO.class);
                     xml = converter.toXML(funcionario);
                 }
 
@@ -1031,7 +1031,7 @@ public class ConsultaEventosAction extends GenericAction {
                     // LISTA DE FUNCIONARIOS EXTERNOS
                     FuncionarioExternoDTO funcionarioExternoDTO = new FuncionarioExternoDTO(funcionarioExternoId);
                     funcionarioExternoDTO = funcionarioExternoService.consultarFuncionarioExternoPorId(funcionarioExternoDTO);
-                    XStream converter=new XStream(); 			converter.alias("funcionarioExterno", FuncionarioExternoDTO.class);
+                    converter.alias("funcionarioExterno", FuncionarioExternoDTO.class);
                     xml = converter.toXML(funcionarioExternoDTO);
                 }
 
@@ -1043,7 +1043,7 @@ public class ConsultaEventosAction extends GenericAction {
                             log.info("INVOLUCRADO_DTO, OBTENIDO:::::" + invo);
                         }
                     }
-                    XStream converter=new XStream(); 			converter.alias("involucrado", InvolucradoDTO.class);
+                    converter.alias("involucrado", InvolucradoDTO.class);
                     xml = converter.toXML(involucrado);
                 }
 

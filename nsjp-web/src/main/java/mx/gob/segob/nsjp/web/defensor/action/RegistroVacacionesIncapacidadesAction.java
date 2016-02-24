@@ -226,7 +226,7 @@ public class RegistroVacacionesIncapacidadesAction extends GenericAction {
 				}catch(NSJPNegocioException e){
 					if(e.getCodigo() == CodigoError.EJCUCION_OPERACION_ESTADO_INCORRECTO){
 						
-						XStream converter=new XStream(); 			converter.alias("mensaje",String.class);
+						converter.alias("mensaje",String.class);
 						String xml = converter.toXML("No se puede registrar el evento por que el periodo coincide con un periodo registrado");
 						escribirRespuesta(response, xml);
 						

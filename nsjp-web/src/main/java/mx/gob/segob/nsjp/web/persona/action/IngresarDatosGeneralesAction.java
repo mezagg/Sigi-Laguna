@@ -356,7 +356,7 @@ public ActionForward consultarCatalogoIdioma(ActionMapping mapping, ActionForm f
 			SimpleDateFormat formato= new SimpleDateFormat("HH:mm:ss");
 			String hora=formato.format(horaCaptura);
 			XStream converter= new XStream();
-			XStream converter=new XStream(); 			converter.alias("horaActual", java.lang.String.class);
+			converter.alias("horaActual", java.lang.String.class);
 			String xml = converter.toXML(hora);
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();
@@ -384,8 +384,8 @@ public ActionForward consultarCatalogoIdioma(ActionMapping mapping, ActionForm f
 			log.info("ejecutando Action Cargar Combo Estado Fisico"); 
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.DATOS_GRLS_EDO_FISICO);
 			XStream converter= new XStream();
-			XStream converter=new XStream(); 			converter.alias("listaCatalogo", java.util.List.class);
-			XStream converter=new XStream(); 			converter.alias("catEdoFisico", CatalogoDTO.class);
+			converter.alias("listaCatalogo", java.util.List.class);
+			converter.alias("catEdoFisico", CatalogoDTO.class);
 			
 			String xml = converter.toXML(listaCatalogo);
 			response.setContentType("text/xml");
@@ -409,8 +409,8 @@ public ActionForward consultarCatalogoIdioma(ActionMapping mapping, ActionForm f
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.DATOS_GRLS_EDO_CONSCIENCIA);
 			XStream converter= new XStream();
     		
-			XStream converter=new XStream(); 			converter.alias("listaCatalogo", java.util.List.class);
-			XStream converter=new XStream(); 			converter.alias("catEdoConsciencia", CatalogoDTO.class);
+			converter.alias("listaCatalogo", java.util.List.class);
+			converter.alias("catEdoConsciencia", CatalogoDTO.class);
 			
 			String xml = converter.toXML(listaCatalogo);
 			response.setContentType("text/xml");
@@ -433,8 +433,8 @@ public ActionForward consultarCatalogoIdioma(ActionMapping mapping, ActionForm f
     		
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.DATOS_GRLS_EDO_CONSCIENCIA_INCONSCIENTE);
 			XStream converter= new XStream();
-			XStream converter=new XStream(); 			converter.alias("listaCatalogo", java.util.List.class);
-			XStream converter=new XStream(); 			converter.alias("catEdoConscienciaInconsciente", CatalogoDTO.class);
+			converter.alias("listaCatalogo", java.util.List.class);
+			converter.alias("catEdoConscienciaInconsciente", CatalogoDTO.class);
 			
 			String xml = converter.toXML(listaCatalogo);
 			response.setContentType("text/xml");
@@ -466,8 +466,8 @@ public ActionForward consultarCatalogoIdioma(ActionMapping mapping, ActionForm f
     		    		
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.EDAD_UNIDAD);
 			XStream converter= new XStream();
-			XStream converter=new XStream(); 			converter.alias("listaCatalogo", java.util.List.class);
-			XStream converter=new XStream(); 			converter.alias("catEdadUnidad", CatalogoDTO.class);
+			converter.alias("listaCatalogo", java.util.List.class);
+			converter.alias("catEdadUnidad", CatalogoDTO.class);
 			
 			String xml = converter.toXML(listaCatalogo);
 			response.setContentType("text/xml");
@@ -499,8 +499,8 @@ public ActionForward consultarCatalogoIdioma(ActionMapping mapping, ActionForm f
     		    		
 			List<CatalogoDTO> listaCatalogo = catDelegate.recuperarCatalogo(Catalogos.CONDICION_ACTIVIDAD);
 			XStream converter= new XStream();
-			XStream converter=new XStream(); 			converter.alias("listaCatalogo", java.util.List.class);
-			XStream converter=new XStream(); 			converter.alias("catCondicionActividad", CatalogoDTO.class);
+			converter.alias("listaCatalogo", java.util.List.class);
+			converter.alias("catCondicionActividad", CatalogoDTO.class);
 			
 			String xml = converter.toXML(listaCatalogo);
 			response.setContentType("text/xml");

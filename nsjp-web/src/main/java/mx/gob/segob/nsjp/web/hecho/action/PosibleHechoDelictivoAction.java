@@ -204,7 +204,7 @@ public class PosibleHechoDelictivoAction extends GenericAction {
 				else
 				{
 					notificacionDTO.setDocumentoId(0L);
-					XStream converter=new XStream(); 			converter.alias("notificacionDTO", NotificacionDTO.class);
+					converter.alias("notificacionDTO", NotificacionDTO.class);
 					String xml = converter.toXML(notificacionDTO);
 					escribirRespuesta(response, xml);
 				}
@@ -245,7 +245,7 @@ public class PosibleHechoDelictivoAction extends GenericAction {
 				
 				if(domicilioDTO!=null && domicilioDTO.getElementoId()!=null)
 				{
-					XStream converter=new XStream(); 			converter.alias("domicilioDTO", DomicilioDTO.class);
+					converter.alias("domicilioDTO", DomicilioDTO.class);
 					String xml = converter.toXML(domicilioDTO);
 					if(LOG.isDebugEnabled())
 					{
@@ -256,7 +256,7 @@ public class PosibleHechoDelictivoAction extends GenericAction {
 				else
 				{
 					domicilioDTO.setElementoId(0L);
-					XStream converter=new XStream(); 			converter.alias("domicilioDTO", DomicilioDTO.class);
+					converter.alias("domicilioDTO", DomicilioDTO.class);
 					String xml = converter.toXML(domicilioDTO);
 					escribirRespuesta(response, xml);
 				}

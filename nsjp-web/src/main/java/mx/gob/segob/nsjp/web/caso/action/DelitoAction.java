@@ -613,7 +613,7 @@ public class DelitoAction extends GenericAction{
 
 			DelitoPersonaDTO loDelitoPersonaDTO =delitoDelegate.consultarDelitoPersonaPorId(idDelitoPersona);
 			
-			XStream converter=new XStream(); 			converter.alias("DelitoPersonaDTO", DelitoPersonaDTO.class);
+			converter.alias("DelitoPersonaDTO", DelitoPersonaDTO.class);
 			String xml = converter.toXML(loDelitoPersonaDTO);
 			
 			log.info("ejecutando Action consultar delito persona por identificador . "+xml);	

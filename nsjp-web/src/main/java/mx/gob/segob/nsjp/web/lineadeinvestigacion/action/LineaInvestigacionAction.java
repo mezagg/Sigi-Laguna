@@ -144,7 +144,7 @@ public class LineaInvestigacionAction extends GenericAction{
 			
 			LineaInvestigacionDTO lineaBD = new LineaInvestigacionDTO(idLineaInvBD);
 			
-			XStream converter=new XStream(); 			converter.alias("LineaInvestigacionDTO", LineaInvestigacionDTO.class);
+			converter.alias("LineaInvestigacionDTO", LineaInvestigacionDTO.class);
 			String xml = converter.toXML(lineaBD);
 			if(logger.isDebugEnabled())
 			{
@@ -187,7 +187,7 @@ public class LineaInvestigacionAction extends GenericAction{
 				Long idComentarioBD= comentarioDelegate.guardarComentario(loComentario);
 				ComentarioDTO hipotesisBD=new ComentarioDTO(idComentarioBD);
 				
-				XStream converter=new XStream(); 			converter.alias("ComentarioDTO", ComentarioDTO.class);
+				converter.alias("ComentarioDTO", ComentarioDTO.class);
 				String xml = converter.toXML(hipotesisBD);
 				if(logger.isDebugEnabled())
 				{

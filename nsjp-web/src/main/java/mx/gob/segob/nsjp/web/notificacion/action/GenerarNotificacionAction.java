@@ -207,7 +207,7 @@ public class GenerarNotificacionAction extends GenericAction {
 	
 			String xml = null;
 			PrintWriter pw = null;
-			XStream converter=new XStream(); 			converter.alias("NotificacionDTO", NotificacionDTO.class);
+			converter.alias("NotificacionDTO", NotificacionDTO.class);
 			xml = converter.toXML(notificacion);
 			response.setContentType("text/xml");
 			pw = response.getWriter();
@@ -285,7 +285,7 @@ public class GenerarNotificacionAction extends GenericAction {
 			notificacionDelegate.actualizarNotificacion(notificacionDTO);
 			
 			String xml = null;
-			XStream converter=new XStream(); 			converter.alias("NotificacionDTO", NotificacionDTO.class);
+			converter.alias("NotificacionDTO", NotificacionDTO.class);
 			xml = converter.toXML(notificacionDTO);
 			escribirRespuesta(response, xml);
 			

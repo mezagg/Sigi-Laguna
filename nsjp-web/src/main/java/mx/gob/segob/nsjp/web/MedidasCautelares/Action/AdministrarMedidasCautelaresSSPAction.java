@@ -117,7 +117,7 @@ public class AdministrarMedidasCautelaresSSPAction extends GenericAction{
 			// De requerir la creación de una nueva actividad de un tipo específico, basta con cambiarle el valor al parámetro
 			// nuevaActividad = null, por el nuevo valor. En caso contrario, es el flujo normal.
 			Long documentoId = documentoDelegate.guardarDocumento(documentoDTO, expTrabajo, null,null);
-			XStream converter=new XStream(); 			converter.alias("documentoId", Long.class);
+			converter.alias("documentoId", Long.class);
 			escribirRespuesta(response, converter.toXML(documentoId));
 		} catch (NSJPNegocioException e) {
 			log.error(e.getMessage(), e);

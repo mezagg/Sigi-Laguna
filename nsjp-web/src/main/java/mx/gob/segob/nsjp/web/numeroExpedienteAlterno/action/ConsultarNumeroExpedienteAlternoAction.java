@@ -134,7 +134,7 @@ public class ConsultarNumeroExpedienteAlternoAction extends GenericAction{
 				numeroExpedienteAlterno = numeroExpedienteAlternoDelegate.consultarNumeroExpedienteAlterno(expedienteDto);
 			}
 
-			XStream converter=new XStream(); 			converter.alias("respuesta", String.class);
+			converter.alias("respuesta", String.class);
 			String xml = converter.toXML(numeroExpedienteAlterno);
 			escribirRespuesta(response, xml);
 

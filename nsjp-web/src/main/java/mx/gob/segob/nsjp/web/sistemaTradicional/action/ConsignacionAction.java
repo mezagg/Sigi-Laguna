@@ -164,7 +164,7 @@ public class ConsignacionAction extends GenericAction {
 					xml = "succes";
 				}
 			}
-			XStream converter=new XStream(); 			converter.alias("respuesta", String.class);
+			converter.alias("respuesta", String.class);
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();
 			pw.print(xml);
@@ -202,7 +202,7 @@ public class ConsignacionAction extends GenericAction {
 			}
 			
 			if(estatusExpediente != null && estatusExpediente > 0L){
-				XStream converter=new XStream(); 			converter.alias("estatusNumeroExpediente", String.class);
+				converter.alias("estatusNumeroExpediente", String.class);
 				String xml = converter.toXML(Long.toString(estatusExpediente));
 				escribirRespuesta(response, xml);
 				

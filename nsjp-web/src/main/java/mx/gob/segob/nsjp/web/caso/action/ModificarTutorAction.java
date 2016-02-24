@@ -71,9 +71,9 @@ public class ModificarTutorAction extends GenericAction{
 //			tutor=lista.get(2);
 //			
 //			//declaro los alias para los objetos a convertir a xml
-//			//XStream converter=new XStream(); 			converter.alias("listaInvolucrados", java.util.List.class);
-//			XStream converter=new XStream(); 			converter.alias("nombreDG", NombreDemograficoDTO.class);
-//			XStream converter=new XStream(); 			converter.alias("tutor", InvolucradoDTO.class);
+//			//converter.alias("listaInvolucrados", java.util.List.class);
+//			converter.alias("nombreDG", NombreDemograficoDTO.class);
+//			converter.alias("tutor", InvolucradoDTO.class);
 //			//convertimos los objetos y creamos la salida xml regresada por AJAX
 //			xml = converter.toXML(tutor);
 //			response.setContentType("text/xml");

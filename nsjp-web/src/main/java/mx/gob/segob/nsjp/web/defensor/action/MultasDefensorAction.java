@@ -191,7 +191,7 @@ public class MultasDefensorAction extends GenericAction {
 			
 			String xml = null;
 			PrintWriter pw = null;
-			XStream converter=new XStream(); 			converter.alias("multaSancionDTO", MultaSancionDTO.class);
+			converter.alias("multaSancionDTO", MultaSancionDTO.class);
 			xml = converter.toXML(multaSancionDTO);
 			log.info("Termina multa:::xml::::"+xml);
 			response.setContentType("text/xml");
@@ -291,7 +291,7 @@ public class MultasDefensorAction extends GenericAction {
 			}
 			String xml = null;
 			PrintWriter pw = null;
-			XStream converter=new XStream(); 			converter.alias("inspeccionDTO", MultaSancionDTO.class);
+			converter.alias("inspeccionDTO", MultaSancionDTO.class);
 			xml = converter.toXML(inspeccion);
 			log.info("XML Multa--- "+xml);
 			response.setContentType("text/xml");
@@ -409,7 +409,7 @@ public class MultasDefensorAction extends GenericAction {
 			
 			String xml = null;
 			PrintWriter pw = null;
-			XStream converter=new XStream(); 			converter.alias("inspeccionDTO", InspeccionDTO.class);
+			converter.alias("inspeccionDTO", InspeccionDTO.class);
 			xml = converter.toXML(inspeccionDTO);
 			log.info("Termina inspeccionDTO:::xml::::"+xml);
 			response.setContentType("text/xml");
@@ -439,7 +439,7 @@ public class MultasDefensorAction extends GenericAction {
 			
 			String xml = null;
 			PrintWriter pw = null;
-			XStream converter=new XStream(); 			converter.alias("inspeccionDTO", InspeccionDTO.class);
+			converter.alias("inspeccionDTO", InspeccionDTO.class);
 			xml = converter.toXML(inspeccionDTO);
 			log.info("Termina inspeccionDTO:::xml::::"+xml);
 			response.setContentType("text/xml");

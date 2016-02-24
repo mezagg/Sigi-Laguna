@@ -92,7 +92,7 @@ public class AdministrarAudienciaJavsAction extends GenericAction{
 					String datos = audienciaDelegate.datosSalaJAVS(idAudiencia);
 					log.info("DATOS*********************"+datos);
 
-					XStream converter=new XStream(); 			converter.alias("respuesta",String.class);
+					converter.alias("respuesta",String.class);
 					String respuesta = converter.toXML(datos);
 					escribirRespuesta(response, respuesta);
 				}								
@@ -118,7 +118,7 @@ public class AdministrarAudienciaJavsAction extends GenericAction{
 					String datos = audienciaDelegate.obteniendoPathsJAVS(idAudiencia);
 					log.info("DATOS*********************"+datos);
 
-					XStream converter=new XStream(); 			converter.alias("respuesta",String.class);
+					converter.alias("respuesta",String.class);
 					String respuesta = converter.toXML(datos);
 					escribirRespuesta(response, respuesta);
 				}								
@@ -144,7 +144,7 @@ public class AdministrarAudienciaJavsAction extends GenericAction{
 					byte[] datos = audienciaDelegate.generandoRegistroMaestroJVL(idAudiencia);
 					log.info("DATOS*********************"+datos);
 
-					XStream converter=new XStream(); 			converter.alias("respuesta",byte[].class);
+					converter.alias("respuesta",byte[].class);
 					String respuesta = converter.toXML(datos);
 					escribirRespuesta(response, respuesta);
 				}								
@@ -170,7 +170,7 @@ public class AdministrarAudienciaJavsAction extends GenericAction{
 					 resultado = audienciaDelegate.conglomeradoJAVS(idAudiencia);
 				}								
 								
-				XStream converter=new XStream(); 			converter.alias("long",Long.class);
+				converter.alias("long",Long.class);
 				String xml = converter.toXML(resultado);
 				response.setContentType("text/xml");
 				PrintWriter pw = response.getWriter();
@@ -201,7 +201,7 @@ public class AdministrarAudienciaJavsAction extends GenericAction{
 				Long estatus = audienciaDelegate.eliminarAudiencia(idAudiencia);
 				log.info("ESTATUS*********************"+estatus);
 
-				XStream converter=new XStream(); 			converter.alias("respuesta",Long.class);
+				converter.alias("respuesta",Long.class);
 				String respuesta = converter.toXML(estatus);
 				escribirRespuesta(response, respuesta);
 			}
@@ -239,11 +239,11 @@ public class AdministrarAudienciaJavsAction extends GenericAction{
 		}catch(NSJPNegocioException ne){
 			log.info(ne.getCause(), ne);
 			if(ne.getCodigo().equals(CodigoError.AUDIENCIA_CANCELADA)){
-				XStream converter=new XStream(); 			converter.alias("respuesta",String.class);
+				converter.alias("respuesta",String.class);
 				escribirRespuesta(response,converter.toXML("falla_audiencia_cancelada"));
 			}
 			if(ne.getCodigo().equals(CodigoError.FALLA_CANCELACION_AUDIENCIA)){
-				XStream converter=new XStream(); 			converter.alias("respuesta",String.class);
+				converter.alias("respuesta",String.class);
 				escribirRespuesta(response,converter.toXML("falla_cancelacion_audiencia_por_estatus"));
 			}
 		}
@@ -355,13 +355,13 @@ public class AdministrarAudienciaJavsAction extends GenericAction{
 					respuestaAutorizarAcceso = "Solo se puede ingresar al expediente con " + loParametroUmbral.getValor()  + " minutos antes del inicio de la audiencia";
 				}
 				
-				XStream converter=new XStream(); 			converter.alias("respuestaAutorizarAcceso", String.class);
+				converter.alias("respuestaAutorizarAcceso", String.class);
 				String xml = converter.toXML(respuestaAutorizarAcceso);
 				//mandamos la respuesta al cliente
 				escribir(response, xml,null);	
 		} catch (Exception e) {	
 			log.info(e.getCause(),e);
-			XStream converter=new XStream(); 			converter.alias("respuestaAutorizarAcceso", String.class);
+			converter.alias("respuestaAutorizarAcceso", String.class);
 			String xml = converter.toXML("error");
 			escribir(response, xml,null);
 		}

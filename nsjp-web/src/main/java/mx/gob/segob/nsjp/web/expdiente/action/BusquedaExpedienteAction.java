@@ -260,7 +260,7 @@ public class BusquedaExpedienteAction extends GenericAction{
 			expediente.setNumeroExpediente(numeroExpediente);
 			UsuarioDTO usuario = getUsuarioFirmado(request);
 			expediente = expedienteDelegate.obtenerNumeroExpedienteByNumExp(expediente,usuario);
-			XStream converter=new XStream(); 			converter.alias("causa", ExpedienteDTO.class);
+			converter.alias("causa", ExpedienteDTO.class);
 			response.setContentType("text/xml");
 			escribirRespuesta(response, converter.toXML(expediente));
 

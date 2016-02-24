@@ -639,7 +639,7 @@ public class IngresarOrganizacionAction extends GenericAction {
 				organizacionDTO.setOrganizacionId(0L);
 				organizacionDTO.setElementoId(0L);
 				organizacionDTO.setNombreOrganizacion("Organizacion");
-				XStream converter=new XStream(); 			converter.alias("organizacionDTO", OrganizacionDTO.class);
+				converter.alias("organizacionDTO", OrganizacionDTO.class);
 				String xml = converter.toXML(organizacionDTO);
 				//log.info(xml);
 				escribirRespuesta(response, xml);
@@ -1277,13 +1277,13 @@ public class IngresarOrganizacionAction extends GenericAction {
 			// correspondiente
 			if (organizacionDTO != null
 					&& organizacionDTO.getOrganizacionId() != null) {
-				XStream converter=new XStream(); 			converter.alias("organizacionDTO", PersonaDTO.class);
+				converter.alias("organizacionDTO", PersonaDTO.class);
 				String xml = converter.toXML(personaDTO);
 				log.info(xml);
 				escribirRespuesta(response, xml);
 			} else {
 				organizacionDTO.setOrganizacionId(0L);
-				XStream converter=new XStream(); 			converter.alias("organizacionDTO", PersonaDTO.class);
+				converter.alias("organizacionDTO", PersonaDTO.class);
 				String xml = converter.toXML(personaDTO);
 				log.info(xml);
 				escribirRespuesta(response, xml);

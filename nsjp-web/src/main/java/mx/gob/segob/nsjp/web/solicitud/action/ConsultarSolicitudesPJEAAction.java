@@ -800,7 +800,7 @@ public class ConsultarSolicitudesPJEAAction extends GenericAction {
 			writer.close();
 			
 			// USADO PARA VER EL XML QUE REGRESA EL DELEGATE
-//			 XStream converter=new XStream(); 			converter.alias("Salas", SalaAudienciaDTO.class);
+//			 converter.alias("Salas", SalaAudienciaDTO.class);
 //			 String xml = converter.toXML(sala);
 //			 response.setContentType("text/xml");
 //			 PrintWriter pw = response.getWriter();
@@ -1531,7 +1531,7 @@ public class ConsultarSolicitudesPJEAAction extends GenericAction {
 			SolicitudDTO solicitudDTO = new SolicitudDTO();
 			solicitudDTO=solicitudDelegate.consultarSolicitudXId(idSolicitud);
 			
-			 XStream converter=new XStream(); 			converter.alias("solicitudDTO", SolicitudDTO.class);
+			 converter.alias("solicitudDTO", SolicitudDTO.class);
 			 String xml = converter.toXML(solicitudDTO);
 			 response.setContentType("text/xml");
 			 PrintWriter pw = response.getWriter();
@@ -1742,7 +1742,7 @@ public class ConsultarSolicitudesPJEAAction extends GenericAction {
 			
 			audienciaDelegate.actualizaCaracterAudiencia(idAudiencia, esPublicaAudiencia);
 			
-			XStream converter=new XStream(); 			converter.alias("respuesta", String.class);
+			converter.alias("respuesta", String.class);
 			String xml = converter.toXML("true");
 			log.info("xml de la evidencia respuesta: :::::::::"+ xml);			
 			escribir(response, xml,null);												
@@ -1750,7 +1750,7 @@ public class ConsultarSolicitudesPJEAAction extends GenericAction {
 		} catch (Exception e) {		
 			log.info("ERROR AL ACTUALIZAR CARACTER AUDIENCIA ----");
 			log.info(e.getCause(),e);
-			XStream converter=new XStream(); 			converter.alias("respuesta", String.class);
+			converter.alias("respuesta", String.class);
 			String xml = converter.toXML("false");
 			log.info("xml de la evidencia respuesta: :::::::::"+ xml);			
 			escribir(response, xml,null);		

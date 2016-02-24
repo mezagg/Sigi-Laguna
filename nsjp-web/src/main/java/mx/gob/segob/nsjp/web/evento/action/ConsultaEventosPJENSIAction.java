@@ -218,7 +218,7 @@ public class ConsultaEventosPJENSIAction extends ReporteBaseAction{
 			
 			log.info("depues del delegate::: solicitudDTO"+ expedienteDTO);
 			
-			XStream converter=new XStream(); 			converter.alias("expedienteDTO", ExpedienteDTO.class);
+			converter.alias("expedienteDTO", ExpedienteDTO.class);
 			String xml = converter.toXML(expedienteDTO);
 			escribir(response, xml,null);
 				

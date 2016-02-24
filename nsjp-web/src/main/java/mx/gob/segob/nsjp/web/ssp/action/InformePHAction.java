@@ -122,7 +122,7 @@ public class InformePHAction extends ReporteBaseAction{
 			log.info("iph.getExpediente().getExpedienteId() ... " + iph.getExpediente().getExpedienteId());
 			request.getSession().setAttribute("numeroExpedienteId", iph.getExpediente().getNumeroExpedienteId());
 			XStream converter=new XStream();
-			XStream converter=new XStream(); 			converter.alias("iphDTO", InformePolicialHomologadoDTO.class);
+			converter.alias("iphDTO", InformePolicialHomologadoDTO.class);
 			String xml = converter.toXML(iph);
 			log.info("respuesta generar folio IPH ------- "+xml);
 
@@ -154,7 +154,7 @@ public class InformePHAction extends ReporteBaseAction{
 
 			XStream converter=new XStream();
 			List<TurnoLaboralDTO> turnoLaboralList = turnoLaboralDelegate.consultarCatalogoTurnoLaboral();
-			XStream converter=new XStream(); 			converter.alias("turnoLaboralDTO", TurnoLaboralDTO.class);
+			converter.alias("turnoLaboralDTO", TurnoLaboralDTO.class);
 			String xml = converter.toXML(turnoLaboralList);
 			log.info("respuesta consultar catalogo de turno laboral ------- "+xml);
 
@@ -186,7 +186,7 @@ public class InformePHAction extends ReporteBaseAction{
 			catalogo = catalogoDelegate.recuperarCatalogo(Catalogos.CORPORACION);
 
 			XStream converter=new XStream();
-			XStream converter=new XStream(); 			converter.alias("corporacion", CatalogoDTO.class);
+			converter.alias("corporacion", CatalogoDTO.class);
 			String xml = converter.toXML(catalogo);
 			log.info("respuesta consultar catalogo de Corporaciones ------- "+xml);
 
@@ -227,7 +227,7 @@ public class InformePHAction extends ReporteBaseAction{
 			}
 			XStream converter=new XStream();
 			funcionario = funcionarioDelegate.obtenerFuncionarioSuperior(funcionario);
-			XStream converter=new XStream(); 			converter.alias("funcionarioDTO", FuncionarioDTO.class);
+			converter.alias("funcionarioDTO", FuncionarioDTO.class);
 			String xml = converter.toXML(funcionario);
 			log.info("respuesta Obtener Superior Funcionario ------- "+xml);
 			
@@ -273,7 +273,7 @@ public class InformePHAction extends ReporteBaseAction{
 			{
 				List<CatDelitoDTO> catDelito = new ArrayList<CatDelitoDTO>();			
 				catDelito = catalogoDelegate.consultarDelito();
-				XStream converter=new XStream(); 			converter.alias("delito", CatDelitoDTO.class);
+				converter.alias("delito", CatDelitoDTO.class);
 				xml = converter.toXML(catDelito);
 				log.info("respuesta Obtener Catalogo Delitos ------- "+xml);
 				
@@ -281,7 +281,7 @@ public class InformePHAction extends ReporteBaseAction{
 			{
 				List<CatFaltaAdministrativaDTO> faltaAdministrativa = new ArrayList<CatFaltaAdministrativaDTO>();			
 				faltaAdministrativa = catalogoDelegate.consultarCatalogoFaltaAdministrativa();
-				XStream converter=new XStream(); 			converter.alias("falta", CatFaltaAdministrativaDTO.class);
+				converter.alias("falta", CatFaltaAdministrativaDTO.class);
 				xml = converter.toXML(faltaAdministrativa);
 				log.info("respuesta Obtener Catalogo Falta Administrativa ------- "+xml);
 				
@@ -316,7 +316,7 @@ public class InformePHAction extends ReporteBaseAction{
 			List<CatalogoDTO> catalogo = new ArrayList<CatalogoDTO>();
 			XStream converter=new XStream();
 			catalogo = catalogoDelegate.recuperarCatalogo(Catalogos.TIPO_CARRETERA);
-			XStream converter=new XStream(); 			converter.alias("catalogo", CatalogoDTO.class);
+			converter.alias("catalogo", CatalogoDTO.class);
 			String xml = converter.toXML(catalogo);
 			log.info("respuesta Obtener Catalogo Tipos Carretera ------- "+xml);
 			
@@ -472,7 +472,7 @@ public class InformePHAction extends ReporteBaseAction{
 			log.info("Consultando los datos de un Funcionario en SSP");
 			UsuarioDTO usuario = getUsuarioFirmado(request);
 			log.info("USUARIO"+usuario);
-			XStream converter=new XStream(); 			converter.alias("usuarioDTO", UsuarioDTO.class);
+			converter.alias("usuarioDTO", UsuarioDTO.class);
 			String xml = converter.toXML(usuario);
 			escribir(response, xml,null);
 			
@@ -701,7 +701,7 @@ public class InformePHAction extends ReporteBaseAction{
 			XStream converter=new XStream();
 			if(folioIPH > 0L){
 				InformePolicialHomologadoDTO dtoIPH = informePolicialHomologadoDelegate.consultarInformePorFolio(folioIPH);
-				XStream converter=new XStream(); 			converter.alias("dtoIPH", InformePolicialHomologadoDTO.class);
+				converter.alias("dtoIPH", InformePolicialHomologadoDTO.class);
 				String xml = converter.toXML(dtoIPH);
 				escribir(response, xml,null);
 			}
@@ -738,7 +738,7 @@ public class InformePHAction extends ReporteBaseAction{
 			RespuestaIPHWSDTO loRespuestaIPHWSDTO = informePolicialHomologadoDelegate.consultarEnviarInformePolicialHomologado(informe.getFolioIPH(), idAgencia);
 			loRespuestaIPHWSDTO.setIdDocumentoIPH(documentoDTO.getDocumentoId());
 			XStream converter=new XStream();
-			XStream converter=new XStream(); 			converter.alias("RespuestaDTO", RespuestaIPHWSDTO.class);
+			converter.alias("RespuestaDTO", RespuestaIPHWSDTO.class);
 			String respuesta = converter.toXML(loRespuestaIPHWSDTO);
 			escribirRespuesta(response, respuesta);
 			
@@ -782,15 +782,15 @@ public class InformePHAction extends ReporteBaseAction{
 			}
 			informePolicialHomologadoDTO.setExisteInforme(opcionEnvioIPH);
 			XStream converter=new XStream();
-			XStream converter=new XStream(); 			converter.alias("InformePolicialHomologadoDTO", InformePolicialHomologadoDTO.class);
-			XStream converter=new XStream(); 			converter.alias("InvolucradoDTO", InvolucradoDTO.class);
-			XStream converter=new XStream(); 			converter.alias("VehiculoDTO", VehiculoDTO.class);
-			XStream converter=new XStream(); 			converter.alias("AeronaveDTO", AeronaveDTO.class);
-			XStream converter=new XStream(); 			converter.alias("EmbarcacionDTO", EmbarcacionDTO.class);
-			XStream converter=new XStream(); 			converter.alias("SustanciaDTO", SustanciaDTO.class);
-			XStream converter=new XStream(); 			converter.alias("ArmaDTO", ArmaDTO.class);
-			XStream converter=new XStream(); 			converter.alias("ExplosivoDTO", ExplosivoDTO.class);
-			XStream converter=new XStream(); 			converter.alias("NumerarioDTO", NumerarioDTO.class);
+			converter.alias("InformePolicialHomologadoDTO", InformePolicialHomologadoDTO.class);
+			converter.alias("InvolucradoDTO", InvolucradoDTO.class);
+			converter.alias("VehiculoDTO", VehiculoDTO.class);
+			converter.alias("AeronaveDTO", AeronaveDTO.class);
+			converter.alias("EmbarcacionDTO", EmbarcacionDTO.class);
+			converter.alias("SustanciaDTO", SustanciaDTO.class);
+			converter.alias("ArmaDTO", ArmaDTO.class);
+			converter.alias("ExplosivoDTO", ExplosivoDTO.class);
+			converter.alias("NumerarioDTO", NumerarioDTO.class);
 			String xml = converter.toXML(informePolicialHomologadoDTO);
 			log.info("respuesta mostrar folio IPH ------- "+xml);
 			escribir(response, xml,null);

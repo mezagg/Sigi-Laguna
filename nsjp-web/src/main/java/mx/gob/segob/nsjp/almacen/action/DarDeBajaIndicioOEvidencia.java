@@ -103,8 +103,8 @@ public class DarDeBajaIndicioOEvidencia extends GenericAction{
                 logger.debug("catalogoDelegate = " + catalogoDelegate);
             }
             List<CatalogoDTO> tiposBajaEvidencia = catalogoDelegate.recuperarCatalogo(Catalogos.ESTATUS_EVIDENCIA);
-            XStream converter=new XStream(); 			converter.alias("Evidencias", List.class);
-            XStream converter=new XStream(); 			converter.alias("evidencia", CatalogoDTO.class);
+            converter.alias("Evidencias", List.class);
+            converter.alias("evidencia", CatalogoDTO.class);
             String tiposBajaXml = converter.toXML(tiposBajaEvidencia);
             escribirRespuesta(response, tiposBajaXml);
         } catch (NSJPNegocioException ex) {

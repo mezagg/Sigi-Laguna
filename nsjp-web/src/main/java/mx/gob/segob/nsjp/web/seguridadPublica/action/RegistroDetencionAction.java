@@ -355,7 +355,7 @@ public class RegistroDetencionAction extends ReporteBaseAction{
 			avisoHechoDelictivoDTO = notificacionDelegate.obtenerAvisoPorIdExpediente(expedienteId);
 			UsuarioDTO usuario = getUsuarioFirmado(request);
 			avisoHechoDelictivoDTO.setUsuario(usuario);
-			XStream converter=new XStream(); 			converter.alias("avisoHechoDelictivoDTO", AvisoHechoDelictivoDTO.class);
+			converter.alias("avisoHechoDelictivoDTO", AvisoHechoDelictivoDTO.class);
 			String xml = converter.toXML(avisoHechoDelictivoDTO);
 			log.debug(xml);
 			escribir(response, xml, null);
@@ -826,7 +826,7 @@ public class RegistroDetencionAction extends ReporteBaseAction{
 					}
 				}
 			}
-			XStream converter=new XStream(); 			converter.alias("lugarId", String.class);
+			converter.alias("lugarId", String.class);
 			String xml = converter.toXML(resp.toString());			
 			log.info("lugar_Id:: " + xml);
 			escribirRespuesta(response, xml);
@@ -1079,7 +1079,7 @@ public class RegistroDetencionAction extends ReporteBaseAction{
 			log.info("iph.getExpediente().getNumeroExpedienteId() ... " + iph.getExpediente().getNumeroExpedienteId());
 			log.info("iph.getExpediente().getExpedienteId() ... " + iph.getExpediente().getExpedienteId());
 			//request.getSession().setAttribute("numeroExpedienteId", iph.getExpediente().getNumeroExpedienteId());
-			XStream converter=new XStream(); 			converter.alias("iphDTO", InformePolicialHomologadoDTO.class);
+			converter.alias("iphDTO", InformePolicialHomologadoDTO.class);
 			String xml = converter.toXML(iph);
 			log.info("respuesta generar folio IPH ------- "+xml);
 
@@ -1170,7 +1170,7 @@ public class RegistroDetencionAction extends ReporteBaseAction{
 			if(idInvolucrado != null && idInvolucrado > 0L){
 				 detencionDto = detencionDelegate.consultarDetencion(idInvolucrado,null);
 			}
-			XStream converter=new XStream(); 			converter.alias("detencionDTO", DetencionDTO.class);
+			converter.alias("detencionDTO", DetencionDTO.class);
 			/**
 			 * Se agrega este alias por la funcion pintaDatosDomicilio
 			 * en realidad se trata del lugar de detencion
@@ -1211,7 +1211,7 @@ public class RegistroDetencionAction extends ReporteBaseAction{
 			if(elementoId != null && elementoId > 0L){
 				domicilioDto = detencionDelegate.consultarDomicilioById(elementoId);
 			}
-			XStream converter=new XStream(); 			converter.alias("detencionDTO", DetencionDTO.class);
+			converter.alias("detencionDTO", DetencionDTO.class);
 			/**
 			 * Se agrega este alias por la funcion pintaDatosDomicilio
 			 * en realidad se trata del lugar de detencion

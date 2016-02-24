@@ -211,7 +211,7 @@ public class SolicitudDefensorAction extends GenericAction {
 			solicitudDTO.setUsuarioSolicitante(null);
 			solicitudDTO.setInstitucion(null);
 			
-			 XStream converter=new XStream(); 			converter.alias("solicitudDTO", SolicitudDTO.class);
+			 converter.alias("solicitudDTO", SolicitudDTO.class);
 			 String xml = converter.toXML(solicitudDTO);
 			 escribirRespuesta(response, xml);
 			 

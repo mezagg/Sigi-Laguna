@@ -584,7 +584,7 @@ public class ConsultaEventosPJATPAction extends GenericAction {
 			SolicitudDTO solicitudDTO2 = solicitudDelegate
 					.obtenerDetalleSolicitud(solicitudDTO);
 			log.info("depues del delegate::: solicitudDTO" + solicitudDTO2);
-			XStream converter=new XStream(); 			converter.alias("solicitudDTO", SolicitudDTO.class);
+			converter.alias("solicitudDTO", SolicitudDTO.class);
 			String xml = converter.toXML(solicitudDTO2);
 			escribir(response, xml, null);
 
@@ -628,7 +628,7 @@ public class ConsultaEventosPJATPAction extends GenericAction {
 
 			log.info("Solicitud" + listaSolicitudes);
 
-			XStream converter=new XStream(); 			converter.alias("solicitudDTO", SolicitudDTO.class);
+			converter.alias("solicitudDTO", SolicitudDTO.class);
 			String xml = converter.toXML(listaSolicitudes);
 			escribir(response, xml, null);
 

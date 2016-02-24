@@ -1089,7 +1089,7 @@ public class IngresarCadenaCustodiaAction extends GenericAction {
 			FuncionarioDTO funcionario=user.getFuncionario();
 			
 			String xml = null;
-			XStream converter=new XStream(); 			converter.alias("funcionarioDTO",FuncionarioDTO.class);
+			converter.alias("funcionarioDTO",FuncionarioDTO.class);
 			xml = converter.toXML(funcionario);
 			log.info("usuario_firmado - consultarFuncionarioFirmado: "+xml);
 			escribirRespuesta(response, xml);
@@ -1266,7 +1266,7 @@ public class IngresarCadenaCustodiaAction extends GenericAction {
 			cadenaDTO=cadenaDeCustodiaDelegate.consultarCadenaCustodia(cadenaDTO);
 			
 			String xml = null;
-			XStream converter=new XStream(); 			converter.alias("cadenaDTO",CadenaDeCustodiaDTO.class);
+			converter.alias("cadenaDTO",CadenaDeCustodiaDTO.class);
 			xml = converter.toXML(cadenaDTO);
 			log.info(xml);
 			escribirRespuesta(response, xml);
@@ -1352,7 +1352,7 @@ public class IngresarCadenaCustodiaAction extends GenericAction {
 				{
 					funcionario = funcionarioDelegate.consultarFuncionarioXNumeroEmpleado(funcionario).get(0);
 					String xml = null;
-					XStream converter=new XStream(); 			converter.alias("usuarioDTO",FuncionarioDTO.class);
+					converter.alias("usuarioDTO",FuncionarioDTO.class);
 					xml = converter.toXML(funcionario);
 					log.info("cadCusUsuario_busqueda_no_presente:: "+xml);
 					escribirRespuesta(response, "<bandera>1</bandera>"+xml);
@@ -1413,7 +1413,7 @@ public class IngresarCadenaCustodiaAction extends GenericAction {
 				if(usuarioDTO!=null)
 				{
 				String xml = null;
-				XStream converter=new XStream(); 			converter.alias("usuarioDTO",UsuarioDTO.class);
+				converter.alias("usuarioDTO",UsuarioDTO.class);
 				xml = converter.toXML(usuarioDTO);
 				log.info("cadCusUsuario_busqueda_presente:: "+xml);
 				escribirRespuesta(response, "<bandera>1</bandera>"+xml);
