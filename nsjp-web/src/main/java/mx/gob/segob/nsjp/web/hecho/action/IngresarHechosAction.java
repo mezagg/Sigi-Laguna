@@ -240,9 +240,10 @@ public class IngresarHechosAction extends GenericAction {
 				{
 					valorDTO.setIdCampo(listaCatalogo.get(1).getClave());
 					tiempoDTO.setDescripcion(forma.getGsNarrativa());
-					tiempoDTO.setFechaInicio(DateUtils.obtener(forma.getFechaArribo(),forma.getHoraArribo()));
 					tiempoDTO.setTipoRegistro(valorDTO);
 					conTiempo=true;
+					if (!forma.getFechaArribo().equals("") && !forma.getHoraArribo().equals(""))
+						tiempoDTO.setFechaInicio(DateUtils.obtener(forma.getFechaArribo(),forma.getHoraArribo()));
 				}				
 			}
 					
