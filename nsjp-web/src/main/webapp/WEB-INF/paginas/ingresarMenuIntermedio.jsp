@@ -1815,7 +1815,7 @@
 
             function cargaActuaciones( sinCatuie) {
                 //console.log("cargando actuaciones ...")
-                $('#cbxAcciones').empty();
+                $('#cbxAccionesTab').empty();
                 $('#cbxOficiosTab').empty();
                 $('#cbxAccionesTab').addClass("cargando");
                 $('#cbxOficiosTab').addClass("cargando");
