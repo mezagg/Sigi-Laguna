@@ -374,7 +374,7 @@
 	</tr>
 	<tr>
 		<td colspan="2" align="center">
-			<button id="btnIntegrar" type="button" class="btn_grande">Integrar Procedimiento de Ejecuci&oacute;n</button>
+			<button id="btnIntegrar" type="button" class="ui-button ui-corner-all ui-widget">Integrar Procedimiento de Ejecuci&oacute;n</button>
 		</td>
 	</tr>
 </table>

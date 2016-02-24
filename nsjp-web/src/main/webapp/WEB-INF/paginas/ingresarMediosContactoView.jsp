@@ -612,7 +612,7 @@ jQuery("#list5").jqGrid({
     						
     						}
 }).navGrid("#pager5",{edit:false,add:false,del:false});
-$("#t_list5").append("<input type='button' id='telefonobotonagre' class='btn_Generico' value='Ingresar N&uacute;mero Telef&oacute;nico' style='height:20px;width:180;font-size:-3'/>&nbsp;&nbsp;<input type='button' id='telefonobotonelim' value='Borrar N&uacute;mero Telef&oacute;nico' style='height:20px;width:180;font-size:-3' class='btn_Generico'/>");
+$("#t_list5").append("<input type='button' id='telefonobotonagre' class='ui-button ui-corner-all ui-widget' value='Ingresar N&uacute;mero Telef&oacute;nico' />&nbsp;&nbsp;<input type='button' id='telefonobotonelim' value='Borrar N&uacute;mero Telef&oacute;nico'  class='ui-button ui-corner-all ui-widget'/>");
 $("#telefonobotonagre","#t_list5").click(function(){
 	limpiarPopUpTelefono();
 	$("#divTelefono2").dialog("open");
@@ -664,7 +664,7 @@ jQuery("#correos").jqGrid({
     						
     						}
 }).navGrid("#correos",{edit:false,add:false,del:false});
-$("#t_correos").append("<input type='button' id='correobotonagre' value='Ingresar Correo' style='height:20px;font-size:-3' class='btn_Generico'/>&nbsp;&nbsp;<input type='button' id='correobotonelim' value='Borrar Correo' style='height:20px;font-size:-3' class='btn_Generico'/>");
+$("#t_correos").append("<input type='button' id='correobotonagre' value='Ingresar Correo'  class='ui-button ui-corner-all ui-widget'/>&nbsp;&nbsp;<input type='button' id='correobotonelim' value='Borrar Correo'  class='ui-button ui-corner-all ui-widget'/>");
 $("#correobotonagre","#t_correos").click(function(){
 	limpiarPopUpCorreo();
 	$("#divCorreo2").dialog("open");

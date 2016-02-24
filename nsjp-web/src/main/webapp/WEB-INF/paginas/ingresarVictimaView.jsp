@@ -1607,7 +1607,7 @@
 										<img alt="foto" src="<%= request.getContextPath() %>/resources/images/foto.png" id="iVictimaCmpFoto">
 									</td>
 									<td width="123">
-										&nsbp;
+										&nbsp;
 									</td>
 								</tr>
 								

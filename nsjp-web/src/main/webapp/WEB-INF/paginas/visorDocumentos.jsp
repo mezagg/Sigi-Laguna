@@ -332,7 +332,7 @@
 
 			banderaDatosPrueba=false;
 			
-			$("#t_gridDatosDePruebaPJENS").append("<input type='button' id='btnAgregarDatoPrueba' class='btn_Generico' value='Agregar' style='height:20px;width:60px;font-size:-3'/>"+" "+"<input type='button' id='btnRelacionarDatoPrueba' class='btn_Generico' value='Relacionar' style='height:20px;width:70px;font-size:-3'/>");
+			$("#t_gridDatosDePruebaPJENS").append("<input type='button' id='btnAgregarDatoPrueba' class='ui-button ui-corner-all ui-widget' value='Agregar' style='height:20px;width:60px;font-size:-3'/>"+" "+"<input type='button' id='btnRelacionarDatoPrueba' class='ui-button ui-corner-all ui-widget' value='Relacionar' style='height:20px;width:70px;font-size:-3'/>");
 			
 			$("#btnAgregarDatoPrueba","#t_gridDatosDePruebaPJENS").click(function(){
 				agregarDatoDePrueba();
@@ -531,7 +531,7 @@
 			}).navGrid('#gridRelacionarMediosDePruebaPJENS',{edit:false,add:false,del:false});
 			banderaRelacionarMediosPrueba = false;
 					
-			$("#t_gridRelacionarMediosDePruebaPJENS").append("<input type='button' class='btn_Generico' value='Agregar' style='height:20px;width:60px;font-size:-3'/>");
+			$("#t_gridRelacionarMediosDePruebaPJENS").append("<input type='button' class='ui-button ui-corner-all ui-widget' value='Agregar' style='height:20px;width:60px;font-size:-3'/>");
 			$("input","#t_gridRelacionarMediosDePruebaPJENS").click(function(){
 				agregarMedioDePrueba();
 			});
@@ -1252,7 +1252,7 @@
 			banderaPrueba = false;
 
 			//Boton para asociar las pruebas a involucrados
-			$("#t_gridPruebaPJENS").append("<input type='button' id='btnAsociarPrueba' class='btn_Generico' value='Asociar' style='height:20px;width:60px;font-size:-3'/>");			
+			$("#t_gridPruebaPJENS").append("<input type='button' id='btnAsociarPrueba' class='ui-button ui-corner-all ui-widget' value='Asociar' style='height:20px;width:60px;font-size:-3'/>");			
 			
 			//Funcionalidad para al boton asociar
 			$("#btnAsociarPrueba","#t_gridPruebaPJENS").click(function(){

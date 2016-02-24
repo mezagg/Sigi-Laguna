@@ -978,7 +978,7 @@
                         rowNum: 10,
                         rowList: [10, 20, 30, 40, 50, 60],
                         width: 600,
-                        caption: "VEHÍCULOS",
+                        caption: "VEHICULOS",
                         sortname: 'Clave',
                         async: true,
                         viewrecords: true,

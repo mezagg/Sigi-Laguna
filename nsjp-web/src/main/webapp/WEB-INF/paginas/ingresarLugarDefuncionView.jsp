@@ -1589,7 +1589,7 @@
           <td align="right" height="25"><strong>C&oacute;digo Postal:</strong></td>
           <td height="25">
             <input type="text" id="codigoPostalDef" size="8" maxlength="5" tabindex="2" onkeypress="return solonumeros(event);" onblur="validaSoloNumeros(this);"/>
-            <input type="button" value="Enviar" id="codigoPostalButtonDef" style="display:;" class="btn_modificar"/>
+            <input type="button" value="Enviar" id="codigoPostalButtonDef"  class="ui-button ui-corner-all ui-widget"/>
           </td>
           <td align="right" height="25"><strong>N&uacute;mero Ext.:</strong></td>
           <td width="90" height="25" align="right">

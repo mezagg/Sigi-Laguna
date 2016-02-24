@@ -484,7 +484,7 @@
 					<tr>
 						<td colspan="6" align="center">
 							<button id="btnEnviarPlan" type="button"
-								class="btn_grande">Enviar para autorizaci&oacute;n</button>
+								class="ui-button ui-corner-all ui-widget">Enviar para autorizaci&oacute;n</button>
 							<button id="btnRegistrarProgramas" type="button"
 								class="btn_buscar">Guardar</button>
 						</td>

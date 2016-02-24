@@ -391,7 +391,7 @@
 			</tr>
 			<tr>
 			<td colspan="2" align="right">
-				<INPUT type=button class="btn_guardar" id=buscarBitacora value=Buscar onclick="buscaEvidencias()"></td>
+				<INPUT type=button class="ui-button ui-corner-all ui-widget" id=buscarBitacora value=Buscar onclick="buscaEvidencias()"></td>
 			</tr>
           </table>
          </TD>
@@ -420,7 +420,7 @@
 						<td colspan="2" class="txt_gral_victima">Datos de la Entrega</td>
 						<td>&nbsp;</td>
 						<td id="contador" class="txt_gral_victima">n De N</td>
-						<td> <INPUT type=button class="btn_guardar" id=siguiente value=+ onclick="masDatos()"></td>
+						<td> <INPUT type=button class="ui-button ui-corner-all ui-widget" id=siguiente value=+ onclick="masDatos()"></td>
 					</tr>
 					<tr>
 						<td>&nbsp;</td>
@@ -451,7 +451,7 @@
 						<td colspan="2" class="txt_gral_victima">Datos de la Recepci&oacute;n</td>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
-						<td><INPUT type=button class="btn_guardar" id=anterior value=- onclick="menosDatos()"></td>
+						<td><INPUT type=button class="ui-button ui-corner-all ui-widget" id=anterior value=- onclick="menosDatos()"></td>
 					</tr>
 					<tr>
 						<td>&nbsp;</td>

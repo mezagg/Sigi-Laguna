@@ -1630,7 +1630,7 @@
 					<td>&nbsp;</td>
 					<td>&nbsp;</td>
 					<td align="center">
-						<input type="button" colspan="2" class="btn_mediano" width="100" id="btnVideos" value="Videos de JAVS" onclick="invocacionConsultaAudienciaJAVS();"/ style="display:none;">
+						<input type="button" colspan="2" class="ui-button ui-corner-all ui-widget" width="100" id="btnVideos" value="Videos de JAVS" onclick="invocacionConsultaAudienciaJAVS();"/ style="display:none;">
 					</td>
 				</tr>				
 			</table>

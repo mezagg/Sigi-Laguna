@@ -234,12 +234,12 @@
 		$('#cbxAsentamientoColonia').empty();
 		$('#cbxAsentamientoColonia').append('<option value="-1">-Seleccione-</option>');
 	//	$('#cbxAsentamientoColonia').multiselect('refresh');
-		$('#cbxTipoAsentamiento').empty();
-		$('#cbxTipoAsentamiento').append('<option value="-1">-Seleccione-</option>');
-		$('#cbxTipoAsentamiento').attr('disabled', 'disabled');
+		//$('#cbxTipoAsentamiento').empty();
+		//$('#cbxTipoAsentamiento').append('<option value="-1">-Seleccione-</option>');
+		//$('#cbxTipoAsentamiento').attr('disabled', 'disabled');
 	//	$('#cbxTipoAsentamiento').multiselect('refresh');
-		$('#cbxTipoCalle').empty();
-		$('#cbxTipoCalle').append('<option value="-1">-Seleccione-</option>');
+		//$('#cbxTipoCalle').empty();
+		//$('#cbxTipoCalle').append('<option value="-1">-Seleccione-</option>');
 	//	$('#cbxTipoCalle').multiselect('refresh');
 	  }
 	  
@@ -262,12 +262,12 @@
 		$('#cbxAsentamientoColoniaNotif').empty();
 		$('#cbxAsentamientoColoniaNotif').append('<option value="-1">-Seleccione-</option>');	
 //		$('#cbxAsentamientoColoniaNotif').multiselect('refresh');
-		$('#cbxTipoAsentamientoNotif').empty();
-		$('#cbxTipoAsentamientoNotif').append('<option value="-1">-Seleccione-</option>');
-		$('#cbxTipoAsentamientoNotif').attr('disabled', 'disabled');
+		//$('#cbxTipoAsentamientoNotif').empty();
+		//$('#cbxTipoAsentamientoNotif').append('<option value="-1">-Seleccione-</option>');
+		//$('#cbxTipoAsentamientoNotif').attr('disabled', 'disabled');
 //		$('#cbxTipoAsentamientoNotif').multiselect('refresh');
-		$('#cbxTipoCalleNotif').empty();
-		$('#cbxTipoCalleNotif').append('<option value="-1">-Seleccione-</option>');
+		//$('#cbxTipoCalleNotif').empty();
+		//$('#cbxTipoCalleNotif').append('<option value="-1">-Seleccione-</option>');
 //		$('#cbxTipoCalleNotif').multiselect('refresh');
 		  }
 		
@@ -428,8 +428,8 @@
 					existenEntidades = "si";	
 				});
 				hideControls(existenEntidades);	
-				cargaTipoAsent();
-				cargaTipoCalle();
+				//cargaTipoAsent();
+				//cargaTipoCalle();
 			}
 		});
 	}
@@ -460,8 +460,8 @@
 					existenEntidades = "si";	
 				});
 				hideControlsNotif(existenEntidades);	
-				cargaTipoAsentNotif();
-				cargaTipoCalleNotif();
+				//cargaTipoAsentNotif();
+				//cargaTipoCalleNotif();
 		 	}
 		});	
 	}
@@ -690,87 +690,8 @@
 
 	
 		
-	/*
-	*Funcion que realiza la carga del combo de tipo de asentamiento	
-	*/
-	function cargaTipoAsent() {	
-	  
-		$.ajax({
-			type: 'POST',
-			url: '<%= request.getContextPath()%>/cargarTipoAsent.do',
-			data: '',
-			dataType: 'xml',
-			success: function(xml){
-				$(xml).find('catTipoAsentamiento').each(function(){
-					$('#cbxTipoAsentamiento').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');					
-				});  
-		  	}
-		});
-	  }
-
-
-	/*
-	*Funcion que realiza la carga del combo de tipo de asentamiento, 
-	*para el domicilio de notificaciones
-	*/
-	function cargaTipoAsentNotif() {
-	  
-		$.ajax({
-			type: 'POST',
-			url: '<%= request.getContextPath()%>/cargarTipoAsent.do',
-			data: '',
-			dataType: 'xml',
-			success: function(xml){
-				$(xml).find('catTipoAsentamiento').each(function(){
-					$('#cbxTipoAsentamientoNotif').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
-				});
-			}
-		});
-	}
-
-
-
-		
 	
-	 /*
-	  *Funcion que realiza la carga del combo de tipo de calle,
-	  *para el domicilio 
-	  */
-	  function cargaTipoCalle() {
-		
-		$.ajax({
-		  type: 'POST',
-		  url: '<%= request.getContextPath()%>/cargarTiposDeCalle.do',
-		  data: '',
-		  dataType: 'xml',
-		  success: function(xml){
-			var option;
-			$(xml).find('catTipoCalle').each(function(){
-				$('#cbxTipoCalle').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
-		    });			
-		  }
-		});
-	  }
-
-
-	 /*
-	  *Funcion que realiza la carga del combo de tipo de calle, 
-	  *para el domicilio de notificaciones
-	  */
-	  function cargaTipoCalleNotif() {
-	  
-		$.ajax({
-		  type: 'POST',
-		  url: '<%= request.getContextPath()%>/cargarTiposDeCalle.do',
-		  data: '',
-		  dataType: 'xml',
-		  success: function(xml){
-			$(xml).find('catTipoCalle').each(function(){
-				$('#cbxTipoCalleNotif').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
-			});
-		  }
-		});
-	  }
+        
 
 
 	  /*
@@ -1755,7 +1676,7 @@
           <td align="right" height="25"><strong>C&oacute;digo Postal:</strong></td>
           <td height="25">
             <input type="text" id="codigoPostal" size="8" maxlength="5" tabindex="2" onkeypress="return solonumeros(event);" onblur="validaSoloNumeros(this);"/>
-            <input type="button" value="Enviar" id="codigoPostalButton" style="display:;" class="btn_modificar"/>
+            <input type="button" value="Enviar" id="codigoPostalButton" class="ui-button ui-corner-all ui-widget" />
           </td>
           <td align="right" height="25"><strong>N&uacute;mero Ext.:</strong></td>
           <td width="90" height="25" align="right">
@@ -1820,7 +1741,10 @@
           <td height="25" align="right"><strong>Tipo de Asentamiento:</strong></td>
           <td height="25"><div id="divCbxTipoAsentamiento">
             <select id="cbxTipoAsentamiento" style="width:200px;" tabindex="7">
-              <option value="-1">-Seleccione-</option>						
+              <option value="-1">-Seleccione-</option>	
+              <c:forEach items="${applicationScope.tiposAsentamiento}"  var="t" >
+                  <option value='<c:out value="${t.clave}"/>'> <c:out value="${t.valor}"/> </option>
+              </c:forEach>
             </select></div>
             <input type="text" id="areaAsentamiento" readonly="readonly" maxlength="50"/>
           </td>
@@ -1833,6 +1757,9 @@
           <td height="12"><div id="divCbxTipoCalle">
             <select id="cbxTipoCalle" style="width:200px;" tabindex="8">
               <option value="-1">-Seleccione-</option>
+               <c:forEach items="${applicationScope.tiposCalle}"  var="t" >
+                  <option value='<c:out value="${t.clave}"/>'> <c:out value="${t.valor}"/> </option>
+              </c:forEach>
             </select></div>
             <input type="text" id="areaTipoCalle" readonly="readonly" maxlength="50"/>
           </td>  
@@ -1879,7 +1806,7 @@
           <td height="25" align="right"><strong>C&oacute;digo Postal:</strong></td>
           <td height="25">
             <input type="text" id="codigoPostalNotif" size="8" maxlength="5" tabindex="18" onkeypress="return solonumeros(event);" onblur="validaSoloNumeros(this);"/>
-            <input type="button" value="Enviar" id="codigoPostalButtonNotif" style="display:;" class="btn_modificar"/>
+            <input type="button" value="Enviar" id="codigoPostalButtonNotif"  class="ui-button ui-corner-all ui-widget"/>
           </td>
           <td height="25" align="right"><strong>N&uacute;mero Ext.:</strong></td>
           <td width="92" height="25">
@@ -1944,7 +1871,10 @@
           <td height="25" align="right"><strong>Tipo de Asentamiento:</strong></td>
           <td height="25"><div id="divCbxTipoAsentamientoNotif">
             <select id="cbxTipoAsentamientoNotif" style="width:200px;" tabindex="23">
-              <option value="-1">-Seleccione-</option>						
+              <option value="-1">-Seleccione-</option>	
+              <c:forEach items="${applicationScope.tiposAsentamiento}"  var="t" >
+                  <option value='<c:out value="${t.clave}"/>'> <c:out value="${t.valor}"/> </option>
+              </c:forEach>
             </select></div>
             <input type="text" id="areaAsentamientoNotif" maxlength="50"/>
           </td>
@@ -1956,6 +1886,9 @@
           <td height="25"><div id="divCbxTipoCalleNotif">
             <select id="cbxTipoCalleNotif" style="width:200px;" tabindex="24">
               <option value="-1">-Seleccione-</option>
+              <c:forEach items="${applicationScope.tiposCalle}"  var="t" >
+                  <option value='<c:out value="${t.clave}"/>'> <c:out value="${t.valor}"/> </option>
+              </c:forEach>
             </select></div>
             <input type="text" id="areaTipoCalleNotif" maxlength="50"/>
           </td>  

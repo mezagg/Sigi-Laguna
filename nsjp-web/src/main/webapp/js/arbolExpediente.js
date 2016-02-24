@@ -1,9 +1,9 @@
   
 function escribirDatosGenerales(xml){
 	resultado = "<li class='opened'><span class='folder'>Datos Generales</span>" +
-	"<ul><span class='nike' title='Número de Expediente'>"+$(xml).find('expedienteResumenDTO').find('numeroExpediente').first().text()+"</span></ul>"+
-	"<ul><span  class='nike' title='Ciudad de Expedición'>"+$(xml).find('expedienteResumenDTO').find('estado').text()+"</span></ul>"+
-	//"<ul><span  class='nike' title='Estado de Expedición'>Yucatán</span></ul>"+
+	"<ul><span class='nike' title='N&uacute;mero de Expediente'>"+$(xml).find('expedienteResumenDTO').find('numeroExpediente').first().text()+"</span></ul>"+
+	"<ul><span  class='nike' title='Ciudad de Expedici&oacute;n'>"+$(xml).find('expedienteResumenDTO').find('estado').text()+"</span></ul>"+
+	//"<ul><span  class='nike' title='Estado de Expedici&oacute;n'>Yucat&aacute;n</span></ul>"+
 	"<ul><span  class='nike' title='Hora Apertura'>"+$(xml).find('expedienteResumenDTO').find('strHoraActual').first().text()+"</span></ul>"+
 	"<ul><span  class='nike' title='Fecha Apertura'>"+$(xml).find('expedienteResumenDTO').find('strFechaActual').first().text()+"</span></ul>"+
 	"<ul><span  class='nike' title='Delito Principal'>"+$(xml).find('expedienteResumenDTO').find('delitoPrincipal').find("catDelitoDTO").find("nombre").first().text()+"</span></ul>"+
@@ -15,7 +15,7 @@ function escribirInvolucrados(xml,probableResponsableArbolTituloSeccion, probabl
 	resultado = "<li><span class='folder'>Involucrados</span>"+
 				"<ul>";			
 	resultado +=escribeHtmlSeccionTipoInvolucrado(xml,"Denunciantes","denunciantes","Denunciante");	
-	resultado +=escribeHtmlSeccionTipoInvolucrado(xml,"Víctimas Persona","victimasPersona","Víctima Persona");
+	resultado +=escribeHtmlSeccionTipoInvolucrado(xml,"V&iacute;ctimas Persona","victimasPersona","V&iacute;ctima Persona");
 	resultado +=escribeHtmlSeccionTipoInvolucrado(xml, probableResponsableArbolTituloSeccion, "probablesResponsablesPersona", probableResponsableArbolTitulo);
 //	resultado +=escribeHtmlSeccionTipoInvolucrado(xml,'<bean:message key="probableResponsableArbolTituloSeccion"/>', "probablesResponsablesPersona",'<bean:message key="probableResponsableArbolTitulo"/>');
 	resultado +=escribeHtmlSeccionTipoInvolucrado(xml,"Testigos","testigos","Testigo");
@@ -23,10 +23,10 @@ function escribirInvolucrados(xml,probableResponsableArbolTituloSeccion, probabl
 	resultado +=escribeHtmlSeccionTipoInvolucrado(xml,"Quienes Detuvieron","quienDetuvo","Quien Detuvo");
 
 	//escribir Organizaciones
-	resultado += "<li><span class='folder'>Organización</span>"+
+	resultado += "<li><span class='folder'>Organizaci&oacute;n</span>"+
 					"<ul>";
 		resultado += escribeHtmlOrganizacion(xml,"Denunciante","denunciantesOrganizacion");		
-		resultado += escribeHtmlOrganizacion(xml,"Víctima","victimasOrganizacion");		
+		resultado += escribeHtmlOrganizacion(xml,"V&iacute;ctima","victimasOrganizacion");		
 		resultado += escribeHtmlOrganizacion(xml, probableResponsableArbolTitulo,"probablesResponsablesOrganizacion");
 		resultado += "</ul></li>";
 		
@@ -124,7 +124,7 @@ function escribirHtmlNacionalidades(xml){
 * y los muestra como en lista.
 */
 function escribirHTMLTelefonos(xml){
-	var telefonos = "<li  class='closed'><span class='folder'> Teléfono(s): </span>";
+	var telefonos = "<li  class='closed'><span class='folder'> Tel&eacute;fono(s): </span>";
 	$(xml).find("telefonosDTO").find("telefonoDTO").each(function (){
 		telefonos += "<ul><span class='nike' title='Telefono'>" +
 			$(this).find("valorTipoTelefono").find("valor").text() + ": "+ 
@@ -177,10 +177,10 @@ function escribirHTMLDomicilio(xml){
 }
 
 /**
-* Funcion que escribe los datos del documento de identificación.
+* Funcion que escribe los datos del documento de identificaci&oacute;n.
 */
 function escribirHTMLDocumentoIdentificacion(xml){
-	var documentoIdentificacion="<li  class='closed'><span class='folder'> Documento de Identificación:  </span>";
+	var documentoIdentificacion="<li  class='closed'><span class='folder'> Documento de Identificaci&oacute;n:  </span>";
 	//Tipo de Documento de Identificacion
 	documentoIdentificacion += "<ul><span class='nike' title='Tipo Identificacion'>"+$(xml).find("valorIdIdentificaion").find("valor").text()+"</span></ul>";
 	//Folio de Documento de Identificacion
@@ -283,7 +283,7 @@ function escribirInvolucradosOpcionCrear(xml,probableResponsableArbolTituloSecci
 			    }else{
 			    	resultado +=escribeHtmlSeccionTipoInvolucradoOpcionCrear(xml,"Denunciantes","denunciantes","Denunciante","");
 				}			
-				resultado +=escribeHtmlSeccionTipoInvolucradoOpcionCrear(xml,"Víctimas Persona","victimasPersona","Víctima Persona","creaNuevaVictima()");
+				resultado +=escribeHtmlSeccionTipoInvolucradoOpcionCrear(xml,"V&iacute;ctimas Persona","victimasPersona","V&iacute;ctima Persona","creaNuevaVictima()");
 				//resultado +=escribeHtmlSeccionTipoInvolucradoOpcionCrear(xml,"Probables Responsables Personas ","probablesResponsablesPersona","Probable Responsable","creaNuevoProbResponsable()");/*  */
 				//resultado +=escribeHtmlSeccionTipoInvolucradoOpcionCrear(xml,'<bean:message key="probableResponsableArbolTituloSeccion"/>', "probablesResponsablesPersona",'<bean:message key="probableResponsableArbolTitulo"/>',"creaNuevoProbResponsable()");
 				resultado +=escribeHtmlSeccionTipoInvolucradoOpcionCrear(xml,probableResponsableArbolTituloSeccion, "probablesResponsablesPersona", probableResponsableArbolTitulo, "creaNuevoProbResponsable()");
@@ -292,10 +292,10 @@ function escribirInvolucradosOpcionCrear(xml,probableResponsableArbolTituloSecci
 				resultado +=escribeHtmlSeccionTipoInvolucradoOpcionCrear(xml,"Quienes Detuvieron","quienDetuvo","Quien Detuvo","");
 	
 	    		//escribir Organizaciones
-	    		resultado += "<li><span class='folder'>Organización</span>"+
+	    		resultado += "<li><span class='folder'>Organizaci&oacute;n</span>"+
 	    						"<ul>";
 					resultado += escribeHtmlOrganizacion(xml,"Denunciante","denunciantesOrganizacion");		
-					resultado += escribeHtmlOrganizacion(xml,"Víctima","victimasOrganizacion");		
+					resultado += escribeHtmlOrganizacion(xml,"V&iacute;ctima","victimasOrganizacion");		
 					//resultado += escribeHtmlOrganizacion(xml,"Probable Responsable","probablesResponsablesOrganizacion");
 					resultado += escribeHtmlOrganizacion(xml, probableResponsableArbolTitulo,"probablesResponsablesOrganizacion");
 
@@ -323,7 +323,7 @@ function crearDenunciante(){
 
 function creaNuevaVictima() {
 	idWindowIngresarVictima++;
-	$.newWindow({id:"iframewindowIngresarVictima" + idWindowIngresarVictima, statusBar: true, posx:200,posy:50,width:1050,height:600,title:"Ingresar Víctima", type:"iframe"});
+	$.newWindow({id:"iframewindowIngresarVictima" + idWindowIngresarVictima, statusBar: true, posx:200,posy:50,width:1050,height:600,title:"Ingresar V&iacute;ctima", type:"iframe"});
     $.updateWindowContent("iframewindowIngresarVictima" + idWindowIngresarVictima,'<iframe src="<%= request.getContextPath() %>/IngresarVictima.do?numeroExpediente='+numeroUnicoExpediente +'&elemento=si" width="1050" height="600" />');		
 }
 
@@ -348,7 +348,7 @@ function creaNuevoTraductor() {
 
 function creaQuienDetuvo() {
 	idWindowIngresarQuienDetuvo++;
-$.newWindow({id:"iframewindowQuienDetuvo" + idWindowIngresarQuienDetuvo, statusBar: true, posx:200,posy:50,width:1050,height:600,title:"Ingresar Quién detuvo", type:"iframe"});
+$.newWindow({id:"iframewindowQuienDetuvo" + idWindowIngresarQuienDetuvo, statusBar: true, posx:200,posy:50,width:1050,height:600,title:"Ingresar Qui&eacute;n detuvo", type:"iframe"});
 $.updateWindowContent("iframewindowQuienDetuvo" + idWindowIngresarQuienDetuvo,'<iframe src="<%= request.getContextPath() %>/IngresarQuienDetuvo.do?elemento='+0+'&numeroExpediente='+numeroUnicoExpediente+'" width="1050" height="600" />');
 }	
 

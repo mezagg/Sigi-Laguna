@@ -486,7 +486,7 @@
 			</tr>
 			<tr id="rowBtnGuardar">
 				<td colspan="6" align="center">
-					<button id="btnGuardar" type="button" class="btn_mediano">Guardar</button>
+					<button id="btnGuardar" type="button" class="ui-button ui-corner-all ui-widget">Guardar</button>
 				</td>
 			</tr>
 		</table>

@@ -16,37 +16,37 @@
 			<table>
 				<tr>
 					<td>
-						<input type="button" value="Cambiar etapa del expediente" id="cambiarEtapaDelExpediente" onClick="cambiarEtapaExpediente();" class="btn_grande"/>					
+						<input type="button" value="Cambiar etapa del expediente" id="cambiarEtapaDelExpediente" onClick="cambiarEtapaExpediente();" class="ui-button ui-corner-all ui-widget"/>					
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<input type="button" value="Teor&iacute;a del caso/Escritos de prueba" id="teoriaDelCaso" onClick="abreTeoria();" class="btn_grande"/>					
+						<input type="button" value="Teor&iacute;a del caso/Escritos de prueba" id="teoriaDelCaso" onClick="abreTeoria();" class="ui-button ui-corner-all ui-widget"/>					
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<input type="button" value="Relacionar expediente a caso" id="relacionarExpediente" onClick="relacionarExpedienteACaso();" class="btn_grande"/>					
+						<input type="button" value="Relacionar expediente a caso" id="relacionarExpediente" onClick="relacionarExpedienteACaso();" class="ui-button ui-corner-all ui-widget"/>					
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<input type="button" value="Actualizar Situaci&oacute;n Jur&iacute;dica" id="btnActualizarSituacion" onClick="cambiarSituacionDefendido();"class="btn_grande"/>					
+						<input type="button" value="Actualizar Situaci&oacute;n Jur&iacute;dica" id="btnActualizarSituacion" onClick="cambiarSituacionDefendido();"class="ui-button ui-corner-all ui-widget"/>					
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<input type="button" value="Adjuntar documento" id="btnAdjuntarDocumento" onClick="actuacionAdjuntarDocumento('1');" class="btn_grande"/>					
+						<input type="button" value="Adjuntar documento" id="btnAdjuntarDocumento" onClick="actuacionAdjuntarDocumento('1');" class="ui-button ui-corner-all ui-widget"/>					
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<input type="button" value="Adjuntar oficio para cierre de expediente" id="btnAdjuntarOficio" onClick="actuacionAdjuntarOficio('1');" class="btn_grande"/>					
+						<input type="button" value="Adjuntar oficio para cierre de expediente" id="btnAdjuntarOficio" onClick="actuacionAdjuntarOficio('1');" class="ui-button ui-corner-all ui-widget"/>					
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<input type="button" value="Medidas Cautelares" id="btnMedidasCautelares" onClick="mostrarVentanaInvolucradosCausa(jQuery('#expediente').val(), 'true');" class="btn_grande"/>					
+						<input type="button" value="Medidas Cautelares" id="btnMedidasCautelares" onClick="mostrarVentanaInvolucradosCausa(jQuery('#expediente').val(), 'true');" class="ui-button ui-corner-all ui-widget"/>					
 					</td>
 				</tr>				
 			</table>
@@ -60,31 +60,31 @@
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
-		<td><input type="button" value="Teor&iacute;a del caso/Escritos de prueba" id="teoriaDelCaso" onClick="abreTeoria();" class="btn_grande"/></td>
+		<td><input type="button" value="Teor&iacute;a del caso/Escritos de prueba" id="teoriaDelCaso" onClick="abreTeoria();" class="ui-button ui-corner-all ui-widget"/></td>
 	</tr>
 	<tr id="btnRelacionExpedienteCaso">
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
-		<td><input type="button" value="Relacionar expediente a caso" id="relacionarExpediente" onClick="relacionarExpedienteACaso();" class="btn_grande"/></td>
+		<td><input type="button" value="Relacionar expediente a caso" id="relacionarExpediente" onClick="relacionarExpedienteACaso();" class="ui-button ui-corner-all ui-widget"/></td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
-		<td><input type="button" value="Actualizar Situaci&oacute;n Jur&iacute;dica" id="btnActualizarSituacion" onClick="cambiarSituacionDefendido();"class="btn_grande"/></td>
+		<td><input type="button" value="Actualizar Situaci&oacute;n Jur&iacute;dica" id="btnActualizarSituacion" onClick="cambiarSituacionDefendido();"class="ui-button ui-corner-all ui-widget"/></td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
-		<td><input type="button" value="Adjuntar documento" id="btnAdjuntarDocumento" onClick="actuacionAdjuntarDocumento('1');" class="btn_grande"/></td>
+		<td><input type="button" value="Adjuntar documento" id="btnAdjuntarDocumento" onClick="actuacionAdjuntarDocumento('1');" class="ui-button ui-corner-all ui-widget"/></td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
-		<td><input type="button" value="Adjuntar oficio para cierre de expediente" id="btnAdjuntarOficio" onClick="actuacionAdjuntarOficio('1');" class="btn_grande"/></td>
+		<td><input type="button" value="Adjuntar oficio para cierre de expediente" id="btnAdjuntarOficio" onClick="actuacionAdjuntarOficio('1');" class="ui-button ui-corner-all ui-widget"/></td>
 	</tr>
 	-->
 </table>

@@ -338,7 +338,7 @@ jQuery.extend({
         	muestraMensaje = $("#" + options.id).data('esMensajeActivado');
         	
         	if(options.confirmarCierreVentana == true && muestraMensaje === true){
-				customConfirm ("¿Está seguro que desea salir? Si sale y no ha guardado sus cambios estos se perderán.","Aviso",
+				customConfirm ("&iquest;Est&aacute; seguro que desea salir? Si sale y no ha guardado sus cambios estos se perder&aacute;n.","Aviso",
 						function(){
 							$window.fadeOut(function() { $window.remove(); });
 			                if (options.onWindowClose != null) options.onWindowClose();

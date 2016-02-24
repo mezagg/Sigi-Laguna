@@ -1389,7 +1389,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 		<td align="right">Alias:</td>
 		<td><input type="text" size="20" maxlength="50" id="newItem"
 			name="newItem"  tabindex="9" onKeypress="return bloqueaEnter(event);" />
-			 <input type="button" id="add" value="Agrega Alias" class="btn_modificar" onclick="agregaAlias()"/>
+			 <input type="button" id="add" value="Agrega Alias" class="ui-button ui-corner-all ui-widget" onclick="agregaAlias()"/>
 		</td>
 		
 	</tr>

@@ -1130,7 +1130,7 @@
 					} 
 			}).navGrid('#paginadorGridVictima',{edit:false,add:false,del:false});
 			
-			$("#t_gridVictima").append("<input type='button' class='btn_Generico' value='Agregar V&iacute;ctima' style='height:20px;font-size:-3'/>");
+			$("#t_gridVictima").append("<input type='button' class='ui-button ui-corner-all ui-widget' value='Agregar V&iacute;ctima' />");
 			$("input","#t_gridVictima").click(function(){
 				creaNuevaVictima();
 			});
@@ -1274,7 +1274,7 @@
 			}).navGrid('#paginadorGridDenunciante',{edit:false,add:false,del:false});
 
 			//AGA- No se puede agregar mas de un denunciante, como en PG
-			//$("#t_gridDenunciante").append("<input type='button' class='btn_Generico' value='Agregar Denunciante' style='height:20px;font-size:-3'/>");
+			//$("#t_gridDenunciante").append("<input type='button' class='ui-button ui-corner-all ui-widget' value='Agregar Denunciante' />");
 			//$("input","#t_gridDenunciante").click(function(){
 			//	crearDenunciante();
 			//});
@@ -1365,15 +1365,15 @@
 		}).navGrid('#paginadorGridFiscal',{edit:false,add:false,del:false});
 
 		//Button agregar amp
-		var inputAgregarFiscal = "<input type='button' class='btn_Generico' id='butAgreAmp' value='Agregar ";
+		var inputAgregarFiscal = "<input type='button' class="ui-button ui-corner-all ui-widget" id='butAgreAmp' value='Agregar ";
 		inputAgregarFiscal += '<bean:message key="agenteMp"/>';
-		inputAgregarFiscal += "' style='height:20px;font-size:-3'/>";
+		inputAgregarFiscal += "' />";
 		$("#t_gridFiscal").append(inputAgregarFiscal);
 		
 		//Button eliminar amp
-		var inputEliminarFiscal = "<input type='button' class='btn_Generico' id='butElimAmp' value='Eliminar ";
+		var inputEliminarFiscal = "<input type='button' class="ui-button ui-corner-all ui-widget" id='butElimAmp' value='Eliminar ";
 		inputEliminarFiscal += '<bean:message key="agenteMp"/>';
-		inputEliminarFiscal += "' style='height:20px;font-size:-3'/>";
+		inputEliminarFiscal += "' />";
 		$("#t_gridFiscal").append(inputEliminarFiscal);
 			
 		$("#butAgreAmp","#t_gridFiscal").click(function(){
@@ -1418,11 +1418,11 @@
 				caption:"Defensor"
 		}).navGrid('#paginadorGridDefensor',{edit:false,add:false,del:false});
 			
-		$("#t_gridDefensor").append("<input type='button' class='btn_Generico' id='butADefensor' value='Agregar Defensor' style='height:20px;font-size:-3'/>");
+		$("#t_gridDefensor").append("<input type='button' class='ui-button ui-corner-all ui-widget' id='butADefensor' value='Agregar Defensor' />");
 
-		$("#t_gridDefensor").append("<input type='button' class='btn_Generico' id='butSDefensor' value='Solicitar Defensor' style='height:20px;font-size:-3'/>");
+		$("#t_gridDefensor").append("<input type='button' class='ui-button ui-corner-all ui-widget' id='butSDefensor' value='Solicitar Defensor' />");
 		
-		$("#t_gridDefensor").append("<input type='button' class='btn_Generico' id='butElimDef' value='Eliminar Defensor' style='height:20px;font-size:-3'/>");
+		$("#t_gridDefensor").append("<input type='button' class='ui-button ui-corner-all ui-widget' id='butElimDef' value='Eliminar Defensor' />");
 
 		
 		$("#butADefensor","#t_gridDefensor").click(function(){
@@ -1485,7 +1485,7 @@
 					} 
 			}).navGrid('#paginadorGridTestigo',{edit:false,add:false,del:false});
 			
-			$("#t_gridTestigo").append("<input type='button' class='btn_Generico' value='Agregar Testigo' style='height:20px;font-size:-3'/>");
+			$("#t_gridTestigo").append("<input type='button' class='ui-button ui-corner-all ui-widget' value='Agregar Testigo' />");
 			$("input","#t_gridTestigo").click(function(){
 				creaNuevoTestigo(null);
 			});
@@ -1530,9 +1530,9 @@
 				caption:"Perito"
 		}).navGrid('#paginadorGridPerito',{edit:false,add:false,del:false});
 
-		$("#t_gridPerito").append("<input type='button' class='btn_Generico' id='butAgregarPer' value='Agregar Perito' style='height:20px;font-size:-3'/>");
+		$("#t_gridPerito").append("<input type='button' class='ui-button ui-corner-all ui-widget' id='butAgregarPer' value='Agregar Perito' />");
 		
-		$("#t_gridPerito").append("<input type='button' class='btn_Generico' id='butElimPer' value='Eliminar Perito' style='height:20px;font-size:-3'/>");
+		$("#t_gridPerito").append("<input type='button' class='ui-button ui-corner-all ui-widget' id='butElimPer' value='Eliminar Perito' />");
 		
 		$("#butAgregarPer","#t_gridPerito").click(function(){
 			puestoFuncionario="perito";
@@ -1579,10 +1579,10 @@
 				caption:"Elemento de la policía ministerial"
 		}).navGrid('#paginadorGridPolicia',{edit:false,add:false,del:false});
 		
-		$("#t_gridPolicia").append("<input type='button' class='btn_Generico' id='butAgrePoli' value='Agregar Polic&iacute;a Ministerial' style='height:20px;font-size:-3'/>");
+		$("#t_gridPolicia").append("<input type='button' class='ui-button ui-corner-all ui-widget' id='butAgrePoli' value='Agregar Polic&iacute;a Ministerial' />");
 
 		//Button eliminar policia ministerial
-		$("#t_gridPolicia").append("<input type='button' class='btn_Generico' id='butElimPoli' value='Eliminar Polic&iacute;a Ministerial' style='height:20px;font-size:-3'/>");
+		$("#t_gridPolicia").append("<input type='button' class='ui-button ui-corner-all ui-widget' id='butElimPoli' value='Eliminar Polic&iacute;a Ministerial' />");
 		
 		$("#butAgrePoli","#t_gridPolicia").click(function(){
 			puestoFuncionario="policia";
@@ -1761,7 +1761,7 @@
 
 			banderaDatosPrueba=false;
 			
-			$("#t_gridDatosDePruebaPJENS").append("<input type='button' id='btnAgregarDatoPrueba' class='btn_Generico' value='Agregar' style='height:20px;width:60px;font-size:-3'/>"+" "+"<input type='button' id='btnRelacionarDatoPrueba' class='btn_Generico' value='Relacionar' style='height:20px;width:70px;font-size:-3'/>");
+			$("#t_gridDatosDePruebaPJENS").append("<input type='button' id='btnAgregarDatoPrueba' class='ui-button ui-corner-all ui-widget' value='Agregar' style='height:20px;width:60px;font-size:-3'/>"+" "+"<input type='button' id='btnRelacionarDatoPrueba' class='ui-button ui-corner-all ui-widget' value='Relacionar' style='height:20px;width:70px;font-size:-3'/>");
 			
 			$("#btnAgregarDatoPrueba","#t_gridDatosDePruebaPJENS").click(function(){
 				agregarDatoDePrueba();
@@ -1959,7 +1959,7 @@
 			}).navGrid('#gridRelacionarMediosDePruebaPJENS',{edit:false,add:false,del:false});
 			banderaRelacionarMediosPrueba = false;
 					
-			$("#t_gridRelacionarMediosDePruebaPJENS").append("<input type='button' class='btn_Generico' value='Agregar' style='height:20px;width:60px;font-size:-3'/>");
+			$("#t_gridRelacionarMediosDePruebaPJENS").append("<input type='button' class='ui-button ui-corner-all ui-widget' value='Agregar' style='height:20px;width:60px;font-size:-3'/>");
 			$("input","#t_gridRelacionarMediosDePruebaPJENS").click(function(){
 				agregarMedioDePrueba();
 			});
@@ -2690,7 +2690,7 @@
 			banderaPrueba = false;
 
 			//Boton para asociar las pruebas a involucrados
-			$("#t_gridPruebaPJENS").append("<input type='button' id='btnAsociarPrueba' class='btn_Generico' value='Asociar' style='height:20px;width:60px;font-size:-3'/>");			
+			$("#t_gridPruebaPJENS").append("<input type='button' id='btnAsociarPrueba' class='ui-button ui-corner-all ui-widget' value='Asociar' style='height:20px;width:60px;font-size:-3'/>");			
 			
 			//Funcionalidad para al boton asociar
 			$("#btnAsociarPrueba","#t_gridPruebaPJENS").click(function(){
@@ -4034,14 +4034,14 @@
 					} 
 			}).navGrid('#paginadorGridVictima1',{edit:false,add:false,del:false});
 			
-			$("#t_gridVictima1").append("<input type='button' class='btn_Generico' id='btnAgregarVictimaSig' value='Agregar nueva victima' style='height:20px;font-size:-3'/>");
+			$("#t_gridVictima1").append("<input type='button' class='ui-button ui-corner-all ui-widget' id='btnAgregarVictimaSig' value='Agregar nueva victima' />");
 			
 			$("#btnAgregarVictimaSig","#t_gridVictima1").click(function(){
 				creaNuevaVictima1();
 			});
 
 			///Se agrega boton para relacionar victimas existentes con la nueva audiencia
-			$("#t_gridVictima1").append("<input type='button' class='btn_Generico' id='btnAgregarVictimaExistente' value='Agregar victima existente' style='height:20px;font-size:-3'/>");
+			$("#t_gridVictima1").append("<input type='button' class='ui-button ui-corner-all ui-widget' id='btnAgregarVictimaExistente' value='Agregar victima existente' />");
 			
 			$("#btnAgregarVictimaExistente","#t_gridVictima1").click(function(){
 				asociarInvolucradosPorCalidadAudienciaSiguiente("<%=Calidades.VICTIMA_PERSONA.getValorId()%>");
@@ -4116,12 +4116,12 @@
 			}).navGrid('#paginadorGridDenunciante1',{edit:false,add:false,del:false});
 
 			//AGA- No se puede agregar mas de un denunciante, como en PG
-			//$("#t_gridDenunciante1").append("<input type='button' class='btn_Generico' id='btnAgregarDenuncianteSig' value='Agregar Denunciante' style='height:20px;font-size:-3'/>");
+			//$("#t_gridDenunciante1").append("<input type='button' class='ui-button ui-corner-all ui-widget' id='btnAgregarDenuncianteSig' value='Agregar Denunciante' />");
 			//$("#btnAgregarDenuncianteSig","#t_gridDenunciante1").click(function(){
 			//	crearDenunciante1();
 			//});
 
-			$("#t_gridDenunciante1").append("<input type='button' class='btn_Generico' id='btnAgregarDenuncianteExistente' value='Agregar denunciante existente' style='height:20px;font-size:-3'/>");
+			$("#t_gridDenunciante1").append("<input type='button' class='ui-button ui-corner-all ui-widget' id='btnAgregarDenuncianteExistente' value='Agregar denunciante existente' />");
 			$("#btnAgregarDenuncianteExistente","#t_gridDenunciante1").click(function(){
 				asociarInvolucradosPorCalidadAudienciaSiguiente("<%=Calidades.DENUNCIANTE.getValorId()%>");
 			});
@@ -4193,13 +4193,13 @@
 				} 
 			}).navGrid('#paginadorGridTestigo1',{edit:false,add:false,del:false});
 			
-			$("#t_gridTestigo1").append("<input type='button' class='btn_Generico' id='btnAgregarTestigoSig' value='Agregar Testigo' style='height:20px;font-size:-3'/>");
+			$("#t_gridTestigo1").append("<input type='button' class='ui-button ui-corner-all ui-widget' id='btnAgregarTestigoSig' value='Agregar Testigo' />");
 
 			$("#btnAgregarTestigoSig","#t_gridTestigo1").click(function(){
 				creaNuevoTestigoAudienciaSiguiente(null);
 			});
 			
-			$("#t_gridTestigo1").append("<input type='button' class='btn_Generico' id='btnAgregarTestigoExistente' value='Agregar testigo existente' style='height:20px;font-size:-3'/>");
+			$("#t_gridTestigo1").append("<input type='button' class='ui-button ui-corner-all ui-widget' id='btnAgregarTestigoExistente' value='Agregar testigo existente' />");
 
 			$("#btnAgregarTestigoExistente","#t_gridTestigo1").click(function(){
 				asociarInvolucradosPorCalidadAudienciaSiguiente("<%=Calidades.TESTIGO.getValorId()%>");
@@ -4248,15 +4248,15 @@
 		}).navGrid('#paginadorGridFiscal',{edit:false,add:false,del:false});
 
 		//Button agregar amp
-		var inputAgregarFiscal = "<input type='button' class='btn_Generico' id='butAgreAmp1' value='Agregar ";
+		var inputAgregarFiscal = "<input type='button' class="ui-button ui-corner-all ui-widget" id='butAgreAmp1' value='Agregar ";
 		inputAgregarFiscal += '<bean:message key="agenteMp"/>';
-		inputAgregarFiscal += "' style='height:20px;font-size:-3'/>";
+		inputAgregarFiscal += "' />";
 		$("#t_gridFiscal1").append(inputAgregarFiscal);
 		
 		//Button eliminar amp
-		var inputEliminarFiscal = "<input type='button' class='btn_Generico' id='butElimAmp1' value='Eliminar ";
+		var inputEliminarFiscal = "<input type='button' class="ui-button ui-corner-all ui-widget" id='butElimAmp1' value='Eliminar ";
 		inputEliminarFiscal += '<bean:message key="agenteMp"/>';
-		inputEliminarFiscal += "' style='height:20px;font-size:-3'/>";
+		inputEliminarFiscal += "' />";
 		$("#t_gridFiscal1").append(inputEliminarFiscal);
 			
 		$("#butAgreAmp1","#t_gridFiscal1").click(function(){
@@ -4305,10 +4305,10 @@
 			caption:"Perito"
 		}).navGrid('#paginadorGridPerito1',{edit:false,add:false,del:false});
 
-		$("#t_gridPerito1").append("<input type='button' class='btn_Generico' id='butAgrePer1' value='Agregar Perito' style='height:20px;font-size:-3'/>");
+		$("#t_gridPerito1").append("<input type='button' class='ui-button ui-corner-all ui-widget' id='butAgrePer1' value='Agregar Perito' />");
 
 		//Button eliminar perito
-		$("#t_gridPerito1").append("<input type='button' class='btn_Generico' id='butElimPer1' value='Eliminar Perito' style='height:20px;font-size:-3'/>");
+		$("#t_gridPerito1").append("<input type='button' class='ui-button ui-corner-all ui-widget' id='butElimPer1' value='Eliminar Perito' />");
 		
 		$("#butAgrePer1","#t_gridPerito1").click(function(){
 			puestoFuncionarioSig="perito";
@@ -4354,10 +4354,10 @@
 			caption:"Elemento de la policía ministerial"
 		}).navGrid('#paginadorGridPolicia1',{edit:false,add:false,del:false});
 		
-		$("#t_gridPolicia1").append("<input type='button' class='btn_Generico' id='butAgrePolMin1' value='Agregar Policia Ministerial' style='height:20px;font-size:-3'/>");
+		$("#t_gridPolicia1").append("<input type='button' class='ui-button ui-corner-all ui-widget' id='butAgrePolMin1' value='Agregar Policia Ministerial' />");
 
 		//Button eliminar amp
-		$("#t_gridPolicia1").append("<input type='button' class='btn_Generico' id='butElimPolMin1' value='Eliminar Policia Ministerial' style='height:20px;font-size:-3'/>");
+		$("#t_gridPolicia1").append("<input type='button' class='ui-button ui-corner-all ui-widget' id='butElimPolMin1' value='Eliminar Policia Ministerial' />");
 		
 		$("#butAgrePolMin1","#t_gridPolicia1").click(function(){
 			puestoFuncionarioSig="policia";
@@ -4403,11 +4403,11 @@
 				caption:"Defensor"
 		}).navGrid('#paginadorGridDefensor1',{edit:false,add:false,del:false});
 
-		$("#t_gridDefensor1").append("<input type='button' class='btn_Generico' id='butADefensor1' value='Agregar Defensor' style='height:20px;font-size:-3'/>");
+		$("#t_gridDefensor1").append("<input type='button' class='ui-button ui-corner-all ui-widget' id='butADefensor1' value='Agregar Defensor' />");
 
-		$("#t_gridDefensor1").append("<input type='button' class='btn_Generico' id='butElimDefensor1' value='Eliminar Defensor' style='height:20px;font-size:-3'/>");
+		$("#t_gridDefensor1").append("<input type='button' class='ui-button ui-corner-all ui-widget' id='butElimDefensor1' value='Eliminar Defensor' />");
 
-		$("#t_gridDefensor1").append("<input type='button' class='btn_Generico' id='butSDefensor1' value='Solicitar Defensor' style='height:20px;font-size:-3'/>");
+		$("#t_gridDefensor1").append("<input type='button' class='ui-button ui-corner-all ui-widget' id='butSDefensor1' value='Solicitar Defensor' />");
 
 		$("#butADefensor1","#t_gridDefensor1").click(function(){
 			puestoFuncionarioSig="defensor";
@@ -5913,7 +5913,7 @@
 			</tr>
 	  		<tr>
 	  			<td align="left">
-    				<input class="btn_mediano" width="100" type="button" id="agregarResolutivoBoton" value="Agregar Registro" />
+    				<input class="ui-button ui-corner-all ui-widget" width="100" type="button" id="agregarResolutivoBoton" value="Agregar Registro" />
     			</td>	  			
 				<td valign="top" height="200" rowspan="6" colspan="3" align="center" >
 					<table  id="gridAudienciasResolutivosPJENS" width="100%"></table>
@@ -5922,17 +5922,17 @@
 			</tr>
 			<tr>
     			<td align="right">
-    				<input type="button" class="btn_mediano" width="100" id="eliminarResolutivoBoton" value="Eliminar Registro" />
+    				<input type="button" class="ui-button ui-corner-all ui-widget" width="100" id="eliminarResolutivoBoton" value="Eliminar Registro" />
     			</td>
 			</tr>
 			<tr>	
 				<td align="right">
-					<input type="button" class="btn_mediano" width="100" id="btnVideos" value="Notas y Videos de JAVS" onclick="invocacionSolicitudJAVS()"/>
+					<input type="button" class="ui-button ui-corner-all ui-widget" width="100" id="btnVideos" value="Notas y Videos de JAVS" onclick="invocacionSolicitudJAVS()"/>
 				</td>
 			</tr>
 			<tr>	
 				<td align="right">
-					<input type="button" class="btn_mediano" width="100" id="btnEliminar" value="Eliminar agenda de JAVS" onclick="eliminarAudienciaJAVS();"/>
+					<input type="button" class="ui-button ui-corner-all ui-widget" width="100" id="btnEliminar" value="Eliminar agenda de JAVS" onclick="eliminarAudienciaJAVS();"/>
 				</td>				
 			</tr>
 			</tbody>		
@@ -5949,7 +5949,7 @@
 	  		</tr>	
 			<tr valign="middle">
 				<td width="5%" height="40" align="right">
-					<input class="btn_mediano" type="button" id="consPolitica" onClick="abreCodigosLeyes('<%=TipoNorma.CONSTITUCION.getValorId()%>')" value="Constituci&oacute;n Pol&iacute;tica"/>
+					<input class="ui-button ui-corner-all ui-widget" type="button" id="consPolitica" onClick="abreCodigosLeyes('<%=TipoNorma.CONSTITUCION.getValorId()%>')" value="Constituci&oacute;n Pol&iacute;tica"/>
 				</td>
 			  	<td width="8%" rowspan="9" valign="middle" >
 					<table id="gridLeyesCodigosPJENS" width="100%">
@@ -5959,37 +5959,37 @@
   			</tr>
 			<tr>		
 				<td width="5%" height="39" align="right" class="linea_derecha_gris">
-					<input class="btn_mediano" type="button" id="leyesGenerales" onClick="abreCodigosLeyes('<%=TipoNorma.LEYES.getValorId()%>')" value="Leyes Generales"/>
+					<input class="ui-button ui-corner-all ui-widget" type="button" id="leyesGenerales" onClick="abreCodigosLeyes('<%=TipoNorma.LEYES.getValorId()%>')" value="Leyes Generales"/>
 				</td>
 			</tr>
 			<tr>
 				<td width="5%" height="40" align="right" class="linea_derecha_gris">
-					<input class="btn_mediano" type="button" id="tratados" onClick="abreCodigosLeyes('<%=TipoNorma.TRATADOS.getValorId()%>')" value="Tratados Internacionales"/>
+					<input class="ui-button ui-corner-all ui-widget" type="button" id="tratados" onClick="abreCodigosLeyes('<%=TipoNorma.TRATADOS.getValorId()%>')" value="Tratados Internacionales"/>
 				</td>
 			</tr>
 			<tr>
 				<td  width="5%" height="40" align="right" class="linea_derecha_gris">
-					<input class="btn_mediano" type="button" id="codigos" onClick="abreCodigosLeyes('<%=TipoNorma.CODIGOS.getValorId()%>')" value="C&oacute;digos" />
+					<input class="ui-button ui-corner-all ui-widget" type="button" id="codigos" onClick="abreCodigosLeyes('<%=TipoNorma.CODIGOS.getValorId()%>')" value="C&oacute;digos" />
 				</td>
 	  		</tr>
 			<tr>
 				<td width="5%" height="40" align="right" class="linea_derecha_gris">
-					<input class="btn_mediano" type="button" id="acuerdos" onClick="abreCodigosLeyes('<%=TipoNorma.ACUERDOS.getValorId()%>')" value="Acuerdos" />
+					<input class="ui-button ui-corner-all ui-widget" type="button" id="acuerdos" onClick="abreCodigosLeyes('<%=TipoNorma.ACUERDOS.getValorId()%>')" value="Acuerdos" />
 				</td>
 	  		</tr>
 			<tr>
 				<td width="18%" height="40" align="right" class="linea_derecha_gris">
-					<input class="btn_mediano" type="button" id="circulares" onClick="abreCodigosLeyes('<%=TipoNorma.CIRCULARES.getValorId()%>')" value="Circulares" />
+					<input class="ui-button ui-corner-all ui-widget" type="button" id="circulares" onClick="abreCodigosLeyes('<%=TipoNorma.CIRCULARES.getValorId()%>')" value="Circulares" />
 				</td>
 	  		</tr>
 			<tr>
 				<td  width="18%" height="39" align="right" class="linea_derecha_gris">
-					<input class="btn_mediano" type="button" id="manuales" onClick="abreCodigosLeyes('<%=TipoNorma.MANUALES.getValorId()%>')" value="Manuales" />
+					<input class="ui-button ui-corner-all ui-widget" type="button" id="manuales" onClick="abreCodigosLeyes('<%=TipoNorma.MANUALES.getValorId()%>')" value="Manuales" />
 				</td>
 	  		</tr>
 			<tr>
 				<td width="18%" align="right">
-			  		<input class="btn_mediano" type="button" id="instructivos" onClick="abreCodigosLeyes('<%=TipoNorma.INSTRUCTIVOS.getValorId()%>')" value="Instructivos" />
+			  		<input class="ui-button ui-corner-all ui-widget" type="button" id="instructivos" onClick="abreCodigosLeyes('<%=TipoNorma.INSTRUCTIVOS.getValorId()%>')" value="Instructivos" />
 				</td>
 	  		</tr>	
             <tr>
@@ -6329,7 +6329,7 @@
 									<td><select id="campoEstado"> </select> </td>
 								</tr>
 							</table>
-								<input name="" type="button" value="Guardar Objeto" class="btn_modificar" onclick="guardaObjeto()"/>
+								<input name="" type="button" value="Guardar Objeto" class="ui-button ui-corner-all ui-widget" onclick="guardaObjeto()"/>
 						</td>
 						<td>
 							<table id="gridSolObjetos"></table>

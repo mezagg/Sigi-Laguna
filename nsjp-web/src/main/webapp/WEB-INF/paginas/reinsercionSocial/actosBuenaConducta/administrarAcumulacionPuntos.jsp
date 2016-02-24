@@ -568,7 +568,7 @@
 				</tr>
 				<tr>
 					<td colspan="6" align="center">
-						<button id="btnResumenPer" type="button" class="btn_mediano">Generar Resumen</button>
+						<button id="btnResumenPer" type="button" class="ui-button ui-corner-all ui-widget">Generar Resumen</button>
 					</td>
 				</tr>
 			</table>

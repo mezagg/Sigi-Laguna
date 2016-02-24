@@ -783,15 +783,15 @@
 		<tr><td>&nbsp;</td></tr>
 		<tr>	
 			<td align="left" valign="top">
-				<input type="button" value="Relacionar" id="btnRelacionarRDPPV" onclick="abrePopupRelacionarDelitosPRRDPPV();" class="btn_modificar"/>
+				<input type="button" value="Relacionar" id="btnRelacionarRDPPV" onclick="abrePopupRelacionarDelitosPRRDPPV();" class="ui-button ui-corner-all ui-widget"/>
 			</td>
 			<td align="left" valign="top">
-				<input type="button" id="btnAnulaRelacionDelPer" value="Anular relaci&oacute;n Delito - Persona" onclick="anularRelacionDelitoPersonaPersona();" class="btn_grande"/>
+				<input type="button" id="btnAnulaRelacionDelPer" value="Anular relaci&oacute;n Delito - Persona" onclick="anularRelacionDelitoPersonaPersona();" class="ui-button ui-corner-all ui-widget"/>
 			</td>
 			<td>&nbsp;</td>
 			<td id="muestraDatosDetencion2" align="center" >
 				<!-- NVO. REQ. SOLICITAR DEFENSOR -->
-				<!--<input type="button" id="btnSolicitarDefensor" value="Solicitar Defensor" style="display: none" class="btn_mediano"/>-->
+				<!--<input type="button" id="btnSolicitarDefensor" value="Solicitar Defensor" style="display: none" class="ui-button ui-corner-all ui-widget"/>-->
 			</td>
 		</tr>
 	</table>

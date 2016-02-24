@@ -214,7 +214,7 @@ $(document).ready(function() {
     	<input type="text" name="nExpedienteEI" id="nExpedienteEI" disabled="disabled" style="width:200px"/>
     </td>
     <td width="1%">&nbsp;</td>
-    <td width="17%" align="right"><input name="" type="button" value="Agendar Siguiente Sesi&oacute;n" class="btn_guardar" id="GuardarAgenda" /></td>
+    <td width="17%" align="right"><input name="" type="button" value="Agendar Siguiente Sesi&oacute;n" class="ui-button ui-corner-all ui-widget" id="GuardarAgenda" /></td>
   </tr>
    <tr>
     <td width="13%"><span id="tipoVictimaSegimiento">Seguimiento:</span></td> 
@@ -224,7 +224,7 @@ $(document).ready(function() {
     <td colspan="4" align="right">Nombre de la V&iacute;ctima:
       <input type="text" name="FechaEI" id="nombreVictima" disabled="disabled" style="width:200px"/></td>
     <td>&nbsp;</td>
-    <td width="17%" align="right"><input name="" type="button" value="Guardar" class="btn_guardar" id="dtnGuardarNotaEvaluacion"/></td>
+    <td width="17%" align="right"><input name="" type="button" value="Guardar" class="ui-button ui-corner-all ui-widget" id="dtnGuardarNotaEvaluacion"/></td>
   </tr>
    <tr align="left">
     <td colspan="8"><table width="100%" border="0">

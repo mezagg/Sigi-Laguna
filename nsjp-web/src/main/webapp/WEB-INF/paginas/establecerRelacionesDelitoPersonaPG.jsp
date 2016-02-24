@@ -420,7 +420,7 @@
 				$("#gview_gridImputadosPG .ui-jqgrid-bdiv").css('height', '110px');
 
 				//Agregamos el boton para limpiar las selecciones del multigird
-				$("#t_gridImputadosPG").append("<input type='button' class='btn_Generico' value='Limpiar selecci&oacute;n' style='height:20px;font-size:-3'/>");
+				$("#t_gridImputadosPG").append("<input type='button' class='ui-button ui-corner-all ui-widget' value='Limpiar selecci&oacute;n' />");
 				$("input","#t_gridImputadosPG").click(function(){
 					eliminarItemsSeleccionados($("#gridImputadosPG"));
 				});
@@ -481,7 +481,7 @@
 				$("#gview_gridVictimasPG .ui-jqgrid-bdiv").css('height', '110px');
 
 				//Agregamos el boton para limpiar las selecciones del multigird
-				$("#t_gridVictimasPG").append("<input type='button' class='btn_Generico' value='Limpiar selecci&oacute;n' style='height:20px;font-size:-3'/>");
+				$("#t_gridVictimasPG").append("<input type='button' class='ui-button ui-corner-all ui-widget' value='Limpiar selecci&oacute;n' />");
 				$("input","#t_gridVictimasPG").click(function(){
 					eliminarItemsSeleccionados($("#gridVictimasPG"));
 				});
@@ -502,36 +502,39 @@
 		*/
 		function gridRelacionesDelitoPersona(delitoId){
 
-			if(delitoId == undefined){
+			/*if(delitoId == undefined){
 				jQuery("#gridRelacionesDelitoPersonaPG").jqGrid('setGridParam', {url:'<%=request.getContextPath()%>/limpiarGrid.do?numeroColumnas=3',datatype: "xml"});
-				$("#gridRelacionesDelitoPersonaPG").trigger("reloadGrid");		
-			}
-			
-			if(firstGridRelacionesDelitoPersona){
-				jQuery("#gridRelacionesDelitoPersonaPG").jqGrid({ 							
-		            url:'<%=request.getContextPath()%>/consultarRelacionDelitoPersonaPorDelitoYExpediente.do?idExpediente='+idExpedienteop+'&delitoId='+delitoId+'',
-					datatype: "xml",
-					colNames:['Nombre '+'<bean:message key="msjProbableResponsable"/>','Delito','Nombre V&iacute;ctima',],
-					 
-					colModel:[ 	{name:'NombrePR',	sortable: false,	index:'1',	width:250,	align:'center'},
-								{name:'NombreDEL',	sortable: false,	index:'1',	width:250,	align:'center'},
-								{name:'NombreVIC',	sortable: false,	index:'1',	width:250,	align:'center'}
-					 		],
-					pager: jQuery('#pagerGridRelacionesDelitoPersonaPG'),
-					rowNum:5,
-					rowList:[5,10,15,20],
-					width:925,
-					caption:"LISTA DE RELACIONES DELITO-PERSONA POR DELITO",
-					sortname: 'Nombre',
-					viewrecords: true,
-					sortorder: "desc"
-				});
-				$("#gview_gridRelacionesDelitoPersonaPG .ui-jqgrid-bdiv").css('height', '150px');
-				firstGridRelacionesDelitoPersona=false;
-			}else{
-				jQuery("#gridRelacionesDelitoPersonaPG").jqGrid('setGridParam', {url:'<%=request.getContextPath()%>/consultarRelacionDelitoPersonaPorDelitoYExpediente.do?idExpediente='+idExpedienteop+'&delitoId='+delitoId+'',datatype: "xml"});
-				$("#gridRelacionesDelitoPersonaPG").trigger("reloadGrid");				
-			}
+				$("#gridRelacionesDelitoPersonaPG").trigger("reloadGrid");	
+                                jQuery("#gridRelacionesDelitoPersonaPG").jqGrid('setGridParam', {url:'<%=request.getContextPath()%>/consultarRelacionDelitoPorExpediente.do?idExpediente='+idExpedienteop+'',datatype: "xml"});
+                                $("#gridRelacionesDelitoPersonaPG").trigger("reloadGrid");	
+			}else{*/
+
+                            if(firstGridRelacionesDelitoPersona){
+                                    jQuery("#gridRelacionesDelitoPersonaPG").jqGrid({ 							
+                                url:'<%=request.getContextPath()%>/consultarRelacionDelitoPorExpediente.do?idExpediente='+idExpedienteop+'&delitoId='+delitoId+'',
+                                            datatype: "xml",
+                                            colNames:['Nombre '+'<bean:message key="msjProbableResponsable"/>','Delito','Nombre V&iacute;ctima',],
+
+                                            colModel:[ 	{name:'NombrePR',	sortable: false,	index:'1',	width:250,	align:'center'},
+                                                                    {name:'NombreDEL',	sortable: false,	index:'1',	width:250,	align:'center'},
+                                                                    {name:'NombreVIC',	sortable: false,	index:'1',	width:250,	align:'center'}
+                                                            ],
+                                            pager: jQuery('#pagerGridRelacionesDelitoPersonaPG'),
+                                            rowNum:5,
+                                            rowList:[5,10,15,20],
+                                            width:925,
+                                            caption:"LISTA DE RELACIONES DELITO-PERSONA POR DELITO",
+                                            sortname: 'Nombre',
+                                            viewrecords: true,
+                                            sortorder: "desc"
+                                    });
+                                    $("#gview_gridRelacionesDelitoPersonaPG .ui-jqgrid-bdiv").css('height', '150px');
+                                    firstGridRelacionesDelitoPersona=false;
+                            }else{
+                                    jQuery("#gridRelacionesDelitoPersonaPG").jqGrid('setGridParam', {url:'<%=request.getContextPath()%>/consultarRelacionDelitoPorExpediente.do?idExpediente='+idExpedienteop+'&delitoId='+delitoId+'',datatype: "xml"});
+                                    $("#gridRelacionesDelitoPersonaPG").trigger("reloadGrid");				
+                            }
+                        //}
 		}
 
 		

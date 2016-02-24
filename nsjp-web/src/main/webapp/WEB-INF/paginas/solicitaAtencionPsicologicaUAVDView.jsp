@@ -136,30 +136,8 @@
                 }
             }
 
-            /*
-             *Procedimiento para carga los tipos de ayuda
-             *@deprecated ver cargar Actuaciones
-             */
-            function cargaCatalogoTipoAyuda()
-            {
-                $('#cbxTipoDeAyuda').empty();
-                $('#cbxTipoDeAyuda').append('<option value="-1" selected="selected">-Seleccione-</option>');
-
-                //lanzamos la consulta del tipo de solicitudes
-                $.ajax({
-                    async: false,
-                    type: 'POST',
-                    url: '<%= request.getContextPath()%>/consultaTiposSolsXArea.do',
-                    data: '',
-                    dataType: 'xml',
-                    success: function (xml) {
-                        $(xml).find('ValorDTO').each(function () {
-                            $('#cbxTipoDeAyuda').append('<option value="' + idTipoSolicitud + '">' + $(this).find('valor').text() + '</option>');
-                            
-                        });
-                    }
-                });
-            }
+           
+           
 
             function cargaActuaciones() {
                 var categoriaActividadId = <%= CategoriasActividad.UAVD.getValorId()%>;
@@ -238,13 +216,15 @@
             <tr>
                 <td id="numCasoTd">&nbsp;&nbsp;&nbsp;&nbsp;N&uacute;mero de caso: </td>
                 <td align="left"><input type="text" id="txtNoCaso" disabled="disabled" style="width: 200px;"/></td>
-                <td><input type="button" id="btnEnviarSolictud" value="Enviar Solicitud" class="btn_mediano"></td>
+                <td><input type="button" id="btnEnviarSolictud" value="Enviar Solicitud" class="ui-button ui-corner-all ui-widget"></td>
             </tr>
             <tr>
                 <td>&nbsp;&nbsp;&nbsp;&nbsp;Tipo de ayuda : </td>
                 <td align="left">
                     <select id="cbxTipoDeAyuda">
                         <option value="-1" selected="selected">-Seleccione-</option>
+                        <option value="2809" selected="selected">Trabajo Social</option>
+                        
                     </select>
                 </td>
                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>

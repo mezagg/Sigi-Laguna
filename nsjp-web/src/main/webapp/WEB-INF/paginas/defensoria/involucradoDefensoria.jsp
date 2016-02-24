@@ -253,7 +253,7 @@
 			<table width="64%" border="0" cellspacing="0" cellpadding="0">
 			<tr>
 				<td height="23" align="left">
-					<input type=button class="btn_guardar"  id="btnGuardarDatos" value="Guardar" >
+					<input type=button class="ui-button ui-corner-all ui-widget"  id="btnGuardarDatos" value="Guardar" >
 				</td>
 			</tr>
 			</table>

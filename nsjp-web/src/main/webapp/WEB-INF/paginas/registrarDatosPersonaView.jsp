@@ -1225,12 +1225,12 @@ DD P {
 		</td>
 		<td align="right">
 			<input type="button" value="Modificar"
-			id="btnModificarHechos" style="display: none;" class="btn_modificar"/> <input
+			id="btnModificarHechos" style="display: none;" class="ui-button ui-corner-all ui-widget"/> <input
 			type="button" value="Generar Acta" id="botonGenerarActa"
-			onclick="generaOficioActa();" class="btn_modificar" style="display: none;"/>&nbsp;&nbsp;&nbsp; <input
-			type="button" class="btn_modificar" value="Guardar"
+			onclick="generaOficioActa();" class="ui-button ui-corner-all ui-widget" style="display: none;"/>&nbsp;&nbsp;&nbsp; <input
+			type="button" class="ui-button ui-corner-all ui-widget" value="Guardar"
 			id="btnGuardarHechos" />&nbsp;&nbsp;&nbsp;<input
-			type="button" class="btn_modificar" value="Modificar"
+			type="button" class="ui-button ui-corner-all ui-widget" value="Modificar"
 			id="btnModificar" />
 		</td>
 	</tr>

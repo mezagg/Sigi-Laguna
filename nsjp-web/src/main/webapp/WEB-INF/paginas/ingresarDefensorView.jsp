@@ -680,8 +680,8 @@
             <table width="92%" border="0" cellspacing="0" cellpadding="0">
               <tr>
                 <td width="43%" height="23">&nbsp;</td>
-                <td width="26%" align="left" valign="bottom"><INPUT type=button class="btn_modificar" id=modificarDatos value="Modificar Datos"></td>
-                <td width="31%" align="left" valign="bottom"><INPUT type=button class="btn_guardar" id=guardarDenuncia value=Guardar></td>
+                <td width="26%" align="left" valign="bottom"><INPUT type=button class="ui-button ui-corner-all ui-widget" id=modificarDatos value="Modificar Datos"></td>
+                <td width="31%" align="left" valign="bottom"><INPUT type=button class="ui-button ui-corner-all ui-widget" id=guardarDenuncia value=Guardar></td>
               </tr>
           	</table>
           </TD>

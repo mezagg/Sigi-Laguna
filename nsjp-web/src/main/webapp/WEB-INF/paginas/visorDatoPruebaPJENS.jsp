@@ -171,7 +171,7 @@
 			}
 		}).navGrid('#pagerGridMedioPruebaAsociadoAlDatoPJENS',{edit:false,add:false,del:false});
 		
-		$("#t_gridMedioPruebaAsociadoAlDatoPJENS").append("<input type='button' id='butVerMedio' value='Ver medio prueba' class='btn_Generico'/>");
+		$("#t_gridMedioPruebaAsociadoAlDatoPJENS").append("<input type='button' id='butVerMedio' value='Ver medio prueba' class='ui-button ui-corner-all ui-widget'/>");
 		$("#butVerMedio","#t_gridMedioPruebaAsociadoAlDatoPJENS").click(function(){
 				
 				//var rowid = jQuery("#gridMedioPruebaAsociadoAlDatoPJENS").jqGrid('getGridParam','selrow');

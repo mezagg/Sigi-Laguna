@@ -61,7 +61,7 @@ function consultarNotas(){
 				<tr>
 					<td colspan="2">
 						&nbsp;&nbsp;&nbsp;
-						<input type="button" class="btn_modificar" value="Generar Nota" id="botonGuardarNotas" onclick="notaExpediente(0);" class="ui-button ui-corner-all ui-widget" />
+						<input type="button" class="ui-button ui-corner-all ui-widget" value="Generar Nota" id="botonGuardarNotas" onclick="notaExpediente(0);" class="ui-button ui-corner-all ui-widget" />
 					</td>
 				</tr>
 			</table>

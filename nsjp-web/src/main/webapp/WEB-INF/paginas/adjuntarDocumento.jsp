@@ -154,9 +154,9 @@
 						</td>
 					</tr>
 					<tr id="botonesAdjuntar" >
-						<td width="140" align="center"><input type="button" id="adjuntar" class="btn_modificar" value="Adjuntar" onclick="adjuntarArchivo();" />
+						<td width="140" align="center"><input type="button" id="adjuntar" class="ui-button ui-corner-all ui-widget" value="Adjuntar" onclick="adjuntarArchivo();" />
 						</td>
-						<td width="140" align="center"><input type="button" id="cancelar" class="btn_modificar" value="Cancelar" onclick="cancelarArchivo();"/></td>
+						<td width="140" align="center"><input type="button" id="cancelar" class="ui-button ui-corner-all ui-widget" value="Cancelar" onclick="cancelarArchivo();"/></td>
 					</tr>			
 				</table>		
 	</body>

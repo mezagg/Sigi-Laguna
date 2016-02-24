@@ -516,13 +516,13 @@
 				<table id="operacionesAudiencia">
 					<tr>
 			            <td width="10%">&nbsp;</td>
-						<td><input type="button" name="button" id="button" value="Cancelar audiencia" onclick="validaCancelarAudiencia()" class="btn_grande"></td>
+						<td><input type="button" name="button" id="button" value="Cancelar audiencia" onclick="validaCancelarAudiencia()" class="ui-button ui-corner-all ui-widget"></td>
 						<td width="5%">&nbsp;</td>
-	            		<td><input type="button" name="button" id="button" value="Reprogramar audiencia" onclick="reprogramarAudiencia()" class="btn_grande"></td>
+	            		<td><input type="button" name="button" id="button" value="Reprogramar audiencia" onclick="reprogramarAudiencia()" class="ui-button ui-corner-all ui-widget"></td>
 	            		<td width="5%">&nbsp;</td>
-	            		<td><input type="button" name="button" id="btnSolicitarPermisoConsultaJAVS" value="Solicitar permiso de consulta" onclick="invocacionSolicitudJAVS()" class="btn_grande"></td>
+	            		<td><input type="button" name="button" id="btnSolicitarPermisoConsultaJAVS" value="Solicitar permiso de consulta" onclick="invocacionSolicitudJAVS()" class="ui-button ui-corner-all ui-widget"></td>
 	            		<td width="10%">&nbsp;</td>
-	            		<td><input type="button" name="button" id="btnInvocacionPermisoJAVS" value="Videos JAVS" onclick="invocacionPermisoJAVS()" class="btn_grande"></td>
+	            		<td><input type="button" name="button" id="btnInvocacionPermisoJAVS" value="Videos JAVS" onclick="invocacionPermisoJAVS()" class="ui-button ui-corner-all ui-widget"></td>
 	            		<td width="10%">&nbsp;</td>	            	            			            
 					</tr>
 				</table>				

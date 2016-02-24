@@ -1249,8 +1249,8 @@ function mensajeEstadoJAVS(idEvento){
 			  <tr>
 			    <td>&nbsp;</td>
 			    <td>&nbsp;</td>
-			    <td colspan="3" align="center"><input type="button" class="btn_guardar" id="btnGuardarAudiencia" value="Guardar"  onclick="guardarAudiencia();" class="ui-button ui-corner-all ui-widget"/></td>
-			    <td colspan="3" align="left"><input type="button" class="btn_mediano" id="btnDesignar" onclick="mostrarAsignarSalaTemporalPJENA();" value="Designar Sala Temporal"  class="ui-button ui-corner-all ui-widget"/></td>
+			    <td colspan="3" align="center"><input type="button" class="ui-button ui-corner-all ui-widget" id="btnGuardarAudiencia" value="Guardar"  onclick="guardarAudiencia();" class="ui-button ui-corner-all ui-widget"/></td>
+			    <td colspan="3" align="left"><input type="button" class="ui-button ui-corner-all ui-widget" id="btnDesignar" onclick="mostrarAsignarSalaTemporalPJENA();" value="Designar Sala Temporal"  class="ui-button ui-corner-all ui-widget"/></td>
 			  </tr>
 			</table>
 			

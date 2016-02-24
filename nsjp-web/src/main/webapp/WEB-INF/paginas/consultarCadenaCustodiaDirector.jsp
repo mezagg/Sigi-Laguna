@@ -2810,8 +2810,8 @@
 				<td>&nbsp;</td>
 				<td>&nbsp;</td>
 				<td id="contador" class="txt_gral_victima">n De N</td>
-				<td> <INPUT type=button class="btn_guardar" id=anterior value=- onclick="menosDatos()"></td>
-				<td> <INPUT type=button class="btn_guardar" id=siguiente value=+ onclick="masDatos()"></td>
+				<td> <INPUT type=button class="ui-button ui-corner-all ui-widget" id=anterior value=- onclick="menosDatos()"></td>
+				<td> <INPUT type=button class="ui-button ui-corner-all ui-widget" id=siguiente value=+ onclick="masDatos()"></td>
 			</tr>
 			<tr>
 				<td colspan="3" class="txt_gral_victima"> &nbsp;</td>

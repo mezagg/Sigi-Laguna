@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" 
+       uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%@ taglib prefix="fn" 
+       uri="http://java.sun.com/jsp/jstl/functions" %>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -239,6 +244,9 @@
 					<div id="divCbxTipoAsentamiento"><select
 						id="cbxTipoAsentamiento" style="width: 200px;">
 						<option value="-1">-Seleccione-</option>
+                                                <c:forEach items="${applicationScope.tiposAsentamiento}"  var="t" >
+                                                    <option value='<c:out value="${t.clave}"/>'> <c:out value="${t.valor}"/> </option>
+                                                </c:forEach>
 					</select></div>
 					<input type="text" id="areaAsentamiento" readonly="readonly" /></td>
 					<td height="25" align="right">Referencias:</td>
@@ -251,6 +259,9 @@
 					<div id="divCbxTipoCalle"><select id="cbxTipoCalle"
 						style="width: 200px;">
 						<option value="-1">-Seleccione-</option>
+                                                <c:forEach items="${applicationScope.tiposAsentamiento}"  var="t" >
+                                                    <option value='<c:out value="${t.clave}"/>'> <c:out value="${t.valor}"/> </option>
+                                                </c:forEach>
 					</select></div>
 					<input type="text" id="areaTipoCalle" readonly="readonly" /></td>
 					<td colspan="4">&nbsp;</td>
@@ -500,12 +511,12 @@ function recuperaDatosDatosGenerales(idCalidad)
 		$('#cbxAsentamientoColonia').multiselect().empty();
 		$('#cbxAsentamientoColonia').multiselect().append('<option value="-1">-Seleccione-</option>');
 		$('#cbxAsentamientoColonia').multiselect('refresh');
-		$('#cbxTipoAsentamiento').multiselect().empty();
-		$('#cbxTipoAsentamiento').multiselect().append('<option value="-1">-Seleccione-</option>');
-		$('#cbxTipoAsentamiento').multiselect('refresh');
-		$('#cbxTipoCalle').multiselect().empty();
-		$('#cbxTipoCalle').multiselect().append('<option value="-1">-Seleccione-</option>');
-		$('#cbxTipoCalle').multiselect('refresh');
+		//$('#cbxTipoAsentamiento').multiselect().empty();
+		//$('#cbxTipoAsentamiento').multiselect().append('<option value="-1">-Seleccione-</option>');
+		//$('#cbxTipoAsentamiento').multiselect('refresh');
+		//$('#cbxTipoCalle').multiselect().empty();
+		//$('#cbxTipoCalle').multiselect().append('<option value="-1">-Seleccione-</option>');
+		//$('#cbxTipoCalle').multiselect('refresh');
 	  }
 	  
 
@@ -617,8 +628,7 @@ function recuperaDatosDatosGenerales(idCalidad)
 					existenEntidades = "si";	
 				});
 				hideControls(existenEntidades);	
-				cargaTipoAsent();
-				cargaTipoCalle();
+				
 			}
 		});
 	}
@@ -729,46 +739,10 @@ function recuperaDatosDatosGenerales(idCalidad)
 	}
 
 
-	/*
-	*Funcion que realiza la carga del combo de tipo de asentamiento	
-	*/
-	function cargaTipoAsent() {	
-	  
-		$.ajax({
-			type: 'POST',
-			url: '<%= request.getContextPath()%>/cargarTipoAsent.do',
-			data: '',
-			dataType: 'xml',
-			success: function(xml){
-				$(xml).find('catTipoAsentamiento').each(function(){
-					$('#cbxTipoAsentamiento').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
-					$('#cbxTipoAsentamiento').multiselect('refresh');
-					});  
-		  	}
-		});
-	  }
+	
 
 
-	 /*
-	  *Funcion que realiza la carga del combo de tipo de calle,
-	  *para el domicilio 
-	  */
-	  function cargaTipoCalle() {
-		
-		$.ajax({
-		  type: 'POST',
-		  url: '<%= request.getContextPath()%>/cargarTiposDeCalle.do',
-		  data: '',
-		  dataType: 'xml',
-		  success: function(xml){
-			var option;
-			$(xml).find('catTipoCalle').each(function(){
-				$('#cbxTipoCalle').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
-				$('#cbxTipoCalle').multiselect('refresh');
-					 });			
-		  }
-		});
-	  }
+	
 	  
 	  /*
 	   *Funcion que realiza la consulta de los datos

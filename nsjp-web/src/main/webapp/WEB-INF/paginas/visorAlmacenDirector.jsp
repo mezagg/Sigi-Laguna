@@ -390,8 +390,8 @@
 		<li id="tabEncargado"><a href="#tabsconsultaprincipal-3">Encargados</a></li>		
 	</ul>
 	<div id="tabsconsultaprincipal-1">
-		<input type="button" value="Guardar" onclick="guardarAlmacen()" id="btnGuardar1" class="btn_modificar">
-		<input type="button" value="Modificar" onclick="modificaEvidencia()" id="btnModificar1" class="btn_modificar">
+		<input type="button" value="Guardar" onclick="guardarAlmacen()" id="btnGuardar1" class="ui-button ui-corner-all ui-widget">
+		<input type="button" value="Modificar" onclick="modificaEvidencia()" id="btnModificar1" class="ui-button ui-corner-all ui-widget">
 		<table width="80%" border="0">
 			<tr><td></td></tr>
 			<tr><td></td></tr>
@@ -450,8 +450,8 @@
 		</table>		
 	</div>
 	<div id="tabsconsultaprincipal-2">
-		<input type="button" value="Guardar" onclick="guardarAlmacen()" id="btnGuardar2" class="btn_modificar">
-		<input type="button" value="Modificar" onclick="modificaEvidencia()" id="btnModificar2" class="btn_modificar">		
+		<input type="button" value="Guardar" onclick="guardarAlmacen()" id="btnGuardar2" class="ui-button ui-corner-all ui-widget">
+		<input type="button" value="Modificar" onclick="modificaEvidencia()" id="btnModificar2" class="ui-button ui-corner-all ui-widget">		
 		<jsp:include page="ingresarDomicilioView.jsp"></jsp:include>			
 	</div>	
 	<div id="tabsconsultaprincipal-3">
@@ -460,10 +460,10 @@
 		<table>
 			<tr>
 				<td>
-<!-- 					<input type="button" value="Quitar" onclick="quitarEncargadoAlmacen()" class="btn_modificar"> -->
+<!-- 					<input type="button" value="Quitar" onclick="quitarEncargadoAlmacen()" class="ui-button ui-corner-all ui-widget"> -->
 				</td>
 				<td>
-<!-- 					<input type="button" value="Agregar" onclick="agregarEncargadoAlmacen()" class="btn_modificar"> -->
+<!-- 					<input type="button" value="Agregar" onclick="agregarEncargadoAlmacen()" class="ui-button ui-corner-all ui-widget"> -->
 				</td>
 			</tr>
 		</table>

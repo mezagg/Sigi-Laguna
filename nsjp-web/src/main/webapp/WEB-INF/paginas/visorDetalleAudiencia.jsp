@@ -229,9 +229,9 @@
 			<tr><td>&nbsp;</td></tr>	        
 			<tr>
 				<td>&nbsp;</td>
-				<td><input type="button" name="button" id="buttonSolicitarPermisoConsulta" value="Solicitar permiso de consulta" onclick="invocacionSolicitudJAVS()" class="btn_grande"></td>
+				<td><input type="button" name="button" id="buttonSolicitarPermisoConsulta" value="Solicitar permiso de consulta" onclick="invocacionSolicitudJAVS()" class="ui-button ui-corner-all ui-widget"></td>
 	            <td width="10%">&nbsp;</td>
-	            <td><input type="button" name="button" id="buttonVideosJavs" value="Videos JAVS" onclick="invocacionPermisoJAVS()" class="btn_grande"></td>
+	            <td><input type="button" name="button" id="buttonVideosJavs" value="Videos JAVS" onclick="invocacionPermisoJAVS()" class="ui-button ui-corner-all ui-widget"></td>
 	            <td>&nbsp;</td>	            	            			            								
 	  		</tr>
 		</table> 

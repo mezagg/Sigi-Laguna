@@ -952,10 +952,10 @@ function guardarAudiencia(){
 									name="juezSustituto" id="juezSustituto" /> Sustituto</td>
 							</tr>
 							<tr>
-								<td width="111"><input type="button" class="btn_modificar"
+								<td width="111"><input type="button" class="ui-button ui-corner-all ui-widget"
 									value="Manualmente" id="btnAsignarJuezManual"
 									onclick="controlJueces(false);" /></td>
-								<td width="125"><input type="button" class="btn_mediano"
+								<td width="125"><input type="button" class="ui-button ui-corner-all ui-widget"
 									value="Autom&aacute;ticamente" id="btnAsignarJuezAuto"
 									onclick="controlJueces(true);" /></td>
 							</tr>
@@ -977,11 +977,11 @@ function guardarAudiencia(){
 				<td>
 				<table width="100%" border="0" align="center">
 					<tr align="center">
-						<td><input type="button" class="btn_atras" value=""
+						<td><input type="button" class="ui-button ui-corner-all ui-widget" value=""
 							id="btnAtrasMes" onclick="atrasAdelanteMes('atras');" /> <input
 							type="text" id="mes" disabled="disabled" style="width: 70px" /> <input
 							type="text" id="anio" disabled="disabled" style="width: 70px" />
-						<input type="button" class="btn_adelante" value=""
+						<input type="button" class="ui-button ui-corner-all ui-widget" value=""
 							id="btnAdelanteMes" onclick="atrasAdelanteMes('adelante');" /></td>
 					</tr>
 					<tr>
@@ -1027,8 +1027,8 @@ function guardarAudiencia(){
 			</tr>
 			<tr align="center">
 				<td><input type="button" id="btnGuardarAudiencia"
-					class="btn_guardar" value="Guardar" onclick="guardarAudiencia();" /></td>
-				<td><input type="button" class="btn_mediano" id="btnDesignar"
+					class="ui-button ui-corner-all ui-widget" value="Guardar" onclick="guardarAudiencia();" /></td>
+				<td><input type="button" class="ui-button ui-corner-all ui-widget" id="btnDesignar"
 					onclick="mostrarAsignarSalaTemporalPJENA();"
 					value="Designar Sala Temporal" /></td>
 			</tr>

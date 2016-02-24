@@ -88,7 +88,7 @@ $(document).ready(function(){
 			$("#gview_gridRelDelPerModosParticipacionPG .ui-jqgrid-bdiv").css('height', '250px');
 
 			//Agregamos el boton para limpiar las selecciones del multigird
-			$("#t_gridRelDelPerModosParticipacionPG").append("<input type='button' class='btn_Generico' value='Limpiar selecci&oacute;n' style='height:20px;font-size:-3'/>");
+			$("#t_gridRelDelPerModosParticipacionPG").append("<input type='button' class='ui-button ui-corner-all ui-widget' value='Limpiar selecci&oacute;n' />");
 			$("input","#t_gridRelDelPerModosParticipacionPG").click(function(){
 				eliminarItemsSeleccionados($("#gridRelDelPerModosParticipacionPG"));
 			});

@@ -1231,7 +1231,7 @@
 				        </table>
 				        <table width="64%" border="0" cellspacing="0" cellpadding="0">
 				          <tr>
-				            <td height="23" align="left"><INPUT type=button	class="btn_guardar" id=btnGuardaParaQuien value=Guardar onclick="obtenerParametrosParaQuien()"></td>
+				            <td height="23" align="left"><INPUT type=button	class="ui-button ui-corner-all ui-widget" id=btnGuardaParaQuien value=Guardar onclick="obtenerParametrosParaQuien()"></td>
 				          </tr>
 				        </table></TD>
 				    </TR>
@@ -1325,7 +1325,7 @@
 		            </table>
 		            <table width="64%" border="0" cellspacing="0" cellpadding="0">
 		              <tr>
-		                <td height="23" align="left"><INPUT type=button class="btn_guardar"  id="btnGuardarDatos" value="Guardar" ></td>
+		                <td height="23" align="left"><INPUT type=button class="ui-button ui-corner-all ui-widget"  id="btnGuardarDatos" value="Guardar" ></td>
 		              </tr>
 		          	</table>
 		          </TD>
@@ -1347,7 +1347,7 @@
 				<table width="100%">
 					<tr>
 						<td align="right">
-							<input type="button" id="btnGuardar" value="Guardar" onclick="guardaMotivo()" class="btn_guardar" />
+							<input type="button" id="btnGuardar" value="Guardar" onclick="guardaMotivo()" class="ui-button ui-corner-all ui-widget" />
 							<input type="button" id="btnGenera" value="Generar Acuse de Atenci&oacute;n" onclick="guardado()" disabled="disabled" class="ui-button ui-corner-all ui-widget"/>
 						</td>	
 					</tr>

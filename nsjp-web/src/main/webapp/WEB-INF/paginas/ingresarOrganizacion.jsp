@@ -364,11 +364,11 @@
                 <table width="100%" >
                   <tr valign="top">
                     <td align="center">
-                        <input style="display: none;" type="button" class="btn_mediano" value="Ingresar Contacto" id="iIngOrgBtnIngresarContacto"/>
+                        <input style="display: none;" type="button" class="ui-button ui-corner-all ui-widget" value="Ingresar Contacto" id="iIngOrgBtnIngresarContacto"/>
                     </td>
                     <td align="center">
-                        <input type="button" class="btn_modificar" value="Modificar Datos" id="iIngOrgBtnModificarDatos"/>
-                        <input type="button" class="btn_guardar" value="Guardar" id="iIngOrgBtnGuardar"/>
+                        <input type="button" class="ui-button ui-corner-all ui-widget" value="Modificar Datos" id="iIngOrgBtnModificarDatos"/>
+                        <input type="button" class="ui-button ui-corner-all ui-widget" value="Guardar" id="iIngOrgBtnGuardar"/>
                     </td>
                     
                     <td width="20%" align="left" id="idRepLegalTdDad">

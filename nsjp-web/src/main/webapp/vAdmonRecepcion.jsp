@@ -153,7 +153,7 @@ function cerrarVentanaQueja(){
 				      					<span id="atencionPenal" class="txt_cuad_bienvenido">Unidad  de Atenci&oacute;n Integral</span>
 				      					<dir>
 					  						<input id="checemer" name="checemer" type="checkbox"   />&nbsp;
-					  						<span id="textemer" class="txt_cuad_bienvenido" style="display:;" >Urgente</span> 
+					  						<span id="textemer" class="txt_cuad_bienvenido"  >Urgente</span> 
 					  					</dir>
 					  				</TD>
 								</tr>

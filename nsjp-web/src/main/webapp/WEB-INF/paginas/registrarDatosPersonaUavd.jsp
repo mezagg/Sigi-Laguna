@@ -2471,7 +2471,7 @@ function muestraDivInformativoCanalizacion()
 								</select>
 							<td>
 							<td width="20%" align="right">
-								 <input type="button" class="btn_mediano" value="Asignar Ayuda" onclick="asignarAyuda();" id="btnSolicitarAyuda"/>
+								 <input type="button" class="ui-button ui-corner-all ui-widget" value="Asignar Ayuda" onclick="asignarAyuda();" id="btnSolicitarAyuda"/>
 							<td>
 						</tr>
 					</table>

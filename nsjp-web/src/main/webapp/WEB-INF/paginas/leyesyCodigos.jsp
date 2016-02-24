@@ -106,7 +106,7 @@
 	<table width="100%" border="0" cellpadding="0" cellspacing="5">
 		<tr>
 			<td width="25%">
-				<input class="btn_mediano" type="button" id="consPolitica" onClick="abreCodigosLeyes('<%=TipoNorma.CONSTITUCION.getValorId()%>')" value="Constituci&oacute;n Pol&iacute;tica" />
+				<input class="ui-button ui-corner-all ui-widget" type="button" id="consPolitica" onClick="abreCodigosLeyes('<%=TipoNorma.CONSTITUCION.getValorId()%>')" value="Constituci&oacute;n Pol&iacute;tica" />
 			</td >
 			<td width="75%" rowspan="8" valign="top" >
 				<table id="gridLeyesCodigosPJENS" width="100%"></table>
@@ -115,37 +115,37 @@
 		</tr>
 		<tr>
 			<td width="25%">
-				<input class="btn_mediano" type="button" id="leyesGenerales" onClick="abreCodigosLeyes('<%=TipoNorma.LEYES.getValorId()%>')" value="Leyes Generales"/>
+				<input class="ui-button ui-corner-all ui-widget" type="button" id="leyesGenerales" onClick="abreCodigosLeyes('<%=TipoNorma.LEYES.getValorId()%>')" value="Leyes Generales"/>
 			</td>
 		</tr>
 		<tr>
 			<td height="21" >
-				<input class="btn_mediano" type="button" id="tratados" onClick="abreCodigosLeyes('<%=TipoNorma.TRATADOS.getValorId()%>')" value="Tratados Internacionales"/>
+				<input class="ui-button ui-corner-all ui-widget" type="button" id="tratados" onClick="abreCodigosLeyes('<%=TipoNorma.TRATADOS.getValorId()%>')" value="Tratados Internacionales"/>
 			</td>
 		</tr>
 		<tr>
 			<td >
-				<input class="btn_mediano" type="button" id="codigos" onClick="abreCodigosLeyes('<%=TipoNorma.CODIGOS.getValorId()%>')" value="C&oacute;digos" />
+				<input class="ui-button ui-corner-all ui-widget" type="button" id="codigos" onClick="abreCodigosLeyes('<%=TipoNorma.CODIGOS.getValorId()%>')" value="C&oacute;digos" />
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<input class="btn_mediano" type="button" id="acuerdos" onClick="abreCodigosLeyes('<%=TipoNorma.ACUERDOS.getValorId()%>')" value="Acuerdos" />
+				<input class="ui-button ui-corner-all ui-widget" type="button" id="acuerdos" onClick="abreCodigosLeyes('<%=TipoNorma.ACUERDOS.getValorId()%>')" value="Acuerdos" />
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<input class="btn_mediano" type="button" id="circulares" onClick="abreCodigosLeyes('<%=TipoNorma.CIRCULARES.getValorId()%>')" value="Circulares" />
+				<input class="ui-button ui-corner-all ui-widget" type="button" id="circulares" onClick="abreCodigosLeyes('<%=TipoNorma.CIRCULARES.getValorId()%>')" value="Circulares" />
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<input class="btn_mediano" type="button" id="manuales" onClick="abreCodigosLeyes('<%=TipoNorma.MANUALES.getValorId()%>')" value="Manuales" />
+				<input class="ui-button ui-corner-all ui-widget" type="button" id="manuales" onClick="abreCodigosLeyes('<%=TipoNorma.MANUALES.getValorId()%>')" value="Manuales" />
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<input class="btn_mediano" type="button" id="instructivos" onClick="abreCodigosLeyes('<%=TipoNorma.INSTRUCTIVOS.getValorId()%>')" value="Instructivos" />
+				<input class="ui-button ui-corner-all ui-widget" type="button" id="instructivos" onClick="abreCodigosLeyes('<%=TipoNorma.INSTRUCTIVOS.getValorId()%>')" value="Instructivos" />
 			</td>
 		</tr>
 	</table>

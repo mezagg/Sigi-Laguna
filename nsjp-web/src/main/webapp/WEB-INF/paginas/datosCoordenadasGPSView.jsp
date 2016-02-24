@@ -222,14 +222,14 @@
   <tr>
     	<td>&nbsp;&nbsp;&nbsp;Longitud:E/O:</td>
   		<td valign="top"><input type="text" name="txtFldLatitudNorte" id="txtFldLongitudEste" size="1" maxlength="1" onKeyPress="return soloLetras(event);" onKeyUp="this.value = this.value.toUpperCase();" tabindex="18"/></td>
-  		<td valign="top"><input type="text" name="txtFldLatitudGrados" id="txtFldLongitudGrados" size="1" maxlength="2" onKeyPress="return solonumeros(event);"  tabindex="20"/>&nbsp;°&nbsp;</td>
+  		<td valign="top"><input type="text" name="txtFldLatitudGrados" id="txtFldLongitudGrados" size="1" maxlength="2" onKeyPress="return solonumeros(event);"  tabindex="20"/>&nbsp;&#176;&nbsp;</td>
   		<td valign="top"><input type="text" name="txtFldLatitudMinutos" id="txtFldLongitudMinutos" size="1" maxlength="2" onKeyPress="return solonumeros(event);" onKeyUp="mayorMinLong()" tabindex="22"/>&nbsp;&nbsp;'&nbsp;&nbsp;</td>
   		<td valign="top"><input type="text" name="txtFldLatitudSegundos" id="txtFldLongitudSegundos" size="1" maxlength="2" onKeyPress="return solonumeros(event);" onKeyUp="mayorSegLong()" tabindex="24"/>&nbsp;"</td>
   </tr>
   <tr>
   		<td>&nbsp;&nbsp;&nbsp;Latitud:N/S:</td>
   		<td valign="top"><input type="text" name="txtFldLatitudNorte" id="txtFldLatitudNorte" size="1" maxlength="1" onKeyPress="return soloLetrasNorte(event);" onKeyUp="this.value = this.value.toUpperCase();" tabindex="19" /></td>
-  		<td valign="top"><input type="text" name="txtFldLatitudGrados" id="txtFldLatitudGrados" size="1" maxlength="2"  onKeyPress="return solonumeros(event);" tabindex="21"/>&nbsp;°&nbsp;</td>
+  		<td valign="top"><input type="text" name="txtFldLatitudGrados" id="txtFldLatitudGrados" size="1" maxlength="2"  onKeyPress="return solonumeros(event);" tabindex="21"/>&nbsp;&#176;&nbsp;</td>
   		<td valign="top"><input type="text" name="txtFldLatitudMinutos" id="txtFldLatitudMinutos" size="1" maxlength="2" onKeyPress="return solonumeros(event);" onKeyUp="mayorMinLat()" tabindex="23"/>&nbsp;&nbsp;'&nbsp;&nbsp;</td>
   		<td valign="top"><input type="text" name="txtFldLatitudSegundos" id="txtFldLatitudSegundos" size="1" maxlength="2" onKeyPress="return solonumeros(event);" onKeyUp="mayorSegLat()" tabindex="25"/>&nbsp;"</td>
   </tr>

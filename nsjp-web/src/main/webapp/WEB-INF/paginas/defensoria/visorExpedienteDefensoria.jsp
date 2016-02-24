@@ -2421,7 +2421,7 @@
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					</td>
 					<td align="right">
-						 <input type="button" class="btn_guardar" value="Guardar" id="btnGuardar" />
+						 <input type="button" class="ui-button ui-corner-all ui-widget" value="Guardar" id="btnGuardar" />
 					</td>
 				</tr>
 		</table>
@@ -2751,7 +2751,7 @@
 	<!--TERMINAN TABS OBJETOS Y EVIDENCIAS-->
 	
 	<div id="tabsconsultaprincipal-6" style="height: 600px !important;">
-		 <input type="button" class="btn_grande" id="btnCadCusConsultaCadCus" style="width: 250px;" value="Consultar cadena de custodia"/><br/><br/>    
+		 <input type="button" class="ui-button ui-corner-all ui-widget" id="btnCadCusConsultaCadCus" style="width: 250px;" value="Consultar cadena de custodia"/><br/><br/>    
 	</div>
 	<div id="tabsconsultaprincipal-7" style="height: 600px !important;">
 		<jsp:include page="diligencias.jsp"/>

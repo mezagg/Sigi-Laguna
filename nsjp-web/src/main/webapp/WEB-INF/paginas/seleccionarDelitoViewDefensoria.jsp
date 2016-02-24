@@ -260,7 +260,7 @@
 	<table border="0"  width="1500px">
 		<tr>
 			<td height="20" colspan="4" align="left" ><table width="75%"><tr>
-			<td  align="right"><input type="button" id="btnGuardarDelitosAg" value="Guardar" onclick="guardarDelitosAgraviadosExp();" class="btn_modificar"/>
+			<td  align="right"><input type="button" id="btnGuardarDelitosAg" value="Guardar" onclick="guardarDelitosAgraviadosExp();" class="ui-button ui-corner-all ui-widget"/>
 				
 			</td>
 			

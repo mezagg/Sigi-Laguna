@@ -2342,12 +2342,12 @@
 		
 		<!--COMIENZAN TABS INFERIORES DE CADENAS DE CUSTODIA-->
 		<div id="tabsconsultaprincipal-9" class="tabTabsCadCus">
-				 <input type="button" class="btn_grande" id="btnCadCusNuevaCadCus" style="width: 250px;" value="Crear nueva cadena de custodia"/><br/><br/>
-				 <input type="button" class="btn_grande" id="btnCadCusConsultaCadCus" style="width: 250px;" value="Consultar cadena de custodia"/><br/><br/>    
-  				 <input type="button" class="btn_grande" id="btnCadCusRegEslabones" style="width: 250px;" value="Registrar eslabones"/> <br/><br/>
-  				 <input type="button" class="btn_grande" id="btnCadCusRepEvidencias" style="width: 250px;" style="width: 250px;" value="Reporte de evidencias"/> <br/><br/>
-  				 <input type="button" class="btn_grande" id="btnCadCusElabOficio" style="width: 250px;" value="Elaborar oficio para fijaci&oacute;n y preservaci&oacute;n"/><br/><br/>  
-   				 <input type="button" class="btn_grande" id="btnCadCusAdmDestino" style="width: 250px;" value="Administrar destino legal de evidencia"/>
+				 <input type="button" class="ui-button ui-corner-all ui-widget" id="btnCadCusNuevaCadCus" style="width: 250px;" value="Crear nueva cadena de custodia"/><br/><br/>
+				 <input type="button" class="ui-button ui-corner-all ui-widget" id="btnCadCusConsultaCadCus" style="width: 250px;" value="Consultar cadena de custodia"/><br/><br/>    
+  				 <input type="button" class="ui-button ui-corner-all ui-widget" id="btnCadCusRegEslabones" style="width: 250px;" value="Registrar eslabones"/> <br/><br/>
+  				 <input type="button" class="ui-button ui-corner-all ui-widget" id="btnCadCusRepEvidencias" style="width: 250px;" style="width: 250px;" value="Reporte de evidencias"/> <br/><br/>
+  				 <input type="button" class="ui-button ui-corner-all ui-widget" id="btnCadCusElabOficio" style="width: 250px;" value="Elaborar oficio para fijaci&oacute;n y preservaci&oacute;n"/><br/><br/>  
+   				 <input type="button" class="ui-button ui-corner-all ui-widget" id="btnCadCusAdmDestino" style="width: 250px;" value="Administrar destino legal de evidencia"/>
 		</div>	
 		<!--TERMINAN TABS INFERIORES DE CADENAS DE CUSTODIA-->
 				

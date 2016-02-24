@@ -606,10 +606,10 @@
 		<tr><td>&nbsp;</td></tr>
 		<tr>			
 			<td align="left" valign="top">
-				<input type="button" value="Relacionar" id="btnRelacionarRDPD" class="btn_modificar"/>
+				<input type="button" value="Relacionar" id="btnRelacionarRDPD" class="ui-button ui-corner-all ui-widget"/>
 			</td>
 			<td align="left" valign="top">
-				<input type="button" id="btnAnulaRelacionDelDel" value="Anular relaci&oacute;n Delito - Persona" onclick="anularRelacionDelitoPersona();" class="btn_grande"/>
+				<input type="button" id="btnAnulaRelacionDelDel" value="Anular relaci&oacute;n Delito - Persona" onclick="anularRelacionDelitoPersona();" class="ui-button ui-corner-all ui-widget"/>
 			</td>
 		</tr>
 	</table>

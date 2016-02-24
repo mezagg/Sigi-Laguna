@@ -2340,7 +2340,7 @@
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					</td>
 					<td align="right">
-						 <input type="button" class="btn_guardar" value="Guardar" id="btnGuardar" />
+						 <input type="button" class="ui-button ui-corner-all ui-widget" value="Guardar" id="btnGuardar" />
 					</td>
 				</tr>
 		</table>
@@ -2393,7 +2393,7 @@
 			
 				<table width="25%" cellpadding="0" cellspacing="0" id="tblEquipoComputo">
 					<tr>
-						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoEquipoDeComputo" class="btn_modificar" value="Ingreso nuevo"/></td>
+						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoEquipoDeComputo" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 					</tr>
 				</table>
 				<br>
@@ -2405,7 +2405,7 @@
 			<div id="tabschild4-2">
 				<table width="25%" cellpadding="0" cellspacing="0" id="tblEquipoTelefonico">
 					<tr>
-						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoEquipoTelefonico" class="btn_modificar" value="Ingreso nuevo"/></td>
+						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoEquipoTelefonico" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 					</tr>
 				</table>
 				<br>
@@ -2417,7 +2417,7 @@
 			<div id="tabschild4-3">
 				<table width="25%" cellpadding="0" cellspacing="0" id="tblArma">
 					<tr>
-						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaArma" class="btn_modificar" value="Ingreso nuevo"/></td>
+						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaArma" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 					</tr>
 				</table>
 				<br>
@@ -2429,7 +2429,7 @@
 			<div id="tabschild4-4">
 				<table width="25%" cellpadding="0" cellspacing="0" id="tblExplosivos">
 					<tr>
-						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoExplosivo" class="btn_modificar" value="Ingreso nuevo"/></td>
+						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoExplosivo" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 					</tr>
 				</table>
 				<br>
@@ -2441,7 +2441,7 @@
 			<div id="tabschild4-5">
 				<table width="25%" cellpadding="0" cellspacing="0" id="tblSustancia">
 					<tr>
-						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaSustancia" class="btn_modificar" value="Ingreso nuevo"/></td>
+						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaSustancia" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 					</tr>
 				</table>
 				<br>
@@ -2453,7 +2453,7 @@
 			<div id="tabschild4-6">
 				<table width="25%" cellpadding="0" cellspacing="0" id="tblAnimal">
 					<tr>
-						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoAnimal" class="btn_modificar" value="Ingreso nuevo"/></td>
+						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoAnimal" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 					</tr>
 				</table>
 				<br>
@@ -2465,7 +2465,7 @@
 			<div id="tabschild4-7">
 				<table width="25%" cellpadding="0" cellspacing="0" id="tblVehiculos">
 					<tr>
-						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoVehiculo" class="btn_modificar" value="Ingreso nuevo"/></td>
+						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoVehiculo" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 					</tr>
 				</table>
 				<br>
@@ -2477,7 +2477,7 @@
 			<div id="tabschild4-8">
 				<table width="25%" cellpadding="0" cellspacing="0" id="tblAeronave">
 					<tr>
-						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaAeronave" class="btn_modificar" value="Ingreso nuevo"/></td>
+						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaAeronave" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 					</tr>
 				</table>
 				<br>
@@ -2489,7 +2489,7 @@
 			<div id="tabschild4-9">
 				<table width="25%" cellpadding="0" cellspacing="0" id="tblEmbarcacion">
 					<tr>
-						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaEmbarcacion" class="btn_modificar" value="Ingreso nuevo"/></td>
+						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaEmbarcacion" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 					</tr>
 				</table>
 				<br>
@@ -2501,7 +2501,7 @@
 			<div id="tabschild4-11">
 				<table width="25%" cellpadding="0" cellspacing="0" id="tblNumerario">
 					<tr>
-						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoNumerario" class="btn_modificar" value="Ingreso nuevo"/></td>
+						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoNumerario" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 					</tr>
 				</table>
 				<br>
@@ -2513,7 +2513,7 @@
 			<div id="tabschild4-12">
 				<table width="25%" cellpadding="0" cellspacing="0" id="tblVegetal">
 					<tr>
-						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoVegetal" class="btn_modificar" value="Ingreso nuevo"/></td>
+						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoVegetal" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 					</tr>
 				</table>
 				<br>
@@ -2525,7 +2525,7 @@
 			<div id="tabschild4-13">
 				<table width="25%" cellpadding="0" cellspacing="0" id="tblDocOficial">
 					<tr>
-						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoDocumentoOficial" class="btn_modificar" value="Ingreso nuevo"/></td>
+						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevoDocumentoOficial" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 					</tr>
 				</table>
 				<br>
@@ -2537,7 +2537,7 @@
 			<div id="tabschild4-14">
 				<table width="25%" cellpadding="0" cellspacing="0" id="tblJoya">
 					<tr>
-						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaJoya" class="btn_modificar" value="Ingreso nuevo"/></td>
+						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaJoya" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 					</tr>
 				</table>
 				<br>
@@ -2549,7 +2549,7 @@
 			<div id="tabschild4-15">
 				<table width="25%" cellpadding="0" cellspacing="0" id="tblObraArte">
 					<tr>
-						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaObraDeArte" class="btn_modificar" value="Ingreso nuevo"/></td>
+						<td>&nbsp;&nbsp;&nbsp;<input type="button" id="nuevaObraDeArte" class="ui-button ui-corner-all ui-widget" value="Ingreso nuevo"/></td>
 					</tr>
 				</table>
 				<br>
@@ -2560,7 +2560,7 @@
 		<!--Cierra pesta&ntilde;a de hijos de objetos-->
 	</div>
 	<div id="tabsconsultaprincipal-6" style="height: 600px !important;">
-		 <input type="button" class="btn_grande" id="btnCadCusConsultaCadCus" style="width: 250px;" value="Consultar cadena de custodia"/><br/><br/>    
+		 <input type="button" class="ui-button ui-corner-all ui-widget" id="btnCadCusConsultaCadCus" style="width: 250px;" value="Consultar cadena de custodia"/><br/><br/>    
 	</div>
 	<div id="tabsconsultaprincipal-7" style="height: 600px !important;">
 		<jsp:include page="diligencias.jsp"/>
@@ -2578,7 +2578,7 @@
 	<div id="tabsconsultaprincipal-11" style="height: 600px !important;">
 		<table width="25%" cellpadding="0" cellspacing="0" id="tablaNotasExpediente">
 			<tr>
-				<td>&nbsp;&nbsp;&nbsp;<input type="button" class="btn_modificar" value="Generar Nota"  id="botonGuardarNotas" onclick="notaExpediente(0);" /></td>
+				<td>&nbsp;&nbsp;&nbsp;<input type="button" class="ui-button ui-corner-all ui-widget" value="Generar Nota"  id="botonGuardarNotas" onclick="notaExpediente(0);" /></td>
 			</tr>
 		</table>
 	</div>

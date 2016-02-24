@@ -3211,7 +3211,7 @@
 				            </table>
 				            <table width="64%" border="0" cellspacing="0" cellpadding="0">
 				              <tr>
-				                <td height="23" align="left"><INPUT type=button class="btn_guardar"  id="btnGuardarDatos" value="Guardar" ></td>
+				                <td height="23" align="left"><INPUT type=button class="ui-button ui-corner-all ui-widget"  id="btnGuardarDatos" value="Guardar" ></td>
 				              </tr>
 				          	</table>
          				 </TD>
@@ -3369,7 +3369,7 @@
 			<div id="tabsconsultaprincipal-10">
 				<table width="25%" cellpadding="0" cellspacing="0" id="tablaNotasExpediente">
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;<input type="button" class="btn_modificar" value="Generar Nota"  id="botonGuardarNotas" onclick="notaExpediente(0);" class="ui-button ui-corner-all ui-widget"/></td>
+							<td>&nbsp;&nbsp;&nbsp;<input type="button" class="ui-button ui-corner-all ui-widget" value="Generar Nota"  id="botonGuardarNotas" onclick="notaExpediente(0);" class="ui-button ui-corner-all ui-widget"/></td>
 						</tr>
 				</table>
 			</div>
@@ -3721,7 +3721,7 @@
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							</td>
 							<td align="right">
-								 <input type="button" class="btn_guardar" value="Guardar" id="btnGuardar" />
+								 <input type="button" class="ui-button ui-corner-all ui-widget" value="Guardar" id="btnGuardar" />
 							</td>
 						</tr>
 				</table>
@@ -3887,7 +3887,7 @@
 							            			</table>
 							            			<table width="64%" border="0" cellspacing="0" cellpadding="0">
 							              				<tr>
-											                <td height="23" align="left"><INPUT type=button class="btn_guardar"  id="btnGuardarDatos" value="Guardar" ></td>
+											                <td height="23" align="left"><INPUT type=button class="ui-button ui-corner-all ui-widget"  id="btnGuardarDatos" value="Guardar" ></td>
 											            </tr>
 							          				</table>
 							         			 </TD>

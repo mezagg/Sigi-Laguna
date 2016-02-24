@@ -191,11 +191,11 @@
 			<tr><td>&nbsp;</td></tr>	        
 			<tr>
 				<td>&nbsp;</td>
-				<td id="asignar1"><input type="button" name="button" id="button" value="Conceder Permiso" onclick="guardarNuevoEstado(<%=EstatusPermisosAudiencia.CONCEDIDO.getValorId()%>);" class="btn_grande"></td>
+				<td id="asignar1"><input type="button" name="button" id="button" value="Conceder Permiso" onclick="guardarNuevoEstado(<%=EstatusPermisosAudiencia.CONCEDIDO.getValorId()%>);" class="ui-button ui-corner-all ui-widget"></td>
 				<td id="asignar2">&nbsp;</td>
-				<td id="sinAsignar1"><input type="button" name="button" id="button" value="Sin Asignar Permiso" onclick="guardarNuevoEstado(<%=EstatusPermisosAudiencia.SIN_ASIGNAR.getValorId()%>);" class="btn_grande"></td>
+				<td id="sinAsignar1"><input type="button" name="button" id="button" value="Sin Asignar Permiso" onclick="guardarNuevoEstado(<%=EstatusPermisosAudiencia.SIN_ASIGNAR.getValorId()%>);" class="ui-button ui-corner-all ui-widget"></td>
 				<td id="sinAsignar2">&nbsp;</td>
-				<td id="cancelar1"><input type="button" name="button" id="button" value="Cancelar Permiso" onclick="guardarNuevoEstado(<%=EstatusPermisosAudiencia.CANCELADO.getValorId()%>);"  class="btn_grande"></td>
+				<td id="cancelar1"><input type="button" name="button" id="button" value="Cancelar Permiso" onclick="guardarNuevoEstado(<%=EstatusPermisosAudiencia.CANCELADO.getValorId()%>);"  class="ui-button ui-corner-all ui-widget"></td>
 				<td id="cancelar2">&nbsp;</td>									            	            	            			            						
 	  		</tr>
 		</table> 

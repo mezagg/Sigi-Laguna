@@ -868,8 +868,8 @@
  -->			<td>
  <!-- 				 @deprecated -->
 <!-- 				 <input type="button" class="ui-button ui-corner-all ui-widget" value="Generar Acta" id="generarActa" /> --> 
-				 <input type="button" class="btn_guardar" value="Guardar" id="btnGuardar" />
-				 <input type="button" class="btn_modificar" value="Modificar" id="btnModificar" />
+				 <input type="button" class="ui-button ui-corner-all ui-widget" value="Guardar" id="btnGuardar" />
+				 <input type="button" class="ui-button ui-corner-all ui-widget" value="Modificar" id="btnModificar" />
 			</td>
 		</tr>
 	</table>

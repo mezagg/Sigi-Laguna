@@ -671,7 +671,7 @@ body,td,th {
 				}).navGrid('#pagerGridEstadoExpedientePJENC',{edit:false,add:false,del:false}); 
 			  jQuery("#gridEstadoExpedientePJENC").jqGrid('navGrid','#pagerGridEstadoExpedientePJENC',{edit:false,add:false,del:false});
 			  $("#gview_gridEstadoExpedientePJENC .ui-jqgrid-bdiv").css('height', '450px');
-			  $("#t_gridEstadoExpedientePJENC").append("<input type='button' value='Guardar' style='height:20px;font-size:-3'/>");
+			  $("#t_gridEstadoExpedientePJENC").append("<input type='button' value='Guardar' class='ui-button ui-corner-all ui-widget'/>");
 			  $("input","#t_gridEstadoExpedientePJENC").click(function(){
 		
 			  	actualizarSituacionJuridica();

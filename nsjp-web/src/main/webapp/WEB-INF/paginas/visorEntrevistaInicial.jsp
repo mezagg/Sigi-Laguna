@@ -152,7 +152,7 @@ $(document).ready(function() {
     	<input type="text" name="nExpedienteEI" id="nExpedienteEI" disabled="disabled" style="width:200px"/>
     </td>
     <td>&nbsp;</td>
-    <td width="9%" align="right"><input name="btnGuardaEntrvistaInicial" type="button" value="Guardar" class="btn_guardar" id="btnGuardaEntrvistaInicial" /></td>
+    <td width="9%" align="right"><input name="btnGuardaEntrvistaInicial" type="button" value="Guardar" class="ui-button ui-corner-all ui-widget" id="btnGuardaEntrvistaInicial" /></td>
   </tr>
    <tr align="center">
     <td colspan="5">Tipo de V&iacute;ctima&nbsp;&nbsp;&nbsp;&nbsp; Directa: 

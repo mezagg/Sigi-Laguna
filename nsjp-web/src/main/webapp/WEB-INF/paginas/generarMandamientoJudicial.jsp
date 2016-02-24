@@ -226,7 +226,7 @@
 				}
 			});
 
-			$("#t_gridProbResGenManJud").append("<input type='button' class='btn_Generico' value='Ver Mandamientos Judiciales' style='height:20px;font-size:-3'/>");
+			$("#t_gridProbResGenManJud").append("<input type='button' class='ui-button ui-corner-all ui-widget' value='Ver Mandamientos Judiciales' />");
 			$("input","#t_gridProbResGenManJud").click(function(){
  
 				var probRespId = jQuery("#gridProbResGenManJud").jqGrid('getGridParam','selrow');
@@ -333,7 +333,7 @@
 			$("#gview_gridRelDelPerGenManJud .ui-jqgrid-bdiv").css('height', '185px');
 
 			
-			$("#t_gridRelDelPerGenManJud").append("<input type='button' class='btn_Generico' value='Eliminar Relaci&oacute;n' style='height:20px; align=right;font-size:-3'/>");
+			$("#t_gridRelDelPerGenManJud").append("<input type='button' class='ui-button ui-corner-all ui-widget' value='Eliminar Relaci&oacute;n' style='height:20px; align=right;font-size:-3'/>");
 			$("input","#t_gridRelDelPerGenManJud").click(eliminarRelacionDelitoPersona);
 		
 	}

@@ -110,7 +110,7 @@
             			Se crearon la(s) Siguiente(s) Carpeta(s) de Auditor&iacute;a:	
             		</td>
             		<td align="right">
-            			<input id='btnElabora' type='button' class='btn_Generico' onclick="desabilitarBoton('btnElabora');elaboraNotificacionAuditoria()" value='Enviar Notificaciones' style='height:22px;width:120px;font-size:-3'/>
+            			<input id='btnElabora' type='button' class="ui-button ui-corner-all ui-widget" onclick="desabilitarBoton('btnElabora');elaboraNotificacionAuditoria()" value='Enviar Notificaciones' style='height:22px;width:120px;font-size:-3'/>
             		</td>
             	</tr>
             	<tr id="seccionDeBotones">

@@ -23,7 +23,7 @@
 		</tr>
 		<tr>
 			<td align="center">	
-				<input type="button" id="btnRegistrarDiligencia" value="Registrar"  disabled="disabled" class="btn_modificar"/>	
+				<input type="button" id="btnRegistrarDiligencia" value="Registrar"  disabled="disabled" class="ui-button ui-corner-all ui-widget"/>	
 			</td>
 		</tr>
 		<tr>

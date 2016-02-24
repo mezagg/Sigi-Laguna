@@ -620,8 +620,8 @@
                       </tr>			  
                     </table>
                     <br>
-                    <input type="button" name="button" id="buttonGenerarReporte" value="Generar Reporte" onclick="consultaEvidencias()" class="btn_modificar"/>
-                    <input type="button" name="button" id="btnVerObjeto" value="Ver Objeto" onclick="abreVentanaConsultaObjeto();" class="btn_modificar"/>
+                    <input type="button" name="button" id="buttonGenerarReporte" value="Generar Reporte" onclick="consultaEvidencias()" class="ui-button ui-corner-all ui-widget"/>
+                    <input type="button" name="button" id="btnVerObjeto" value="Ver Objeto" onclick="abreVentanaConsultaObjeto();" class="ui-button ui-corner-all ui-widget"/>
                     <br/>
                     <br>
                     <div id="divRerporteGeneral">

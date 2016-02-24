@@ -488,8 +488,8 @@
 						</tr>
 						<tr>
 							<td colspan="6" align="center">
-								<button id="btnAdjuntar" type="button" class="btn_mediano">Adjuntar Documento</button>
-								<button id="btnEnviar" type="button" class="btn_mediano">Enviar</button>
+								<button id="btnAdjuntar" type="button" class="ui-button ui-corner-all ui-widget">Adjuntar Documento</button>
+								<button id="btnEnviar" type="button" class="ui-button ui-corner-all ui-widget">Enviar</button>
 							</td>
 						</tr>
 					</table>

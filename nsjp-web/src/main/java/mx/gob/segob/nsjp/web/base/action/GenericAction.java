@@ -114,11 +114,11 @@ public abstract class GenericAction extends MappingDispatchAction {
                 if (sc.getAttribute("escolaridades") == null){
                     sc.setAttribute("escolaridades", catDelegate.recuperarCatalogo(Catalogos.ESCOLARIDAD));
                 }
-                if (sc.getAttribute("tiposAsentamientos") == null){
-                    sc.setAttribute("tiposAsentamientos", catDelegate.recuperarCatalogo(Catalogos.TIPO_ASENTAMIENTO));
+                if (sc.getAttribute("tiposAsentamiento") == null){
+                    sc.setAttribute("tiposAsentamiento", catDelegate.recuperarCatalogo(Catalogos.TIPO_ASENTAMIENTO));
                 }
-                if (sc.getAttribute("tiposCalles") == null){
-                    sc.setAttribute("tiposCalles", catDelegate.recuperarCatalogo(Catalogos.TIPO_CALLE));
+                if (sc.getAttribute("tiposCalle") == null){
+                    sc.setAttribute("tiposCalle", catDelegate.recuperarCatalogo(Catalogos.TIPO_CALLE));
                 }
                 
             } catch (NSJPNegocioException ex) {

@@ -1,4 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="c" 
+       uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%@ taglib prefix="fn" 
+       uri="http://java.sun.com/jsp/jstl/functions" %>
 <html>
 <head>
 	
@@ -765,7 +770,10 @@
 										<td>Tipo de Asentamiento</td>
 										<td>
 											<select name="cbxTipoAsentamiento" id="cbxTipoAsentamiento">
-											<option value="-1">-Seleccione-</option>						
+											<option value="-1">-Seleccione-</option>
+                                                                                        <c:forEach items="${applicationScope.tiposAsentamiento}"  var="t" >
+                                                                                            <option value='<c:out value="${t.clave}"/>'> <c:out value="${t.valor}"/> </option>
+                                                                                        </c:forEach>
 											</select>
 											<input type="text" id="areaAsentamiento" />
 										</td>
@@ -780,6 +788,9 @@
 										<td>
 											<select name="cbxTipoCalle" id="cbxTipoCalle">
 												<option value="-1">-Seleccione-</option>
+                                                                                                <c:forEach items="${applicationScope.tiposCalle}"  var="t" >
+                                                                                                    <option value='<c:out value="${t.clave}"/>'> <c:out value="${t.valor}"/> </option>
+                                                                                                </c:forEach>
 											</select>
 											<input type="text" id="areaTipoCalle" />
 										</td>

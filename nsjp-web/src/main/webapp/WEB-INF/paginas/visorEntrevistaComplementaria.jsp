@@ -519,7 +519,7 @@ function limpiaCamposIngresoFamiliar()
 				
 		<!--Comienza div para ver los documentos propios del perito-->
 				<div id="tabsconsultaprincipal-1">
-				<input name="" type="button" value="Ingresar Familiar" class="btn_mediano"  onclick="poppopIngresaFamilia();"/>
+				<input name="" type="button" value="Ingresar Familiar" class="ui-button ui-corner-all ui-widget"  onclick="poppopIngresaFamilia();"/>
 				<table id="gridFamiliares"></table>
 	            <div id="pagerGridFamiliares"></div>
 				</div>
@@ -528,7 +528,7 @@ function limpiaCamposIngresoFamiliar()
 				<table width="100%" height="100%">
 				<tr>
 				 <td colspan="6">Motivo de Consulta (Expl&iacute;cito e Impl&iacute;cito)</td>
-    <td colspan="2"><input name="" type="button" value="Guardar" class="btn_guardar"  id="btnGuardarMotivoConsulta"/></td>
+    <td colspan="2"><input name="" type="button" value="Guardar" class="ui-button ui-corner-all ui-widget"  id="btnGuardarMotivoConsulta"/></td>
    
     
   </tr>
@@ -546,7 +546,7 @@ function limpiaCamposIngresoFamiliar()
 				<table width="100%" height="100%">
 				<tr>
 				 <td colspan="6">Conciencia de la Problem&aacute;tica (Herramientas con las que cuenta y afronta el problema que demanda)</td>
-    <td colspan="2"><input name="" type="button" value="Guardar" class="btn_guardar"  id="btnGuardaConciencia"/></td>
+    <td colspan="2"><input name="" type="button" value="Guardar" class="ui-button ui-corner-all ui-widget"  id="btnGuardaConciencia"/></td>
    
     
   </tr>
@@ -567,9 +567,9 @@ function limpiaCamposIngresoFamiliar()
   </tr>
 				 <tr>
 				 <td colspan="3">Impresi&oacute;n Diagn&oacute;stica de la Familia</td>
-				    <td colspan="1" align="right"><input name="" type="button" value="Guardar" class="btn_guardar" id="btnGuardarImpresionFamiliar" /></td>
+				    <td colspan="1" align="right"><input name="" type="button" value="Guardar" class="ui-button ui-corner-all ui-widget" id="btnGuardarImpresionFamiliar" /></td>
      <td colspan="3">Hip&oacute;tesis Familiar:</td>
-    <td colspan="1" align="right"><input name="" type="button" value="Guardar" class="btn_guardar" id="btnGuardarHipotesisFamiliar" /></td>
+    <td colspan="1" align="right"><input name="" type="button" value="Guardar" class="ui-button ui-corner-all ui-widget" id="btnGuardarHipotesisFamiliar" /></td>
    
     
   </tr>
