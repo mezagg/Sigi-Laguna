@@ -473,7 +473,7 @@ public class InvolucradoFormUtil {
 		}
 		
 		//datosGenerales.setPaisValorDTO(new ValorDTO());
-		
+
 		datosGenerales.setEdoFisico(forma.getEdoFisico() > 0L ? new ValorDTO(forma.getEdoFisico()) : null);
 		datosGenerales.setEdoConsciencia(forma.getEdoConsciencia() > 0L ? new ValorDTO(forma.getEdoConsciencia()) : null);
 		datosGenerales.setEdoConscienciaInconsciente(forma.getEdoConscienciaInconsciente() > 0L ? new ValorDTO(forma.getEdoConscienciaInconsciente()) : null);
@@ -542,12 +542,13 @@ public class InvolucradoFormUtil {
 		if(idsOcupaciones!=null && idsOcupaciones[0]!=""){
 			for (int i = 0; i < idsOcupaciones.length; i++) {
 				valorGenerico = new ValorDTO();
-				//Long ocupacion=Long.parseLong(idsOcupaciones[i]);
-				//valorGenerico.setIdCampo(ocupacion);
-				//listaValor.add(valorGenerico);
+				Long ocupacion=Long.parseLong(idsOcupaciones[i]);
+				logger.info("ocupaciones "+ ocupacion);
+				valorGenerico.setIdCampo(ocupacion);
+				listaValor.add(valorGenerico);
 			}
 		}
-		//involucradoDTO.setValorIdOcupacion(listaValor);
+		involucradoDTO.setValorIdOcupacion(listaValor);
 		
 		listaValor=new ArrayList<ValorDTO>();
 		String[] idsNacionalidades = forma.getNacionalidad().split(",");

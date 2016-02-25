@@ -2,10 +2,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<%@ taglib prefix="c" 
+<%@ taglib prefix="c"
        uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@ taglib prefix="fn" 
+<%@ taglib prefix="fn"
        uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/multiselect/jquery.multiselect.css" />
@@ -34,74 +34,74 @@ var subtipoEvento = "";
 var TESTIGO="testigo";
 var probableResponsable = "PROBABLE_RESPONSABLE";
    jQuery().ready(	function () {
-	   
+
 	   if ((typeof(esVictimaMuerta) != "undefined") && !isEmpty(esVictimaMuerta)&& esVictimaMuerta ){
 		   $("#tdDatosGrlsVictimaMuerta").show();
-			$("#tdSexoNoEspecificado").show();   
-	   }else{		   
+			$("#tdSexoNoEspecificado").show();
+	   }else{
 	    $("#tdDatosGrlsVictimaMuerta").hide();
 		$("#tdSexoNoEspecificado").hide();
 	   }
-	   
 
-	    //agregamos el listener para el textbox de nombre cuando se genera dinamicamente 
+
+	    //agregamos el listener para el textbox de nombre cuando se genera dinamicamente
 		$(".masmas").live("keypress", function(event) {
 			return soloLetrasNPunto(event,"dummy");
 		});
-	    
+
 		$("#trEdoFisico").hide();
 		$("#trEdoConsciencia").hide();
 		if($("#cbxEdoInconciente").val() <= 0 && $("#cbxEdoConciencia").val() <= 0){
-			$("#trEdoConscienciaInconsciente").hide();	
+			$("#trEdoConscienciaInconsciente").hide();
 		}
-	    
+
 		var el = $("#datosGeneralesCmpAlias").multiselect(),
 		selected = $('#selected'),
 		newItem = $('#newItem');
-		
-		if (typeof (valorCalidad) != "undefined" && valorCalidad != null 
+
+		if (typeof (valorCalidad) != "undefined" && valorCalidad != null
 				&& valorCalidad == TESTIGO) {
 			cargaCalendarioFechaNacimientoParaTestigo()
 		} else {
 			cargaCalendarioFechaNacimientoDefault();
 		}
-		
-	 	if (typeof (valorCalidad) != "undefined" && valorCalidad != null 
+
+	 	if (typeof (valorCalidad) != "undefined" && valorCalidad != null
 				&& valorCalidad == probableResponsable) {
 			muestraCombosEdosFisicoConsciencia();
 			cargaComboEdoFisico();
 			cargaComboEdoConsciencia();
-		} 
-		
+		}
+
 		jQuery(document).ajaxStop(desbloquearPantalla());
 	});
-   
+
     function agregaAlias(){
 		var el = $("#datosGeneralesCmpAlias").multiselect(),
 			selected = $('#selected'),
 			newItem = $('#newItem');
-    	
+
 		var v = newItem.val(), opt = $('<option />', {
 			value: v,
 			text: v
 		});
-		
+
 		opt.attr('selected','selected');
 		opt.appendTo( el );
 		el.multiselect('refresh');
 		$("#newItem").val('');
     }
-	 
+
 	  function camposGeneralesValidos(){
-		  
+
 		  var datosCorrectos = 1;
 		  var camposInvalidos = "";
 		  var curp = $("#datosGeneralesCmpCurp").val();
 		  var rfc = $("#datosGeneralesCmpRfc").val();
-		  
+
 		  // Permite validar la CURP
-		  var expCurp = /^[A-Z Ñ]{4}\d{2}(1|0)\d(0|1|2|3)\d(H|M)[A-Z Ñ]{5}\d{2}$/;
-		  var expCurpSinDigitosVerificadores = /^[A-Z Ñ]{4}\d{2}(1|0)\d(0|1|2|3)\d(H|M)[A-Z Ñ]{5}$/;
+		  var expCurp = /^[A-Z Ã]{4}\d{2}(1|0)\d(0|1|2|3)\d(H|M)[A-Z Ã]{5}\d{2}$/;
+		  var expCurpSinDigitosVerificadores = /^[A-Z Ã]{4}\d{2}(1|0)\d(0|1|2|3)\d(H|M)[A-Z Ã]{5}$/;
 
 		  //propuesta para cambiar la expresion regular
 		  var expCurp2 = /^[A-Z]{4}\d{6}[A-Z]{6}(\d{2})?$/i;
@@ -109,21 +109,21 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 		  if(curp != "" && !(expCurp.test(curp) || expCurpSinDigitosVerificadores.test(curp))){
 				camposInvalidos += "\n\t - CURP";
 				datosCorrectos = 0;
-		  }	
-			
+		  }
+
 		  // Permite validar la RFC
-		  var expRFC = /^[A-Z Ñ]{4}\d{2}(1|0)\d(0|1|2|3)\d(\w{3})?$/;
+		  var expRFC = /^[A-Z Ã]{4}\d{2}(1|0)\d(0|1|2|3)\d(\w{3})?$/;
 		  if(rfc != "" && !expRFC.test(rfc)){
 				camposInvalidos += "\n\t - RFC";
-				datosCorrectos = 2; 
+				datosCorrectos = 2;
 		  }
-		  
+
 		  return datosCorrectos;
 	  }
-    
+
 	/*
 	*Funcion que dispara el Action para consultar el Estado Civil
-	*/		
+	*/
     function cargaEstadoCivil(){
     	$('#datosGeneralesCmpEstadoCivil').addClass("cargando");
 
@@ -142,12 +142,12 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
     		}
     	});
     }
-		
-	// Función invocada desde la ventana de ingresar involucrado
+
+	// FunciÃ³n invocada desde la ventana de ingresar involucrado
 	function bloqueaAgregaAlias(){
-		$("#add").hide();	
+		$("#add").hide();
 	}
-	
+
     function cargaOcupacion(){
         $('#datosGeneralesCmpOcupacion').addClass("cargando");
     	$.ajax({
@@ -169,11 +169,11 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 
 	/*
 	*Funcion que dispara el Action para consultar el Idioma
-	*/		
+	*/
     function cargaIdioma(){
     	/*$('#datosGeneralesCmpIdioma').addClass("cargando");
 
-		//variables para seleccionar el idioma Español
+		//variables para seleccionar el idioma EspaÃ±ol
 		var indexEsp, idioma=0;
     	$.ajax({
     		type: 'POST',
@@ -186,7 +186,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
     			$(xml).find('catIdioma').each(function(){
     				$('#datosGeneralesCmpIdioma').append('<option value="' + $(this).find('clave').text() + '">'+ $(this).find('valor').text() + '</option>');
     				idioma++;
-    				if($(this).find('valor').text() == "Español" || $(this).find('valor').text() == "ESPAÑOL" || $(this).find('valor').text() == "Espanol"){ indexEsp = idioma; }
+    				if($(this).find('valor').text() == "EspaÃ±ol" || $(this).find('valor').text() == "ESPAÃOL" || $(this).find('valor').text() == "Espanol"){ indexEsp = idioma; }
     			});
        			$('#datosGeneralesCmpIdioma').removeClass("cargando");
     		}
@@ -197,7 +197,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 
     /*
 	*Funcion que dispara el Action para consultar Nacionalidad
-	*/		
+	*/
     function cargaNacionalidad(){
     /*
     	  	$.ajax({
@@ -216,8 +216,8 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
     	});
         */
            $('#datosGeneralesCmpNacionalidad').find("option[value='2056']").attr("selected","selected");//default mexicana
-    }    
-    
+    }
+
     function cargaEscolaridad(){
     	/*$('#datosGeneralesCmpEscolaridad').addClass("cargando");
 
@@ -232,15 +232,15 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
     			$(xml).find('catEscolaridad').each(function(){
     				$('#datosGeneralesCmpEscolaridad').append('<option value="' + $(this).find('clave').text() + '">'+ $(this).find('valor').text() + '</option>');
     			});
-    			
+
     			$('#datosGeneralesCmpEscolaridad').removeClass("cargando");
 
     		}
     	});*/
-    } 
-	  
-   
-    
+    }
+
+
+
     function cargaReligion(){
     	$.ajax({
     		type: 'POST',
@@ -252,13 +252,13 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
     			var option;
     			$(xml).find('catReligion').each(function(){
     				$('#datosGeneralesCmpReligion').append('<option value="' + $(this).find('clave').text() + '">'+ $(this).find('valor').text() + '</option>');
-    				
+
     			});
     		}
     	});
     }
 
-    
+
 	function cargaFechaCaptura(){
     	$.ajax({
     		type: 'POST',
@@ -271,7 +271,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
     		}
 		});
     }
-    
+
 
 
   //Funcion que refleja los datos de nombre, apellido paterno, apellido materno a la ventana padre
@@ -279,7 +279,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 		var valorCampoNombre;
 		var valorCampoApPat;
 		var valorCampoApMat;
-		
+
 		valorCampoNombre=document.getElementById('datosGeneralesCmpNombres').value;
 		valorCampoApPat=document.getElementById('datosGeneralesCmpApaterno').value;
 		valorCampoApMat=document.getElementById('datosGeneralesCmpMaterno').value;
@@ -293,7 +293,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 	}
 
 	/**
-	 *Limpia todos los campos de esta página
+	 *Limpia todos los campos de esta pÃ¡gina
 	 */
 	function cleanDatosGenerales(){
 
@@ -304,16 +304,16 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 		$('#datosGeneralesCmpRfc').val("");
 		$('#newItem').val("");
 
-		
+
 		//limpia los datos de la ventana padre
 		imprimeDatosPadre("","","");
 		//Limpia todos los combo box
-		
+
 		$('#datosGeneralesCmpIdioma').attr('selectedIndex',0);
 		$('#datosGeneralesCmpReligion').attr('selectedIndex',0);
 		$('#datosGeneralesCmpEscolaridad').attr('selectedIndex',0);
 		$('#datosGeneralesCmpEstadoCivil').attr('selectedIndex',0);
-		
+
 
 		$('#cbxEdoFisico').attr('selectedIndex',0);
 		$('#cbxEdoConciencia').attr('selectedIndex',0);
@@ -344,7 +344,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
         parametros += '&curp=' + $('#datosGeneralesCmpCurp').val();
         parametros += '&rfc=' + $('#datosGeneralesCmpRfc').val();
         parametros += '&fechaIngreso=' + $('#datosGeneralesCmpFechaIngreso').val();
-        parametros += '&idioma=' + $('#datosGeneralesCmpIdioma option:selected').val();        
+        parametros += '&idioma=' + $('#datosGeneralesCmpIdioma option:selected').val();
         parametros += '&religion=' + $('#datosGeneralesCmpReligion option:selected').val();
         parametros += '&escolaridad=' + $('#datosGeneralesCmpEscolaridad option:selected').val();
         parametros += '&estadoCivil=' + $('#datosGeneralesCmpEstadoCivil option:selected').val();
@@ -352,7 +352,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
         var alias=$('#datosGeneralesCmpAlias').val();
         if(alias!=null)
         {
-        	parametros += '&alias=' + $('#datosGeneralesCmpAlias').val();	
+        	parametros += '&alias=' + $('#datosGeneralesCmpAlias').val();
         }
         var ocupaciones="";
         for(i=0;i<numOcupacionTotal;i++){
@@ -367,16 +367,9 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 		}
         parametros += '&ocupacion=' + ocupaciones;
         var nacionalidades="";
-        for(i=0;i<numNacionalidadTotal;i++){
-			if($("#ui-multiselect-datosGeneralesCmpNacionalidad-option-"+i).is(':checked')==true){
-				if(nacionalidades==""){
-					nacionalidades+=$("#ui-multiselect-datosGeneralesCmpNacionalidad-option-"+i).val();
-				}
-				else{
-					nacionalidades+=","+$("#ui-multiselect-datosGeneralesCmpNacionalidad-option-"+i).val();
-				}
-			}
-		}
+        $('input[name=multiselect_datosGeneralesCmpNacionalidad]:checked').each(function (index,element) {
+              nacionalidades+=(nacionalidades=="")?$(element).val():","+$(element).val();
+        })
         parametros += '&nacionalidad=' + nacionalidades;
         parametros += '&tipoEvento=' + tipoEvento;
         parametros += '&subtipoEvento=' + subtipoEvento;
@@ -387,11 +380,11 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
         parametros += '&edadDefuncion=' + $('#edadVictimaMuerta').val();
         parametros += '&edadUnidadDefuncion=' + $('#cbxEdadUnidadVictimaMuerta option:selected').val();
         parametros += '&condicionActividad=' + $('#cbxCondicionActividadVictimaMuerta option:selected').val();
-        
-        
+
+
 		return parametros;
 	}
-			
+
 		 function recuperaDatosDatosGenerales(idCalidad)
 		   {
 			   var lsDatosGenerales="";
@@ -430,7 +423,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 			   lsDatosGenerales+="&religion="+$("#datosGeneralesCmpReligion option:selected").val();
 			   lsDatosGenerales+="&escolaridad="+$("#datosGeneralesCmpIdioma option:selected").val();
 			   //lsDatosGenerales+="&estadocivil="+$("#datosGeneralesCmpReligion option:selected").val();
-			   
+
 			   lsDatosGenerales += '&edoFisico=' + $('#cbxEdoFisico option:selected').val();
 			   lsDatosGenerales += '&edoConsciencia=' + $('#cbxEdoConciencia option:selected').val();
 			   lsDatosGenerales += '&edoConscienciaInconsciente=' + $('#cbxEdoInconciente option:selected').val();
@@ -453,7 +446,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 				 $('#datosGeneralesCmpOcupacion').attr("disabled","disabled");
 				 $('#datosGeneralesCmpNacionalidad').attr("disabled","disabled");
 				 $('#datosNacimientoCmpFechaNacimiento').attr("disabled","disabled");
-				 
+
 				 $('#datosGeneralesCmpNacionalidad').multiselect("disable");
 				 $('#datosGeneralesCmpOcupacion').multiselect("disable");
 				 $('#datosGeneralesCmpAlias').multiselect("disable");
@@ -462,21 +455,21 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 				 $('#cbxPaisNacimiento').attr("disabled","disabled");
 				 $('#cbxEntFederativaNacimiento').attr("disabled","disabled");
 				 $('#cbxCiudadNacimiento').attr("disabled","disabled");
-				 
+
 				 $('#cbxEdoFisico').attr("disabled","disabled");
 				 $('#cbxEdoConciencia').attr("disabled","disabled");
 				 $('#cbxEdoInconciente').attr("disabled","disabled");
-				 
+
 				 $('#edadVictimaMuerta').attr("disabled","disabled");
 				 $('#cbxEdadUnidadVictimaMuerta').attr("disabled","disabled");
 				 $('#cbxCondicionActividadVictimaMuerta').attr("disabled","disabled");
-				 
+
 				 $("#newItem,#add").attr("disabled","disabled");
 				//Modo consulta
 				 cambiarModoConsultaMultiselect(true);
 			}
 
-			// Función invocada desde la ventana de ingresar involucrado
+			// FunciÃ³n invocada desde la ventana de ingresar involucrado
 			function habilitaDatosEspecificos(){
 				 $('#datosGeneralesCmpOcupacion').attr("disabled","");
 				 $('#datosGeneralesCmpNacionalidad').attr("disabled","");
@@ -485,7 +478,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 				   state = !state;
 				   $widget.multiselect(state ? 'disable' : 'enable');*/
  			}
-			
+
 			function habilitarDatosGenerales(){
 				$('#datosGeneralesCmpNombres').attr("disabled","");
 				$('#datosGeneralesCmpApaterno').attr("disabled","");
@@ -503,7 +496,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 
 				 //Modo Edicion
 				 cambiarModoConsultaMultiselect(false);
-				
+
 				 $("#newItem,#add").attr("disabled","");
 				 $('#datosGeneralesCmpIdioma').attr("disabled","");
 				 $('#datosGeneralesCmpEstadoCivil').attr("disabled","");
@@ -515,28 +508,28 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 						changeYear: true,
 						showOn: "button",
 						buttonImage: "<%= request.getContextPath()%>/resources/images/date.png",
-						buttonImageOnly: true			
+						buttonImageOnly: true
 					});
 				 $('#datosNacimientoCmpEdadAproximada').attr("disabled","");
 				 $('#cbxPaisNacimiento').attr("disabled","");
 				 $('#cbxEntFederativaNacimiento').attr("disabled","");
-				 
+
 				 $('#cbxEdoFisico').attr("disabled","");
 				 $('#cbxEdoConciencia').attr("disabled","");
 				 $('#cbxEdoInconciente').attr("disabled","");
-				 
+
 				 $('#edadVictimaMuerta').attr("disabled","");
 				 $('#cbxEdadUnidadVictimaMuerta').attr("disabled","");
 				 $('#cbxCondicionActividadVictimaMuerta').attr("disabled","");
-			} 
+			}
 
-			
+
 		   function inicializaDatosGenerales(){
 			   var $widget = $("#datosGeneralesCmpAlias,#datosGeneralesCmpOcupacion,#datosGeneralesCmpNacionalidad").multiselect(),state = true;
 			   state = !state;
 			   $widget.multiselect(state ? 'disable' : 'enable');
 		   }
-			
+
 		   /**
 		   * De cada uno de los catalogos del multiselect, se seleccionan los particulares
 		   * de acuerdo a la consulta generada del involucrado.
@@ -549,23 +542,23 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 			   else{
 				   valorAlias='valorDTO';
 			   }
-			   
+
 			   var ocupacionCargada=false;
 			   $(xml).find('valorIdOcupacion').find(valorAlias).each(function(){
 				   var ocupacion=$(this).find('idCampo').text();
 				   $('#datosGeneralesCmpOcupacion').find("option[value='"+ocupacion+"']").attr("selected","selected");
 				   ocupacionCargada=true;
 			   });
-			   
+
 			   if (!ocupacionCargada){
 				   $(xml).find('valorIdOcupacion').find('idCampo').each(function(){
 					   var ocupacion=$(this).text();
 					   $('#datosGeneralesCmpOcupacion').find("option[value='"+ocupacion+"']").attr("selected","selected");
 					   ocupacionCargada=true;
-				   }); 
+				   });
 			   }
 			   $("#datosGeneralesCmpOcupacion").multiselect("refresh");
-			   
+
 			   //Nacionalidad
 			   if($(xml).find('valorIdNacionalidad').find('ValorDTO').text()!=""){
 				   valorAlias='ValorDTO';
@@ -573,7 +566,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 			   else{
 				   valorAlias='valorDTO';
 			   }
-			   
+
 			   $('#datosGeneralesCmpNacionalidad').find("option[value='2056']").attr("selected","");//quita default mexicana
 			   var nacionCargada=false;
 			   $(xml).find('valorIdNacionalidad').find(valorAlias).each(function(){
@@ -581,15 +574,15 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 				   $('#datosGeneralesCmpNacionalidad').find("option[value='"+nacionalidad+"']").attr("selected","selected");
 				   nacionCargada=true;
 			   });
-			   
+
 			   if (!nacionCargada){
 				   $(xml).find('valorIdNacionalidad').find('idCampo').each(function(){
 					   var nacionalidad=$(this).text();
 					   $('#datosGeneralesCmpNacionalidad').find("option[value='"+nacionalidad+"']").attr("selected","selected");
-				   }); 
+				   });
 			   }
 			   $("#datosGeneralesCmpNacionalidad").multiselect("refresh");
-			   
+
 			   //Alias
 			   $('#datosGeneralesCmpAlias').empty();
 			   $(xml).find('aliasInvolucradoDTO').find('aliasInvolucradoDTO').each(function(){
@@ -599,9 +592,9 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 
 			   $("#datosGeneralesCmpAlias").multiselect("refresh");
 		   }
-		   
+
 		   /**
-		   * Carga solo los datos que se tienen para consulta, omitiendo los datos del catalogo. 
+		   * Carga solo los datos que se tienen para consulta, omitiendo los datos del catalogo.
 		   **/
 		   //@deprecated No se utiliza
 		   function pintaDatosMultiselectSoloConsulta(xml){
@@ -613,12 +606,12 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 			   else{
 				   valorAlias='valorDTO';
 			   }
-			   
+
 			   $('#datosGeneralesCmpOcupacion').empty();
 			   $(xml).find('valorIdOcupacion').find(valorAlias).each(function(){
 				   $("#datosGeneralesCmpOcupacion").append('<option selected="selected" value="' + $(this).find('idCampo').text() + '">' + $(this).find('valor').text() + '</option>');
 			   });
-			   
+
 			   //Nacionalidad Consulta
 			   if($(xml).find('valorIdNacionalidad').find('ValorDTO').text()!=""){
 				   valorAlias='ValorDTO';
@@ -626,28 +619,28 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 			   else{
 				   valorAlias='valorDTO';
 			   }
-			   
+
 			   $('#datosGeneralesCmpNacionalidad').empty();
 			   $(xml).find('valorIdNacionalidad').find(valorAlias).each(function(){
 				   $("#datosGeneralesCmpNacionalidad").append('<option selected="selected" value="' + $(this).find('idcampo').text() + '">' + $(this).find('valor').text() + '</option>');
 			   });
-			   
+
 			   //Alias
 			   $('#datosGeneralesCmpAlias').empty();
-			   
+
 			   $(xml).find('aliasInvolucradoDTO').find('aliasInvolucradoDTO').each(function(){
 				   $("#datosGeneralesCmpAlias").append('<option selected="selected" value="' + $(this).find('alias').text() + '">' + $(this).find('alias').text() + '</option>');
     	       });
 		   }
-		   
+
 		   /**
-		   * Funci&oacute;n que se encarga de habilitar o deshabilitar los checkbox de los 
+		   * Funci&oacute;n que se encarga de habilitar o deshabilitar los checkbox de los
 		   * multiselect de los datos generales.
 		   *
 		   * @param esConsulta parametro que determina si es modo consulta o edici&oacute;n
 		   */
 		   function cambiarModoConsultaMultiselect(esConsulta){
-			   //Versión anterior de habilitar  ver habilitarDatosGenerales()
+			   //VersiÃ³n anterior de habilitar  ver habilitarDatosGenerales()
 			   /* var $widget = $("#datosGeneralesCmpAlias,#datosGeneralesCmpOcupacion,#datosGeneralesCmpNacionalidad").multiselect(),state = true;
 			   state = !state;
 			   $widget.multiselect( ? 'disable' : 'enable'); */
@@ -655,111 +648,111 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 				//El multiselect simpre debe de estar habilitado
 			   var $widget = $("#datosGeneralesCmpAlias,#datosGeneralesCmpOcupacion,#datosGeneralesCmpNacionalidad").multiselect();
 			   $widget.multiselect('enable');
-			   
+
 			   //Se habilita o deshabilita los check box
 			   $("#datosGeneralesCmpOcupacion").multiselect("widget").find(":checkbox").attr("disabled", esConsulta);
 			   $("#datosGeneralesCmpAlias").multiselect("widget").find(":checkbox").attr("disabled",esConsulta);
 			   $("#datosGeneralesCmpNacionalidad").multiselect("widget").find(":checkbox").attr("disabled",esConsulta);
 		   }
-		   
+
 		   function pintaDatosGenerales(xml){
 			   tipoEvento = $(xml).contents().children("tipoEvento").text();
 			   subtipoEvento = $(xml).contents().children("subtipoDeEvento").text();
 			   $('#datosGeneralesCmpNombres').val($(xml).find('nombresDemograficoDTO').find('nombre').first().text());
 			   $('#datosGeneralesCmpApaterno').val($(xml).find('nombresDemograficoDTO').find('apellidoPaterno').first().text());
 			   $('#datosGeneralesCmpMaterno').val($(xml).find('nombresDemograficoDTO').find('apellidoMaterno').first().text());
-			   $('#datosGeneralesCmpCurp').val($(xml).find('nombresDemograficoDTO').find('curp').first().text());			  
+			   $('#datosGeneralesCmpCurp').val($(xml).find('nombresDemograficoDTO').find('curp').first().text());
 			   $('#datosGeneralesCmpRfc').val($(xml).find('nombresDemograficoDTO').find('rfc').first().text());
 			   if ($(xml).find('nombresDemograficoDTO').first().find('sexo').text() == "M"){
 		    		 $('#datosGeneralesCmpSexoM').attr('checked','checked');
-		    		
+
 		    	 }else{
 		    		 if ($(xml).find('nombresDemograficoDTO').first().find('sexo').text() == "F"){
 		    			 $('#datosGeneralesCmpSexoF').attr('checked','checked');
-			    		
+
 			    	 }else{
 			    		 $('#datosGeneralesCmpSexoN').attr('checked','checked');
 			    	 }
-		    		 
-		    	 } 
+
+		    	 }
 			  var escol=$(xml).find('valorIdEscolaridad').find('idCampo').text();
 			   $('#datosGeneralesCmpEscolaridad').find("option[value='"+escol+"']").attr("selected","selected");
 			   var estadoCiv=$(xml).find('valorIdEstadoCivil').find('idCampo').text();
 			   $('#datosGeneralesCmpEstadoCivil').find("option[value='"+estadoCiv+"']").attr("selected","selected");
 			   var idioma=$(xml).find('valorIdIdioma').find('idCampo').text();
 			   $('#datosGeneralesCmpIdioma').find("option[value='"+idioma+"']").attr("selected","selected");
-			   
+
 			   cargaComboEdoFisico();
-			   $('#cbxEdoFisico').find("option[value='"+$(xml).find('nombresDemograficoDTO').find('edoFisico').find('idCampo').text()+"']").attr("selected","selected");
+			   $('#cbxEdoFisico').find("option[value='"+$(xml).find('nombresDemograficoDTO').find('edoFisico').find('idCampo').first().text()+"']").attr("selected","selected");
 			   cargaComboEdoConsciencia();
-			   $('#cbxEdoConciencia').find("option[value='"+$(xml).find('nombresDemograficoDTO').find('edoConsciencia').find('idCampo').text()+"']").attr("selected","selected");
+			   $('#cbxEdoConciencia').find("option[value='"+$(xml).find('nombresDemograficoDTO').find('edoConsciencia').find('idCampo').first().text()+"']").attr("selected","selected");
 			   cargaComboEdoConscienciaInconsciente();
-			   $('#cbxEdoInconciente').find("option[value='"+$(xml).find('nombresDemograficoDTO').find('edoConscienciaInconsciente').find('idCampo').text()+"']").attr("selected","selected");
-			   
+			   $('#cbxEdoInconciente').find("option[value='"+$(xml).find('nombresDemograficoDTO').find('edoConscienciaInconsciente').find('idCampo').first().text()+"']").attr("selected","selected");
+
 			   pintaDatosNacimiento(xml);
-			   
+
 			   var fechaCreacion = $(xml).find('involucradoDTO').find('strFechaCreacion').first().text();
 			   if (fechaCreacion != "" && fechaCreacion != undefined ){
 				   $('#datosGeneralesCmpFechaIngreso').val(fechaCreacion);
 			   }
-			   
+
 			   //edad victima muerta
 			   $('#edadVictimaMuerta').val($(xml).find('datosDefuncion').find('edadDefuncion').text());
 			   //edad unidad victima muerta
 			   var edadUnidadDef=$(xml).find('datosDefuncion').find('edadUnidadDefuncion').find('idCampo').text();
 			   $('#cbxEdadUnidadVictimaMuerta').find("option[value='"+edadUnidadDef+"']").attr("selected","selected");
-			   //condicion de actividad 
+			   //condicion de actividad
 			   var condicionAct=$(xml).find('datosDefuncion').find('condicionActividad').find('idCampo').text();
 			   $('#cbxCondicionActividadVictimaMuerta').find("option[value='"+condicionAct+"']").attr("selected","selected");
-			   
+
 			   //pintaDatosNacimientoActaCirc(xml);//Para pintar los datos de nacimiento en Acta Circunstanciada
 			   //alert("wait");
 			   //$('#datosNacimientoCmpFechaNacimiento').val('00/02/0000');
 			   espejoDatos();
 			}
-		   
+
 		   function pintaDatosGeneralesActaCirc(xml){
-			   
+
 			   var valorAlias;
-			   
+
 			   $('#datosGeneralesCmpNombres').val($(xml).find('nombresDemograficoDTO').find('nombre').text());
 			   $('#datosGeneralesCmpApaterno').val($(xml).find('nombresDemograficoDTO').find('apellidoPaterno').text());
 			   $('#datosGeneralesCmpMaterno').val($(xml).find('nombresDemograficoDTO').find('apellidoMaterno').text());
-			   $('#datosGeneralesCmpCurp').val($(xml).find('nombresDemograficoDTO').find('curp').text());			   
+			   $('#datosGeneralesCmpCurp').val($(xml).find('nombresDemograficoDTO').find('curp').text());
 			   $('#datosGeneralesCmpRfc').val($(xml).find('nombresDemograficoDTO').find('rfc').text());
 			   if ($(xml).find('nombresDemograficoDTO').find('sexo').text() == "M"){
 		    		 $('#datosGeneralesCmpSexoM').attr('checked','checked');
-		    		
+
 		    	 }else{
 		    		 $('#datosGeneralesCmpSexoF').attr('checked','checked');
-		    	 } 
+		    	 }
 			  var escol=$(xml).find('valorIdEscolaridad').find('idCampo').text();
 			   $('#datosGeneralesCmpEscolaridad').find("option[value='"+escol+"']").attr("selected","selected");
 			   var estadoCiv=$(xml).find('valorIdEstadoCivil').find('idCampo').text();
 			   $('#datosGeneralesCmpEstadoCivil').find("option[value='"+estadoCiv+"']").attr("selected","selected");
-			   
+
 			   if($(xml).find('valorIdOcupacion').find('ValorDTO').text()!=""){
 				   valorAlias='ValorDTO';
 			   }
 			   else{
 				   valorAlias='valorDTO';
 			   }
-			   
+
 			   var ocupacionCargada=false;
 			   $(xml).find('valorIdOcupacion').find(valorAlias).each(function(){
 				   var ocupacion=$(this).find('idCampo').text();
 				   $('#datosGeneralesCmpOcupacion').find("option[value='"+ocupacion+"']").attr("selected","selected");
 				   ocupacionCargada=true;
 			   });
-			   
+
 			   if (!ocupacionCargada){
 				   $(xml).find('valorIdOcupacion').find('idCampo').each(function(){
 					   var ocupacion=$(this).text();
 					   $('#datosGeneralesCmpOcupacion').find("option[value='"+ocupacion+"']").attr("selected","selected");
 					   ocupacionCargada=true;
-				   }); 
+				   });
 			   }
-			   
+
 			   if($(xml).find('valorIdNacionalidad').find('ValorDTO').text()!=""){
 				   valorAlias='ValorDTO';
 			   }
@@ -774,18 +767,18 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 				   $('#datosGeneralesCmpNacionalidad').find("option[value='"+nacionalidad+"']").attr("selected","selected");
 				   nacionCargada=true;
 			   });
-			   
+
 			   if (!nacionCargada){
 				   $(xml).find('valorIdNacionalidad').find('idCampo').each(function(){
 					   var nacionalidad=$(this).text();
 					   $('#datosGeneralesCmpNacionalidad').find("option[value='"+nacionalidad+"']").attr("selected","selected");
-				   }); 
+				   });
 			   }
-			   
+
 			   $(xml).find('aliasInvolucradoDTO').find('alias').each(function(){
 				   $("#datosGeneralesCmpAlias").append('<option selected="selected" value="' + $(this).text() + '">' + $(this).text() + '</option>');
     	       });
-			   
+
 			   pintaDatosNacimientoActaCirc(xml);//Para pintar los datos de nacimiento en Acta Circunstanciada
 			}
 
@@ -793,29 +786,29 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 		    *Funcion para pintar los datos mediante la recuperacion del xml de datos de nacimiento
 		    */
 		function pintaDatosNacimiento(xml){
- 
+
 			var id0=$(xml).find('nombresDemograficoDTO').first().find('nombreDemograficoDTO').find('paisValorDTO').find('idCampo').text();
-		   	   
+
 			$('#cbxPaisNacimiento').find("option[value='"+id0+"']").attr("selected","selected");
-		   	
+
 			onSelectChangePaisNacimiento();
 
 			var id1=$(xml).find('nombresDemograficoDTO').first().find('nombreDemograficoDTO').find('entidadFederativaDTO').find('entidadFederativaId').text();
-		   	  
+
 			$('#cbxEntFederativaNacimiento').find("option[value='"+id1+"']").attr("selected","selected");
 
 			onSelectChangeEntFedNacimiento();
-		   		
+
 			var id2=$(xml).find('nombresDemograficoDTO').first().find('nombreDemograficoDTO').find('municipioDTO').find('municipioId').text();
 			$('#cbxCiudadNacimiento').find("option[value='"+id2+"']").attr("selected","selected");
-			   
+
 		   	if($(xml).find('nombresDemograficoDTO').first().find('nombreDemograficoDTO').find('strFechaNacimiento').text()!=""){
 			   $('#datosNacimientoCmpFechaNacimiento').val(''+$(xml).find('nombresDemograficoDTO').first().find('nombreDemograficoDTO').find('strFechaNacimiento').text());
 			}
-			   
+
 			$('#datosNacimientoCmpEdadAproximada').val($(xml).find('nombresDemograficoDTO').first().find('nombreDemograficoDTO').find('edadAproximada').first().text());
-		}		 
-		   	
+		}
+
 		   /*
 		    *Funcion para pintar los datos mediante la recuperacion del xml de datos de nacimiento
 		    */
@@ -823,7 +816,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 			   var id0=$(xml).find('nombresDemograficoDTO').find('paisValorDTO').find('idCampo').text();
 		   	   $('#cbxPaisNacimiento').find("option[value='"+id0+"']").attr("selected","selected");
 		   		onSelectChangePaisNacimiento();
-		   	   
+
 		   	   var id1=$(xml).find('nombresDemograficoDTO').find('entidadFederativaDTO').find('entidadFederativaId').text();
 		   	   $('#cbxEntFederativaNacimiento').find("option[value='"+id1+"']").attr("selected","selected");
 		   		onSelectChangeEntFedNacimiento();
@@ -832,17 +825,17 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 			    $('#newItem').attr("disabled","disabled");
 			    $('#add').attr("disabled","disabled");
 			    $("#datosNacimientoCmpFechaNacimiento").datepicker("destroy");
-			    
+
 			    if($(xml).find('nombresDemograficoDTO').find('fechaNacimiento').text()!=""){
 					var fecha=$(xml).find('nombresDemograficoDTO').find('fechaNacimiento').text().split(' ');
 					var fechaS=fecha[0].split('-');
-					
+
 				   $('#datosNacimientoCmpFechaNacimiento').val(fechaS[2]+'/'+fechaS[1]+'/'+fechaS[0]);
 				}
 
 			 	$('#datosNacimientoCmpEdadAproximada').val($(xml).find('nombresDemograficoDTO').find('edadAproximada').first().text());
-		   	   }	
-		   
+		   	   }
+
 		   /*
 		   *Funcion para revisar la calidad del indiviudo cuando se ingresara un representante legal
 		   */
@@ -858,22 +851,22 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 					}
 			   }
 		   }
-		   
+
 		   /* Metodo que permite generar el RFC y el CURP dado el siguiente algoritmo
 			1. Primer letra de tu apellido PATERNO
 			2. Primer vocal despues de la primer letra de tu apellido PATERNO
 			3. Primer letra de tu apellido (materno)
 			4. Primer letra de tu nombre
-			5. Año de nacimiento (ultimas 2 cifras)
+			5. AÃ±o de nacimiento (ultimas 2 cifras)
 			6. Mes de nacimiento (2 cifras)
 			7. Dia de nacimiento (2 cifras)...
-			Hasta aqui el RFC... 
+			Hasta aqui el RFC...
 			8. Sexo (H) o (M)
 			9. Estado donde te registraron... (abreviado 2 letras)
 			10. Primera consonante de apellido paterno y materno MRXX
 			11. El ultimo numero de 2 cifras es de control para que en el remoto caso no haya repetidos
 		*/
-	
+
 			function calculaRFC_CURP_UNO_UNO()
 		    {
 				var valorCampoNombre=$('#datosGeneralesCmpNombres').val().trim();
@@ -882,7 +875,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 				var valorCampoCurp=$('#datosGeneralesCmpCurp').val().trim();
 				var valorCampoRfc=$('#datosGeneralesCmpRfc').val();
 				var valorCampoFechaNac=$('#datosNacimientoCmpFechaNacimiento').val();
-				var sexo = $(':radio[name=rbtSexoDatosGenerales]:checked').val();      
+				var sexo = $(':radio[name=rbtSexoDatosGenerales]:checked').val();
 				var idEstado = $('#cbxEntFederativaNacimiento option:selected').val();
 				var str = '';
 				var strObj = {};
@@ -891,26 +884,26 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 					var paternoStr = valorCampoApPat;
 					str = paternoStr.toLowerCase().replace(/de\s|la\s|del\s|'|-/gi, '');
 					var consonateAPaterno = str;
-					paternoStr = (str.charAt(0) == 'ñ' ? 'X' : str.charAt(0)) + (str.charAt(1) ? obtieneVocal(str) : 'X');
+					paternoStr = (str.charAt(0) == 'Ã±' ? 'X' : str.charAt(0)) + (str.charAt(1) ? obtieneVocal(str) : 'X');
 					consonateAPaterno=obtenConsonante(consonateAPaterno);
-						
+
 					if(consonateAPaterno.trim()=="" || consonateAPaterno.trim().length==0)
 					{
-						consonateAPaterno="X";	
+						consonateAPaterno="X";
 					}
-						
+
 					var maternoStr = valorCampoApMat;
 					var consonateAMaterno ="";
 					if(maternoStr.length>0)
 					{
 						str = maternoStr.toLowerCase().replace(/de\s|la\s|del\s|'|-/gi, '');
 						consonateAMaterno = str;
-						maternoStr = str.charAt(0) == 'ñ' ? 'X' : str.charAt(0);		
-						//consonateAMaterno=consonateAMaterno.substring(1);					
+						maternoStr = str.charAt(0) == 'Ã±' ? 'X' : str.charAt(0);
+						//consonateAMaterno=consonateAMaterno.substring(1);
 						consonateAMaterno=obtenConsonante(consonateAMaterno);
 						if(consonateAMaterno.trim()=="" || consonateAMaterno.trim().length==0)
 						{
-							consonateAMaterno="X";	
+							consonateAMaterno="X";
 						}
 					}
 					else
@@ -918,21 +911,21 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 						maternoStr='X';
 						consonateAMaterno = "X";
 					}
-					var nombreStr = obtenLetraNombre(valorCampoNombre);	
+					var nombreStr = obtenLetraNombre(valorCampoNombre);
 					var consonateNombre = valorCampoNombre;
 					//consonateNombre=consonateNombre.substring(1);
 					consonateNombre=obtenConsonanteNombreDos(consonateNombre);//obtenConsonante
-					
+
 					if(consonateNombre.trim()=="" || consonateNombre.trim().length==0)
 					{
 						consonateNombre="X";
 					}
-					
+
 					datosFechaNac = valorCampoFechaNac.split("/");
 					var dia = datosFechaNac[0];
 					var mes = datosFechaNac[1];
 					var anio = datosFechaNac[2].substring(2,4);
-					
+
 					//definimos la cadena con palabras no permitidas
 					var malas ="bueibueycacacacocagacagocakacakocogecojakogekojokakakulomamemamo";
 					malas += "mearmeasmeonmioncojecojicojoculofetogueyjotokacakacokaga";
@@ -948,41 +941,41 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 					else
 					{
 						str = paternoStr + maternoStr + nombreStr + anio + mes + dia;
-					}	
-					
+					}
+
 					//Se obitiene la inicial del sexo
 					sexo == 'M' ? sexo = 'H':sexo = 'M'
 					//Se obtien el valor del estado seleccionado
 					var edo = obtenInicialesEstado(parseInt(idEstado)).toUpperCase();
 					var rfc = valorCampoRfc && valorCampoRfc.length > 10 ? str + valorCampoRfc.substr(10) : str;
 					$('#datosGeneralesCmpRfc').val(rfc.toUpperCase());
-					var curp = valorCampoCurp && valorCampoCurp > 18 ? str + valorCampoCurp.substr(18) : str + 
+					var curp = valorCampoCurp && valorCampoCurp > 18 ? str + valorCampoCurp.substr(18) : str +
 							sexo + edo + consonateAPaterno.charAt(0) + consonateAMaterno.charAt(0) + consonateNombre.charAt(0);
-					$('#datosGeneralesCmpCurp').val(curp.toUpperCase());					
+					$('#datosGeneralesCmpCurp').val(curp.toUpperCase());
 				}
 				return strObj;
 			}
-		   
-		   
+
+
 			function obtenConsonante(cadena){
-				var consonantes = /^[bcdfghjklmnñpqrstvwxyz]/i;				
+				var consonantes = /^[bcdfghjklmnÃ±pqrstvwxyz]/i;
 				var i = 0;
 				var x= true;
 				var s1 = '';
 				var cadenaOrg=cadena;
 				var longitudCadena = cadena.length;
-				
+
 				/* while(i < longitudCadena){
 					if((consonantes.test(cadena[i]) == true) & (x != false)){
 						s1 = s1 + cadena[i];
 						cadena = cadena.replace(cadena[i],"");
-					}			
+					}
 					i++;
 				 }
 				*/
-				
-				var pattCnsnts=new RegExp("bcdfghjklmnñpqrstvwxyz","i");
-				var cadenaConsonantes="bcdfghjklmnñpqrstvwxyz";
+
+				var pattCnsnts=new RegExp("bcdfghjklmnÃ±pqrstvwxyz","i");
+				var cadenaConsonantes="bcdfghjklmnÃ±pqrstvwxyz";
 				var cadenaCnsnnts="";
 				var cadenaVcls="";
 				for(i=0;i<cadenaOrg.length;i++)
@@ -996,8 +989,8 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 						cadenaVcls += cadenaOrg[i];
 					}
 				}
-							
-				
+
+
 				//si la primer letra una consonante
 				if(cadenaConsonantes.indexOf(cadenaOrg.charAt(0))!=-1)
 				{
@@ -1005,7 +998,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 				}
 				return cadenaCnsnnts;
 			}
-			
+
 			function obtenInicialesEstado(idEstado){
 				var edo;
 				switch(idEstado){
@@ -1042,10 +1035,10 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 					case 31: edo="YN"; break;
 					case 32: edo="ZS"; break;
 				}
-				return edo;	
-		}		
-			
-			
+				return edo;
+		}
+
+
 	 		/**
 			 * Obtiene la letra correspondiente al nombre de la persona
 			 * @param {String} nombreStr Nombre de la persona
@@ -1055,7 +1048,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 				var letraNombre = '';
 				nombreStr = nombreStr.trim();
 				nombreStr = nombreStr.toLowerCase().replace(/de\s|la\s|del\s|'|-/gi, '');
-				var letraBase = nombreStr.charAt(0).toLowerCase() == 'ñ' ? 'X' : nombreStr.charAt(0);
+				var letraBase = nombreStr.charAt(0).toLowerCase() == 'Ã±' ? 'X' : nombreStr.charAt(0);
 				if (nombreStr.split(' ').length >= 2) {
 					var jose = quitaAcentos(nombreStr).toLowerCase().search('jose');
 					var maria = quitaAcentos(nombreStr).toLowerCase().search('maria');
@@ -1071,21 +1064,21 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 				}
 				return letraNombre;
 			}
-			 
+
 			 function obtenConsonanteNombreDos(nombreStr){
 				 	var letraNombre = '';
-					
+
 					nombreStr = nombreStr.trim();
 					nombreStr = nombreStr.toLowerCase().replace(/de\s|la\s|del\s|'|-/gi, '');
 					var nombreStrOrg=nombreStr;
-					var letraBase = nombreStr.charAt(0).toLowerCase() == 'ñ' ? 'X' : nombreStr.charAt(0);
+					var letraBase = nombreStr.charAt(0).toLowerCase() == 'Ã±' ? 'X' : nombreStr.charAt(0);
 					if (nombreStrOrg.split(' ').length >= 2) {
 						var nombreStrJose = quitaAcentos(nombreStr).toLowerCase();
 						var nombreStrMaria= quitaAcentos(nombreStr).toLowerCase();
 						//buscaremos los caracteres generados para ver sino cae en las malas palabras
 						var pattJose=new RegExp("jose","i");
 						var pattMaria=new RegExp("maria","i");
-						
+
 						var jose= nombreStrJose.search(pattJose);
 						var maria= nombreStrMaria.search(pattMaria);
 						if (jose >= 0 && maria >= 0) { //solo para los nombre Jose maria o Maria jose
@@ -1104,35 +1097,35 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 					}
 					return letraNombre;
 				}
-			
-			
+
+
 	 		/**
-			 * Función que limpia una cadena de acentos y dieresis
+			 * FunciÃ³n que limpia una cadena de acentos y dieresis
 			 * @param {String} cadena Cadena a limpiar
 			 * @return {String} cadena Cadena sin acentos y dieresis
 			 */
 			function quitaAcentos(cadena){
-				return cadena != "" ? cadena.replace(/á|é|í|ó|ú|ä|ë|ï|ö|ü|Á|É|Í|Ó|Ú|Ä|Ë|Ï|Ö|Ü/ig,function (str) {
-					var str =str=="á"?"a":str=="é"?"e":str=="í"?"i":str=="ó"?"o":str=="ú"?"u":str;
-					   str =str=="Á"?"A":str=="É"?"E":str=="Í"?"I":str=="Ó"?"O":str=="Ú"?"U":str;
-					   str =str=="Á"?"A":str=="É"?"E":str=="Í"?"I":str=="Ó"?"O":str=="Ú"?"U":str;
-					   str =str=="ä"?"a":str=="ë"?"e":str=="ï"?"i":str=="ö"?"o":str=="ü"?"u":str;
-					   str =str=="Ä"?"A":str=="Ë"?"E":str=="Ï"?"I":str=="Ö"?"O":str=="Ü"?"U":str;
+				return cadena != "" ? cadena.replace(/Ã¡|Ã©|Ã­|Ã³|Ãº|Ã¤|Ã«|Ã¯|Ã¶|Ã¼|Ã?|Ã|Ã?|Ã|Ã|Ã|Ã|Ã?|Ã|Ã/ig,function (str) {
+					var str =str=="Ã¡"?"a":str=="Ã©"?"e":str=="Ã­"?"i":str=="Ã³"?"o":str=="Ãº"?"u":str;
+					   str =str=="Ã?"?"A":str=="Ã"?"E":str=="Ã?"?"I":str=="Ã"?"O":str=="Ã"?"U":str;
+					   str =str=="Ã?"?"A":str=="Ã"?"E":str=="Ã?"?"I":str=="Ã"?"O":str=="Ã"?"U":str;
+					   str =str=="Ã¤"?"a":str=="Ã«"?"e":str=="Ã¯"?"i":str=="Ã¶"?"o":str=="Ã¼"?"u":str;
+					   str =str=="Ã"?"A":str=="Ã"?"E":str=="Ã?"?"I":str=="Ã"?"O":str=="Ã"?"U":str;
 					return (str);
 				}) : cadena;
 			}
-			
-			
+
+
 			/**
-			 * Obtiene la primer vocal en una cadena sin contar la primera letra	
+			 * Obtiene la primer vocal en una cadena sin contar la primera letra
 			 * @param {Object} str Cadena
 			 * @return {String} vocalStr Primera vocal en la cadena
 			 */
 			function obtieneVocal(str){
-				var vocales = ['a','e','i','o','u','á','é','í','ó','ú'];
+				var vocales = ['a','e','i','o','u','Ã¡','Ã©','Ã­','Ã³','Ãº'];
 				var strArray = str.toLowerCase().substr(1);
 				var vocalStr = '';
-				for (var i = 1; i < str.length; i++) {				
+				for (var i = 1; i < str.length; i++) {
 					for (var j = 0; j < vocales.length; j++) {
 						if (str.charAt(i) == vocales[j]) {
 							vocalStr = quitaAcentos(str.charAt(i));
@@ -1143,38 +1136,38 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 						break;
 					}
 				};
-				
+
 				return !isEmpty(vocalStr) ? vocalStr : 'X';
 
 			}
-			
+
 			/**
 			 * Permite saber si una cadena es nula o esta vacia
 			 * @param {Object} str Cadena
 			 * @return {Boolean} True si es nula la cadena o vacia, false en caso contrario
-			 */		
-			  function isEmpty(cadena){ 
-				if ( null == cadena || "" == cadena ) 
-					return true; 
+			 */
+			  function isEmpty(cadena){
+				if ( null == cadena || "" == cadena )
+					return true;
 				else
-					return false; 	   
+					return false;
 			  }
 			 /**
 			 * metodo que carga el combo de estado fisico
 			 */
 			 function cargaComboEdoFisico(){
-				 
+
 				 if($('#cbxEdoFisico').val() <= 0){
 					$('#cbxEdoFisico').empty();
 					$('#cbxEdoFisico').append('<option value="-1">-Seleccione-</option>');
-				 
-				 
+
+
 					 $.ajax({
 				    		type: 'POST',
 				    	    url: '<%=request.getContextPath()%>/ConsultarEdoFisico.do',
 				    	    data: '',
 				    	    dataType: 'xml',
-				    	    async: true,
+				    	    async: false,
 				    	    success: function(xml){
 				    	    	$(xml).find('catEdoFisico').each(function(){
 									$('#cbxEdoFisico').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
@@ -1184,23 +1177,23 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 						});
 				 }
 			 }
-			 
+
 			 /**
 			 * metodo que carga el combo de estado de consciencia
 			 */
 			 function cargaComboEdoConsciencia(){
-				 
+
 				 if($('#cbxEdoConciencia').val() <= 0){
 					$('#cbxEdoConciencia').empty();
 			 		$('#cbxEdoConciencia').append('<option value="-1">-Seleccione-</option>');
-				 
-				 
+
+
 					 $.ajax({
 				    		type: 'POST',
 				    	    url: '<%=request.getContextPath()%>/ConsultarEdoConsciencia.do',
 				    	    data: '',
 				    	    dataType: 'xml',
-				    	    async: true,
+				    	    async: false,
 				    	    success: function(xml){
 				    	    	$(xml).find('catEdoConsciencia').each(function(){
 									$('#cbxEdoConciencia').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
@@ -1210,25 +1203,25 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 						});
 				 }
 			 }
-			 
+
 		 	 /**
 			 * metodo que carga el combo que depende de estado de consciencia
 			 */
 			 function cargaComboEdoConscienciaInconsciente(){
-		 		 
+
 		 		var edoConcienciaId = $('#cbxEdoConciencia option:selected').val();
 		 		if(edoConcienciaId == <%=ConstantesGenerales.DATOS_GRLES_EDO_CONSCIENCIA_INCONSCIENTE_ID%>) {
 		 			$("#trEdoConscienciaInconsciente").show();
 		 			$('#cbxEdoInconciente').empty();
 		 			$('#cbxEdoInconciente').append('<option value="-1">-Seleccione-</option>');
-		 			
-		 			
+
+
 					 $.ajax({
 				    		type: 'POST',
 				    	    url: '<%=request.getContextPath()%>/ConsultarEdoConscienciaInconsciente.do?edoConcienciaId='+edoConcienciaId+'',
 				    	    data: '',
 				    	    dataType: 'xml',
-				    	    async: true,
+				    	    async: false,
 				    	    success: function(xml){
 				    	    	$(xml).find('catEdoConscienciaInconsciente').each(function(){
 									$('#cbxEdoInconciente').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
@@ -1236,21 +1229,21 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 								});
 				    		}
 						});
-					 
+
 		 		}else{
 		 			$("#trEdoConscienciaInconsciente").hide();
 		 		}
 			 }
-		 	 
+
 		 	 function muestraCombosEdosFisicoConsciencia(){
-		 		 
+
 		 		$("#trEdoFisico").show();
-	 			
-	 			
+
+
 	 			$("#trEdoConsciencia").show();
-	 			
+
 		 	 }
-		    
+
 
 </script>
 
@@ -1277,7 +1270,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 		<td align="right">Nombre(s):</td>
 		<td class="field"><input type="text" class="" size="50"
 			maxlength="50" id="datosGeneralesCmpNombres"
-			name="datosGeneralesCmpNombres" value="" 
+			name="datosGeneralesCmpNombres" value=""
 			onkeypress="return soloLetrasNPunto(event,this.id);" onblur="validaSoloLetras(this);" onkeyup="espejoDatos();" onchange="calculaRFC_CURP_UNO_UNO()"  tabindex="1"/></td>
 
 		<td align="right" class="tdAliasCmp">Alias:</td>
@@ -1297,11 +1290,11 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
                 <c:forEach items="${applicationScope.nacionalidades}"  var="n" >
                     <option value='<c:out value="${n.clave}"/>'> <c:out value="${n.valor}"/> </option>
                 </c:forEach>
-                   
-            </select>		
+
+            </select>
         </td>
 
-		
+
 	</tr>
 	<tr>
 		<td align="right">Apellido Materno:</td>
@@ -1319,23 +1312,23 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 			<table border ="0">
 				<tr>
 					<td>
-						Masculino 
-						<input type="radio" id="datosGeneralesCmpSexoM" name="rbtSexoDatosGenerales" 
+						Masculino
+						<input type="radio" id="datosGeneralesCmpSexoM" name="rbtSexoDatosGenerales"
 							value="M" checked="checked" onchange="calculaRFC_CURP_UNO_UNO()" tabindex="4">
 					</td>
 					<td>
-						&nbsp; &nbsp; Femenino <input type="radio" id="datosGeneralesCmpSexoF" 
+						&nbsp; &nbsp; Femenino <input type="radio" id="datosGeneralesCmpSexoF"
 							name="rbtSexoDatosGenerales" value="F" onchange="calculaRFC_CURP_UNO_UNO()" tabindex="5">
 					</td>
 					<td id="tdSexoNoEspecificado">
-						&nbsp; &nbsp; No Especificado <input type="radio" id="datosGeneralesCmpSexoN" 
+						&nbsp; &nbsp; No Especificado <input type="radio" id="datosGeneralesCmpSexoN"
 						name="rbtSexoDatosGenerales" value="N"  tabindex="6">
 					</td>
-					
+
 				</tr>
 			</table>
 			<div class="formError"></div>
-		
+
 		</td>
 		<td id="tdDatosNacimiento" rowspan="7" colspan="2" valign="top"><jsp:include
 				page="/WEB-INF/paginas/datosNacimientoView.jsp" flush="true"></jsp:include>
@@ -1352,26 +1345,26 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 				<tr>
 					<td width="30%" align="right"> Edad unidad:</td>
 					<td>
-						<select id="cbxEdadUnidadVictimaMuerta" name="cbxEdadUnidadVictimaMuerta" 
+						<select id="cbxEdadUnidadVictimaMuerta" name="cbxEdadUnidadVictimaMuerta"
 								style="width: 110px;" >
 							<option>- Selecciona -</option>
 						</select>
 					</td>
-				</tr>		
+				</tr>
 				<tr>
 					<td width="30%" align="right">Condici&#243;n de Actividad:</td>
 					<td>
-						<select id="cbxCondicionActividadVictimaMuerta" name="cbxCondicionActividadVictimaMuerta" 
+						<select id="cbxCondicionActividadVictimaMuerta" name="cbxCondicionActividadVictimaMuerta"
 								style="width: 110px;" >
 							<option>- Selecciona -</option>
 						</select>
 					</td>
-				</tr>				
+				</tr>
 			</table>
 		</td>
-       
-        
-        
+
+
+
 	</tr>
 	<tr>
 		<td align="right">CURP:</td>
@@ -1384,14 +1377,14 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 			id="datosGeneralesCmpRfc" name="datosGeneralesCmpRfc" tabindex="8" onKeypress="return bloqueaEnter(event);" /></td>
             <td></td><td></td>
 	</tr>
-	
+
 	<tr id="trAliasTxt">
 		<td align="right">Alias:</td>
 		<td><input type="text" size="20" maxlength="50" id="newItem"
 			name="newItem"  tabindex="9" onKeypress="return bloqueaEnter(event);" />
 			 <input type="button" id="add" value="Agrega Alias" class="ui-button ui-corner-all ui-widget" onclick="agregaAlias()"/>
 		</td>
-		
+
 	</tr>
 	<tr id="trIdiomaLengua">
 		<td align="right">Idioma o Lengua:</td>
@@ -1402,7 +1395,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
                             <option value='<c:out value="${n.clave}"/>'> <c:out value="${n.valor}"/> </option>
                         </c:forEach>
 		</select></td>
-		
+
 	</tr>
 	<!-- tr>
 		<td align="right">Religion:</td>
@@ -1431,7 +1424,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 			<option id="0">- Selecciona -</option>
 		</select></td>
 	</tr>
-	
+
 	<tr id="trEdoFisico">
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
@@ -1442,7 +1435,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
     		</select>
 		</td>
 	</tr>
-	
+
 	<tr id="trEdoConsciencia">
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
@@ -1453,7 +1446,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
     		</select>
     	</td>
 	</tr>
-	
+
 	<tr id="trEdoConscienciaInconsciente">
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
@@ -1464,31 +1457,31 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
     		</select>
     	</td>
 	</tr>
-	
+
   </TBODY>
 </table>
 
-<input class="formButton" type="submit" value="Next" 
+<input class="formButton" type="submit" value="Next"
 	id="botonvalida" style="display: none;" /> <script
 	type="text/javascript">
 $(function(){
 	$("#datosGeneralesCmpOcupacion").multiselect();
 	$("#datosGeneralesCmpNacionalidad").multiselect(
-			{ 
+			{
 				header: "Selecciona de 1 a 3 opciones",
 				click: function(e){
-				
+
 					if( $(this).multiselect("widget").find("input:checked").length > 3 ){
-						
+
 						return false;
-					} 
-					
-				}		
-	
+					}
+
+				}
+
 			});
 });
 
-function soloLetrasDos(e,id) 
+function soloLetrasDos(e,id)
 {
 	var ExpReg_cad=/^[aA-zZ]*$/;
 	var unicode = e.charCode ? e.charCode : e.keyCode;
@@ -1509,7 +1502,7 @@ function soloLetrasDos(e,id)
        return true;
        }
 	}
-	else 
+	else
 	{
        // otherwise we don't
        return false;
@@ -1526,26 +1519,26 @@ cargaFechaCaptura();
 try{
 	if(idElemento != undefined && (idElemento == null || idElemento == "null"|| idElemento == "0")){
 		$("#datosGeneralesCmpIdioma").one("click", function() {
-			cargaIdioma();	
+			cargaIdioma();
 		});
-		
+
 		$("#datosGeneralesCmpEscolaridad").one("click", function() {
-			cargaEscolaridad();	
+			cargaEscolaridad();
 		});
-		
+
 		$("#datosGeneralesCmpEstadoCivil").one("click", function() {
 			cargaEstadoCivil();
 		});
-		
+
 	}else{
-		cargaIdioma();	
-		cargaEscolaridad();	
+		cargaIdioma();
+		cargaEscolaridad();
 		cargaEstadoCivil();
 	}
-	
+
 }catch(e){
-	cargaIdioma();	
-	cargaEscolaridad();	
+	cargaIdioma();
+	cargaEscolaridad();
 	cargaEstadoCivil();
 }
 
@@ -1556,24 +1549,24 @@ if (verAlias==1){
 }
 
 
-function bloqueaEnter(e) 
+function bloqueaEnter(e)
 {
 	var unicode = e.charCode ? e.charCode : e.keyCode;
 	if (unicode == 13){
 		return false;
 	}else{
 		return true;
-	} 
+	}
 }
 
 	/*
 	 *Funcion que realiza la carga del combo edad unidad para victimas muertas
 	 */
 	 function cargaEdadUnidad() {
-			  
+
 		$('#cbxEdadUnidadVictimaMuerta').empty();
-		$('#cbxEdadUnidadVictimaMuerta').append('<option value="-1">-Seleccione-</option>'); 
-		
+		$('#cbxEdadUnidadVictimaMuerta').append('<option value="-1">-Seleccione-</option>');
+
 		$.ajax({
 		  type: 'POST',
 		  url: '<%= request.getContextPath()%>/cargarEdadUnidad.do',
@@ -1584,19 +1577,19 @@ function bloqueaEnter(e)
 			var option;
 			$(xml).find('catEdadUnidad').each(function(){
 				$('#cbxEdadUnidadVictimaMuerta').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
-		    });			
+		    });
 		  }
 		});
 	 }
-	
+
 	/*
 	 *Funcion que realiza la carga del combo condicion de actividad para victimas muertas
 	 */
 	 function cargaCondicionActividad() {
-			  
+
 		$('#cbxCondicionActividadVictimaMuerta').empty();
-		$('#cbxCondicionActividadVictimaMuerta').append('<option value="-1">-Seleccione-</option>'); 
-		
+		$('#cbxCondicionActividadVictimaMuerta').append('<option value="-1">-Seleccione-</option>');
+
 		$.ajax({
 		  type: 'POST',
 		  url: '<%= request.getContextPath()%>/cargarCondicionActividad.do',
@@ -1607,7 +1600,7 @@ function bloqueaEnter(e)
 			var option;
 			$(xml).find('catCondicionActividad').each(function(){
 				$('#cbxCondicionActividadVictimaMuerta').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
-		    });			
+		    });
 		  }
 		});
 	 }
