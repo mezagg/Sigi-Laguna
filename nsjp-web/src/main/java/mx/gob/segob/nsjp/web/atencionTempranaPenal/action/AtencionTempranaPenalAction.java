@@ -2399,7 +2399,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
                 writer.print("<cell><![CDATA[<div class='celdaGrid'>" + (documentoDTO.getActividadDTO() != null && documentoDTO.getActividadDTO().getNombre() != null ? documentoDTO.getActividadDTO().getNombre() : "-") + " </div>]]></cell>");
                 writer.print("<cell><![CDATA[<div class='celdaGrid'>" + documentoDTO.getTipoDocumentoDTO().getValor() + " </div>]]></cell>");
                 writer.print("<cell><![CDATA[<div class='celdaGrid'>" + documentoDTO.getNombreDocumento() + " </div>]]></cell>");
-                writer.print("<cell><![CDATA[<div class='celdaGrid'>" + documentoDTO.getStrFechaCreacion() + " </div>]]></cell>");
+                writer.print("<cell><![CDATA[<div class='celdaGrid'>" + documentoDTO.getStrFechaCreacion()+" "+documentoDTO.getStrHoraCreacion() + " </div>]]></cell>");
                 writer.print("<cell><![CDATA[<div class='celdaGrid'>" + documentoDTO.getStrEsGuardadoParcial() + " </div>]]></cell>");
                 writer.print("<cell><![CDATA[<div class='celdaGrid'>" + documentoDTO.getEsGuardadoParcial() + " </div>]]></cell>");
                 writer.print("<cell><![CDATA[<div class='celdaGrid'>" + (documentoDTO.getArchivoDigital() != null
