@@ -929,7 +929,7 @@ public class NumeroExpedienteDAOImpl
 			.append(anio)
 			.append("'");
 			
-			if(unidades.size() > 1){
+			/*if(unidades.size() > 1){
 				for(int i=1;i<unidades.size();i++){
 					sb.append(" OR cNumExpAlterno LIKE '%")
 // RRL Coahuila
@@ -942,7 +942,7 @@ public class NumeroExpedienteDAOImpl
 					.append("'");
 				}
 			}
-			
+		*/
 			logger.debug("QUEY NUMERO DE EXPEDIENTE:"+sb.toString());
 			Query q = super.getSession().createSQLQuery(sb.toString());
 			
@@ -972,7 +972,7 @@ public class NumeroExpedienteDAOImpl
 	private String crearNumeroExpedienteAlterno (Integer consecutivo, String unidad, String anio, String distrito,String monoEntFederativa){
 		String consecutivoCompleto = "";
 
-// RRL Coahuila se deja a 4 dígitos		
+// RRL Coahuila se deja a 4 dï¿½gitos		
 		if (consecutivo < 10 ){
 			consecutivoCompleto = "000"+consecutivo.toString();
 		}else if (consecutivo < 100){
