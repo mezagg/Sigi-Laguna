@@ -766,5 +766,5 @@
 </div>
 </div>
 <div id="dialog-confirm" title="Turno: ">
-	<p align="center"><span style="font-size: 25px;" id="spanTipoTurno">.</span><br/><span style="font-size: 115px;" id="spanNumTurno">15</span></p>
+	<p align="center"><span style="font-size: 25px;" id="spanTipoTurno">.</span><br/><span style="font-size: 115px;" id="spanNumTurno" style="display: none;">15</span></p>
 </div>

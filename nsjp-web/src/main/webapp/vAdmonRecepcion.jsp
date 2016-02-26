@@ -158,16 +158,19 @@ function cerrarVentanaQueja(){
 					  				</TD>
 								</tr>
             					<TR align=middle>
-              						<TD height="40" colSpan=3>&nbsp;</td>
+              						<TD height="40" colSpan=3>
+                                                        <input name="Generar Turno de atenci&oacute;n penal" type="button"  id="botpenal" value="Generar Turno" class="ui-button ui-corner-all ui-widget" onclick="cargaTurno();" /></td></tr>
+                					
+                                                        </td>
             					</tr>
             				</TBODY>
         				</table>
           				<TABLE border=0 width="50%" align=center>				 
             				<TBODY>
               					<TR valign="top">
-                					<TD width="45%" align="right" valign="top" class="txt_cuad_bienvenido">Generar turno</td>
-									<TD width="11%" align="left" valign="top"><img src="<%=request.getContextPath() %>/resources/images/icn_turno.png" id="botpenal" width="16" height="14" onclick="cargaTurno();" style="cursor: pointer;"></TD>
-                					<TD width="22%" class="txt_cuad_bienvenido">&nbsp;</td>
+                                                    
+                                                        <td  >
+                                                            
              					</TR>
             				</TBODY>
             			</TABLE>

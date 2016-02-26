@@ -87,7 +87,7 @@ public class ElaborarSolicitudAction extends GenericAction {
 			HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
 		try {
-			LOG.info("ejecutando registrar solicitud");
+			LOG.debug("ejecutando registrar solicitud");
 			
 			Long institucionSolicitante = Long.parseLong(request.getParameter("institucionSolicitante"));
 			Long numeroExpedienteId = null;
@@ -119,18 +119,19 @@ public class ElaborarSolicitudAction extends GenericAction {
 			
 			Date fechaHora= new Date();
 
-			LOG.info("VERIFICANDO PARAMETROS::::::::::::::::::::::::::");
-			LOG.info("institucionSolicitante:" + institucionSolicitante);
-			LOG.info("solicitante           :" + solicitante);			
-			LOG.info("numeroExpediente      :" + numeroExpediente);			
-			LOG.info("idsFuncionariosSolicitantes: " + idFuncionariosSolicitantes);			
-			LOG.info("idSolicitud           : " + idSolicitud);			
-			LOG.info("usuarioSolicitante    : " + loUsuario.getFuncionario());			
-			LOG.info("idTipoSolicitud       : " + idTipoSolicitud);
-			LOG.info("motivo                : " + motivo);
-			LOG.info("solicitudIdOrigen     : " + solicitudIdOrigen);
-			LOG.info("areaDestino     : " + areaDestino);
-			
+			StringBuffer sb = new StringBuffer();
+                        sb.append("\nVERIFICANDO PARAMETROS::::::::::::::::::::::::::\n");
+			sb.append("\ninstitucionSolicitante:").append( institucionSolicitante);
+			sb.append("\nsolicitante           :" ).append( solicitante);			
+			sb.append("\nnumeroExpediente      :" ).append( numeroExpediente);			
+			sb.append("\nidsFuncionariosSolicitantes: " ).append( idFuncionariosSolicitantes);			
+			sb.append("\nidSolicitud           : " ).append( idSolicitud);			
+			sb.append("\nusuarioSolicitante    : " ).append( loUsuario.getFuncionario());			
+			sb.append("\nidTipoSolicitud       : " ).append( idTipoSolicitud);
+			sb.append("\nmotivo                : " ).append( motivo);
+			sb.append("\nsolicitudIdOrigen     : " ).append( solicitudIdOrigen);
+			sb.append("\nareaDestino     : " ).append( areaDestino);
+			LOG.debug(sb);
 						
 			
 			ValorDTO tipoSolicitudDTO = new ValorDTO();
@@ -196,24 +197,24 @@ public class ElaborarSolicitudAction extends GenericAction {
 				solicitudDTO2 = solicitudDelegate.registrarSolicitud(solicitudDTO);
 			}
 
-			LOG.info("guarda con exito" + solicitudDTO2);
+			LOG.debug("guarda con exito" + solicitudDTO2);
 			// revisamos si el guardado fue exitoso para mandar el xml
 			// correspondiente
 			if (solicitudDTO2 != null
 					&& solicitudDTO2.getDocumentoId() != null) {
 				converter.alias("SolicitudDTO", SolicitudDTO.class);
 				String xml = converter.toXML(solicitudDTO2);
-				LOG.info(xml);
+				LOG.debug(xml);
 				escribirRespuesta(response, xml);
 			} else {
 				solicitudDTO2.setDocumentoId(0L);
 				converter.alias("SolicitudDTO", SolicitudDTO.class);
 				String xml = converter.toXML(solicitudDTO2);
-				LOG.info(xml);
+				LOG.debug(xml);
 				escribirRespuesta(response, xml);
 			}
 		} catch (Exception e) {		
-			LOG.info(e.getCause(),e);
+			LOG.debug(e.getCause(),e);
 			
 		}
 		return null;
@@ -234,7 +235,7 @@ public class ElaborarSolicitudAction extends GenericAction {
 		String mensaje = "";
 		try {
 
-			LOG.info("designar cambio estatus");
+			LOG.debug("designar cambio estatus");
 		    SolicitudDTO solicitudDTO = new SolicitudDTO();
 		    
 		    Long solicitudId = NumberUtils.toLong(request.getParameter("solicitudId"), 0L);
@@ -248,7 +249,7 @@ public class ElaborarSolicitudAction extends GenericAction {
 		    solicitudDTO.setDocumentoId(solicitudId);
 		    
 		    if(solicitudId > 0 && estatusSolicitud != null){
-		    	LOG.info("designar cambio estatus::::: "+ solicitudId);
+		    	LOG.debug("designar cambio estatus::::: "+ solicitudId);
 		    	solicitudDelegate.actualizaEstatusSolicitud(solicitudDTO , estatusSolicitud);			    	
 		    	mensaje = "Los datos se han guardado con exito.";
 		    	
@@ -326,7 +327,7 @@ public class ElaborarSolicitudAction extends GenericAction {
 		    		sentenciaDTO = asignacionProgramaDelegate.consultarSentencia(sentenciaDTO);	
 		    	}			    
 			    
-				LOG.info("ejecutando registrar solicitud");
+				LOG.debug("ejecutando registrar solicitud");
 				
 				Long institucionSolicitante = NumberUtils.toLong(jsonObject.get("institucionSolicitante").toString());
 				Long numeroExpedienteId = null;
@@ -356,17 +357,17 @@ public class ElaborarSolicitudAction extends GenericAction {
 				
 				Date fechaHora= new Date();
 	
-				LOG.info("VERIFICANDO PARAMETROS::::::::::::::::::::::::::");
-				LOG.info("institucionSolicitante:" + institucionSolicitante);
-				LOG.info("solicitante           :" + solicitante);			
-				LOG.info("numeroExpediente      :" + numeroExpediente);			
-				LOG.info("idsFuncionariosSolicitantes: " + jsonObject.get("destinatarios"));			
-				LOG.info("idSolicitud           : " + idSolicitud);			
-				LOG.info("usuarioSolicitante    : " + loUsuario.getFuncionario());			
-				LOG.info("idTipoSolicitud       : " + idTipoSolicitud);
-				LOG.info("motivo                : " + motivo);
-//				LOG.info("solicitudIdOrigen     : " + solicitudIdOrigen);
-//				LOG.info("areaDestino     : " + areaDestino);
+				LOG.debug("VERIFICANDO PARAMETROS::::::::::::::::::::::::::");
+				LOG.debug("institucionSolicitante:" + institucionSolicitante);
+				LOG.debug("solicitante           :" + solicitante);			
+				LOG.debug("numeroExpediente      :" + numeroExpediente);			
+				LOG.debug("idsFuncionariosSolicitantes: " + jsonObject.get("destinatarios"));			
+				LOG.debug("idSolicitud           : " + idSolicitud);			
+				LOG.debug("usuarioSolicitante    : " + loUsuario.getUsuario());			
+				LOG.debug("idTipoSolicitud       : " + idTipoSolicitud);
+				LOG.debug("motivo                : " + motivo);
+//				LOG.debug("solicitudIdOrigen     : " + solicitudIdOrigen);
+//				LOG.debug("areaDestino     : " + areaDestino);
 				
 							
 				

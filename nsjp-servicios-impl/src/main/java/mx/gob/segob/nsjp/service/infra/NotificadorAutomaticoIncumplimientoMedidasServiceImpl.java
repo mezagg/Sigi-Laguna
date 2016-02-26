@@ -82,8 +82,11 @@ public class NotificadorAutomaticoIncumplimientoMedidasServiceImpl {
     }
     
  // Se ejecuta todos los dias a las cada 15 minutos
-    @Scheduled(cron = "0 */15 * * * ?")
+    
+    //@Scheduled(cron = "0 */15 * * * ?")
+    /*
     public void ejecutarServicioDesbloqueador() {
+        
         try {
             logger.info("Inicia - ejecutarServicioDesbloqueador(...)");
             //FIXME JIFO A peticion de Richar Estas dos lineas se comentan ya que se estan haciendo pruebas para poder identificar los porcesos que hacen que la aplicacion se alente
@@ -95,6 +98,7 @@ public class NotificadorAutomaticoIncumplimientoMedidasServiceImpl {
             logger.error(e.getMessage(), e);
             throw new IllegalStateException(e.getMessage());
         }
-    }
+
+    }*/
 
 }
