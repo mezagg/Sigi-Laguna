@@ -665,17 +665,17 @@ public class AsignarNumeroExpedienteServiceImpl
 					&& parametro.getValor().equals("1")){
 	    		ConfInstitucion institucionActual = parametroDAO.consultarInsitucionActual();
 	    		logger.info("institucionActual:"+ institucionActual.getMonograma());
-	    		
+
 	        	//Si es Fiscalia y la configuraci?n del Parametro Numero alterno 
 	        	//esta prendida, se ejecuta dicho algoritmo.
 	        	//Caso contrario continua con la generacion normal
 	    		if (institucionActual.getConfInstitucionId().equals(Instituciones.PGJ.getValorId())) {
-	    			
+
 	    			// Si el expediente trae la jerarqu?a UI y tiene al menos un n?mero de expediente
 	    			// asociado con jerarqu?a Policia Ministerial, se debe conservar el ?ltimo n?mero 
 	    			// de expediente, en caso contrario, es el flujo normal.
 	    			if(inputExpediente.getArea().getAreaId()==Areas.UNIDAD_INVESTIGACION.ordinal()){
-	
+
 	        			numeroExpediente = obtenerNumExpXExpIdAreaId(inputExpediente,new Long(Areas.COORDINACION_POLICIA_MINISTERIAL.ordinal()), anioCreacionDelExpediente);
 	
 	    			}
@@ -683,7 +683,7 @@ public class AsignarNumeroExpedienteServiceImpl
 	    			// de expediente asoc   iado con la jerarqu?a UI, se debe conservar el ?ltimo n?mero de
 	    			// expediente, en caso contrario, es el flujo normal.
 	    			else if(inputExpediente.getArea().getAreaId()==Areas.COORDINACION_POLICIA_MINISTERIAL.ordinal()){
-	
+
 	        			numeroExpediente = obtenerNumExpXExpIdAreaId(inputExpediente,new Long(Areas.UNIDAD_INVESTIGACION.ordinal()),null);
 	
 	    			}
@@ -1193,7 +1193,7 @@ public class AsignarNumeroExpedienteServiceImpl
 		//As&iacute; como el incremento del consecutivo.
 //RRL Coahuila
 //        String noExpAlterno = noExpDao.obtenerNumeroExpedienteAlternoConsecutivo(1, 5, 1, unidad, distrito, anio.toString(),monoEntFederativa);
-		String noExpAlterno = noExpDao.obtenerNumeroExpedienteAlternoConsecutivo(1, 4, 1, unidad, distrito, anio.toString(),monoEntFederativa);		
+		String noExpAlterno = noExpDao.obtenerNumeroExpedienteAlternoConsecutivo(1, 5, 1, unidad, distrito, anio.toString(),monoEntFederativa);
 		//Se lleva a cabo la actualizacion del No. de expediente alterno.
 //		NumeroExpediente noExpBase = noExpDao.read(expediente.getNumeroExpedienteId());
 		
@@ -1271,7 +1271,7 @@ public class AsignarNumeroExpedienteServiceImpl
 			unidadesUIE.add(1,AcronimoNumExpAlterno.UNIDAD_INVESTIGACION
 					.getAcronimo());
 		}
-
+/*
 		List<CatUIEspecializada> listaCatUIE = catUIEspecializadaDAO
 				.consultarTodos();
 
@@ -1283,7 +1283,7 @@ public class AsignarNumeroExpedienteServiceImpl
 			}
 		}
 		logger.info("CAT UIE DE LA LISTA=" + unidadesUIE.toString());
-		
+*/
 		return unidadesUIE;
 	}
 
@@ -1326,6 +1326,7 @@ public class AsignarNumeroExpedienteServiceImpl
 				op=false;
 			}
 		}
+		/*
 		List<CatUIEspecializada> listaCatUIE = catUIEspecializadaDAO
 				.consultarTodos();
 
@@ -1336,7 +1337,7 @@ public class AsignarNumeroExpedienteServiceImpl
 						+ catUIE.getAcronimo());
 				unidadesEspecialidadMP.add(catUIE.getAcronimo().toString().trim());
 			}
-		}
+		}*/
 		if(op){
 			//unidadesEspecialidadMP.add(AcronimoNumExpAlterno.COORDINACION_POLICIA_MINISTERIAL.getAcronimo());
 		}

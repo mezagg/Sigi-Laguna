@@ -66,6 +66,7 @@ public class NumeroExpedienteDAOImpl
     private static final String SEPARADOR_ENTIDAD_DISTRITO = "-";
     private static final Integer INICIO_CONSECUTIVO = 0;
     private static final String SEPARADOR_UNIDAD_ANIO = "/";
+	private static final Integer  NUMERO_LONG_CONSECUTIVO=5;
     
     @Override
     public NumeroExpediente obtenerNumeroExpediente(Long expedienteId,
@@ -912,10 +913,10 @@ public class NumeroExpedienteDAOImpl
 	public String obtenerNumeroExpedienteAlternoConsecutivo(Integer iniConsecutivo, Integer finConsecutivo, Integer incremento, 
 			List<String> unidades, String distrito, String anio,String monoEntFederativa) {
 		Integer consecutivo = 0;
+
 		try{
-			StringBuilder sb = new StringBuilder("SELECT ISNULL(MAX(CAST(SUBSTRING(cNumExpAlterno,");
-			sb.append(iniConsecutivo.toString()).append(",");
-			sb.append(finConsecutivo.toString()).append(") AS int)),");
+			StringBuilder sb = new StringBuilder("SELECT ISNULL(MAX(CAST(");
+			sb.append("SUBSTRING (cNumExpAlterno,0,CHARINDEX ( '/' ,cNumExpAlterno)) AS int)), ");
 			sb.append(INICIO_CONSECUTIVO).append(")+");
 			sb.append(incremento.toString());
 			sb.append(" FROM NumeroExpediente ");
@@ -929,7 +930,7 @@ public class NumeroExpedienteDAOImpl
 			.append(anio)
 			.append("'");
 			
-			/*if(unidades.size() > 1){
+			if(unidades.size() > 1){
 				for(int i=1;i<unidades.size();i++){
 					sb.append(" OR cNumExpAlterno LIKE '%")
 // RRL Coahuila
@@ -942,8 +943,8 @@ public class NumeroExpedienteDAOImpl
 					.append("'");
 				}
 			}
-		*/
-			logger.debug("QUEY NUMERO DE EXPEDIENTE:"+sb.toString());
+
+			logger.info("QUEY NUMERO DE EXPEDIENTE:"+sb.toString());
 			Query q = super.getSession().createSQLQuery(sb.toString());
 			
 			List<Integer> resultados =(List<Integer>) q.list();
@@ -966,14 +967,14 @@ public class NumeroExpedienteDAOImpl
 	 * @param unidad - La unidad a la cual pertenece el n&uacute;mero de expediente alterno
 	 * @param anio - El a&ntilde;o con el cual se va a generar el n&uacute;mero de expediente alterno.
 	 * @param distrito - El distrito con el cual se va a asociar el n&uacute;mero de expediente alterno.
-	 * @param entidadFederativa - El monograma de la entidad federativa de despliegue 
+	 * @param entidadFederativa - El monograma de la entidad federativa de despliegue
 	 * @return consecutivoCompleto - el n&uacute;mero de expediente alterno generado. 
 	 */
 	private String crearNumeroExpedienteAlterno (Integer consecutivo, String unidad, String anio, String distrito,String monoEntFederativa){
-		String consecutivoCompleto = "";
-
-// RRL Coahuila se deja a 4 d�gitos		
-		if (consecutivo < 10 ){
+		String consecutivoCompleto = "00000";
+		int longConsecutivo= consecutivo.toString().length();
+		consecutivoCompleto=consecutivoCompleto.substring(0,NUMERO_LONG_CONSECUTIVO - longConsecutivo)+consecutivo;
+		/*if (consecutivo < 10 ){
 			consecutivoCompleto = "000"+consecutivo.toString();
 		}else if (consecutivo < 100){
 			consecutivoCompleto = "00"+consecutivo.toString();
@@ -981,7 +982,7 @@ public class NumeroExpedienteDAOImpl
 			consecutivoCompleto = "0"+consecutivo.toString();
 		}else if (consecutivo < 10000){
 		consecutivoCompleto = consecutivo.toString();
-		}
+		}*/
 //RRL Coahuila
 //		else if (consecutivo < 100000){
 //			consecutivoCompleto = consecutivo.toString();
