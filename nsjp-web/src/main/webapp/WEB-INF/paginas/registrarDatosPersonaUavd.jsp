@@ -27,7 +27,7 @@
 	
 	<title>Registrar Datos Persona</title>
         
-
+<!-- registrarDatosPersonaUavd --> 
 <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/jquery.windows-engine.css"/>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/layout_complex.css" media="screen" />
 
@@ -95,7 +95,7 @@ var resRad;
          var actuacion=0;
          var confirmarCierreVentana ='<%=((ConfiguracionDTO) request.getSession().getAttribute(GenericAction.KEY_SESSION_CONFIGURACION_GLOBAL)).getMostrarMensajeConfirmacionEnDocumento() %>';       
          var validaTipoExpedienteReporte='<%=((ConfiguracionDTO) request.getSession().getAttribute(GenericAction.KEY_SESSION_CONFIGURACION_GLOBAL)).getValidaTipoExpedienteReporte() %>';
-         
+         var deshabilitarCampos=false;
 	 $(document).ready(function() {
 
 		 var areaId;
@@ -118,11 +118,11 @@ var resRad;
 		$("#idAsignarFacilitador").hide();
 		$("#idReasignarFacilitador").hide();
                 
-//		$("#cbxAccionesTabTS").change(seleccionaActuacionTrabajoSocial);
-//		$("#cbxAccionesTabJ").change(seleccionaActuacionJuridico);
+		$("#cbxAccionesTabTS").change(seleccionaActuacionTrabajoSocial);
+		$("#cbxAccionesTabJ").change(seleccionaActuacionJuridico);
                 
 		//Para escuchar los eventos de psicologico
-//		$("#cbxAccionesTab").change(seleccionaActuacionPsicologico);
+		$("#cbxAccionesTab").change(seleccionaActuacionPsicologico);
 		 
 		var pantalla='<%= request.getAttribute("pantalla")%>';
 		var asignado='<%= request.getAttribute("asignado")%>';
@@ -244,24 +244,34 @@ var resRad;
 			pantalla = 3;
 		}
 		
+                if(pantalla==1 || pantalla==2 || pantalla==3)
+                {
+                    
+                    $( "#btnSolicitarAyuda" ).hide();
+                        cargaActuacionesAnt();
+                        ocultaMuestraTabVisor("tabTabsAudiencias",0);
+			cargaActuacionesTs();
+                        cargaActuacionesJ();
+                }
+                /*
 		if(pantalla==2){
 			$( "#btnSolicitarAyuda" ).hide();
                         cargaActuaciones();
                         ocultaMuestraTabVisor("tabTabsAudiencias",0);
-//			cargaActuacionesTs();
+			cargaActuacionesTs();
 		}else if(pantalla==3){
 			$( "#btnSolicitarAyuda" ).hide();
                         cargaActuaciones();
                         ocultaMuestraTabVisor("tabTabsAudiencias",0);
-//			cargaActuacionesJ();
+			cargaActuacionesJ();
 		}else if(pantalla==1){
 			$( "#btnSolicitarAyuda" ).hide();
-			cargaActuaciones();
+			cargaActuacionesAnt();
                         ocultaMuestraTabVisor("tabTabsAudiencias",0);
-		}else{
+		}*/else{
 			cargaComboFuncionariosXArea(areaId);
 		}
-		//cargaGridOpciones();
+		cargaGridOpciones();
 		cargaInformacionDeResumen();
 		//Se oculta la pesta&ntilde;a de NOtas
 //		$("#tabNotas").hide();
@@ -603,7 +613,67 @@ function popopAsistencia(rowid){
 	}
         
        
+	/*
+	*Funcion que realiza la carga del combo de Actuaciones
+	*/
+	function cargaActuacionesTs() {
+		var id=0;
+		$('#cbxAccionesTabTS').empty();
+		$('#cbxAccionesTabTS').append('<option value="-1">-Seleccione-</option>');
+		$.ajax({
+			type: 'POST',
+			url: '<%= request.getContextPath()%>/cargarActuaciones.do?id='+id+'&numeroExpediente='+numeroExpediente,
+			data: '',
+			dataType: 'xml',
+			async: false,
+			success: function(xml){
+				$(xml).find('catActuaciones').each(function(){
+					$('#cbxAccionesTabTS').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
+					});
+			}
+		});
+	}
 	
+	/*
+	*Funcion que realiza la carga del combo de Actuaciones
+	*/
+	function cargaActuacionesJ() {
+
+		var id=0;
+		$('#cbxAccionesTabJ').empty();
+		$('#cbxAccionesTabJ').append('<option value="-1">-Seleccione-</option>');
+		$.ajax({
+			type: 'POST',
+			url: '<%= request.getContextPath()%>/cargarActuaciones.do?id='+id+'&numeroExpediente='+numeroExpediente,
+			data: '',
+			dataType: 'xml',
+			async: false,
+			success: function(xml){
+				$(xml).find('catActuaciones').each(function(){
+					$('#cbxAccionesTabJ').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
+					});                  
+			}
+		});
+	}
+	
+        
+        function cargaActuacionesAnt() {
+		var id=0;
+		$('#cbxAccionesTabPsic').empty();
+		$('#cbxAccionesTabPsic').append('<option value="-1">-Seleccione-</option>');
+		$.ajax({
+			type: 'POST',
+			url: '<%= request.getContextPath()%>/cargarActuaciones.do?id='+id+'&numeroExpediente='+numeroExpediente,
+			data: '',
+			dataType: 'xml',
+			async: false,
+			success: function(xml){
+				$(xml).find('catActuaciones').each(function(){
+					$('#cbxAccionesTabPsic').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
+					});         
+			}
+		});
+	}
 	/*
 	*Funcion que realiza la carga del combo de Actuaciones
 	*/
@@ -2273,9 +2343,9 @@ function muestraDivInformativoCanalizacion()
 					<li><a href="#tabsconsultaprincipal-2">Involucrado</a></li>
                                         <li class="tabTabsHechos"><a href="#tabs-3" id="tapHechos">Hechos</a></li>
                                         <li class="tabTabsRelacionesDelitosPersonas"><a href="#tabs-17" id="tapDelitoYRelaciones" onclick="cargarGridsInvolucradosRelDelitoPersonaPG()">Delito y Relaciones Delito-Persona</a></li>
-<!--					<li class="tabPsicologica"><a href="#tabsconsultaprincipal-4">Atenci&oacute;n Psicol&oacute;gica</a></li>
+					<li class="tabPsicologica"><a href="#tabsconsultaprincipal-4">Atenci&oacute;n Psicol&oacute;gica</a></li>
 					<li class="tabSocial"><a href="#tabsconsultaprincipal-6">Trabajo Social</a></li>
-					<li class="tabJuridica"><a href="#tabsconsultaprincipal-7">Atenci&oacute;n Jur&iacute;dica</a></li>-->
+					<li class="tabJuridica"><a href="#tabsconsultaprincipal-7">Atenci&oacute;n Jur&iacute;dica</a></li>
 					<li id="tabNotas"><a href="#tabsconsultaprincipal-5">Notas</a></li>
 					<li class="tabTabsDocs"><a href="#tabsconsultaprincipal-8" onclick="documentos()">Documentos</a></li>
                                         <li class="tabTabsAcciones"><a href="#tabs-7" id="tapActuaciones">Actuaciones</a></li>
@@ -2570,6 +2640,73 @@ function muestraDivInformativoCanalizacion()
 						</div>
 							
 				</div>
+                                                
+                                                	<div id="tabsconsultaprincipal-4">
+					<table width="100%" border="0">
+						<tr>
+							<td width="10%">&nbsp;</td>
+							<td width="10%">Actividades:</td>
+							<td width="50%">
+								<select id="cbxAccionesTabPsic" style="width:470px">
+									<option value="-1">-Seleccione-</option>
+								</select>
+							</td>
+							<td width="30%" align="left"><input type="button" value="Agregar Nota de Evolución" class="btn_Generico" id="btnAgregarNotaEvaluacion"/></td>
+						</tr>
+						<tr>
+							<td width="10%">&nbsp;</td>
+							<td width="10%">&nbsp;</td>
+							<td width="50%">&nbsp;</td>
+							<td width="30%" align="left">
+								<button value="Adjuntar documento" id="btnAdjuntarDocumentoPsico" class="btn_Generico" onclick="abreVentanaAdjuntarDocumentoAExpediente()" >Adjuntar documento</button>
+							</td>
+						</tr>
+						<tr>
+							<td width="10%">&nbsp;</td>
+							<td width="60%" colspan="2">
+								<table id="gridAtencionPsicologica" width="100%"></table>
+	           		 			<div id="pagerGridAtencionPsicologica"></div>
+							</td>
+							<td width="30%">&nbsp;</td>
+						</tr>
+					</table>
+				 	
+	            </div>
+				
+				<div id="tabsconsultaprincipal-6">
+					<table width="100%">
+						<tr>
+							<td width="10%">&nbsp;</td>
+							<td width="10%">Actividades:</td>
+							<td width="50%">
+								<select id="cbxAccionesTabTS" style="width:470px">
+									<option value="-1">-Seleccione-</option>
+								</select>
+							</td>
+							<td align="left">	
+								<button value="Adjuntar documento" id="btnAdjuntarDocumentoSocial" class="btn_Generico" onclick="abreVentanaAdjuntarDocumentoAExpediente()" >Adjuntar documento</button>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div id="tabsconsultaprincipal-7">
+				<table width="100%" border="0">
+						<tr>
+							<td width="10%">&nbsp;</td>
+							<td width="10%">Actividades:</td>
+							<td width="50%">
+								<select id="cbxAccionesTabJ" style="width:470px">
+									<option value="-1">-Seleccione-</option>
+								</select>
+							</td>
+							<td align="left">	
+								<button value="Adjuntar documento" id="btnAdjuntarDocumentoJur" class="btn_Generico" onclick="abreVentanaAdjuntarDocumentoAExpediente()" >Adjuntar documento</button>
+							</td>
+						</tr>
+					</table>
+				
+				</div>
+                                                
 				<div id="tabsconsultaprincipal-5">
 					<table width="25%" cellpadding="0" cellspacing="0" id="tablaNotasExpediente">
 							<tr>

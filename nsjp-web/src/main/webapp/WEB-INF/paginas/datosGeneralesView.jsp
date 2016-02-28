@@ -1271,7 +1271,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 		<td class="field"><input type="text" class="" size="50"
 			maxlength="50" id="datosGeneralesCmpNombres"
 			name="datosGeneralesCmpNombres" value=""
-			onkeypress="return soloLetrasNPunto(event,this.id);" onblur="validaSoloLetras(this);" onkeyup="espejoDatos();" onchange="calculaRFC_CURP_UNO_UNO()"  tabindex="1"/></td>
+			onkeypress="return soloLetrasNPunto(event,this.id);" onblur="validaSoloLetras(this);" onkeyup="cambiaMayusculas(this);espejoDatos();" onchange="calculaRFC_CURP_UNO_UNO()"  tabindex="1"/></td>
 
 		<td align="right" class="tdAliasCmp">Alias:</td>
 		<td class="tdAliasCmp"><select id="datosGeneralesCmpAlias"
@@ -1283,7 +1283,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 		<td><input type="text" size="50" maxlength="30" class=""
 			id="datosGeneralesCmpApaterno" name="datosGeneralesCmpApaterno"
 			onkeypress="return soloLetrasNPunto(event,this.id);" onblur="validaSoloLetras(this);"
-			onkeyup="espejoDatos();" onchange="calculaRFC_CURP_UNO_UNO()" tabindex="2"/></td>
+			onkeyup="cambiaMayusculas(this);espejoDatos();" onchange="calculaRFC_CURP_UNO_UNO()" tabindex="2"/></td>
 		<td  align="right">Nacionalidad:</td>
         <td><select id="datosGeneralesCmpNacionalidad" multiple="multiple"
                 name="datosGeneralesCmpNacionalidad" style="width: 180px;" tabindex="14">
@@ -1301,7 +1301,7 @@ var probableResponsable = "PROBABLE_RESPONSABLE";
 		<td><input type="text" size="50" maxlength="30" class=""
 			id="datosGeneralesCmpMaterno" name="datosGeneralesCmpMaterno"
 			onkeypress="return soloLetrasNPunto(event,this.id);" onblur="validaSoloLetras(this);"
-			onkeyup="espejoDatos();" onchange="calculaRFC_CURP_UNO_UNO()" tabindex="3"/></td>
+			onkeyup="cambiaMayusculas(this);espejoDatos();" onchange="calculaRFC_CURP_UNO_UNO()" tabindex="3"/></td>
             <td>
             </td>
             <td></td>
