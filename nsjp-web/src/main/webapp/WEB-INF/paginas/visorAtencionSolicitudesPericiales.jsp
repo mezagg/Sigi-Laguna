@@ -411,6 +411,7 @@ Funcionalidad para:
 	*Funcion que realiza la carga del combo de Actuaciones
 	*/
 	function cargaActuaciones() {
+                $('#lstActuaciones').addClass("cargando");
 		$.ajax({
 			type: 'POST',
 			url: '<%= request.getContextPath()%>/cargarActuaciones.do?numeroExpediente='+numExpediente+'&numeroExpedienteId='+numidExpedienteDoc,
@@ -420,7 +421,8 @@ Funcionalidad para:
 			success: function(xml){
 				$(xml).find('catActuaciones').each(function(){
 					$('#lstActuaciones').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
-				});            
+				});
+                                 $('#lstActuaciones').removeClass("cargando");
 			}
 		});
 	}
