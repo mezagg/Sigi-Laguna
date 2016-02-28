@@ -898,6 +898,7 @@ function soloLetrasNPunto(e) {
     }
     patron =/[A-Za-zÑñáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙ\s]/;
     te = String.fromCharCode(tecla);
+    
     return patron.test(te);
 }
 
@@ -1184,10 +1185,15 @@ function validaDecimales(campo,e,num){
     }
 	return true;
 }
-
+function cambiaMayusculas(campo)
+{
+    campo.value = campo.value.toUpperCase();
+}
 function validaSoloLetras(campo){
 	var regexp = new RegExp(/^[A-Za-zÑñáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙ\.\s]*$/);
+        
     aEvaluar = campo.value;
+    
     if (!regexp.test(aEvaluar)) {
     	customAlert("Caracteres invalidos en:<br>"+aEvaluar);
         campo.value = "";
