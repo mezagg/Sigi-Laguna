@@ -521,7 +521,7 @@ public class DocumentoDAOImpl extends GenericDaoHibernateImpl<Documento, Long>
     		Documento documento,
     		NumeroExpediente numeroExpediente)  throws NSJPNegocioException {
         if (logger.isDebugEnabled()) {
-            logger.debug("ConsultarDocumentosPorUsuario = " + funcionario);
+            logger.debug("ConsultarDocumentosPorUsuario = " + funcionario.getUsuario().getClaveUsuario());
         }
         
         StringBuffer  strQuery = new StringBuffer();
