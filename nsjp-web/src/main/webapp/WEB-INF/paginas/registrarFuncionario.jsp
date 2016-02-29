@@ -266,6 +266,7 @@
 			$('#distritoTag').show();
 			texTipoDiscriminante = "distrito";
 		}		
+                $('#datosGeneralesCbxAgencia').addClass("cargando");
 		$.ajax({
 			type: 'POST',
 			url: '<%= request.getContextPath()%>/consultarCatalogoAgenciasPGJ.do?tipoDiscriminante='+tipoDiscriminante+'',
@@ -277,6 +278,7 @@
 				$(xml).find('listaCatalogo').find('catDiscriminante').each(function(){
 					$('#datosGeneralesCbxAgencia').append('<option value="' + $(this).find('catDiscriminanteId').text() + '">'+ $(this).find('clave').first().text() +"-"+ $(this).find('nombre').first().text() +'</option>');
 				});
+                                $('#datosGeneralesCbxAgencia').removeClass("cargando");
 			}
 		});
 	}
@@ -287,6 +289,7 @@
 	*/	
 	function cargaTipoEspecialidad(){
 		$('#datosGeneralesCmpTipoEspecialidad').empty();
+                $('#datosGeneralesCmpTipoEspecialidad').addClass("cargando");
 		$('#datosGeneralesCmpTipoEspecialidad').append('<option value="">-Seleccione-</option>');
 				
 		$.ajax({
@@ -300,6 +303,7 @@
 				$(xml).find('tipoEspecialidad').each(function(){
 					$('#datosGeneralesCmpTipoEspecialidad').append('<option value="' + $(this).find('clave').text() + '">'+ $(this).find('valor').text() + '</option>');
 				});
+                                $('#datosGeneralesCmpTipoEspecialidad').removeClass("cargando");
 			}
 		});
 	}
@@ -308,13 +312,14 @@
 	*Funcion que dispara el Action para consultar Especialidad
 	*/	
 	function onSelectChangeTipoEspecialidad() {
-		$('#datosGeneralesCmpEspecialidad').empty();
+		$('#datosGeneralesCmpEspecialidad').addClass("cargando");
+                $('#datosGeneralesCmpEspecialidad').empty();
 		$('#datosGeneralesCmpEspecialidad').append('<option value="">-Seleccione-</option>'); 
 		
 		var selected = $("#datosGeneralesCmpTipoEspecialidad option:selected").val();
 		$( "#datosGeneralesCmpEspecialidad" ).attr('selectedIndex',0);
 		$.ajax({
-			async: false,								
+			async: true,								
 			type: 'POST',
 			url: '<%= request.getContextPath()%>/consultarCatalogoEspecialidad.do?tipoEspecialidadId='+selected+'',
 			dataType: 'xml',
@@ -322,6 +327,7 @@
 				$(xml).find('especialidad').each(function(){
 					$('#datosGeneralesCmpEspecialidad').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
 				});
+                                $('#datosGeneralesCmpEspecialidad').removeClass("cargando");
 			}
 		});
 	}
@@ -329,8 +335,10 @@
 	/*
 	*Funcion que dispara el Action para consultar Funcionario
 	*/	
-	function cargaFuncionarios(){		
+	function cargaFuncionarios(){	
+                $('#cbxFuncionario').addClass("cargando");
 		$.ajax({
+                    
 			type: 'POST',
 			url: '<%= request.getContextPath()%>/consultarCatalogoFuncionarios.do',
 			data: '',
@@ -343,6 +351,7 @@
 				});
 			}
 		});
+                $('#cbxFuncionario').removeClass("cargando");
 	}
 	
 	/*

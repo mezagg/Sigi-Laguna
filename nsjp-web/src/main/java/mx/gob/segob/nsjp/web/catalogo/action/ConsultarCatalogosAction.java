@@ -1281,8 +1281,16 @@ public class ConsultarCatalogosAction extends GenericAction{
 			List<FuncionarioDTO> listaFuncionarios = solicitudPericialDelegate.consultarFuncionarioPorFiltro(funcionario,null);
 			
 			XStream converter=new XStream();
-			converter.alias("listaFuncionarios", java.util.List.class);
+                        
 			converter.aliasAttribute("funcionarioJefe", "funcionarioJefe");
+                        
+                        converter.alias("listaFuncionarios",java.util.List.class);
+			converter.alias("funcionario", FuncionarioDTO.class);
+			converter.alias("persona", PersonaDTO.class);
+			converter.alias("departamento", DepartamentoDTO.class);
+			converter.alias("valor", ValorDTO.class);
+			converter.alias("jerarquiaOrganizacional", JerarquiaOrganizacionalDTO.class);
+                        
 			String xml = converter.toXML(listaFuncionarios);
 			response.setContentType("text/xml");
 			PrintWriter pw = response.getWriter();
