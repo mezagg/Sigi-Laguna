@@ -10,7 +10,7 @@
 	</appender>
 
 	<appender name="console_action" class="org.apache.log4j.RollingFileAppender">
-		<param name="File" value="C:/Users/Sarahi/Documents/SIGI/logs/console_action.log" />
+		<param name="File" value="C:/SIGI/logs/console_action.log" />
 		<param name="append" value="false" />
 		<param name="Threshold" value="debug" />
 		<param name="MaxFileSize" value="50MB" />
@@ -22,7 +22,7 @@
 	</appender>
 
 	<appender name="console_service" class="org.apache.log4j.RollingFileAppender">
-		<param name="File" value="C:/Users/Sarahi/Documents/SIGI/logs/console_service.log" />
+		<param name="File" value="C:/SIGI/logs/console_service.log" />
 		<param name="append" value="false" />
 		<param name="Threshold" value="debug" />
 		<param name="MaxFileSize" value="50MB" />
@@ -35,7 +35,7 @@
 
 
 	<appender name="console_persistencia" class="org.apache.log4j.RollingFileAppender">
-		<param name="File" value="C:/Users/Sarahi/Documents/SIGI/logs/console_persistencia.log" />
+		<param name="File" value="C:/SIGI/logs/console_persistencia.log" />
 		<param name="append" value="false" />
 		<param name="Threshold" value="debug" />
 		<param name="MaxFileSize" value="50MB" />
@@ -48,7 +48,7 @@
 
 
 	<appender name="console_all" class="org.apache.log4j.RollingFileAppender">
-		<param name="File" value="C:/Users/Sarahi/Documents/SIGI/logs/console.log" />
+		<param name="File" value="C:/SIGI/logs/console.log" />
 		<param name="append" value="false" />
 		<param name="Threshold" value="debug" />
 		<param name="MaxFileSize" value="50MB" />
