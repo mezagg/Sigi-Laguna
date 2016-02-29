@@ -238,9 +238,15 @@ public class InvolucradoFormUtil {
 					involucradoDTO.setDetenciones(detencionDTOs);
 
 					ValorDTO situacionJuridicaDTO = new ValorDTO();
-					situacionJuridicaDTO.setIdCampo(IDCAMPO_SITUACION_JURIDICA);
-					situacionJuridicaDTO.setValor(((IngresarIndividuoForm) form).getSituacionJuridica());
+					Long claveSituacionJuridica=0L;
+					if(forma.getSituacionJuridica()!=null && ! forma.getSituacionJuridica().equals("- Selecciona -")){
+						claveSituacionJuridica=Long.parseLong(forma.getSituacionJuridica());
+					}else{
+						claveSituacionJuridica=null;
+					}
+					situacionJuridicaDTO.setIdCampo(claveSituacionJuridica);
 					involucradoDTO.setValorSituacionJuridica(situacionJuridicaDTO);
+
 				}
 				//agregamos los alias del involucrado
 				/*if(StringUtils.isNotBlank(forma.getAlias()))
