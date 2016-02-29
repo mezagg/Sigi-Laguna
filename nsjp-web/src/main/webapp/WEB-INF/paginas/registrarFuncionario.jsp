@@ -346,7 +346,7 @@
 			async: true,
 			success: function(xml){
 				var option;
-				$(xml).find('listaFuncionarios').find('funcionariosRegistrados').each(function(){
+				$(xml).find('listaFuncionarios').find('funcionario').each(function(){
 					$('#cbxFuncionario').append('<option value="' + $(this).find('claveFuncionario').text() + '">'+ $(this).find('nombreFuncionario').text() + ' '+$(this).find('apellidoPaternoFuncionario').text() + ' '+$(this).find('apellidoMaternoFuncionario').text() +'</option>');
 				});
 			}
