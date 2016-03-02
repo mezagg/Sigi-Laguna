@@ -23,6 +23,7 @@ import java.util.List;
 
 import mx.gob.segob.nsjp.comun.enums.institucion.Instituciones;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
+import mx.gob.segob.nsjp.dto.catalogo.CatalogoDTO;
 import mx.gob.segob.nsjp.dto.funcionario.CriterioConsultaFuncionarioExternoDTO;
 import mx.gob.segob.nsjp.dto.funcionario.FuncionarioDTO;
 
@@ -56,7 +57,7 @@ public interface ConsultarFuncionarioPorFiltroService {
 	 */
 	public List<FuncionarioDTO> consultarFuncionarioPorFiltro(FuncionarioDTO filtro,Long rolId, Boolean esCambiarResponsableAExpediente)
 		throws NSJPNegocioException;
-	
+
 	/**
 	 * Servicio que consultar los funcionarios asociados a un departamento y los
 	 * asociados al área, a la que pertenece el departamento.
@@ -109,6 +110,14 @@ public interface ConsultarFuncionarioPorFiltroService {
 	 */
 	public List<FuncionarioDTO> consultarFuncionarioXFiltroYAreas(FuncionarioDTO filtro, List<Long> idsJerarquiaOrganizacional)
 	throws NSJPNegocioException;
+
+	/**
+	 * Permite consultar todos los funcionarios existentes
+	 * @return
+	 * @throws NSJPNegocioException
+	 */
+	public List<CatalogoDTO> consultarFuncionarios()
+			throws NSJPNegocioException;
 }
 
 

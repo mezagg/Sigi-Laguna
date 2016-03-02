@@ -3,9 +3,15 @@
 <%@ page import="mx.gob.segob.nsjp.dto.configuracion.ConfInstitucionDTO"%>
 <%@ page import="mx.gob.segob.nsjp.dto.usuario.UsuarioDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>    
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
-    
+
+<%@ taglib prefix="c"
+       uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%@ taglib prefix="fn"
+       uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -33,25 +39,25 @@
 
 	<!--css para ventanas-->
 
-	<link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jquery.windows-engine.css" />	
+	<link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jquery.windows-engine.css" />
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/layout_complex.css" media="screen" />
-	
+
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.windows-engine.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.layout-1.3.0.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/layout_complex.js"></script>
 
 
 	<script type="text/javascript">
-	
+
 	var contextoPagina = "${pageContext.request.contextPath}";
-	
+
 	var claveOriginalFuncionario="";
 	//variable en donde se almacena el id del funcionario para poder registrar el usuario
 	var idFuncionario='<%=request.getParameter("idFuncionario")!=null?request.getParameter("idFuncionario"):""%>';
 	//variable global para manipular la pesta&ntilde;a de dar de alta un usuario segun de donde se mande a llamar
 	var administrador= '<%=request.getParameter("administrador")!=null?request.getParameter("administrador"):""%>';
 	//variable global que controla el estado del usuario
-	var comparaUsuario= '<%=request.getParameter("comparaUsuario")!=null?request.getParameter("comparaUsuario"):""%>';    	    
+	var comparaUsuario= '<%=request.getParameter("comparaUsuario")!=null?request.getParameter("comparaUsuario"):""%>';
 	//variable para manipular los datos de medios de contacto
 	var idindi;
 	//var se utiliza para la modificacion de datos generales
@@ -61,20 +67,20 @@
     var texTipoDiscriminante;
 	var hashIdAreaConBandera = new Object();
 
-    
+
     <%
 	UsuarioDTO usuario =  (UsuarioDTO) request.getSession().getAttribute("KEY_SESSION_USUARIO_FIRMADO");
 	ConfInstitucionDTO institucion = usuario.getInstitucion();
 	long valorInstitucion = institucion.getConfInstitucionId();
 	%>
-    
+
 	$(document).ready(function() {
-		agenciasPGJ();	
+		agenciasPGJ();
 		//Se asocia funcion al combo de funcionarios
 		$('#cbxFuncionario').change(consultaFuncionario);
 		$("#idFechaIngreso").attr("disabled","disabled");
-		  
-		
+
+
 		//variables para setear las fechas y horas maximas
 		var fechaServidor="";
 		var fechaMax="";
@@ -89,17 +95,17 @@
 			changeYear: true,
 			showOn: "button",
 			buttonImage: "<%= request.getContextPath()%>/resources/images/date.png",
-			buttonImageOnly: true			
+			buttonImageOnly: true
 		});
-	
+
 	      $('#tabsconsultaprincipal-3').hide();
 		  $('#tabAlta').hide();
 		  $('#funcionarioRegistrado').hide();
 		  $('#etiquetaFuncionario').hide();
-		  			
+
 		//Se crean las tabs principales
 		$("#tabsprincipalconsulta" ).tabs();
-		
+
 		switch(parseInt(administrador)){
 		case 0:
 			cargaAreasNegocio();
@@ -107,63 +113,63 @@
 			cargaRegiones();
 			cargaPuestos();
 			cargaTipoEspecialidad();
-			cargaFuncionarios();				
+			//cargaFuncionarios();
 			$("#idFechaDate").attr("disabled","disabled");
 			$("#idFechaIngreso").hide();
-			$("#fechaIngresoFuncionario").hide();		
-			$("#fechaIngresoFuncionarioComplemento").show();			
+			$("#fechaIngresoFuncionario").hide();
+			$("#fechaIngresoFuncionarioComplemento").show();
 			//Funciones agregadas para UIE
 			ocultarUIEspecializada();
 			$("#cbxAreasDeNegocio").change(controlComboUIE);
 			// Redireccionamiento - Se checa el idFuncionario
 			// de no ser nulo, implica que se esta en el guardado de un funcionario
-			
+
 			if(idFuncionario!=null && parseInt(idFuncionario)>0){
 				$('#tabAlta').show();
-		  		$('#tabsconsultaprincipal-3').show();		  		
+		  		$('#tabsconsultaprincipal-3').show();
 		  		$.ajax({
 				     type: 'POST',
 				     url: '<%= request.getContextPath()%>/buscarFuncionarioPorId.do',
 					 data: 'funcionarioId='+  + idFuncionario,
 					 dataType: 'xml',
 					 success: function(xml){
-						 pintaDatosFuncionario(xml);				 						
+						 pintaDatosFuncionario(xml);
 					  }
 				});
 		 	}
-		 	
-			break;		
+
+			break;
 		case 1:
 			cargaAreasNegocio();
 			cargaEntidadFederativa();
 			cargaRegiones();
 			cargaPuestos();
 			cargaTipoEspecialidad();
-			cargaFuncionarios();				
+			//cargaFuncionarios();
 			$("#idFechaDate").attr("disabled","disabled");
 			$("#idFechaIngreso").hide();
-			$("#fechaIngresoFuncionario").hide();		
-			$("#fechaIngresoFuncionarioComplemento").show();			
+			$("#fechaIngresoFuncionario").hide();
+			$("#fechaIngresoFuncionarioComplemento").show();
 			//Funciones agregadas para UIE
 			ocultarUIEspecializada();
 			$("#cbxAreasDeNegocio").change(controlComboUIE);
 			// Redireccionamiento - Se checa el idFuncionario
 			// de no ser nulo, implica que se esta en el guardado de un funcionario
-			
+
 			if(idFuncionario!=null && parseInt(idFuncionario)>0){
 				$('#tabAlta').show();
-		  		$('#tabsconsultaprincipal-3').show();		  		
+		  		$('#tabsconsultaprincipal-3').show();
 		  		$.ajax({
 				     type: 'POST',
 				     url: '<%= request.getContextPath()%>/buscarFuncionarioPorId.do',
 					 data: 'funcionarioId='+  + idFuncionario,
 					 dataType: 'xml',
 					 success: function(xml){
-						 pintaDatosFuncionario(xml);				 						
+						 pintaDatosFuncionario(xml);
 					  }
 				});
 		 	}
-		 	
+
 			break;
 		case 2:
 			$('#tabsconsultaprincipal-2').hide();
@@ -171,75 +177,75 @@
 			$('#tabDatosGenerales').hide();
 			$('#tabMedios').hide();
 			$('#tabAlta').show();
-			$('#tabsconsultaprincipal-3').show();						
+			$('#tabsconsultaprincipal-3').show();
 			$("#tabsprincipalconsulta").tabs("option", "selected", 2);
 			$('#funcionarioRegistrado').show();
-			$('#etiquetaFuncionario').show();			
+			$('#etiquetaFuncionario').show();
 			break;
-			
+
 		case 3:
 			cargaAreasNegocio();
 			cargaEntidadFederativa();
 			cargaRegiones();
 			cargaPuestos();
 			cargaTipoEspecialidad();
-			cargaFuncionarios();
+			//cargaFuncionarios();
 			//Funciones agregadas para UIE
 			$("#cbxAreasDeNegocio").change(controlComboUIE);
 			$("#idFechaDate").attr("disabled","disabled");
 			$("#idFechaIngreso").show();
 			$("#fechaIngresoFuncionario").show();
 			$("#fechaIngresoFuncionarioComplemento").hide();
-			
-			// Se checa el idFuncionario, de ser nulo, quiere decir que no se ha seleccionado alguno, 
+
+			// Se checa el idFuncionario, de ser nulo, quiere decir que no se ha seleccionado alguno,
 			// siendo as&iacute;, se muestra en pantalla el grid de funcionarios que se pueden modificar
-		
+
 			if(idFuncionario!=null && parseInt(idFuncionario)>0){
 
 				// Tabs de datos generales del funcionario
-								
+
 				$('#tabDatosGenerales').show();
-				$('#tabMedios').show();	
+				$('#tabMedios').show();
 				$('#tabsconsultaprincipal-1').show();
 				$('#consultaFuncionarios').hide();
-		
+
 				//  Recuperaci&oacute;n de datos generales del individuo
-		
+
 				$.ajax({
 				     type: 'POST',
 				     url: '<%= request.getContextPath()%>/buscarFuncionarioPorId.do',
 					 data: 'funcionarioId='+  + idFuncionario,
 					 dataType: 'xml',
 					 success: function(xml){
-						 pintaDatosFuncionario(xml);				 						
+						 pintaDatosFuncionario(xml);
 					 }
 				});
-		   
+
 		   		// Se realiza el comparativo para verificar si el funcionario tiene un usuario asociado
-		   		// De no ser as&iacute;, se despliega el tab de captura de usuario, y se permite realizar esta 		   	
+		   		// De no ser as&iacute;, se despliega el tab de captura de usuario, y se permite realizar esta
 		   		// acci&oacute;n.
-		   
+
 				if(comparaUsuario=="false" || comparaUsuario==false){
 					$('#tabAlta').show();
 		  		 	$('#tabsconsultaprincipal-3').show();
 				}
-			}	
+			}
 			else{
 				$('#tabDatosGenerales').hide();
-				$('#tabMedios').hide();	
+				$('#tabMedios').hide();
 				$('#tabsconsultaprincipal-1').hide();
-				$('#consultaFuncionarios').show();								
+				$('#consultaFuncionarios').show();
 			}
 			break;
-			
+
 		case 4:
 			break;
-			
-		}				 
+
+		}
 	});
-		
+
 	/*
-	*Funcion para verificar si la institucion es PGJ y ocultar o mostrar el combo de agencias 
+	*Funcion para verificar si la institucion es PGJ y ocultar o mostrar el combo de agencias
 	*/
 	function agenciasPGJ(){
 
@@ -265,7 +271,7 @@
 			$('#tribunalTag').hide();
 			$('#distritoTag').show();
 			texTipoDiscriminante = "distrito";
-		}		
+		}
 		$.ajax({
 			type: 'POST',
 			url: '<%= request.getContextPath()%>/consultarCatalogoAgenciasPGJ.do?tipoDiscriminante='+tipoDiscriminante+'',
@@ -280,15 +286,15 @@
 			}
 		});
 	}
-		
-	
+
+
 	/*
 	*Funcion que dispara el Action para consultar Tipo Especialidad
-	*/	
+	*/
 	function cargaTipoEspecialidad(){
 		$('#datosGeneralesCmpTipoEspecialidad').empty();
 		$('#datosGeneralesCmpTipoEspecialidad').append('<option value="">-Seleccione-</option>');
-				
+
 		$.ajax({
 			type: 'POST',
 			url: '<%= request.getContextPath()%>/consultarCatalogoTipoEspecialidad.do',
@@ -303,18 +309,18 @@
 			}
 		});
 	}
-	
+
 	/*
 	*Funcion que dispara el Action para consultar Especialidad
-	*/	
+	*/
 	function onSelectChangeTipoEspecialidad() {
 		$('#datosGeneralesCmpEspecialidad').empty();
-		$('#datosGeneralesCmpEspecialidad').append('<option value="">-Seleccione-</option>'); 
-		
+		$('#datosGeneralesCmpEspecialidad').append('<option value="">-Seleccione-</option>');
+
 		var selected = $("#datosGeneralesCmpTipoEspecialidad option:selected").val();
 		$( "#datosGeneralesCmpEspecialidad" ).attr('selectedIndex',0);
 		$.ajax({
-			async: false,								
+			async: false,
 			type: 'POST',
 			url: '<%= request.getContextPath()%>/consultarCatalogoEspecialidad.do?tipoEspecialidadId='+selected+'',
 			dataType: 'xml',
@@ -325,11 +331,11 @@
 			}
 		});
 	}
-	
+
 	/*
 	*Funcion que dispara el Action para consultar Funcionario
-	*/	
-	function cargaFuncionarios(){		
+	*/
+	/*function cargaFuncionarios(){
 		$.ajax({
 			type: 'POST',
 			url: '<%= request.getContextPath()%>/consultarCatalogoFuncionarios.do',
@@ -343,11 +349,11 @@
 				});
 			}
 		});
-	}
-	
+	}*/
+
 	/*
 	*Funcion que dispara el Action para consultar Puestos
-	*/	
+	*/
 	function cargaPuestos(){
 		$.ajax({
 			type: 'POST',
@@ -363,11 +369,11 @@
 			}
 		});
 	}
-	
+
 	/*
 	*Funcion que dispara el Action para consultar Areas
-	*/	
-	function cargaAreasNegocio(){	
+	*/
+	function cargaAreasNegocio(){
 		$.ajax({
 			type: 'POST',
 			url: '<%= request.getContextPath()%>/consultarCatalogoAreasDeNegocio.do',
@@ -382,7 +388,7 @@
 				});
 			}
 		});
-		
+
 		//for (var n in hashIdAreaConBandera) {
 		    //if (hashIdAreaConBandera.hasOwnProperty(n)) {
 		      //  alert(n + ": " + hashIdAreaConBandera[n] );
@@ -426,16 +432,16 @@
 
 
 /************************************************************FUNCIONES PARA UNIDAD ESPECIALIZADA****************************************************/
-	
+
 
 	/**
 	*Funcion que escucha si el usuario seleccion&oacute; una area que tiene UIE, llama el llenado del combo
 	*una sola vez, y despues solo lo muestra o lo oculta
-	*/	
+	*/
 	function controlComboUIE(){
-					
+
 		if(validaSeleccionUIE()){
-			mostrarUIEspecializada();				
+			mostrarUIEspecializada();
 			//Consulta UIE
 			consultarCatalogoUIE();
 		}else{
@@ -447,10 +453,10 @@
 	*Funcion que realiza la carga del combo de unidad de investigacion especializada
 	*/
 	function consultarCatalogoUIE() {
-		
+
 		$('#jerarquiaUIE').empty();
 		$('#jerarquiaUIE').append('<option value="nop">- Seleccione -</option>');
-		
+
 		$.ajax({
 		type: 'POST',
 		url: '<%=request.getContextPath()%>/consultarCatalogoUIE.do',
@@ -464,7 +470,7 @@
 			}
 		});
 	}
-	
+
 	/**
 	*Funcion que muestra el combo box y la etiqueta de UIE especializada
 	*/
@@ -483,14 +489,14 @@
 	}
 
 	/*
-	*Funcion que valida si esta seleccionada el area de 
+	*Funcion que valida si esta seleccionada el area de
 	*unidad de investigacion o la coordinacion de unidad de investigacion, de ser asi
 	*devuelve verdadero, en otro caso, devuelve falso
 	*/
 	function validaSeleccionUIE(){
 		var selected = $("#cbxAreasDeNegocio option:selected").val();
 		var respuesta=false;
-		
+
 		if(hashIdAreaConBandera[selected]=='true'){
 			respuesta=true;
 		}
@@ -498,21 +504,21 @@
 	}
 
 /************************************************************FUNCIONES PARA UNIDAD ESPECIALIZADA****************************************************/
-	
-	
-	
+
+
+
 	/**
 	 *Limpia todos los campos de esta p&aacute;gina
 	 */
 	function cleanDatosGenerales(){
-	
+
 		$('#datosGeneralesCmpNumEmpleado').val("");
 		$('#datosGeneralesCmpApaterno').val("");
 		$('#datosGeneralesCmpMaterno').val("");
 		$('#datosGeneralesCmpNombres').val("");
 		$('#datosGeneralesCmpCurp').val("");
 		$('#datosGeneralesCmpRfc').val("");
-	
+
 		//combos  multi select
 		$( "#cbxAreasDeNegocio" ).attr('selectedIndex',0);
 		$( "#datosGeneralesCmpPuesto" ).attr('selectedIndex',0);
@@ -522,7 +528,7 @@
 		$( "#comboEntidades" ).attr('selectedIndex',0);
 		$( "#comboRegiones" ).attr('selectedIndex',0);
 	}
-	
+
 	function recuperaDatosGenerales()
 	{
 		   var lsDatosGenerales="";
@@ -532,15 +538,15 @@
 		   lsDatosGenerales+="&apellidoMaterno="+$("#datosGeneralesCmpMaterno").val();
 		   lsDatosGenerales+="&curp="+$("#datosGeneralesCmpCurp").val();
 		   lsDatosGenerales+="&rfc="+$("#datosGeneralesCmpRfc").val();
-	
+
 		   var sexoT = $(':radio[name=rbtSexoDatosGenerales]:checked').val();
 	       lsDatosGenerales += '&sexo=' + sexoT;
-			
-	       if(administrador==1 || administrador ==0){	    	   	    	   
-	    	   lsDatosGenerales+="&fechaIngreso="+"";	    	   
+
+	       if(administrador==1 || administrador ==0){
+	    	   lsDatosGenerales+="&fechaIngreso="+"";
 	       }
 	       else
-	       {	 
+	       {
 	    	   if($("#idFechaIngreso").val()!=""){
 	    	   		lsDatosGenerales+="&fechaIngreso="+$("#idFechaIngreso").val();
 	    	   }
@@ -548,8 +554,8 @@
 	    		   lsDatosGenerales+="&fechaIngreso="+"SIN FECHA";
 	    	   }
 	       }
-	       
-	       lsDatosGenerales+="&fechaNacimiento="+$("#idFechaDate").val();		 	       
+
+	       lsDatosGenerales+="&fechaNacimiento="+$("#idFechaDate").val();
 		   lsDatosGenerales+="&idAreaDeNegocio="+$("#cbxAreasDeNegocio option:selected").val();
 		   lsDatosGenerales+="&puesto="+$("#datosGeneralesCmpPuesto option:selected").val();
 		   lsDatosGenerales+="&tipoEspecialidad="+$("#datosGeneralesCmpTipoEspecialidad option:selected").val();
@@ -564,21 +570,21 @@
 				//Se agrega el parametro UIE
 				lsDatosGenerales+="&unidadInvEspId="+$("#jerarquiaUIE option:selected").val();
 			}
-		   
+
 		   var mediosContacto = obtenerMedios();
-		   
+
 		   lsDatosGenerales+=mediosContacto;
-		   lsDatosGenerales+="&idFuncionario="+idFuncionario;		   
+		   lsDatosGenerales+="&idFuncionario="+idFuncionario;
 		   return lsDatosGenerales;
 	}
 
 	function validaObligatorios(){
-					
+
 		if($("#idFechaDate").val() == "undefined/undefined/"){
 			alertDinamico("La fecha de nacimiento es incorrecta");
 			return false;
 		}
-		
+
 		//Se agrega el parametro UIE
 		if(validaSeleccionUIE()){
 			if($("#jerarquiaUIE option:selected").val() == "nop"){
@@ -586,14 +592,14 @@
 		  		return false;
 			}
 		}
-		
+
 		if('<%=valorInstitucion%>' != '<%=Instituciones.DEF.getValorId()%>'){
 			if($("#datosGeneralesCmpEspecialidad").val()== ""){
 				alertDinamico("El campo especialidad es obligatorio.");
 	  			return false;
 			}
 		}
-		
+
 		if($('#datosGeneralesCmpNumEmpleado').val() == "" ){
 			alertDinamico("El campo n&uacute;mero de empleado es obligatorio.");
 	  		return false;
@@ -628,7 +634,7 @@
 			return false;
 		}
 		if ($("#datosGeneralesCbxAgencia option:selected").val() == "") {
-			
+
 			var textoAlerta = "El campo "+texTipoDiscriminante+" es obligatorio."
 			alertDinamico(textoAlerta);
 			return false;
@@ -646,27 +652,27 @@
 
 		return true;
 	}
-	
+
 	function guardarDatosFuncionario(){
 		if(validaObligatorios()){
-						 
+
 			var validacion = false;
-			
-			validacion = validaNumEmpleado(); 
-						
+
+			validacion = validaNumEmpleado();
+
 			if(validacion){
 				var params = recuperaDatosGenerales();
-				$.ajax({								
+				$.ajax({
 			  	  type: 'POST',
 			  	  url: '<%= request.getContextPath()%>/guardarFuncionario.do',
-			  	  data: params,				
+			  	  data: params,
 			  	  dataType: 'xml',
 			  	  success: function(xml){
 
 			  		/* administrador=1 --> el indexAdministradorView lo invoca para: "Registrar Nuevo Funcionario" */
 			  		/* administrador=3 --> el indexAdministradorView lo invoca para: "Modificar Funcionario"       */
 			  		// Checar las invocaciones al hacer referencia al registrarFuncionario.do
-			  		
+
 			  		switch(parseInt(administrador)){
 					case 0:
 						 $('#tabAlta').show();
@@ -696,22 +702,22 @@
 				// Al ingresar un funcionario, y ya est&aacute; registrado el n&uacute;mero de empleado
 				if(parseInt(administrador)==1 || parseInt(administrador)==0 ){
 				 	alertDinamico("El n&uacute;mero de empleado ingresado ya existe, verifique su informaci&oacute;n.");
-				}				
+				}
 			}
 		}
 	}
-	
+
 	function validaNumEmpleado(){
 		var validacion=false;
 		var numeroEmpleado;
-		
+
 		if(parseInt(administrador)==3){
-			numeroEmpleado=claveOriginalFuncionario;							   
+			numeroEmpleado=claveOriginalFuncionario;
    		}
 		else{
 			numeroEmpleado=$('#datosGeneralesCmpNumEmpleado').val();
 		}
-		    
+
 		if(numeroEmpleado != ""){
 	    	$.ajax({
 	    		type: 'POST',
@@ -720,44 +726,44 @@
 	    	    dataType: 'xml',
 	    	    async: false,
 	    	    success: function(xml){
-	    	    		    	    	
+
 				   var claveFuncionario =  $(xml).find('funcionarioDTO').find('claveFuncionario').first().text();
 
 				   // Ingresar un nuevo funcionario DEFENSORIA
 				   if(parseInt(administrador)==0){
 				   		if(claveFuncionario != null && claveFuncionario != ""){
-							   validacion=false;					   
+							   validacion=false;
 				   		}else{
-							   validacion=true;							   
+							   validacion=true;
 				   		}
 				   }
-				 
+
 				   // Ingresar un nuevo funcionario
 				   if(parseInt(administrador)==1){
 				   		if(claveFuncionario != null && claveFuncionario != ""){
-							   validacion=false;					   
+							   validacion=false;
 				   		}else{
-							   validacion=true;							   
+							   validacion=true;
 				   		}
 				   }
-				   
+
 				   // Modificar un funcionario
 				   else if(parseInt(administrador)==3){
 					    if(claveFuncionario != null && claveFuncionario != ""){
-							   validacion=true;					   
+							   validacion=true;
 			   			}else{
-						   	   validacion=false;							   
+						   	   validacion=false;
 			   			}
 				   }
-			   }				   	    		
+			   }
 			});
 		}
-		
+
 		return validacion;
 	}
 
 
-	
+
 	function consultaFuncionario(){
 
 		var selected = $("#cbxFuncionario option:selected");
@@ -770,8 +776,8 @@
 			 dataType: 'xml',
 			 success: function(xml){
 
-				 pintaDatosFuncionario(xml);				 
-				
+				 pintaDatosFuncionario(xml);
+
 			  }
 			});
 
@@ -779,26 +785,26 @@
 		}
 
 	 function pintaDatosFuncionario(xml){
-		    
+
 		    $('#datosGeneralesCbxAgencia').attr('selectedIndex',0);
-	
-			// El siguiente if, se utiliza para la asociaci&oacute;n de la imagen al funcionario si es que 
-			// est&eacute; tiene una asociada, en caso contrario, se muestra la imagen default		
-						
+
+			// El siguiente if, se utiliza para la asociaci&oacute;n de la imagen al funcionario si es que
+			// est&eacute; tiene una asociada, en caso contrario, se muestra la imagen default
+
 		    if(idFuncionario!=0){
-			
+
 				$('#tabDatosGenerales').show();
-				$('#tabMedios').show();	
+				$('#tabMedios').show();
 				$('#tabsconsultaprincipal-1').show();
-						
+
 				$.ajax({
 					type: 'POST',
-					url: '<%=request.getContextPath()%>/tieneImagenFuncionario.do?idFuncionario='+idFuncionario+'',						
+					url: '<%=request.getContextPath()%>/tieneImagenFuncionario.do?idFuncionario='+idFuncionario+'',
 					data: '',
 					dataType: 'xml',
 					async: false,
 					success: function(xml){
-						var respuesta=$(xml).find('respuesta').text();						
+						var respuesta=$(xml).find('respuesta').text();
 						if(respuesta=='1' || respuesta==1){
 							$("#imgConFoto").attr("src",'<%=request.getContextPath()%>/obtenImagenDeFuncionario.do?idFuncionario='+idFuncionario+'');
 						}
@@ -807,18 +813,18 @@
 						}
 					}
 				});
-												
+
         	}else{
 		       $('#tabDatosGenerales').hide();
-		       $('#tabMedios').hide();	
+		       $('#tabMedios').hide();
 			   $('#tabsconsultaprincipal-1').hide();
 			   $("#imgConFoto").attr("src","<%=request.getContextPath()%>/resources/images/foto.png");
-			}		 
+			}
 
 		    idUsuario = $(xml).find('funcionario').find('usuario').find('idUsuario').text();
 
 		    comparaUsuario = $(xml).find('funcionario').find('usuario').find('idUsuario').text()!= "";
-		    
+
 			$('#datosGeneralesCmpApaterno').val($(xml).find('apellidoPaternoFuncionario').first().text());
 			$('#datosGeneralesCmpMaterno').val($(xml).find('apellidoMaternoFuncionario').first().text());
 			$('#datosGeneralesCmpNombres').val($(xml).find('nombreFuncionario').first().text());
@@ -828,20 +834,20 @@
 			$('#datosGeneralesCmpCurp').val($(xml).find('curp').first().text());
 			var sexoOp=$(xml).find('sexo').first().text();
 			if(sexoOp=='F'){
-				$('#datosGeneralesCmpSexoF').attr("checked", true);	
+				$('#datosGeneralesCmpSexoF').attr("checked", true);
 			}else{
-				$('#datosGeneralesCmpSexoM').attr("checked", true);	
+				$('#datosGeneralesCmpSexoM').attr("checked", true);
 			}
 			var fecha = $(xml).find('fechaNacimiento ').first().text();
 			var strfecha = obtenerFecha(fecha);
 			$('#idFechaDate').val(strfecha);
-			if($("#idFechaDate").val() == "undefined/undefined/"){ $('#idFechaDate').val(""); } 
-			
+			if($("#idFechaDate").val() == "undefined/undefined/"){ $('#idFechaDate').val(""); }
+
 			fecha = $(xml).find('fechaIngreso ').first().text();
-			strfecha = obtenerFecha(fecha);			
+			strfecha = obtenerFecha(fecha);
 			$('#idFechaIngreso').val(strfecha);
 			if($("#idFechaIngreso").val() == "undefined/undefined/"){ $('#idFechaIngreso').val(""); }
-			
+
 			var tipoEspecialidad=$(xml).find('tipoEspecialidad').find('idCampo').first().text();
 			$('#datosGeneralesCmpTipoEspecialidad').find("option[value='"+tipoEspecialidad+"']").attr("selected","selected");
 			onSelectChangeTipoEspecialidad();
@@ -854,7 +860,7 @@
 
  			var area= $(xml).find('funcionario').find('catAreaNegocio').find("catAreasNegocioId").first().text();
 			$('#cbxAreasDeNegocio').find("option[value='"+area+"']").attr("selected","selected");
-			
+
 			var agencia = $(xml).find('funcionario').find('discriminante').find('catDiscriminanteId').first().text();
 			$('#datosGeneralesCbxAgencia').find("option[value='"+agencia+"']").attr("selected","selected");
 
@@ -867,7 +873,7 @@
 
 
 		 var uie=$(xml).find('unidadIEspecializada').find('catUIEId').first().text();
-			
+
 			if(validaSeleccionUIE()){
 				controlComboUIE();
 				$('#jerarquiaUIE').val(uie);
@@ -877,13 +883,13 @@
 				$('#jerarquiaUIE').val("nop");
 			}
 			 idindi=idFuncionario;
-			 
+
 			disparaConsultaGridsMediosDeContactoFuncionario(idindi);
 		 }
 
 		 function obtenerFecha(fecha){
 				var fh = fecha.split(" ");
-				return fh[0].split("-")[2]+"/"+fh[0].split("-")[1]+"/"+fh[0].split("-")[0];	
+				return fh[0].split("-")[2]+"/"+fh[0].split("-")[1]+"/"+fh[0].split("-")[0];
 			}
 
 		 // Funcion que permite guardar una imagen y la asocia a un funcionario
@@ -893,7 +899,7 @@
 				document.frmImagenElemento.comparaUsuario.value = comparaUsuario;
 			    document.frmImagenElemento.submit();
 		}
-			
+
 		/*
 		*Funcion para traer la fecha y hora del servidor en el formato : YYYY-MM-DD HH:MI:SS
 		*/
@@ -911,7 +917,7 @@
 					});
 			return fecha;
 		}
-			
+
 		/*
 		 * Funcion para regresar la fecha maxima obtenida desde el servidor
 		 * fechaCompleta - cadena con el siguiente formato : YYYY-MM-DD HH:MI:SS
@@ -936,8 +942,8 @@
             	<span id="divAlertTexto"></span>
             </td>
         </tr>
-     </table>              
-</div> 
+     </table>
+</div>
 	<table align="center"  id="consultaFuncionarios" style="display: none">
 		<tr>
 			<td>
@@ -945,11 +951,15 @@
 		</tr>
 		<tr>
 			<td>
-				Selecciona un funcionario:<select id="cbxFuncionario"><option value="0">-Seleccione-</option></select>
+				Selecciona un funcionario:<select id="cbxFuncionario" style="width: 250px;" >
+				    <c:forEach items="${applicationScope.funcionarios}"  var="f" >
+                             <option value='<c:out value="${f.id}"/>'> <c:out value="${f.valor}"/> </option>
+                    </c:forEach>
+                </select>
 			</td>
 		</tr>
 	</table>
-		     	
+
 	<div id="tabsprincipalconsulta">
 
 		<ul>
@@ -965,7 +975,7 @@
 			</p>
 
 			<table border="0" width="100%">
-	
+
 				<tr>
 		 			<td width="12%" height="130" align="center" rowspan=3>
 		 			<img src="<%=request.getContextPath()%>/resources/images/foto.png"
@@ -976,15 +986,15 @@
 						<input type="text" class="" style="width: 180px;" maxlength="50" id="datosGeneralesCmpNombres" name="datosGeneralesCmpNombres" tabindex="1" onkeypress="return soloLetrasNPunto(event,this.id);" onblur="validaSoloLetras(this);"/>
 					</td>
 					<td align="right">*N&uacute;mero de Empleado:</td>
-					<td>		 					
+					<td>
 						<input type="text" class="" style="width: 180px;" maxlength="13" id="datosGeneralesCmpNumEmpleado" name="datosGeneralesCmpNumEmpleado" tabindex="9"/>
-					</td>		 		
-		 		</tr>																																 		
+					</td>
+		 		</tr>
 				<tr>
 					<td align="right">*Apellido Paterno:</td>
 					<td>
 						<input type="text" style="width: 180px;" maxlength="50" class="" id="datosGeneralesCmpApaterno" name="datosGeneralesCmpApaterno" tabindex="2" onkeypress="return soloLetrasNPunto(event,this.id);" onblur="validaSoloLetras(this);"/>
-					</td>					
+					</td>
 					<td align="right">*&Aacute;rea:</td>
 					<td>
 						 <select id="cbxAreasDeNegocio"  name="cbxAreasDeNegocio" style="width: 182px;" tabindex="10">
@@ -1002,7 +1012,7 @@
 						<select id="datosGeneralesCmpPuesto"  name="datosGeneralesCmpPuesto" style="width: 182px;" tabindex="11">
 							<option value="">- Seleccione -</option>
 						</select>
-					</td>			    
+					</td>
 				</tr>
 				<tr>
 					<td align="right" rowspan=2>
@@ -1028,25 +1038,25 @@
 					<td align="right">RFC:</td>
 		 			<td>
 		 				<input type="text" class="" style="width: 180px;" maxlength="13" id="datosGeneralesCmpRfc" name="datosGeneralesCmpRfc" tabindex="5"/>
-		 			</td>		 			
+		 			</td>
 		 			<td align="right">*Especialidad:</td>
 		 			<td>
 		 				<select id="datosGeneralesCmpEspecialidad"  name="datosGeneralesCmpEspecialidad" style="width: 182px;" tabindex="13">
 		 					<option value="">- Seleccione -</option>
 		 				</select>
-					</td>		 									 		  	
+					</td>
 		        </tr>
 		        <tr>
 		        	<td id="fechaIngresoFuncionarioComplemento">
 		        	</td>
 		        	<td align="center" id="fechaIngresoFuncionario">
 		        		<p>Fecha de Registro:</p>
-		        	</td>		        												   		 							
+		        	</td>
 					<td align="right">*Sexo:   </td>
-					<td>Masculino <input type="radio" id="datosGeneralesCmpSexoM" name="rbtSexoDatosGenerales" value="M" checked="checked"  tabindex="6"/>						
+					<td>Masculino <input type="radio" id="datosGeneralesCmpSexoM" name="rbtSexoDatosGenerales" value="M" checked="checked"  tabindex="6"/>
 						Femenino &nbsp;<input type="radio" id="datosGeneralesCmpSexoF" name="rbtSexoDatosGenerales" value="F"/>
 					</td>
-					<td align="right"> 
+					<td align="right">
 		 				<span id="agenciaTag">*<bean:message key="agencia"/>:</span>
 		 				<span id="tribunalTag">*Tribunal:</span>
 		 				<span id="distritoTag">*Distrito:</span>
@@ -1057,21 +1067,21 @@
 						</select>
 					</td>
 		 		</tr>
-		 		<tr>		 			
+		 		<tr>
 		 			<td align="center">
  		 				<input type="text" class="" style="width: 180px;" maxlength="13" id="idFechaIngreso" width="50px" name="idFechaIngreso">
-		 			</td>										
+		 			</td>
 					<td align="right">*Fecha de Nacimiento:</td>
 		 			<td>
 		 				<input type="text" class="" style="width: 180px;" maxlength="3" id="idFechaDate" width="50px" name="idFechaDate" tabindex="8"/>
 		 			</td>
-					
+
 					<td align="right"><div id="labelUIE" >*Unidad de investigaci&oacute;n Especializada:</div></td>
 		 			<td>
 						<select id="jerarquiaUIE" style="width: 182px;" tabindex="15">
 							<option value="">- Seleccione -</option>
 						</select>
-						
+
 						<!--El combo permanece oculto por que no tiene funcionalidad-->
 						<select id="datosGeneralesCmpFuncionario"  name="datosGeneralesCmpFuncionario" style="width: 182px; display: none;" tabindex="14">
 							<option value="">- Seleccione -</option>
@@ -1118,7 +1128,7 @@
 					<td>
 					</td>
 					<td colspan="2" align="right">
-					
+
 					</td>
 					<td>
 
@@ -1126,9 +1136,9 @@
 				</tr>
 		 	</table>
 		 </div>
-		 		
+
 		 <div id="tabsconsultaprincipal-2">
-	
+
 			<table width="762px" height="313px" border="0" cellspacing="0" cellpadding="0">
 		 		<tr>
 		 			<td>
@@ -1141,19 +1151,19 @@
 		 			</td>
 		 		</tr>
 		 	</table>
-		 	
+
 		</div>
-		 
+
 		<div id="tabsconsultaprincipal-3">
-		 		
+
 		 	<table width="700px" align="center">
 		 		<tr>
-		 			<td>		 				
-		 				<jsp:include page="darDeAltaUsuarioEnSistema.jsp"/>		 				
+		 			<td>
+		 				<jsp:include page="darDeAltaUsuarioEnSistema.jsp"/>
 		 			</td>
 		 		</tr>
 		 	</table>
-		 				
+
 		</div>
 	</div>
 

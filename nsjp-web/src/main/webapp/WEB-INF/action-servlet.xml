@@ -1482,7 +1482,9 @@ Fin solicitar audiencia
 
 <bean name="/cargarFuncionarioRegistrado" class="mx.gob.segob.nsjp.web.administrador.action.AdministracionSistemaAction"/>
 
-<bean name="/consultarUsuarioPorClaveFuncionario" class="mx.gob.segob.nsjp.web.administrador.action.AdministracionSistemaAction"/>
+<bean name="/registrarFuncionario" class="mx.gob.segob.nsjp.web.administrador.action.AdministracionSistemaAction"/>
+
+    <bean name="/consultarUsuarioPorClaveFuncionario" class="mx.gob.segob.nsjp.web.administrador.action.AdministracionSistemaAction"/>
 
 <bean name="/modificarUsuarioEnSistema" class="mx.gob.segob.nsjp.web.administrador.action.AdministracionSistemaAction"/>
 <bean name="/consultarRolesUsuarioPorClaveFuncionario" class="mx.gob.segob.nsjp.web.administrador.action.AdministracionSistemaAction"/>

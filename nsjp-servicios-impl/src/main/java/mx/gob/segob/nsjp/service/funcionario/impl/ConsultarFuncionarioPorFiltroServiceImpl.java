@@ -30,6 +30,7 @@ import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
 import mx.gob.segob.nsjp.dao.funcionario.FuncionarioDAO;
 import mx.gob.segob.nsjp.dao.institucion.JerarquiaOrganizacionalDAO;
 import mx.gob.segob.nsjp.dao.usuario.RolDAO;
+import mx.gob.segob.nsjp.dto.catalogo.CatalogoDTO;
 import mx.gob.segob.nsjp.dto.funcionario.CriterioConsultaFuncionarioExternoDTO;
 import mx.gob.segob.nsjp.dto.funcionario.FuncionarioDTO;
 import mx.gob.segob.nsjp.dto.usuario.RolDTO;
@@ -129,6 +130,12 @@ public class ConsultarFuncionarioPorFiltroServiceImpl implements ConsultarFuncio
 		}		
 		return loPeritosDTO;
 		}
+
+	@Override
+	public List<CatalogoDTO> consultarFuncionarios() throws NSJPNegocioException {
+		logger.info("ENTRO A CONSULTAR TODOS LOS FUNCIONARIOS");
+		return peritoDAO.consultarFuncionarios();
+	}
 
 
 	@Override

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -65,6 +66,8 @@ public class AdministracionSistemaAction extends ReporteBaseAction{
 	public ElementoDelegate elementoDelegate;
 	@Autowired
 	public ParametroDelegate parametroDelegate;
+
+
 
 	/**
 	 * Método para registar los dias inhabiles del sistema
@@ -400,7 +403,31 @@ public class AdministracionSistemaAction extends ReporteBaseAction{
 		}
 		return null;
 	}
-	
+
+	/**
+	 * Metodo que se utiliza para mostrar la vista para registrar de funcionario
+	 * @param mapping
+	 * @param form
+	 * @param request
+	 * @param response
+	 */
+	public ActionForward registrarFuncionario(ActionMapping mapping, ActionForm form,
+													 HttpServletRequest request, HttpServletResponse response)
+			throws IOException {
+		try {
+			log.info("ejecutando Action consultar funcionarios");
+			ServletContext sc = this.getServlet().getServletContext();
+			if (sc.getAttribute("funcionarios") == null)
+				sc.setAttribute("funcionarios",funcionarioDelegate.consultarTodosFuncionarios());
+
+		} catch (Exception e) {
+			log.error(e.getMessage(), e);
+		}
+		return mapping.findForward("success");
+	}
+
+
+
 	/**
 	 * Método utilizado para realizar la consulta de los funcionarios ya registrados en el sistema 
 	 * @param mapping

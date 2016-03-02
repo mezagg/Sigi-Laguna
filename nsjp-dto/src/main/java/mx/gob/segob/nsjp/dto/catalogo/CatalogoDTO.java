@@ -43,6 +43,7 @@ public class CatalogoDTO extends GenericDTO implements Comparable{
     private Long campoId;
     private Boolean esSistema;
     private Long idCatalogo;
+    private String id;
     /**
      * Contiene los valores extras
      */
@@ -63,6 +64,19 @@ public class CatalogoDTO extends GenericDTO implements Comparable{
     public CatalogoDTO(Long clave, String valor) {
         super();
         this.clave = clave;
+        this.valor = valor;
+    }
+
+
+    /**
+     * Constructor con campos.
+     *
+     * @param id
+     * @param valor
+     */
+    public CatalogoDTO(String id, String valor) {
+        super();
+        this.id = id;
         this.valor = valor;
     }
 
@@ -179,6 +193,14 @@ public class CatalogoDTO extends GenericDTO implements Comparable{
      */
     public void setIdCatalogo(Long idCatalogo) {
         this.idCatalogo = idCatalogo;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     //Implementado para ser utilizado en Servicio de ConsultarTipoSolicitudAudienciaService
