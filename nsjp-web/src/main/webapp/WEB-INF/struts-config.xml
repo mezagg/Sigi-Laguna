@@ -7443,7 +7443,16 @@
 	<action path="/designarPerito" forward="/WEB-INF/paginas/visorDesignarPerito.jsp" />
 	<action path="/reasignarSolicitud" forward="/WEB-INF/paginas/visorReasignarSolicitud.jsp" />
 	<action path="/solicitarPeritoExterno" forward="/WEB-INF/paginas/solicitudDePeritoExterno.jsp" />
-	<action path="/registrarFuncionario" forward="/WEB-INF/paginas/registrarFuncionario.jsp" />
+
+	<action path="/registrarFuncionario"
+			type="mx.gob.segob.nsjp.web.administrador.action.AdministracionSistemaAction"
+			name=""
+			scope="request"
+			parameter="registrarFuncionario"
+			validate="false">
+		<forward name="success" path="/WEB-INF/paginas/registrarFuncionario.jsp" />
+	</action>
+
 	<action path="/administrarPermisoRol" forward="/WEB-INF/paginas/administrarPermisoRol.jsp"/>
 	<action path="/administrarSubRoles" forward="/WEB-INF/paginas/administrarSubRoles.jsp"/>
 	<action path="/consultarFuncionario" forward="/WEB-INF/paginas/consultarFuncionario.jsp" />

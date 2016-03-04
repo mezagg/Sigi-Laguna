@@ -30,7 +30,9 @@ import mx.gob.segob.nsjp.dao.expediente.NumeroExpedienteDAO;
 import mx.gob.segob.nsjp.dao.expediente.impl.TurnoDAOImpl;
 import mx.gob.segob.nsjp.dao.funcionario.FuncionarioDAO;
 import mx.gob.segob.nsjp.dto.base.PaginacionDTO;
+import mx.gob.segob.nsjp.dto.catalogo.CatalogoDTO;
 import mx.gob.segob.nsjp.dto.funcionario.CriterioConsultaFuncionarioExternoDTO;
+import mx.gob.segob.nsjp.dto.funcionario.FuncionarioDTO;
 import mx.gob.segob.nsjp.dto.usuario.RolDTO;
 import mx.gob.segob.nsjp.model.Almacen;
 import mx.gob.segob.nsjp.model.CatDiscriminante;
@@ -44,6 +46,7 @@ import mx.gob.segob.nsjp.model.Rol;
 
 import org.apache.log4j.Logger;
 import org.hibernate.Query;
+import org.hibernate.transform.Transformers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -81,6 +84,24 @@ public class FuncionarioDAOImpl extends
         Query query = super.getSession().createQuery(queryString.toString());
         query.setParameter("idPuesto", idPuesto);
         return query.list();
+    }
+
+    @Override
+    public List<CatalogoDTO> consultarFuncionarios() {
+        StringBuffer queryString = new StringBuffer();
+        queryString.append(" SELECT  cast (f.iClaveFuncionario as varchar) as id ,");
+        queryString.append(" concat (f.cNombreFuncionario ,' ', ");
+        queryString.append(" f.cNombreFuncionario  , ' ', ");
+        queryString.append(" f.cApellidoPaternoFuncionario) as valor ");
+        queryString.append(" FROM Funcionario f join Usuario u  ");
+        queryString.append(" ON f.iClaveFuncionario=u.iClaveFuncionario ");
+        queryString.append(" where u.Usuario_id > 0  ");
+        queryString.append(" AND u.bEsActivo= 1");
+        queryString.append(" ORDER BY f.cNombreFuncionario");
+        List<CatalogoDTO> funcionarios= super.getSession().createSQLQuery(queryString.toString())
+                .setResultTransformer( Transformers.aliasToBean(CatalogoDTO.class))
+                .list();
+        return funcionarios;
     }
 
     @SuppressWarnings("unchecked")
@@ -341,7 +362,7 @@ public class FuncionarioDAOImpl extends
                     filtro.getPuesto().getValorId());
         }
 
-        // Permite filtrar por Número de empleado
+        // Permite filtrar por Nï¿½mero de empleado
         if (filtro.getNumeroEmpleado() != null) {
             queryString.append(" AND p.numeroEmpleado = '").append(
                     filtro.getNumeroEmpleado()).append("'");
@@ -359,15 +380,15 @@ public class FuncionarioDAOImpl extends
         if (filtro.getRfc() != null) {
             queryString.append(" AND lower(p.rfc) like \'%").append(filtro.getRfc()).append("%\'");
         }
-        // Permite filtrar por Correo electrónico (email))
+        // Permite filtrar por Correo electrï¿½nico (email))
         if (filtro.getEmail() != null) {
             queryString.append(" AND lower(p.email) like \'%").append(filtro.getEmail()).append("%\'");
         }
-        // Permite filtrar por Cédula profesional
+        // Permite filtrar por Cï¿½dula profesional
         if (filtro.getCedula() != null) {
             queryString.append(" AND lower(p.cedula) like \'%").append(filtro.getCedula()).append("%\'");
         }
-        // Permite filtrar por Área
+        // Permite filtrar por ï¿½rea
         if (filtro.getArea() != null) {
             if (filtro.getArea().getJerarquiaOrganizacionalId() != null) {
 
@@ -1028,7 +1049,7 @@ public class FuncionarioDAOImpl extends
     }
 
     /**
-     * M&eacute;todo que lleva a cabo la creación de la consulta que se va a
+     * M&eacute;todo que lleva a cabo la creaciï¿½n de la consulta que se va a
      * ejecutar dentro de la base de datos para obtener los datos del
      * funcionario en base a un criterio.
      *
@@ -1051,7 +1072,7 @@ public class FuncionarioDAOImpl extends
     }
 
     /**
-     * M&eacute;todo que lleva a cabo la creación de la consulta que se va a
+     * M&eacute;todo que lleva a cabo la creaciï¿½n de la consulta que se va a
      * ejecutar dentro de la base de datos para obtener los datos del
      * funcionario en base a un criterio.
      *
@@ -1318,7 +1339,7 @@ public class FuncionarioDAOImpl extends
             queryString.append(" AND f.unidadIEspecializada = " + filtro.getUnidadIEspecializada().getCatUIEId());
         }
 
-        // Permite filtrar por Área
+        // Permite filtrar por ï¿½rea
         if (idsJerarquiaOrganizacional != null && idsJerarquiaOrganizacional.size() > 0) {
             logger.debug("IDS de la jerarquia: " + idsJerarquiaOrganizacional.toString());
             queryString.append(" AND r.jerarquiaOrganizacional.jerarquiaOrganizacionalId IN (:idsJerarquiaOrganizacional)");
