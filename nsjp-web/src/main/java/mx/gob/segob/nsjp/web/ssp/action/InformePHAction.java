@@ -357,7 +357,9 @@ public class InformePHAction extends ReporteBaseAction{
 			Long fCatDistritoId = NumberUtils.toLong(request.getParameter("fCatDistritoId"));
 			Long fCatDiscriminanteId = NumberUtils.toLong(request.getParameter("fCatDiscriminanteId"));
 			Long coorporacionId = NumberUtils.toLong(request.getParameter("coorporacionId"));
-			
+			String idturno= request.getParameter("turnoId");
+			Long idTurnoAnterior = idturno.equals("")?null:Long.valueOf(idturno);
+			Boolean borrarOperacion = Boolean.parseBoolean(request.getParameter("borraOperacion"));
 			InformePolicialHomologadoDTO informe = new InformePolicialHomologadoDTO();
 
 			ExpedienteDTO expedienteDTO = super.getExpedienteTrabajo(request, numeroExpediente);
@@ -373,6 +375,8 @@ public class InformePHAction extends ReporteBaseAction{
 			informe.setObjetivosGenerales(observaciones);
 			informe.setExpediente(expedienteDTO);	
 			informe.setAsunto(asunto);
+			informe.setBorrarOperacion(borrarOperacion);
+			informe.setTurnoIdAnt(idTurnoAnterior);
 			if(coorporacionId != 0L){
 				informe.setCorporacionId(coorporacionId);
 			}
@@ -424,26 +428,25 @@ public class InformePHAction extends ReporteBaseAction{
 						
 			//-----FORMAR DTO DE OPERATIVO (SI EXISTE OPERATIVO)-----//
 			OperativoDTO operativo = new OperativoDTO();
-			
+			if(request.getParameter("operativoId") != null && !request.getParameter("operativoId").equals("null")){
+				operativo.setOperativoId(Long.parseLong(request.getParameter("operativoId")));}
 			if(request.getParameter("nombreOperativo") != "" && request.getParameter("nombreOperativo") != null){
-				if(request.getParameter("operativoId") != null && !request.getParameter("operativoId").equals("null")){
-					operativo.setOperativoId(Long.parseLong(request.getParameter("operativoId")));
-				}
 				operativo.setNombre(request.getParameter("nombreOperativo"));
 				operativo.setNombreComte(request.getParameter("comandanteOperativo"));
 				operativo.setNombreComteAgrupto(request.getParameter("comandanteAgrupamiento"));
-			}else{
-				operativo=null;
+			}else if (!borrarOperacion){
+				   operativo=null;
 			}
 
 			/*Guardar Informe Policial Homologado*/			
-			informePolicialHomologadoDelegate.ingresarDatosGenerales(informe,operativo);
+			Long idNumeroOperativo=informePolicialHomologadoDelegate.ingresarDatosGenerales(informe,operativo);
 			
 			request.getSession().removeAttribute("numeroExpedienteId");
 			
 			response.setContentType("text/xml; charset=UTF-8");
 			response.setHeader("Cache-Control", "no-cache");
 			PrintWriter writer = response.getWriter();
+			writer.print("<idNumeroOperativo>" + idNumeroOperativo + "</idNumeroOperativo>");
 			writer.flush();
 			writer.close();
 		}catch(Exception ex)
@@ -791,6 +794,7 @@ public class InformePHAction extends ReporteBaseAction{
 			converter.alias("ArmaDTO", ArmaDTO.class);
 			converter.alias("ExplosivoDTO", ExplosivoDTO.class);
 			converter.alias("NumerarioDTO", NumerarioDTO.class);
+			log.info("COORPORACION "+ informePolicialHomologadoDTO.getCorporacionId());
 			String xml = converter.toXML(informePolicialHomologadoDTO);
 			log.info("respuesta mostrar folio IPH ------- "+xml);
 			escribir(response, xml,null);

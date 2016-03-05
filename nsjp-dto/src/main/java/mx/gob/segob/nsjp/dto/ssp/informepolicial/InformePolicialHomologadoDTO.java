@@ -46,6 +46,9 @@ public class InformePolicialHomologadoDTO extends GenericDTO{
     private Long fCatDistritoId;
     private Long fCatDiscriminanteId;  
     private Long corporacionId;
+
+	private Long turnoIdAnt;
+	private Boolean borrarOperacion;
     
     public InformePolicialHomologadoDTO(Long informePolicialHomologadoId){
     	this.informePolicialHomologadoId=informePolicialHomologadoId;
@@ -256,6 +259,21 @@ public class InformePolicialHomologadoDTO extends GenericDTO{
 	public void setCorporacionId(Long corporacionId) {
 		this.corporacionId = corporacionId;
 	}
-    
-	
+
+	public Long getTurnoIdAnt() {
+		return turnoIdAnt;
+	}
+
+	public void setTurnoIdAnt(Long turnoIdAnt) {
+		this.turnoIdAnt = turnoIdAnt;
+	}
+
+	public Boolean getBorrarOperacion() {
+		return borrarOperacion;
+	}
+
+	public void setBorrarOperacion(Boolean borrarOperacion) {
+		this.borrarOperacion = borrarOperacion;
+	}
+
 }
