@@ -14,6 +14,7 @@ import mx.gob.segob.nsjp.model.DelitoIph;
 import mx.gob.segob.nsjp.model.FaltaAdministrativaIph;
 import mx.gob.segob.nsjp.model.ssp.InformePolicialHomologado;
 
+import mx.gob.segob.nsjp.model.ssp.TurnoLaboralIph;
 import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
@@ -129,6 +130,30 @@ public class InformePolicialHomologadoDAOImpl extends GenericDaoHibernateImpl<In
         }
 		
 		return resp;
+	}
+
+
+	@Override
+	public void eliminarTurnosByInformePolicialHomologadoId(Long idTurno,Long iFolio) {
+		StringBuffer queryString = new StringBuffer();
+		queryString.append("DELETE FROM TurnoLaboralIph where InformePolicialHomologado_id= ");
+		queryString.append(" ( Select InformePolicialHomologado_id from InformePolicialHomologado where iFolioIPH = ");
+		queryString.append(iFolio).append(" )");
+		queryString.append(" AND TurnoLaboral_id=").append(idTurno);
+		final Query query = super.getSession().createSQLQuery(queryString.toString());
+		query.executeUpdate();
+		int update=query.executeUpdate();
+		logger.debug("Turnos ELIMINADOS  "+update);
+	}
+
+	@Override
+	public Long consultaIdOperativoByFolioIph(Long iFolio) {
+		StringBuffer queryString = new StringBuffer();
+		queryString.append("SELECT iph.operativo.operativoId From InformePolicialHomologado iph ");
+		queryString.append("WHERE iph.folioIPH=").append(iFolio);
+		Query query = super.getSession().createQuery(queryString.toString());
+
+		return  (Long) query.uniqueResult();
 	}
 
 	@Override

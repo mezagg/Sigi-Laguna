@@ -379,7 +379,7 @@ public class InformePolicialHomologado implements java.io.Serializable {
 	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "corporacion_val")
     public Valor getCorporacion() {
-		return corporacion;
+		return this.corporacion;
 	}
 
 	/**

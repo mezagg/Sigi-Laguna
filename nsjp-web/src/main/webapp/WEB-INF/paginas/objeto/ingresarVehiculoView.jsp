@@ -1198,7 +1198,7 @@
                                 </tr>
                                 <tr height="6.25%">
                                     <td width="30%" align="right">No. de Cilindros: </td>
-                                    <td width="30%"><input type="text" id="txtCilindrosVehiculo" style="width:175px" onKeyPress="return solonumeros(event);" maxlength="1"/></td>
+                                    <td width="30%"><input type="text" id="txtCilindrosVehiculo" style="width:175px" onKeyPress="return solonumeros(event);" maxlength="2"/></td>
                                     <td width="40%">&nbsp;</td>
                                 </tr>
 

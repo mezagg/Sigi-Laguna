@@ -26,13 +26,13 @@
 
     <!--Hojas de estilos para los componentes UI de Jquery-->
     <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css"/>
-    
+
     <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/themes/1.8.10/south-street/jquery-ui.css" />
 
     <!--Hoja de estilos para el grid-->
     <link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/jqgrid/ui.jqgrid.css" />
 
-    <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery.timeentry.css"/>  
+    <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/jquery.timeentry.css"/>
 
 
     <!--scripts de java script-->
@@ -63,23 +63,23 @@
    <script type="text/javascript" src="<%= request.getContextPath()%>/resources/js/ckeditor/adapters/jquery.js"></script>
    <script type="text/javascript" src="<%=request.getContextPath()%>/js/bloqueaTecla.js?n=1"></script>
    <script type="text/javascript" src="<%=request.getContextPath()%>/js/comun.js?n=1"></script>
-		
+
    <script type="text/javascript">
             var contextoPagina = "${pageContext.request.contextPath}";
     </script>
-        
+
 
 	<!--ESTILOS PARA LAS TABS-->
 	<style>
-	#tabs { height: 670px; } 
-	.tabs-bottom { position: relative; } 
-	.tabs-bottom .ui-tabs-panel { height: 500px; overflow: auto; } 
-	.tabs-bottom .ui-tabs-nav { position: absolute !important; left: 0; bottom: 0; right:0; padding: 0 0.2em 0.2em 0; } 
+	#tabs { height: 670px; }
+	.tabs-bottom { position: relative; }
+	.tabs-bottom .ui-tabs-panel { height: 500px; overflow: auto; }
+	.tabs-bottom .ui-tabs-nav { position: absolute !important; left: 0; bottom: 0; right:0; padding: 0 0.2em 0.2em 0; }
 	.tabs-bottom .ui-tabs-nav li { margin-top: -2px !important; margin-bottom: 1px !important; border-top: none; border-bottom-width: 1px; }
 	.ui-tabs-selected { margin-top: -3px !important; }
 	.tabEstilo  { height: 350px; overflow: auto; }
 	</style>
-    
+
 
 <script type="text/javascript">
 
@@ -87,7 +87,7 @@
     //var idFuncionario;
 	//variable global para manipular la pesta&ntilde;a de dar de alta un usuario segun de donde se mande a llamar
     //var administrador= '<%=request.getParameter("administrador")!=null?request.getParameter("administrador"):""%>';
-    
+
 	var numeroExpediente;
 	var numeroExpedienteId;
 	var expedienteId;
@@ -96,22 +96,22 @@
 	var iphReplica="false";
 
 	var idExpedienteop;
-    
-    var idWindowIngresarVictima           = 1;	
-	//var idWindowIngresarTraductor         = 1;	
+
+    var idWindowIngresarVictima           = 1;
+	//var idWindowIngresarTraductor         = 1;
 	var idWindowIngresarTestigo           = 1;
 	var idWindowIngresarProbResponsable   = 1;
 	var idWindowIngresarDenunciante       = 1;
 	var idWindowIngresarHechos            = 1;
 	var idWindowIngresarVehiculo          = 1;
 	var idWindowIngresarAeronave          = 1;
-	var idWindowIngresarEmbarcacion       = 1;	
+	var idWindowIngresarEmbarcacion       = 1;
 	var idWindowIngresarArma              = 1;
 	var idWindowIngresarExplosivo         = 1;
-	var idWindowIngresarSustancia         = 1;	
+	var idWindowIngresarSustancia         = 1;
 	var idWindowIngresarNumerario         = 1;
 	var idWindowIngresarOtros = 1;
-	var isDetenidoExist                   = false;	
+	var isDetenidoExist                   = false;
 
 	var idWindowAsntarRegCadCus = 1;
 
@@ -121,18 +121,18 @@
 
 	var folioIPH='<%= request.getParameter("folioIPH")%>';
 	var rowid = <%=request.getParameter("rowid")%>;
-	
+
 	var contextoPagina = "${pageContext.request.contextPath}";
-	
+
 	$(document).ready(function() {
-		
+
 		$('#liDom').hide();
 		$('#liDom').addClass("tabEstilo");
-		
+
 		$( ".tabs-bottom .ui-tabs-nav, .tabs-bottom .ui-tabs-nav > *" )
 			.removeClass( "ui-corner-all ui-corner-top" )
 			.addClass( "ui-corner-bottom" );
-		
+
 		//Se crean las tabs principales
 		$("#tabsconsultaprincipal" ).tabs();
 		$("#tabs" ).tabs();
@@ -148,7 +148,7 @@
 		//$( "#tabschild5" ).tabs();
 		//aseguramientos
 		$( "#tabschild15" ).tabs();
-		
+
 		//Se agrega el evento click para crear nuevos involucrados
 		$("#nuevaVictima").click(creaNuevaVictima);
 		$("#nuevoProbResponsable").click(creaNuevoProbResponsable);
@@ -163,12 +163,12 @@
 		$("#nuevaSustancia").click(creaNuevaSustancia);
 		$("#nuevoNumerario").click(creaNuevoNumerario);
 		$("#nuevoOtros").click(creaNuevoOtros);
-		
+
 		cargaTurnos();
                 cargaCorporacion();
 		cargaTipoParticipacion();
-		$("#chkOperativo").click(habilitaDivOperativo);	
-		ocultaDivOperativo();			
+		$("#chkOperativo").click(habilitaDivOperativo);
+		ocultaDivOperativo();
 		consultarDistritos();
 		/*$( "#dialog-detenido-informe" ).dialog({
 			autoOpen: true,
@@ -188,8 +188,8 @@
 					//dlgDetenidoInforme(false);
 				}
 			}
-		});	*/								
-		
+		});	*/
+
 		//Seteo listener cadena de custodia
 		$("#btnCadCusNuevaCadCus").click(asentarRegCadenaCustodia);
 		$("#btnCadCusConsultaCadCus").click(consultarRegCadenaCustodia);
@@ -197,7 +197,7 @@
 		consultarInformePolicialHomologadoPorFolio(folioIPH);
 
 		resumen();
-		$('#tabsconsultaprincipal').tabs({ selected: 2 });		
+		$('#tabsconsultaprincipal').tabs({ selected: 2 });
 		cargaGridPertenencias();
 		cargaGridProbableResponsable();
 	});
@@ -208,12 +208,12 @@
 	function consultarInformePolicialHomologadoPorFolio(folioIPH){
 		$.ajax({
 	  		type: 'POST',
-	  	  	url: '<%= request.getContextPath()%>/consultarInformePolicialHomologadoPorFolio.do?folioIPH='+folioIPH+'',			
+	  	  	url: '<%= request.getContextPath()%>/consultarInformePolicialHomologadoPorFolio.do?folioIPH='+folioIPH+'',
 	  	  	dataType: 'xml',
-	  	  	async:true,
+	  	  	async:false,
 	  	  	success: function(xml){
 	  	  		iphReplica=$(xml).find('InformePolicialHomologadoDTO').find('existeInforme').text();
-	  	  		
+
 
 	  	  		mostrarDatosGenerales(xml);
 	  		  	mostrarHechos(xml, 'hecho');
@@ -224,7 +224,7 @@
 	  		  	mostrarNumerario(xml);
 	  		  	mostrarOtros();
 	  			cargaGridDocumentosDigitalesPropios();
-	  				  		  	
+
 	  	  	}
 		});
 	}
@@ -239,26 +239,26 @@
 		if($(xml).find('faltaIph').find('catFaltaAdministrativa').find('nombreFalta') == null ||
 			$(xml).find('faltaIph').find('catFaltaAdministrativa').find('nombreFalta').text() == ""){
 			$("#motivoCmpTipoEvento").val('1'); //combo
-			buscaSubTipoEvento();
-			$("#motivoCmpSubtipoEvento").val($(xml).find('InformePolicialHomologadoDTO').find('InvolucradoDTO').first().find('delitosCometidos').first().find('catDelitoDTO').first().find('catDelitoId').first().text()); //combo
+			var subTipoEvento=$(xml).find("catDelitoId").text()
+			buscaSubTipoEvento(subTipoEvento);
 		}else{
 			$("#motivoCmpTipoEvento").val('2'); //combo
 			buscaSubTipoEvento();
 			$("#motivoCmpSubtipoEvento").val($(xml).find('faltaIph').first().find('catFaltaAdministrativa').find('catFaltaAdministrativaId').text()); //combo
 		}
-		
+
 		$("#datosGeneralesCmpNumeroEmpleado").val($(xml).find('funcionarioDestinatario').find('numeroEmpleado').text());
 		if($("#datosGeneralesCmpNumeroEmpleado").val() != null && $("#datosGeneralesCmpNumeroEmpleado").val() != ""){
-  			buscarFuncionario();	  		  	
+  			buscarFuncionario();
 		}
-		
-		$("#datosGeneralesCmpOficial").val($(xml).find('funcionarioDestinatario').find('nombreFuncionario').text() + " " + 
+
+		$("#datosGeneralesCmpOficial").val($(xml).find('funcionarioDestinatario').find('nombreFuncionario').text() + " " +
 										   $(xml).find('funcionarioDestinatario').find('apellidoPaternoFuncionario').text() + " " +
 										   $(xml).find('funcionarioDestinatario').find('apellidoMaternoFuncionario').text());
 		$("#datosGeneralesCmpSector").val($(xml).find('funcionarioDestinatario').find('departamento').find('area').find('nombre').first().text());
 		$("#datosGeneralesCmpDirigidoA").val();
-		
-		$("#datosGeneralesCmpTurno").val($(xml).find('turnoLaboralIphs').find('turnoLaboral').find('turnoLaboralId').text()); //combo
+		$("#datosGeneralesCmpTurno").val($(xml).find('turnoLaboralIphs').first().find('turnoLaboral').find('turnoLaboralId').first().text()); //combo
+		$("#datosGeneralesCmpturnoAnt").val($("#datosGeneralesCmpTurno").val());
 		$("#datosGeneralesCmpTipoParticipacion").val($(xml).find('tipoParticipacion').find('idCampo').text());
 
 		$("#editor1").val($(xml).find('objetivosGenerales').text());
@@ -266,11 +266,13 @@
 		if ($(xml).find('operativo').find('operativoId') != null &&	$(xml).find('operativo').find('operativoId').text() != ""){
 			$("#divOperativo").show();
 			$('#chkOperativo').attr("checked","checked");
+			$("#borraOperativo").val("false")
 			$("#datosGeneralesCmpNombreOperativo").val($(xml).find('operativo').find('nombre').last().text());
-			$("#datosGeneralesCmpComandanteAgrupamiento").val($(xml).find('operativo').find('nombreComte').text());
-			$("#datosGeneralesCmpComandanteOperativo").val($(xml).find('operativo').find('nombreComteAgrupto').text());				
+			$("#datosGeneralesCmpComandanteAgrupamiento").val($(xml).find('operativo').find('nombreComteAgrupto').text());
+			$("#datosGeneralesCmpComandanteOperativo").val($(xml).find('operativo').find('nombreComte').text());
 		}else{
 			$("#divOperativo").hide();
+			$("#borraOperativo").val("false")
 		}
 
 		numeroExpedienteId = $(xml).find('unicoIdNumeroExpediente').text();
@@ -278,7 +280,7 @@
 		numeroExpediente = $(xml).find('expediente').find('numeroExpediente').first().text();
 		expedienteId=$(xml).find('expediente').find('expedienteId').first().text();
 		if($(xml).find('operativo').find('operativoId').first().text() != null && $(xml).find('operativo').find('operativoId').first().text() != ""){
-			
+
 			if($(xml).find('operativo').find('operativoId').first().text()!="null"){
 				operativoId = $(xml).find('operativo').find('operativoId').first().text();
 			}else{
@@ -287,26 +289,25 @@
 		}else{
 			operativoId = null;
 		}
-		
+
 		var fCatDistritoId = $(xml).find('fCatDistritoId').first().text();
 		var fCatDiscriminanteId=$(xml).find('fCatDiscriminanteId').first().text();
-			
 		setDistritoYAgencia(fCatDistritoId, fCatDiscriminanteId);
+		$("#datosGeneralesCmpCorporaciones").val($(xml).find('corporacionId').first().text());
 	}
-	
+
 	function  setDistritoYAgencia(fCatDistritoId, fCatDiscriminanteId) {
 		$("#cbxDistrito").val(fCatDistritoId);
-		consultarAgenciasXDistrito(fCatDistritoId);
-		$("#cbxAgencia").val(fCatDiscriminanteId);
+		consultarAgenciasXDistrito(fCatDistritoId,fCatDiscriminanteId);
 	}
-	
+
 	/**
 	** Muestra el listado de Hechos asignados al IPH.
 	**/
 	function mostrarHechos(xml, nombre){
 		$(xml).find('InformePolicialHomologadoDTO').find('hechoDTO').each(function(){
-			$('#tablaHecho').append('<tr id="'+$(this).find('hechoId').text()+'"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="consultarHecho('+$(this).find('hechoId').text()+', '+numeroExpedienteId+');">'+nombre+ '_' + $(this).find('hechoId').text() + '</a></td></tr>');			
-		});		
+			$('#tablaHecho').append('<tr id="'+$(this).find('hechoId').text()+'"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="consultarHecho('+$(this).find('hechoId').text()+', '+numeroExpedienteId+');">'+nombre+ '_' + $(this).find('hechoId').text() + '</a></td></tr>');
+		});
 	}
 
 	/**
@@ -316,7 +317,7 @@
 		$(xml).find('InformePolicialHomologadoDTO').find('involucradosDTO').find('InvolucradoDTO').each(function(){
 
 	      	if($(this).find('valorIdCalidad').find('idCampo').first().text() == '<%= Calidades.DENUNCIANTE.getValorId() %>') {
-		      	var idInvolucrado = $(this).find('elementoId').first().text(); 
+		      	var idInvolucrado = $(this).find('elementoId').first().text();
 	      		var nombreDenunciante = $(this).find('nombre').first().text() + ' ' + $(this).find('apellidoPaterno').first().text() + ' ' + $(this).find('apellidoMaterno').first().text();
 	      		nombreDenunciante = nombreDenunciante == "" ? 'An&oacute;nimo' : nombreDenunciante;
 				$('#tblDenunciante').append('<tr id="' + idInvolucrado + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificarDenuncianteDatos('+idInvolucrado+');">'+ nombreDenunciante + '</a></td></tr>');
@@ -325,7 +326,7 @@
 				}
 				$("#crearDenunciante").hide();
 	      	}
-	      	
+
 	      	if($(this).find('valorIdCalidad').find('idCampo').first().text() == '<%= Calidades.DENUNCIANTE_ORGANIZACION.getValorId() %>'){
 	      		var idInvolucrado = $(this).find('elementoId').first().text();
 	      		var nombreDenunciante = $(this).find('nombreOrganizacion').first().text();
@@ -333,18 +334,18 @@
 				$('#tblDenunciante').append('<tr id="' + idInvolucrado + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificarDenuncianteDatos('+idInvolucrado+');">'+ nombreDenunciante + '</a></td></tr>');
 				if($(this).find('condicion').first().text() == 1){
 					$('#tblVictima').append('<tr id="' + idInvolucrado + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificarVictima('+idInvolucrado+');">'+ nombreDenunciante + '</a></td></tr>');
-				}				
+				}
 				$("#crearDenunciante").hide();
 	      	}
 
 	      	if($(this).find('valorIdCalidad').find('idCampo').first().text() == '<%= Calidades.VICTIMA_PERSONA.getValorId() %>'){
 	      		var idInvolucrado = $(this).find('elementoId').first().text();
 	      		var nombreVictima = $(this).find('nombre').first().text() + ' ' + $(this).find('apellidoPaterno').first().text() + ' ' + $(this).find('apellidoMaterno').first().text();
-      			$('#tblVictima').append('<tr id="' + idInvolucrado + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificarVictima('+idInvolucrado+');">'+ nombreVictima + '</a></td></tr>');	
+      			$('#tblVictima').append('<tr id="' + idInvolucrado + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificarVictima('+idInvolucrado+');">'+ nombreVictima + '</a></td></tr>');
 	      	}
-	      
+
 	      	if($(this).find('valorIdCalidad').find('idCampo').first().text() == '<%= Calidades.PROBABLE_RESPONSABLE_PERSONA.getValorId() %>'){
-	      		var idInvolucrado = $(this).find('elementoId').first().text(); 
+	      		var idInvolucrado = $(this).find('elementoId').first().text();
 	      		var nombreResponsable = $(this).find('nombre').first().text() + ' ' + $(this).find('apellidoPaterno').first().text() + ' ' + $(this).find('apellidoMaterno').first().text();
 				$('#tblProbableResponsable').append('<tr id="' + idInvolucrado + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificarProbableResponsable('+idInvolucrado+');">'+ nombreResponsable + '</a></td></tr>');
 	      	}
@@ -354,23 +355,23 @@
 	      		var nombreResponsable = $(this).find('nombreOrganizacion').first().text();
 				$('#tblProbableResponsable').append('<tr id="' + idInvolucrado + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificarProbableResponsable('+idInvolucrado+');">'+ nombreResponsable + '</a></td></tr>');
 	      	}
-	      	
+
 	      	if($(this).find('valorIdCalidad').find('idCampo').first().text() == '<%= Calidades.TESTIGO.getValorId() %>'){
 	      		var idInvolucrado = $(this).find('elementoId').first().text();
 		      	var nombreTestigo = $(this).find('nombre').first().text() + ' ' + $(this).find('apellidoPaterno').first().text() + ' ' + $(this).find('apellidoMaterno').first().text();
 				$('#tblTestigo').append('<tr id="' + idInvolucrado + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificarTestigo('+idInvolucrado+');">'+ nombreTestigo + '</a></td></tr>');
 	      	}
-	      	
-		});		
+
+		});
 	}
 
 	/**
 	** Muestra los medios de transporte en las pesta&ntilde;as correspondientes seg&uacute;n su tipo.
 	**/
 	function mostrarMediosDeTransporte(xml){
-		
-		customCargaGrid("GridVehiculos", "<%=Objetos.VEHICULO.getValorId()%>", true, consultarVehiculo);		
-		
+
+		customCargaGrid("GridVehiculos", "<%=Objetos.VEHICULO.getValorId()%>", true, consultarVehiculo);
+
 // 		$(xml).find('VehiculoDTO').each(function(){
 // 			var idVehiculo = $(this).find('elementoId').first().text();
 //       		var nombreVehiculo = $(this).find('valorByTipoVehiculo').find('valor').first().text() + ' ' + $(this).find('placa').first().text();
@@ -383,15 +384,15 @@
 // 			var idAeronave = $(this).find('elementoId').first().text();
 //       		var nombreAeronave = $(this).find('tipoAeroNave').find('valor').first().text();
 // 			$('#tblAeronave').append('<tr id="' + idAeronave + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="consultarAeronave('+idAeronave+');">'+ nombreAeronave + '</a></td></tr>');
-// 		});		
+// 		});
 
-		customCargaGrid("GridEmbarcaciones", "<%=Objetos.EMBARCACION.getValorId()%>", true, consultarEmbarcacion);	
+		customCargaGrid("GridEmbarcaciones", "<%=Objetos.EMBARCACION.getValorId()%>", true, consultarEmbarcacion);
 
 // 		$(xml).find('EmbarcacionDTO').each(function(){
 // 			var idEmbarcacion = $(this).find('elementoId').first().text();
 //       		var nombreEmbarcacion = $(this).find('tipoEmbarcacion').find('valor').first().text();
 // 			$('#tblEmbarcacion').append('<tr id="' + idEmbarcacion + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="consultarEmbarcacion('+idEmbarcacion+');">'+ nombreEmbarcacion + '</a></td></tr>');
-// 		});		
+// 		});
 	}
 	/**
 	** Muestra los estupefacientes en las pesta&ntilde;as correspondientes seg&uacute;n su tipo.
@@ -399,7 +400,7 @@
 	function mostrarSustancias(xml){
 
 		customCargaGrid("GridSustancias", "<%=Objetos.SUSTANCIA.getValorId()%>", true, consultarSustancia);
-		
+
 // 		$(xml).find('SustanciaDTO').each(function(){
 // 			var idSustancia = $(this).find('elementoId').first().text();
 //       		var nombreSustancia = $(this).find('tipoSustancia').find('valor').first().text();
@@ -410,9 +411,9 @@
 	** Muestra las armas en las pesta&ntilde;as correspondientes seg&uacute;n su tipo.
 	**/
 	function mostrarArmas(xml){
-		
+
 		customCargaGrid("GridArmas", "<%=Objetos.ARMA.getValorId()%>", true, consultarArma);
-		
+
 // 		$(xml).find('ArmaDTO').each(function(){
 // 			var idArma = $(this).find('elementoId').first().text();
 //       		var nombreArma = $(this).find('tipoArma').find('valor').first().text();
@@ -425,26 +426,26 @@
 // 			var idExplosivo = $(this).find('elementoId').first().text();
 //       		var nombreExplosivo = $(this).find('tipoExplosivo').find('valor').first().text();
 // 			$('#tblExplosivo').append('<tr id="' + idExplosivo + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="consultarExplosivo('+idExplosivo+');">'+ nombreExplosivo + '</a></td></tr>');
-// 		});		
+// 		});
 	}
 	/**
 	** Muestra los objetos asegurados.
 	**/
 	function mostrarNumerario(xml){
-		
-		customCargaGrid("GridNumerarios", "<%=Objetos.NUMERARIO.getValorId()%>", true, consultarNumerario);		
-		
+
+		customCargaGrid("GridNumerarios", "<%=Objetos.NUMERARIO.getValorId()%>", true, consultarNumerario);
+
 // 		$(xml).find('NumerarioDTO').each(function(){
 // 			var idNumerario = $(this).find('elementoId').first().text();
 //       		var nombreNumerario = $(this).find('moneda').first().text();
 // 			$('#tblNumerario').append('<tr id="'+idNumerario+'"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="consultarNumerario('+idNumerario+');">'+ nombreNumerario + '</a></td></tr>');
 // 		});
 	}
-	
+
 	function mostrarOtros(){
 		customCargaGrid("gridObjsOtros", "<%=Objetos.OTRO.getValorId()%>", true, consultarOtros);
 	}
-		
+
 	/****** listener cadena de Custodia  ****/
 	function asentarRegCadenaCustodia()
 	{
@@ -452,7 +453,7 @@
 		$.newWindow({id:"iframewindowAsntrRegCadCus" + idWindowAsntarRegCadCus, statusBar: true, posx:200,posy:50,width:1000, height:600,title:"Asentar registro de cadena de custodia", type:"iframe"});
 	    $.updateWindowContent("iframewindowAsntrRegCadCus" + idWindowAsntarRegCadCus,'<iframe src="<%= request.getContextPath() %>/AsentarRegCadCustodia.do?consultaCadena=0&numeroExpediente='+numeroExpediente +'&IPH=1 " width="1000" height="600" />');
 	}
-	
+
 	function consultarRegCadenaCustodia()
 	{
 		idWindowAsntarRegCadCus++;
@@ -467,12 +468,13 @@
 			//$("#tabsconsultaprincipal" ).tabs({ enabled: [] });
 		//} else {
 			//$("#tabsconsultaprincipal" ).tabs({ disabled: [2] });
-		//}		
+		//}
 	}
-	
+
 	function habilitaDivOperativo(){
 		if($("#chkOperativo").is(':checked')){
 			$("#divOperativo").show();
+			$("#borraOperativo").val("false")
 		}else{
 			ocultaDivOperativo();
 		}
@@ -480,17 +482,26 @@
 
 	function ocultaDivOperativo(){
 		$("#divOperativo").hide();
+		$("#datosGeneralesCmpNombreOperativo").val("");
+		$("#datosGeneralesCmpComandanteAgrupamiento").val("");
+		$("#datosGeneralesCmpComandanteOperativo").val("");
+		if(operativoId!=null)
+		$("#borraOperativo").val("true")
 	}
+	function cambiaTurno() {
+	   $("#datosGeneralesCmpturnoId").val($("#datosGeneralesCmpturnoAnt").val());
+    }
 
 	function recuperaDatosMotivos(){
 			lsDatosMotivo="";
 			lsDatosMotivo+="&tipoEvento="+$("#motivoCmpTipoEvento option:selected").val();
 			lsDatosMotivo+="&subtipoEvento="+$("#motivoCmpSubtipoEvento option:selected").val();
+			lsDatosMotivo+="&coorporacionId="+$("#datosGeneralesCmpCorporaciones option:selected").val();
 			lsDatosMotivo+="&turnoLaboralId="+$("#datosGeneralesCmpTurno option:selected").val();
-			lsDatosMotivo+="&tipoParticipacionId="+$("#datosGeneralesCmpTipoParticipacion option:selected").val(); 
+			lsDatosMotivo+="&tipoParticipacionId="+$("#datosGeneralesCmpTipoParticipacion option:selected").val();
 		return	lsDatosMotivo;
 	}
-	
+
 	function recuperaDatosGenerales()
 	{
 	    var lsDatosGenerales="";
@@ -498,24 +509,25 @@
 	    lsDatosGenerales+="&asunto="+$("#datosGeneralesCmpAsunto").val();
 	    lsDatosGenerales+="&numeroEmpleado="+$("#datosGeneralesCmpNumeroEmpleado").val();
 	    lsDatosGenerales+="&numeroExpediente="+numeroExpediente;
-
+        lsDatosGenerales+="&borraOperacion="+$("#borraOperativo").val();
+        lsDatosGenerales+="&turnoId="+$("#datosGeneralesCmpturnoId").val();
 		if($("#chkOperativo").is(':checked')){
 			   lsDatosGenerales+="&nombreOperativo="+$("#datosGeneralesCmpNombreOperativo").val();
 			   lsDatosGenerales+="&comandanteAgrupamiento="+$("#datosGeneralesCmpComandanteAgrupamiento").val();
 			   lsDatosGenerales+="&comandanteOperativo="+$("#datosGeneralesCmpComandanteOperativo").val();
-		}	   
-	   
+		}
+
 	   var motivo = recuperaDatosMotivos();
 	   lsDatosGenerales+=motivo;
 
 	    var txtArea = $('.jquery_ckeditor').val();
 		lsDatosGenerales+='&observaciones=' + escape(txtArea);
-	   
+
 		if ($("#cbxDistrito option:selected").val() != "" && $("#cbxAgencia option:selected").val() != ""){
-			lsDatosGenerales+='&fCatDistritoId=' + $("#cbxDistrito option:selected").val();	
+			lsDatosGenerales+='&fCatDistritoId=' + $("#cbxDistrito option:selected").val();
 			lsDatosGenerales+='&fCatDiscriminanteId=' + $("#cbxAgencia option:selected").val();
 		}
-		
+
 	   return lsDatosGenerales;
 	}
 	function guardarDatosGeneralesIPH(){
@@ -529,11 +541,11 @@
                     missingField("#motivoCmpTipoEvento option:selected","0","#tabDatosGenerales", "Debe ingresar el tipo de Evento.") ||
                     missingField("#motivoCmpSubtipoEvento option:selected","0","#tabDatosGenerales", "Debe ingresar el subtipo de Evento.") ||
                     missingField("#datosGeneralesCmpNumeroEmpleado","","#tabDatosGenerales", "Debe ingresar el numero de empleado.") ||
-                    missingField("#datosGeneralesCmpCorporaciones option:selected", "", "#tabDatosGenerales", "Debe ingresar una corporacion.") ||    
-                    missingField("#datosGeneralesCmpTurno option:selected","","#tabDatosGenerales", "Debe ingresar el turno.") ||    
+                    missingField("#datosGeneralesCmpCorporaciones option:selected", "", "#tabDatosGenerales", "Debe ingresar una corporacion.") ||
+                    missingField("#datosGeneralesCmpTurno option:selected","","#tabDatosGenerales", "Debe ingresar el turno.") ||
                     missingField("#datosGeneralesCmpTipoParticipacion option:selected","","#tabDatosGenerales", "Debe ingresar el tipo de participacion.") ||
                     missingField("#cbxDistrito option:selected","","#tabDatosGenerales", "Debe ingresar Distrito.") ||
-                    missingField("#cbxAgencia option:selected","","#tabDatosGenerales", "Debe ingresar la agencia.") 
+                    missingField("#cbxAgencia option:selected","","#tabDatosGenerales", "Debe ingresar la agencia.")
 
                 )return op;
                  if($("#chkOperativo").is(':checked')){
@@ -544,12 +556,12 @@
                        )
                      return op;
                  }
-                
-                 
-                $.ajax({								
+
+
+                $.ajax({
                           type: 'POST',
                           url: '<%= request.getContextPath()%>/guardarDatosGeneralesIPH.do?folioIPH='+folioIPH+'',
-                          data: params,				
+                          data: params,
                           dataType: 'xml',
                           async: false,
                           success: function(xml){
@@ -558,65 +570,69 @@
                                   //$("#msgInfo").text('Datos Generales del IPH guardados de manera correcta');
                                   muestraMensajeInfo('Datos Generales del IPH guardados de manera correcta.');
                                   op=true;
+                                  $("#datosGeneralesCmpturnoId").val("")
+                                  $("#datosGeneralesCmpturnoAnt").val($("#datosGeneralesCmpTurno").val())
+                                  var nuevoIdOp=$(xml).find("idNumeroOperativo").text();
+                                  operativoId=(nuevoIdOp == 0)?null:nuevoIdOp;
                           },
                           error: function(result) {
                            //$("#msgError").text();
                            //$("#msgErrorBox").removeClass("ui-helper-hidden");
                            muestraMensajeError('Datos Generales del IPH guardados de manera incorrecta.');
-                           
+
                         }
                  });
-		
+
 		if(op){
 			return "ok";
 		}
 	}
 
-	
-	
+
+
 	function generarInformeIPH(){
-		
+
 		$('#generaInformeBtn').addClass('cargando');
 		var regreso = guardarDatosGeneralesIPH();
 		muestraMensajeInfo('Enviando IPH...');
-                
+
 		if(regreso == "ok" && iphReplica=="false"){
 			var idAgencia = parseInt($("#cbxAgencia option:selected").val());
-			$.ajax({								
+			$.ajax({
 			  	  type: 'POST',
 			  	  url: '<%= request.getContextPath()%>/generarInformeIPH.do',
                                   data: 'folioIPH='+folioIPH+ '&idAgencia=' + idAgencia,
 			  	  dataType: 'xml',
 			  	  async:false,
-			  	  success: function(xml){			  	  
+			  	  success: function(xml){
 			  	          muestraMensajeInfo('Informe Policial Homologado generado de manera correcta');
 			  		  document.frmDocumento.documentoId.value = $(xml).find('idDocumentoIPH').text();
 					  document.frmDocumento.submit();
                                           $('#generaInformeBtn').removeClass('cargando');
                                           iphReplica="true";
-                                         
+
 			  	  },
                                   error:function(result) {
                                     console.log(result);
                                     muestraMensajeError('Error al enviar el IPH a Procuraduria General de Justicia.');
                                      $('#generaInformeBtn').removeClass('cargando');
                                  }
-				
+
 			});
 		}
 		else if(regreso == "fail"){
-			//customAlert("Ocurri&oacute; un problema durante el guardado, intente de nuevo");	
+			//customAlert("Ocurri&oacute; un problema durante el guardado, intente de nuevo");
                         muestraMensajeError('Ocurrio un problema durante el guardado, intente de nuevo.');
                          $('#generaInformeBtn').removeClass('cargando');
 		}else if(iphReplica=="true"){
-			
+
                         muestraMensajeError('El IPH  ya ha sido enviado a Procuraduria');
                          $('#generaInformeBtn').removeClass('cargando');
 		}
-                
+
 	}
-	
-	function consultarDistritos(){		
+
+	function consultarDistritos(){
                 $('#cbxDistrito').addClass('cargando');
 		$.ajax({
 			type: 'POST',
@@ -627,13 +643,13 @@
 		    success: function(xml){
 			    	$(xml).find('listaCatalogo').find('catDistritoDTO').each(function(){
 						$('#cbxDistrito').append('<option value="' + $(this).find('catDistritoId').text() + '">' + $(this).find('claveDistrito').text()+"-"+ $(this).find('nombreDist').text() + '</option>');
-					});	
+					});
                                 $('#cbxDistrito').removeClass('cargando');
 			}
 		});
 	}
-	
-	function consultarAgenciasXDistrito(distritoId){
+
+	function consultarAgenciasXDistrito(distritoId,agenciaId){
                 inicializaMensajes();
 		$('#cbxAgencia').empty();
                 $('#cbxAgencia').addClass('cargando');
@@ -660,25 +676,26 @@
 
                                     }
                                 }else{
-                                    
+
                                    muestraMensajeError('<bean:message key="error.conexion.pg"/>');
-                                    
+
                                 }
                                 $('#cbxAgencia').removeClass('cargando');
+                                $("#cbxAgencia").val(agenciaId);
 			}
 		});
 	}
-	
+
 	function actualizaComboAgencias(){
 		distritoId = parseInt($("#cbxDistrito option:selected").val());
 		if(distritoId > 0)
-			consultarAgenciasXDistrito(distritoId);
+			consultarAgenciasXDistrito(distritoId,"");
 		else{
 			$('#cbxAgencia').empty();
 			$('#cbxAgencia').append('<option value="0">-Seleccione-</option>');
 		}
 	}
-	
+
 	function buscarFuncionario(){
 		var numeroEmpleado = $('#datosGeneralesCmpNumeroEmpleado').val();
                 $('#datosGeneralesCmpNumeroEmpleado').addClass("cargando");
@@ -728,7 +745,7 @@
 
 	/*
 	*Funcion que dispara el Action para consultar Turnos
-	*/	
+	*/
 	function cargaTurnos(){
 		$.ajax({
 			type: 'POST',
@@ -756,12 +773,12 @@
                     dataType: 'xml',
                     async: true,
                     success: function (xml) {
-                        
+
                         $(xml).find('corporacion').each(function () {
                             $('#datosGeneralesCmpCorporaciones').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
                         });
                         $('#datosGeneralesCmpCorporaciones').removeClass('cargando');
-                
+
                     }
                 });
             }
@@ -769,7 +786,7 @@
 
 	/*
 	*Funcion que dispara el Action para consultar Tipo Participacion
-	*/	
+	*/
 	function cargaTipoParticipacion(){
                 $('#datosGeneralesCmpTipoParticipacion').addClass('cargando');
 		$.ajax({
@@ -788,13 +805,13 @@
 		});
 	}
 
-	function buscaSubTipoEvento(){
+	function buscaSubTipoEvento(subTipoEventoId){
 		var selected = $("#motivoCmpTipoEvento option:selected").val();
 		$( "#motivoCmpSubtipoEvento" ).attr('selectedIndex',0);
 		$('#motivoCmpSubtipoEvento').empty();
                 $('#motivoCmpSubtipoEvento').addClass('cargando');
 		$('#motivoCmpSubtipoEvento').append('<option value="0">-Seleccione-</option>');
-		
+
 		$.ajax({
 			async: true,									// la accion cargar las especialidades
 			type: 'POST',
@@ -805,6 +822,7 @@
 					$(xml).find('delito').each(function(){
 						$('#motivoCmpSubtipoEvento').append('<option title="'+ $(this).find('catDelitoId').text()+'" value="' + $(this).find('catDelitoId').text() + '">' + $(this).find('nombre').text() + '</option>');
 					});
+					$("#motivoCmpSubtipoEvento").val(subTipoEventoId);
 				}else if(selected == "2"){
 					$(xml).find('falta').each(function(){
 						$('#motivoCmpSubtipoEvento').append('<option title="'+ $(this).find('catDelitoId').text()+'" svalue="' + $(this).find('catFaltaAdministrativaId').text() + '">' + $(this).find('nombreFalta').text() + '</option>');
@@ -814,14 +832,14 @@
 			}
 		});
 	}
-	
+
 	/*	FUNCIONES PARA CREAR PERSONAS INVOLUCRADAS EN IPH	*/
-	
+
 	//Abre una nueva ventana de crear una nueva victima
 	function creaNuevaVictima() {
 		idWindowIngresarVictima++;
 		$.newWindow({id:"iframewindowIngresarVictima" + idWindowIngresarVictima, statusBar: true, posx:200,posy:50,width:1050,height:600,title:"Ingresar V&iacute;ctima", type:"iframe"});
-	    $.updateWindowContent("iframewindowIngresarVictima" + idWindowIngresarVictima,'<iframe src="<%= request.getContextPath() %>/IngresarVictima.do?numeroExpediente='+numeroExpediente+'" width="1050" height="600" />');		
+	    $.updateWindowContent("iframewindowIngresarVictima" + idWindowIngresarVictima,'<iframe src="<%= request.getContextPath() %>/IngresarVictima.do?numeroExpediente='+numeroExpediente+'" width="1050" height="600" />');
 	}
 	function cargaVictima(nombre,id){
 		var row=$('#'+id);
@@ -829,39 +847,39 @@
 		$('#tblVictima').append('<tr id="'+id+'"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a id="consultarVictima" onclick="modificarVictima('+id+')">'+nombre+'</a></td></tr>');
 		cerrarVentanaVictima();
 	}
-		
+
 	function cerrarVentanaVictima(){
 		var pantalla ="iframewindowIngresarVictima";
 		pantalla += idWindowIngresarVictima;
 		$.closeWindow(pantalla);
 	}
 	//Abre una nueva ventana para modificar una victima
-	function modificarVictima(id) {	
+	function modificarVictima(id) {
 		idWindowIngresarVictima++;
 		$.newWindow({id:"iframewindowIngresarVictima" + idWindowIngresarVictima, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Modificar V&iacute;ctima", type:"iframe"});
-	    $.updateWindowContent("iframewindowIngresarVictima" + idWindowIngresarVictima,'<iframe src="<%= request.getContextPath() %>/IngresarVictima.do?idVictima='+id +'&numeroExpediente='+numeroExpediente +'" width="1100" height="530" />');		
+	    $.updateWindowContent("iframewindowIngresarVictima" + idWindowIngresarVictima,'<iframe src="<%= request.getContextPath() %>/IngresarVictima.do?idVictima='+id +'&numeroExpediente='+numeroExpediente +'" width="1100" height="530" />');
 	}
-	
+
 	function cargaVictimaDenunciante(nombre,id){
 		var row=$('#tblVictima tr:#v'+id);
 		$(row).remove();
 		$('#tblVictima').append('<tr id="v'+id+'"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a id="consultarVictima" onclick="modificarDenuncianteDatos('+id+')">'+nombre+'</a></td></tr>');
-	} 
-	
+	}
+
 	//Funcion para quitar la victima del visor de elementos
 	function eliminarVictima(id)
 	{
 		var row=$('#tblVictima tr:#'+id);
 		$(row).remove();
 	}
-	
+
 	//Funcion para quitar la victima del visor de elementos
 	function eliminarVictimaDenunciante(id)
 	{
 		var row=$('#tblVictima tr:#v'+id);
 		$(row).remove();
 	}
-	
+
 	//Abre una nueva ventana de probable responsable
 	function creaNuevoProbResponsable() {
 		var probableResponsableProp = '<bean:message key="ingProbaleResponsableTitulo"/>';
@@ -875,8 +893,8 @@
 		$(row).remove();
 		nombre=nombre+" - "+'<bean:message key="indiciado" />';
 		$('#tblProbableResponsable').append('<tr id="'+id+'"><td class="noSub">&nbsp;&nbsp;&nbsp;<a id="consultarProbableResponsable" onclick="modificarProbableResponsable('+id+')">'+nombre+'</a></td></tr>');
-		cerrarVentanaProbableResponsable();		
-	} 
+		cerrarVentanaProbableResponsable();
+	}
 	function cerrarVentanaProbableResponsable(){
 		var pantalla ="iframewindowIngresarProbResponsable";
 		pantalla += idWindowIngresarProbResponsable;
@@ -888,28 +906,28 @@
 		var probableResponsableProp = '<bean:message key="modProbaleResponsableTitulo"/>';
 		idWindowIngresarProbResponsable++;
 		$.newWindow({id:"iframewindowIngresarProbResponsable" + idWindowIngresarProbResponsable, statusBar: true, posx:250,posy:150,width:1050,height:620,title:probableResponsableProp, type:"iframe"});
-		$.updateWindowContent("iframewindowIngresarProbResponsable" + idWindowIngresarProbResponsable,'<iframe src="<%= request.getContextPath() %>/IngresarProbResponsable.do?idProbableResponsable='+id +'&calidadInv=PROBABLE_RESPONSABLE&detenido=1&numeroExpediente='+numeroExpediente +'" width="1050" height="620" />');			
+		$.updateWindowContent("iframewindowIngresarProbResponsable" + idWindowIngresarProbResponsable,'<iframe src="<%= request.getContextPath() %>/IngresarProbResponsable.do?idProbableResponsable='+id +'&calidadInv=PROBABLE_RESPONSABLE&detenido=1&numeroExpediente='+numeroExpediente +'" width="1050" height="620" />');
 	}
-	
+
 	//Funcion para quitar la victima del visor de elementos
 	function eliminarProbableResponsable(id)
 	{
 		var row=$('#'+id);
 		$(row).remove();
 	}
-	
+
 	//Abre una nueva ventana de Denunciante
 	function crearDenunciante(){
 		idWindowIngresarDenunciante++;
 		$.newWindow({id:"iframewindowIngresarDenunciante" + idWindowIngresarDenunciante, statusBar: true, posx:150,posy:20,width:1040,height:570,title:"Ingresar Denunciante", type:"iframe"});
-	    $.updateWindowContent("iframewindowIngresarDenunciante" + idWindowIngresarDenunciante,'<iframe src="<%= request.getContextPath() %>/IngresarDenunciante.do?numeroExpediente='+numeroExpediente+'&calidadInv=DENUNCIANTE" width="1040" height="570" />');		
+	    $.updateWindowContent("iframewindowIngresarDenunciante" + idWindowIngresarDenunciante,'<iframe src="<%= request.getContextPath() %>/IngresarDenunciante.do?numeroExpediente='+numeroExpediente+'&calidadInv=DENUNCIANTE" width="1040" height="570" />');
 	}
 	function cargaDenunciante(nombre,id){
 		var row=$('#'+id);
-		$(row).remove(); 
+		$(row).remove();
 		$('#tblDenunciante').append('<tr id="'+id+'"><td class="noSub">&nbsp;&nbsp;&nbsp;<a id="consultarDenunciante" onclick="modificarDenuncianteDatos('+id+')">'+nombre+'</a></td></tr>');
 		$('#crearDenunciante').hide();
-	} 
+	}
 	function cerrarVentanaDenunciante(){
 		var pantalla ="iframewindowIngresarDenunciante";
 		pantalla += idWindowIngresarDenunciante;
@@ -920,9 +938,9 @@
 	function modificarDenuncianteDatos(id){
 		idWindowIngresarDenunciante++;
 		$.newWindow({id:"iframewindowIngresarDenunciante" + idWindowIngresarDenunciante, statusBar: true, posx:150,posy:20,width:1040,height:570,title:"Ingresar Denunciante", type:"iframe"});
-	    $.updateWindowContent("iframewindowIngresarDenunciante" + idWindowIngresarDenunciante,'<iframe src="<%= request.getContextPath() %>/IngresarDenunciante.do?idDenunciante='+id +'&numeroExpediente='+numeroExpediente +'" width="1040" height="570" />');		
+	    $.updateWindowContent("iframewindowIngresarDenunciante" + idWindowIngresarDenunciante,'<iframe src="<%= request.getContextPath() %>/IngresarDenunciante.do?idDenunciante='+id +'&numeroExpediente='+numeroExpediente +'" width="1040" height="570" />');
 	}
-		
+
 	//Funcion para quitar la victima del visor de elementos
 	function eliminarDenunciante(id)
 	{
@@ -930,18 +948,18 @@
 		$(row).remove();
 		$('#crearDenunciante').show();
 	}
-	
+
 	//Crea una nueva ventana de testigo
 	function creaNuevoTestigo() {
 		idWindowIngresarTestigo++;
 		$.newWindow({id:"iframewindowIngresarTestigo" + idWindowIngresarTestigo, statusBar: true, posx:200,posy:50,width:1050,height:600,title:"Ingresar Testigo", type:"iframe"});
-	    $.updateWindowContent("iframewindowIngresarTestigo" + idWindowIngresarTestigo,'<iframe src="<%= request.getContextPath() %>/IngresarTestigo.do?numeroExpediente='+numeroExpediente+'" width="1050" height="600" />');		
+	    $.updateWindowContent("iframewindowIngresarTestigo" + idWindowIngresarTestigo,'<iframe src="<%= request.getContextPath() %>/IngresarTestigo.do?numeroExpediente='+numeroExpediente+'" width="1050" height="600" />');
 	}
 	function cargaTestigo(nombre,id){
 		var row=$('#'+id);
-		$(row).remove(); 
+		$(row).remove();
 		$('#tblTestigo').append('<tr id="'+id+'"><td class="noSub">&nbsp;&nbsp;&nbsp;<a id="consultarTestigo" onclick="modificarTestigo('+id+')">'+nombre+'</a></td></tr>');
-		cerrarVentanaTestigo();		
+		cerrarVentanaTestigo();
 	}
 	function cerrarVentanaTestigo(){
 		var pantalla ="iframewindowIngresarTestigo";
@@ -954,9 +972,9 @@
 	function modificarTestigo(id) {
 		idWindowIngresarTestigo++;
 		$.newWindow({id:"iframewindowIngresarTestigo" + idWindowIngresarTestigo, statusBar: true, posx:75,posy:30,width:1100,height:530,title:"Modificar Testigo", type:"iframe"});
-	    $.updateWindowContent("iframewindowIngresarTestigo" + idWindowIngresarTestigo,'<iframe src="<%= request.getContextPath() %>/IngresarTestigo.do?idTestigo='+id+'&numeroExpediente='+numeroExpedienteId +'" width="1100" height="530" />');		
+	    $.updateWindowContent("iframewindowIngresarTestigo" + idWindowIngresarTestigo,'<iframe src="<%= request.getContextPath() %>/IngresarTestigo.do?idTestigo='+id+'&numeroExpediente='+numeroExpedienteId +'" width="1100" height="530" />');
 	}
-	
+
 	//Funcion para quitar la victima del visor de elementos
 	function eliminarTestigo(id)
 	{
@@ -969,26 +987,26 @@
 	function creaNuevoTraductor() {
 		//idWindowIngresarTraductor++;
 	//$.newWindow({id:"iframewindow" + idWindowIngresarTraductor, statusBar: true, posx:200,posy:50,width:1050,height:600,title:"Traductor", type:"iframe"});
-    //$.updateWindowContent("iframewindow" + idWindowIngresarTraductor,'<iframe src="<%= request.getContextPath() %>/IngresarTraductor.do?numeroExpediente='+numeroExpediente+'" width="1050" height="600" />');		
-	}	
-	
-	//Elimina un registro del traductor 
+    //$.updateWindowContent("iframewindow" + idWindowIngresarTraductor,'<iframe src="<%= request.getContextPath() %>/IngresarTraductor.do?numeroExpediente='+numeroExpediente+'" width="1050" height="600" />');
+	}
+
+	//Elimina un registro del traductor
 	function eliminaTraductorDeMenuIntermedio(id){
 		var row =$('#tblTraductor tr:#'+id);
 		$(row).remove();
 		alertDinamico("Se anul&oacute; exitosamente el traductor");
 	}
-	
+
 	function cargaTraductor(nombre,id){
 		//var row=$('#'+id);
-		//$(row).remove(); 
+		//$(row).remove();
 		//$('#tblTraductor').append('<tr id="'+id+'"><td class="noSub">&nbsp;&nbsp;&nbsp;<a id="consultarTraductor" onclick="modificaTraductor('+id+')">'+nombre+'</a></td></tr>');
-	} 
+	}
 
 	function ingresarHechos() {
 		idWindowIngresarHechos++;
 		$.newWindow({id:"iframewindowHecho" + idWindowIngresarHechos, statusBar: true, posx:200,posy:50,width:1050,height:600,title:"Hechos", type:"iframe"});
-	    $.updateWindowContent("iframewindowHecho" + idWindowIngresarHechos,'<iframe src="<%= request.getContextPath() %>/IngresarHechos.do?iphFuncionalidadHidden=true&numeroExpediente='+numeroExpediente+'&idCalidad=DENUNCIANTE&idHecho=0 " width="1050" height="600" />');		
+	    $.updateWindowContent("iframewindowHecho" + idWindowIngresarHechos,'<iframe src="<%= request.getContextPath() %>/IngresarHechos.do?iphFuncionalidadHidden=true&numeroExpediente='+numeroExpediente+'&idCalidad=DENUNCIANTE&idHecho=0 " width="1050" height="600" />');
 	}
 	function cargaIngresoHecho(nombre,id){
 		$("#ingresarHechos").hide();
@@ -1000,10 +1018,10 @@
 		pantalla += idWindowIngresarHechos;
 		$.closeWindow(pantalla);
 	}
-	function consultarHecho(idHecho, numeroExpedienteId) {	
+	function consultarHecho(idHecho, numeroExpedienteId) {
 		idWindowIngresarHechos++;
 		$.newWindow({id:"iframewindowHecho" + idWindowIngresarHechos, statusBar: true, posx:200,posy:50,width:1050,height:600,title:"Hechos", type:"iframe"});
-	    $.updateWindowContent("iframewindowHecho" + idWindowIngresarHechos,'<iframe src="<%= request.getContextPath() %>/IngresarHechos.do?iphFuncionalidadHidden=true&numeroExpedienteId='+numeroExpedienteId +'&numeroExpediente='+numeroExpediente+'&idCalidad=DENUNCIANTE&idLugar=1&idHecho='+idHecho +' " width="1050" height="600" />');		
+	    $.updateWindowContent("iframewindowHecho" + idWindowIngresarHechos,'<iframe src="<%= request.getContextPath() %>/IngresarHechos.do?iphFuncionalidadHidden=true&numeroExpedienteId='+numeroExpedienteId +'&numeroExpediente='+numeroExpediente+'&idCalidad=DENUNCIANTE&idLugar=1&idHecho='+idHecho +' " width="1050" height="600" />');
 	}
 
 	function creaNuevoVehiculo(){
@@ -1025,16 +1043,16 @@
 // 		$('#tblVehiculo tr:#'+id).remove();
 // 		if(tipo!="" && placas!="")
 // 		{
-// 			$('#tblVehiculo').append('<tr id="'+id+'"><td class="noSub">&nbsp;&nbsp;&nbsp;<a id="consultarVehiculo_'+id+'" onclick="consultarVehiculo('+id+')">'+tipo+' '+ placas+'</a></td></tr>');			
+// 			$('#tblVehiculo').append('<tr id="'+id+'"><td class="noSub">&nbsp;&nbsp;&nbsp;<a id="consultarVehiculo_'+id+'" onclick="consultarVehiculo('+id+')">'+tipo+' '+ placas+'</a></td></tr>');
 // 		}
 		//cerrarVentanaVehiculo();
-		
-		customCargaGrid("GridVehiculos", "<%=Objetos.VEHICULO.getValorId()%>", false);		
-	} 
+
+		customCargaGrid("GridVehiculos", "<%=Objetos.VEHICULO.getValorId()%>", false);
+	}
 
 	function muestraMenuQuienDetuvo(){
 	}
-	
+
 	function cerrarVentanaVehiculo(){
 		var pantalla ="iframewindowIngresarVehiculo";
 		pantalla += idWindowIngresarVehiculo;
@@ -1059,12 +1077,12 @@
 // 		$('#tblAeronave tr:#'+id).remove();
 // 		if(tipo!="")
 // 		{
-// 			$('#tblAeronave').append('<tr id="'+id+'"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a id="'+id+'" onclick="consultarAeronave('+id+');">'+ tipo + '</a></td></tr>');		
+// 			$('#tblAeronave').append('<tr id="'+id+'"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a id="'+id+'" onclick="consultarAeronave('+id+');">'+ tipo + '</a></td></tr>');
 // 		}
 		//cerrarVentanaAeronave();
-		
+
 		customCargaGrid("GridAeronaves", "<%=Objetos.AERONAVE.getValorId()%>", false);
-	} 
+	}
 	function cerrarVentanaAeronave(){
 		var pantalla ="iframewindowIngresarAeronave";
 		pantalla += idWindowIngresarAeronave;
@@ -1084,24 +1102,24 @@
 	    $.updateWindowContent("iframewindowIngresarEmbarcacion" + idWindowIngresarEmbarcacion,'<iframe src="<%= request.getContextPath() %>/IngresarEmbarcacion.do?numeroExpediente='+numeroExpediente +'&idEmbarcacion='+idEmbarcacion+'&tipoObjeto=EMBARCACION " width="600" height="530" />');
 	    $("#" +"iframewindowIngresarEmbarcacion"+idWindowIngresarEmbarcacion+ " .window-maximizeButton").click();
 
-	}	
+	}
 	function cargaEmbarcacion(id,tipo){
 // 		$('#tblEmbarcacion tr:#'+id).remove();
 // 		if(tipo!="")
 // 		{
-// 			$('#tblEmbarcacion').append('<tr id="'+id+'"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a id="'+id+'" onclick="consultarEmbarcacion('+id+');">'+ tipo + '</a></td></tr>');		
+// 			$('#tblEmbarcacion').append('<tr id="'+id+'"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a id="'+id+'" onclick="consultarEmbarcacion('+id+');">'+ tipo + '</a></td></tr>');
 // 		}
 		//cerrarVentanaEmbarcacion();
-		
+
 		customCargaGrid("GridEmbarcaciones", "<%=Objetos.EMBARCACION.getValorId()%>", false);
-		
-	} 
+
+	}
 	function cerrarVentanaEmbarcacion(){
 		var pantalla ="iframewindowIngresarEmbarcacion";
 		pantalla += idWindowIngresarEmbarcacion;
 		$.closeWindow(pantalla);
 	}
-	
+
 	function creaNuevaArma(){
 		idWindowIngresarArma++;
 		$.newWindow({id:"iframewindowIngresarArma" + idWindowIngresarArma, statusBar: true, posx:200,posy:50,width:800,height:380,title:"Ingresar arma", type:"iframe"});
@@ -1115,7 +1133,7 @@
 	    $.updateWindowContent("iframewindowIngresarArma" + idWindowIngresarArma,'<iframe src="<%= request.getContextPath() %>/IngresarArma.do?numeroExpediente='+numeroExpediente+'&idArma='+idArma+'&tipoObjeto=ARMA" width="800" height="380" />');
 	    $("#" +"iframewindowIngresarArma"+idWindowIngresarArma+ " .window-maximizeButton").click();
 	}
-	
+
 	function cargaArma(id,tipo){
 // 		$('#tblArma tr:#'+id).remove();
 // 		if(tipo!="")
@@ -1123,15 +1141,15 @@
 // 			$('#tblArma').append('<tr id="'+id+'"><td class="noSub">&nbsp;&nbsp;&nbsp;<a id="consultarArma_'+id+'" onclick="consultarArma('+id+')">'+tipo+'</a></td></tr>');
 // 		}
 		//cerrarVentanaArma();
-		
-		customCargaGrid("GridArmas", "<%=Objetos.ARMA.getValorId()%>", false);		
-	} 	
+
+		customCargaGrid("GridArmas", "<%=Objetos.ARMA.getValorId()%>", false);
+	}
 	function cerrarVentanaArma(){
 		var pantalla ="iframewindowIngresarArma";
 		pantalla += idWindowIngresarArma;
 		$.closeWindow(pantalla);
 	}
-	
+
 	function creaNuevoExplosivo(){
 		idWindowIngresarExplosivo++;
 		$.newWindow({id:"iframewindowIngresarExplosivo" + idWindowIngresarExplosivo, statusBar: true, posx:200,posy:50,width:880,height:330,title:"Ingresar explosivo", type:"iframe"});
@@ -1151,15 +1169,15 @@
 // 			$('#tblExplosivo').append('<tr id="'+id+'"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a id="'+id+'" onclick="consultarExplosivo('+id+');">'+ tipo + '</a></td></tr>');
 // 		}
 		//cerrarVentanaExplosivo();
-		
+
 		customCargaGrid("GridExplosivos", "<%=Objetos.EXPLOSIVO.getValorId()%>", false);
-	} 	
+	}
 	function cerrarVentanaExplosivo(){
 		var pantalla ="iframewindowIngresarExplosivo";
 		pantalla += idWindowIngresarExplosivo;
 		$.closeWindow(pantalla);
-	}	
-	
+	}
+
 	function creaNuevaSustancia(){
 		 idWindowIngresarSustancia++;
 		$.newWindow({id:"iframewindowIngresarSustancia" + idWindowIngresarSustancia, statusBar: true, posx:200,posy:50,width:900,height:330,title:"Ingresar sustancia", type:"iframe"});
@@ -1179,16 +1197,16 @@
 // 			$('#tblEstupefacientes').append('<tr id="'+id+'"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a id="'+id+'" onclick="consultarSustancia('+id+');">'+ tipo + '</a></td></tr>');
 // 		}
 		//cerrarVentanaSustancia();
-		
+
 		customCargaGrid("GridExplosivos", "<%=Objetos.SUSTANCIA.getValorId()%>", false);
-		
-	} 
+
+	}
 	function cerrarVentanaSustancia(){
 		var pantalla ="iframewindowIngresarSustancia";
 		pantalla += idWindowIngresarSustancia;
 		$.closeWindow(pantalla);
 	}
-	
+
 	function creaNuevoNumerario(){
 		idWindowIngresarNumerario++;
 		$.newWindow({id:"iframewindowIngresarNumerario" + idWindowIngresarNumerario, statusBar: true, posx:200,posy:50,width:800,height:350,title:"Ingresar numerario", type:"iframe"});
@@ -1210,16 +1228,16 @@
 // 			$('#tblNumerario').append('<tr id="'+id+'"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a id="'+id+'" onclick="consultarNumerario('+id+');">'+ tipo + '</a></td></tr>');
 // 		}
 		//cerrarVentanaNumerario();
-		
+
 		customCargaGrid("GridNumerarios", "<%=Objetos.NUMERARIO.getValorId()%>", false);
-		
-	} 
+
+	}
 	function cerrarVentanaNumerario(){
 		var pantalla ="iframewindowIngresarNumerario";
 		pantalla += idWindowIngresarNumerario;
 		$.closeWindow(pantalla);
 	}
-	
+
 	function creaNuevoOtros(){
 		 idWindowIngresarOtros++;
 		$.newWindow({id:"iframewindowOtros" + idWindowIngresarOtros, statusBar: true, posx:200,posy:50,width:800,height:450,title:"Ingresar Otros", type:"iframe"});
@@ -1227,7 +1245,7 @@
 	    $("#" +"iframewindowOtros"+idWindowIngresarOtros+ " .window-maximizeButton").click();
 
 	}
-	
+
 	function consultarOtros(idOtros){
 		idWindowIngresarOtros++;
 		$.newWindow({id:"iframewindowOtros" + idWindowIngresarOtros, statusBar: true, posx:200,posy:50,width:800,height:450,title:"Consultar otros", type:"iframe"});
@@ -1235,13 +1253,13 @@
 	    $("#" +"iframewindowOtros"+idWindowIngresarOtros+ " .window-maximizeButton").click();
 
 	}
-	
+
 	function cargaOtros(id,nombre){
 		customCargaGrid("gridObjsOtros", "<%=Objetos.OTRO.getValorId()%>", false);
 	}
-	
-	
-	
+
+
+
 	function cerrarVentanaOtros(){
 		var pantalla ="iframewindowOtros";
 		pantalla += idWindowIngresarOtros;
@@ -1269,12 +1287,12 @@
 					$('#Testigos').html($(xml).find('totalTestigos').text()+': '+$(xml).find('testigos').text());
 
 					$('#estatusExpe').html($(xml).find('estatusNumeroExpediente').text());
-					$('#origenExpe').html($(xml).find('origenExpediente').text());	
+					$('#origenExpe').html($(xml).find('origenExpediente').text());
 					$('#anonimoDenun').html($(xml).find('esDesconocido').text());
 					num=$(xml).find('totalDocumentosDelExpediente').text();
 					$('#fehcaApertura').html("Fecha Apertura:"+$(xml).find('fechaApertura').text());
 
-					ocultaImgResumen(xml);				
+					ocultaImgResumen(xml);
 	    	  }
 	    	});
 	}
@@ -1294,7 +1312,7 @@
 			$('#imgEmbarcacion').hide();
 		}else{
 			$('#imgEmbarcacion').show();
-		}					
+		}
 		if($(xml).find('sus').text()!="1"){
 			$('#imgSustancias').hide();
 		}else{
@@ -1323,7 +1341,7 @@
 		if($(xml).find('vic').text()!="1"){
 			$('#imgVictimas').hide();
 		}else{
-			$('#imgVictimas').show();	
+			$('#imgVictimas').show();
 		}
 		if($(xml).find('proba').text()!="1"){
 			$('#imgProbablesResponsables').hide();
@@ -1337,15 +1355,15 @@
 		}
 	}
 
-	function cargaGridDocumentosDigitalesPropios(){ 
+	function cargaGridDocumentosDigitalesPropios(){
 
 		if(primeraVezGridDocumentosDigitalesPropios == true){
 			jQuery("#gridDocumentosDigitalesPropios").jqGrid({
 				url:'<%=request.getContextPath()%>/ConsultaExpedientesDocumento.do?numeroExpedienteId='+numeroExpedienteId+'',
-				datatype: "xml", 
+				datatype: "xml",
 				colNames:['Nombre de Documento'],
 				colModel:[	{name:'nombre',index:'nombre', width:255},
-				       
+
 							],
 				pager: jQuery('#pagerGridDocumentosDigitalesPropios'),
 				rowNum:20,
@@ -1361,7 +1379,7 @@
 						abrirDocsDigAsociadosASol(rowid);
 					}
 				}
-				
+
 			}).navGrid('#pagerGridDocumentosDigitalesPropios',{edit:false,add:false,del:false});
 			$("#gview_gridDocumentosDigitalesPropios .ui-jqgrid-bdiv").css('height', '455px');
 			primeraVezGridDocumentosDigitalesPropios= false;
@@ -1370,7 +1388,7 @@
 			jQuery("#gridDocumentosDigitalesPropios").jqGrid('setGridParam', {url:'<%=request.getContextPath()%>/ConsultaExpedientesDocumento?numeroExpedienteId='+numExpedienteId+'',datatype: "xml" });
 			$("#gridDocumentosDigitalesPropios").trigger("reloadGrid");
 		}
-	}	
+	}
 
 	/*
 	*Funcion que abre el PDF para ver los documentos asociados al numero de causa
@@ -1378,13 +1396,13 @@
 	function abrirDocsDigAsociadosASol(documentoAsocId){
 		if(documentoAsocId != null && documentoAsocId != ""){
 		$("#visorDocsPropiosFrame").attr("src","<%= request.getContextPath()%>/consultarArchivoDigitalIframe.do?documentoId="+documentoAsocId+"&inFrame=true");
-			
+
 		}
 		else{
 			alert("El documento no puede ser mostrado");
 		}
 	}
-	
+
 	/**
 	**Funcion que carga el grid con las pertenencias de los probables responsables
 	**/
@@ -1392,11 +1410,11 @@
 		//var idInvolucrado = $("#detencionCbxProbableResponsable option:selected").val();
 		var probableResponsableProp = '<bean:message key="probableResponsableTitulo"/>';
 
-					
-				jQuery("#gridPertenencias").jqGrid({ 
-					url:'<%= request.getContextPath()%>/consultarPertenenciasPorExpedienteId.do?expedienteId='+expedienteId+'&numeroExpediente='+numeroExpediente+'', 
-					datatype: "xml", 
-					colNames:[probableResponsableProp,'Cantidad','Tipo','Condici&oacute;n F&iacute;sica','Descripci&oacute;n' ], 
+
+				jQuery("#gridPertenencias").jqGrid({
+					url:'<%= request.getContextPath()%>/consultarPertenenciasPorExpedienteId.do?expedienteId='+expedienteId+'&numeroExpediente='+numeroExpediente+'',
+					datatype: "xml",
+					colNames:[probableResponsableProp,'Cantidad','Tipo','Condici&oacute;n F&iacute;sica','Descripci&oacute;n' ],
 					colModel:[ 	{name:'ProbableResponsable',index:'4',sortable:false,  width:200},
 					           	{name:'Cantidad',index:'2', sortable:true ,  width:60, align:"center"},
 					           	{name:'Tipo', index:'1', sortable:true, width:150},
@@ -1416,20 +1434,20 @@
 				}).navGrid('#pagerGridPertenencias',{edit:false,add:false,del:false});
 				//cambia la variable a falso para ya no dibujar el grid, solo recargarlo
 				firstGridPertenencias=false;
-			
+
 
 	}
-	
-	
+
+
 	/**
 	**Funcion que carga el grid con los probables responsables
 	**/
 	function cargaGridProbableResponsable(){
 
-			jQuery("#gridProbableResponsable").jqGrid({ 
+			jQuery("#gridProbableResponsable").jqGrid({
 				url:'<%= request.getContextPath()%>/consultarProbableResponsablePorNumeroExpediente.do?expedienteId='+expedienteId+'&numeroExpediente='+numeroExpediente+'',
-				datatype: "xml", 
-				colNames:['Nombre','Apellido Paterno','Apellido Materno','&iquest;Detenido?','Fecha de Detenci&oacute;n','&iquest;Menor de Edad?','ID Tipo Evento','Tipo Evento','ID Subtipo Evento','Subtipo de Evento'], 
+				datatype: "xml",
+				colNames:['Nombre','Apellido Paterno','Apellido Materno','&iquest;Detenido?','Fecha de Detenci&oacute;n','&iquest;Menor de Edad?','ID Tipo Evento','Tipo Evento','ID Subtipo Evento','Subtipo de Evento'],
 				colModel:[ 	{name:'Nombre',index:'4', sortable:false, width:160},
 				           	{name:'ApellidoPaterno',index:'2', sortable:false, width:140},
 				           	{name:'ApellidoMaterno',index:'3', sortable:false, width:140},
@@ -1451,15 +1469,15 @@
 				sortname: '1',
 				viewrecords: true,
 				sortorder: "desc",
-				
+
 				ondblClickRow: function(rowid) {
-					
+
 					}
-				
+
 			}).navGrid('#pagerGridProbableResponsable',{edit:false,add:false,del:false});
 
 	}
-	
+
  	/*
 	*Funcion que carga el grid de consulta IPHs
 	*/
@@ -1470,15 +1488,15 @@
 			var names;
 			var model;
 			if (tipoObjeto == '<%=Objetos.VEHICULO.getValorId()%>'){
-				names = ['Tipo','Placas']; 
+				names = ['Tipo','Placas'];
 				model = [ 	{name:'tipo',index:'1',width:350, align:'center'},
 									{name:'placas',index:'2',width:500, align:'center'}];
 			} else {
-				names =['Nombre'], 
-				model =[ 	{name:'nombre',index:'1',width:700, align:'center'}];				
+				names =['Nombre'],
+				model =[ 	{name:'nombre',index:'1',width:700, align:'center'}];
 			}
-			
-			  jQuery("#"+id).jqGrid({ 
+
+			  jQuery("#"+id).jqGrid({
 					url:'<%=request.getContextPath()%>/consultarObjetos.do',
 					mtype: "POST",
 					postData: {
@@ -1487,25 +1505,25 @@
 						"esGrid":true
 					},
 					datatype: "xml",
-					colNames:names, 
+					colNames:names,
 					colModel:model,
 					autowidth: false,
-					width:700, 
+					width:700,
 					pager: jQuery('#pager'+id),
 					rowNum:10,
 					rowList:[10,20,30,40,50,60,70,80,90,100],
 					sortname: '1',
-					sortorder: "desc", 
+					sortorder: "desc",
 					viewrecords: true,
 					ondblClickRow: function(rowid) {
 						funcDblClic(rowid);
 					}
 				}).navGrid('#pager'+id,{edit:false,add:false,del:false}).trigger("reloadGrid");;
-			  
-			  
-			  
+
+
+
 		} else {
-			  jQuery("#"+id).jqGrid({ 
+			  jQuery("#"+id).jqGrid({
 					url:'<%=request.getContextPath()%>/consultarObjetos.do',
 					type: "post",
 					data:{
@@ -1517,7 +1535,7 @@
 			  $("#"+id).trigger("reloadGrid");
 		}
 	}
-	
+
 </script>
 
 </head>
@@ -1525,16 +1543,16 @@
 <body>
 
 	<table width="100%" class="back_pleca_h">
-		<tr>	
-                    <td align="left " width="50%"> 
-                        
+		<tr>
+                    <td align="left " width="50%">
+
                         <div id="msgInfoBox" class="ui-widget ui-helper-hidden">
                             <div class="ui-state-highlight ui-corner-all" style="padding: 0 .7em; height:30px">
                                     <p><span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
                                         <strong>Informacion:</strong> <span id="msgInfo"></span></p>
                             </div>
                         </div>
-                        
+
                         <div id="msgErrorBox" class="ui-widget ui-helper-hidden">
                             <div class="ui-state-error ui-corner-all" style="padding: 0 .7em; height:30px">
                                     <p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
@@ -1573,11 +1591,11 @@
 			<li id="tabInformacion"><a href="#tabsconsultaprincipal-7">Documentos de Apoyo</a></li>
 			<li id="tabObservaciones"><a href="#tabsconsultaprincipal-8">Observaciones Generales</a></li>
 		</ul>
-		
+
 		<!--COMIENZA TAB DE RESUMEN-->
 		<div id="tabsconsultaprincipal-12" class="tabResumen" >
 			<table width="1042px"  height="490px" border="0" cellspacing="0" cellpadding="0" class="back_hechos">
-				<tr><td colspan="6">&nbsp;</td></tr>			
+				<tr><td colspan="6">&nbsp;</td></tr>
 			  	<tr style="border-bottom-style: solid; border: 1px">
 				    <td width="238" style="font-size:14px; background-color:" align="right"><strong>Estatus del Expediente:</strong></td>
 				    <td width="19" style="font-size:14px; background-color:" >&nbsp;</td>
@@ -1590,7 +1608,7 @@
 					  		<tr>
 					    		<td>&nbsp;</td>
 					  		</tr>
-						</table>			    	
+						</table>
 			    	</td>
 			  	</tr>
 			  	<tr valign="top">
@@ -1601,7 +1619,7 @@
 		          			<tr>
 		            			<td width="145" align="right" nowrap style="background-color:">Veh&iacute;culos:</td>
 					            <td width="332" id="Vehiculos">&nbsp;</td>
-					            <td id="imgVehiculo" width="25"><img title="Contiene mas registros" width="10px" src='<%= request.getContextPath() %>/resources/images/add.png'></td>			            
+					            <td id="imgVehiculo" width="25"><img title="Contiene mas registros" width="10px" src='<%= request.getContextPath() %>/resources/images/add.png'></td>
 				         	</tr>
 				          	<tr>
 				            	<td align="right" style="background-color:">Aeronaves:</td>
@@ -1612,7 +1630,7 @@
 		            			<td align="right" style="background-color:">Embarcaci&oacute;n:</td>
 		            			<td id="Embarcacion">&nbsp;</td>
 		            			<td id="imgEmbarcacion" width="25"><img title="Contiene mas registros" width="10px" src='<%= request.getContextPath() %>/resources/images/add.png'></td>
-		          			</tr>				         	
+		          			</tr>
 				          	<tr>
 				            	<td align="right" style="background-color:">Sustancias:</td>
 				            	<td id="Sustancias">&nbsp;</td>
@@ -1638,7 +1656,7 @@
 				          	</tr>
 				          	<tr style="border-bottom-style: solid; border: 1px;">
 				          		<td width="670" align="center" style="font-size:14px; " colspan="2">
-				          		<strong>Resumen de involucrados<em>:</em></strong></td>	
+				          		<strong>Resumen de involucrados<em>:</em></strong></td>
 				    			<!--<td width="4" style="font-size:14px; background-color:">&nbsp;</td>-->
 				    		</tr>
 				    		<tr>
@@ -1672,9 +1690,9 @@
 							    <td id="Testigos">&nbsp;</td>
 							    <td id="imgTestigos" width="15"><img title="Contiene mas registros" width="10px" src='<%= request.getContextPath() %>/resources/images/add.png'></td>
   							</tr>
-				    		
+
 						</table>
-			
+
 					</td>
 			  	</tr>
 			  	<tr>
@@ -1691,7 +1709,7 @@
 			  	</tr>
 			  	<tr>
 			    	<td ></td>
-			    	<td></td>			    
+			    	<td></td>
 			  	</tr>
 			  	<tr>
 				    <td>&nbsp;</td>
@@ -1703,7 +1721,7 @@
 			  	</tr>
 			  	<tr>
 			    	<td align="right"><span style="border-left:#000000; border-top:#000000; border-bottom-width:4; font-size:14px; ; display:none;"><strong>Canalizado a:</strong></span> </td>
-			    	<td><!-- <input type="radio" name="radio" id="rbtnRestaurativa" value="R" />--></td> 
+			    	<td><!-- <input type="radio" name="radio" id="rbtnRestaurativa" value="R" />--></td>
 			    	<td align="right">&nbsp;</td>
 			    	<td>&nbsp;</td>
 			  	</tr>
@@ -1756,7 +1774,7 @@
 			    	<td>&nbsp;</td>
 			  	</tr>
 			</table>
-		
+
 		</div>
 		<!--TERMINA TAB DE RESUMEN-->
 
@@ -1775,7 +1793,7 @@
 			</fieldset>
 		</div>
 		<!--TERMINA TAB DE REGISTRO DE PERTENENCIAS-->
-		
+
 		<!--COMIENZA TAB DE DETENCION-->
 		<div id="tabsconsultaprincipal-14" class="tabDetencion">
 			<fieldset style="width: 900px;">
@@ -1789,10 +1807,10 @@
 					</tr>
 				</table>
 			</fieldset>
-		
-		</div>	
+
+		</div>
 		<!--TERMINA TAB DE DETENCION-->
-		
+
 		<!--COMIENZAN TABS INFERIORES DE DATOS GENERALES-->
 		<div id="tabsconsultaprincipal-1" class="tabDatosGenerales">
 			<div id="tabschild" class="tabs-bottom">
@@ -1817,7 +1835,7 @@
 									<tr>
 										<td align="right">* Tipo de Evento:</td>
 										<td>
-											<select id="motivoCmpTipoEvento" style="width: 180px;" onchange="buscaSubTipoEvento();" disabled="disabled">
+											<select id="motivoCmpTipoEvento" style="width: 180px;" onchange="buscaSubTipoEvento('');" disabled="disabled">
 												<option value="0">- Seleccione -</option>
 												<option value="1">Delito</option>
 												<option value="2">Falta Administrativa</option>
@@ -1856,7 +1874,7 @@
 										<td><input type="text" style="width: 180px;" maxlength="50" id="datosGeneralesCmpDirigidoA" disabled="disabled"/></td>
 										<td>&nbsp;</td>
 									</tr>
-									
+
 									<tr>
 										<td align="right">*Corporaci&oacute;n:</td>
 										<td>
@@ -1865,12 +1883,12 @@
 											</select>
 										</td>
 										<td>&nbsp;</td>
-									</tr>									
-									
+									</tr>
+
 									<tr>
 										<td align="right">* Turno:</td>
 										<td>
-											<select id="datosGeneralesCmpTurno" style="width: 180px;">
+											<select id="datosGeneralesCmpTurno" style="width: 180px;"  onchange="cambiaTurno()">
 												<option value="">- Seleccione -</option>
 											</select>
 										</td>
@@ -1903,9 +1921,9 @@
 			                            <td align="right">Se realiz&oacute; Operativo</td>
 			                            <td>
 			                              <input type="checkbox" id="chkOperativo"/>
-			                            </td>                 
+			                            </td>
 										<td>&nbsp;</td>
-			                        </tr>  
+			                        </tr>
 			                        <tr>
 			                        	<td colspan="3">
 				                        	<div id="divOperativo">
@@ -1914,44 +1932,47 @@
 							                            <td align="right" width="52%">* Nombre del Operativo</td>
 														<td><input type="text" style="width: 180px;" maxlength="50" id="datosGeneralesCmpNombreOperativo"/></td>
 														<td>&nbsp;</td>
-							                        </tr>  
+							                        </tr>
 							                        <tr>
 							                            <td align="right">* Comandante Agrupamiento</td>
 														<td><input type="text" style="width: 180px;" maxlength="50" id="datosGeneralesCmpComandanteAgrupamiento"/></td>
 														<td>&nbsp;</td>
-							                        </tr>  
+							                        </tr>
 							                        <tr>
 							                            <td align="right">* Comandante Operativo</td>
 														<td><input type="text" style="width: 180px;" maxlength="50" id="datosGeneralesCmpComandanteOperativo"/></td>
 														<td>&nbsp;</td>
-							                        </tr>  
+							                        </tr>
 				                        		</table>
 				                        	</div>
 			                        	</td>
-			                        </tr>          
+			                        </tr>
 								</table>
 							</td>
 						</tr>
 					</table>
+					<input type="hidden" id="datosGeneralesCmpturnoId" value=""/>
+					<input type="hidden" id="datosGeneralesCmpturnoAnt" value=""/>
+					<input type="hidden" id="borraOperativo" value="false"/>
 				</div>
-				
+
 			</div>
-			
+
 		</div>
 		<!--TERMINAN TABS INFERIORES DE DATOS GENERALES-->
-		
+
 		<!--COMIENZAN TABS INFERIORES DE HECHOS-->
 		<div id="tabsconsultaprincipal-11" class="tabHechos">
 			<div style="width: 1042px; height: 490px;" class="back_hechos">
 			<table border="0" cellspacing="0" cellpadding="0" id="tablaHecho" class="back_hechos" style="padding: .5cm; " >
-				<tr valign="top">						
+				<tr valign="top">
 					<td valign="top"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="ingresarHechos" value="Ingreso Hecho" class="btn_estilo"/></td>
 				</tr>
 			</table>
 			</div>
 		</div>
 		<!--TERMINAN TABS INFERIORES DE HECHOS-->
-		
+
 		<!--COMIENZAN TABS INFERIORES DE PERSONAS INVOLUCRADAS-->
 		<div id="tabsconsultaprincipal-2" class="tabInvolucrados">
 			<div id="tabschild2" class="tabs-bottom">
@@ -1961,7 +1982,7 @@
 					<li><a href="#tabschild2-3"><bean:message key="probableResponsableTitulo"/></a></li>
 					<li><a href="#tabschild2-4">Testigo</a></li>
 				</ul>
-				
+
 				<div id="tabschild2-1">
 					<table width="1042px"  height="490px" border="0" cellspacing="0" cellpadding="0" class="back_hechos">
 						<tr valign="top">
@@ -1980,11 +2001,11 @@
 						</tr>
 					</table>
 				</div>
-				
+
 				<div id="tabschild2-2">
 					<table width="1042px"  height="490px" border="0" cellspacing="0" cellpadding="0" class="back_hechos">
 						<tr valign="top">
-							<td valign="top">	
+							<td valign="top">
 								<table width="25%" cellpadding="0" cellspacing="0" id="tblVictima">
 									<tr>
 										<td>
@@ -1999,7 +2020,7 @@
 						</tr>
 					</table>
 				</div>
-				
+
 				<div id="tabschild2-3">
 					<table width="1042px"  height="490px" border="0" cellspacing="0" cellpadding="0" class="back_hechos">
 						<tr valign="top">
@@ -2018,7 +2039,7 @@
 						</tr>
 					</table>
 				</div>
-				
+
 				<div id="tabschild2-4">
 					<table width="1042px"  height="490px" border="0" cellspacing="0" cellpadding="0" class="back_hechos">
 						<tr valign="top">
@@ -2032,17 +2053,17 @@
 									<tr>
 										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="nuevoTestigo"><input type="button" value="Ingresar Testigo" class="ui-button ui-corner-all ui-widget"/></a></td>
 									</tr>
-									
+
 								</table>
 							</td>
 						</tr>
 					</table>
 				</div>
-					
+
 			</div>
 
 		</div>
-		
+
 		<!--COMIENZAN TABS INFERIORES DE ASEGURAMIENTO-->
 		<div id="tabsconsultaprincipal-15" class="tabAseguramientos">
 			<div id="tabschild15" class="tabs-bottom">
@@ -2056,7 +2077,7 @@
 					<li><a href="#tabschild15-7">Numerario</a></li>
 					<li><a href="#tabschild15-8">Otro</a></li>
 				</ul>
-				
+
 			<!--COMIENZAN TABS INFERIORES DE MEDIOS DE TRANSPORTE-->
 			<div id="tabschild15-1">
 					<table width="1042px"  height="490px" border="0" cellspacing="0" cellpadding="0" class="back_hechos">
@@ -2081,13 +2102,13 @@
 													<div id="pagerGridVehiculos"></div>
 											</div>
 										</td>
-									</tr>									
+									</tr>
 								</table>
 							</td>
 						</tr>
 					</table>
 				</div>
-				
+
 				<div id="tabschild15-2">
 					<table width="1042px"  height="490px" border="0" cellspacing="0" cellpadding="0" class="back_hechos">
 						<tr valign="top">
@@ -2111,13 +2132,13 @@
 													<div id="pagerGridAeronaves"></div>
 											</div>
 										</td>
-									</tr>									
+									</tr>
 								</table>
 							</td>
 						</tr>
 					</table>
 				</div>
-				
+
 				<div id="tabschild15-3">
 					<table width="1042px"  height="490px" border="0" cellspacing="0" cellpadding="0" class="back_hechos">
 						<tr valign="top">
@@ -2141,14 +2162,14 @@
 													<div id="pagerGridEmbarcaciones"></div>
 											</div>
 										</td>
-									</tr>									
+									</tr>
 								</table>
 							</td>
 						</tr>
 					</table>
 				</div>
 				<!--TERMINAN TABS INFERIORES DE MEDIOS DE TRANSPORTE-->
-				
+
 				<!--COMIENZAN TABS INFERIORES DE ESTUPEFACIENTES-->
 				<div id="tabschild15-4">
 					<table width="1042px"  height="490px" border="0" cellspacing="0" cellpadding="0" class="back_hechos">
@@ -2173,7 +2194,7 @@
 													<div id="pagerGridSustancias"></div>
 											</div>
 										</td>
-									</tr>									
+									</tr>
 								</table>
 							</td>
 						</tr>
@@ -2211,7 +2232,7 @@
 						</tr>
 					</table>
 				</div>
-				
+
 				<div id="tabschild15-6">
 					<table width="1042px"  height="490px" border="0" cellspacing="0" cellpadding="0" class="back_hechos">
 						<tr valign="top">
@@ -2242,7 +2263,7 @@
 					</table>
 				</div>
 				<!--TERMINAN TABS INFERIORES DE ARMAS-->
-				
+
 				<!--COMIENZAN TABS INFERIORES DE NUMERARIO-->
 				<div id="tabschild15-7">
 					<table width="1042px"  height="490px" border="0" cellspacing="0" cellpadding="0" class="back_hechos">
@@ -2274,7 +2295,7 @@
 					</table>
 				</div>
 				<!--TERMINAN TABS INFERIORES DE NUMERARIO-->
-				
+
 				<!--COMIENZAN TABS INFERIORES DE OTRO-->
 				<div id="tabschild15-8">
 					<table width="1042px"  height="490px" border="0" cellspacing="0" cellpadding="0" class="back_hechos">
@@ -2306,11 +2327,11 @@
 					</table>
 				</div>
 				<!--TERMINAN TABS INFERIORES DE OTRO-->
-		
-			</div>			
+
+			</div>
 		</div>
 		<!--TERMINAN TABS INFERIORES DE ASEGURAMIENTO-->
-		
+
 		<!--COMIENZAN TABS INFERIORES DE DOCUMENTOS DE APOYO-->
 		<div id="tabsconsultaprincipal-7">
 		<table width="1150"  height="530" border="0" cellspacing="0" cellpadding="0">
@@ -2320,16 +2341,16 @@
 	                        <div id="pagerGridDocumentosDigitalesPropios"></div>
 		                </td>
 		                <td width="900" align="center" valign="top">
-		               
-		                
-		               	  <iframe id='visorDocsPropiosFrame' width="900" height="500" src="" scrolling="auto" style="display: ;">		               	  
-		               	  </iframe>  
+
+
+		               	  <iframe id='visorDocsPropiosFrame' width="900" height="500" src="" scrolling="auto" style="display: ;">
+		               	  </iframe>
 		                </td>
 		              </tr>
 		            </table>
 		</div>
 		<!--TERMINAN TABS INFERIORES DE DOCUMENTOS DE APOYO-->
-		
+
 		<!--COMIENZAN TABS INFERIORES DE OBSERVACIONES GENERALES-->
 		<div id="tabsconsultaprincipal-8">
 	    	<table width="1042px"  height="490px" border="0" cellspacing="0" cellpadding="0" id="tableHecho" class="back_hechos">
@@ -2339,18 +2360,18 @@
 		    </table>
 		</div>
 		<!--TERMINAN TABS INFERIORES DE OBSERVACIONES GENERALES-->
-		
+
 		<!--COMIENZAN TABS INFERIORES DE CADENAS DE CUSTODIA-->
 		<div id="tabsconsultaprincipal-9" class="tabTabsCadCus">
 				 <input type="button" class="ui-button ui-corner-all ui-widget" id="btnCadCusNuevaCadCus" style="width: 250px;" value="Crear nueva cadena de custodia"/><br/><br/>
-				 <input type="button" class="ui-button ui-corner-all ui-widget" id="btnCadCusConsultaCadCus" style="width: 250px;" value="Consultar cadena de custodia"/><br/><br/>    
+				 <input type="button" class="ui-button ui-corner-all ui-widget" id="btnCadCusConsultaCadCus" style="width: 250px;" value="Consultar cadena de custodia"/><br/><br/>
   				 <input type="button" class="ui-button ui-corner-all ui-widget" id="btnCadCusRegEslabones" style="width: 250px;" value="Registrar eslabones"/> <br/><br/>
   				 <input type="button" class="ui-button ui-corner-all ui-widget" id="btnCadCusRepEvidencias" style="width: 250px;" style="width: 250px;" value="Reporte de evidencias"/> <br/><br/>
-  				 <input type="button" class="ui-button ui-corner-all ui-widget" id="btnCadCusElabOficio" style="width: 250px;" value="Elaborar oficio para fijaci&oacute;n y preservaci&oacute;n"/><br/><br/>  
+  				 <input type="button" class="ui-button ui-corner-all ui-widget" id="btnCadCusElabOficio" style="width: 250px;" value="Elaborar oficio para fijaci&oacute;n y preservaci&oacute;n"/><br/><br/>
    				 <input type="button" class="ui-button ui-corner-all ui-widget" id="btnCadCusAdmDestino" style="width: 250px;" value="Administrar destino legal de evidencia"/>
-		</div>	
+		</div>
 		<!--TERMINAN TABS INFERIORES DE CADENAS DE CUSTODIA-->
-				
+
 	</div>
 	<!--<div id="dialog-detenido-informe" title="Aviso">
 		<p align="center">
@@ -2360,7 +2381,7 @@
 
 </body>
 <script type="text/javascript">
-	var config = {					
+	var config = {
 		toolbar:
 		[
 			['Source','-','Cut','Copy','Paste','-','Undo','Redo','-','Find','Replace','-','RemoveFormat'],
@@ -2373,7 +2394,7 @@
 		],
 		height:'300px',
 		width:'900px'
-	};			
+	};
 	$('.jquery_ckeditor').ckeditor(config);
 
 </script>

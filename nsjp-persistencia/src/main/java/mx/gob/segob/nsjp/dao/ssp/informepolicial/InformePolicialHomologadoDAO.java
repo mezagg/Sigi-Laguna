@@ -8,6 +8,7 @@ import mx.gob.segob.nsjp.dto.usuario.UsuarioDTO;
 import mx.gob.segob.nsjp.model.DelitoIph;
 import mx.gob.segob.nsjp.model.FaltaAdministrativaIph;
 import mx.gob.segob.nsjp.model.ssp.InformePolicialHomologado;
+import mx.gob.segob.nsjp.model.ssp.TurnoLaboralIph;
 
 public interface InformePolicialHomologadoDAO 
 	   extends
@@ -18,7 +19,8 @@ public interface InformePolicialHomologadoDAO
 	public List<DelitoIph> consultarDelitosDeIPH(Long idInforme);
 	public List<FaltaAdministrativaIph> consultarFaltaAdministrativaDeIPH(Long idInforme);
 	public List<InformePolicialHomologado> consultarInformes();
-	
+	public void eliminarTurnosByInformePolicialHomologadoId(Long idTurno, Long iFolio);
+	public Long consultaIdOperativoByFolioIph(Long iFolio);
 	/**
 	 * Obtiene el numero de IPH o IP resgistrados dentro de un rango de fechas.
 	 * @author cesarAgustin

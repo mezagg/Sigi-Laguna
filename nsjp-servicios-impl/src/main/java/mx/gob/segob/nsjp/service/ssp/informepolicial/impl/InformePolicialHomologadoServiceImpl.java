@@ -16,6 +16,10 @@ import mx.gob.segob.nsjp.dao.involucrado.InvolucradoDAO;
 import mx.gob.segob.nsjp.dao.ssp.informepolicial.InformePolicialHomologadoDAO;
 import mx.gob.segob.nsjp.dao.ssp.informepolicial.InvolucradoIPHDAO;
 import mx.gob.segob.nsjp.dao.ssp.informepolicial.OperativoDAO;
+import mx.gob.segob.nsjp.dao.ssp.informepolicial.TurnoLaboralIphIdDAO;
+import mx.gob.segob.nsjp.dao.ssp.informepolicial.impl.OperativoDAOImpl;
+import mx.gob.segob.nsjp.dao.ssp.informepolicial.impl.TurnoLaboralIphIdDAOImpl;
+import mx.gob.segob.nsjp.dao.ssp.turnolaboral.impl.TurnoLaboralDAOImpl;
 import mx.gob.segob.nsjp.dto.expediente.ExpedienteDTO;
 import mx.gob.segob.nsjp.dto.institucion.AreaDTO;
 import mx.gob.segob.nsjp.dto.ssp.informepolicial.DelitoIphDTO;
@@ -23,6 +27,7 @@ import mx.gob.segob.nsjp.dto.ssp.informepolicial.FaltaAdministrativaIphDTO;
 import mx.gob.segob.nsjp.dto.ssp.informepolicial.InformePolicialHomologadoDTO;
 import mx.gob.segob.nsjp.dto.ssp.informepolicial.InvolucradoIPHDTO;
 import mx.gob.segob.nsjp.dto.ssp.informepolicial.OperativoDTO;
+import mx.gob.segob.nsjp.dto.ssp.turnolaboral.TurnoLaboralDTO;
 import mx.gob.segob.nsjp.dto.usuario.UsuarioDTO;
 import mx.gob.segob.nsjp.model.CatDelito;
 import mx.gob.segob.nsjp.model.Delito;
@@ -32,9 +37,7 @@ import mx.gob.segob.nsjp.model.Expediente;
 import mx.gob.segob.nsjp.model.FaltaAdministrativaIph;
 import mx.gob.segob.nsjp.model.Funcionario;
 import mx.gob.segob.nsjp.model.Involucrado;
-import mx.gob.segob.nsjp.model.ssp.InformePolicialHomologado;
-import mx.gob.segob.nsjp.model.ssp.InvolucradoIph;
-import mx.gob.segob.nsjp.model.ssp.Operativo;
+import mx.gob.segob.nsjp.model.ssp.*;
 import mx.gob.segob.nsjp.service.expediente.AsignarNumeroExpedienteService;
 import mx.gob.segob.nsjp.service.expediente.BuscarExpedienteService;
 import mx.gob.segob.nsjp.service.funcionario.ConsultarFuncionarioPorFiltroService;
@@ -47,6 +50,7 @@ import mx.gob.segob.nsjp.service.ssp.informepolicial.impl.transform.InformePolic
 import mx.gob.segob.nsjp.service.ssp.informepolicial.impl.transform.InvolucradoIPHTransformer;
 import mx.gob.segob.nsjp.service.ssp.informepolicial.impl.transform.OperativoTransformer;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
@@ -56,7 +60,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class InformePolicialHomologadoServiceImpl implements
 		InformePolicialHomologadoService {
-	
+	private static final Logger logger  = Logger.getLogger(ConsultarInformePolicialHomologadoServiceImpl.class);
 	@Autowired
 	private InformePolicialHomologadoDAO informePolicialHomologadoDAO;
 	@Autowired
@@ -82,7 +86,9 @@ public class InformePolicialHomologadoServiceImpl implements
 	@Autowired
 	DelitoIphDAO delitoIphDAO;
 	@Autowired
-	private InvolucradoDAO involucradoDAO;	
+	private InvolucradoDAO involucradoDAO;
+	@Autowired
+	private TurnoLaboralIphIdDAO turnoLaboralDAO;
 	
 	@Transactional
 	@Override
@@ -96,6 +102,15 @@ public class InformePolicialHomologadoServiceImpl implements
 		//Borra los delitos prexistentes
 		delitoIphDAO.eliminaDelitosDelIph(iph.getFolioIPH());
 
+		if(operativo!=null && iph.getBorrarOperacion()){
+			Operativo operativoAnterior=new Operativo();
+			operativoAnterior.setOperativoId(operativo.getOperativoId());
+			operativoDAO.delete(operativoAnterior);
+		}
+		//borra Turno anterior
+		if (iph.getTurnoIdAnt()!=null){
+			informePolicialHomologadoDAO.eliminarTurnosByInformePolicialHomologadoId(iph.getTurnoIdAnt(),iph.getFolioIPH());
+		}
 		Funcionario destinatario = new Funcionario();
 		destinatario.setNumeroEmpleado(iph.getFuncionarioDestinatario().getNumeroEmpleado());
 		List<Funcionario> funcionarios = funcionarioDAO.consultarFuncionarioXFiltro(destinatario, false);	
@@ -106,13 +121,14 @@ public class InformePolicialHomologadoServiceImpl implements
 		}
 		
 		InformePolicialHomologado informeActualizado = informePolicialHomologadoDAO.consultaInformePorFolio(iph.getFolioIPH());
-		if(operativo!=null){
+		if(operativo!=null && !iph.getBorrarOperacion()){
 			operativo.setInformePolicialHomologado(new InformePolicialHomologadoDTO(informeActualizado.getInformePolicialHomologadoId()));
 			iph.setOperativo(operativo);
 		}
 		InformePolicialHomologadoTransformer.tranformIPHUpdate(informeActualizado,iph);
 		Long informeCreado = 0L;
-		
+		Long idNuevoOperativo=0L;
+		Operativo nuevoOperativo=new Operativo();
 		
 		
 		informeActualizado.setFuncionarioDestinatario(destinatario);
@@ -133,7 +149,7 @@ public class InformePolicialHomologadoServiceImpl implements
 		else
 			informeCreado = informePolicialHomologadoDAO.create(informeActualizado);
 
-		if (operativo != null) {
+		if (operativo != null && !iph.getBorrarOperacion()) {
 			//Permite asignar el idOperativo directamente de la consulta de IPH en lugar de pasarlo desde vista.
 			if(informeActualizado.getOperativo() != null){
 				operativo.setOperativoId(informeActualizado.getOperativo().getOperativoId());
@@ -147,12 +163,13 @@ public class InformePolicialHomologadoServiceImpl implements
 				operativoDAO.update(operativoUpdate);
 			} else {
 				operativo.setInformePolicialHomologado(InformePolicialHomologadoTransformer.tranformIPHSimple(informeActualizado));
-				operativoDAO.create(OperativoTransformer.transformOperativo(operativo));
+				nuevoOperativo=OperativoTransformer.transformOperativo(operativo);
+				operativoDAO.create(nuevoOperativo);
 			}
 
+			idNuevoOperativo=informePolicialHomologadoDAO.consultaIdOperativoByFolioIph(iph.getFolioIPH());
 		}
-
-		return informeCreado;
+		return idNuevoOperativo;
 	}
 
 	@Override

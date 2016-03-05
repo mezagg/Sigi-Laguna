@@ -118,6 +118,9 @@ public class InformePolicialHomologadoTransformer {
 			
 		resp.setFCatDiscriminanteId(iph.getFCatDiscriminanteId());
 		resp.setFCatDistritoId(iph.getFCatDistritoId());
+		if(iph.getCorporacion()!=null)
+			resp.setCorporacionId(iph.getCorporacion().getValorId());
+
 		return resp;
 	}
 	/**
