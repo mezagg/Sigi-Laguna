@@ -157,6 +157,17 @@ public class InformePolicialHomologadoDAOImpl extends GenericDaoHibernateImpl<In
 	}
 
 	@Override
+	public void eliminaFaltasAdminIph(Long foliIph) {
+		StringBuffer queryString = new StringBuffer();
+		queryString.append("DELETE FROM FaltaAdministrativaIph f ");
+		queryString.append(" WHERE f.id.informePolicialHomologadoId in( " +
+				" SELECT informePolicialHomologadoId" +
+				" FROM InformePolicialHomologado WHERE folioIPH="+foliIph+")");
+		Query query=super.getSession().createQuery(queryString.toString());
+		query.executeUpdate();
+	}
+
+	@Override
 	public Long obtenerIPHPorFechas(Date fechaInicio, Date fechaFin,
 			Boolean condicion) {
 		StringBuffer queryString = new StringBuffer();

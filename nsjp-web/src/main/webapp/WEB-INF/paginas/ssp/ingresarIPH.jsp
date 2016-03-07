@@ -122,6 +122,7 @@
             var idVentana = '<%=request.getParameter("idVentana")%>';
 
             var contextoPagina = "${pageContext.request.contextPath}";
+            var operativoId = null;
 
             $(document).ready(function () {
 
@@ -227,6 +228,7 @@
             function habilitaDivOperativo() {
                 if ($("#chkOperativo").is(':checked')) {
                     $("#divOperativo").show();
+                    $("#borraOperativo").val("false")
                 } else {
                     ocultaDivOperativo();
                 }
@@ -234,6 +236,15 @@
 
             function ocultaDivOperativo() {
                 $("#divOperativo").hide();
+                $("#datosGeneralesCmpNombreOperativo").val("");
+                $("#datosGeneralesCmpComandanteAgrupamiento").val("");
+                $("#datosGeneralesCmpComandanteOperativo").val("");
+                if(operativoId!=null)
+                    $("#borraOperativo").val("true")
+            }
+
+            function cambiaTurno() {
+            	   $("#datosGeneralesCmpturnoId").val($("#datosGeneralesCmpturnoAnt").val());
             }
 
             function recuperaDatosMotivos() {
@@ -254,7 +265,9 @@
                 lsDatosGenerales += "&asunto=" + $("#datosGeneralesCmpAsunto").val();
                 lsDatosGenerales += "&numeroEmpleado=" + $("#datosGeneralesCmpNumeroEmpleado").val();
                 lsDatosGenerales += "&numeroExpediente=" + numeroExpediente;
-                lsDatosGenerales += "&coorporacionId=" + $("#datosGeneralesCmpCorporaciones option:selected").val();
+                lsDatosGenerales += "&corporacionId=" + $("#datosGeneralesCmpCorporaciones option:selected").val();
+                lsDatosGenerales+="&borrarOperativo="+$("#borraOperativo").val();
+                lsDatosGenerales+="&turnoId="+$("#datosGeneralesCmpturnoId").val();
 
                 if ($("#chkOperativo").is(':checked')) {
                     lsDatosGenerales += "&nombreOperativo=" + $("#datosGeneralesCmpNombreOperativo").val();
@@ -273,12 +286,18 @@
 
                 //lsDatosGenerales += '&descripcionEvento=' + $('#areaDescripcion').val();
                 //Permite enviar los datos asociados al distrito y la agencia al cual sera enviado el IPH
+                if ($("#cbxDistrito option:selected").val() != "" && $("#cbxAgencia option:selected").val() != ""){
+                			lsDatosGenerales+='&fCatDistritoId=' + $("#cbxDistrito option:selected").val();
+                			lsDatosGenerales+='&fCatDiscriminanteId=' + $("#cbxAgencia option:selected").val();
+                }
                 return lsDatosGenerales;
             }
            
 
             function guardarDatosGeneralesIPH() {
                 var params = recuperaDatosGenerales();
+                params += "&operativoId=" + operativoId;
+                var op=false;
                 inicializaMensajes();
                 
                 
@@ -316,6 +335,10 @@
                         console.log(xml);
                         muestraMensajeInfo('Datos Generales del IPH guardados de manera correcta');
                         op = 'ok';
+                        $("#datosGeneralesCmpturnoId").val("")
+                        $("#datosGeneralesCmpturnoAnt").val($("#datosGeneralesCmpTurno").val())
+                        var nuevoIdOp=$(xml).find("idNumeroOperativo").text();
+                        operativoId=(nuevoIdOp == 0)?null:nuevoIdOp;
                     },
                     error: function (result) {
                         muestraMensajeError('Datos Generales del IPH guardados de manera incorrecta');
@@ -1106,7 +1129,7 @@
                                         <tr>
                                             <td align="right">* Turno:</td>
                                             <td>
-                                                <select id="datosGeneralesCmpTurno" style="width: 180px;">
+                                                <select id="datosGeneralesCmpTurno" style="width: 180px;"  onchange="cambiaTurno()" >
                                                     <option value="">- Seleccione -</option>
                                                 </select>
                                             </td>
@@ -1169,6 +1192,9 @@
                                 </td>
                             </tr>
                         </table>
+                        <input type="hidden" id="datosGeneralesCmpturnoId" value=""/>
+                        <input type="hidden" id="datosGeneralesCmpturnoAnt" value=""/>
+                        <input type="hidden" id="borraOperativo" value="false"/>
                     </div>
 
                     <!--<div id="tabschild-2">

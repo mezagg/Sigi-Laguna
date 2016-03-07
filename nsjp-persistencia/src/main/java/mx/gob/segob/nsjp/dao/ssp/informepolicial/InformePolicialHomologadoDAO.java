@@ -21,6 +21,7 @@ public interface InformePolicialHomologadoDAO
 	public List<InformePolicialHomologado> consultarInformes();
 	public void eliminarTurnosByInformePolicialHomologadoId(Long idTurno, Long iFolio);
 	public Long consultaIdOperativoByFolioIph(Long iFolio);
+	public void eliminaFaltasAdminIph(Long foliIph);
 	/**
 	 * Obtiene el numero de IPH o IP resgistrados dentro de un rango de fechas.
 	 * @author cesarAgustin
