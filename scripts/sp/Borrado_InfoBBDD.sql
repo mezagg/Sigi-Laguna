@@ -602,22 +602,6 @@ delete FuncionarioAudiencia
 delete Audiencia
 
 
-DBCC CHECKIDENT('Audiencia', RESEED, 0)
-
---DBCC CHECKIDENT  ('usuario',RESEED,0)
---DBCC CHECKIDENT  ('usuariorol',RESEED,0)
---DBCC CHECKIDENT  ('funcionario',RESEED,0)
-
-
-
-
---DBCC CHECKIDENT ('[DiscriminanteUIEspecializada]', RESEED, 0) 
-GO
---DBCC CHECKIDENT ('[CatDiscriminante]', RESEED, 0) 
-GO
---DBCC CHECKIDENT ('[CatUIEspecializada]', RESEED, 0) 
-GO
-
 --select * from Expediente
 --select * from NumeroExpediente
 --select * from caso
@@ -640,11 +624,6 @@ GO
 --SET IDENTITY_INSERT [dbo].[UsuarioRol] ON 
 --INSERT [dbo].[UsuarioRol] ([Usuario_id], [Rol_id], [dFechaInicio], [dFechaFin], [esPrincipal]) VALUES (CAST(1 AS Decimal(18, 0)), CAST(36 AS Decimal(18, 0)), CAST(getdate() AS DateTime), CAST(getdate() AS DateTime), CAST(1 AS Decimal(1, 0)))
 --SET IDENTITY_INSERT [dbo].[UsuarioRol] OFF
-
---DBCC CHECKIDENT('Funcionario', RESEED, 0)
---DBCC CHECKIDENT('usuarioRol', RESEED, 0)
---DBCC CHECKIDENT('Usuario', RESEED, 0)
-
 
 
 --insert into CatDiscriminante(catDistrito_id, cClaveDiscriminante,cnombre, iTipo, bOpUIE) values(4, '044','COORDINACION DE UNIDAD DE INVESTIGACION DE SABINAS I',1,0)
