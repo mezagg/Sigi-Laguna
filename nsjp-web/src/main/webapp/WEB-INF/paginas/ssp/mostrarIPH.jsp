@@ -240,12 +240,12 @@
 			$(xml).find('faltaIph').find('catFaltaAdministrativa').find('nombreFalta').text() == ""){
 			$("#motivoCmpTipoEvento").val('1'); //combo
 			var subTipoEvento=$(xml).find("catDelitoId").text()
-			buscaSubTipoEvento(subTipoEvento);
 		}else{
 			$("#motivoCmpTipoEvento").val('2'); //combo
-			buscaSubTipoEvento();
-			$("#motivoCmpSubtipoEvento").val($(xml).find('faltaIph').first().find('catFaltaAdministrativa').find('catFaltaAdministrativaId').text()); //combo
+			var subTipoEvento=$(xml).find('faltaIph').first().find('catFaltaAdministrativa').find('catFaltaAdministrativaId').text();
 		}
+
+        buscaSubTipoEvento(subTipoEvento);
 
 		$("#datosGeneralesCmpNumeroEmpleado").val($(xml).find('funcionarioDestinatario').find('numeroEmpleado').text());
 		if($("#datosGeneralesCmpNumeroEmpleado").val() != null && $("#datosGeneralesCmpNumeroEmpleado").val() != ""){
@@ -496,7 +496,7 @@
 			lsDatosMotivo="";
 			lsDatosMotivo+="&tipoEvento="+$("#motivoCmpTipoEvento option:selected").val();
 			lsDatosMotivo+="&subtipoEvento="+$("#motivoCmpSubtipoEvento option:selected").val();
-			lsDatosMotivo+="&coorporacionId="+$("#datosGeneralesCmpCorporaciones option:selected").val();
+			lsDatosMotivo+="&corporacionId="+$("#datosGeneralesCmpCorporaciones option:selected").val();
 			lsDatosMotivo+="&turnoLaboralId="+$("#datosGeneralesCmpTurno option:selected").val();
 			lsDatosMotivo+="&tipoParticipacionId="+$("#datosGeneralesCmpTipoParticipacion option:selected").val();
 		return	lsDatosMotivo;
@@ -509,7 +509,7 @@
 	    lsDatosGenerales+="&asunto="+$("#datosGeneralesCmpAsunto").val();
 	    lsDatosGenerales+="&numeroEmpleado="+$("#datosGeneralesCmpNumeroEmpleado").val();
 	    lsDatosGenerales+="&numeroExpediente="+numeroExpediente;
-        lsDatosGenerales+="&borraOperacion="+$("#borraOperativo").val();
+        lsDatosGenerales+="&borrarOperativo="+$("#borraOperativo").val();
         lsDatosGenerales+="&turnoId="+$("#datosGeneralesCmpturnoId").val();
 		if($("#chkOperativo").is(':checked')){
 			   lsDatosGenerales+="&nombreOperativo="+$("#datosGeneralesCmpNombreOperativo").val();
@@ -822,13 +822,13 @@
 					$(xml).find('delito').each(function(){
 						$('#motivoCmpSubtipoEvento').append('<option title="'+ $(this).find('catDelitoId').text()+'" value="' + $(this).find('catDelitoId').text() + '">' + $(this).find('nombre').text() + '</option>');
 					});
-					$("#motivoCmpSubtipoEvento").val(subTipoEventoId);
 				}else if(selected == "2"){
 					$(xml).find('falta').each(function(){
-						$('#motivoCmpSubtipoEvento').append('<option title="'+ $(this).find('catDelitoId').text()+'" svalue="' + $(this).find('catFaltaAdministrativaId').text() + '">' + $(this).find('nombreFalta').text() + '</option>');
+						$('#motivoCmpSubtipoEvento').append('<option title="'+ $(this).find('catDelitoId').text()+'" value="' + $(this).find('catFaltaAdministrativaId').text() + '">' + $(this).find('nombreFalta').text() + '</option>');
 					});
 				}
-                                $('#motivoCmpSubtipoEvento').removeClass('cargando');
+                $('#motivoCmpSubtipoEvento').removeClass('cargando');
+                $("#motivoCmpSubtipoEvento").val(subTipoEventoId);
 			}
 		});
 	}

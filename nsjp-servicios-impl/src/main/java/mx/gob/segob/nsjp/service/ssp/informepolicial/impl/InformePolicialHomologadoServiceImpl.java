@@ -102,7 +102,10 @@ public class InformePolicialHomologadoServiceImpl implements
 		//Borra los delitos prexistentes
 		delitoIphDAO.eliminaDelitosDelIph(iph.getFolioIPH());
 
-		if(operativo!=null && iph.getBorrarOperacion()){
+		//Borra Faltas administrativas prexistentes
+        informePolicialHomologadoDAO.eliminaFaltasAdminIph(iph.getFolioIPH());
+
+		if(operativo!=null && iph.getBorrarOperativo()){
 			Operativo operativoAnterior=new Operativo();
 			operativoAnterior.setOperativoId(operativo.getOperativoId());
 			operativoDAO.delete(operativoAnterior);
@@ -121,7 +124,7 @@ public class InformePolicialHomologadoServiceImpl implements
 		}
 		
 		InformePolicialHomologado informeActualizado = informePolicialHomologadoDAO.consultaInformePorFolio(iph.getFolioIPH());
-		if(operativo!=null && !iph.getBorrarOperacion()){
+		if(operativo!=null && !iph.getBorrarOperativo()){
 			operativo.setInformePolicialHomologado(new InformePolicialHomologadoDTO(informeActualizado.getInformePolicialHomologadoId()));
 			iph.setOperativo(operativo);
 		}
@@ -149,7 +152,7 @@ public class InformePolicialHomologadoServiceImpl implements
 		else
 			informeCreado = informePolicialHomologadoDAO.create(informeActualizado);
 
-		if (operativo != null && !iph.getBorrarOperacion()) {
+		if (operativo != null && !iph.getBorrarOperativo()) {
 			//Permite asignar el idOperativo directamente de la consulta de IPH en lugar de pasarlo desde vista.
 			if(informeActualizado.getOperativo() != null){
 				operativo.setOperativoId(informeActualizado.getOperativo().getOperativoId());

@@ -356,10 +356,10 @@ public class InformePHAction extends ReporteBaseAction{
 			
 			Long fCatDistritoId = NumberUtils.toLong(request.getParameter("fCatDistritoId"));
 			Long fCatDiscriminanteId = NumberUtils.toLong(request.getParameter("fCatDiscriminanteId"));
-			Long coorporacionId = NumberUtils.toLong(request.getParameter("coorporacionId"));
+			Long corporacionId = NumberUtils.toLong(request.getParameter("corporacionId"));
 			String idturno= request.getParameter("turnoId");
 			Long idTurnoAnterior = idturno.equals("")?null:Long.valueOf(idturno);
-			Boolean borrarOperacion = Boolean.parseBoolean(request.getParameter("borraOperacion"));
+			Boolean borrarOperativo = Boolean.parseBoolean(request.getParameter("borrarOperativo"));
 			InformePolicialHomologadoDTO informe = new InformePolicialHomologadoDTO();
 
 			ExpedienteDTO expedienteDTO = super.getExpedienteTrabajo(request, numeroExpediente);
@@ -375,10 +375,10 @@ public class InformePHAction extends ReporteBaseAction{
 			informe.setObjetivosGenerales(observaciones);
 			informe.setExpediente(expedienteDTO);	
 			informe.setAsunto(asunto);
-			informe.setBorrarOperacion(borrarOperacion);
+			informe.setBorrarOperativo(borrarOperativo);
 			informe.setTurnoIdAnt(idTurnoAnterior);
-			if(coorporacionId != 0L){
-				informe.setCorporacionId(coorporacionId);
+			if(corporacionId != 0L){
+				informe.setCorporacionId(corporacionId);
 			}
 			if(fCatDistritoId != 0L){
 				informe.setFCatDistritoId(fCatDistritoId);
@@ -434,7 +434,7 @@ public class InformePHAction extends ReporteBaseAction{
 				operativo.setNombre(request.getParameter("nombreOperativo"));
 				operativo.setNombreComte(request.getParameter("comandanteOperativo"));
 				operativo.setNombreComteAgrupto(request.getParameter("comandanteAgrupamiento"));
-			}else if (!borrarOperacion){
+			}else if (!borrarOperativo){
 				   operativo=null;
 			}
 

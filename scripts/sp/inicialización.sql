@@ -1,0 +1,18 @@
+DBCC CHECKIDENT('Audiencia', RESEED, 0)
+DBCC CHECKIDENT('Expediente', RESEED, 0)
+DBCC CHECKIDENT('Elemento', RESEED, 0)
+DBCC CHECKIDENT('Documento', RESEED, 0)
+DBCC CHECKIDENT('Hecho', RESEED, 0)
+DBCC CHECKIDENT('Implicado', RESEED, 0)
+DBCC CHECKIDENT('NombreDemografico', RESEED, 0)
+DBCC CHECKIDENT('NotaExpediente', RESEED, 0)
+DBCC CHECKIDENT  ('usuario',RESEED,0)
+DBCC CHECKIDENT  ('usuariorol',RESEED,0)
+DBCC CHECKIDENT  ('funcionario',RESEED,0)
+DBCC CHECKIDENT  ('AcumulacionNumeroExpediente',RESEED,0)
+DBCC CHECKIDENT  ('NumeroExpediente',RESEED,0)
+
+--DBCC CHECKIDENT ('[DiscriminanteUIEspecializada]', RESEED, 0) 
+--DBCC CHECKIDENT ('[CatDiscriminante]', RESEED, 0) 
+--DBCC CHECKIDENT ('[CatUIEspecializada]', RESEED, 0) 
+
