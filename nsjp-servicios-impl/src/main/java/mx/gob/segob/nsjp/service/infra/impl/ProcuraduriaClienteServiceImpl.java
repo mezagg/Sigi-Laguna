@@ -350,7 +350,7 @@ public class ProcuraduriaClienteServiceImpl implements
 		logger.debug("enviarInformePolicialHomologado = " + iPHomologadoDTO);
 		logger.debug("Id de la Agencia(Fiscalia) a la cual se enviara el IPH = "
 				+ idAgencia);
-
+		RespuestaIPHWSDTO respuesta= new RespuestaIPHWSDTO();
 		mx.gob.segob.nsjp.ws.cliente.enviarinformepolicialhomologado.RespuestaIPHWSDTO iPH = new mx.gob.segob.nsjp.ws.cliente.enviarinformepolicialhomologado.RespuestaIPHWSDTO();
 
 		try {
@@ -378,7 +378,7 @@ public class ProcuraduriaClienteServiceImpl implements
 			//ExpedientePrintIPH
 			//		.imprimirDatosExpediente(informePolicialHomologadoWSDTO
 			//				.getExpediente());
-			logger.debug("Enviando a traves de :: " + ep);
+			logger.info("Enviando a traves de :: " + ep);
 			iPH = clienteEnviarIPH.enviarInformePolicialHomologado(
 					informePolicialHomologadoWSDTO, idAgencia);
 			
@@ -389,16 +389,18 @@ public class ProcuraduriaClienteServiceImpl implements
                              */
                             actualizaArchivosDigitalesEnviados(iPHomologadoDTO.getExpediente());
                         }
-
-			return new RespuestaIPHWSDTO(iPH.getIdNuevoExpedienteIPH(),
-					iPH.getMensajeDeError());
+			respuesta.setIdNuevoExpedienteIPH(iPH.getIdNuevoExpedienteIPH());
+			respuesta.setMensajeDeError(iPH.getMensajeDeError());
 		} catch (mx.gob.segob.nsjp.ws.cliente.enviarinformepolicialhomologado.NSJPNegocioException_Exception e) {
 			logger.error(e.getMessage());
+			respuesta.setMensajeDeError(CodigoError.ERROR_COMUNICACION.toString());
 			throw new NSJPNegocioException(CodigoError.ERROR_COMUNICACION, e);
 		} catch (MalformedURLException e) {
 			logger.error(e.getMessage());
+			respuesta.setMensajeDeError(CodigoError.ERROR_COMUNICACION.toString());
 			throw new NSJPNegocioException(CodigoError.ERROR_COMUNICACION, e);
 		}
+		return  respuesta;
 	}
 
 	@Override

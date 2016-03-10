@@ -93,4 +93,6 @@ public interface ActividadDAO extends GenericDao<Actividad, Long> {
 	 */
 	public Actividad consultarActividadPorFiltro(Actividad actividad);
 
+	public void eliminarActividadPorFolioIPHYDocumentoId(Long folioIPH,Long documentoId);
+
 }

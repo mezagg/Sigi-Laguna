@@ -1,6 +1,7 @@
 package mx.gob.segob.nsjp.service.ssp.informepolicial;
 
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
+import mx.gob.segob.nsjp.dto.documento.DocumentoDTO;
 import mx.gob.segob.nsjp.dto.expediente.ExpedienteDTO;
 import mx.gob.segob.nsjp.dto.ssp.informepolicial.InformePolicialHomologadoDTO;
 import mx.gob.segob.nsjp.dto.ssp.informepolicial.OperativoDTO;
@@ -28,4 +29,5 @@ public interface InformePolicialHomologadoService {
 	
 	public List<InformePolicialHomologadoDTO> consultarInformes(Boolean conDetenido,UsuarioDTO user)
 			throws NSJPNegocioException;
+	public void eliminarDocumentoPorErrorEnvio(DocumentoDTO documentoDTO, Long folioIPH)throws  NSJPNegocioException;
 }

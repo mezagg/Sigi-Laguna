@@ -76,11 +76,20 @@ public interface InformePolicialHomologadoDelegate {
 	 * Servicio que se encarga de consultar un IPH por folio e invocar
 	 * al WS para ser enviado a PGJ
 	 * 
-	 * @param RespuestaIPHWSDTO
+	 * @param folioIPH
 	 * @param idAgencia Agencia a la cual se enviara el IPH
 	 * @return
 	 * @throws NSJPNegocioException
 	 */
 	RespuestaIPHWSDTO consultarEnviarInformePolicialHomologado( Long folioIPH , Long idAgencia) throws NSJPNegocioException;
+
+	/**
+	 * Servicio que se encarga de eliminar el documento de un iph debido a un error de envio
+	 *
+	 * @param documentoDTO
+	 * @return
+	 * @throws NSJPNegocioException
+	 */
+	public void eliminarDocumentoIphPorErrorEnvio(DocumentoDTO documentoDTO, Long folioIPH)throws  NSJPNegocioException;
 	
 }

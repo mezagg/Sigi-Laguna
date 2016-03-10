@@ -4,7 +4,7 @@
  * Compania                    : Ultrasist
  * Proyecto                      : NSJP                    Fecha: 18 May 2011
  * Marca de cambio        : N/A
- * Descripcion General    : Implementación para accesar a la entidad archivo digital
+ * Descripcion General    : Implementaciï¿½n para accesar a la entidad archivo digital
  * Programa Dependiente  :N/A
  * Programa Subsecuente :N/A
  * Cond. de ejecucion        :N/A
@@ -32,7 +32,7 @@ import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
 /**
- * Implementación para accesar a la entidad archivo digital.
+ * Implementaciï¿½n para accesar a la entidad archivo digital.
  * 
  * @version 1.0
  * @author vaguirre
@@ -172,5 +172,11 @@ public class ArchivoDigitalDAOImpl
 			hbq.executeUpdate();
 		}
 	}
-	
+
+	@Override
+	public void eliminaArchivoDibitalPorDocumentoId(Long idDocumento)throws NSJPNegocioException {
+		ArchivoDigital archivoDigital= consultarArchivoDigitalPorDocumento(idDocumento);
+		this.delete(archivoDigital);
+	}
+
 }

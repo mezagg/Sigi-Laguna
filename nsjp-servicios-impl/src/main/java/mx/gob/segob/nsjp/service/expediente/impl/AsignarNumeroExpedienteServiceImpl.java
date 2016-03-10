@@ -720,8 +720,23 @@ public class AsignarNumeroExpedienteServiceImpl
         this.adminActividadesService.generarActividad(inputExpediente, nuevoExp, expediente);
 
         NumeroExpediente noExpBD = new NumeroExpediente();
-        noExpBD.setNumeroExpediente(numeroExpediente);
-        noExpBD.setNumExpAlterno(numeroExpediente);
+        logger.info("SE INSERTA NUMERO EXPEDIENTE ");
+		if (inputExpediente.getPertenceConfInst() !=null){
+			logger.info("INSTITUCION REMITENTE "+inputExpediente.getPertenceConfInst().getConfInstitucionId());
+			if(inputExpediente.getPertenceConfInst().getConfInstitucionId() == Instituciones.SSP.getValorId()){
+				//NO SE INSERTA NUMERO DE EXPEDIENTE HASTA QUE EL COORDINADOR ASIGNE EXPEDIENTE
+
+				noExpBD.setNumeroExpediente(" ");
+				noExpBD.setNumExpAlterno(" ");
+			}else {
+				noExpBD.setNumeroExpediente(numeroExpediente);
+				noExpBD.setNumExpAlterno(numeroExpediente);
+			}
+
+		}else{
+			noExpBD.setNumeroExpediente(numeroExpediente);
+			noExpBD.setNumExpAlterno(numeroExpediente);
+		}
         
         noExpBD.setFechaApertura(new Date());
 

@@ -100,4 +100,9 @@ public class InformePolicialHomologadoDelegateImpl implements InformePolicialHom
 			throws NSJPNegocioException {
 		return consultarEnviarInformePolicialHomologadoService.consultarEnviarInformePolicialHomologado(folioIPH, idAgencia);
 	}
+
+	@Override
+	public void eliminarDocumentoIphPorErrorEnvio(DocumentoDTO documentoDTO, Long folioIPH) throws NSJPNegocioException {
+        informePolicialHomologadoService.eliminarDocumentoPorErrorEnvio(documentoDTO,folioIPH);
+	}
 }

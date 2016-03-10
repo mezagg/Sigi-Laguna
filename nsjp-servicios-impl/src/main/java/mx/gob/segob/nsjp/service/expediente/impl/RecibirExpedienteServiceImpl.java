@@ -27,6 +27,7 @@ import mx.gob.segob.nsjp.comun.enums.caso.EstatusCaso;
 import mx.gob.segob.nsjp.comun.enums.excepciones.CodigoError;
 import mx.gob.segob.nsjp.comun.enums.expediente.EstatusExpediente;
 import mx.gob.segob.nsjp.comun.enums.institucion.Areas;
+import mx.gob.segob.nsjp.comun.enums.institucion.Instituciones;
 import mx.gob.segob.nsjp.comun.enums.seguridad.Roles;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
 import mx.gob.segob.nsjp.dao.catalogo.CatDelitoDAO;
@@ -35,6 +36,7 @@ import mx.gob.segob.nsjp.dto.caso.CasoDTO;
 import mx.gob.segob.nsjp.dto.catalogo.CatDelitoDTO;
 import mx.gob.segob.nsjp.dto.catalogo.CatDiscriminanteDTO;
 import mx.gob.segob.nsjp.dto.catalogo.ValorDTO;
+import mx.gob.segob.nsjp.dto.configuracion.ConfInstitucionDTO;
 import mx.gob.segob.nsjp.dto.expediente.DelitoDTO;
 import mx.gob.segob.nsjp.dto.expediente.ExpedienteDTO;
 import mx.gob.segob.nsjp.dto.funcionario.FuncionarioDTO;
@@ -105,7 +107,7 @@ public class RecibirExpedienteServiceImpl implements
         expDTO.setNumeroExpedienteId(expNuevo.getNumeroExpedienteId());
         expDTO.setNumeroExpediente(expNuevo.getNumeroExpediente());
        
-        logger.info("**********+++++++ EXPEDIENTE GENERADO++++++**********************");	
+        logger.info("**********+++++++ EXPEDIENTE GENERADO DEL IPH ++++++**********************");
         logger.info(" ExpDTO: " + expDTO);
         logger.info(" ExpDTO - ExpedienteId: " + expDTO.getExpedienteId());
         logger.info(" ExpDTO - NumeroExpediente: " + expDTO.getNumeroExpediente());
@@ -207,7 +209,8 @@ public class RecibirExpedienteServiceImpl implements
         	CatDiscriminanteDTO loCatDiscriminante = consultarDiscriminanteService.consultarDiscriminanteXId(idAgencia);
        		expParam.getUsuario().getFuncionario().setDiscriminante(loCatDiscriminante);
         }
-        	
+		ConfInstitucionDTO confInstitucionDTO= new ConfInstitucionDTO(Instituciones.SSP.getValorId());
+		expParam.setPertenceConfInst(confInstitucionDTO);
         // Es necesario para generar el Numero de Expediente
         ExpedienteDTO expNuevo = asignarNumeroExpedienteService.asignarNumeroExpediente(expParam);
         //expNuevo.setCasoDTO(casoDTO);
