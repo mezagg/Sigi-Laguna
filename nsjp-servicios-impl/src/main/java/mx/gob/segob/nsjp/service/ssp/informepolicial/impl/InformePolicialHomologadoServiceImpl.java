@@ -366,10 +366,11 @@ public class InformePolicialHomologadoServiceImpl implements
 
 	@Override
 	public void eliminarDocumentoPorErrorEnvio(DocumentoDTO documentoDTO,  Long folioIPH) throws NSJPNegocioException {
-			archivoDigitalDAO.eliminaArchivoDibitalPorDocumentoId(documentoDTO.getDocumentoId());
-		    Documento documento=new Documento(documentoDTO.getDocumentoId());
-			documentoDAO.delete(documento);
 		    actividadDAO.eliminarActividadPorFolioIPHYDocumentoId(folioIPH,documentoDTO.getDocumentoId());
+			ArchivoDigital archivoDigital=archivoDigitalDAO.consultarArchivoDigitalPorDocumento(documentoDTO.getDocumentoId());
+		    Documento documento= new Documento(documentoDTO.getDocumentoId());
+		    documentoDAO.delete(documento);
+		    archivoDigitalDAO.delete(archivoDigital);
 	}
 
 	private List<InformePolicialHomologadoDTO> infromesSinDetenido(

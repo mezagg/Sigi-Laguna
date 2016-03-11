@@ -174,9 +174,10 @@ public class ArchivoDigitalDAOImpl
 	}
 
 	@Override
-	public void eliminaArchivoDibitalPorDocumentoId(Long idDocumento)throws NSJPNegocioException {
+	public void eliminaArchivoDigitalPorDocumentoId(Long idDocumento)throws NSJPNegocioException {
 		ArchivoDigital archivoDigital= consultarArchivoDigitalPorDocumento(idDocumento);
 		this.delete(archivoDigital);
+
 	}
 
 }

@@ -555,28 +555,12 @@ public class RegistroDetencionAction extends ReporteBaseAction{
 				}else{
 					writer.print("0");
 				}
-				writer.print("</cell>");				
-
-				
-				
-				writer.print("<cell>");
-				if(involucradoDTO.getTipoEvento() != null && (involucradoDTO.getTipoEvento() == TipoEvento.DELITO.getId().shortValue())){
-					writer.print(TipoEvento.DELITO.getDescripcion());
-				}else{
-					writer.print(TipoEvento.FALTA_ADMINISTRATIVA.getDescripcion());
-				}
-				writer.print("</cell>");				
-				
-				
-				writer.print("<cell>");
-				if(involucradoDTO.getSubtipoDeEvento() != null && involucradoDTO.getSubtipoDeEvento() > 0){
-					writer.print(involucradoDTO.getSubtipoDeEvento());
-				}else{
-					writer.print("0");
-				}
 				writer.print("</cell>");
 				
-				
+				writer.print("<cell> ");
+				writer.print("</cell>");
+				writer.print("<cell> ");
+				writer.print("</cell>");
 				writer.print("<cell>");
 				if(involucradoDTO.getTipoEvento() != null && (involucradoDTO.getTipoEvento() == TipoEvento.DELITO.getId().shortValue())){
 					//Se obtiene el nombre del delito

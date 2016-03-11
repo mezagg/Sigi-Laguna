@@ -130,6 +130,8 @@ public class EnviarInformePolicialHomologadoServiceImpl  implements EnviarInform
 				loRespuestaIPHWSDTO.setMensajeDeError("El delito seleccionado no esta registrado en PGJ, favor de comunicarse con el administrador");
 				loRespuestaIPHWSDTO.setIdNuevoExpedienteIPH(0L);
 			}
+			loRespuestaIPHWSDTO.setMensajeDeError(e.getCodigo().toString());
+			loRespuestaIPHWSDTO.setIdNuevoExpedienteIPH(0L);
 			logger.error(e.getMessage());
 		}
 		

@@ -82,6 +82,6 @@ public interface ArchivoDigitalDAO extends GenericDao<ArchivoDigital, Long> {
 	
 	public void modificaArchivosDigitales(List<ValorDTO> identificadorRutaArchivoDigital)throws NSJPNegocioException;
 
-	public void eliminaArchivoDibitalPorDocumentoId(Long idDocumento)throws NSJPNegocioException;
+	public void eliminaArchivoDigitalPorDocumentoId(Long idDocumento)throws NSJPNegocioException;
 
 }

@@ -574,6 +574,7 @@
                                   $("#datosGeneralesCmpturnoAnt").val($("#datosGeneralesCmpTurno").val())
                                   var nuevoIdOp=$(xml).find("idNumeroOperativo").text();
                                   operativoId=(nuevoIdOp == 0)?null:nuevoIdOp;
+                                  muestraValTipoEventoInvolucrado();
                           },
                           error: function(result) {
                            //$("#msgError").text();
@@ -1443,7 +1444,6 @@
 	**Funcion que carga el grid con los probables responsables
 	**/
 	function cargaGridProbableResponsable(){
-
 			jQuery("#gridProbableResponsable").jqGrid({
 				url:'<%= request.getContextPath()%>/consultarProbableResponsablePorNumeroExpediente.do?expedienteId='+expedienteId+'&numeroExpediente='+numeroExpediente+'',
 				datatype: "xml",
@@ -1455,9 +1455,9 @@
 				           	{name:'FechaDetencion',index:'5', sortable:false, width:160},
 				           	{name:'MenorDeEdad',index:'6', sortable:false, width:120,align:"center"},
 				           	{name:'idTipoEvento',index:'7', sortable:false, width:10,hidden:true},
-				           	{name:'TipoEvento',index:'8', sortable:false, width:170},
+				           	{name:'TipoEvento',index:'8', sortable:false, width:170, classes:"Inv_tipoEvento"},
 				           	{name:'idSubTipoEvento',index:'9', sortable:false, width:10,hidden:true},
-				           	{name:'SubTipoEvento',index:'10', sortable:false, width:170}
+				           	{name:'SubTipoEvento',index:'10', sortable:false, width:170 , classes:"Inv_subtipoEvento"}
 						],
 				pager: jQuery('#pagerGridProbableResponsable'),
 				rowNum:10,
@@ -1469,13 +1469,20 @@
 				sortname: '1',
 				viewrecords: true,
 				sortorder: "desc",
+				loadComplete: function() {
+				    muestraValTipoEventoInvolucrado();
+                }
 
-				ondblClickRow: function(rowid) {
+			})
+	}
 
-					}
-
-			}).navGrid('#pagerGridProbableResponsable',{edit:false,add:false,del:false});
-
+	function muestraValTipoEventoInvolucrado(){
+	        var tipoEventoInvolucrado=$("#motivoCmpTipoEvento option:selected").html();
+            var tipoSubEventoInvolucrado=$("#motivoCmpSubtipoEvento option:selected").html();
+            $(".Inv_tipoEvento").text(tipoEventoInvolucrado);
+            $(".Inv_subtipoEvento").text(tipoSubEventoInvolucrado);
+            $('.Inv_tipoEvento').attr('title',tipoEventoInvolucrado);
+            $('.Inv_subtipoEvento').attr('title', tipoSubEventoInvolucrado);
 	}
 
  	/*

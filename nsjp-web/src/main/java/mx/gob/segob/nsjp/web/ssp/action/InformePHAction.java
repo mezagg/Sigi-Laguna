@@ -740,6 +740,7 @@ public class InformePHAction extends ReporteBaseAction{
 			//Se encarga de consultar un IPH por folio e invocar al WS para ser enviado a PGJ
 			RespuestaIPHWSDTO loRespuestaIPHWSDTO = informePolicialHomologadoDelegate.consultarEnviarInformePolicialHomologado(informe.getFolioIPH(), idAgencia);
 			log.info("***ERRORES AL ENVIAR IPH ***" + loRespuestaIPHWSDTO.getMensajeDeError());
+			log.info("***NUEVO ID EXPEDIENTE IPH ***" + loRespuestaIPHWSDTO.getIdNuevoExpedienteIPH());
 			if (loRespuestaIPHWSDTO.getMensajeDeError()!=null)
 				if (!loRespuestaIPHWSDTO.getMensajeDeError().equals("")){
 					log.info("ERRORES DE ENVIO... ELIMINANDO DOCUMENTO");

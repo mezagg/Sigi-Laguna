@@ -402,6 +402,9 @@ private String reemplazarCamposIPH(InformePolicialHomologado informe) {
 						if(hecho.getTiempo()!=null){
 							Valor tipoReg = hecho.getTiempo().getTipoRegistro();
 							if(tipoReg!=null){
+								if(hecho.getTiempo().getFechaInicio()== null) {
+									hecho.getTiempo().setFechaInicio(new Date());
+								}
 								ahora.setTime(hecho.getTiempo().getFechaInicio());
 								strMes=new SimpleDateFormat("MMMMMMMMMM",loc).format(hecho.getTiempo().getFechaInicio());
 								if(tipoReg.getValorId().equals(TipoTiempo.ESPECIFICAMENTE_EN.getValorId())){
@@ -964,7 +967,7 @@ private Domicilio obtenRelacionDomicilio(Long elementoId) {
 /**
  * Utiliza las librerías de XHTML y iText para generar
  * un reporte en PDF a partir de un archivo XHTML
- * @param xml
+ * @param xHTML
  * @return
  */
 @SuppressWarnings("deprecation")
