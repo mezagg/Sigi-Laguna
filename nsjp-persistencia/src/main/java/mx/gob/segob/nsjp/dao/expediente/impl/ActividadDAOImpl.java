@@ -230,4 +230,17 @@ public class ActividadDAOImpl extends GenericDaoHibernateImpl<Actividad, Long>
 		Query qry = super.getSession().createQuery(queryStr.toString());
 		return (Actividad) qry.uniqueResult();
 	}
+
+	@Override
+	public void eliminarActividadPorFolioIPHYDocumentoId(Long folioIPH, Long documentoId) {
+		StringBuffer queryString = new StringBuffer();
+		queryString.append("DELETE FROM Actividad a ");
+		queryString.append(" WHERE a.documento.documentoId = ").append(documentoId);
+		queryString.append(" AND a.expediente.expedienteId = ");
+		queryString.append(" ( SELECT informe.expediente.expedienteId ");
+		queryString.append("   FROM InformePolicialHomologado informe WHERE informe.folioIPH = ");
+		queryString.append(folioIPH).append(")");
+		Query query=super.getSession().createQuery(queryString.toString());
+		query.executeUpdate();
+	}
 }

@@ -7,8 +7,11 @@ import java.util.List;
 import mx.gob.segob.nsjp.comun.enums.excepciones.CodigoError;
 import mx.gob.segob.nsjp.comun.enums.institucion.Areas;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
+import mx.gob.segob.nsjp.dao.archivo.ArchivoDigitalDAO;
 import mx.gob.segob.nsjp.dao.delito.DelitoDAO;
 import mx.gob.segob.nsjp.dao.delito.DelitoIphDAO;
+import mx.gob.segob.nsjp.dao.documento.DocumentoDAO;
+import mx.gob.segob.nsjp.dao.expediente.ActividadDAO;
 import mx.gob.segob.nsjp.dao.funcionario.FuncionarioDAO;
 import mx.gob.segob.nsjp.dao.hecho.HechoDAO;
 import mx.gob.segob.nsjp.dao.hecho.TiempoDAO;
@@ -20,6 +23,7 @@ import mx.gob.segob.nsjp.dao.ssp.informepolicial.TurnoLaboralIphIdDAO;
 import mx.gob.segob.nsjp.dao.ssp.informepolicial.impl.OperativoDAOImpl;
 import mx.gob.segob.nsjp.dao.ssp.informepolicial.impl.TurnoLaboralIphIdDAOImpl;
 import mx.gob.segob.nsjp.dao.ssp.turnolaboral.impl.TurnoLaboralDAOImpl;
+import mx.gob.segob.nsjp.dto.documento.DocumentoDTO;
 import mx.gob.segob.nsjp.dto.expediente.ExpedienteDTO;
 import mx.gob.segob.nsjp.dto.institucion.AreaDTO;
 import mx.gob.segob.nsjp.dto.ssp.informepolicial.DelitoIphDTO;
@@ -29,14 +33,7 @@ import mx.gob.segob.nsjp.dto.ssp.informepolicial.InvolucradoIPHDTO;
 import mx.gob.segob.nsjp.dto.ssp.informepolicial.OperativoDTO;
 import mx.gob.segob.nsjp.dto.ssp.turnolaboral.TurnoLaboralDTO;
 import mx.gob.segob.nsjp.dto.usuario.UsuarioDTO;
-import mx.gob.segob.nsjp.model.CatDelito;
-import mx.gob.segob.nsjp.model.Delito;
-import mx.gob.segob.nsjp.model.DelitoIph;
-import mx.gob.segob.nsjp.model.DelitoIphId;
-import mx.gob.segob.nsjp.model.Expediente;
-import mx.gob.segob.nsjp.model.FaltaAdministrativaIph;
-import mx.gob.segob.nsjp.model.Funcionario;
-import mx.gob.segob.nsjp.model.Involucrado;
+import mx.gob.segob.nsjp.model.*;
 import mx.gob.segob.nsjp.model.ssp.*;
 import mx.gob.segob.nsjp.service.expediente.AsignarNumeroExpedienteService;
 import mx.gob.segob.nsjp.service.expediente.BuscarExpedienteService;
@@ -89,6 +86,12 @@ public class InformePolicialHomologadoServiceImpl implements
 	private InvolucradoDAO involucradoDAO;
 	@Autowired
 	private TurnoLaboralIphIdDAO turnoLaboralDAO;
+	@Autowired
+	private ArchivoDigitalDAO archivoDigitalDAO;
+	@Autowired
+	private DocumentoDAO  documentoDAO;
+	@Autowired
+	private ActividadDAO actividadDAO;
 	
 	@Transactional
 	@Override
@@ -360,6 +363,16 @@ public class InformePolicialHomologadoServiceImpl implements
 		}
 		return informesDTO;
 	}
+
+	@Override
+	public void eliminarDocumentoPorErrorEnvio(DocumentoDTO documentoDTO,  Long folioIPH) throws NSJPNegocioException {
+		    actividadDAO.eliminarActividadPorFolioIPHYDocumentoId(folioIPH,documentoDTO.getDocumentoId());
+			ArchivoDigital archivoDigital=archivoDigitalDAO.consultarArchivoDigitalPorDocumento(documentoDTO.getDocumentoId());
+		    Documento documento= new Documento(documentoDTO.getDocumentoId());
+		    documentoDAO.delete(documento);
+		    archivoDigitalDAO.delete(archivoDigital);
+	}
+
 	private List<InformePolicialHomologadoDTO> infromesSinDetenido(
 			List<InformePolicialHomologado> informes) {
 		List<InformePolicialHomologadoDTO> informesDTO=new ArrayList<InformePolicialHomologadoDTO>();
