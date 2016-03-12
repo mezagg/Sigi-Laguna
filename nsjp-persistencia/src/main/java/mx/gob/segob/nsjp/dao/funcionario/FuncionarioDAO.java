@@ -48,6 +48,7 @@ public interface FuncionarioDAO extends GenericDao<Funcionario, Long> {
      */
     public List<Funcionario> consultarFuncionariosPorRol(Long idPuesto);
 
+    public List<CatalogoDTO> consultarFuncionarios();
     /**
      * Servicio que consulta los Funcionarios por ROl, para la versi�n multi
      * Rol.
@@ -335,4 +336,6 @@ public interface FuncionarioDAO extends GenericDao<Funcionario, Long> {
      * @return
      */
     List<FuncionarioDTO> consultarFuncionariosPorDiscriminante(Long catDiscriminanteId, Long idRol, Long idUIE);
+    
+    
 }

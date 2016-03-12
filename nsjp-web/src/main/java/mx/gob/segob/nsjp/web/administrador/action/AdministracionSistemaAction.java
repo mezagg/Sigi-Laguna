@@ -418,7 +418,7 @@ public class AdministracionSistemaAction extends ReporteBaseAction{
 			log.info("ejecutando Action consultar funcionarios");
 			ServletContext sc = this.getServlet().getServletContext();
 			if (sc.getAttribute("funcionarios") == null)
-				sc.setAttribute("funcionarios",funcionarioDelegate.consultarTodosFuncionarios());
+				sc.setAttribute("funcionarios",funcionarioDelegate.consultarFuncionarios());
 
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);

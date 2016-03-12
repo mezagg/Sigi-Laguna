@@ -17,6 +17,7 @@ import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
 import mx.gob.segob.nsjp.delegate.funcionario.FuncionarioDelegate;
 import mx.gob.segob.nsjp.dto.archivo.ArchivoDigitalDTO;
 import mx.gob.segob.nsjp.dto.catalogo.CatDistritoDTO;
+import mx.gob.segob.nsjp.dto.catalogo.CatalogoDTO;
 import mx.gob.segob.nsjp.dto.catalogo.ValorDTO;
 import mx.gob.segob.nsjp.dto.evidencia.EvidenciaDTO;
 import mx.gob.segob.nsjp.dto.expediente.ExpedienteDTO;
@@ -390,6 +391,11 @@ public class FuncionarioDelegateImpl implements FuncionarioDelegate {
     @Override
     public List<FuncionarioDTO> consultarFuncionariosPorDicriminanteYRolYUIE(Long catDiscriminanteId, Long idRol, Long idUIE) throws NSJPNegocioException {
         return consultarFuncionariosService.consultarFuncionariosPorDicriminanteYRolYUIE(catDiscriminanteId,idRol,idUIE);
+    }
+     
+    @Override
+    public List<CatalogoDTO> consultarFuncionarios ()throws NSJPNegocioException{
+        return consultarFuncionariosService.consultarFuncionarios();
     }
 
 }

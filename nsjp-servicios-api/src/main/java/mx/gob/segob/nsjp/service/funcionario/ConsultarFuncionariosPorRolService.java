@@ -163,4 +163,6 @@ public interface ConsultarFuncionariosPorRolService {
 	 * @throws NSJPNegocioException - en el caso de que no la lista de funcionarios o el rol sea null
 	 */
 	public List<FuncionarioDTO> consultarFuncionariosPorDicriminanteYRolYUIE (Long catDiscriminanteId, Long idRol, Long idUIE)throws NSJPNegocioException;
+        
+        public List<CatalogoDTO> consultarFuncionarios()throws NSJPNegocioException;
 }

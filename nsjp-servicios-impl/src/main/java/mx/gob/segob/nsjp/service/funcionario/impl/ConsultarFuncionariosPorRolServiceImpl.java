@@ -424,4 +424,9 @@ public class ConsultarFuncionariosPorRolServiceImpl implements ConsultarFunciona
 	public List<FuncionarioDTO> consultarFuncionariosPorDicriminanteYRolYUIE(Long catDiscriminanteId, Long idRol, Long idUIE) throws NSJPNegocioException {
 		return funcionarioDAO.consultarFuncionariosPorDiscriminante(catDiscriminanteId,idRol,idUIE);
 	}
+        
+        @Override
+        public List<CatalogoDTO> consultarFuncionarios()throws NSJPNegocioException{
+            return funcionarioDAO.consultarFuncionarios();
+        }
 }
