@@ -302,7 +302,7 @@ public class AsignarNumeroExpedienteServiceImpl
 					CodigoError.INFORMACION_PARAMETROS_ERRONEA);
 		}
 		
-		//Obtención de Cadena de Busqueda
+		//Obtenciï¿½n de Cadena de Busqueda
 		String numeroExpediente = null;
 		String institucion = confInsDao.consultarInsitucionActual()
 				.getMonograma();

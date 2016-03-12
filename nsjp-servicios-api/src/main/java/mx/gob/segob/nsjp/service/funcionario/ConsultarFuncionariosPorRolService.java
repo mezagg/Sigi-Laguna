@@ -22,6 +22,7 @@ package mx.gob.segob.nsjp.service.funcionario;
 import java.util.List;
 
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
+import mx.gob.segob.nsjp.dto.catalogo.CatalogoDTO;
 import mx.gob.segob.nsjp.dto.expediente.ExpedienteDTO;
 import mx.gob.segob.nsjp.dto.funcionario.FuncionarioDTO;
 import mx.gob.segob.nsjp.dto.involucrado.InvolucradoViewDTO;
@@ -152,5 +153,14 @@ public interface ConsultarFuncionariosPorRolService {
 	 * @throws NSJPNegocioException - en el caso de que no la lista de funcionarios o el rol sea null
 	 */
 	public List<InvolucradoViewDTO> validarFuncionariosRol(List<FuncionarioDTO> funcionariosAntes, Long idRol)  throws NSJPNegocioException;
-	
+
+	/**
+	 * regresa los funcionarios de la lista con el rol, catDiscriminante y catUIE
+	 * @param catDiscriminanteId
+	 * @param idRol
+	 * @param idUIE
+	 * @return List<CatalogoDTO> - Lista de involucrados que cumplen con el rol, catDiscriminante y catUIE
+	 * @throws NSJPNegocioException - en el caso de que no la lista de funcionarios o el rol sea null
+	 */
+	public List<FuncionarioDTO> consultarFuncionariosPorDicriminanteYRolYUIE (Long catDiscriminanteId, Long idRol, Long idUIE)throws NSJPNegocioException;
 }

@@ -607,17 +607,31 @@
 			  	  async:false,
 			  	  success: function(xml){
 			  	          muestraMensajeInfo('Informe Policial Homologado generado de manera correcta');
-			  		  document.frmDocumento.documentoId.value = $(xml).find('idDocumentoIPH').text();
-					  document.frmDocumento.submit();
-                                          $('#generaInformeBtn').removeClass('cargando');
-                                          iphReplica="true";
+			  	      var errorMensaje=$(xml).find('mensajeDeError').text();
+			  	      var idnuevoExpediente=$(xml).find('idNuevoExpedienteIPH').text();
+			  	      if (idnuevoExpediente > 0){
+			  		        document.frmDocumento.documentoId.value = $(xml).find('idDocumentoIPH').text();
+					        document.frmDocumento.submit();
+                            $('#generaInformeBtn').removeClass('cargando');
+                            iphReplica="true";
+                      }else{
+                            muestraMensajeError('Error al enviar el IPH a Procuraduria General de Justicia por '+ errorMensaje);
+                            $('#generaInformeBtn').removeClass('cargando');
+                            $("#msgInfoBox").removeClass("ui-widget");
+                            $("#msgInfoBox").addClass("ui-helper-hidden");
+
+                      }
+
 
 			  	  },
-                                  error:function(result) {
-                                    console.log(result);
-                                    muestraMensajeError('Error al enviar el IPH a Procuraduria General de Justicia.');
-                                     $('#generaInformeBtn').removeClass('cargando');
-                                 }
+                  error:function(result) {
+                        console.log(result);
+                        muestraMensajeError('Error al enviar el IPH a Procuraduria General de Justicia.');
+                        $('#generaInformeBtn').removeClass('cargando');
+                        $("#msgInfoBox").removeClass("ui-widget");
+                        $("#msgInfoBox").addClass("ui-helper-hidden");
+
+                  }
 
 			});
 		}
@@ -625,10 +639,14 @@
 			//customAlert("Ocurri&oacute; un problema durante el guardado, intente de nuevo");
                         muestraMensajeError('Ocurrio un problema durante el guardado, intente de nuevo.');
                          $('#generaInformeBtn').removeClass('cargando');
+                         $("#msgInfoBox").removeClass("ui-widget");
+                         $("#msgInfoBox").addClass("ui-helper-hidden");
 		}else if(iphReplica=="true"){
 
                         muestraMensajeError('El IPH  ya ha sido enviado a Procuraduria');
                          $('#generaInformeBtn').removeClass('cargando');
+                         $("#msgInfoBox").removeClass("ui-widget");
+                         $("#msgInfoBox").addClass("ui-helper-hidden");
 		}
 
 	}

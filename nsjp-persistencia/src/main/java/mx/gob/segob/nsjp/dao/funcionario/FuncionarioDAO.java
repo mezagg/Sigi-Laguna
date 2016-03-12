@@ -49,12 +49,6 @@ public interface FuncionarioDAO extends GenericDao<Funcionario, Long> {
     public List<Funcionario> consultarFuncionariosPorRol(Long idPuesto);
 
     /**
-     * Metodo que consulta todos los funcionarios exitentes
-     * @return
-     */
-    public List<CatalogoDTO> consultarFuncionarios();
-
-    /**
      * Servicio que consulta los Funcionarios por ROl, para la versi�n multi
      * Rol.
      *
@@ -333,5 +327,12 @@ public interface FuncionarioDAO extends GenericDao<Funcionario, Long> {
      * @return
      */
     List<Funcionario> consultarSubordinadosUAVD();
-
+    /**
+     * Enable JC. Obtiene todos loa funcionarios filtrados por catDiscriminante
+     * catuUIE y Rol
+     * siendo coordinadores y de las ?reas de UAVD.
+     *
+     * @return
+     */
+    List<FuncionarioDTO> consultarFuncionariosPorDiscriminante(Long catDiscriminanteId, Long idRol, Long idUIE);
 }

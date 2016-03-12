@@ -1021,7 +1021,7 @@ function visorLeyesCodigos() {
 		if(primeraVezGridInformePolicial == true){
 			
 			jQuery("#gridInformePolicial").jqGrid({ 
-				url:'<%=request.getContextPath()%>/remisionesIPH.do', 
+				url:'<%=request.getContextPath()%>/remisionesIPH.do',
 				datatype: "xml", 
 				autowidth: true,
 				colNames:['Caso','Fecha', 'Denunciante', 'Delito','Origen','Estatus'], 
@@ -1056,7 +1056,7 @@ function visorLeyesCodigos() {
 			ocultaMuestraGrids("informePolicial");				  
 		}
 	}
-	
+
 	/******************************************************    FUNCIONES PARA LAS ALARMAS      ***************************************************/
 	function muestraAlerta(){
 		var op="";

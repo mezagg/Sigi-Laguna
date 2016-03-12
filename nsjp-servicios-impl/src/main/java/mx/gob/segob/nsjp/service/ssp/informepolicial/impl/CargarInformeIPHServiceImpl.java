@@ -443,53 +443,52 @@ private String reemplazarCamposIPH(InformePolicialHomologado informe) {
 //					strDomicilio=domicilioInvol.getCalle()+" "+domicilioInvol.getNumeroExterior()+" "+domicilioInvol.getCiudad();
 					strDomicilio=domicilioInvol.toString();
 				}
-                                if(!invol.getNombreDemograficos().isEmpty()){
-				NombreDemografico demo = invol.getNombreDemograficos().iterator().next();
-				cuerpoIPH+="<p>Apellido Paterno:&nbsp;"
-					+(demo.getApellidoPaterno()!=null?demo.getApellidoPaterno(): "")
-					+"&nbsp;&nbsp; Apellido Materno:&nbsp;"
-					+(demo.getApellidoMaterno()!=null?demo.getApellidoMaterno():"")
-					+"&nbsp;&nbsp; Nombre (s):&nbsp;"
-					+(demo.getNombre()!=null?demo.getNombre():"")
-					+"&nbsp;&nbsp;</p>";
-				if(invol.getAliasInvolucrados().size()>0){
-					AliasInvolucrado alia = invol.getAliasInvolucrados().iterator().next();
-					cuerpoIPH+="<p>Alias:&nbsp;"
-						+(alia.getAlias()!=null? alia.getAlias():"")
-						+"&nbsp;&nbsp;</p>";
-				}
-				String strFechaNacim="NO REGISTRADA";
-				String strMayorEdad="_____";
-				String strPaisNacimiento="No Registrado";
-				if(demo.getEdadAproximada()!=null)
-					strMayorEdad=(demo.getEdadAproximada()>=18)?"SÍ":"NO";
-				if(demo.getFechaNacimiento()!=null)
-					strFechaNacim=formato.format(demo.getFechaNacimiento());
+				if (invol.getNombreDemograficos().iterator().hasNext()){
+					NombreDemografico demo = invol.getNombreDemograficos().iterator().next();
+					cuerpoIPH += "<p>Apellido Paterno:&nbsp;"
+							+ (demo.getApellidoPaterno() != null ? demo.getApellidoPaterno() : "")
+							+ "&nbsp;&nbsp; Apellido Materno:&nbsp;"
+							+ (demo.getApellidoMaterno() != null ? demo.getApellidoMaterno() : "")
+							+ "&nbsp;&nbsp; Nombre (s):&nbsp;"
+							+ (demo.getNombre() != null ? demo.getNombre() : "")
+							+ "&nbsp;&nbsp;</p>";
+					if (invol.getAliasInvolucrados().size() > 0) {
+						AliasInvolucrado alia = invol.getAliasInvolucrados().iterator().next();
+						cuerpoIPH += "<p>Alias:&nbsp;"
+								+ (alia.getAlias() != null ? alia.getAlias() : "")
+								+ "&nbsp;&nbsp;</p>";
+					}
+					String strFechaNacim = "NO REGISTRADA";
+					String strMayorEdad = "_____";
+					String strPaisNacimiento = "No Registrado";
+					if (demo.getEdadAproximada() != null)
+						strMayorEdad = (demo.getEdadAproximada() >= 18) ? "SÍ" : "NO";
+					if (demo.getFechaNacimiento() != null)
+						strFechaNacim = formato.format(demo.getFechaNacimiento());
 //				cuerpoIPH+="<p>País de origen: "+demo.getPaisNacimiento().getValor()+"&nbsp; Grupo &Eacute;tnico:_______</p>"+
-				if(demo.getPaisNacimiento()!=null && demo.getPaisNacimiento().getValor()!=null){
-					strPaisNacimiento=demo.getPaisNacimiento().getValor();
-				}
-				cuerpoIPH+="<p>País de origen: "+strPaisNacimiento+"</p>"+
-				"<table><tr><td>Fecha de Nacimiento:"+strFechaNacim+"</td>" +
-				"<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>" +
-				"<td>Edad:"+demo.getEdadAproximada()+"</td></tr>" +
-				"<tr><td>RFC:"
-					+(demo.getRfc()!=null?demo.getRfc():"")
-					+"</td>" +
-				"<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>" +
-				"<td>Sexo:"
-					+(demo.getSexo()!=null?demo.getSexo().toUpperCase():"")
-					+"</td></tr></table>"+
-				"<p>Domicilio: "+strDomicilio+"&nbsp;</p>"+
-				"<p>En calidad de: "
-					+(invol.getCalidad().getTipoCalidad()!=null? invol.getCalidad().getTipoCalidad().getValor(): "")
-					+"&nbsp;&nbsp;</p>"+
-				"<p>Mayor de edad:&nbsp;"+strMayorEdad+"&nbsp;&nbsp;</p>";
+					if (demo.getPaisNacimiento() != null && demo.getPaisNacimiento().getValor() != null) {
+						strPaisNacimiento = demo.getPaisNacimiento().getValor();
+					}
+					cuerpoIPH += "<p>País de origen: " + strPaisNacimiento + "</p>" +
+							"<table><tr><td>Fecha de Nacimiento:" + strFechaNacim + "</td>" +
+							"<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>" +
+							"<td>Edad:" + demo.getEdadAproximada() + "</td></tr>" +
+							"<tr><td>RFC:"
+							+ (demo.getRfc() != null ? demo.getRfc() : "")
+							+ "</td>" +
+							"<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>" +
+							"<td>Sexo:"
+							+ (demo.getSexo() != null ? demo.getSexo().toUpperCase() : "")
+							+ "</td></tr></table>" +
+							"<p>Domicilio: " + strDomicilio + "&nbsp;</p>" +
+							"<p>En calidad de: "
+							+ (invol.getCalidad().getTipoCalidad() != null ? invol.getCalidad().getTipoCalidad().getValor() : "")
+							+ "&nbsp;&nbsp;</p>" +
+							"<p>Mayor de edad:&nbsp;" + strMayorEdad + "&nbsp;&nbsp;</p>";
 //				"<p>Situaci&oacute;n:&nbsp;"+invol.getCalidad().getTipoCalidad().getValor()+"&nbsp;&nbsp;</p>";
 //				"<p>Estatus residencial: _________</p>"+
 //				"<p>Origen:&nbsp;______________________&nbsp;&nbsp; Destino:&nbsp;_________________________&nbsp;&nbsp;</p>";
-				
-                                }
+				}
 				if(invol.getCalidad().getTipoCalidad().getValorId().equals(Calidades.PROBABLE_RESPONSABLE_PERSONA.getValorId())){
 					/*DELITOS O FALTAS*/
 					cuerpoIPH+="<p><strong>PROBABLES DELITOS O FALTAS ADMINISTRATIVAS</strong></p>";
@@ -555,7 +554,93 @@ private String reemplazarCamposIPH(InformePolicialHomologado informe) {
 				numPer++;
 			}//Fin Por cada Involucrado
 			
-                        
+			/*SCRZ Cuando se empleaba InvolucradoIph*/
+//			if(informe.getInvolucradoIphs().size()>0){
+//				ArrayList<InvolucradoIph> invoIPH = new ArrayList<InvolucradoIph>(informe.getInvolucradoIphs());
+//				int numPerInv=1;
+//				for (InvolucradoIph invol : invoIPH) {
+////					cuerpoIPH+="<p>&nbsp;&nbsp;&nbsp;<strong>Persona Involucrada "+numPerInv+"</strong></p>";
+//					
+//					if(invol.getNombreDemograficos().size()>0){
+//						Domicilio domicilioInvol=obtenRelacionDomicilio(invol.getElementoId());
+//						String strDomicilio="";
+//						if(domicilioInvol!=null)
+//							strDomicilio=domicilioInvol.getCalle()+" "+domicilioInvol.getNumeroExterior()+" "+domicilioInvol.getCiudad();
+//						NombreDemografico demo = invol.getNombreDemograficos().iterator().next();
+//						cuerpoIPH+="<p>Apellido Paterno:&nbsp;"+demo.getApellidoPaterno()+"&nbsp;&nbsp; Apellido Materno:&nbsp;"+demo.getApellidoMaterno()+"&nbsp;&nbsp; Nombre (s):&nbsp;"+demo.getNombre()+"&nbsp;&nbsp;</p>";
+//						if(invol.getAliasInvolucrados().size()>0){
+//							AliasInvolucrado alia = invol.getAliasInvolucrados().iterator().next();
+//							cuerpoIPH+="<p>Alias:&nbsp;"+alia.getAlias()+"&nbsp;&nbsp;";
+//						}
+//						String strFechaNacim="NO REGISTRADA";
+//						if(demo.getFechaNacimiento()!=null)
+//							strFechaNacim=formato.format(demo.getFechaNacimiento());
+//						cuerpoIPH+="País de origen: "+demo.getPaisNacimiento().getValor()+"&nbsp; Grupo &Eacute;tnico:"+invol.getGrupoEtnico().getValor()+"&nbsp;</p>"+
+//						"<p>Fecha de Nacimiento:"+strFechaNacim+"&nbsp; Edad:"+demo.getEdadAproximada()+"&nbsp; RFC:"+demo.getRfc()+"&nbsp; Sexo:"+demo.getSexo().toUpperCase()+"</p>"+
+//						"<p>Domicilio:"+strDomicilio+"&nbsp;</p>"+
+//						"<p>En calidad de: "+invol.getCalidad().getTipoCalidad().getValor()+"&nbsp;&nbsp;</p>"+
+//						"<p>Mayor de edad:&nbsp;"+invol.getGrupoEdad().getValor()+"&nbsp;&nbsp;</p>"+
+//						"<p>Situaci&oacute;n:&nbsp;"+invol.getSituacionPolicialIndividuo().getValor()+"&nbsp;&nbsp;</p>"+
+//						"<p>Estatus residencial: "+invol.getEstatusResidencial().getValor()+"&nbsp;</p>"+
+//						"<p>Origen:&nbsp;______________________&nbsp;&nbsp; Destino:&nbsp;_________________________&nbsp;&nbsp;</p>";
+//					}//Datos demográficos
+//					
+//					if(invol.getCalidad().getTipoCalidad().getValorId().equals(Calidades.PROBABLE_RESPONSABLE_PERSONA.getValorId())){
+//						/*DELITOS O FALTAS*/
+//						cuerpoIPH+="<p><strong>PROBABLES DELITOS O FALTAS ADMINISTRATIVAS</strong></p><p>";
+//						List<DelitoIph> delitosIP =new ArrayList<DelitoIph>(informe.getDelitoIphs());
+//						for (DelitoIph deli : delitosIP) {
+//							cuerpoIPH+=deli.getCatDelito().getNombre()+"&nbsp;&nbsp;";
+//							
+//						}
+//						List<FaltaAdministrativaIph> faltasIP=new ArrayList<FaltaAdministrativaIph>(informe.getFaltaAdministrativaIphs());
+//						for (FaltaAdministrativaIph falta : faltasIP) {
+//							cuerpoIPH+=falta.getCatFaltaAdministrativa().getNombreFalta()+"&nbsp;&nbsp;";
+//						}
+//					}
+//					
+//					/*OTROS DATOS*/
+//					cuerpoIPH+="</p><p><strong>OTROS DATOS.</strong></p>"+
+//					"<p>Ocupaci&oacute;n:&nbsp;_______________________&nbsp;&nbsp; Escolaridad:&nbsp;________________________&nbsp;</p>";
+//					if(invol.getMedioDeContactos().size()>0){
+//						List<MedioDeContacto> medios=new ArrayList<MedioDeContacto>(invol.getMedioDeContactos());
+//						String strTelCasa="SIN REGISTRO";
+//						String strTelMovil="SIN REGISTRO";
+//						for (MedioDeContacto med : medios) {
+//							if(med instanceof Telefono){
+//								strTelCasa=((Telefono) med).getValor().getValorId().equals(TipoTelefono.CASA.getValorId())?((Telefono) med).getNumeroTelefonico():strTelCasa;
+//								strTelMovil=((Telefono) med).getValor().getValorId().equals(TipoTelefono.CELULAR.getValorId())?((Telefono) med).getNumeroTelefonico():strTelMovil;
+//							}
+//						}
+//						cuerpoIPH+="<p>Tel&eacute;fono particular: "+strTelCasa+"&nbsp;Tel&eacute;fono Celular: "+strTelMovil+"</p>";
+//					}
+//					cuerpoIPH+="<p>Observaciones:&nbsp;__________________________;&nbsp;&nbsp;</p>";
+//					
+//					/*Datos de detencion*/
+//					cuerpoIPH+="<p><strong>DATOS DE LA DETENCION.</strong></p>";
+//					if(invol.getDetencions().size()>0){
+//						Detencion detenc = invol.getDetencions().iterator().next();
+//						String strQRecibe=(detenc.getFuncionarioByFuncionarioTraslada()!=null)?detenc.getFuncionarioByFuncionarioDetiene().getNombreCompleto()+", "+detenc.getFuncionarioByFuncionarioDetiene().getPuesto().getValor():"NO REGISTRADO";
+//						cuerpoIPH+="<p>Motivo de la detenci&oacute;n:&nbsp;"+detenc.getMotivoDetencion()+"</p>"+
+//						"<p>Ubicaci&oacute;n del detenido:&nbsp;"+detenc.getLugarDetencionProvisional()+"</p>"+
+//						"<p>Autoridad a la que fue puesta a disposici&oacute;n: ___________________</p>"+
+//						"<p>Nombre y cargo de quien lo recibi&oacute;:&nbsp;"+strQRecibe+"</p>"+
+//						"<p>Turno: &nbsp;_____________________&nbsp;&nbsp; N&uacute;mero de Documento: &nbsp;___________________&nbsp;&nbsp;</p>";
+//					}
+//					
+//					String strDicamen="NO";
+//					String strFechaDictamen="";
+//					if(invol.getFechaDictamenMedico()!=null){
+//						strDicamen="SI";
+//						strFechaDictamen=formato.format(invol.getFechaDictamenMedico());
+//					}
+//					cuerpoIPH+="<p><strong>DICATAMEN M&Eacute;DICO.</strong></p>"+
+//					"<p>Dictamen m&eacute;dico: "+strDicamen+"&nbsp; Fecha del dictamen:"+strFechaDictamen+"</p>";
+//					
+//					numPerInv++;
+//				}
+//			}//Fin Involucrado
+			
 			/*MEDIOS DE TRANSPORTE INVOLUCRADO*/
 			cuerpoIPH+="<p><strong>_______________________________________________________________________________________________________</strong></p>"+
 			"<p><strong>MEDIOS DE TRASPORTE INVOLUCRADOS</strong></p>";

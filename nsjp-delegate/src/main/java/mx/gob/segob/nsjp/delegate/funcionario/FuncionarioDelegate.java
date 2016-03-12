@@ -510,13 +510,6 @@ public interface FuncionarioDelegate {
      */
     List<PermisoSolicitudDTO> consultarSolicitudesConPermisoFuncionario(Long funcionarioId) throws NSJPNegocioException;
 
-
-    /**
-     * Metodo que permite consultar todos los funcionarios existentes
-     *
-     * @return List<FuncionarioDTO>
-     * @throws NSJPNegocioException
-     */
-    public List<CatalogoDTO> consultarTodosFuncionarios()  throws NSJPNegocioException;
+    public List<FuncionarioDTO> consultarFuncionariosPorDicriminanteYRolYUIE (Long catDiscriminanteId, Long idRol, Long idUIE)throws NSJPNegocioException;
 
 }

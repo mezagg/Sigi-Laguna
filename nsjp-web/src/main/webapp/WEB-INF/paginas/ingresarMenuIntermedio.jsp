@@ -1679,6 +1679,7 @@
              *Funcion que dispara el Action para consultar el los agentes mp
              */
             function cargaAgenteMp() {
+                $('#cbxAgentesCoorUI').html('<option value="-1">-Seleccione-</option>')
                 $.ajax({
                     type: 'POST',
                     url: '<%=request.getContextPath()%>/consultarAgentesUI.do',
@@ -1688,7 +1689,7 @@
                     success: function (xml) {
                         var option;
                         $(xml).find('funcionarioDTO').each(function () {
-                            $('#cbxAgentesCoorUI').append('<option value="' + $(this).find('claveFuncionario').text() + '">' +
+                            $('#cbxAgentesCoorUI').append('<option value="' + $(this).find('id').text() + '">' +
                                     $(this).find('nombreFuncionario').text() + " " +
                                     $(this).find('apellidoPaternoFuncionario').text() + " " +
                                     $(this).find('apellidoMaternoFuncionario').text() + '</option>');
@@ -1934,11 +1935,14 @@
                         dataType: 'xml',
                         async: false,
                         success: function (xml) {
+                             registrarActividadExpediente(151, 1712, 0, funcio);
+                             alertDinamico("Se asign&oacute; correctamente la carpeta de investigaci&oacute;n");
+                        },
 
+                        error: function(xml){
+                             alertDinamico("Error al  asignar la carpeta de investigaci&oacute;n");
                         }
                     });
-                    registrarActividadExpediente(151, 1712, 0, funcio);
-                    alertDinamico("Se asign&oacute; correctamente la carpeta de investigaci&oacute;n");
                 } else {
                     alertDinamico("Debe seleccionar un agente para realizar la asignaci&oacute;n");
                 }

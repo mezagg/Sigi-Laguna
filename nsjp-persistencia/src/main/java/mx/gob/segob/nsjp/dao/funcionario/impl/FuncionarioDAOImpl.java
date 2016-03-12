@@ -856,7 +856,6 @@ public class FuncionarioDAOImpl extends
             hqlQuery.append(" AND f.unidadIEspecializada = " + idUIE);
         }
         hqlQuery.append(" order by  f.nombreFuncionario");
-
         Query query = super.getSession().createQuery(hqlQuery.toString());
         return query.list();
     }
@@ -1416,4 +1415,30 @@ public class FuncionarioDAOImpl extends
     	return query.list();
     }
 
+    @Override
+    public List<FuncionarioDTO> consultarFuncionariosPorDiscriminante(Long catDiscriminanteId, Long idRol, Long idUIE) {
+        StringBuffer queryString = new StringBuffer();
+
+        queryString.append(" SELECT  cast (f.iClaveFuncionario as varchar) as id ,");
+        queryString.append(" f.cNombreFuncionario as nombreFuncionario, ");
+        queryString.append(" f.cApellidoPaternoFuncionario as apellidoPaternoFuncionario, ");
+        queryString.append(" f.cApellidoMaternoFuncionario as apellidoMaternoFuncionario ");
+        queryString.append(" FROM Funcionario f join Usuario u  ");
+        queryString.append(" ON f.iClaveFuncionario=u.iClaveFuncionario ");
+        queryString.append(" JOIN  UsuarioRol ur ");
+        queryString.append(" ON u.Usuario_id = ur.Usuario_id ");
+        queryString.append(" where u.bEsActivo= 1 ");
+        queryString.append(" AND f.catDiscriminante_id = ").append(catDiscriminanteId);
+        if(idUIE != null)
+        queryString.append(" AND f.catUIE_id = ").append(idUIE);
+        queryString.append(" AND ur.Rol_id = ").append(idRol);
+        queryString.append(" ORDER BY f.cNombreFuncionario");
+        List<FuncionarioDTO> funcionarios= super.getSession().createSQLQuery(queryString.toString())
+                    .setResultTransformer( Transformers.aliasToBean(FuncionarioDTO.class))
+                    .list();
+        if (funcionarios == null)
+            funcionarios= new ArrayList<FuncionarioDTO>();
+
+        return funcionarios;
+    }
 }

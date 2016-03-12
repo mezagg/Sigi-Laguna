@@ -95,6 +95,7 @@ public class FuncionarioDTO extends GenericDTO
 
     private Long entidadFederativaId;
     private Long regionId;
+    private String id ;
 
     /**
      * Para la notificaciòn de eventos el funcionario tiene un conjunto de
@@ -112,7 +113,7 @@ public class FuncionarioDTO extends GenericDTO
         super();
     }
     /**
-     * @param icaveFuncionario
+     * @param claveFuncionario
      */
     public FuncionarioDTO(Long claveFuncionario) {
         super();
@@ -166,7 +167,7 @@ public class FuncionarioDTO extends GenericDTO
     /**
      * Asigna el valor al campo icaveFuncionario.
      * 
-     * @param icaveFuncionario
+     * @param claveFuncionario
      *            el valor icaveFuncionario a asignar
      */
     public void setClaveFuncionario(Long claveFuncionario) {
@@ -710,5 +711,13 @@ public class FuncionarioDTO extends GenericDTO
 
     public void setRegionId(Long regionId) {
         this.regionId = regionId;
+    }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
