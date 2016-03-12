@@ -4844,7 +4844,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
 
                 CatDiscriminanteDTO catDiscriminanteDTO = new CatDiscriminanteDTO();
                 catDiscriminanteDTO.setCatDiscriminanteId(usuario.getFuncionario().getDiscriminante().getCatDiscriminanteId().longValue());
-                listFuncionarioDTO = funcionarioDelegate.consultarFuncionariosPorDicriminanteYRol(
+                listFuncionarioDTO = funcionarioDelegate.consultarFuncionariosPorDicriminanteYRolYUIE(
                         catDiscriminanteDTO.getCatDiscriminanteId(), Roles.AGENTEMP.getValorId(), (idUIE > 0 ? idUIE : null));
             } else {
                 log.info("%&/%% filtro: " + filtro);

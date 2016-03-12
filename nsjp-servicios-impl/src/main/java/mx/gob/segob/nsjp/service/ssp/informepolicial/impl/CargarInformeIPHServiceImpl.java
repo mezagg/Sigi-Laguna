@@ -443,51 +443,52 @@ private String reemplazarCamposIPH(InformePolicialHomologado informe) {
 //					strDomicilio=domicilioInvol.getCalle()+" "+domicilioInvol.getNumeroExterior()+" "+domicilioInvol.getCiudad();
 					strDomicilio=domicilioInvol.toString();
 				}
-				NombreDemografico demo = invol.getNombreDemograficos().iterator().next();
-				cuerpoIPH+="<p>Apellido Paterno:&nbsp;"
-					+(demo.getApellidoPaterno()!=null?demo.getApellidoPaterno(): "")
-					+"&nbsp;&nbsp; Apellido Materno:&nbsp;"
-					+(demo.getApellidoMaterno()!=null?demo.getApellidoMaterno():"")
-					+"&nbsp;&nbsp; Nombre (s):&nbsp;"
-					+(demo.getNombre()!=null?demo.getNombre():"")
-					+"&nbsp;&nbsp;</p>";
-				if(invol.getAliasInvolucrados().size()>0){
-					AliasInvolucrado alia = invol.getAliasInvolucrados().iterator().next();
-					cuerpoIPH+="<p>Alias:&nbsp;"
-						+(alia.getAlias()!=null? alia.getAlias():"")
-						+"&nbsp;&nbsp;</p>";
-				}
-				String strFechaNacim="NO REGISTRADA";
-				String strMayorEdad="_____";
-				String strPaisNacimiento="No Registrado";
-				if(demo.getEdadAproximada()!=null)
-					strMayorEdad=(demo.getEdadAproximada()>=18)?"SÍ":"NO";
-				if(demo.getFechaNacimiento()!=null)
-					strFechaNacim=formato.format(demo.getFechaNacimiento());
+				if (invol.getNombreDemograficos().iterator().hasNext()){
+					NombreDemografico demo = invol.getNombreDemograficos().iterator().next();
+					cuerpoIPH += "<p>Apellido Paterno:&nbsp;"
+							+ (demo.getApellidoPaterno() != null ? demo.getApellidoPaterno() : "")
+							+ "&nbsp;&nbsp; Apellido Materno:&nbsp;"
+							+ (demo.getApellidoMaterno() != null ? demo.getApellidoMaterno() : "")
+							+ "&nbsp;&nbsp; Nombre (s):&nbsp;"
+							+ (demo.getNombre() != null ? demo.getNombre() : "")
+							+ "&nbsp;&nbsp;</p>";
+					if (invol.getAliasInvolucrados().size() > 0) {
+						AliasInvolucrado alia = invol.getAliasInvolucrados().iterator().next();
+						cuerpoIPH += "<p>Alias:&nbsp;"
+								+ (alia.getAlias() != null ? alia.getAlias() : "")
+								+ "&nbsp;&nbsp;</p>";
+					}
+					String strFechaNacim = "NO REGISTRADA";
+					String strMayorEdad = "_____";
+					String strPaisNacimiento = "No Registrado";
+					if (demo.getEdadAproximada() != null)
+						strMayorEdad = (demo.getEdadAproximada() >= 18) ? "SÍ" : "NO";
+					if (demo.getFechaNacimiento() != null)
+						strFechaNacim = formato.format(demo.getFechaNacimiento());
 //				cuerpoIPH+="<p>País de origen: "+demo.getPaisNacimiento().getValor()+"&nbsp; Grupo &Eacute;tnico:_______</p>"+
-				if(demo.getPaisNacimiento()!=null && demo.getPaisNacimiento().getValor()!=null){
-					strPaisNacimiento=demo.getPaisNacimiento().getValor();
-				}
-				cuerpoIPH+="<p>País de origen: "+strPaisNacimiento+"</p>"+
-				"<table><tr><td>Fecha de Nacimiento:"+strFechaNacim+"</td>" +
-				"<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>" +
-				"<td>Edad:"+demo.getEdadAproximada()+"</td></tr>" +
-				"<tr><td>RFC:"
-					+(demo.getRfc()!=null?demo.getRfc():"")
-					+"</td>" +
-				"<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>" +
-				"<td>Sexo:"
-					+(demo.getSexo()!=null?demo.getSexo().toUpperCase():"")
-					+"</td></tr></table>"+
-				"<p>Domicilio: "+strDomicilio+"&nbsp;</p>"+
-				"<p>En calidad de: "
-					+(invol.getCalidad().getTipoCalidad()!=null? invol.getCalidad().getTipoCalidad().getValor(): "")
-					+"&nbsp;&nbsp;</p>"+
-				"<p>Mayor de edad:&nbsp;"+strMayorEdad+"&nbsp;&nbsp;</p>";
+					if (demo.getPaisNacimiento() != null && demo.getPaisNacimiento().getValor() != null) {
+						strPaisNacimiento = demo.getPaisNacimiento().getValor();
+					}
+					cuerpoIPH += "<p>País de origen: " + strPaisNacimiento + "</p>" +
+							"<table><tr><td>Fecha de Nacimiento:" + strFechaNacim + "</td>" +
+							"<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>" +
+							"<td>Edad:" + demo.getEdadAproximada() + "</td></tr>" +
+							"<tr><td>RFC:"
+							+ (demo.getRfc() != null ? demo.getRfc() : "")
+							+ "</td>" +
+							"<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>" +
+							"<td>Sexo:"
+							+ (demo.getSexo() != null ? demo.getSexo().toUpperCase() : "")
+							+ "</td></tr></table>" +
+							"<p>Domicilio: " + strDomicilio + "&nbsp;</p>" +
+							"<p>En calidad de: "
+							+ (invol.getCalidad().getTipoCalidad() != null ? invol.getCalidad().getTipoCalidad().getValor() : "")
+							+ "&nbsp;&nbsp;</p>" +
+							"<p>Mayor de edad:&nbsp;" + strMayorEdad + "&nbsp;&nbsp;</p>";
 //				"<p>Situaci&oacute;n:&nbsp;"+invol.getCalidad().getTipoCalidad().getValor()+"&nbsp;&nbsp;</p>";
 //				"<p>Estatus residencial: _________</p>"+
 //				"<p>Origen:&nbsp;______________________&nbsp;&nbsp; Destino:&nbsp;_________________________&nbsp;&nbsp;</p>";
-				
+				}
 				if(invol.getCalidad().getTipoCalidad().getValorId().equals(Calidades.PROBABLE_RESPONSABLE_PERSONA.getValorId())){
 					/*DELITOS O FALTAS*/
 					cuerpoIPH+="<p><strong>PROBABLES DELITOS O FALTAS ADMINISTRATIVAS</strong></p>";

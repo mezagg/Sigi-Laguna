@@ -15,7 +15,9 @@ import java.util.List;
 
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
 import mx.gob.segob.nsjp.dao.base.GenericDao;
+import mx.gob.segob.nsjp.dto.catalogo.CatalogoDTO;
 import mx.gob.segob.nsjp.dto.funcionario.CriterioConsultaFuncionarioExternoDTO;
+import mx.gob.segob.nsjp.dto.funcionario.FuncionarioDTO;
 import mx.gob.segob.nsjp.model.Almacen;
 import mx.gob.segob.nsjp.model.Evidencia;
 import mx.gob.segob.nsjp.model.Expediente;
@@ -47,7 +49,7 @@ public interface FuncionarioDAO extends GenericDao<Funcionario, Long> {
     public List<Funcionario> consultarFuncionariosPorRol(Long idPuesto);
 
     /**
-     * Servicio que consulta los Funcionarios por ROl, para la versión multi
+     * Servicio que consulta los Funcionarios por ROl, para la versiï¿½n multi
      * Rol.
      *
      * @param idRol
@@ -56,11 +58,11 @@ public interface FuncionarioDAO extends GenericDao<Funcionario, Long> {
     List<Funcionario> consultarFuncionariosPorRolMultiRol(Long idRol);
 
     /**
-     * Consulta los jueces disponibles para una cierta fecha y que estén
-     * desocupados durante el toda la duración estimada de la audiencia.
+     * Consulta los jueces disponibles para una cierta fecha y que estï¿½n
+     * desocupados durante el toda la duraciï¿½n estimada de la audiencia.
      *
      * @param fecha fecha y hora de la audiencia
-     * @param duracionEstimada Duración estimada en minutos
+     * @param duracionEstimada Duraciï¿½n estimada en minutos
      * @param especialidad Especialidad del funcionario a filtrat
      * @param puesto Puesto del funcionario a filtrar
      * @param paridadJuezRequerida
@@ -132,8 +134,8 @@ public interface FuncionarioDAO extends GenericDao<Funcionario, Long> {
     Funcionario obtenerFuncionarioPorNombreCompleto(String nombreCompleto);
 
     /**
-     * Operación que realiza la funcionalidad de asociar el Perito seleccionado
-     * con el número de expediente Recibe el perito y el número de expediente
+     * Operaciï¿½n que realiza la funcionalidad de asociar el Perito seleccionado
+     * con el nï¿½mero de expediente Recibe el perito y el nï¿½mero de expediente
      *
      * @throws NSJPNegocioException
      */
@@ -149,8 +151,8 @@ public interface FuncionarioDAO extends GenericDao<Funcionario, Long> {
     Funcionario consultarFuncionarioPorEvidencia(Evidencia evidencia);
 
     /**
-     * Operación que realiza la funcionalidad de consultar el personal o los
-     * funcionarios adscritos a un departamento de la Institución.
+     * Operaciï¿½n que realiza la funcionalidad de consultar el personal o los
+     * funcionarios adscritos a un departamento de la Instituciï¿½n.
      *
      * @param idDepartamento
      * @return
@@ -196,7 +198,7 @@ public interface FuncionarioDAO extends GenericDao<Funcionario, Long> {
     Funcionario consultaFuncionarioPorNombreInstitucionPuesto(Funcionario funcionario);
 
     /**
-     * Consulta la disponibilidad de un funcionario para la fecha señalada por
+     * Consulta la disponibilidad de un funcionario para la fecha seï¿½alada por
      * time
      *
      * @param claveFuncionario
@@ -207,7 +209,7 @@ public interface FuncionarioDAO extends GenericDao<Funcionario, Long> {
     boolean existeDisponibilidad(Long claveFuncionario, Date time, Long limite);
 
     /**
-     * Obtiene el funcionario por su número de empleado
+     * Obtiene el funcionario por su nï¿½mero de empleado
      *
      * @param numeroEmpleado
      * @return
@@ -325,5 +327,12 @@ public interface FuncionarioDAO extends GenericDao<Funcionario, Long> {
      * @return
      */
     List<Funcionario> consultarSubordinadosUAVD();
-
+    /**
+     * Enable JC. Obtiene todos loa funcionarios filtrados por catDiscriminante
+     * catuUIE y Rol
+     * siendo coordinadores y de las ?reas de UAVD.
+     *
+     * @return
+     */
+    List<FuncionarioDTO> consultarFuncionariosPorDiscriminante(Long catDiscriminanteId, Long idRol, Long idUIE);
 }

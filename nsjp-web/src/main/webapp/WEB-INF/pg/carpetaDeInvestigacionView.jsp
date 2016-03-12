@@ -24,7 +24,7 @@
 	// Condicional realizada para validar que el usuario coordinadorAmp cuente con el rol de
 	// agentemp. En caso contrario, el flujo es normal.
 	if(usuario!=null && usuario.getUsuarioRoles()!=null){
-		
+
 		for (UsuarioRolDTO usuarioRolDTO : usuario.getUsuarioRoles()) {
 			if(usuarioRolDTO.getRol().getRolId()!=null){
 				if(usuarioRolDTO.getRol().getRolId() == Roles.AGENTEMP.getValorId()){
@@ -32,7 +32,7 @@
 				}
 			}
 		}
-		
+
 	}
 %>
 
@@ -54,8 +54,8 @@
 	var idEstatusCC = '2540';
 	var idEstatusC = '<%= EstatusExpediente.CERRADO.getValorId()%>';
 	var idEstatusCCMC = '2945';
-	
-	var menuExpedienteAsignado = false;	
+
+	var menuExpedienteAsignado = false;
 	var tur;
 	var idWindowNuevaDenuncia=1;
 	var idWindowAMP=1;
@@ -74,22 +74,22 @@
 
 	$(document).ready(function() {
 		$('#remisionesIPH').click(cargaGridInformePolicial);
-				
+
 		$("#divGridSolsXAtndr").hide();
-		
+
 		//Mandamos consultar los tipos de solicitud dependiendo del Area del Funcionario
 		consultarTiposSolicitudPorAreaDelFuncionarioGen('tableSolsGeneradas',"0");
-		consultarTiposSolicitudPorAreaDelFuncionario('tableSolsXAtender',idAreaUserLogged);	
-			
+		consultarTiposSolicitudPorAreaDelFuncionario('tableSolsXAtender',idAreaUserLogged);
+
 		//Grid de Solicitudes por atender
-		jQuery("#gridSolsXAtndr").jqGrid({ 
-			datatype: "xml", 
+		jQuery("#gridSolsXAtndr").jqGrid({
+			datatype: "xml",
 			autowidth: true,
-			colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creaci&oacute;n','Fecha Limite','Instituci&oacute;n','Remitente'], 
+			colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creaci&oacute;n','Fecha Limite','Instituci&oacute;n','Remitente'],
 			colModel:[ 	{name:'caso',index:'caso', width:180,hidden:true},
-			           	{name:'expediente',index:'expediente', width:180}, 
-						{name:'folio',index:'folio', width:100}, 
-						{name:'estatus',index:'estatus', width:100}, 
+			           	{name:'expediente',index:'expediente', width:180},
+						{name:'folio',index:'folio', width:100},
+						{name:'estatus',index:'estatus', width:100},
 						{name:'fechaCreacion',index:'fechaCreacion', width:90},
 						{name:'fechaLimite',index:'fechaLimite', width:80,hidden:true},
 						{name:'institucion',index:'institucion', width:100},
@@ -107,14 +107,14 @@
 		}).navGrid('#pagerGridSolsXAtndr',{edit:false,add:false,del:false});
 
 		//Grid de Solicitudes generadas
-		jQuery("#gridSolsGeneradas").jqGrid({ 
-			datatype: "xml", 
+		jQuery("#gridSolsGeneradas").jqGrid({
+			datatype: "xml",
 			autowidth: true,
-			colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creaci&oacute;n','Fecha Limite','Instituci&oacute;n','Destinatario'], 
+			colNames:['No. Caso','No. Expediente', 'Folio','Estatus','Fecha Creaci&oacute;n','Fecha Limite','Instituci&oacute;n','Destinatario'],
 			colModel:[ 	{name:'caso',index:'caso', width:180,hidden:true},
-			           	{name:'expediente',index:'expediente', width:180}, 
-						{name:'folio',index:'folio', width:100}, 
-						{name:'estatus',index:'estatus', width:100}, 
+			           	{name:'expediente',index:'expediente', width:180},
+						{name:'folio',index:'folio', width:100},
+						{name:'estatus',index:'estatus', width:100},
 						{name:'fechaCreacion',index:'fechaCreacion', width:90},
 						{name:'fechaLimite',index:'fechaLimite', width:80,hidden:true},
 						{name:'institucion',index:'institucion', width:100},
@@ -130,14 +130,14 @@
 					dblClickRowBandejaSolicitudesGen(rowid);
 			}
 		}).navGrid('#pagerGridSolsGeneradas',{edit:false,add:false,del:false});
-		
+
 		//Grid de Mandamientos Judiciales
-		jQuery("#gridMandamientosJudiciales").jqGrid({ 
-			datatype: "xml", 
-			colNames:['Caso','Tipo', 'Persona (s)','Fecha'], 
+		jQuery("#gridMandamientosJudiciales").jqGrid({
+			datatype: "xml",
+			colNames:['Caso','Tipo', 'Persona (s)','Fecha'],
 			colModel:[ 	{name:'caso',index:'caso', width:250},
-			           	{name:'tipo',index:'tipo', width:200}, 
-						{name:'persona',index:'persona', width:200}, 
+			           	{name:'tipo',index:'tipo', width:200},
+						{name:'persona',index:'persona', width:200},
 						{name:'fecha',index:'fecha', width:150}
 			],
 			pager: jQuery('#pagerGridMandamientosJudiciales'),
@@ -148,18 +148,18 @@
 			viewrecords: true,
 			sortorder: "desc"
 		}).navGrid('#pagerGridMandamientosJudiciales',{edit:false,add:false,del:false});
-		
+
 		//Ejemplo3.xml
-		jQuery("#gridDetalleFrmUno").jqGrid({ 
-			datatype: "xml", 
-			colNames:['Expediente','Fecha Remitido', 'Denunciante', 'Delito principal','Origen','Estatus'], 
+		jQuery("#gridDetalleFrmUno").jqGrid({
+			datatype: "xml",
+			colNames:['Expediente','Fecha Remitido', 'Denunciante', 'Delito principal','Origen','Estatus'],
 			colModel:[ 	{name:'Caso',index:'detalle', width:125},
-			           	{name:'Fecha',index:'fecha', width:125}, 
-						{name:'Denunciante',index:'nombre', width:125}, 
-						{name:'Fecha',index:'fecha', width:125}, 
-						{name:'Denunciante',index:'nombre', width:125}, 
+			           	{name:'Fecha',index:'fecha', width:125},
+						{name:'Denunciante',index:'nombre', width:125},
+						{name:'Fecha',index:'fecha', width:125},
+						{name:'Denunciante',index:'nombre', width:125},
 						{name:'Delito',index:'Resumen', width:125}
-			
+
 					],
 			pager: jQuery('#pager3'),
 			rowNum:10,
@@ -174,14 +174,14 @@
 		}).navGrid('#pager3',{edit:false,add:false,del:false});
 
 		//Ejemplo4.xml
-		jQuery("#gridDetalleFrmDos").jqGrid({ 
-			datatype: "xml", 
-			colNames:['Caso','Fecha Remitido', 'Denunciante', 'Delito'], 
+		jQuery("#gridDetalleFrmDos").jqGrid({
+			datatype: "xml",
+			colNames:['Caso','Fecha Remitido', 'Denunciante', 'Delito'],
 			colModel:[ 	{name:'Caso',index:'detalle', width:125},
-			           	{name:'Fecha',index:'fecha', width:125}, 
-						{name:'Denunciante',index:'nombre', width:425}, 
+			           	{name:'Fecha',index:'fecha', width:125},
+						{name:'Denunciante',index:'nombre', width:425},
 						{name:'Delito',index:'Resumen', width:225}
-			
+
 					],
 			pager: jQuery('#pager4'),
 			rowNum:10,
@@ -193,20 +193,20 @@
 				nuevaDenuncia(id);
 			},
 			sortorder: "desc"
-		}).navGrid('#pager4',{edit:false,add:false,del:false});	
-					 		
+		}).navGrid('#pager4',{edit:false,add:false,del:false});
+
 		/**Queja Ciudadana - Pendiente**/
 		jQuery("#gridQuejaPendiente").jqGrid({
-			url : '<%= request.getContextPath()%>/consultaGridQuejasPEndientes.do', 
-			datatype: "xml", 
-			colNames:['Folio de Queja','Nombre de Quejoso','Calidad del Afectado','Nombre del Funcionario','Tipo de Queja'], 
-			colModel:[ 	
+			url : '<%= request.getContextPath()%>/consultaGridQuejasPEndientes.do',
+			datatype: "xml",
+			colNames:['Folio de Queja','Nombre de Quejoso','Calidad del Afectado','Nombre del Funcionario','Tipo de Queja'],
+			colModel:[
 			        	{name:'FolioQueja',index:'1', sortable:false,width: 150},
 			           	{name:'NombreQuejoso',index:'2', sortable:false, width: 250},
-			           	{name:'CalidadQuejoso',index:'3', sortable:false, width: 150}, 
-			           	{name:'NombreFuncionario',index:'4', sortable:false, width: 250}, 
-			           	{name:'TipoQueja',index:'5', sortable:false, width: 200}, 							
-			
+			           	{name:'CalidadQuejoso',index:'3', sortable:false, width: 150},
+			           	{name:'NombreFuncionario',index:'4', sortable:false, width: 250},
+			           	{name:'TipoQueja',index:'5', sortable:false, width: 200},
+
 			],
 			autowidth: true,
 			pager: jQuery('#paginadorgridQuejaPendiente'),
@@ -217,21 +217,21 @@
 			sortorder: "desc",
 			ondblClickRow: function(rowid) {
 				consultaQuejaCiudadana(rowid);
-			} 
+			}
 		}).navGrid('#paginadorgridQuejaPendiente',{edit:false,add:false,del:false});
-		
+
 		/**Queja Ciudadana - Concluida**/
 		jQuery("#gridQuejaConcluida").jqGrid({
-			url : '<%= request.getContextPath()%>/consultaGridQuejasConcluidas.do', 
-			datatype: "xml", 
-			colNames:['Folio de Queja','Nombre de Quejoso','Calidad del Afectado','Nombre del Funcionario','Motivo de Rechazo'], 
-			colModel:[ 	
+			url : '<%= request.getContextPath()%>/consultaGridQuejasConcluidas.do',
+			datatype: "xml",
+			colNames:['Folio de Queja','Nombre de Quejoso','Calidad del Afectado','Nombre del Funcionario','Motivo de Rechazo'],
+			colModel:[
 			        	{name:'FolioQueja',index:'1', sortable:false,width: 150},
 			           	{name:'NombreQuejoso',index:'2', sortable:false, width: 250},
-			           	{name:'CalidadQuejoso',index:'3', sortable:false, width: 150}, 
-			           	{name:'NombreFuncionario',index:'4', sortable:false, width: 250}, 
-			           	{name:'MotivoRechazo',index:'5', sortable:false, width: 200}, 							
-			
+			           	{name:'CalidadQuejoso',index:'3', sortable:false, width: 150},
+			           	{name:'NombreFuncionario',index:'4', sortable:false, width: 250},
+			           	{name:'MotivoRechazo',index:'5', sortable:false, width: 200},
+
 			],
 			autowidth: true,
 			pager: jQuery('#paginadorgridQuejaConcluida'),
@@ -242,9 +242,9 @@
 			sortorder: "desc",
 			ondblClickRow: function(rowid) {
 				quejaCiudadanaConcluida(rowid);
-			} 
+			}
 		}).navGrid('#paginadorgridQuejaConcluida',{edit:false,add:false,del:false});
-		
+
 		$("#divGridSolsXAtndr").hide();
 		$("#divGridSolsGeneradas").hide();
 		$("#divGridMandamientosJudiciales").hide();
@@ -275,23 +275,23 @@
 		var params = {"titulo": true};
 		ajustarGridAlCentro($("#gridCambiarResponsable"), params);
 	}
-	
+
 	function nuevaVentanita(numeroCasoNuevo,idNuevaDenuncia,ingresoDenuncia,numeroExpediente,pantallaSolicitada,numeroExpedienteId,idExpediente) {
 		var pantallaSolicitada=3;
 		idWindowNuevaDenuncia++;
 		var ingresoDenuncia = true;
 		customVentana(	"iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia,
-						"Carpeta de investigaci&oacute;n: ", 
+						"Carpeta de investigaci&oacute;n: ",
 						"/BusquedaExpediente.do",
 						"?abreenPenal=abrPenal&ingresoDenuncia="+ingresoDenuncia +
 						"&idNumeroExpediente="+numeroExpedienteId+"&pantallaSolicitada="+pantallaSolicitada);
 	}
-	
+
 	function cierraVentanaAdjuntarDenuncia(){
-		var pantalla ="iframewindowRDE";	
+		var pantalla ="iframewindowRDE";
 		$.closeWindow(pantalla);
 	}
-	
+
 	/*
 	*Funcion para realizar la consulta del grid de visitadores
 	*/
@@ -305,7 +305,7 @@
 		jQuery("#gridDetalleFrmPrincipal").jqGrid('setGridParam', {url:'<%= request.getContextPath()%>/busquedaCanalizadosRestaurativaStatus.do?estatus='+idEstatus+'&activaExpedienteId='+activaExpedienteId+'',datatype: "xml" });
 		$("#gridDetalleFrmPrincipal").trigger("reloadGrid");
 	}
-	
+
 	function regresaGrid(){
 		menuExpedienteAsignado = false;
 		jQuery("#gridDetalleFrmPrincipal").jqGrid('setGridParam', {url:'<%=request.getContextPath()%>/BusquedaCanalizadosRestaurativa.do?area=UI&actividad=RECIBIR_CANALIZACION&expedientesAsignados=false',datatype: "xml" });
@@ -317,18 +317,18 @@
 		menuExpedienteAsignado = true;
 		jQuery("#gridDetalleFrmPrincipal").jqGrid('setGridParam', {url:'<%=request.getContextPath()%>/BusquedaCanalizadosRestaurativa.do?area=UI&actividad=RECIBIR_CANALIZACION&expedientesAsignados=true&menuUI=1',datatype: "xml" });
 		$("#gridDetalleFrmPrincipal").trigger("reloadGrid");
-		ocultaMuestraGrids("gridDetalleFrmPrincipal");		
+		ocultaMuestraGrids("gridDetalleFrmPrincipal");
 	}
 
 	//var numExpAlter = null;
-	
+
 	//Funci&oacute;n que genera un nuevo n&uacute;mero de expediente para la UI en el mismo expediente
 	function nuevoNumeroExpediente(id){
-			
+
 		var idExpediente="0";
 		var numeroExpediente="0";
 		var numeroExpedienteId="0";
-		
+
 		$.ajax({
     		type: 'POST',
     		url: '<%=request.getContextPath()%>/nuevoNumeroExpediente.do?idArea='+<%=Areas.UNIDAD_INVESTIGACION.ordinal()%>+'&idExpediente='+id+'',
@@ -344,9 +344,9 @@
     				numExpAlter=null;
         		} */
     		}
-    		
+
     	});
-		
+
     	if(numeroExpedienteId != "0"){
     		nuevaDenuncia(numeroExpedienteId);
         }
@@ -356,19 +356,19 @@
     function nuevaDenuncia(id) {
 		idWindowNuevaDenuncia++;
 		 var ingresoDenuncia = true;
-		customVentana(	"iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia, 
-						"Carpeta de investigaci&oacute;n: ", 
-						"/BusquedaExpediente.do", 
+		customVentana(	"iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia,
+						"Carpeta de investigaci&oacute;n: ",
+						"/BusquedaExpediente.do",
 						"?abreenPenal=abrPenal&ingresoDenuncia="+ingresoDenuncia +
 						"&idNumeroExpediente="+id+"&pantallaSolicitada="+pantallaSolicitadaCD);
 						/* "&idNumeroExpediente="+id+"&pantallaSolicitada="+pantallaSolicitada +
 						"&numExpAlter="+numExpAlter); */
 	}
-    
+
     function tituloVentana(num){
 		$("#iframewindowCarpInvNuevaDenuncia"+idWindowNuevaDenuncia+" div.window-titleBar-content").html("Carpeta de investigaci&oacute;n: "+num);
 	}
-	
+
 	function activaPrincipal() {
 		$("#divGridSolicitudes").css("display", "block");
 		$("#divGridSolicitudesUno").css("display", "none");
@@ -388,7 +388,7 @@
 		$("#divGridSolsGeneradas").hide();
 		$("#divGridMandamientosJudiciales").hide();
 	}
-	
+
 	function activaDos() {
 		$("#divGridSolicitudes").css("display", "none");
 		$("#divGridSolicitudesUno").css("display", "none");
@@ -397,19 +397,19 @@
 		$("#divGridSolsGeneradas").hide();
 		$("#divGridMandamientosJudiciales").hide();
 	}
-	
+
 	function asignarCancelarAMP() {
 		idWindowAMP++;
 		customVentana(	"iframewindowAsignaCancelaAMP" + idWindowAMP,
 						 "Asignar / Cancelar AMP",
 						 "/asignarCancelarAMP.do");
 	}
-	
+
 	function actualizaGrid() {
 		$("#gridDetalleFrmPrincipal").trigger("reloadGrid");
 		activaPrincipal();
 	}
-	
+
 	/*
 	*Funcion para realizar la consulta del grid de solicitudes por Atender
 	*/
@@ -418,7 +418,7 @@
 		$("#gridSolsXAtndr").trigger("reloadGrid");
 		ocultaMuestraGrids("gridSolsXAtndr");
 	}
-	
+
 	/*
 	*Funcion para realizar la consulta del grid de solicitudes por Atender
 	*/
@@ -427,9 +427,9 @@
 		$("#gridSolsGeneradas").trigger("reloadGrid");
 		ocultaMuestraGrids("gridSolsGeneradas");
 	}
-	
+
 	/*
-	 *Funcion para consultar los tipos de solicitud y generar 
+	 *Funcion para consultar los tipos de solicitud y generar
 	 * el arbol dinamico de los tipos de solicitud en el menu izquierdo
 	 * param - nombre del elemento en el que se construira de manera dinamica
 	 * los tipos de solicutd
@@ -452,23 +452,23 @@
 					$('#'+idDivArbol).append(trTabla);
 				});
 			}
-			
+
 		});
 	}
-	
+
 	/*Funcion que acarrea el id del expediente, para devolverlo
-	*a la pantalla de detalle 
+	*a la pantalla de detalle
 	*/
 	function dblClickRowBandejaSolicitudes(rowID) {
 		idWindowDetalleSolicitud++;
     	customVentana(	"iframewindowDetalleSolicitud"+idWindowDetalleSolicitud,
-    					"Detalle Solicitud", 
+    					"Detalle Solicitud",
     					"/consultarDetalleSolicitudBandeja.do",
-    					"?idSolicitud=" + rowID + "&tipoUsuario=0"); 
+    					"?idSolicitud=" + rowID + "&tipoUsuario=0");
 	}
-	
+
 	/*Funcion que acarrea el id del expediente, para devolverlo
-	*a la pantalla de detalle 
+	*a la pantalla de detalle
 	*/
 	function dblClickRowBandejaSolicitudesGen(rowID) {
 		idWindowDetalleSolicitud++;
@@ -477,12 +477,12 @@
 						"/consultarDetalleSolicitudBandejaGen.do",
 						"?idSolicitud=" + rowID + "&tipoUsuario=0");
 	}
-	
+
 	/*
 	*Funcion que oculta o muestra los grids, recibe como parametro
-	*el nombre del grid que va a mostrar, y todos los demas, se 
+	*el nombre del grid que va a mostrar, y todos los demas, se
 	*ocultaran
-	*/ 
+	*/
 	function ocultaMuestraGrids(nombreGrid) {
 		var divGrid = "#";
 
@@ -524,7 +524,7 @@
 		} else {
 			divGrid +=nombreGrid;
 		}
-		
+
 		$("#divGridSolicitudes").hide();
 		$("#divGridSolicitudesUno").hide();
 		$("#divGridSolicitudesDos").hide();
@@ -535,14 +535,14 @@
 		$("#divGridInformePolicial").hide();
 		$("#divGridQuejaPendiente").hide();
 		$("#divGridQuejaConcluida").hide();
-		$("#divGridDetalleEvidencia").hide();	
+		$("#divGridDetalleEvidencia").hide();
 		$(divGrid).hide();
 		$(divGrid).show();
-		
+
 	}
-	
+
 	/*
-	 *Funcion para consultar los tipos de solicitud y generar 
+	 *Funcion para consultar los tipos de solicitud y generar
 	 * el arbol dinamico de los tipos de solicitud en el menu izquierdo
 	 * param - nombre del elemento en el que se construira de manera dinamica
 	 * los tipos de solicutd
@@ -565,7 +565,7 @@
 					$('#'+idDivArbol).append(trTabla);
 				});
 			}
-			
+
 		});
 	}
 
@@ -574,12 +574,12 @@
 	*Funcion que abre la ventana modal para introducir el numero de causa
 	*/
 	function abreModalCausa(){
-		
+
 		$("#datoCausa").val("");
 		$("#divCausa").dialog("open");
-	  	$("#divCausa").dialog({ autoOpen: true, 
-			modal: true, 
-		  	title: 'Administrar medidas cautelares por n&uacute;mero de causa', 
+	  	$("#divCausa").dialog({ autoOpen: true,
+			modal: true,
+		  	title: 'Administrar medidas cautelares por n&uacute;mero de causa',
 		  	dialogClass: 'alert',
 		  	position: [500,220],
 		  	width: 350,
@@ -597,18 +597,18 @@
 		});
 	}
 
-	/*Funcion que abre el visor de medidas cautelares 
+	/*Funcion que abre el visor de medidas cautelares
 	*/
 	function mostrarVentanaInvolucradosCausa(numeroCausa){
 		idWindowVisorMedidasCautelaresPJENC++;
     	customVentana(	"iframewindowVisorMedidasCautelares"+idWindowVisorMedidasCautelaresPJENC,
     					"Visor de Medidas Cautelares",
     					"/visorMedidaCautelar.do",
-    					"?numeroCausa=" + numeroCausa); 
+    					"?numeroCausa=" + numeroCausa);
 	}
 
 	/*
-	*Funcion para generar dinamicamente el menu izquierdo para la opcion de 
+	*Funcion para generar dinamicamente el menu izquierdo para la opcion de
 	*expedientes del area
 	*/
 	function generaMenuExpedientesDelArea()
@@ -625,25 +625,25 @@
 					//$("#seccion1tree").append("<li><span class='file'><a onclick='cargaGridVisitadores("+<%= Areas.UNIDAD_INVESTIGACION.ordinal()%>+","+$(this).find('idCampo').text()+")'>"+$(this).find('valor').text()+"</a></span></li>");
     			});
     		}
-    		
+
     	});
 	}
-	
-	
+
+
 	 function gridAudiencias()
 	 {
 		 ///Grid de Audiencias
-		 jQuery("#gridAudiencias").jqGrid({ 
-				url:'<%= request.getContextPath()%>/consultarAudienciasDefensor.do', 
-				datatype: "xml", 
-				colNames:['Caso','Car&aacute;cter','Tipo de Audiencia','Fecha de Audiencia','Sala'], 
+		 jQuery("#gridAudiencias").jqGrid({
+				url:'<%= request.getContextPath()%>/consultarAudienciasDefensor.do',
+				datatype: "xml",
+				colNames:['Caso','Car&aacute;cter','Tipo de Audiencia','Fecha de Audiencia','Sala'],
 				colModel:[{name:'caso',	 	index:'2002', 		width:200, align:"let"},
 				          {name:'caracter',	index:'2037', 	width:100, align:"center"},
 				          {name:'tipo',	 	index:'2017', 	    width:120, align:"center"},
 				          {name:'fechaHora',index:'2018',	width:200, align:"center"},
 				          {name:'sala' ,	index:'2029', 		width:110, align:"center"}
 						],
-				
+
 				pager: jQuery('#pagerGridAudiencias'),
 				rowNum:10,
 				rowList:[10,20,30],
@@ -657,48 +657,48 @@
 					caso = ret.caso;
 					detalleAudiencia(rowid, caso);
 				}
-				
+
 			}).navGrid('#pagerGridAudiencias',{edit:false,add:false,del:false});
 			ocultaMuestraGrids('divGridAudiencias');
 			jQuery("#gridAudiencias").trigger('reloadGrid');
 			$("#gview_gridAudiencias .ui-jqgrid-bdiv").css('height', '450px');
 	 }
-	 
+
 	 //Funcion para consultar el detalle de una Audiencia
 	 function detalleAudiencia(rowId, caso) {
-		    customVentana(	"iframewindowDetalleAudiencia", 
+		    customVentana(	"iframewindowDetalleAudiencia",
 		    				"Caso: " + caso,
 		    				"/detalleAudienciaDefensoria.do",
 		    				"?idAudiencia="+rowId);
 	}
-	 
+
 	 function muestraGridAudiencias()
 	 {
 		 gridAudiencias();
 		 ocultaMuestraGrids('gridAudiencias');
 	 }
-	
-	
+
+
 	/******************************************************FUNCIONES PARA REMISIONES DE IPH***********************************************************************************/
-	
+
 	//variable para controlar la carga del grid de informe policial
 	var primeraVezGridInformePolicial=true;
-	
+
 	/*
 	*Funcion que carga el grid de consulta por fechas
 	*/
 	function cargaGridInformePolicial(){
 
 		if(primeraVezGridInformePolicial == true){
-			
-			jQuery("#gridInformePolicial").jqGrid({ 
-				url:'<%=request.getContextPath()%>/remisionesIPH.do', 
-				datatype: "xml", 
+
+			jQuery("#gridInformePolicial").jqGrid({
+				url:'<%=request.getContextPath()%>/remisionesIPH.do',
+				datatype: "xml",
 				autowidth: true,
-				colNames:['Caso','Fecha', 'Denunciante', 'Delito','Origen','Estatus'], 
-				colModel:[ 	{name:'Detalle',index:'1', width:140}, 
-							{name:'Fecha',index:'2', width:55}, 
-							{name:'Nombre',index:'3'}, 
+				colNames:['Caso','Fecha', 'Denunciante', 'Delito','Origen','Estatus'],
+				colModel:[ 	{name:'Detalle',index:'1', width:140, classes:"Detalle_caso"},
+							{name:'Fecha',index:'2', width:55},
+							{name:'Nombre',index:'3'},
 							{name:'Resumen',index:'4', width:80},
 							{name:'Origen',index:'5', width:50},
 							{name:'Estatus',index:'6'}
@@ -712,8 +712,11 @@
 				ondblClickRow: function(id) {
 					 nuevaDenuncia(id);
 				},
-				sortorder: "desc"
-			}).navGrid('#pagergridInformePolicial',{edit:false,add:false,del:false});	 
+				sortorder: "desc",
+				loadComplete: function() {
+                    muestraValCasoExpediente();
+                }
+			}).navGrid('#pagergridInformePolicial',{edit:false,add:false,del:false});
 			//Resize del grid
 			$("#gridInformePolicial").setGridWidth($("#mainContent").width() - 5, true);
 		    ocultaMuestraGrids("informePolicial");
@@ -722,45 +725,54 @@
 		else{
 			jQuery("#gridInformePolicial").jqGrid('setGridParam', { datatype: "xml" });
 			$("#gridInformePolicial").trigger("reloadGrid");
-			ocultaMuestraGrids("informePolicial");				  
+			ocultaMuestraGrids("informePolicial");
 		}
 	}
-	
+
+
+	function muestraValCasoExpediente(){
+	    $(".Detalle_caso").each(function( index ) {
+              if( $( this ).text()== " " ){
+                  $( this ).text("Sin Asignar");
+              }
+        });
+	}
+
 	/****QUEJA CIUDADANA**/
 	function muestraQuejaCiudadana(){
-		
+
 		$.newWindow({id:"iframewindowQuejaCiudadana", statusBar: true, posx:255,posy:111,width:1023,height:473,title:"Queja Ciudadana", type:"iframe"});
-	    $.updateWindowContent("iframewindowQuejaCiudadana",'<iframe src="<%=request.getContextPath()%>/quejaCiudadana.do" width="1023" height="473" />'); 
+	    $.updateWindowContent("iframewindowQuejaCiudadana",'<iframe src="<%=request.getContextPath()%>/quejaCiudadana.do" width="1023" height="473" />');
 	}
-	
+
 	//Ventana de captura de queja ciudadana
 	function consultaQuejaCiudadana(rowid){
 		$.newWindow({id:"iframewindowConsultaQuejaCiudadana", statusBar: true, posx:200,posy:50,width:850,height:350,title:"Consulta de Queja Ciudadana", type:"iframe"});
-	    $.updateWindowContent("iframewindowConsultaQuejaCiudadana",'<iframe src="<%=request.getContextPath()%>/consultaQuejaCiudadana.do?idQueja='+rowid+'" width="850" height="350" />'); 
+	    $.updateWindowContent("iframewindowConsultaQuejaCiudadana",'<iframe src="<%=request.getContextPath()%>/consultaQuejaCiudadana.do?idQueja='+rowid+'" width="850" height="350" />');
 	}
-	
+
 	function cerrarVentanaConsultaQueja(){
 		var pantalla ="iframewindowConsultaQuejaCiudadana";
 		$.closeWindow(pantalla);
 		muestraGridQuejaPendiente();
 	}
-	
+
 	//Ventana de queja ciudadana concluida
 	function quejaCiudadanaConcluida(rowid){
 		$.newWindow({id:"iframewindowQuejaCiudadanaConcluida", statusBar: true, posx:200,posy:50,width:850,height:350,title:"Queja Ciudadana Concluida", type:"iframe"});
-	    $.updateWindowContent("iframewindowQuejaCiudadanaConcluida",'<iframe src="<%=request.getContextPath()%>/quejaCiudadanaConcluida.do?idQueja='+rowid+'" width="850" height="350" />'); 
+	    $.updateWindowContent("iframewindowQuejaCiudadanaConcluida",'<iframe src="<%=request.getContextPath()%>/quejaCiudadanaConcluida.do?idQueja='+rowid+'" width="850" height="350" />');
 	}
-	
+
 	function cerrarVentanaQuejaConcluida(){
 		var pantalla ="iframewindowQuejaCiudadanaConcluida";
 		$.closeWindow(pantalla);
 	}
-	
+
 	function cerrarVentanaQueja(){
 		var pantalla ="iframewindowQuejaCiudadana";
 		$.closeWindow(pantalla);
 	}
-	
+
 	/*
 	*Funcion para realizar la consulta del grid de Quejas Pendientes
 	*/
@@ -778,13 +790,13 @@
 		$("#gridQuejaConcluida").trigger("reloadGrid");
 		ocultaMuestraGrids("gridQuejaConcluida");
 	}
-	
+
 	function cambiarResponsableExpediente() {
 		customVentana("cambiarResponsableExpediente", "Cambiar Responsable A Expediente", "/cambiarResponsableExpediente.do");
 	}
-	
+
 	 /**
-     * Permite consultar Evidencias asociadas al Almacen del cual es responsable 
+     * Permite consultar Evidencias asociadas al Almacen del cual es responsable
      * el usuario firmado en seci&oacute;n. Permite consultar evidencias en base al
      * estatus de la evidencia.
      **/
@@ -794,7 +806,7 @@
 			var params;
 				params="estatusEvidencia="+estatusEvidencia;
 				params+="&consultarEvidenciasSinImportarAlmacen=1";
-			
+
 			//Permite recargar el grid de forma automatica
 			if (cargaGridEvidencias==false){
               jQuery("#gridEvidenciaAlmacenExpediente").jqGrid({
@@ -809,7 +821,7 @@
                       {name:'Descripcion',index:'5',  sortable:false, width:120, hidden: true},
                       {name:'estatus',index:'6',  sortable:true, width:80},
                   ],
-                  pager: jQuery('#paginadorEvidenciaAlmacenExpediente'), 
+                  pager: jQuery('#paginadorEvidenciaAlmacenExpediente'),
                   rowNum:10,
                   rowList:[10,20,30],
                   autowidth: true,
@@ -824,17 +836,17 @@
 
               }).navGrid('#paginadorEvidenciaAlmacenExpediente',{edit:false,add:false,del:false});
               	cargaGridEvidencias=true;
-			 }else{					 
+			 }else{
 				 jQuery("#gridEvidenciaAlmacenExpediente").jqGrid('setGridParam', {url:'<%=request.getContextPath()%>/consultarEvidenciaPorAlmacenoExpediente.do?'+params,datatype: "xml" });
 				 $("#gridEvidenciaAlmacenExpediente").trigger("reloadGrid");
 			 }
-			
+
 			//muestra este grid y oculta los demas
 			ocultaMuestraGrids('gridEvidenciaAlmacenExpediente');
-			
+
 			ajustarGridAlCentro($("#gridEvidenciaAlmacenExpediente"));
 		}
-	   
+
        function lanzaMenuGestionarAlmacen(idEvidencia) {
            idParaConsultaEvidencia=idEvidencia;
             opcionSeleccionadaEnElMenu = 1;
@@ -844,17 +856,17 @@
 
 	// Consulta de expedientes sin asignar
     function consultaGeneralExpedientes(){
-    		
+
    		if(gridRecargaExpediente==true){
-       		
-       		jQuery("#gridDetalleFrmPrincipal").jqGrid({ 
-       			url:'<%=request.getContextPath()%>/BusquedaCanalizadosRestaurativa.do?area=UI&actividad=RECIBIR_CANALIZACION&expedientesAsignados=false', 
-       			datatype: "xml", 
-       			colNames:['N&uacute;mero de Expediente','Tipo','Fecha', 'Denunciante', 'Delito','Origen','Estatus'], 
+
+       		jQuery("#gridDetalleFrmPrincipal").jqGrid({
+       			url:'<%=request.getContextPath()%>/BusquedaCanalizadosRestaurativa.do?area=UI&actividad=RECIBIR_CANALIZACION&expedientesAsignados=false',
+       			datatype: "xml",
+       			colNames:['N&uacute;mero de Expediente','Tipo','Fecha', 'Denunciante', 'Delito','Origen','Estatus'],
        			colModel:[ 	{name:'Detalle',index:'NumeroExpediente',width:100},
-       			           	{name:'Tipo',index:'7', width:120, align:'center', hidden:true}, 
-       						{name:'Fecha',index:'Fecha',width:55 , searchoptions:{dataInit:function(elem){$(elem).datepicker();}, attr:{title:'Select Date'}} }, 
-       						{name:'Nombre',index:'3',search: false}, 
+       			           	{name:'Tipo',index:'7', width:120, align:'center', hidden:true},
+       						{name:'Fecha',index:'Fecha',width:55 , searchoptions:{dataInit:function(elem){$(elem).datepicker();}, attr:{title:'Select Date'}} },
+       						{name:'Nombre',index:'3',search: false},
        						{name:'Resumen',index:'4',search: false},
        						{name:'Origen',index:'Origen',width:50},
        						{name:'Estatus',index:'Estatus',width:50}
@@ -879,7 +891,7 @@
        		}).navGrid('#divGridDetalleFrmPrincipal',{edit:false,add:false,del:false});
 
        		gridRecargaExpediente=false;
-       		
+
     		if(visualizaMenuAsignarExps == 1 && tieneRolAgentemp==true ){
     			ajustarGridPrincipalAlCentro($("#gridDetalleFrmPrincipal"));
     			$("#botonesExpedientes").show();
@@ -892,21 +904,21 @@
     			jQuery("#gridDetalleFrmPrincipal").setGridParam({ multiboxonly: true }).hideCol('cb');
     		}
    		}
-   		else{			
+   		else{
    			jQuery("#gridDetalleFrmPrincipal").jqGrid('setGridParam', {url:'<%=request.getContextPath()%>/BusquedaCanalizadosRestaurativa.do?area=UI&actividad=RECIBIR_CANALIZACION&expedientesAsignados=false',
    					datatype: "xml" });
    			$("#gridDetalleFrmPrincipal").trigger("reloadGrid");
    		}
-   	
+
    		ocultaMuestraGrids("gridDetalleFrmPrincipal");
    	}
-    
+
     // Ajusta el grid al centro y dispone un espacio para mostrar el bot&oacute;n de
     // asignaci&oacute;n de expedientes
     function ajustarGridPrincipalAlCentro(grid, params){
     	var height = 0;
     	grid.setGridWidth($("#mainContent").width() - 5, true);
-    	
+
     	if (params == undefined){
     		height = (($("#mainContent").height() - $("#ui-layout-south").height()) - 60);
     	} else {
@@ -915,24 +927,24 @@
     				height = (($("#mainContent").height() - $("#ui-layout-south").height()) - 80);
     			}
     		}catch(e){
-    			height = (($("#mainContent").height() - $("#ui-layout-south").height()) - 60);	
+    			height = (($("#mainContent").height() - $("#ui-layout-south").height()) - 60);
     		}
     	}
     	height=height-200;
     	grid.setGridHeight(height, true);
-    	
+
     }
 
 	// Recolecci&oacute;n de los n&uacute;meros de expedientes a asignar
     function asignarExps(){
-    	
+
     	var longitudTabla = jQuery("#gridDetalleFrmPrincipal").getDataIDs();
 		var numeroExpedientes = longitudTabla.length;
 		var i=0;
 		var idsExpedientes="";
-		
+
 		if(jQuery("#gridDetalleFrmPrincipal").jqGrid('getGridParam','selarrrow') != ""){
-			//Recolecta los ids. En este caso, los ids hacen referencia al Expediente_id 
+			//Recolecta los ids. En este caso, los ids hacen referencia al Expediente_id
 			idsExpedientes = jQuery("#gridDetalleFrmPrincipal").jqGrid('getGridParam','selarrrow');
 			nuevosNumerosDeExpedientes(idsExpedientes);
 		}
@@ -940,35 +952,35 @@
 			customAlert("Favor de seleccionar al menos un registro, para que se pueda realizar la asignaci&oacute;n de expedientes");
 		}
     }
-    
+
     // Generaci&oacute;n de los nuevos n&uacute;meros de expedientes
 	function nuevosNumerosDeExpedientes(idsExpedientes){
-		
+
 		var idExpediente="0";
 		var numeroExpediente="0";
 		var numeroExpedienteId="0";
 		var idArea='<%=Areas.UNIDAD_INVESTIGACION.ordinal()%>';
-		
+
 		$.ajax({
     		type: 'POST',
     		url: '<%=request.getContextPath()%>/nuevosNumerosDeExpedientes.do?idArea='+idArea+'&idsExpedientes='+idsExpedientes+'',
     		data: '',
     		dataType: 'xml',
     		async: false,
-    		success: function(xml){    		
+    		success: function(xml){
     			regresaGrid();
     			var resultado=$(xml).find('boolean').text();
-    			if(resultado==true || resultado=="true"){        		
+    			if(resultado==true || resultado=="true"){
     				customAlert("Se realiz&oacute; de manera correcta la asignaci&oacute;n de carpetas de investigaci&oacute;n");
     			}
     			else{
     				customAlert("La asignaci&oacute;n de carpetas de investigaci&oacute;n no se realiz&oacute; de manera correcta");
     			}
-    		}    		
+    		}
     	});
 	}
-	
-</script>	
+
+</script>
 <div id="mainContent">
 	<div class="ui-layout-center">
 		<div class="ui-layout-content">
@@ -992,8 +1004,8 @@
 				<div id="divGridSolsGeneradas" style="display: none;">
 					 	<table id="gridSolsGeneradas" width="100%" height="100%"></table>
 						<div id="pagerGridSolsGeneradas"></div>
-				</div>	
-				
+				</div>
+
 				<div id="divGridMandamientosJudiciales" style="display: none;">
 					 	<table id="gridMandamientosJudiciales" width="100%" height="100%"></table>
 						<div id="pagerGridMandamientosJudiciales"></div>
@@ -1010,17 +1022,17 @@
 					<table id="gridQuejaPendiente" ></table>
 					<div id="paginadorgridQuejaPendiente"></div>
 				</div>
-				
+
 				<div id="divGridQuejaConcluida" >
 					<table id="gridQuejaConcluida" ></table>
 					<div id="paginadorgridQuejaConcluida"></div>
 				</div>
-				
+
 				<div id="divGridDetalleEvidencia">
                      <table id="gridEvidenciaAlmacenExpediente"></table>
                      <div id="paginadorEvidenciaAlmacenExpediente"></div>
                 </div>
-                
+
                 <div id="botonesExpedientes">
 					<table id="botonesExp" width="100%">
 						<tr><td>&nbsp;</td></tr>
@@ -1037,7 +1049,7 @@
 	</div>
 </div>
 
-<!--Comienza div para mostrar la ventana para ingresar el numero de causa-->	
+<!--Comienza div para mostrar la ventana para ingresar el numero de causa-->
 	<div id="divCausa" style="display: none">
 		<table width="300" cellspacing="0" cellpadding="0">
 			<tr>

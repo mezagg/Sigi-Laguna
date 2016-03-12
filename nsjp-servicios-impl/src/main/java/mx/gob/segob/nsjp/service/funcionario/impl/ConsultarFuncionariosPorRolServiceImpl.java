@@ -31,6 +31,7 @@ import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
 import mx.gob.segob.nsjp.dao.funcionario.FuncionarioDAO;
 import mx.gob.segob.nsjp.dao.usuario.RolDAO;
 import mx.gob.segob.nsjp.dao.usuario.UsuarioRolDAO;
+import mx.gob.segob.nsjp.dto.catalogo.CatalogoDTO;
 import mx.gob.segob.nsjp.dto.expediente.ExpedienteDTO;
 import mx.gob.segob.nsjp.dto.funcionario.FuncionarioDTO;
 import mx.gob.segob.nsjp.dto.involucrado.InvolucradoViewDTO;
@@ -417,5 +418,10 @@ public class ConsultarFuncionariosPorRolServiceImpl implements ConsultarFunciona
 			funcionarios.add(InvolucradoTransformer.transformarInvolucradoView(func));
 		}
 		return funcionarios;
+	}
+
+	@Override
+	public List<FuncionarioDTO> consultarFuncionariosPorDicriminanteYRolYUIE(Long catDiscriminanteId, Long idRol, Long idUIE) throws NSJPNegocioException {
+		return funcionarioDAO.consultarFuncionariosPorDiscriminante(catDiscriminanteId,idRol,idUIE);
 	}
 }

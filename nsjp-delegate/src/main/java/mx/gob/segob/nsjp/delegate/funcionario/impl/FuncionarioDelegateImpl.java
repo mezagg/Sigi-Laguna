@@ -387,4 +387,9 @@ public class FuncionarioDelegateImpl implements FuncionarioDelegate {
         return consultarSolicitudService.buscarSolicitudesConPermisoFuncionario(funcionarioId);
     }
 
+    @Override
+    public List<FuncionarioDTO> consultarFuncionariosPorDicriminanteYRolYUIE(Long catDiscriminanteId, Long idRol, Long idUIE) throws NSJPNegocioException {
+        return consultarFuncionariosService.consultarFuncionariosPorDicriminanteYRolYUIE(catDiscriminanteId,idRol,idUIE);
+    }
+
 }

@@ -70,6 +70,7 @@ import mx.gob.segob.nsjp.service.delito.impl.transform.DelitoTransfromer;
 import mx.gob.segob.nsjp.service.expediente.AdministrarNumeroExpedienteService;
 import mx.gob.segob.nsjp.service.expediente.AsignarNumeroExpedienteService;
 import mx.gob.segob.nsjp.service.expediente.impl.transform.ExpedienteTransformer;
+import mx.gob.segob.nsjp.service.expediente.impl.transform.UsuarioTransformer;
 import mx.gob.segob.nsjp.service.funcionario.impl.transform.FuncionarioTransformer;
 import mx.gob.segob.nsjp.service.institucion.JerarquiaOrganizacionalService;
 import mx.gob.segob.nsjp.service.involucrado.ConsultarIndividuoService;
@@ -383,7 +384,7 @@ public class AdministrarNumeroExpedienteServiceImpl implements AdministrarNumero
 	 * Ejemplo: 
 	 * 	C-12345
 	 *
-	 * @param ExpedienteDTO
+	 * @param consecutivoNumeroExpediente
 	 * @return
 	 * @throws NSJPNegocioException
 	 */
@@ -435,7 +436,17 @@ public class AdministrarNumeroExpedienteServiceImpl implements AdministrarNumero
 			throw new NSJPNegocioException(CodigoError.PARAMETROS_INSUFICIENTES);
 		
 		NumeroExpediente loNumExp = numeroExpedienteDAO.read(idNumeroExpediente);
-		loNumExp.setFuncionario(new Funcionario(idFuncionario));	
+		loNumExp.setFuncionario(new Funcionario(idFuncionario));
+	    Usuario usuario= usuarioDAO.consultarUsuarioPorClaveFuncionario(idFuncionario);
+		UsuarioDTO usuarioDTO= UsuarioTransformer.transformarUsuario(usuario);
+		//Generamos nueva Clave para el numero de expediente
+		String anioCreacionDelExpediente = null;
+		Calendar calTemp = Calendar.getInstance();
+		calTemp.setTime(loNumExp.getExpediente().getFechaCreacion());
+		anioCreacionDelExpediente = String.valueOf(calTemp.get(Calendar.YEAR));
+        String claveNumeroExpediente=asignarNumeroExpedienteService.obtenerNumeroExpedienteAlterno(usuarioDTO, null,anioCreacionDelExpediente);
+		loNumExp.setNumeroExpediente(claveNumeroExpediente);
+		loNumExp.setNumExpAlterno(claveNumeroExpediente);
 		numeroExpedienteDAO.update(loNumExp);
 	}
 	

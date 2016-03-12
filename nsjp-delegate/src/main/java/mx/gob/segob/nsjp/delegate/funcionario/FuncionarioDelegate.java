@@ -16,6 +16,7 @@ import mx.gob.segob.nsjp.comun.enums.institucion.Instituciones;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
 import mx.gob.segob.nsjp.dto.archivo.ArchivoDigitalDTO;
 import mx.gob.segob.nsjp.dto.catalogo.CatDistritoDTO;
+import mx.gob.segob.nsjp.dto.catalogo.CatalogoDTO;
 import mx.gob.segob.nsjp.dto.catalogo.ValorDTO;
 import mx.gob.segob.nsjp.dto.evidencia.EvidenciaDTO;
 import mx.gob.segob.nsjp.dto.expediente.ExpedienteDTO;
@@ -508,5 +509,7 @@ public interface FuncionarioDelegate {
      * @throws NSJPNegocioException
      */
     List<PermisoSolicitudDTO> consultarSolicitudesConPermisoFuncionario(Long funcionarioId) throws NSJPNegocioException;
+
+    public List<FuncionarioDTO> consultarFuncionariosPorDicriminanteYRolYUIE (Long catDiscriminanteId, Long idRol, Long idUIE)throws NSJPNegocioException;
 
 }
