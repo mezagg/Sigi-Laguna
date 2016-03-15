@@ -14,8 +14,8 @@
 	
 	<!--		Hojas de estilos asociadas-->
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/estilos.css" media="screen" />
-	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css"/>
-	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css" />
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/themes/1.8.10/${theme.name}/jquery-ui.css"/>
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/themes/1.8.10/${theme.name}/jquery-ui.css" />
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/layout_complex.css" media="screen" />
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/jquery.windows-engine.css"/>	
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/treeview/jquery.treeview.css" />
@@ -477,7 +477,7 @@
 	<table align="center" border="0" width="820px" height="50%">
 		<tr><!-- MENU -->
 			<td colspan="4">
-				<ul class="toolbar">
+				<ul class="toolbar ui-widget-header">
 					<div id="menu_head">
 						<li id="imprimirNarraTiva"><span></span>Enviar</li>
 						<li id="vistaPreliminar"><span></span>Vista Preliminar</li>

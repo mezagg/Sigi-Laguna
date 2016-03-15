@@ -164,7 +164,7 @@
 		<tiles:insert attribute="detalles" />
 		
 	</div>
-	<ul class="toolbar">
+	<ul class="toolbar ui-widget-header">
 		<li id="tbarBtnHeaderZise" class="first"><span></span></li>
 	</ul>
 </div>

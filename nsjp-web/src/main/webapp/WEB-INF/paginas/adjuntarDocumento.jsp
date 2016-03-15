@@ -4,11 +4,11 @@
 <html>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <head>
-	<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css"/>
+	<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/themes/1.8.10/${theme.name}/jquery-ui.css"/>
 	<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/estilos.css"  />	
 	
    	<!-- Carga la css para el plugin de adjuntar documento -->
-	<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/themes/1.8.10/${theme.name}/jquery-ui.css" />
    	<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/plupload/jquery.ui.plupload.css" />  
    	    
 	<script type="text/javascript" src="<%= request.getContextPath()%>/js/jquery-1.5.1.min.js"></script>

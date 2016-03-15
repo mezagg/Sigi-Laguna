@@ -721,7 +721,7 @@
 		<table id="gridDelitosAgraviados"></table>
 		<div id="pagerGridDelitosAgraviados"></div>	</td>
     <td id="tdActividadesSugeridas"  width="25%" rowspan="23" align="left" valign="top">
-		<div id="actividadesSugeridas" style="width: 100%;height:27px;" class="ui-jqgrid-titlebar ui-widget-header ui-corner-top ui-helper-clearfix">
+		<div id="actividadesSugeridas" style="width: 100%;height:27px;" class="toolbar">
 			<span class="ui-jqgrid-title">ACTIVIDADES SUGERIDAS :</span>
 		</div>
 		<div style="overflow:auto; width: 100%; height: 320px" id="actividadesXDelitosDelExpediente">

@@ -13,8 +13,8 @@
 	<head>
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/estilos.css" media="screen" />
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/layout_complex.css" media="screen" />
-	<!--link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css" /-->
-	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/themes/1.8.10/south-street/jquery-ui.css" />
+	<!--link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/themes/1.8.10/${theme.name}/jquery-ui.css" /-->
+	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/themes/1.8.10/${theme.name}/jquery-ui.css" />
 	
 	<script type="text/javascript" src="<%= request.getContextPath()%>/js/jquery-1.5.1.min.js"></script>
 	<script type="text/javascript" src="<%= request.getContextPath()%>/themes/1.8.10/jquery-ui.min.js"></script>
@@ -174,13 +174,13 @@
 	                </tr>
 	                <tr>
 	                <td colspan="6"> 
-			                <table width="100%" border="0" cellpadding="0" cellspacing="0" class="toolbar back_pleca_h">
+			                <table width="100%" border="0" cellpadding="0" cellspacing="0" class="ui-dialog-titlebar ui-widget-header ui-corner-all">
 						    <tr>
 						    	<!--  <td height="15">&nbsp;</td> -->
-						    	<td align="center" style="border-left:#FFFFFF; border-top:#FFFFFF;">
-	                    			<label id="ambienteLbH" style="color:#FBFBEF"></label>	
+						    	<td align="center">
+	                    			<label id="ambienteLbH" ></label>	
 	                    		</td>	
-						  </tr>
+						  </tr> 
 						</table>
 					</td>
 	                </tr>
@@ -258,11 +258,11 @@
 	        	
 	                <div id="footer" style="width: 100%;  padding: 5px;" >
 	                
-						<table width="100%" border="0" cellpadding="0" cellspacing="0" class="pleca_bottom">
+						<table width="100%" border="0" cellpadding="0" cellspacing="0" class="ui-dialog-titlebar ui-widget-header ui-corner-all">
 						    <tr>
 						    <!-- <td height="15">&nbsp;</td>  -->
 						    <td height="15" align="center" style="border-left:#FFFFFF; border-top:#FFFFFF;">
-	                    			<label id="ambienteLb" style="color:#FBFBEF"></label>	
+	                    			<label id="ambienteLb" ></label>	
 	                    	</td>
 						  </tr>
 						</table>

@@ -9,7 +9,7 @@
 <head>
 	<link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/jquery.windows-engine.css"/>
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/layout_complex.css" media="screen" />
-	<!--link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css" /-->
+	<!--link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/themes/1.8.10/${theme.name}/jquery-ui.css" /-->
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/treeview/jquery.treeview.css" />
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/estilos.css" media="screen" />
 	<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/jqgrid/ui.jqgrid.css" />
@@ -420,7 +420,7 @@
 			</tr>
 		</table>
 	</div>
-	<ul class="toolbar">
+	<ul class="toolbar ui-widget-header">
 		<div id="menu_head">
 			<li id="tbarBtnHeaderZise" class="first"><span></span></li>
 			<li id="tbarBtnNuevoExpediente" class="first"><span></span>Ver Solicitudes</li>

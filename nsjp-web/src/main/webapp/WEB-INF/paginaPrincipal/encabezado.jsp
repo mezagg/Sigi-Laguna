@@ -16,7 +16,7 @@
 			<TBODY>
 				<TR>
 					<TD width=100 align=left valign="middle">
-						<img height="80px" src="<%=((ConfiguracionDTO)session.getAttribute(LoginAction.KEY_SESSION_CONFIGURACION_GLOBAL)).getUrlServidorImag()%>/sistema/logo_login.png">
+						<img height="80px" src="<%=request.getContextPath()%>/resources/images/logo_login.png">
 					</TD>
                    	<TD width=301 align=left valign="middle">
                    		<div class='nombreInstitucion'><%=rolDTO.getDescripcionRol()%></div>
@@ -80,7 +80,7 @@
 		</TABLE>
 	</div>
 	
-	<ul class="toolbar">
+	<ul class="toolbar ui-widget-header ui-state-hover">
 		<logic:notEmpty name="KEY_SESSION_MENU_DINAMICO_SUPERIOR">
 			<logic:iterate name="KEY_SESSION_MENU_DINAMICO_SUPERIOR" id="elementoMenuSuperior" >
 				<div id="<bean:write name="elementoMenuSuperior" property="cIdHTML" />">

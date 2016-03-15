@@ -310,7 +310,7 @@
 				se debe canalizar al <bean:message key="leyendaNingunDelitoGraveRestaurativa"/></span> </b>
 			</td>
 			<td valign="top" width="35%">
-				<div id="actividadesSugeridas" style="width: 300px;height:27px;" class="ui-jqgrid-titlebar ui-widget-header ui-corner-top ui-helper-clearfix">
+				<div id="actividadesSugeridas" style="width: 300px;height:27px;" class="toolbar">
 					<span class="ui-jqgrid-title">ACTIVIDADES SUGERIDAS :</span>
 				</div>
 				<div style="overflow:auto; width: 300px; height: 150px" id="actividadesXDelitosDelExpediente">

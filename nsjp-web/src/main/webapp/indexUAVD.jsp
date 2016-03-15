@@ -20,7 +20,7 @@
 
 <!--css para el estilos de jquery-->
 <link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css" />
+	href="<%=request.getContextPath()%>/themes/1.8.10/${theme.name}/jquery-ui.css" />
 
 <!--css para estilo de los arboles-->
 <link rel="stylesheet" type="text/css"
@@ -35,7 +35,7 @@
 <link rel="stylesheet" type="text/css" media="screen"
 	href="<%=request.getContextPath()%>/resources/css/jqgrid/ui.jqgrid.css" />
 <link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css" />
+	href="<%=request.getContextPath()%>/themes/1.8.10/${theme.name}/jquery-ui.css" />
 
 <!--COMIENZAN SCRIPTS-->
 
@@ -605,7 +605,7 @@ var sesionActiva = '<%= (request.getSession().getAttribute(LoginAction.KEY_SESSI
 </div>
 
 <!--comienza barra de herramientas-->
-<ul class="toolbar">
+<ul class="toolbar ui-widget-header">
 	<div id="menu_head">
 	<li id="tbarBtnHeaderZise" class="first"><span></span></li>
 	</div>

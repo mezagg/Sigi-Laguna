@@ -18,8 +18,8 @@
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/jquery.windows-engine.css"/>
 	
 	<!--Hojas de estilos para los componentes UI de Jquery-->
-	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css"/>
-	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/themes/1.8.10/south-street/jquery-ui.css" />
+	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/themes/1.8.10/${theme.name}/jquery-ui.css"/>
+	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/themes/1.8.10/${theme.name}/jquery-ui.css" />
 	
 	<!--Hoja de estilos para el grid-->
 	<link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/jqgrid/ui.jqgrid.css" />
@@ -952,7 +952,7 @@ if(abrePenal=="abrPenal"){""
 	
 		<!--BARRA DE HERRAMIENTAS-->
 		
-		<!--	<ul class="toolbar">-->
+		<!--	<ul class="toolbar ui-widget-header">-->
 		<!--		<div id="menu_head">-->
 		<!--			<li id="tbarBtnNuevo" class="first"><span></span>Estatus</li>-->
 		<!--			<li id="tbarBtnLectura"><span></span>Canalizar</li>-->

@@ -22,7 +22,7 @@
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/layout_complex.css" media="screen" />
 	
 	<!--css para el estilos de jquery-->
-	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css" />
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/themes/1.8.10/${theme.name}/jquery-ui.css" />
 	
 	<!--css para estilo de los arboles-->
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/treeview/jquery.treeview.css" />
@@ -32,7 +32,7 @@
 	
 	<!--estilo del grid-->
 	<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/resources/css/jqgrid/ui.jqgrid.css" />
-		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css" />
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/themes/1.8.10/${theme.name}/jquery-ui.css" />
 		<!--link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/jquery.zweatherfeed.css" /-->	 	
 	
 <!--COMIENZAN SCRIPTS-->
@@ -1285,7 +1285,7 @@
 			  </TABLE>		
 		</div>
 		<!--comienza barra de herramientas-->
-		<ul class="toolbar">
+		<ul class="toolbar ui-widget-header">
 			<div id="menu_head">
 				<li id="tbarBtnHeaderZise" class="first"><span></span></li>
 				<li id="complejidadAudiencia" ><span></span>Configurar Complejidad de Audiencia&nbsp;<img src="<%= request.getContextPath() %>/resources/images/icn_confwrite.png" width="15" height="16"></li>

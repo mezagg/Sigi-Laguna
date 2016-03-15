@@ -1,4 +1,4 @@
-			<!--<ul class="toolbar">
+			<!--<ul class="toolbar ui-widget-header">
 					<div id="menu_config">
 						<li id="btnGuardarDatos" value="Guardar" class="first"><span></span>Guardar</li>
 						

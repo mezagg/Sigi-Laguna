@@ -9,7 +9,7 @@
             <!-- ingresarHechosView -->
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
             <title>Ingresar Hechos</title>
-            <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css"/>
+            <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/themes/1.8.10/${theme.name}/jquery-ui.css"/>
             <link rel="stylesheet" type="text/css" media="screen" href="<%= request.getContextPath()%>/resources/css/jquery.easyaccordion.css" />	
             <link type="text/css" rel="stylesheet" href="<%= request.getContextPath()%>/resources/css/jquery.windows-engine.css"/>				
             <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/estilos.css" media="screen" />			

@@ -7,8 +7,8 @@
 		<title>Generar Documento</title>
 			
 		<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/resources/css/estilos.css" media="screen" />
-		<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/themes/1.8.10/south-street/jquery-ui.css"/>
-	    <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/themes/1.8.10/south-street/jquery-ui.css" />
+		<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/themes/1.8.10/${theme.name}/jquery-ui.css"/>
+	    <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/themes/1.8.10/${theme.name}/jquery-ui.css" />
 		<link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/jquery.windows-engine.css"/>
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/layout_complex.css" media="screen" />
 		<script type="text/javascript" src="<%= request.getContextPath()%>/js/jquery-1.5.1.min.js"></script>
@@ -129,7 +129,7 @@
 				<table align="center" border="0" width="820px" height="50%">
 					<tr>
 					  <td colspan="4">
-					  		<ul class="toolbar">
+					  		<ul class="toolbar ui-widget-header">
 								<div id="menu_head">
 									<li id="guardarParcial" class="first"><span></span>Guardado Parcial</li>
 									<li id="guardarDoc" class="first"><span></span>Guardado Definitivo</li>
