@@ -437,16 +437,18 @@ public class AdministrarNumeroExpedienteServiceImpl implements AdministrarNumero
 		
 		NumeroExpediente loNumExp = numeroExpedienteDAO.read(idNumeroExpediente);
 		loNumExp.setFuncionario(new Funcionario(idFuncionario));
-	    Usuario usuario= usuarioDAO.consultarUsuarioPorClaveFuncionario(idFuncionario);
-		UsuarioDTO usuarioDTO= UsuarioTransformer.transformarUsuario(usuario);
 		//Generamos nueva Clave para el numero de expediente
-		String anioCreacionDelExpediente = null;
-		Calendar calTemp = Calendar.getInstance();
-		calTemp.setTime(loNumExp.getExpediente().getFechaCreacion());
-		anioCreacionDelExpediente = String.valueOf(calTemp.get(Calendar.YEAR));
-        String claveNumeroExpediente=asignarNumeroExpedienteService.obtenerNumeroExpedienteAlterno(usuarioDTO, null,anioCreacionDelExpediente);
-		loNumExp.setNumeroExpediente(claveNumeroExpediente);
-		loNumExp.setNumExpAlterno(claveNumeroExpediente);
+		if ("".equals(loNumExp.getNumeroExpediente().trim())){
+			Usuario usuario= usuarioDAO.consultarUsuarioPorClaveFuncionario(idFuncionario);
+			UsuarioDTO usuarioDTO= UsuarioTransformer.transformarUsuario(usuario);
+			String anioCreacionDelExpediente = null;
+			Calendar calTemp = Calendar.getInstance();
+			calTemp.setTime(loNumExp.getExpediente().getFechaCreacion());
+			anioCreacionDelExpediente = String.valueOf(calTemp.get(Calendar.YEAR));
+			String claveNumeroExpediente=asignarNumeroExpedienteService.obtenerNumeroExpedienteAlterno(usuarioDTO, null,anioCreacionDelExpediente);
+			loNumExp.setNumeroExpediente(claveNumeroExpediente);
+			loNumExp.setNumExpAlterno(claveNumeroExpediente);
+		}
 		numeroExpedienteDAO.update(loNumExp);
 	}
 	
