@@ -1263,7 +1263,7 @@ function visorLeyesCodigos() {
 
 <div class="ui-layout-south">
 	<div class="ui-layout-south">
-	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="pleca_bottom">
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="ui-widget-header ui-state-hover">
 	    <tr>
 	    <td height="15">&nbsp;</td>
 	  </tr>
