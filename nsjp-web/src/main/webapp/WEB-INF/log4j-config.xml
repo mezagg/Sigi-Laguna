@@ -67,6 +67,7 @@
 	</root>
 	<!--ROOT -->
 
+	
 	<!--LOGGERS -->
 	<logger  name="org.hibernate.SQL" additivity="false">
 		<level value="debug" />
