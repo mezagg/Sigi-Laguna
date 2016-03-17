@@ -1,4 +1,4 @@
-//Bloquea cuando todo el DOM ya esta completo
+ο»Ώ//Bloquea cuando todo el DOM ya esta completo
 $(document).ready(function(){
 	
 	administraEventosDelEditorDeDocumentos();
@@ -872,7 +872,7 @@ function soloLetrasN(e) {
     	}
     	return true;		
     }
-    patron =/[A-Za-zΡραινσϊΑΙΝΣΪδλοφόΔΛΟΦάΰθμςωΐΘΜÒΩ\s]/;
+    patron =/[A-Za-zΓ‘Γ±Γ΅Γ©Γ­Γ³ΓΊΓΓ‰ΓΓ“ΓΓ¤Γ«Γ―Γ¶ΓΌΓ„Γ‹ΓΓ–ΓΓ Γ¨Γ¬Γ²ΓΉΓ€ΓΓΓ’Γ™\s]/;
     te = String.fromCharCode(tecla);
     return patron.test(te);
 }
@@ -896,9 +896,8 @@ function soloLetrasNPunto(e) {
     	}
     	return true;	
     }
-    patron =/[A-Za-zΡραινσϊΑΙΝΣΪδλοφόΔΛΟΦάΰθμςωΐΘΜÒΩ\s]/;
+    patron =/[A-Za-zΓ‘Γ±Γ΅Γ©Γ­Γ³ΓΊΓΓ‰ΓΓ“ΓΓ¤Γ«Γ―Γ¶ΓΌΓ„Γ‹ΓΓ–ΓΓ Γ¨Γ¬Γ²ΓΉΓ€ΓΓΓ’Γ™\s]/;
     te = String.fromCharCode(tecla);
-    
     return patron.test(te);
 }
 
@@ -1190,7 +1189,7 @@ function cambiaMayusculas(campo)
     campo.value = campo.value.toUpperCase();
 }
 function validaSoloLetras(campo){
-	var regexp = new RegExp(/^[A-Za-zΡραινσϊΑΙΝΣΪδλοφόΔΛΟΦάΰθμςωΐΘΜÒΩ\.\s]*$/);
+	var regexp = new RegExp(/^[A-Za-zΓ‘Γ±Γ΅Γ©Γ­Γ³ΓΊΓΓ‰ΓΓ“ΓΓ¤Γ«Γ―Γ¶ΓΌΓ„Γ‹ΓΓ–ΓΓ Γ¨Γ¬Γ²ΓΉΓ€ΓΓΓ’Γ™\.\s]*$/);
         
     aEvaluar = campo.value;
     
@@ -1453,7 +1452,7 @@ function soloLetrasConAcentosYNumeros(e) {
     	}
     	return true;	
     }
-    patron =/[A-Za-zΡραινσϊΑΙΝΣΪδλοφόΔΛΟΦάΰθμςωΐΘΜÒΩ0-9,()\s]/;
+    patron =/[A-Za-zΓ‘Γ±Γ΅Γ©Γ­Γ³ΓΊΓΓ‰ΓΓ“ΓΓ¤Γ«Γ―Γ¶ΓΌΓ„Γ‹ΓΓ–ΓΓ Γ¨Γ¬Γ²ΓΉΓ€ΓΓΓ’Γ™0-9,()\s]/;
 
     te = String.fromCharCode(tecla);
     return patron.test(te);
@@ -1466,7 +1465,7 @@ function soloLetrasConAcentosYNumeros(e) {
  * 
  * */
 function validaSoloLetrasConAcentosYNumeros(campo){
-	var regexp = new RegExp(/^[A-Za-zΡραινσϊΑΙΝΣΪδλοφόΔΛΟΦάΰθμςωΐΘΜÒΩ0-9,()\.\s]*$/);
+	var regexp = new RegExp(/^[A-Za-zΓ‘Γ±Γ΅Γ©Γ­Γ³ΓΊΓΓ‰ΓΓ“ΓΓ¤Γ«Γ―Γ¶ΓΌΓ„Γ‹ΓΓ–ΓΓ Γ¨Γ¬Γ²ΓΉΓ€ΓΓΓ’Γ™0-9,()\.\s]*$/);
     aEvaluar = campo.value;
     if (!regexp.test(aEvaluar)) {
     	customAlert("Caracteres invalidos en:<br>"+aEvaluar);

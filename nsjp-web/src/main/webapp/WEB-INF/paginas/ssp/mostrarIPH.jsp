@@ -347,13 +347,13 @@
 	      	if($(this).find('valorIdCalidad').find('idCampo').first().text() == '<%= Calidades.PROBABLE_RESPONSABLE_PERSONA.getValorId() %>'){
 	      		var idInvolucrado = $(this).find('elementoId').first().text();
 	      		var nombreResponsable = $(this).find('nombre').first().text() + ' ' + $(this).find('apellidoPaterno').first().text() + ' ' + $(this).find('apellidoMaterno').first().text();
-				$('#tblProbableResponsable').append('<tr id="' + idInvolucrado + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificarProbableResponsable('+idInvolucrado+');">'+ nombreResponsable + '</a></td></tr>');
+				$('#tblProbableResponsable').append('<tr id="participe_' + idInvolucrado + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificarProbableResponsable('+idInvolucrado+');">'+ nombreResponsable + '</a></td></tr>');
 	      	}
 
 	      	if($(this).find('valorIdCalidad').find('idCampo').first().text() == '<%= Calidades.PROBABLE_RESPONSABLE_ORGANIZACION.getValorId() %>'){
 	      		var idInvolucrado = $(this).find('elementoId').first().text();
 	      		var nombreResponsable = $(this).find('nombreOrganizacion').first().text();
-				$('#tblProbableResponsable').append('<tr id="' + idInvolucrado + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificarProbableResponsable('+idInvolucrado+');">'+ nombreResponsable + '</a></td></tr>');
+				$('#tblProbableResponsable').append('<tr id="participe_' + idInvolucrado + '"><td class="noSub" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;<a onclick="modificarProbableResponsable('+idInvolucrado+');">'+ nombreResponsable + '</a></td></tr>');
 	      	}
 
 	      	if($(this).find('valorIdCalidad').find('idCampo').first().text() == '<%= Calidades.TESTIGO.getValorId() %>'){
@@ -908,10 +908,10 @@
 	}
 
 	function cargaProbableResponsable(nombre,id){
-		var row=$('#'+id);
+		var row=$('#participe_'+id);
 		$(row).remove();
 		nombre=nombre+" - "+'<bean:message key="indiciado" />';
-		$('#tblProbableResponsable').append('<tr id="'+id+'"><td class="noSub">&nbsp;&nbsp;&nbsp;<a id="consultarProbableResponsable" onclick="modificarProbableResponsable('+id+')">'+nombre+'</a></td></tr>');
+		$('#tblProbableResponsable').append('<tr id="participe_'+id+'"><td class="noSub">&nbsp;&nbsp;&nbsp;<a id="consultarProbableResponsable" onclick="modificarProbableResponsable('+id+')">'+nombre+'</a></td></tr>');
 		cerrarVentanaProbableResponsable();
 	}
 	function cerrarVentanaProbableResponsable(){
@@ -931,7 +931,7 @@
 	//Funcion para quitar la victima del visor de elementos
 	function eliminarProbableResponsable(id)
 	{
-		var row=$('#'+id);
+		var row=$('#participe_'+id);
 		$(row).remove();
 	}
 
