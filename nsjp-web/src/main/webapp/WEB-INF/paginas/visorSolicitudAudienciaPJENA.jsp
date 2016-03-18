@@ -161,8 +161,33 @@
 			},
 			selectedList: 1 
 		});
-
-
+                
+                /*
+                $("#caracterSolicitudAudienciaDetalleId").multiselect({ 
+			multiple: false, 
+			header: "Seleccione", 
+			position: { 
+				my: 'top', 
+				at: 'top' 
+			},
+                        selectedList: -1 
+		});
+                */
+               $("#caracterSolicitudAudienciaDetalleId").change(function(){
+                   var element = $(this).val();
+                   var valID = $("#caracterSolicitudAudienciaDetalleIdH").val();
+                   if(element != -1){
+                       $.ajax({
+				type: 'POST',
+				url: '<%=request.getContextPath()%>/actualizaNivelCaracter.do?caracterId='+element,
+				data: 'idAudiencia='+ valID, 
+				async: true,
+				success: function(response){
+					
+				}
+			});
+                   }
+               });
 		/**
 		*Funcion que recarga el grid con la funcionalidad de la agenda
 		*/
@@ -1027,6 +1052,8 @@
 	    				numeroExpedienteId=$(xml).find('numeroExpedienteId').first().text();
 	    				editarNumeroExpedienteSolicitudAudiencia($(xml).find('numeroExpedienteId').first().text());
 	    				$("#caracterSolicitudAudienciaDetalle").val($(xml).find('caracter').first().text());
+                                        $("#caracterSolicitudAudienciaDetalleId").val($(xml).find('caracterId').first().text());
+                                        $("#caracterSolicitudAudienciaDetalleIdH").val(idAudiencia);
 	    				$("#fechaSolicitudAudienciaDetalle").val($(xml).find('strFechaCreacion').first().text());
 	    				$("#fechaSolicitudAudienciaDetalle").val($(xml).find('strFechaCreacion').first().text());
 	    				$("#horaSolicitudAudienciaDetalle").val($(xml).find('strHoraCreacion').first().text());
@@ -1705,9 +1732,16 @@
 				<tr>
 					<td align="right"><strong>Car&aacute;cter: </strong>
 					</td>
-					<td><input type="text" id="caracterSolicitudAudienciaDetalle"
+					<td><!--input type="text" id="caracterSolicitudAudienciaDetalle"
 						style="width: 180px; border: 0; background: #DDD;"
 						readonly="readonly" />
+                                            <br/-->
+                                                <select id="caracterSolicitudAudienciaDetalleId" style="width:200px;">
+                                                    <option value="-1" >-Seleccione-</option>
+                                                    <option value="0" >Privada</option>
+                                                    <option value="1" >P&uacute;blica</option>
+                                                </select>
+                                            <input id="caracterSolicitudAudienciaDetalleIdH" type="hidden" />
 					</td>
 				</tr>
 				<tr>

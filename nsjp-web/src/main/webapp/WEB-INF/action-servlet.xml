@@ -734,6 +734,8 @@
 
 <bean name="/consultarDetalleSolicitudDeAudiencia" class="mx.gob.segob.nsjp.web.solicitud.action.ConsultarSolicitudesPJEAAction"/>
 
+<bean name="/actualizaNivelCaracter" class="mx.gob.segob.nsjp.web.solicitud.action.ConsultarSolicitudesPJEAAction"/>
+
 <bean name="/editarNumeroExpedienteSolicitudAudiencia" class="mx.gob.segob.nsjp.web.solicitud.action.AdministrarNumeroExpedienteSolicitudAudienciaAction"/>
 
 <bean name="/actualizarNumeroExpedienteSolicitudAudiencia" class="mx.gob.segob.nsjp.web.solicitud.action.AdministrarNumeroExpedienteSolicitudAudienciaAction"/>

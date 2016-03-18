@@ -344,6 +344,7 @@ public class EventoTransformer {
         
         if(audiencia.getEsPublica() != null){
         	audiencciaDTO.setCaracter(audiencia.getEsPublica() == true ? "Pública":"Privada");
+                audiencciaDTO.setCaracterId(audiencia.getEsPublica() ? 1 : 0);
 		}else{
 			for (Valor ext : tipoAud.getRegistro().getValors()) {
 	            if (ext.getCampoCatalogo().getNombreCampo().equals("Carácter")) {

@@ -71,6 +71,7 @@ public class AudienciaDTO extends EventoDTO {
     private SalaTemporalDTO salaTemporal;
     private Boolean esReprogramacionDeAudiencia = false;
     private Long idDistritoFiltroAudiencias;
+    private Integer caracterId;
     
     /**
      * 
@@ -561,5 +562,23 @@ public class AudienciaDTO extends EventoDTO {
 	public void setIdDistritoFiltroAudiencias(Long idDistritoFiltroAudiencias) {
 		this.idDistritoFiltroAudiencias = idDistritoFiltroAudiencias;
 	}	
+
+        /**
+         * Regresa el Caracter,1 = Pública, 0 = privado
+         * @return caracterId
+         */
+    public Integer getCaracterId() {
+        return caracterId;
+    }
+
+    /**
+     * Asigna el valor de Caracter
+     * @param caracterId 
+     */
+    public void setCaracterId(Integer caracterId) {
+        this.caracterId = caracterId;
+    }
+        
+        
 	
 }
