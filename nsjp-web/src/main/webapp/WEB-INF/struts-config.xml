@@ -5449,6 +5449,13 @@
 		parameter="consultarDetalleSolicitudAudiencia"
 		validate="false">
 	</action>
+        
+        <action path="/actualizaNivelCaracter" 
+		type="mx.gob.segob.nsjp.web.solicitud.action.ConsultarSolicitudesPJEAAction"
+		scope="request"
+		parameter="actualizaNivelCaracter"
+		validate="false">
+	</action>
 	
 	<action path="/editarNumeroExpedienteSolicitudAudiencia" 
 		type="mx.gob.segob.nsjp.web.solicitud.action.AdministrarNumeroExpedienteSolicitudAudienciaAction"

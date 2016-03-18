@@ -186,6 +186,11 @@ public class ConsultarSolicitudesPJEAAction extends GenericAction {
 						+ (solicitudAudienciaDTO.getAudiencia().getCaracter() != null ? solicitudAudienciaDTO
 								.getAudiencia().getCaracter() : "---")
 						+ "</cell>");
+                                // CaracterId
+				writer.print("<cell>"
+						+ (solicitudAudienciaDTO.getAudiencia().getCaracterId() != null ? solicitudAudienciaDTO
+								.getAudiencia().getCaracterId() : "-1")
+						+ "</cell>");
 
 				// Tipo de audiencia
 				writer.print("<cell>"
@@ -378,6 +383,33 @@ public class ConsultarSolicitudesPJEAAction extends GenericAction {
 	}
 
 
+        public ActionForward actualizaNivelCaracter(
+			ActionMapping mapping, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) throws IOException{
+            
+            try{
+                log.info("EJECUTANDO ACTION ---- ACTUALIZA NIVEL CARACTER");
+
+			String idAudiencia = request.getParameter("idAudiencia");
+                        String caracterId  = request.getParameter("caracterId");
+			log.info("___________________________________________________________________________________________________");
+			log.info("ID DE LA SOLICITUD DE LA AUDIENCIA******************************=="
+					+ idAudiencia);
+                        log.info("Caracter ID "+caracterId);
+			log.info("___________________________________________________________________________________________________");
+                        
+                        if((caracterId != null && idAudiencia!=null) && (caracterId.trim().equals("0") || caracterId.trim().equals("1"))){
+                            Integer id = Integer.parseInt(caracterId);
+                            this.audienciaDelegate.actualizaCaracterAudiencia(Long.parseLong(idAudiencia), (id == 1));
+                        }else{
+                            log.info("Do Nothing!");
+                        }
+            }catch(Exception e){
+                log.info(e.getCause(),e);
+            }
+            
+            return null;
+        }
 	/**
 	 * Metodo utilizado para la consulta de solicitudes, de otro tipo audio,
 	 * video, recuso, etc.
