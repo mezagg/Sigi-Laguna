@@ -1133,7 +1133,6 @@ public class AsignarNumeroExpedienteServiceImpl
 		logger.info(" AreaidF:"+usuario.getAreaActual().getAreaId());
 				
 		List<String> unidad = new ArrayList<String>();
-		
 		switch (Areas.values()[areaId.intValue()]) {
 
 		case ATENCION_TEMPRANA_PG_PENAL:
@@ -1174,9 +1173,9 @@ public class AsignarNumeroExpedienteServiceImpl
 			//Se definen reglas de negocio
 			unidad = consultarClavesUIE(usuario);
 			//Se considera siempre la siguiente unidad
-			unidad.add(AcronimoNumExpAlterno.COORDINACION_POLICIA_MINISTERIAL.getAcronimo());
+			//unidad.add(AcronimoNumExpAlterno.COORDINACION_POLICIA_MINISTERIAL.getAcronimo());
 			break;
-		case COORDINACION_POLICIA_MINISTERIAL:			
+		case COORDINACION_POLICIA_MINISTERIAL:
 			//if(usuario.getAreaActual().getAreaId().equals(usuario.getFuncionario().getJerarquiaOrganizacional().getJerarquiaOrganizacionalId())){
 				unidad = consultarClavesDeEspecialidadPM(usuario);
 			//}
@@ -1208,6 +1207,7 @@ public class AsignarNumeroExpedienteServiceImpl
 		//As&iacute; como el incremento del consecutivo.
 //RRL Coahuila
 //        String noExpAlterno = noExpDao.obtenerNumeroExpedienteAlternoConsecutivo(1, 5, 1, unidad, distrito, anio.toString(),monoEntFederativa);
+		logger.info("Unidades "+ unidad);
 		String noExpAlterno = noExpDao.obtenerNumeroExpedienteAlternoConsecutivo(1, 5, 1, unidad, distrito, anio.toString(),monoEntFederativa);
 		//Se lleva a cabo la actualizacion del No. de expediente alterno.
 //		NumeroExpediente noExpBase = noExpDao.read(expediente.getNumeroExpedienteId());
@@ -1283,8 +1283,8 @@ public class AsignarNumeroExpedienteServiceImpl
 			unidadesUIE.add(0, usuario.getFuncionario()
 					.getUnidadIEspecializada().getAcronimo().trim());
 //RRL Coahuila
-			unidadesUIE.add(1,AcronimoNumExpAlterno.UNIDAD_INVESTIGACION
-					.getAcronimo());
+			/*unidadesUIE.add(1,AcronimoNumExpAlterno.UNIDAD_INVESTIGACION
+					.getAcronimo());*/
 		}
 /*
 		List<CatUIEspecializada> listaCatUIE = catUIEspecializadaDAO
