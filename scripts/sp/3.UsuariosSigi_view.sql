@@ -6,7 +6,10 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE view [dbo].[usuariosigi] as 
-Select f.cNombreFuncionario, 
+Select 
+f.iClaveFuncionario,
+u.cClaveUsuario,
+f.cNombreFuncionario, 
 f.cApellidoPaternoFuncionario,
 f.cApellidoMaternoFuncionario,
 f.cSexo,
@@ -25,7 +28,6 @@ uie.catUIE_id,
 uie.cNombreUIE,
 ca.CatAreasNegocio_id,
 ca.cNombre as cNombreAreaNeg,
-u.cClaveUsuario,
 jur.Rol_id, 
 jur.cNombreRol,
 jur.cDescripcionRol

@@ -118,8 +118,8 @@ var resRad;
 		$("#idAsignarFacilitador").hide();
 		$("#idReasignarFacilitador").hide();
                 
-		$("#cbxAccionesTabTS").change(seleccionaActuacionTrabajoSocial);
-		$("#cbxAccionesTabJ").change(seleccionaActuacionJuridico);
+		//$("#cbxAccionesTabTS").change(seleccionaActuacionTrabajoSocial);
+		//$("#cbxAccionesTabJ").change(seleccionaActuacionJuridico);
                 
 		//Para escuchar los eventos de psicologico
 		$("#cbxAccionesTab").change(seleccionaActuacionPsicologico);
@@ -250,25 +250,9 @@ var resRad;
                     $( "#btnSolicitarAyuda" ).hide();
                         cargaActuacionesAnt();
                         ocultaMuestraTabVisor("tabTabsAudiencias",0);
-			cargaActuacionesTs();
-                        cargaActuacionesJ();
-                }
-                /*
-		if(pantalla==2){
-			$( "#btnSolicitarAyuda" ).hide();
-                        cargaActuaciones();
-                        ocultaMuestraTabVisor("tabTabsAudiencias",0);
-			cargaActuacionesTs();
-		}else if(pantalla==3){
-			$( "#btnSolicitarAyuda" ).hide();
-                        cargaActuaciones();
-                        ocultaMuestraTabVisor("tabTabsAudiencias",0);
-			cargaActuacionesJ();
-		}else if(pantalla==1){
-			$( "#btnSolicitarAyuda" ).hide();
-			cargaActuacionesAnt();
-                        ocultaMuestraTabVisor("tabTabsAudiencias",0);
-		}*/else{
+			
+                        
+                }else{
 			cargaComboFuncionariosXArea(areaId);
 		}
 		cargaGridOpciones();
@@ -613,48 +597,9 @@ function popopAsistencia(rowid){
 	}
         
        
-	/*
-	*Funcion que realiza la carga del combo de Actuaciones
-	*/
-	function cargaActuacionesTs() {
-		var id=0;
-		$('#cbxAccionesTabTS').empty();
-		$('#cbxAccionesTabTS').append('<option value="-1">-Seleccione-</option>');
-		$.ajax({
-			type: 'POST',
-			url: '<%= request.getContextPath()%>/cargarActuaciones.do?id='+id+'&numeroExpediente='+numeroExpediente,
-			data: '',
-			dataType: 'xml',
-			async: false,
-			success: function(xml){
-				$(xml).find('catActuaciones').each(function(){
-					$('#cbxAccionesTabTS').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
-					});
-			}
-		});
-	}
 	
-	/*
-	*Funcion que realiza la carga del combo de Actuaciones
-	*/
-	function cargaActuacionesJ() {
-
-		var id=0;
-		$('#cbxAccionesTabJ').empty();
-		$('#cbxAccionesTabJ').append('<option value="-1">-Seleccione-</option>');
-		$.ajax({
-			type: 'POST',
-			url: '<%= request.getContextPath()%>/cargarActuaciones.do?id='+id+'&numeroExpediente='+numeroExpediente,
-			data: '',
-			dataType: 'xml',
-			async: false,
-			success: function(xml){
-				$(xml).find('catActuaciones').each(function(){
-					$('#cbxAccionesTabJ').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
-					});                  
-			}
-		});
-	}
+        
+        
 	
         
         function cargaActuacionesAnt() {
@@ -1202,49 +1147,11 @@ function popopAsistencia(rowid){
 //			}
 //		});
 //	}
-	/*
-	*Funcion que realiza la carga del combo de Actuaciones
-	*/
-	function cargaActuacionesTs() {
-		var id=0;
-		$('#cbxAccionesTabTS').empty();
-		$('#cbxAccionesTabTS').append('<option value="-1">-Seleccione-</option>');
-		$.ajax({
-			type: 'POST',
-			url: '<%= request.getContextPath()%>/cargarActuaciones.do?id='+id+'&numeroExpediente='+numeroExpediente,
-			data: '',
-			dataType: 'xml',
-			async: false,
-			success: function(xml){
-				$(xml).find('catActuaciones').each(function(){
-					$('#cbxAccionesTabTS').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
-					});
-			}
-		});
-	}
 	
-	/*
-	*Funcion que realiza la carga del combo de Actuaciones
-	*/
-	function cargaActuacionesJ() {
-
-		var id=0;
-		$('#cbxAccionesTabJ').empty();
-		$('#cbxAccionesTabJ').append('<option value="-1">-Seleccione-</option>');
-		$.ajax({
-			type: 'POST',
-			url: '<%= request.getContextPath()%>/cargarActuaciones.do?id='+id+'&numeroExpediente='+numeroExpediente,
-			data: '',
-			dataType: 'xml',
-			async: false,
-			success: function(xml){
-				$(xml).find('catActuaciones').each(function(){
-					$('#cbxAccionesTabJ').append('<option value="' + $(this).find('clave').text() + '">' + $(this).find('valor').text() + '</option>');
-					});                  
-			}
-		});
-	}
+        
 	
+	
+        
 	
 	
 	function asignarAyuda()
@@ -2673,7 +2580,7 @@ function muestraDivInformativoCanalizacion()
 				 	
 	            </div>
 				
-				<div id="tabsconsultaprincipal-6">
+				<!--div id="tabsconsultaprincipal-6">
 					<table width="100%">
 						<tr>
 							<td width="10%">&nbsp;</td>
@@ -2705,7 +2612,7 @@ function muestraDivInformativoCanalizacion()
 						</tr>
 					</table>
 				
-				</div>
+				</div-->
                                                 
 				<div id="tabsconsultaprincipal-5">
 					<table width="25%" cellpadding="0" cellspacing="0" id="tablaNotasExpediente">
