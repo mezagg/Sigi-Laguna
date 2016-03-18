@@ -91,8 +91,8 @@ public class FuncionarioDAOImpl extends
         StringBuffer queryString = new StringBuffer();
         queryString.append(" SELECT  cast (f.iClaveFuncionario as varchar) as id ,");
         queryString.append(" concat (f.cNombreFuncionario ,' ', ");
-        queryString.append(" f.cNombreFuncionario  , ' ', ");
-        queryString.append(" f.cApellidoPaternoFuncionario) as valor ");
+        queryString.append(" f.cApellidoPaternoFuncionario  , ' ', ");
+        queryString.append(" f.cApellidoMaternoFuncionario) as valor ");
         queryString.append(" FROM Funcionario f join Usuario u  ");
         queryString.append(" ON f.iClaveFuncionario=u.iClaveFuncionario ");
         queryString.append(" where u.Usuario_id > 0  ");
