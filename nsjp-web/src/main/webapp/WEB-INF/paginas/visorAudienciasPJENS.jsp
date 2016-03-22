@@ -1365,13 +1365,13 @@
 		}).navGrid('#paginadorGridFiscal',{edit:false,add:false,del:false});
 
 		//Button agregar amp
-		var inputAgregarFiscal = "<input type='button' class="ui-button ui-corner-all ui-widget" id='butAgreAmp' value='Agregar ";
+		var inputAgregarFiscal = "<input type='button' class='ui-button ui-corner-all ui-widget' id='butAgreAmp' value='Agregar ";
 		inputAgregarFiscal += '<bean:message key="agenteMp"/>';
 		inputAgregarFiscal += "' />";
 		$("#t_gridFiscal").append(inputAgregarFiscal);
 		
 		//Button eliminar amp
-		var inputEliminarFiscal = "<input type='button' class="ui-button ui-corner-all ui-widget" id='butElimAmp' value='Eliminar ";
+		var inputEliminarFiscal = "<input type='button' class='ui-button ui-corner-all ui-widget' id='butElimAmp' value='Eliminar ";
 		inputEliminarFiscal += '<bean:message key="agenteMp"/>';
 		inputEliminarFiscal += "' />";
 		$("#t_gridFiscal").append(inputEliminarFiscal);
@@ -4248,13 +4248,13 @@
 		}).navGrid('#paginadorGridFiscal',{edit:false,add:false,del:false});
 
 		//Button agregar amp
-		var inputAgregarFiscal = "<input type='button' class="ui-button ui-corner-all ui-widget" id='butAgreAmp1' value='Agregar ";
+		var inputAgregarFiscal = "<input type='button' class='ui-button ui-corner-all ui-widget' id='butAgreAmp1' value='Agregar ";
 		inputAgregarFiscal += '<bean:message key="agenteMp"/>';
 		inputAgregarFiscal += "' />";
 		$("#t_gridFiscal1").append(inputAgregarFiscal);
 		
 		//Button eliminar amp
-		var inputEliminarFiscal = "<input type='button' class="ui-button ui-corner-all ui-widget" id='butElimAmp1' value='Eliminar ";
+		var inputEliminarFiscal = "<input type='button' class='ui-button ui-corner-all ui-widget' id='butElimAmp1' value='Eliminar ";                
 		inputEliminarFiscal += '<bean:message key="agenteMp"/>';
 		inputEliminarFiscal += "' />";
 		$("#t_gridFiscal1").append(inputEliminarFiscal);
