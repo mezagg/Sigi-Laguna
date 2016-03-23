@@ -156,6 +156,8 @@ public class AsignarNumeroExpedienteServiceImpl
     
     private final Long COORDINACION_DE_UNIDAD_INTEGRAL_SALTILLO = 42L;
     private final Long COORDINACION_DE_UNIDAD_INTEGRAL_FAMILIARES = 43L;
+	private final Integer NUMERO_DIGITOS = 4;
+	private final String CONF_UNIDADES_NUM_EXPEDIENTE = "AGENCIA";
       
     /**
      * Permite generar un nuevo numero de expediente
@@ -1131,7 +1133,13 @@ public class AsignarNumeroExpedienteServiceImpl
 		logger.info(" areaId:"+usuario.getFuncionario().getJerarquiaOrganizacional().getJerarquiaOrganizacionalId());
 		logger.info(" AreaidF:"+usuario.getAreaActual());
 		logger.info(" AreaidF:"+usuario.getAreaActual().getAreaId());
-				
+
+		//Consulta parametros para la generación de numero de expediente de acuerdo a la configuracíon de la región
+		Parametro parametro = parametroDAO.obtenerPorClave(Parametros.DIGITOS_NUM_EXPEDIENTE);
+		Integer numDigitos = (parametro != null )? Integer.parseInt(parametro.getValor()): NUMERO_DIGITOS;
+		parametro = parametroDAO.obtenerPorClave(Parametros.CONF_UNIDADES_NUM_EXPEDIENTE);
+		String confUnidadesNumExpediente =(parametro != null)? parametro.getValor(): CONF_UNIDADES_NUM_EXPEDIENTE;
+
 		List<String> unidad = new ArrayList<String>();
 		switch (Areas.values()[areaId.intValue()]) {
 
@@ -1171,7 +1179,7 @@ public class AsignarNumeroExpedienteServiceImpl
 //				unidad.add(AcronimoNumExpAlterno.UNIDAD_INVESTIGACION.getAcronimo());
 //			}
 			//Se definen reglas de negocio
-			unidad = consultarClavesUIE(usuario);
+			unidad = consultarClavesUIE(usuario, confUnidadesNumExpediente);
 			//Se considera siempre la siguiente unidad
 			//unidad.add(AcronimoNumExpAlterno.COORDINACION_POLICIA_MINISTERIAL.getAcronimo());
 			break;
@@ -1207,8 +1215,10 @@ public class AsignarNumeroExpedienteServiceImpl
 		//As&iacute; como el incremento del consecutivo.
 //RRL Coahuila
 //        String noExpAlterno = noExpDao.obtenerNumeroExpedienteAlternoConsecutivo(1, 5, 1, unidad, distrito, anio.toString(),monoEntFederativa);
+
 		logger.info("Unidades "+ unidad);
-		String noExpAlterno = noExpDao.obtenerNumeroExpedienteAlternoConsecutivo(1, 5, 1, unidad, distrito, anio.toString(),monoEntFederativa);
+
+		String noExpAlterno = noExpDao.obtenerNumeroExpedienteAlternoConsecutivo(1, numDigitos, 1, unidad, distrito, anio.toString(),monoEntFederativa);
 		//Se lleva a cabo la actualizacion del No. de expediente alterno.
 //		NumeroExpediente noExpBase = noExpDao.read(expediente.getNumeroExpedienteId());
 		
@@ -1256,7 +1266,7 @@ public class AsignarNumeroExpedienteServiceImpl
 	 * a la que pertenece el usuario que se recibe como par&aacute;metro
 	 * @throws NSJPNegocioException
 	 */
-	private List<String> consultarClavesUIE(UsuarioDTO usuario)
+	private List<String> consultarClavesUIE(UsuarioDTO usuario, String filtroConfUnidadesNumExpediente)
 			throws NSJPNegocioException {
 
 		List<String> unidadesUIE = new ArrayList<String>();
@@ -1286,19 +1296,20 @@ public class AsignarNumeroExpedienteServiceImpl
 			/*unidadesUIE.add(1,AcronimoNumExpAlterno.UNIDAD_INVESTIGACION
 					.getAcronimo());*/
 		}
-/*
-		List<CatUIEspecializada> listaCatUIE = catUIEspecializadaDAO
-				.consultarTodos();
 
-		for (CatUIEspecializada catUIE : listaCatUIE) {
-			// Evita el duplicado del usuario
-			if (!(catUIE.getAcronimo().toString().trim().equals(unidadesUIE
-					.get(0).toString().trim()))) {
-				unidadesUIE.add(catUIE.getAcronimo().toString().trim());
+		if(filtroConfUnidadesNumExpediente.equals(CONF_UNIDADES_NUM_EXPEDIENTE)) {
+			List<CatUIEspecializada> listaCatUIE = catUIEspecializadaDAO
+					.consultarTodos();
+			for (CatUIEspecializada catUIE : listaCatUIE) {
+				// Evita el duplicado del usuario
+				if (!(catUIE.getAcronimo().toString().trim().equals(unidadesUIE
+						.get(0).toString().trim()))) {
+					unidadesUIE.add(catUIE.getAcronimo().toString().trim());
+				}
 			}
 		}
-		logger.info("CAT UIE DE LA LISTA=" + unidadesUIE.toString());
-*/
+
+
 		return unidadesUIE;
 	}
 
