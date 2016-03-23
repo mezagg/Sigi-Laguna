@@ -116,7 +116,7 @@ public class DocumentoAction extends GenericAction {
 			
 			adjunto.setUsuario(usuarioFirmado);
 			
-			funcionarioDTO = getUsuarioFirmado(request).getFuncionario();
+			funcionarioDTO = usuarioFirmado.getFuncionario();
 			
 			
 			Actividades actividad = null;
@@ -180,6 +180,7 @@ public class DocumentoAction extends GenericAction {
 					
 		} catch (Exception e) {		
 			logger.info(e.getCause(),e);
+                        e.printStackTrace();
 			return mapping.findForward("fail");
 		}
 		

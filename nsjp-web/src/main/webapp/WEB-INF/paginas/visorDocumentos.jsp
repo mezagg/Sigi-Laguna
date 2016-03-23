@@ -32,6 +32,7 @@
 	<script type="text/javascript">
 	
 	// Variables Generales recuperadas de la peticion
+        var contextoPagina = "${pageContext.request.contextPath}";
 	var numeroCausa = ('<%=request.getParameter("numCausa")%>' == null ? '<%=request.getSession().getAttribute("numCausa")%>' : parent.numCausa);
 	var numCaso = ( parent.numCaso != undefined ? parent.numCaso : "");
 	
@@ -158,7 +159,7 @@
 	
 	// Funcion que carga el grid con los nombre de los documentos digitales asociados al id de la solicitud de serv. periciales
 	function cargaGridDocumentosDigitalesPropios(){ 
-
+                idNumeroExpediente = numExpedienteId;
 		if(banderaGridDocumentosDigitalesPropios == true){
 			jQuery("#gridDocumentosDigitalesPropios").jqGrid({
 				url:'<%=request.getContextPath()%>/ConsultaExpedientesDocumento.do?numeroExpedienteId='+numExpedienteId+'',
@@ -1340,6 +1341,8 @@
 		<div id="tabsconsultaprincipal-2">
 			<table width="1150"  height="530" border="0" cellspacing="0" cellpadding="0">
 				<tr><td>&nbsp;</td></tr>
+                                <tr><td><button value="Adjuntar documento" id="btnAdjuntarDocumento" class="ui-button ui-corner-all ui-widget" onclick="abreVentanaAdjuntarDocumentoAExpedienteFull()" style="width: 100%;">Adjuntar documento</button></td></tr>
+                                <tr><td>&nbsp;</td></tr>
 		    	<tr>
 		        	<td width="250" align="center" valign="top">
 	                	<table id="gridDocumentosDigitalesPropios"></table>
