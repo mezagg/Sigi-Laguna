@@ -186,12 +186,7 @@ public class ConsultarSolicitudesPJEAAction extends GenericAction {
 						+ (solicitudAudienciaDTO.getAudiencia().getCaracter() != null ? solicitudAudienciaDTO
 								.getAudiencia().getCaracter() : "---")
 						+ "</cell>");
-                                // CaracterId
-				writer.print("<cell>"
-						+ (solicitudAudienciaDTO.getAudiencia().getCaracterId() != null ? solicitudAudienciaDTO
-								.getAudiencia().getCaracterId() : "-1")
-						+ "</cell>");
-
+                                
 				// Tipo de audiencia
 				writer.print("<cell>"
 						+ solicitudAudienciaDTO.getAudiencia()
