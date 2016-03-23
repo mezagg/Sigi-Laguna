@@ -66,7 +66,6 @@ public class NumeroExpedienteDAOImpl
     private static final String SEPARADOR_ENTIDAD_DISTRITO = "-";
     private static final Integer INICIO_CONSECUTIVO = 0;
     private static final String SEPARADOR_UNIDAD_ANIO = "/";
-	private static final Integer  NUMERO_LONG_CONSECUTIVO=5;
     
     @Override
     public NumeroExpediente obtenerNumeroExpediente(Long expedienteId,
@@ -958,7 +957,7 @@ public class NumeroExpedienteDAOImpl
 		}catch (Exception e){
 			logger.error(e.getMessage(), e);
 		}
-		return crearNumeroExpedienteAlterno(consecutivo,unidades.get(0), anio, distrito,monoEntFederativa);
+		return crearNumeroExpedienteAlterno(finConsecutivo,consecutivo,unidades.get(0), anio, distrito,monoEntFederativa);
 	}
 	
 	/**
@@ -970,19 +969,10 @@ public class NumeroExpedienteDAOImpl
 	 * @param entidadFederativa - El monograma de la entidad federativa de despliegue
 	 * @return consecutivoCompleto - el n&uacute;mero de expediente alterno generado. 
 	 */
-	private String crearNumeroExpedienteAlterno (Integer consecutivo, String unidad, String anio, String distrito,String monoEntFederativa){
-		String consecutivoCompleto = "00000";
+	private String crearNumeroExpedienteAlterno (Integer finConsecutivo, Integer consecutivo, String unidad, String anio, String distrito,String monoEntFederativa){
+		String consecutivoCompleto = new String(new char[finConsecutivo]).replace("\0", "0");
 		int longConsecutivo= consecutivo.toString().length();
-		consecutivoCompleto=consecutivoCompleto.substring(0,NUMERO_LONG_CONSECUTIVO - longConsecutivo)+consecutivo;
-		/*if (consecutivo < 10 ){
-			consecutivoCompleto = "000"+consecutivo.toString();
-		}else if (consecutivo < 100){
-			consecutivoCompleto = "00"+consecutivo.toString();
-		}else if (consecutivo < 1000){
-			consecutivoCompleto = "0"+consecutivo.toString();
-		}else if (consecutivo < 10000){
-		consecutivoCompleto = consecutivo.toString();
-		}*/
+		consecutivoCompleto=consecutivoCompleto.substring(0,finConsecutivo - longConsecutivo)+consecutivo;
 //RRL Coahuila
 //		else if (consecutivo < 100000){
 //			consecutivoCompleto = consecutivo.toString();

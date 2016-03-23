@@ -83,6 +83,7 @@ public class ParametroDAOImpl extends GenericDaoHibernateImpl<Parametro, Long>
             final Query qry = super.getSession().createQuery(cq.toString())
                     .setParameter("cve", clveParam.name());
             p= (Parametro) qry.uniqueResult();
+            if (p != null)
             mapa.put(Parametros.valueOf(p.getClave()), p);
             
         }

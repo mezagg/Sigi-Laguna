@@ -230,8 +230,11 @@ public enum Parametros {
     NUC_ESTADO,  //52
     NUC_REGION,  //53
     NUC_INSTITUCION, //54
-    NUC_DISTRITO  //55
-   
+    NUC_DISTRITO,  //55
+
+    /** Parametros para generación de número de expediente **/
+    DIGITOS_NUM_EXPEDIENTE, // 58
+    CONF_UNIDADES_NUM_EXPEDIENTE //59
     ;
 
 }
