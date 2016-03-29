@@ -157,7 +157,8 @@
 				jQuery("#gridCatDelitos").jqGrid({ 							
 	            	url:'<%= request.getContextPath()%>/cargarDelitosFiltrados.do?idNumeroExpediente='+idExpedienteop+'&idsDelitos='+idsDelitos+'',
 				ajaxGridOptions : {
-    	            	  async:false
+    	            	  async:false,
+    	            	  contentType:"application/x-www-form-urlencoded; charset=UTF-8"
         	    },
 				datatype: "xml",
 				colNames:['Clave','Clave','Delito', '&iquest;Es grave?','&iquest;Es grave?','Delito Principal','Tipo','DelitoId'], 
@@ -183,9 +184,14 @@
 				firstGridDelitos=false;
 							
 			}else{														
-				jQuery("#gridCatDelitos").jqGrid('setGridParam', {url:'<%=
-				request.getContextPath()%>/cargarDelitosFiltrados.do?idNumeroExpediente='+idExpedienteop+'&idsDelitos='+idsDelitos+'',datatype: "xml"});
-				$("#gridCatDelitos").trigger("reloadGrid");				
+				jQuery("#gridCatDelitos").jqGrid('setGridParam', {
+                				url:'<%=request.getContextPath()%>/cargarDelitosFiltrados.do?idNumeroExpediente='+idExpedienteop+'&idsDelitos='+idsDelitos+'',datatype: "xml",
+                				ajaxGridOptions : {
+                                    	            	  async:false,
+                                    	            	  contentType:"application/x-www-form-urlencoded; charset=UTF-8"
+                                        	    }
+                });
+                $("#gridCatDelitos").trigger("reloadGrid");
 			}
 		}
 		
