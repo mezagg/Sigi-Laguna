@@ -541,17 +541,16 @@ public class AudienciaDAOImpl extends GenericDaoHibernateImpl<Audiencia, Long>
 		
 		if (fechaInicio != null && fechaFin != null){
 			
-                        queryString.append(" CONVERT (nvarchar, a.fechaAudiencia, 112) BETWEEN ('");
-			queryString.append(DateUtils.formatearBD(fechaInicio));
+                        queryString.append(" CONVERT (nvarchar, a.fechaAudiencia, 120) BETWEEN ('");
+			queryString.append(DateUtils.formatearBD120(fechaInicio));
 			queryString.append("')");
 			queryString.append(" AND ('");
-			queryString.append(DateUtils.formatearBD(fechaFin));
+			queryString.append(DateUtils.formatearBD120(fechaFin));
 			queryString.append("')");
 			queryString.append(" AND a.salaAudiencia.salaAudienciaId=")
 			.append(salaId);
 		}
 		Query query = super.getSession().createQuery(queryString.toString());
-		
 		logger.debug("Query :: " + queryString);
 		if(query.list() != null && query.list().size() > 0){
 			return false;
