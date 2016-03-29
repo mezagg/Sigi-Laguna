@@ -57,4 +57,8 @@ public interface ConsultarFormaPlantillaService {
 	 * @throws NSJPNegocioException
 	 */
 	List<CamposFormaDTO> consultarCamposForma() throws NSJPNegocioException;
+        
+        List<FormaDTO> getAll() throws NSJPNegocioException;
+        
+        void updateForma(FormaDTO dto);
 }
