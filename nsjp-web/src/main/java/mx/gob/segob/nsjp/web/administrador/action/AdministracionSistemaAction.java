@@ -412,13 +412,12 @@ public class AdministracionSistemaAction extends ReporteBaseAction{
 	 * @param response
 	 */
 	public ActionForward registrarFuncionario(ActionMapping mapping, ActionForm form,
-													 HttpServletRequest request, HttpServletResponse response)
+		 HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
 		try {
 			log.info("ejecutando Action consultar funcionarios");
 			ServletContext sc = this.getServlet().getServletContext();
-			if (sc.getAttribute("funcionarios") == null)
-				sc.setAttribute("funcionarios",funcionarioDelegate.consultarFuncionarios());
+			sc.setAttribute("funcionarios",funcionarioDelegate.consultarFuncionarios());
 
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
