@@ -106,6 +106,16 @@ public class FormaDelegateImpl implements FormaDelegate {
 		return consultarFormaPlantillaService.consultarPlantillaPorTipo(tipoFormaId);
 		
 	}
+        
+        @Override
+	public List<FormaDTO> getAll() throws NSJPNegocioException {
+		return this.consultarFormaPlantillaService.getAll();
+	}
+        
+        @Override
+        public void updateForma(FormaDTO dto){
+            this.consultarFormaPlantillaService.updateForma(dto);
+        }
 
 	@Override
 	public List<CamposFormaDTO> consultarCamposForma()

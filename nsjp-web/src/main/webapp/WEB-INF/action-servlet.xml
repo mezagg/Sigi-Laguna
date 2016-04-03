@@ -44,6 +44,7 @@
 			
 	<!-- INICIA ACTION DE AGENDAS -->
 	<bean name="/consultarActividadesUsuarioPorFechaActual" class="mx.gob.segob.nsjp.web.catalogo.action.ConsultarCatalogosAction"></bean>
+        <bean name="/reemplazoFull" class="mx.gob.segob.nsjp.web.catalogo.action.ConsultarCatalogosAction"></bean>
 	<bean name="/InicioAgenda" class="mx.gob.segob.nsjp.web.agenda.action.ControlAgendaAction"></bean>
 	<bean name="/VerAgenda" class="mx.gob.segob.nsjp.web.agenda.action.ControlAgendaAction"></bean>
 	<bean name="/AgregaEvento" class="mx.gob.segob.nsjp.web.agenda.action.ControlAgendaAction"></bean>

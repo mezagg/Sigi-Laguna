@@ -30,6 +30,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.thoughtworks.xstream.XStream;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.text.SimpleDateFormat;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import mx.gob.segob.nsjp.comun.enums.audiencia.TipoAudiencia;
 import mx.gob.segob.nsjp.comun.enums.catalogo.Catalogos;
 import mx.gob.segob.nsjp.comun.enums.catalogo.TipoDiscriminante;
@@ -53,6 +59,7 @@ import mx.gob.segob.nsjp.delegate.catalogo.DistritoDelegate;
 import mx.gob.segob.nsjp.delegate.configuracion.ConfiguracionDelegate;
 import mx.gob.segob.nsjp.delegate.entidadfederativa.EntidadFederativaDelegate;
 import mx.gob.segob.nsjp.delegate.eventocita.EventoCitaDelegate;
+import mx.gob.segob.nsjp.delegate.forma.FormaDelegate;
 import mx.gob.segob.nsjp.delegate.funcionario.FuncionarioDelegate;
 import mx.gob.segob.nsjp.delegate.modulo.ModuloDelegate;
 import mx.gob.segob.nsjp.delegate.region.RegionDelegate;
@@ -71,6 +78,8 @@ import mx.gob.segob.nsjp.dto.configuracion.ConfInstitucionDTO;
 import mx.gob.segob.nsjp.dto.delito.CausaDTO;
 import mx.gob.segob.nsjp.dto.domicilio.EntidadFederativaDTO;
 import mx.gob.segob.nsjp.dto.domicilio.RegionDTO;
+import mx.gob.segob.nsjp.dto.forma.CamposFormaDTO;
+import mx.gob.segob.nsjp.dto.forma.FormaDTO;
 import mx.gob.segob.nsjp.dto.funcionario.CriterioConsultaFuncionarioExternoDTO;
 import mx.gob.segob.nsjp.dto.funcionario.FuncionarioDTO;
 import mx.gob.segob.nsjp.dto.institucion.AreaDTO;
@@ -148,6 +157,9 @@ public class ConsultarCatalogosAction extends GenericAction{
 
 	@Autowired
 	private RegionDelegate regionDelegate;
+        
+        @Autowired
+        private FormaDelegate formaDelegate;
 	
 	/**
 	 * M&eacute;todo utilizado para realizar la consulta de tipos de objetos
@@ -2955,6 +2967,86 @@ public class ConsultarCatalogosAction extends GenericAction{
 		}
 		return null;
 	}
+        
+        public ActionForward reemplazoFull(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) throws IOException{
+            
+                            String param = request.getParameter("guardar");
+                            String param2 = request.getParameter("str");
+                            
+                            boolean guardar = Integer.parseInt(param) == 1;
+                            boolean reemplazarSrcImg = param2 != null && !param2.isEmpty();
+            
+                        try{
+                            log.info("Iniciando el Reemplazo");
+                            List<FormaDTO> list = this.formaDelegate.getAll();
+                            
+                            log.info("El tamanio de la lista es; "+list.size());
+                            
+                            StringBuilder sb = new StringBuilder(System.getProperty("user.home"));
+                            sb.append(System.getProperty("file.separator"));
+                            
+                            log.info("Ruta donde se guardará el archivo: "+sb.toString());
+                            
+                            String fileName = new SimpleDateFormat("d_MM_yyyy H_m_s_S").format(new Date()) + ".txt";
+                            
+                            sb.append(fileName);
+                            
+                            log.info("El nombre completo del archivo "+sb.toString());
+                            
+                            File file = null;
+                            
+                            FileWriter fs = null;
+                            
+                            BufferedWriter bw = null;
+                            
+                            Pattern pattern = Pattern.compile("COA/(.*)/(.*)/(.*)/(.*)/_*?(?=<|&){1}");
+                            Pattern imgPattern = Pattern.compile("src\\=\"(\n)?.*?(?=logo_pgje\\.png)");
+                            
+                            if(reemplazarSrcImg){
+                                log.info("También se va a reemplazar "+param2);
+                            }
+                                
+                            
+                            try{
+                                if(guardar){
+                                    file = new File(sb.toString());
+                                    file.createNewFile();
+                            
+                                    fs = new FileWriter(file);
+                            
+                                    bw = new BufferedWriter(fs);
+                                }
+                                 
+                                
+                                for(FormaDTO dto : list){
+                                    if(guardar){
+                                       bw.write(dto.getCuerpo()+"\n-------------------------------------\n");
+                                    }
+                                    Matcher match = pattern.matcher(dto.getCuerpo());
+                                    dto.setCuerpo(match.replaceAll("&lt;nuc&gt;"));
+                                    if(reemplazarSrcImg){
+                                        Matcher imgMatcher = imgPattern.matcher(dto.getCuerpo());
+                                        dto.setCuerpo(imgMatcher.replaceAll("src=\""+param2));
+                                    }
+                                    this.formaDelegate.updateForma(dto);
+                                }
+                                
+                            }catch(Exception e){
+                                log.error("Hubo un error al crear el archivo");
+                                e.printStackTrace();
+                            }finally{
+                                if(bw != null)
+                                    bw.close();
+                                if(fs != null)
+                                    fs.close();
+                            }
+                            
+                        }catch(Exception e){
+                            log.error("Hubo un error al momento de reemplazar los elementos de la tabla Forma, cCuerpo", e);
+                        }
+            return null;
+        }
 	
 	/**
 	 * M&eacute;todo utilizado para consultar Tipos de agencias

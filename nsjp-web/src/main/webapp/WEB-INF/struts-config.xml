@@ -852,6 +852,14 @@
                 parameter="consultarActividadesUsuarioPorFechaActual"
                 validate="false">
 		</action>
+                
+                <action path="/reemplazoFull"
+				type="mx.gob.segob.nsjp.web.catalogo.action.ConsultarCatalogosAction"
+				name=""
+				scope="request"
+                parameter="reemplazoFull"
+                validate="false">
+		</action>
 		
 		
 		<action path="/InicioAgenda"

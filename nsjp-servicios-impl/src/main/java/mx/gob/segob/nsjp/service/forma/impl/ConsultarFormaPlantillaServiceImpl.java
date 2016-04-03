@@ -94,6 +94,21 @@ public class ConsultarFormaPlantillaServiceImpl implements
 		}
 		return plantillasDTO;
 	}
+        
+        @Override
+	public List<FormaDTO> getAll() throws NSJPNegocioException{
+            List<Forma> formas = this.formaDAO.consultarFormasDisponibles();
+            List<FormaDTO> plantillasDTO = new ArrayList<FormaDTO>();
+            for(Forma f : formas){
+                plantillasDTO.add(FormaTransformer.transformarForma(f));
+            }
+            return plantillasDTO;
+        }
+        
+        @Override
+        public void updateForma(FormaDTO dto){
+            this.formaDAO.update(FormaTransformer.transformarFormaDTO(dto));
+        }
 	/*
 	 * (non-Javadoc)
 	 * @see mx.gob.segob.nsjp.service.forma.ConsultarFormaPlantillaService#consultarCamposForma()
