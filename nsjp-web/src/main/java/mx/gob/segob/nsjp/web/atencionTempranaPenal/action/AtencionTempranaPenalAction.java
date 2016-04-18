@@ -5335,22 +5335,23 @@ public class AtencionTempranaPenalAction extends GenericAction {
             log.info("ejecutando Action AtencionTempranaPenalAction en metodo registrafuncionarioNumeroExpediente el funcionario es:" + funcionario);
             String NumeroExpediente_id = request.getParameter("idNumeroExpediente");
             Long idNumeroExpediente = 0L;
+            String nuevoNumeroExpediente="";
             log.info("ejecutando Action AtencionTempranaPenalAction en metodo registrafuncionarioNumeroExpediente el idNumeroExpediente es:" + idNumeroExpediente);
             if (NumeroExpediente_id != null && !NumeroExpediente_id.equals("")) {
                 idNumeroExpediente = Long.parseLong(NumeroExpediente_id);
             }
             if (funcionario != null && !funcionario.equals("")) {
-                expedienteDelegate.asociarExpedienteAFuncionario(idNumeroExpediente, Long.parseLong(funcionario));
+               nuevoNumeroExpediente = expedienteDelegate.asociarExpedienteAFuncionario(idNumeroExpediente, Long.parseLong(funcionario));
             }
 
-            String xml = "<respuesta><bandera>1</bandera></respuesta>";
+            String xml = "<respuesta><bandera>1</bandera><nuevoNumeroExpediente>"+nuevoNumeroExpediente +"</nuevoNumeroExpediente></respuesta>";
             if (log.isDebugEnabled()) {
                 log.info(xml);
             }
             escribirRespuesta(response, xml);
         } catch (Exception e) {
             log.error(e.getMessage(), e);
-            String xml = "<respuesta><bandera>0</bandera></respuesta>";
+            String xml = "<respuesta><bandera>0</bandera><nuevoNumeroExpediente></nuevoNumeroExpediente></respuesta>";
             escribirRespuesta(response, xml);
         }
         return null;

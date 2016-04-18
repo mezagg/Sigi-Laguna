@@ -40,6 +40,7 @@ public class RolTransformer {
 			rolDTO.setInstitucionPertenece(ConfInstitucionTransformer
 					.transformarInstitucion(rol.getInstitucionPertenece()));
 			rolDTO.setRolPadre(transformar(rol.getRolPadre()));
+			rolDTO.setEsCoordinacion(rol.getEsCoordinacion());
 			if (rol.getModulos() != null) {
 				rolDTO.setModulos(new ArrayList<ModuloDTO>());
 				for (int i = 0; i < rol.getModulos().size(); i++) {
@@ -73,6 +74,7 @@ public class RolTransformer {
 			rolDTO.setDescripcionRol(rol.getDescripcionRol());
 			rolDTO.setNombreRol(rol.getNombreRol());
 			rolDTO.setRolId(rol.getRolId());
+			rolDTO.setEsCoordinacion(rol.getEsCoordinacion());
 			rolDTO.setInstitucionPertenece(ConfInstitucionTransformer
 					.transformarInstitucion(rol.getInstitucionPertenece()));
 			rolDTO.setJerarquiaOrganizacionalDTO(JerarquiaOrganizacionalTransformer
@@ -102,6 +104,7 @@ public class RolTransformer {
 			rol.setInstitucionPertenece(ConfInstitucionTransformer
 					.transformarInstitucion(rolDTO.getInstitucionPertenece()));
 			rol.setRolPadre(transformar(rolDTO.getRolPadre()));
+			rolDTO.setEsCoordinacion(rolDTO.getEsCoordinacion());
 			if (rolDTO.getModulos() != null) {
 				rol.setModulos(new ArrayList<Modulo>());
 				for (int i = 0; i < rolDTO.getModulos().size(); i++) {
@@ -135,6 +138,7 @@ public class RolTransformer {
 			rolDTO.setRolId(rol.getRolId());
 			rolDTO.setInstitucionPertenece(ConfInstitucionTransformer
 					.transformarInstitucion(rol.getInstitucionPertenece()));
+			rolDTO.setEsCoordinacion(rol.getEsCoordinacion());
 			rolDTO.setRolPadre(transformarMinimo(rol.getRolPadre()));
 			rolDTO.setJerarquiaOrganizacionalDTO(JerarquiaOrganizacionalTransformer
 					.transformarJerarquiaOrganizacional(rol
@@ -157,7 +161,8 @@ public class RolTransformer {
 			rol.setDescripcionRol(rolDTO.getDescripcionRol());
 			rol.setNombreRol(rolDTO.getNombreRol());
 			rol.setRolId(rolDTO.getRolId());
-			rol.setRolPadre(transformar(rolDTO.getRolPadre()));			
+			rol.setRolPadre(transformar(rolDTO.getRolPadre()));
+			rol.setEsCoordinacion(rolDTO.getEsCoordinacion());
 			rol.setJerarquiaOrganizacional(JerarquiaOrganizacionalTransformer
 					.transformarJerarquiaOrganizacional(rolDTO
 							.getJerarquiaOrganizacionalDTO()));
@@ -181,6 +186,7 @@ public class RolTransformer {
 			rolDTO.setRolId(rol.getRolId());
 			rolDTO.setInstitucionPertenece(ConfInstitucionTransformer
 					.transformarInstitucion(rol.getInstitucionPertenece()));
+			rolDTO.setEsCoordinacion(rol.getEsCoordinacion());
 			rolDTO.setRolPadre(transformar(rol.getRolPadre()));
 			if (rol.getModulos() != null) {
 				rolDTO.setModulos(new ArrayList<ModuloDTO>());
@@ -227,6 +233,7 @@ public class RolTransformer {
 			rol.setInstitucionPertenece(ConfInstitucionTransformer
 					.transformarInstitucion(rolDTO.getInstitucionPertenece()));
 			rol.setRolPadre(transformar(rolDTO.getRolPadre()));
+			rol.setEsCoordinacion(rolDTO.getEsCoordinacion());
 			if (rolDTO.getModulos() != null) {
 				rol.setModulos(new ArrayList<Modulo>());
 				for (int i = 0; i < rolDTO.getModulos().size(); i++) {

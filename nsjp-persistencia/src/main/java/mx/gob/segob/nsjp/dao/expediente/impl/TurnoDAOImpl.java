@@ -20,6 +20,7 @@
 package mx.gob.segob.nsjp.dao.expediente.impl;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -29,6 +30,7 @@ import mx.gob.segob.nsjp.comun.util.tl.PaginacionThreadHolder;
 import mx.gob.segob.nsjp.dao.base.impl.GenericDaoHibernateImpl;
 import mx.gob.segob.nsjp.dao.expediente.TurnoDAO;
 import mx.gob.segob.nsjp.dto.base.PaginacionDTO;
+import mx.gob.segob.nsjp.model.Expediente;
 import mx.gob.segob.nsjp.model.Turno;
 
 import org.apache.log4j.Logger;
@@ -139,7 +141,7 @@ public class TurnoDAOImpl extends GenericDaoHibernateImpl<Turno, Long>
 				queryStr.append(" ").append(pag.getDirOrd());
 			}
 		}
-
+		log.info("POR TURNNO---->"+queryStr.toString());
 		return super.ejecutarQueryPaginado(queryStr, pag);
 	}
 
@@ -356,5 +358,31 @@ public class TurnoDAOImpl extends GenericDaoHibernateImpl<Turno, Long>
     		
       return lista;     
     }
-	
+
+	@Override
+	public List<Turno> obtenerExpedientesSinTurno(Long iclaveFuncionario, Long discriminante) {
+		List<Turno> lista = new ArrayList<Turno>();
+		List<Expediente> expedientes= new ArrayList<Expediente>();
+		final StringBuffer queryStr = new StringBuffer();
+		queryStr.append("SELECT e  FROM  Turno as t");
+		queryStr.append(" RIGHT  JOIN  t.expediente as e  ");
+		queryStr.append(" JOIN  e.numeroExpedientes as  nu  ");
+		queryStr.append(" WHERE  ( e.discriminante.catDiscriminanteId = ").append(discriminante);
+		queryStr.append(" OR t.discriminante.catDiscriminanteId = ").append(discriminante).append(") ");
+		queryStr.append(" AND   nu.funcionario.claveFuncionario = ").append(iclaveFuncionario);
+		queryStr.append(" order by  e  ");
+		final PaginacionDTO pag = PaginacionThreadHolder.get();
+		if (pag != null) {
+				queryStr.append(pag.getDirOrd());
+		}
+		log.info("POR TODOS LOS EXPEDIENTES AGENTE ATPENAL ---->"+queryStr.toString());
+		expedientes = super.ejecutarQueryPaginado(queryStr, pag);
+		for (Expediente expediente : expedientes) {
+			 Turno turno= new Turno();
+			 turno.setExpediente(expediente);
+			 lista.add(turno);
+		}
+		return lista;
+	}
+
 }

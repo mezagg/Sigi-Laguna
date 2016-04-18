@@ -922,10 +922,10 @@ public class NumeroExpedienteDAOImpl
 			sb.append("WHERE cNumExpAlterno LIKE '%")
 // RRL Coahuila
 //			.append(unidades.get(0)+SEPARADOR_UNIDAD_ANIO+anio+SEPARADOR_ANIO_ENTIDAD+monoEntFederativa+SEPARADOR_ENTIDAD_DISTRITO+distrito)
-			.append(distrito)
-			.append("/")
-			.append(unidades.get(0))
-			.append("/")
+			.append(distrito);
+			if (!unidades.get(0).trim().isEmpty())
+				sb.append("/").append(unidades.get(0));
+			sb.append("/")
 			.append(anio)
 			.append("'");
 			
@@ -934,10 +934,10 @@ public class NumeroExpedienteDAOImpl
 					sb.append(" OR cNumExpAlterno LIKE '%")
 // RRL Coahuila
 //					.append(unidades.get(i)+SEPARADOR_UNIDAD_ANIO+anio+SEPARADOR_ANIO_ENTIDAD+monoEntFederativa+SEPARADOR_ENTIDAD_DISTRITO+distrito)
-					.append(distrito)
-					.append("/")
-					.append(unidades.get(i))
-					.append("/")
+					.append(distrito);
+					if (!unidades.get(i).trim().isEmpty())
+						sb.append("/").append(unidades.get(i));
+					sb.append("/")
 					.append(anio)
 					.append("'");
 				}
@@ -966,21 +966,14 @@ public class NumeroExpedienteDAOImpl
 	 * @param unidad - La unidad a la cual pertenece el n&uacute;mero de expediente alterno
 	 * @param anio - El a&ntilde;o con el cual se va a generar el n&uacute;mero de expediente alterno.
 	 * @param distrito - El distrito con el cual se va a asociar el n&uacute;mero de expediente alterno.
-	 * @param entidadFederativa - El monograma de la entidad federativa de despliegue
 	 * @return consecutivoCompleto - el n&uacute;mero de expediente alterno generado. 
 	 */
 	private String crearNumeroExpedienteAlterno (Integer finConsecutivo, Integer consecutivo, String unidad, String anio, String distrito,String monoEntFederativa){
 		String consecutivoCompleto = new String(new char[finConsecutivo]).replace("\0", "0");
 		int longConsecutivo= consecutivo.toString().length();
 		consecutivoCompleto=consecutivoCompleto.substring(0,finConsecutivo - longConsecutivo)+consecutivo;
-//RRL Coahuila
-//		else if (consecutivo < 100000){
-//			consecutivoCompleto = consecutivo.toString();
-//		}
-//		return consecutivoCompleto + SEPARADOR_ANIO_ENTIDAD + unidad
-//				+ SEPARADOR_UNIDAD_ANIO + anio + SEPARADOR_ANIO_ENTIDAD
-//				+ monoEntFederativa + SEPARADOR_ENTIDAD_DISTRITO + distrito;
-		return consecutivoCompleto + "/"+ distrito + "/" + unidad + "/" + anio;
+		unidad = (unidad.trim().isEmpty())?unidad : "/"+unidad;
+		return consecutivoCompleto + "/"+ distrito + unidad.trim() + "/" + anio;
 	}
 
 	@Override

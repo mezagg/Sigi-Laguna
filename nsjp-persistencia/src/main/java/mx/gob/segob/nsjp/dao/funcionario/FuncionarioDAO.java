@@ -336,6 +336,10 @@ public interface FuncionarioDAO extends GenericDao<Funcionario, Long> {
      * @return
      */
     List<FuncionarioDTO> consultarFuncionariosPorDiscriminante(Long catDiscriminanteId, Long idRol, Long idUIE);
-    
+    /**
+     * Enable JC. Determina si un funcionario es suboordinado de una Coordinacion
+     * @return
+     */
+     Boolean esSubordinadoCoordinacion(Long jerarquiaOrganizacional);
     
 }
