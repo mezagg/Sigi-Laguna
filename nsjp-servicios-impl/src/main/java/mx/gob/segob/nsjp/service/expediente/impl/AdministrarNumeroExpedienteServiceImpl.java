@@ -38,6 +38,7 @@ import mx.gob.segob.nsjp.dao.catalogo.CatUIEspecializadaDAO;
 import mx.gob.segob.nsjp.dao.delito.DelitoDAO;
 import mx.gob.segob.nsjp.dao.expediente.ExpedienteDAO;
 import mx.gob.segob.nsjp.dao.expediente.NumeroExpedienteDAO;
+import mx.gob.segob.nsjp.dao.funcionario.FuncionarioDAO;
 import mx.gob.segob.nsjp.dao.solicitud.SolicitudDAO;
 import mx.gob.segob.nsjp.dao.usuario.UsuarioDAO;
 import mx.gob.segob.nsjp.dto.caso.CasoDTO;
@@ -125,7 +126,8 @@ public class AdministrarNumeroExpedienteServiceImpl implements AdministrarNumero
     private AsignarNumeroCasoService casoService;
     @Autowired
     private CatUIEspecializadaDAO catUIEspecializadaDAO;
-
+    @Autowired
+	private FuncionarioDAO funcionarioDAO;
     
     
     @Override
@@ -429,7 +431,7 @@ public class AdministrarNumeroExpedienteServiceImpl implements AdministrarNumero
 		return resultado;
 	}
 	
-	public void asociarExpedienteAFuncionario(Long idNumeroExpediente, Long idFuncionario) throws NSJPNegocioException{
+	public String asociarExpedienteAFuncionario(Long idNumeroExpediente, Long idFuncionario) throws NSJPNegocioException{
 			logger.debug("/**** Servicio actualizar el responsable de un expediente ****/");
 		
 		if(idNumeroExpediente==null || idNumeroExpediente== 0 || idFuncionario == null)
@@ -437,19 +439,23 @@ public class AdministrarNumeroExpedienteServiceImpl implements AdministrarNumero
 		
 		NumeroExpediente loNumExp = numeroExpedienteDAO.read(idNumeroExpediente);
 		loNumExp.setFuncionario(new Funcionario(idFuncionario));
+		Usuario usuario= usuarioDAO.consultarUsuarioPorClaveFuncionario(idFuncionario);
+		Long jerarquiaOrganizacional = usuario.getFuncionario().getArea().getJerarquiaOrganizacionalId();
+		Boolean esSuboornidadoCoor =  funcionarioDAO.esSubordinadoCoordinacion(jerarquiaOrganizacional);
 		//Generamos nueva Clave para el numero de expediente
-		if ("".equals(loNumExp.getNumeroExpediente().trim())){
-			Usuario usuario= usuarioDAO.consultarUsuarioPorClaveFuncionario(idFuncionario);
+		String claveNumeroExpediente="";
+		if ("".equals(loNumExp.getNumeroExpediente().trim()) || esSuboornidadoCoor){
 			UsuarioDTO usuarioDTO= UsuarioTransformer.transformarUsuario(usuario);
 			String anioCreacionDelExpediente = null;
 			Calendar calTemp = Calendar.getInstance();
 			calTemp.setTime(loNumExp.getExpediente().getFechaCreacion());
 			anioCreacionDelExpediente = String.valueOf(calTemp.get(Calendar.YEAR));
-			String claveNumeroExpediente=asignarNumeroExpedienteService.obtenerNumeroExpedienteAlterno(usuarioDTO, null,anioCreacionDelExpediente);
+			claveNumeroExpediente=asignarNumeroExpedienteService.obtenerNumeroExpedienteAlterno(usuarioDTO, null,anioCreacionDelExpediente);
 			loNumExp.setNumeroExpediente(claveNumeroExpediente);
 			loNumExp.setNumExpAlterno(claveNumeroExpediente);
 		}
 		numeroExpedienteDAO.update(loNumExp);
+		return  claveNumeroExpediente;
 	}
 	
 	@Override

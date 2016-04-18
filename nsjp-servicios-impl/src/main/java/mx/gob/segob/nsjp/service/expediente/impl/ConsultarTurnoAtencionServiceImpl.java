@@ -134,11 +134,10 @@ public class ConsultarTurnoAtencionServiceImpl implements
                     usuarioDto.getIdUsuario(), new Date(), tTurno,
                     discriminanteId);
         } else {
-            reslt = this.turnoDAO.obtenerTurnosAtencionPorIdUsuario(
-                    usuarioDto.getIdUsuario(), null, tTurno, discriminanteId);
+            Long iclaveFuncionario = usuarioDto.getFuncionario().getClaveFuncionario();
+            reslt = this.turnoDAO.obtenerExpedientesSinTurno(iclaveFuncionario,discriminanteId);
         }
         for (Turno turno : reslt) {
-            TurnoDTO turnoDTO = TurnoTransformer.trannsformarTurno(turno);
 
             if (turno.getExpediente() != null) {
                 List<Involucrado> involucrados = new ArrayList<Involucrado>();
@@ -207,6 +206,9 @@ public class ConsultarTurnoAtencionServiceImpl implements
                     expedienteDTO.setFechaApertura(null);
                     expedienteDTO.setNumeroExpedienteId(0L);
                 }
+                TurnoDTO turnoDTO = new TurnoDTO();
+                if(turno.getTurnoId() != null){
+                    turnoDTO = TurnoTransformer.trannsformarTurno(turno);}
                 turnoDTO.setExpediente(expedienteDTO);
                 listTurnosDTO.add(turnoDTO);
             }

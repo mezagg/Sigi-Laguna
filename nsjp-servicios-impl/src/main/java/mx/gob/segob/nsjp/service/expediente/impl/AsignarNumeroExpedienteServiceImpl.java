@@ -173,13 +173,14 @@ public class AsignarNumeroExpedienteServiceImpl
      * @throws NSJPNegocioException
      */
     private synchronized String obtenerNumeroExpediente(Long idArea, UsuarioDTO aoUsuarioFirmado, String anioCreacionDelExpediente) throws NSJPNegocioException{
-    	
+    	logger.info("OBTIENE NUMERO EXPEDIENTE ");
     	String libre = "NSJ";
     	
     	if(idArea == Areas.AGENCIA_DEL_MINISTERIO_PUBLICO.ordinal()){
     		libre = "SJT";
     	}
-        
+
+
         //YUC
         String entidadFederativa = "";
         String institucion = confInsDao.consultarInsitucionActual().getMonograma();
@@ -202,6 +203,8 @@ public class AsignarNumeroExpedienteServiceImpl
         else{
         	ultimoNumero = expedienteDAO.obtenerUltimoNumeroDeExpediente(idArea);        	
         }
+        logger.info("AREAAAA"+ idArea);
+		logger.info("ULTIMONUMEROEXPEDIENTE"+ultimoNumero);
         String incrementoString = "";
         if (ultimoNumero != null) {
             String consecutivo = ultimoNumero.substring(ultimoNumero.length() - 6, ultimoNumero.length());
@@ -237,7 +240,7 @@ public class AsignarNumeroExpedienteServiceImpl
         	
         	
             numeroExpediente=numeroExpediente+ anio+ incrementoString;
-        
+            logger.info("NUEVO NUMERO EXPEDIENTE "+numeroExpediente);
         return numeroExpediente;
     	
 	}
@@ -323,11 +326,11 @@ public class AsignarNumeroExpedienteServiceImpl
 				+ ConsecutivosUtil.SEPARADOR_CONSECUTIVO
 				+ entidadFederativa
 				+ ConsecutivosUtil.SEPARADOR_CONSECUTIVO + claveJuzgado;
-		
+		logger.info("OBtener NUMERO EXPEDIENTE "+ cadenaBusqueda);
 		numeroExpediente = expedienteDAO
 				.obtenerUltimoNumeroDeExpedientePoderJudicial(cadenaBusqueda,
 						ConsecutivosUtil.SEPARADOR_PREFIJOS);
-
+        logger.info("NUMERO  EXPEDIENTE PJ "+ numeroExpediente);
 		// Valor inicial de consecutivo si no se encontro dicho valor
 		if (numeroExpediente == null) {
 			numeroExpediente = ConsecutivosUtil.CONSECUTIVO_INICIAL_PJ
@@ -535,7 +538,7 @@ public class AsignarNumeroExpedienteServiceImpl
 				&& activaNumeroCausaEjecucion.getValor() != null
 				&& !activaNumeroCausaEjecucion.getValor().trim().isEmpty()
 				&& activaNumeroCausaEjecucion.getValor().equals("1")) {
-			logger.debug("GENERAR NUMERO DE EJECUCION/CARPETA ACTIVIDAD");
+			logger.info("GENERAR NUMERO DE EJECUCION/CARPETA ACTIVIDAD");
 			if (inputExpediente.getTipoExpediente() == null
 					|| inputExpediente.getTipoExpediente().getIdCampo() == null
 					|| TipoExpediente.getByValor(inputExpediente
@@ -551,7 +554,7 @@ public class AsignarNumeroExpedienteServiceImpl
 			}
 			
 			UsuarioDTO usuarioDTO = inputExpediente.getUsuario();
-			logger.debug("Valores: Causa:" + esCausa + "-UsaurioDTO:"
+			logger.info("Valores: Causa:" + esCausa + "-UsaurioDTO:"
 					+ usuarioDTO);
 			numeroExpediente = this.obtenerNumeroExpedientePoderJudicial(
 					esCausa, usuarioDTO);
@@ -631,6 +634,8 @@ public class AsignarNumeroExpedienteServiceImpl
 	        	}else{
 	        		// PASO NECESARIO PARA UNIFICAR EL NUMERO DE EXPEDIENTE EN
 	        		// PROCURADURIA
+
+					//aqui validacion para coordinaciones
 					if (confInstitucion.getConfInstitucionId().equals(
 							Instituciones.PGJ.getValorId())) {
 						expedienteRes = expedienteDAO
@@ -670,7 +675,7 @@ public class AsignarNumeroExpedienteServiceImpl
 
 	        	//Si es Fiscalia y la configuraci?n del Parametro Numero alterno 
 	        	//esta prendida, se ejecuta dicho algoritmo.
-	        	//Caso contrario continua con la generacion normal
+	        	//Caso contrario continua con la generacion norma
 	    		if (institucionActual.getConfInstitucionId().equals(Instituciones.PGJ.getValorId())) {
 
 	    			// Si el expediente trae la jerarqu?a UI y tiene al menos un n?mero de expediente
@@ -720,13 +725,16 @@ public class AsignarNumeroExpedienteServiceImpl
         }
         
         this.adminActividadesService.generarActividad(inputExpediente, nuevoExp, expediente);
-
+		Long institucionUsuario = inputExpediente.getUsuario().getInstitucion().getConfInstitucionId();
+		Boolean esCoordinador = inputExpediente.getUsuario().getRolACtivo().getRol().getEsCoordinacion();
+		Long perteneceConfIntsExpediente = (inputExpediente.getPertenceConfInst() !=null)?
+											inputExpediente.getPertenceConfInst().getConfInstitucionId(): 0L;
         NumeroExpediente noExpBD = new NumeroExpediente();
         logger.info("SE INSERTA NUMERO EXPEDIENTE ");
-		if (inputExpediente.getPertenceConfInst() !=null){
-			logger.info("INSTITUCION REMITENTE "+inputExpediente.getPertenceConfInst().getConfInstitucionId());
-			if(inputExpediente.getPertenceConfInst().getConfInstitucionId() == Instituciones.SSP.getValorId()){
-				//NO SE INSERTA NUMERO DE EXPEDIENTE HASTA QUE EL COORDINADOR ASIGNE EXPEDIENTE
+			if(perteneceConfIntsExpediente == Instituciones.SSP.getValorId() ||
+					(institucionUsuario == Instituciones.PGJ.getValorId() &&  esCoordinador)){
+				/*NO SE INSERTA NUMERO DE EXPEDIENTE HASTA QUE EL COORDINADOR ASIGNE EXPEDIENTE SI VIENE DE CES
+				* O SI SE GENERAN EN PG Y SON PARTE DE UNA COORDINACION*/
 
 				noExpBD.setNumeroExpediente(" ");
 				noExpBD.setNumExpAlterno(" ");
@@ -735,10 +743,6 @@ public class AsignarNumeroExpedienteServiceImpl
 				noExpBD.setNumExpAlterno(numeroExpediente);
 			}
 
-		}else{
-			noExpBD.setNumeroExpediente(numeroExpediente);
-			noExpBD.setNumExpAlterno(numeroExpediente);
-		}
         
         noExpBD.setFechaApertura(new Date());
 
@@ -1127,7 +1131,7 @@ public class AsignarNumeroExpedienteServiceImpl
 				|| usuario.getFuncionario().getJerarquiaOrganizacional().getJerarquiaOrganizacionalId() == null){
 			throw new NSJPNegocioException(CodigoError.PARAMETROS_INSUFICIENTES);
 		}
-		
+
 		//TODO - ATE se debe de obtener la unidad, verificar si se trata de la jerarquia organizacional
 		Long areaId =  usuario.getAreaActual().getAreaId(); //usuario.getFuncionario().getJerarquiaOrganizacional().getJerarquiaOrganizacionalId();
 		logger.info(" areaId:"+usuario.getFuncionario().getJerarquiaOrganizacional().getJerarquiaOrganizacionalId());
@@ -1141,7 +1145,7 @@ public class AsignarNumeroExpedienteServiceImpl
 		String confUnidadesNumExpediente =(parametro != null)? parametro.getValor(): CONF_UNIDADES_NUM_EXPEDIENTE;
 
 		List<String> unidad = new ArrayList<String>();
-		switch (Areas.values()[areaId.intValue()]) {
+		/*switch (Areas.values()[areaId.intValue()]) {
 
 		case ATENCION_TEMPRANA_PG_PENAL:
 			Long idAgencia = usuario.getFuncionario().getDiscriminante().getCatDiscriminanteId();
@@ -1163,25 +1167,11 @@ public class AsignarNumeroExpedienteServiceImpl
 			unidad.add(0,AcronimoNumExpAlterno.JUSTICIA_ALTERNATIVA_RESTAURATIVA.getAcronimo());
 			break;
 
-		case UNIDAD_INVESTIGACION:
 		case COORDINACION_UNIDAD_INVESTIGACION:
-//			boolean error=false;
-//			if(usuario.getAreaActual().getAreaId().equals(usuario.getFuncionario().getJerarquiaOrganizacional().getJerarquiaOrganizacionalId())){
-//				try {
-//					unidad = consultarClavesUIE(usuario);
-//				} catch (Exception e) {
-//					// controlando la excepcion por parametros insuficientes
-//					error=true;
-//					unidad.add(AcronimoNumExpAlterno.UNIDAD_INVESTIGACION.getAcronimo());
-//				}
-//			}
-//			if(!error){
-//				unidad.add(AcronimoNumExpAlterno.UNIDAD_INVESTIGACION.getAcronimo());
-//			}
-			//Se definen reglas de negocio
+
 			unidad = consultarClavesUIE(usuario, confUnidadesNumExpediente);
 			//Se considera siempre la siguiente unidad
-			//unidad.add(AcronimoNumExpAlterno.COORDINACION_POLICIA_MINISTERIAL.getAcronimo());
+			unidad.add(AcronimoNumExpAlterno.COORDINACION_POLICIA_MINISTERIAL.getAcronimo());
 			break;
 		case COORDINACION_POLICIA_MINISTERIAL:
 			//if(usuario.getAreaActual().getAreaId().equals(usuario.getFuncionario().getJerarquiaOrganizacional().getJerarquiaOrganizacionalId())){
@@ -1199,12 +1189,18 @@ public class AsignarNumeroExpedienteServiceImpl
 			unidad.add(0,AcronimoNumExpAlterno.AGENCIA_DEL_MINISTERIO_PUBLICO.getAcronimo());
 			break;
 		default:
-			unidad.add(0,AcronimoNumExpAlterno.SIN_AREA.getAcronimo());
+			Long jerarquiaOrganizacional= usuario.getFuncionario().getJerarquiaOrganizacional().getJerarquiaOrganizacionalId();
+			Boolean esSubordinadoCoordinacion=funcionarioDAO.esSubordinadoCoordinacion(jerarquiaOrganizacional);
+			if (esSubordinadoCoordinacion)
+				unidad = consultarClavesUIE(usuario, confUnidadesNumExpediente);
+			else
+				unidad.add(0,AcronimoNumExpAlterno.SIN_AREA.getAcronimo());
 			break;
-		}
-		
-		
-		
+		}*/
+
+		unidad = consultarClavesUIE(usuario, confUnidadesNumExpediente);
+
+
 		Integer anio = (anioCreacionDelExpediente != null && !anioCreacionDelExpediente.isEmpty()? Integer.parseInt(anioCreacionDelExpediente):Calendar.getInstance().get(Calendar.YEAR));
 		String distrito = usuario.getFuncionario().getDiscriminante().getDistrito().getClaveRomanaDistrito();
 		
@@ -1283,8 +1279,7 @@ public class AsignarNumeroExpedienteServiceImpl
 				|| usuario.getFuncionario().getUnidadIEspecializada()
 						.getClaveUIE() == null) {
 			// Unidad por Default
-			unidadesUIE.add(AcronimoNumExpAlterno.UNIDAD_INVESTIGACION
-					.getAcronimo());
+			unidadesUIE.add(" ");
 		} else {
 			logger.info("CAT UIE DEL USUARIO="
 					+ usuario.getFuncionario().getUnidadIEspecializada()

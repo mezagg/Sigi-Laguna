@@ -66,6 +66,9 @@ public class FiltroExpedienteDTO extends FiltroCasoDTO {
 	//Permite filtrar los expedientes,en el facilitador segun si son remitidos desde UI o ATPenal 
 	private Long idJerarquiaRemitos;
 
+	private Boolean esPropio;
+	private Boolean esAsignado;
+
 
 	private Set<JerarquiaOrganizacionalDTO> jerarquiaOrgSubordinadas;
 	/**
@@ -375,6 +378,19 @@ public class FiltroExpedienteDTO extends FiltroCasoDTO {
 		return idJerarquiaRemitos;
 	}
 
-	
-		
+	public Boolean getEsPropio() {
+		return esPropio;
+	}
+
+	public void setEsPropio(Boolean esPropio) {
+		this.esPropio = esPropio;
+	}
+
+	public Boolean getEsAsignado() {
+		return esAsignado;
+	}
+
+	public void setEsAsignado(Boolean esAsignado) {
+		this.esAsignado = esAsignado;
+	}
 }

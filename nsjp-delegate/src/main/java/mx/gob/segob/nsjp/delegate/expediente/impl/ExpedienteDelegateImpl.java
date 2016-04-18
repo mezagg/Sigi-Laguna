@@ -489,8 +489,8 @@ public class ExpedienteDelegateImpl implements ExpedienteDelegate {
 		return consultarCausasPorIdCasoService.consultarCausasPorIdCasoService(idCaso);
 	}
 	
-	public void asociarExpedienteAFuncionario(Long idNumeroExpediente, Long idFuncionario) throws NSJPNegocioException{
-		administrarNumeroExpediente.asociarExpedienteAFuncionario(idNumeroExpediente, idFuncionario);
+	public String asociarExpedienteAFuncionario(Long idNumeroExpediente, Long idFuncionario) throws NSJPNegocioException{
+		return administrarNumeroExpediente.asociarExpedienteAFuncionario(idNumeroExpediente, idFuncionario);
 	}
 	/*
 	 * (non-Javadoc)

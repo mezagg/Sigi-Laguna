@@ -174,7 +174,7 @@ public interface AdministrarNumeroExpedienteService {
 	 * @param idFuncionario
 	 * @throws NSJPNegocioException
 	 */
-	public void asociarExpedienteAFuncionario(Long idNumeroExpediente, Long idFuncionario) throws NSJPNegocioException;
+	public String asociarExpedienteAFuncionario(Long idNumeroExpediente, Long idFuncionario) throws NSJPNegocioException;
 	
 	/**
 	 * Servicio que permite crear un nuevo Expediente, asi mismo copiara la información del:

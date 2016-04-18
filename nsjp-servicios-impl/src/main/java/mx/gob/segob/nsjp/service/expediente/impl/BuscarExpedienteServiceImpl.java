@@ -1321,12 +1321,21 @@ public class BuscarExpedienteServiceImpl implements BuscarExpedienteService {
 
             if (rolAsociado == Roles.COORDINADORJAR && filtroExpedienteDTO.getIdActividad().equals(Actividades.RECIBIR_CANALIZACION_JAR.getValorId())
                     && filtroExpedienteDTO.getestatusMenuCoorJAR() != null
-                    && filtroExpedienteDTO.getestatusMenuCoorJAR().equals(EstatusMenuJAR.ASIGNADOS.getValorId())) {
+                    &&(filtroExpedienteDTO.getestatusMenuCoorJAR().equals(EstatusMenuJAR.ASIGNADOS.getValorId()) ||
+                       filtroExpedienteDTO.getestatusMenuCoorJAR().equals(EstatusMenuJAR.PROPIOS.getValorId()))
+                    ) {
+                filtroExpedienteDTO.setEsPropio((filtroExpedienteDTO.getestatusMenuCoorJAR()
+                                        .equals(EstatusMenuJAR.PROPIOS.getValorId())?true:false ));
+                filtroExpedienteDTO.setEsAsignado(true);
                 expsRespuesta = expedienteDAO.consultarExpedientesActividadAreaJarAsignados(filtroExpedienteDTO);
             } else {
+                filtroExpedienteDTO.setEsAsignado(false);
+                filtroExpedienteDTO.setEsPropio(true);
                 expsRespuesta = expedienteDAO.consultarExpedientesActividadAreaAnio(filtroExpedienteDTO);
+                expsRespuesta.addAll(expedienteDAO.consultarExpedientesActividadAreaJarAsignados(filtroExpedienteDTO));
             }
         }
+
         if (filtroExpedienteDTO.getestatusMenuCoorJAR() != null) {
             List<NumeroExpediente> listaAlterna = expsRespuesta;
             expsRespuesta = new ArrayList<NumeroExpediente>();
@@ -1334,7 +1343,7 @@ public class BuscarExpedienteServiceImpl implements BuscarExpedienteService {
                 boolean op = true;
                 if (filtroExpedienteDTO.getestatusMenuCoorJAR().equals(EstatusMenuJAR.PORASIGNAR.getValorId())) {
                     Expediente expediente = expedienteDAO.buscarUltimoNumeroPorExpedienteIdAreaId(numeroExpediente.getExpediente().getExpedienteId(), Areas.JUSTICIA_ALTERNATIVA_RESTAURATIVA.parseLong());
-                    if (expediente != null) {
+                    if (expediente != null && !numeroExpediente.getNumeroExpediente().trim().isEmpty()) {
                         op = false;
                     }
                 } else if (filtroExpedienteDTO.getestatusMenuCoorJAR().equals(EstatusMenuJAR.ASIGNADOS.getValorId())) {
@@ -1352,11 +1361,6 @@ public class BuscarExpedienteServiceImpl implements BuscarExpedienteService {
                     Expediente expediente = expedienteDAO.buscarUltimoNumeroPorExpedienteIdAreaId(numeroExpediente.getExpediente().getExpedienteId(), Areas.JUSTICIA_ALTERNATIVA_RESTAURATIVA.parseLong());
                     if (expediente != null) {
                         op = true;
-                        List<Expediente> listExpedientes = expedienteDAO.consultarExpedientesPorActividadActualyExpedienteID(Actividades.ATENDER_CANALIZACION_JAR.getValorId(), numeroExpediente.getExpediente().getExpedienteId());
-                        if (listExpedientes != null && !listExpedientes.isEmpty()) {
-                            op = false;
-                        }
-
                     }
                 }
                 if (op) {
@@ -1377,7 +1381,6 @@ public class BuscarExpedienteServiceImpl implements BuscarExpedienteService {
             expsRespuesta = paginacionManualJAR(expsRespuesta);
         }
         for (NumeroExpediente numeroExpediente : expsRespuesta) {
-
             ExpedienteDTO expedienteDTO = ExpedienteTransformer
                     .transformarExpedienteBasico(numeroExpediente);
 
