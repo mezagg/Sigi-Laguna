@@ -440,13 +440,6 @@ public class ExpedienteDAOImpl extends
             queryString.append(" )");
         }
 
-        //FILTRO POR el CAT_UIE
-        if (filtroExpedienteDTO.getIdActividad().equals(Actividades.RECIBIR_CANALIZACION_UI.getValorId()) && filtroExpedienteDTO.getUsuario() != null
-                && filtroExpedienteDTO.getUsuario().getFuncionario() != null
-                && filtroExpedienteDTO.getUsuario().getFuncionario().getUnidadIEspecializada() != null
-                && filtroExpedienteDTO.getUsuario().getFuncionario().getUnidadIEspecializada().getCatUIEId() != null) {
-            queryString.append(" AND e.catUIEspecializada.catUIEId=").append(filtroExpedienteDTO.getUsuario().getFuncionario().getUnidadIEspecializada().getCatUIEId());
-        }
 
         //FILTRO POR EL ESTATUS
         if (filtroExpedienteDTO.getEstatus() != null && filtroExpedienteDTO.getEstatus() > 0) {
