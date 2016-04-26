@@ -30,6 +30,8 @@ public class CatDiscriminanteWSDTOTransformer extends GenericWSDTO {
 		wsdto.setClave(scr.getClave());
 		wsdto.setNombre(scr.getNombre());
 		wsdto.setTipo(scr.getTipo());
+		wsdto.setcAcronimo(scr.getcAcronimo());
+
 		
 		return wsdto;
 	}
@@ -50,6 +52,7 @@ public class CatDiscriminanteWSDTOTransformer extends GenericWSDTO {
 		dto.setClave(scr.getClave());
 		dto.setNombre(scr.getNombre());
 		dto.setTipo(scr.getTipo());
+		dto.setcAcronimo(scr.getcAcronimo());
 		
 		return dto;
 	}

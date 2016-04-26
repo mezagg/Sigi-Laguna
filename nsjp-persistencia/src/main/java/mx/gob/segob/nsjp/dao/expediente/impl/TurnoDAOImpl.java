@@ -360,22 +360,33 @@ public class TurnoDAOImpl extends GenericDaoHibernateImpl<Turno, Long>
     }
 
 	@Override
-	public List<Turno> obtenerExpedientesSinTurno(Long iclaveFuncionario, Long discriminante) {
+	public List<Turno> obtenerExpedientesSinYConTurno(Long iclaveFuncionario, Long discriminante, Date fecha, TipoTurno tTurno) {
 		List<Turno> lista = new ArrayList<Turno>();
+		final SimpleDateFormat formato = new SimpleDateFormat("yyyyMMdd");
 		List<Expediente> expedientes= new ArrayList<Expediente>();
 		final StringBuffer queryStr = new StringBuffer();
 		queryStr.append("SELECT e  FROM  Turno as t");
 		queryStr.append(" RIGHT  JOIN  t.expediente as e  ");
 		queryStr.append(" JOIN  e.numeroExpedientes as  nu  ");
-		queryStr.append(" WHERE  ( e.discriminante.catDiscriminanteId = ").append(discriminante);
-		queryStr.append(" OR t.discriminante.catDiscriminanteId = ").append(discriminante).append(") ");
+		queryStr.append(" WHERE  e.discriminante.catDiscriminanteId = ").append(discriminante);
 		queryStr.append(" AND   nu.funcionario.claveFuncionario = ").append(iclaveFuncionario);
+		if (fecha != null){
+			queryStr.append(" AND ( CONVERT (nvarchar, t.fechaAtencion, 112) = ")
+					.append(formato.format(fecha));
+			queryStr.append("  OR  CONVERT (nvarchar, e.fechaCreacion, 112) = ")
+				.append(formato.format(fecha)).append(" )");}
+
+		if (tTurno != null) {
+			queryStr.append(" OR ( t.turnoId IS NULL AND  t.tipoTurno = '");
+			queryStr.append(tTurno.name()).append("' ) ");
+		}
+
 		queryStr.append(" order by  e  ");
 		final PaginacionDTO pag = PaginacionThreadHolder.get();
 		if (pag != null) {
 				queryStr.append(pag.getDirOrd());
 		}
-		log.info("POR TODOS LOS EXPEDIENTES AGENTE ATPENAL ---->"+queryStr.toString());
+		log.info("TODOS LOS EXPEDIENTES CON Y SIN  TURNO---->"+queryStr.toString());
 		expedientes = super.ejecutarQueryPaginado(queryStr, pag);
 		for (Expediente expediente : expedientes) {
 			 Turno turno= new Turno();

@@ -22,7 +22,7 @@ public class CatDiscriminanteWSDTO extends GenericWSDTO {
     private String clave;
     private String nombre;
     private Short tipo;
-    
+	private String cAcronimo;
     
     public CatDiscriminanteWSDTO(){
     	super();
@@ -112,4 +112,11 @@ public class CatDiscriminanteWSDTO extends GenericWSDTO {
 		this.tipo = tipo;
 	}
 
+	public String getcAcronimo() {
+		return cAcronimo;
+	}
+
+	public void setcAcronimo(String cAcronimo) {
+		this.cAcronimo = cAcronimo;
+	}
 }

@@ -394,12 +394,13 @@ public class ExpedienteDAOImpl extends
                 queryString.append(" AND ").append("e.expedienteId not in (")
                         .append("SELECT e FROM Expediente e ")
                         .append("LEFT JOIN e.actividads ac WHERE ")
-                        .append("ac.tipoActividad=").append(Actividades.ATENDER_CANALIZACION_UI.getValorId());
+                        .append(" ac.tipoActividad=").append(Actividades.ATENDER_CANALIZACION_UI.getValorId());
                 if (filtroExpedienteDTO.getUsuario() != null
                         && filtroExpedienteDTO.getUsuario().getFuncionario() != null
                         && filtroExpedienteDTO.getUsuario().getFuncionario().getUnidadIEspecializada() != null
                         && filtroExpedienteDTO.getUsuario().getFuncionario().getUnidadIEspecializada().getCatUIEId() != null) {
                     queryString.append(" and e.catUIEspecializada.catUIEId=").append(filtroExpedienteDTO.getUsuario().getFuncionario().getUnidadIEspecializada().getCatUIEId());
+                    queryString.append(" and  ac.funcionario.claveFuncionario =").append(filtroExpedienteDTO.getUsuario().getFuncionario().getClaveFuncionario());
                 }
                 queryString.append(")");
             }
@@ -438,14 +439,6 @@ public class ExpedienteDAOImpl extends
                 e.printStackTrace();
             }
             queryString.append(" )");
-        }
-
-        //FILTRO POR el CAT_UIE
-        if (filtroExpedienteDTO.getIdActividad().equals(Actividades.RECIBIR_CANALIZACION_UI.getValorId()) && filtroExpedienteDTO.getUsuario() != null
-                && filtroExpedienteDTO.getUsuario().getFuncionario() != null
-                && filtroExpedienteDTO.getUsuario().getFuncionario().getUnidadIEspecializada() != null
-                && filtroExpedienteDTO.getUsuario().getFuncionario().getUnidadIEspecializada().getCatUIEId() != null) {
-            queryString.append(" AND e.catUIEspecializada.catUIEId=").append(filtroExpedienteDTO.getUsuario().getFuncionario().getUnidadIEspecializada().getCatUIEId());
         }
 
         //FILTRO POR EL ESTATUS

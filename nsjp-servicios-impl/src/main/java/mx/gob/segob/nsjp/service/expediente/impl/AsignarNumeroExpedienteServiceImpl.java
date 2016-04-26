@@ -1279,7 +1279,7 @@ public class AsignarNumeroExpedienteServiceImpl
 				|| usuario.getFuncionario().getUnidadIEspecializada()
 						.getClaveUIE() == null) {
 			// Unidad por Default
-			unidadesUIE.add(" ");
+			unidadesUIE.add(usuario.getFuncionario().getDiscriminante().getcAcronimo());
 		} else {
 			logger.info("CAT UIE DEL USUARIO="
 					+ usuario.getFuncionario().getUnidadIEspecializada()
