@@ -24,6 +24,7 @@ public class CatDiscriminanteDTO extends GenericDTO implements Comparable{
     private Short tipo;
     private Boolean esOpcionUIE;
 	private String claveRegion;
+	private String cAcronimo;
     
     
     public CatDiscriminanteDTO(){
@@ -148,6 +149,14 @@ public class CatDiscriminanteDTO extends GenericDTO implements Comparable{
 		this.tipo = tipo;
 	}
 
+	public String getcAcronimo() {
+		return cAcronimo;
+	}
+
+	public void setcAcronimo(String cAcronimo) {
+		this.cAcronimo = cAcronimo;
+	}
+
 	@Override
 	public int compareTo(Object o) {
 		CatDiscriminanteDTO loCatDiscriminanteDTO = (CatDiscriminanteDTO)o; 
@@ -171,4 +180,6 @@ public class CatDiscriminanteDTO extends GenericDTO implements Comparable{
 	public void setClaveRegion(String claveRegion) {
 		this.claveRegion = claveRegion;
 	}
+
+
 }

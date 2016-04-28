@@ -22,6 +22,7 @@ public class CatDiscriminanteTransformer {
 		CatDiscriminanteDTO dto= new CatDiscriminanteDTO(scr.getCatDiscriminanteId(), catDistrito, scr.getClave(), scr.getNombre(), scr.getClasificacion());
 		dto.setEsOpcionUIE(scr.getEsOpcionUIE());
 		dto.setClaveRegion(scr.getRegion().getClaveRegion());
+		dto.setcAcronimo(scr.getcAcronimo());
 		return dto;
 	}
 
@@ -31,6 +32,7 @@ public class CatDiscriminanteTransformer {
 		
 		CatDiscriminanteDTO dto= new CatDiscriminanteDTO(scr.getCatDiscriminanteId(), catDistrito, scr.getClave(), scr.getNombre(), scr.getClasificacion());
 		dto.setEsOpcionUIE(scr.getEsOpcionUIE());
+		dto.setcAcronimo(scr.getcAcronimo());
 		return dto;
 	}
 
@@ -66,6 +68,9 @@ public class CatDiscriminanteTransformer {
 			if (dto.getEsOpcionUIE() != null){
 				disc.setEsOpcionUIE(dto.getEsOpcionUIE());
 			}
+			if (dto.getcAcronimo() != null){
+				disc.setcAcronimo(dto.getcAcronimo());
+			}
 		}
 		return disc;
 	}
@@ -77,7 +82,7 @@ public class CatDiscriminanteTransformer {
 		discBD.setClave(dto.getClave());
 		discBD.setNombre(dto.getNombre());
 		discBD.setEsOpcionUIE(dto.getEsOpcionUIE());
-		
+		discBD.setcAcronimo(dto.getcAcronimo());
 		return discBD;
 	}
 

@@ -92,5 +92,5 @@ public interface TurnoDAO extends GenericDao<Turno, Long> {
 	/**
 	 * Obtiene expedientes sin turno de un atpenal
 	 */
-	List<Turno> obtenerExpedientesSinTurno(Long iclaveFuncionario, Long discriminante);
+	List<Turno> obtenerExpedientesSinYConTurno(Long iclaveFuncionario, Long discriminante,Date today, TipoTurno tTurno);
 }

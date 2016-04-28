@@ -126,16 +126,16 @@ public class ConsultarTurnoAtencionServiceImpl implements
                     .getCatDiscriminanteId();
         }
 
+        Long iclaveFuncionario = usuarioDto.getFuncionario().getClaveFuncionario();
+
         List<Turno> reslt = null;
 		// Se considera el Tipo de Turno, que va de acuerdo al área a la que
         // pertenece el usuario
         if (turnosDelDia != null && turnosDelDia) {
-            reslt = this.turnoDAO.obtenerTurnosAtencionPorIdUsuario(
-                    usuarioDto.getIdUsuario(), new Date(), tTurno,
-                    discriminanteId);
+            reslt = this.turnoDAO.obtenerExpedientesSinYConTurno(iclaveFuncionario,discriminanteId, new Date(),tTurno);
         } else {
-            Long iclaveFuncionario = usuarioDto.getFuncionario().getClaveFuncionario();
-            reslt = this.turnoDAO.obtenerExpedientesSinTurno(iclaveFuncionario,discriminanteId);
+
+            reslt = this.turnoDAO.obtenerExpedientesSinYConTurno(iclaveFuncionario,discriminanteId, null,tTurno);
         }
         for (Turno turno : reslt) {
 

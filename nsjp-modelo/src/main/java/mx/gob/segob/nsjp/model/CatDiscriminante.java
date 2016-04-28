@@ -31,6 +31,7 @@ public class CatDiscriminante implements Serializable {
     private String clave;//	cadena 10 NOT NULL,
     private String nombre;//            	cadena 300 NOT NULL,
 	private Region region;
+	private String cAcronimo;
 	/**
 	 * BD se tiene el valor: 
 	 * 		1.- Agencia 
@@ -103,6 +104,11 @@ public class CatDiscriminante implements Serializable {
 		return clave;
 	}
 	/**
+	 * @return the ACRONIMO
+	 */
+	@Column(name = "cAcronimo", nullable = false, length = 20)
+	public String getcAcronimo() {return cAcronimo;}
+	/**
 	 * @return the nombreDisc
 	 */
     @Column(name = "cNombre", nullable = false, length = 300)
@@ -165,5 +171,10 @@ public class CatDiscriminante implements Serializable {
 
 	public void setRegion(Region region) {
 		this.region = region;
+	}
+
+
+	public void setcAcronimo(String cAcronimo) {
+		this.cAcronimo = cAcronimo;
 	}
 }
