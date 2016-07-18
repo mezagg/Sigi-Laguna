@@ -441,6 +441,7 @@ function gridRolesUsuario() {
   <tr>
     <td colspan="6" align="center" id="etiquetaFuncionario"><strong>Funcionario:</strong>
         <select name="funcionarioRegistrado" id="funcionarioRegistrado" style="width: 250px;" >
+			<option value='-1'>Seleccione un funcionario</option>
             <c:forEach items="${applicationScope.funcionarios}"  var="f" >
 				<option value='<c:out value="${f.claveFuncionario}"/>'> <c:out value="${f.nombreFuncionario} ${f.apellidoPaternoFuncionario} ${f.apellidoMaternoFuncionario}"/> </option>
 

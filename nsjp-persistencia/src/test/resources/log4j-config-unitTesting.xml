@@ -9,7 +9,7 @@
 		</layout>
 	</appender>
 	<appender name="desa" class="org.apache.log4j.RollingFileAppender">
-		<param name="File" value="C:/logs/nsjp-unitTesting.log" />
+		<param name="File" value="/tmp/logs/nsjp-unitTesting.log" />
 		<param name="MaxFileSize" value="5000KB" />
 		<param name="MaxBackupIndex" value="9" />
 		<layout class="org.apache.log4j.PatternLayout">

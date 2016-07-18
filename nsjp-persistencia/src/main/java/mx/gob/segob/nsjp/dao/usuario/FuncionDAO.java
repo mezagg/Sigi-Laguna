@@ -57,7 +57,7 @@ public interface FuncionDAO extends GenericDao<Funcion, Long> {
 	 * @param funcion
 	 * @return
 	 */
-	List<Funcion> validarFuncionXUsuario (String role, Long fnc);
+	List<Funcion> validarFuncionXUsuario (Long role, Long fnc);
 	/**
 	 * M�todo encargado de regresar toda la informaci�n de una funci�n dado el nombre
 	 * @param funcion

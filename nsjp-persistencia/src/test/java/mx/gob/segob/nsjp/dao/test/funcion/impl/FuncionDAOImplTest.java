@@ -40,16 +40,9 @@ public class FuncionDAOImplTest extends BaseTestPersistencia<FuncionDAO> {
 		Usuario usuario = new Usuario(178L);
 		Funcion funcion = new Funcion(275L);
 		try {
-			Set usuarioRoles = usuario.getUsuarioRoles();
-			HashSet uset = new HashSet();
-			uset.add(36L);
-			usuario.setUsuarioRoles(uset);
-			Iterator it = usuarioRoles.iterator();
-			while(it.hasNext()){
-				System.out.println(">"+it.next());
-			}
 
-			List<Funcion> funciones = daoServcice.validarFuncionXUsuario("36"
+
+			List<Funcion> funciones = daoServcice.validarFuncionXUsuario(68L
 					, funcion.getFuncionId());
 			assertNotNull(funciones);
 			for (int i = 0; i < funciones.size(); i++) {

@@ -827,7 +827,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 		if (usrDTO != null && fncDTO != null) {
 
 			List<Funcion> lstFunciones = funcionDAO.validarFuncionXUsuario(
-					usrDTO.getRolActivo(),
+					usrDTO.getRolACtivo().getRol().getRolId(),
 					fncDTO.getFuncionId());
 			resp = !lstFunciones.isEmpty();
 		}
