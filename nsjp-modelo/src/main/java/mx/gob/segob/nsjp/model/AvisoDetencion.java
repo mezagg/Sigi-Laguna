@@ -53,7 +53,7 @@ public class AvisoDetencion extends Notificacion {
         this.detenido = cdetenido;
     }
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Detencion_id")
     public Detencion getDetencion() {
         return this.detencion;

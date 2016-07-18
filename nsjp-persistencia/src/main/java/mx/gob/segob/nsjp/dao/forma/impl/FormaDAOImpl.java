@@ -1,10 +1,10 @@
 /**
 * Nombre del Programa : FormaDAOImpl.java
-* Autor                            : Emigdio Hernández
+* Autor                            : Emigdio Hernï¿½ndez
 * Compania                    : Ultrasist
 * Proyecto                      : NSJP                    Fecha: 30/05/2011
 * Marca de cambio        : N/A
-* Descripcion General    : Definición del objeto de acceso a datos para el catálogo de formas
+* Descripcion General    : Definiciï¿½n del objeto de acceso a datos para el catï¿½logo de formas
 * Programa Dependiente  :N/A
 * Programa Subsecuente :N/A
 * Cond. de ejecucion        :N/A
@@ -31,9 +31,9 @@ import org.apache.commons.lang.math.NumberUtils;
 import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 /**
- * Definición del objeto de acceso a datos para el catálogo de formas
+ * Definiciï¿½n del objeto de acceso a datos para el catï¿½logo de formas
  * @version 1.0
- * @author Emigdio Hernández
+ * @author Emigdio Hernï¿½ndez
  *
  */
 @Repository
@@ -63,7 +63,7 @@ implements FormaDAO {
 	public List<Forma> consultarPlantillaPorTipo(Long tipoForma) {
 		StringBuffer queryString = new StringBuffer();
 		queryString
-			.append("SELECT f ")
+			.append("SELECT new Forma (f.formaId, f.nombre, f.tipoForma.valor ) ")
 			.append(" FROM Forma f ");
 		if(tipoForma!=null && tipoForma>0){
 			queryString.append(" WHERE f.tipoForma.valorId = "+tipoForma);

@@ -136,8 +136,8 @@ public class JerarquiaOrganizacional implements java.io.Serializable {
      * 
      * @return El valor del campo tipoJerarquia
      */
-//    @ManyToOne(fetch = FetchType.LAZY)
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
+ //   @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "TipoJerarquia_val", nullable = false)
     public Valor getTipoJerarquia() {
         return tipoJerarquia;

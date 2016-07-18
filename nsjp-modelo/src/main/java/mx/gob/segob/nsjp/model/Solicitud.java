@@ -188,7 +188,7 @@ public class Solicitud extends Documento {
         this.numeroExpediente = numeroExpediente;
     }
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "TipoSolicitud_val", nullable = false)
     public Valor getTipoSolicitud() {
         return this.tipoSolicitud;

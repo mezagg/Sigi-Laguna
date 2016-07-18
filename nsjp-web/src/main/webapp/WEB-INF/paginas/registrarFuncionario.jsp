@@ -953,7 +953,7 @@
 			<td>
 				Selecciona un funcionario:<select id="cbxFuncionario" style="width: 250px;" >
 				    <c:forEach items="${applicationScope.funcionarios}"  var="f" >
-                             <option value='<c:out value="${f.id}"/>'> <c:out value="${f.valor}"/> </option>
+                             <option value='<c:out value="${f.claveFuncionario}"/>'> <c:out value="${f.nombreFuncionario} ${f.apellidoPaternoFuncionario} ${f.apellidoMaternoFuncionario}"/> </option>
                     </c:forEach>
                 </select>
 			</td>

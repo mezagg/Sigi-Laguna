@@ -3,7 +3,10 @@
  */
 package mx.gob.segob.nsjp.dao.test.funcion.impl;
 
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
 import mx.gob.segob.nsjp.dao.test.base.BaseTestPersistencia;
@@ -20,6 +23,8 @@ public class FuncionDAOImplTest extends BaseTestPersistencia<FuncionDAO> {
 
 	public void testConsultarFuncionesXUsuario() throws NSJPNegocioException {
 		Usuario usuario = new Usuario(1L);
+
+
 		List<Funcion> funciones = daoServcice
 				.consultarFuncionesXUsuario(usuario);
 		assertNotNull(funciones);
@@ -32,11 +37,20 @@ public class FuncionDAOImplTest extends BaseTestPersistencia<FuncionDAO> {
 	}
 
 	public void testValidarFuncionXUsuario() throws NSJPNegocioException {
-		Usuario usuario = new Usuario(36L);
-		Funcion funcion = new Funcion(1566L);
+		Usuario usuario = new Usuario(178L);
+		Funcion funcion = new Funcion(275L);
 		try {
-			List<Funcion> funciones = daoServcice.validarFuncionXUsuario(
-					usuario, funcion);
+			Set usuarioRoles = usuario.getUsuarioRoles();
+			HashSet uset = new HashSet();
+			uset.add(36L);
+			usuario.setUsuarioRoles(uset);
+			Iterator it = usuarioRoles.iterator();
+			while(it.hasNext()){
+				System.out.println(">"+it.next());
+			}
+
+			List<Funcion> funciones = daoServcice.validarFuncionXUsuario("36"
+					, funcion.getFuncionId());
 			assertNotNull(funciones);
 			for (int i = 0; i < funciones.size(); i++) {
 				System.out.println("Funcion id: "

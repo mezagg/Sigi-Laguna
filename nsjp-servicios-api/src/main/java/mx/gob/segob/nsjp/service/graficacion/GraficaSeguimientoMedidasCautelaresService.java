@@ -39,11 +39,11 @@ public interface GraficaSeguimientoMedidasCautelaresService {
 	 * @author cesarAgustin
 	 * @param fechaInicio
 	 * @param fechaFin
-	 * @param prisiónPreventiva
+	 * @param prisionPreventiva
 	 * @return
 	 * @throws NSJPNegocioException
 	 */
 	Long obtenerMedCauPorFechasYTipoNedida(Date fechaInicio,
-			Date fechaFin, TipoMedida prisiónPreventiva) throws NSJPNegocioException;
+			Date fechaFin, TipoMedida prisionPreventiva) throws NSJPNegocioException;
 	
 }

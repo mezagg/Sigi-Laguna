@@ -11,7 +11,7 @@
         memoryStoreEvictionPolicy="LRU" statistics="true">
         <persistence strategy="localTempSwap" /-->
         
-    <defaultCache maxElementsInMemory="50000"
+    <defaultCache maxElementsInMemory="500000"
               eternal="false"
               timeToIdleSeconds="300"
               timeToLiveSeconds="600"
@@ -21,8 +21,8 @@
               memoryStoreEvictionPolicy="LRU" >
     </defaultCache>
  
-    <cache name="valor" maxElementsInMemory="10000" eternal="true"
-        timeToIdleSeconds="5" timeToLiveSeconds="3600">
+    <cache name="valor" maxElementsInMemory="500000" eternal="true"
+           memoryStoreEvictionPolicy="LRU">
         
     </cache>
  

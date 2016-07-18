@@ -19,7 +19,9 @@
 */
 package mx.gob.segob.nsjp.dao.usuario;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import mx.gob.segob.nsjp.dao.base.GenericDao;
 import mx.gob.segob.nsjp.model.ElementoMenu;
@@ -50,21 +52,21 @@ public interface FuncionDAO extends GenericDao<Funcion, Long> {
 	List<Funcion> consultarFuncionesXUsuario (Usuario usuario);
 	
 	/**
-	 * Método que dada una función a consultar verifica que el usuario tenga acceso a ella
+	 * Mï¿½todo que dada una funciï¿½n a consultar verifica que el usuario tenga acceso a ella
 	 * @param usuario
 	 * @param funcion
 	 * @return
 	 */
-	List<Funcion> validarFuncionXUsuario (Usuario usuario, Funcion funcion);
+	List<Funcion> validarFuncionXUsuario (String role, Long fnc);
 	/**
-	 * Método encargado de regresar toda la información de una función dado el nombre
+	 * Mï¿½todo encargado de regresar toda la informaciï¿½n de una funciï¿½n dado el nombre
 	 * @param funcion
 	 * @return
 	 */
 	Funcion consultarFuncionXNombre (Funcion funcion);
 	
 	/**
-	 * Dada una lista de Funciones el método se encargará de reflejarlo en la base de datos
+	 * Dada una lista de Funciones el mï¿½todo se encargarï¿½ de reflejarlo en la base de datos
 	 * @param lstFunciones
 	 * @return
 	 */

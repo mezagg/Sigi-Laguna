@@ -42,7 +42,12 @@ public class Funcion implements java.io.Serializable {
     /** default constructor */
     public Funcion() {
     }
-    
+
+    public Funcion(Long funcionId, String nombreFuncion) {
+        this.funcionId = funcionId;
+        this.nombreFuncion= nombreFuncion;
+    }
+
     /** minimal constructor */
     public Funcion(Long funcionId){
     	this.funcionId=funcionId;

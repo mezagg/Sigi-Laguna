@@ -149,7 +149,7 @@ public class Delito implements java.io.Serializable {
 	 * Metodo de acceso al campo catDelito.
 	 * @return El valor del campo catDelito
 	 */
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "CatDelito_id", nullable = false)
 	public CatDelito getCatDelito() {
 		return catDelito;

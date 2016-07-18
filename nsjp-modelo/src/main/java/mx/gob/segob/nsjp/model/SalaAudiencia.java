@@ -170,7 +170,7 @@ public class SalaAudiencia implements java.io.Serializable {
 		this.catDiscriminante = catDiscriminante;
 	}
 
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "salaAudiencia")
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "salaAudiencia")
 	public SalaJAVS getSalaJAVS() {
 		return salaJAVS;
 	}

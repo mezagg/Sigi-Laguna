@@ -441,7 +441,7 @@ public class Documento implements java.io.Serializable {
      * 
      * @return El valor del campo actividad
      */
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "documento")
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "documento")
     public Actividad getActividad() {
         return actividad;
     }

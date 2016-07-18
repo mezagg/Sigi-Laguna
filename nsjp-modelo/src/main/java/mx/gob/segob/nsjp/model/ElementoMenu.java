@@ -98,8 +98,7 @@ public class ElementoMenu implements java.io.Serializable {
 		return elementoMenuPadre;
 	}
 
-	@OneToMany(cascade = { CascadeType.MERGE, CascadeType.REFRESH,
-			CascadeType.PERSIST }, fetch = FetchType.EAGER, mappedBy = "elementoMenuPadre", orphanRemoval = true)
+	@OneToMany( fetch = FetchType.LAZY, mappedBy = "elementoMenuPadre", orphanRemoval = true)
 	public List<ElementoMenu> getElementoMenuHijos() {
 		return elementoMenuHijos;
 	}

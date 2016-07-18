@@ -61,7 +61,7 @@ public class ConsultarFuncionarioPorFiltroServiceImpl implements ConsultarFuncio
 	private final static Logger logger = Logger.getLogger(ConsultarFuncionarioPorFiltroServiceImpl.class);
 	
 	@Autowired
-	private FuncionarioDAO peritoDAO;
+	private FuncionarioDAO funcionarioDAO;
 	@Autowired
 	private JerarquiaOrganizacionalDAO jerarquiaDAO;
 	@Autowired
@@ -89,12 +89,12 @@ public class ConsultarFuncionarioPorFiltroServiceImpl implements ConsultarFuncio
 				Rol loRol = rolDao.read(rolId);
 				loPerito.setRol(loRol);
 			}
-			loResultadoBD = peritoDAO.consultarFuncionarioXFiltro(loPerito, esCambiarResponsableAExpediente);
+			loResultadoBD = funcionarioDAO.consultarFuncionarioXFiltro(loPerito, esCambiarResponsableAExpediente);
 		}else{
 			if(rolId != null && rolId > 0L){
-				loResultadoBD = peritoDAO.consultarFuncionariosPorFiltroYRol(loPerito,rolId);
+				loResultadoBD = funcionarioDAO.consultarFuncionariosPorFiltroYRol(loPerito,rolId);
 			}else{
-				loResultadoBD = peritoDAO.consultarFuncionarioXFiltro(loPerito, esCambiarResponsableAExpediente);
+				loResultadoBD = funcionarioDAO.consultarFuncionarioXFiltro(loPerito, esCambiarResponsableAExpediente);
 			}
 		}
 		
@@ -132,9 +132,10 @@ public class ConsultarFuncionarioPorFiltroServiceImpl implements ConsultarFuncio
 		}
 
 	@Override
-	public List<CatalogoDTO> consultarFuncionarios() throws NSJPNegocioException {
+	public List<FuncionarioDTO> consultarFuncionarios() throws NSJPNegocioException {
 		logger.info("ENTRO A CONSULTAR TODOS LOS FUNCIONARIOS");
-		return peritoDAO.consultarFuncionarios();
+		return FuncionarioTransformer.transformarFuncionarios(funcionarioDAO.consultarFuncionarios());
+
 	}
 
 
@@ -152,7 +153,7 @@ public class ConsultarFuncionarioPorFiltroServiceImpl implements ConsultarFuncio
 		
 		Funcionario loPerito = new Funcionario();
 		loPerito.setArea(new JerarquiaOrganizacional(idDepartamento));
-		List<Funcionario> loFuncionariosDepartamentoBD = peritoDAO.consultarFuncionarioXFiltro(loPerito, false);
+		List<Funcionario> loFuncionariosDepartamentoBD = funcionarioDAO.consultarFuncionarioXFiltro(loPerito, false);
 
 		for (Funcionario funcionario : loFuncionariosDepartamentoBD) {
 			if(funcionario.getArea()!=null){
@@ -173,7 +174,7 @@ public class ConsultarFuncionarioPorFiltroServiceImpl implements ConsultarFuncio
 		if(idAgencia==null)
 			throw new NSJPNegocioException(CodigoError.PARAMETROS_INSUFICIENTES);
 		
-		List<Funcionario> funcionarios =peritoDAO.consultarFuncionariosXAgencia(idAgencia);
+		List<Funcionario> funcionarios =funcionarioDAO.consultarFuncionariosXAgencia(idAgencia);
 		List<FuncionarioDTO> funcionariosDTO= new ArrayList<FuncionarioDTO>();
 		for (Funcionario func : funcionarios) {
 			funcionariosDTO.add(FuncionarioTransformer.transformarFuncionarioIntermedio(func));
@@ -191,7 +192,7 @@ public class ConsultarFuncionarioPorFiltroServiceImpl implements ConsultarFuncio
 			throws NSJPNegocioException {
 		
 		List<FuncionarioDTO> funcionariosDTO = null;
-		List<Funcionario> funcionarios = peritoDAO.consultarFuncionariosXCriterio(criterioConsultaFuncionarioExternoDTO, null);
+		List<Funcionario> funcionarios = funcionarioDAO.consultarFuncionariosXCriterio(criterioConsultaFuncionarioExternoDTO, null);
 		if (funcionarios != null && !funcionarios.isEmpty()){
 			funcionariosDTO = new ArrayList<FuncionarioDTO>();
 			for (Funcionario f : funcionarios){
@@ -225,7 +226,7 @@ public class ConsultarFuncionarioPorFiltroServiceImpl implements ConsultarFuncio
 		
 		Funcionario loFuncionario = FuncionarioTransformer.transformarFuncionario(filtro);		
 		
-		loResultadoBD = peritoDAO.consultarFuncionarioXFiltroYAreas(loFuncionario, idsJerarquiaOrganizacional);
+		loResultadoBD = funcionarioDAO.consultarFuncionarioXFiltroYAreas(loFuncionario, idsJerarquiaOrganizacional);
 		
 		List<FuncionarioDTO> loFuncionariosDTO = new ArrayList<FuncionarioDTO>();
 		

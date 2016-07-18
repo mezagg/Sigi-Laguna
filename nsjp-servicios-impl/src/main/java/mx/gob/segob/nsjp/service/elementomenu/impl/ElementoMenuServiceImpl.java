@@ -3,10 +3,7 @@
  */
 package mx.gob.segob.nsjp.service.elementomenu.impl;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 import mx.gob.segob.nsjp.comun.enums.menu.TipoMenu;
 import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
@@ -33,11 +30,28 @@ public class ElementoMenuServiceImpl implements ElementoMenuService {
 	@Autowired
 	private ElementoMenuDAO elementoMenuDAO;
 
+	Hashtable<String, List> menuDTOHashtable;
+
+	public ElementoMenuServiceImpl(){
+		menuDTOHashtable = new Hashtable<String, List>();
+		/*
+		Iterator i = lista.iterator();
+		ElementoMenuDTO menu;
+		while (i.hasNext())
+		{
+			menu= (ElementoMenuDTO) i.next();
+			System.out.println(menu.getcNombre());
+		}*/
+	}
 
 	@Override
 	public List<ElementoMenuDTO> consultarElementosMenuXRol(RolDTO rolDTO, TipoMenu tm)
 			throws NSJPNegocioException {
 		List<ElementoMenuDTO> resp = null;
+
+		//if(menuDTOHashtable.containsKey(rolDTO.getRolId()))
+		//	return menuDTOHashtable.get(rolDTO.getRolId());
+
 		List<ElementoMenu> elementosMenu = elementoMenuDAO
 				.consultarElementosMenuXRol(RolTransformer
 						.transformarMinimo(rolDTO), tm);
@@ -50,6 +64,7 @@ public class ElementoMenuServiceImpl implements ElementoMenuService {
 				}
 			}
 		}
+//		menuDTOHashtable.put(""+rolDTO.getRolId(), resp);
 		return resp;
 	}
 	

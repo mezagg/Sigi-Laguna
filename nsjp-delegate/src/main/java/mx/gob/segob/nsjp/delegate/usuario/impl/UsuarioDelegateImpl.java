@@ -214,8 +214,8 @@ public class UsuarioDelegateImpl implements UsuarioDelegate {
 	@Override
 	public boolean validarFuncionXUsuario (UsuarioDTO usrDTO, FuncionDTO fncDTO) throws NSJPNegocioException{
 		boolean resp=false;
-		usrDTO = usuarioService.consultarUsuarioXClaveUsuario(usrDTO);
-		fncDTO = consultarFuncionService.consultarFuncionXNombre(fncDTO);
+		//usrDTO = usuarioService.consultarUsuarioXClaveUsuario(usrDTO);
+		//fncDTO = consultarFuncionService.consultarFuncionXNombre(fncDTO);
 		if (usrDTO!=null && fncDTO!=null){
 			resp = usuarioService.validarFuncionXUsuario(usrDTO, fncDTO);
 		}

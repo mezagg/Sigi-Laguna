@@ -98,7 +98,7 @@ public class AgendaFuncionario implements java.io.Serializable {
 		this.dfinAgenda = dfinAgenda;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "agendaFuncionario")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "agendaFuncionario")
 	public Set<EventoCita> getEventoCitas() {
 		return this.eventoCitas;
 	}

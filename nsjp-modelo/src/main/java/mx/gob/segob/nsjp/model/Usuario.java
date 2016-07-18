@@ -104,7 +104,7 @@ public class Usuario implements java.io.Serializable {
 		this.claveUsuario = cclaveUsuario;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "usuario")
+	@OneToMany( fetch = FetchType.LAZY, mappedBy = "usuario")
 	public Set<Turno> getTurnos() {
 		return this.turnos;
 	}
@@ -118,7 +118,7 @@ public class Usuario implements java.io.Serializable {
 	 * 
 	 * @return El valor del campo usuarioRoles
 	 */
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "usuario")
+	@OneToMany( fetch = FetchType.LAZY, mappedBy = "usuario")
 	public Set<UsuarioRol> getUsuarioRoles() {
 		return usuarioRoles;
 	}

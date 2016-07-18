@@ -102,7 +102,7 @@ public class MandamientoPersonaDocumento implements java.io.Serializable {
 		this.documento = documento;
 	}
 
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "Estatus_val", nullable = false)
 	public Valor getEstatus() {
 		return estatus;

@@ -232,7 +232,7 @@ public class Vehiculo extends Objeto {
 		return EsNumSerieAlterado;
 	}
 
-	@OneToOne(fetch = FetchType.EAGER)
+	@OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Causa_id")
 	public Causa getCausa() {
 		return causa;
@@ -242,7 +242,7 @@ public class Vehiculo extends Objeto {
 		this.causa = causa;
 	}
 
-	@OneToOne(fetch = FetchType.EAGER)
+	@OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Causa_id_recuperado")
 	public Causa getCausaRecuperado() {
 		return causaRecuperado;
@@ -252,7 +252,7 @@ public class Vehiculo extends Objeto {
 		this.causaRecuperado = causaRecuperado;
 	}
 
-	@OneToOne(fetch = FetchType.EAGER)
+	@OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Causa_id_recuperado_otros")
 	public Causa getCausaRecuperadoOtros() {
 		return causaRecuperadoOtros;

@@ -59,7 +59,7 @@ public class ConfActividadDocumentoRol implements Serializable {
         this.descripcion = descripcion;
     }
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "TipoActividad_val", nullable = false)
     public Valor getTipoActividad() {
         return tipoActividad;
@@ -69,7 +69,7 @@ public class ConfActividadDocumentoRol implements Serializable {
         this.tipoActividad = tipoActividad;
     }
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "TipoDocumento_val", nullable = true)
     public Valor getTipoDocumento() {
         return tipoDocumento;

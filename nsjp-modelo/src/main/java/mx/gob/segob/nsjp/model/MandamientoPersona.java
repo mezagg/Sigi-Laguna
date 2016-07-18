@@ -95,7 +95,7 @@ public class MandamientoPersona implements java.io.Serializable {
 	 * 
 	 * @return El valor del campo mandamiento
 	 */
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "Mandamiento_id", nullable = false)
 	public Mandamiento getMandamiento() {
 		return this.mandamiento;
@@ -117,7 +117,7 @@ public class MandamientoPersona implements java.io.Serializable {
 	 * @return El valor del campo persona
 	 */
 
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "Persona_id", nullable = false)
 	public Persona getPersona() {
 		return this.persona;
@@ -139,7 +139,7 @@ public class MandamientoPersona implements java.io.Serializable {
 	 * @return El valor del campo estatus
 	 */
 
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "Estatus_val", nullable = false)
 	public Valor getEstatus() {
 		return this.estatus;
@@ -199,7 +199,7 @@ public class MandamientoPersona implements java.io.Serializable {
 		this.folioInterInstitucional = folioInterInstitucional;
 	}
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "mandamientoPersona")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "mandamientoPersona")
 	public Set<MandamientoPersonaDocumento> getMandamientosPersonaDocumento() {
 		return this.mandamientosPersonaDocumento;
 	}

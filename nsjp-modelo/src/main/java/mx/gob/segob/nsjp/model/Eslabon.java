@@ -147,7 +147,7 @@ public class Eslabon implements Serializable {
         this.evidencia = evidencia;
     }
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "TipoEslabon_val", nullable = false)
     public Valor getTipoEslabon() {
         return tipoEslabon;
@@ -228,7 +228,7 @@ public class Eslabon implements Serializable {
 	 * Método de acceso al campo tipoEslabonDeRecepcion.
 	 * @return El valor del campo tipoEslabonDeRecepcion
 	 */
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "TipoEslabonDeRecepcion_val", nullable = true)
 	public Valor getTipoEslabonDeRecepcion() {
 		return tipoEslabonDeRecepcion;

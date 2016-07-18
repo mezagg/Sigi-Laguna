@@ -19,7 +19,9 @@
  */
 package mx.gob.segob.nsjp.dao.usuario.impl;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
@@ -76,9 +78,13 @@ public class FuncionDAOImpl extends GenericDaoHibernateImpl<Funcion, Long>
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<Funcion> validarFuncionXUsuario(Usuario usr, Funcion fnc) {
+	public List<Funcion> validarFuncionXUsuario(String role, Long fnc) {
 		StringBuffer queryString = new StringBuffer();
-		queryString.append(" FROM Funcion f Where f.funcionId = ")
+		queryString.append("select new Funcion(f.funcionId, f.nombreFuncion) FROM Funcion f join f.modulos m join m.roles r where " +
+
+				"f.funcionId="+fnc+" and  r.rolId in (:idsRoles)");
+				/*
+				"f.funcionId = ")
 		.append(fnc.getFuncionId())
 		.append(" and f.funcionId IN (")
 		.append(" SELECT f.funcionId FROM Funcion f left join f.modulos m WHERE m.moduloId IN ( ")
@@ -86,12 +92,13 @@ public class FuncionDAOImpl extends GenericDaoHibernateImpl<Funcion, Long>
 		.append(" SELECT r.rolId FROM Rol r left join r.usuarioRoles ur WHERE ur.usuario IN (")
 		.append(" SELECT u.usuarioId FROM Usuario u WHERE u.usuarioId = ")
 		.append(usr.getUsuarioId())
-		.append(" )))) ");
-
+		.append(" )))) ");*/
+		//hbq.setString("claveUsuario", claveUsuario);
 		Query query = super.getSession().createQuery(queryString.toString());
+		query.setString("idsRoles",role);
 		List<Funcion> aux = query.list();
 		if (aux != null) {
-			logger.debug("Tamaño de elementos: " + aux.size());
+			logger.debug("Tamaï¿½o de elementos: " + aux.size());
 		}
 		return aux;
 	}

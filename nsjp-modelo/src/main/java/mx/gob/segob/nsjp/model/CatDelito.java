@@ -263,7 +263,7 @@ public class CatDelito implements java.io.Serializable {
 	 * Metodo de acceso al campo unidadIEspecializada.
 	 * @return El valor del campo unidadIEspecializada
 	 */
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "catUIE_id", nullable = false)
 	public CatUIEspecializada getUnidadIEspecializada() {
 		return unidadIEspecializada;

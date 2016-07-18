@@ -185,7 +185,7 @@ public class Evidencia implements java.io.Serializable {
 		this.estatus = estatus;
 	}
 
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Estatus_val", nullable = true)
 	public Valor getEstatus() {
 		return estatus;
@@ -201,7 +201,7 @@ public class Evidencia implements java.io.Serializable {
 	/**
 	 * @return the destinoLegal
 	 */
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "DestinoLegal_val", nullable = true)
 	public Valor getDestinoLegal() {
 		return destinoLegal;

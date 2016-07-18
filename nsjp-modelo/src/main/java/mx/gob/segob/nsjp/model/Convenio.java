@@ -56,7 +56,7 @@ public class Convenio extends Documento{
 		this.funcionario = funcionario;
 	}
 
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "Periodicidad_val")
 	public Valor getPeriodicidad() {
 		return this.periodicidad;
@@ -150,7 +150,7 @@ public class Convenio extends Documento{
 	 * Método de acceso al campo tipoConvenio.
 	 * @return El valor del campo tipoConvenio
 	 */
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "TipoConvenio_val")
 	public Valor getTipoConvenio() {
 		return tipoConvenio;

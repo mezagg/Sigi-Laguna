@@ -44,6 +44,7 @@ import mx.gob.segob.nsjp.model.JerarquiaOrganizacional;
 import mx.gob.segob.nsjp.model.NumeroExpediente;
 import mx.gob.segob.nsjp.model.Rol;
 
+import org.apache.commons.beanutils.BeanMap;
 import org.apache.log4j.Logger;
 import org.hibernate.Query;
 import org.hibernate.transform.Transformers;
@@ -79,7 +80,8 @@ public class FuncionarioDAOImpl extends
     @SuppressWarnings("unchecked")
     public List<Funcionario> consultarFuncionariosPorRol(Long idPuesto) {
         StringBuffer queryString = new StringBuffer();
-        queryString.append("SELECT f ").append(" FROM Funcionario f ").append(" WHERE f.puesto.valorId = :idPuesto");
+        queryString.append("SELECT f ").append(" FROM Funcionario f ").
+                append(" WHERE f.puesto.valorId = :idPuesto");
         queryString.append(" ORDER BY f.nombreFuncionario");
         Query query = super.getSession().createQuery(queryString.toString());
         query.setParameter("idPuesto", idPuesto);
@@ -87,8 +89,8 @@ public class FuncionarioDAOImpl extends
     }
 
     @Override
-    public List<CatalogoDTO> consultarFuncionarios() {
-        StringBuffer queryString = new StringBuffer();
+    public List<Funcionario> consultarFuncionarios() {
+        /*StringBuffer queryString = new StringBuffer();
         queryString.append(" SELECT  cast (f.iClaveFuncionario as varchar) as id ,");
         queryString.append(" concat (f.cNombreFuncionario ,' ', ");
         queryString.append(" f.cApellidoPaternoFuncionario  , ' ', ");
@@ -97,10 +99,24 @@ public class FuncionarioDAOImpl extends
         queryString.append(" ON f.iClaveFuncionario=u.iClaveFuncionario ");
         queryString.append(" where u.Usuario_id > 0  ");
         queryString.append(" AND u.bEsActivo= 1");
-        queryString.append(" ORDER BY f.cNombreFuncionario");
-        List<CatalogoDTO> funcionarios= super.getSession().createSQLQuery(queryString.toString())
-                .setResultTransformer( Transformers.aliasToBean(CatalogoDTO.class))
+        queryString.append(" ORDER BY f.cNombreFuncionario");*/
+
+        StringBuffer queryString = new StringBuffer();
+        queryString.append("SELECT new Funcionario (F.claveFuncionario, F.nombreFuncionario, " +
+                "F.apellidoPaternoFuncionario, F.apellidoMaternoFuncionario) ")
+                .append(" FROM Funcionario F INNER JOIN F.usuario u ")
+
+                .append(" ORDER BY F.nombreFuncionario");
+
+
+        /*List<FuncionarioDTO> funcionarios= super.getSession().createSQLQuery(queryString.toString())
+                .setResultTransformer( Transformers.aliasToBean(FuncionarioDTO.class))
+                .list();*/
+        List<Funcionario> funcionarios= super.getSession().createQuery(queryString.toString())
+                //.setResultTransformer( Transformers.aliasToBean(Funcionario.class))
                 .list();
+
+       // System.out.println("dao:"+funcionarios.get(0).getClass());
         return funcionarios;
     }
 

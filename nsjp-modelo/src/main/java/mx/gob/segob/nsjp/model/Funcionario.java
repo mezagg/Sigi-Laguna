@@ -105,7 +105,13 @@ public class Funcionario implements java.io.Serializable {
 	/** default constructor */
 	public Funcionario() {
 	}
+	public Funcionario(Long claveFuncionario,String nombreFuncionario, String apellidoPaternoFuncionario, String apellidoMaternoFuncionario) {
+		this.claveFuncionario=claveFuncionario;
 
+		this.nombreFuncionario=nombreFuncionario;
+		this.apellidoPaternoFuncionario=apellidoPaternoFuncionario;
+		this.apellidoMaternoFuncionario=apellidoMaternoFuncionario;
+	}
 
 	
 	/**
@@ -387,7 +393,7 @@ public class Funcionario implements java.io.Serializable {
 	}
 
 	// @ManyToOne(fetch = FetchType.LAZY)
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "JerarquiaOrganizacional_id", nullable = true)
 	public JerarquiaOrganizacional getArea() {
 		return area;
@@ -752,7 +758,7 @@ public class Funcionario implements java.io.Serializable {
 	 * 
 	 * @return El valor del campo unidadIEspecializada
 	 */
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "catUIE_id")
 	public CatUIEspecializada getUnidadIEspecializada() {
 		return unidadIEspecializada;
@@ -859,5 +865,9 @@ public class Funcionario implements java.io.Serializable {
 
 	public void setRegion(Region region) {
 		this.region = region;
+	}
+
+	public String toString(){
+		return "Funcionario:"+this.getNombreCompleto();
 	}
 }

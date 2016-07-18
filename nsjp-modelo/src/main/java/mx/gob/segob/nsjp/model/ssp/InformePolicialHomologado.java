@@ -131,7 +131,7 @@ public class InformePolicialHomologado implements java.io.Serializable {
         this.funcionarioDestinatario = funcionarioByIclaveFuncionarioDestinatario;
     }
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Expediente_id", nullable = false, unique = true)
     public Expediente getExpediente() {
         return this.expediente;
@@ -245,7 +245,7 @@ public class InformePolicialHomologado implements java.io.Serializable {
         this.turnoLaboralIphs = turnoLaboralIphs;
     }
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "informePolicialHomologado")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "informePolicialHomologado")
     public Set<InvolucradoIph> getInvolucradoIphs() {
         return this.involucradoIphs;
     }
@@ -264,7 +264,7 @@ public class InformePolicialHomologado implements java.io.Serializable {
         this.objetoAsegurados = objetoAsegurados;
     }
     @Transient
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "informePolicialHomologado")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "informePolicialHomologado")
     public Set<MedioTransporte> getMedioTransportes() {
         return this.medioTransportes;
     }
@@ -293,7 +293,7 @@ public class InformePolicialHomologado implements java.io.Serializable {
         this.faltaAdministrativaIphs = faltaAdministrativaIphs;
     }
     
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "informePolicialHomologado")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "informePolicialHomologado")
     public Set<DelitoIph> getDelitoIphs() {
         return this.delitoIphs;
     }

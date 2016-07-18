@@ -825,9 +825,10 @@ public class UsuarioServiceImpl implements UsuarioService {
 			throws NSJPNegocioException {
 		boolean resp = false;
 		if (usrDTO != null && fncDTO != null) {
+
 			List<Funcion> lstFunciones = funcionDAO.validarFuncionXUsuario(
-					UsuarioTransformer.transformarDTO(usrDTO),
-					FuncionTransformer.transformarFuncionDTO(fncDTO));
+					usrDTO.getRolActivo(),
+					fncDTO.getFuncionId());
 			resp = !lstFunciones.isEmpty();
 		}
 		return resp;

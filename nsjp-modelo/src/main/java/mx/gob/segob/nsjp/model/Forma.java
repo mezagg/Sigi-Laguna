@@ -55,6 +55,14 @@ public class Forma implements java.io.Serializable {
         this.formaId = formaId;
     }
 
+    public Forma(Long formaId, String nombre, String tipoforma) {
+        this.formaId = formaId;
+        this.nombre= nombre;
+        this.tipoForma = new Valor();
+        this.tipoForma.setValor( tipoforma);
+    }
+
+
     // Property accessors
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

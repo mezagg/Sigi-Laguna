@@ -84,7 +84,7 @@ public class Mandamiento extends Documento {
 	 * 
 	 * @return el valor del resolutivo.
 	 */	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "Resolutivo_id", nullable = true)
 	public Resolutivo getResolutivo() {
 		return this.resolutivo;
@@ -167,7 +167,7 @@ public class Mandamiento extends Documento {
 	 * 
 	 * @return El valor del campo delitosPersona
 	 */
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
 	@JoinTable(name = "MandamientoDelitoPersona", joinColumns = { @JoinColumn(name = "Mandamiento_id") }, inverseJoinColumns = { @JoinColumn(name = "DelitoPersona_id") })
 	public Set<DelitoPersona> getDelitosPersona() {
 		return delitosPersona;
@@ -187,7 +187,7 @@ public class Mandamiento extends Documento {
 	/**
 	 * @return the mandamientosPersona
 	 */
-	@OneToMany(mappedBy = "mandamiento",fetch = FetchType.EAGER, cascade= CascadeType.ALL)
+	@OneToMany(mappedBy = "mandamiento",fetch = FetchType.LAZY, cascade= CascadeType.ALL)
 	public Set<MandamientoPersona> getMandamientosPersona() {
 		return mandamientosPersona;
 	}

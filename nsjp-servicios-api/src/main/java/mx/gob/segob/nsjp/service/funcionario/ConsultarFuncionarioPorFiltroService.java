@@ -26,6 +26,7 @@ import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
 import mx.gob.segob.nsjp.dto.catalogo.CatalogoDTO;
 import mx.gob.segob.nsjp.dto.funcionario.CriterioConsultaFuncionarioExternoDTO;
 import mx.gob.segob.nsjp.dto.funcionario.FuncionarioDTO;
+import mx.gob.segob.nsjp.model.Funcionario;
 
 /**
  * Servicio para registrar un Perito.
@@ -116,7 +117,7 @@ public interface ConsultarFuncionarioPorFiltroService {
 	 * @return
 	 * @throws NSJPNegocioException
 	 */
-	public List<CatalogoDTO> consultarFuncionarios()
+	public List<FuncionarioDTO> consultarFuncionarios()
 			throws NSJPNegocioException;
 }
 

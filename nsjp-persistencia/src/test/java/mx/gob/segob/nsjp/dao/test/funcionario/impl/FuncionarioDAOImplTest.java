@@ -20,11 +20,7 @@
  */
 package mx.gob.segob.nsjp.dao.test.funcionario.impl;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -63,7 +59,19 @@ public class FuncionarioDAOImplTest
 	
 	@Autowired
 	private FuncionarioDAO funcionarioDAO;
-	
+
+	public void testConsultaFuncionarios() {
+		List<Funcionario> loFuncionarios =
+				daoServcice.consultarFuncionarios();
+		Iterator<Funcionario> it= loFuncionarios.iterator();
+		Funcionario f;
+		while (it.hasNext()) {
+			f = it.next();
+			System.out.println("" + f.getNombreFuncionario());
+		}
+	}
+
+
 	public void testConsultarCoordinadorDefensores() {
 		List<Funcionario> loFuncionarios = 
 			daoServcice.consultarFuncionariosPorRol(Puestos.COORDINADOR_DE_DEFENSORES.getValorId());		
@@ -134,7 +142,7 @@ public class FuncionarioDAOImplTest
         } catch (Exception e) {
             e.printStackTrace();
             logger.error(e);
-            assertTrue("Excepción: ", false);
+            assertTrue("Excepciï¿½n: ", false);
         }
 
     }
@@ -214,7 +222,7 @@ public class FuncionarioDAOImplTest
 			logger.info("Apellido Materno :"+func.getApellidoMaternoFuncionario()); 
 			String puesto=(func.getPuesto()==null)?"Sin Puesto":func.getPuesto().getValor();
 			logger.info("Puesto administrativo de la persona :"+puesto);
-			logger.info("Dirección de correo electrónico :"+func.getEmail());
+			logger.info("Direcciï¿½n de correo electrï¿½nico :"+func.getEmail());
 		}
     }
     
@@ -233,7 +241,7 @@ public class FuncionarioDAOImplTest
 			logger.info("Apellido Materno :"+func.getApellidoMaternoFuncionario()); 
 			String puesto=(func.getPuesto()==null)?"Sin Puesto":func.getPuesto().getValor();
 			logger.info("Puesto administrativo de la persona :"+puesto);
-			logger.info("Dirección de correo electrónico :"+func.getEmail());
+			logger.info("Direcciï¿½n de correo electrï¿½nico :"+func.getEmail());
 			if(func.getArchivoDigital()!=null){
 				logger.info("El nombre del archivo digital es: " + func.getArchivoDigital().getNombreArchivo());
 			}

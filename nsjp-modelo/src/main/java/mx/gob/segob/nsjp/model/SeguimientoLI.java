@@ -113,7 +113,7 @@ public class SeguimientoLI implements java.io.Serializable {
 	 * Método de acceso al campo expediente.
 	 * @return El valor del campo expediente
 	 */
-	@OneToOne(fetch = FetchType.EAGER)
+	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "Expediente_id", nullable = false, updatable = false)
 	public Expediente getExpediente() {
 		return expediente;

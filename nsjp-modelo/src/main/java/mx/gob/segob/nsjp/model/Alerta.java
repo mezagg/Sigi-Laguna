@@ -65,7 +65,7 @@ public class Alerta implements Serializable {
 	/**
 	 * @return the tipoAlerta
 	 */
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "TipoAlerta_val", nullable = false)
 	public Valor getTipoAlerta() {
 		return tipoAlerta;

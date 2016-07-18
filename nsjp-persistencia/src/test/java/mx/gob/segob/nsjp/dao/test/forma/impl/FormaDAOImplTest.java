@@ -19,14 +19,14 @@ public class FormaDAOImplTest extends BaseTestPersistencia<FormaDAO> {
     // public void testRecuperarConsultarForma() {
     //
     // Forma forma = daoServcice.read(new Long(1));
-    // assertFalse("El catálogo no debería estar vacío", forma == null);
+    // assertFalse("El catï¿½logo no deberï¿½a estar vacï¿½o", forma == null);
     // logger.info("Cuerpo de la forma: " + forma.getCuerpo());
     // }
     //
     public void testConsultarPlantillaPorTipo() {
         Long tipoForma = TipoForma.RESOLUCION.getValorId();
         List<Forma> plantilla = daoServcice
-                .consultarPlantillaPorTipo(tipoForma);
+                .consultarPlantillaPorTipo(0L);
 
         for (Forma forma : plantilla) {
             logger.info("[" + forma.getFormaId() + " : " + forma.getNombre()

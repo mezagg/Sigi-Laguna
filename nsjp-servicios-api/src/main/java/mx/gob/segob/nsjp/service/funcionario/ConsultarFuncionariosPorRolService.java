@@ -164,5 +164,5 @@ public interface ConsultarFuncionariosPorRolService {
 	 */
 	public List<FuncionarioDTO> consultarFuncionariosPorDicriminanteYRolYUIE (Long catDiscriminanteId, Long idRol, Long idUIE)throws NSJPNegocioException;
         
-        public List<CatalogoDTO> consultarFuncionarios()throws NSJPNegocioException;
+	public List<FuncionarioDTO> consultarFuncionarios()throws NSJPNegocioException;
 }

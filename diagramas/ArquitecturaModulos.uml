@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>MODULES</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="619.2903645833334" y="190.0">mdl-nsjp-servicios-api</node>
+    <node x="481.1000739113617" y="417.8461538461538">mdl-nsjp-comun</node>
+    <node x="89.25" y="190.0">mdl-nsjp-persistencia</node>
+    <node x="452.75" y="0.0">mdl-nsjp-web</node>
+    <node x="759.7903645833334" y="100.0">mdl-nsjp-delegate</node>
+    <node x="429.55208333333337" y="290.0">mdl-nsjp-dto</node>
+    <node x="332.29036458333337" y="190.0">mdl-nsjp-wsclient</node>
+    <node x="179.13541666666663" y="100.0">mdl-nsjp-servicios-impl</node>
+    <node x="530.70703125" y="100.0">mdl-nsjp-ws</node>
+    <node x="0.0" y="290.0">mdl-nsjp-modelo</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="mdl-nsjp-servicios-impl" target="mdl-nsjp-dto">
+      <point x="18.083333333333314" y="15.0" />
+      <point x="305.71874999999994" y="150.0" />
+      <point x="321.79036458333337" y="150.0" />
+      <point x="321.79036458333337" y="240.0" />
+      <point x="466.05208333333337" y="240.0" />
+      <point x="-36.5" y="-15.0" />
+    </edge>
+    <edge source="mdl-nsjp-servicios-impl" target="mdl-nsjp-servicios-api">
+      <point x="90.41666666666663" y="15.0" />
+      <point x="378.05208333333326" y="160.0" />
+      <point x="645.2903645833334" y="160.0" />
+      <point x="-78.0" y="-15.0" />
+    </edge>
+    <edge source="mdl-nsjp-servicios-impl" target="mdl-nsjp-modelo">
+      <point x="-90.41666666666663" y="15.0" />
+      <point x="197.21875" y="160.0" />
+      <point x="72.71874999999994" y="160.0" />
+      <point x="72.71874999999994" y="240.0" />
+      <point x="86.0" y="240.0" />
+      <point x="0.0" y="-15.0" />
+    </edge>
+    <edge source="mdl-nsjp-web" target="mdl-nsjp-servicios-impl">
+      <point x="-33.33333333333337" y="15.0" />
+      <point x="494.41666666666663" y="70.0" />
+      <point x="287.63541666666663" y="70.0" />
+      <point x="0.0" y="-15.0" />
+    </edge>
+    <edge source="mdl-nsjp-delegate" target="mdl-nsjp-servicios-api">
+      <point x="-59.33333333333337" y="15.0" />
+      <point x="789.45703125" y="150.0" />
+      <point x="801.2903645833334" y="150.0" />
+      <point x="78.0" y="-15.0" />
+    </edge>
+    <edge source="mdl-nsjp-web" target="mdl-nsjp-servicios-api">
+      <point x="33.333333333333314" y="15.0" />
+      <point x="561.0833333333333" y="70.0" />
+      <point x="749.2903645833334" y="70.0" />
+      <point x="26.0" y="-15.0" />
+    </edge>
+    <edge source="mdl-nsjp-web" target="mdl-nsjp-modelo">
+      <point x="-66.66666666666669" y="15.0" />
+      <point x="461.0833333333333" y="50.0" />
+      <point x="61.71874999999994" y="50.0" />
+      <point x="61.71874999999994" y="240.0" />
+      <point x="28.666666666666686" y="240.0" />
+      <point x="-57.333333333333314" y="-15.0" />
+    </edge>
+    <edge source="mdl-nsjp-persistencia" target="mdl-nsjp-modelo">
+      <point x="-67.0" y="15.0" />
+      <point x="122.75" y="240.0" />
+      <point x="143.33333333333337" y="240.0" />
+      <point x="57.33333333333337" y="-15.0" />
+    </edge>
+    <edge source="mdl-nsjp-servicios-impl" target="mdl-nsjp-comun">
+      <point x="-18.083333333333343" y="15.0" />
+      <point x="269.55208333333326" y="160.0" />
+      <point x="300.75" y="160.0" />
+      <point x="300.75" y="350.0" />
+      <point x="534.4674479166667" y="350.0" />
+      <point x="-31.5" y="-15.0" />
+    </edge>
+    <edge source="mdl-nsjp-servicios-impl" target="mdl-nsjp-persistencia">
+      <point x="-54.25" y="15.0" />
+      <point x="233.38541666666663" y="150.0" />
+      <point x="240.0" y="150.0" />
+      <point x="50.25" y="-15.0" />
+    </edge>
+    <edge source="mdl-nsjp-delegate" target="mdl-nsjp-dto">
+      <point x="0.0" y="15.0" />
+      <point x="848.7903645833334" y="150.0" />
+      <point x="871.33203125" y="150.0" />
+      <point x="871.33203125" y="270.0" />
+      <point x="563.3854166666666" y="270.0" />
+      <point x="60.833333333333314" y="-15.0" />
+    </edge>
+    <edge source="mdl-nsjp-persistencia" target="mdl-nsjp-dto">
+      <point x="67.0" y="15.0" />
+      <point x="256.75" y="250.0" />
+      <point x="441.71875" y="250.0" />
+      <point x="-60.833333333333314" y="-15.0" />
+    </edge>
+    <edge source="mdl-nsjp-web" target="mdl-nsjp-dto">
+      <point x="0.0" y="15.0" />
+      <point x="527.75" y="50.0" />
+      <point x="519.7903645833334" y="50.0" />
+      <point x="519.7903645833334" y="240.0" />
+      <point x="490.38541666666663" y="240.0" />
+      <point x="-12.166666666666686" y="-15.0" />
+    </edge>
+    <edge source="mdl-nsjp-ws" target="mdl-nsjp-servicios-api">
+      <point x="47.333333333333314" y="15.0" />
+      <point x="649.0403645833334" y="150.0" />
+      <point x="697.2903645833334" y="150.0" />
+      <point x="-26.0" y="-15.0" />
+    </edge>
+    <edge source="mdl-nsjp-modelo" target="mdl-nsjp-comun">
+      <point x="0.0" y="15.0" />
+      <point x="86.0" y="370.0" />
+      <point x="492.4674479166667" y="370.0" />
+      <point x="-73.5" y="-15.0" />
+    </edge>
+    <edge source="mdl-nsjp-web" target="mdl-nsjp-ws">
+      <point x="16.66666666666663" y="15.0" />
+      <point x="544.4166666666666" y="80.0" />
+      <point x="601.70703125" y="80.0" />
+      <point x="0.0" y="-15.0" />
+    </edge>
+    <edge source="mdl-nsjp-web" target="mdl-nsjp-wsclient">
+      <point x="-16.666666666666686" y="15.0" />
+      <point x="511.0833333333333" y="80.0" />
+      <point x="465.04036458333337" y="80.0" />
+      <point x="44.25" y="-15.0" />
+    </edge>
+    <edge source="mdl-nsjp-web" target="mdl-nsjp-delegate">
+      <point x="50.0" y="15.0" />
+      <point x="577.75" y="60.0" />
+      <point x="848.7903645833334" y="60.0" />
+      <point x="0.0" y="-15.0" />
+    </edge>
+    <edge source="mdl-nsjp-servicios-api" target="mdl-nsjp-dto">
+      <point x="-52.0" y="15.0" />
+      <point x="671.2903645833334" y="260.0" />
+      <point x="539.0520833333334" y="260.0" />
+      <point x="36.5" y="-15.0" />
+    </edge>
+    <edge source="mdl-nsjp-ws" target="mdl-nsjp-comun">
+      <point x="0.0" y="15.0" />
+      <point x="601.70703125" y="170.0" />
+      <point x="608.7903645833334" y="170.0" />
+      <point x="608.7903645833334" y="340.0" />
+      <point x="576.4674479166667" y="340.0" />
+      <point x="10.5" y="-15.0" />
+    </edge>
+    <edge source="mdl-nsjp-web" target="mdl-nsjp-persistencia">
+      <point x="-50.0" y="15.0" />
+      <point x="477.75" y="60.0" />
+      <point x="133.46874999999994" y="60.0" />
+      <point x="133.46874999999994" y="150.0" />
+      <point x="139.5" y="150.0" />
+      <point x="-50.25" y="-15.0" />
+    </edge>
+    <edge source="mdl-nsjp-dto" target="mdl-nsjp-comun">
+      <point x="0.0" y="15.0" />
+      <point x="502.55208333333337" y="340.0" />
+      <point x="555.4674479166667" y="340.0" />
+      <point x="-10.5" y="-15.0" />
+    </edge>
+    <edge source="mdl-nsjp-persistencia" target="mdl-nsjp-comun">
+      <point x="0.0" y="15.0" />
+      <point x="189.75" y="360.0" />
+      <point x="513.4674479166667" y="360.0" />
+      <point x="-52.5" y="-15.0" />
+    </edge>
+    <edge source="mdl-nsjp-ws" target="mdl-nsjp-dto">
+      <point x="-47.33333333333334" y="15.0" />
+      <point x="554.3736979166667" y="170.0" />
+      <point x="538.75" y="170.0" />
+      <point x="538.75" y="250.0" />
+      <point x="514.71875" y="250.0" />
+      <point x="12.166666666666629" y="-15.0" />
+    </edge>
+    <edge source="mdl-nsjp-servicios-api" target="mdl-nsjp-comun">
+      <point x="52.0" y="15.0" />
+      <point x="775.2903645833334" y="350.0" />
+      <point x="597.4674479166667" y="350.0" />
+      <point x="31.5" y="-15.0" />
+    </edge>
+    <edge source="mdl-nsjp-web" target="mdl-nsjp-comun">
+      <point x="66.66666666666669" y="15.0" />
+      <point x="594.4166666666667" y="50.0" />
+      <point x="948.2903645833334" y="50.0" />
+      <point x="948.2903645833334" y="370.0" />
+      <point x="639.4674479166667" y="370.0" />
+      <point x="73.5" y="-15.0" />
+    </edge>
+    <edge source="mdl-nsjp-servicios-impl" target="mdl-nsjp-wsclient">
+      <point x="54.25" y="15.0" />
+      <point x="341.88541666666663" y="170.0" />
+      <point x="376.54036458333337" y="170.0" />
+      <point x="-44.25" y="-15.0" />
+    </edge>
+    <edge source="mdl-nsjp-delegate" target="mdl-nsjp-comun">
+      <point x="59.33333333333337" y="15.0" />
+      <point x="908.1236979166667" y="150.0" />
+      <point x="883.7604166666666" y="150.0" />
+      <point x="883.7604166666666" y="360.0" />
+      <point x="618.4674479166667" y="360.0" />
+      <point x="52.5" y="-15.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.8004246284501062" x="474.5" y="225.5" />
+  <SelectedNodes />
+  <Categories />
+</Diagram>
+

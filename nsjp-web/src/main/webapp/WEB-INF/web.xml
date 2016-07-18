@@ -76,6 +76,7 @@
         	<param-name>chainConfig</param-name>
         	<param-value>org/apache/struts/tiles/chain-config.xml</param-value>
     	</init-param>
+		<load-on-startup>2</load-on-startup>
 	</servlet>
 	<!-- Kaptcha Service -->
 	 <servlet>

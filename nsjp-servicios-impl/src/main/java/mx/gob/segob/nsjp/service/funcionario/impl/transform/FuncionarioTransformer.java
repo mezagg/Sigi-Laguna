@@ -529,12 +529,11 @@ public class FuncionarioTransformer {
      * @param lsfun
      * @return
      */
-    public static List<FuncionarioDTO> transformarFuncionarios(
-            List<Funcionario> lsfun) {
+    public static List<FuncionarioDTO> transformarFuncionarios(List<Funcionario> lsfun) {
         List<FuncionarioDTO> resp = new ArrayList<FuncionarioDTO>();
 
         for (Funcionario f : lsfun) {
-            logger.info("AREA: " + f.getArea().getNombre());
+//            logger.info("AREA: " + f.getArea().getNombre());
             FuncionarioDTO fundto = FuncionarioTransformer
                     .transformarFuncionario(f);
             resp.add(fundto);

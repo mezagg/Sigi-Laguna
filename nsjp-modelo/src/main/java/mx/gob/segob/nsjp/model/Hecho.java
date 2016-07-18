@@ -100,7 +100,7 @@ public class Hecho implements java.io.Serializable {
         this.expediente = expediente;
     }
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Lugar_id", nullable = true)
     public Lugar getLugar() {
         return this.lugar;

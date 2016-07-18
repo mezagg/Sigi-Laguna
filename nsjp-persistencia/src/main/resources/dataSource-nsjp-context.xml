@@ -8,5 +8,4 @@
        
 <jee:jndi-lookup id="dataSource" jndi-name="jdbc/nsjpDS"/>
 
-	
 </beans>

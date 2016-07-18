@@ -505,7 +505,7 @@ public class Expediente implements java.io.Serializable {
 	/**
 	 * @return the discriminante
 	 */
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "catDiscriminante_id")
 	public CatDiscriminante getDiscriminante() {
 		return discriminante;

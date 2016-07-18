@@ -394,7 +394,7 @@ public class FuncionarioDelegateImpl implements FuncionarioDelegate {
     }
      
     @Override
-    public List<CatalogoDTO> consultarFuncionarios ()throws NSJPNegocioException{
+    public List<FuncionarioDTO> consultarFuncionarios ()throws NSJPNegocioException{
         return consultarFuncionariosService.consultarFuncionarios();
     }
 

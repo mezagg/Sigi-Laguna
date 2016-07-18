@@ -114,7 +114,7 @@ public class Audiencia implements java.io.Serializable {
      * Se uso EAGER dado que es necesario consultar audiencias con su respectivo tipo
      * @return
      */
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "TipoAudiencia_val", nullable = false)
     public Valor getTipo() {
         return this.tipo;
@@ -216,7 +216,7 @@ public class Audiencia implements java.io.Serializable {
      * M&eacute;todo de acceso al campo salaTemporal.
      * @return El valor del campo salaTemporal
      */
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "SalaTemporal_id")
     public SalaTemporal getSalaTemporal() {
         return salaTemporal;
