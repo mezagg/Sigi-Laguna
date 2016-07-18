@@ -47,6 +47,7 @@ public class Rol implements java.io.Serializable {
 	private Set<UsuarioRol> usuarioRoles = new HashSet<UsuarioRol>(0);
 	private Boolean esActivo;
 	private ConfInstitucion institucionPertenece;
+	private Boolean esCoordinacion;
 	private List<Modulo> modulos = new ArrayList<Modulo>();
 	private Set<ConfActividadDocumento> confActividadDocumentos = new HashSet<ConfActividadDocumento>(0);
 	private List<ElementoMenu> elementosMenu;
@@ -167,6 +168,14 @@ public class Rol implements java.io.Serializable {
 
 	public void setInstitucionPertenece(ConfInstitucion institucionPertenece) {
 		this.institucionPertenece = institucionPertenece;
+	}
+
+	@Column(name = "esCoordinacion", precision = 1, scale = 0)
+	public Boolean getEsCoordinacion() {
+		return esCoordinacion;
+	}
+	public void setEsCoordinacion(Boolean esCoordinacion) {
+		this.esCoordinacion = esCoordinacion;
 	}
 
 	/**

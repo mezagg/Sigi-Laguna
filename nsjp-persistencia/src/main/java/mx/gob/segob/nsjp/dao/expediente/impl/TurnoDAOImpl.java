@@ -20,6 +20,7 @@
 package mx.gob.segob.nsjp.dao.expediente.impl;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -29,6 +30,7 @@ import mx.gob.segob.nsjp.comun.util.tl.PaginacionThreadHolder;
 import mx.gob.segob.nsjp.dao.base.impl.GenericDaoHibernateImpl;
 import mx.gob.segob.nsjp.dao.expediente.TurnoDAO;
 import mx.gob.segob.nsjp.dto.base.PaginacionDTO;
+import mx.gob.segob.nsjp.model.Expediente;
 import mx.gob.segob.nsjp.model.Turno;
 
 import org.apache.log4j.Logger;
@@ -139,7 +141,7 @@ public class TurnoDAOImpl extends GenericDaoHibernateImpl<Turno, Long>
 				queryStr.append(" ").append(pag.getDirOrd());
 			}
 		}
-
+		log.info("POR TURNNO---->"+queryStr.toString());
 		return super.ejecutarQueryPaginado(queryStr, pag);
 	}
 
@@ -356,5 +358,42 @@ public class TurnoDAOImpl extends GenericDaoHibernateImpl<Turno, Long>
     		
       return lista;     
     }
-	
+
+	@Override
+	public List<Turno> obtenerExpedientesSinYConTurno(Long iclaveFuncionario, Long discriminante, Date fecha, TipoTurno tTurno) {
+		List<Turno> lista = new ArrayList<Turno>();
+		final SimpleDateFormat formato = new SimpleDateFormat("yyyyMMdd");
+		List<Expediente> expedientes= new ArrayList<Expediente>();
+		final StringBuffer queryStr = new StringBuffer();
+		queryStr.append("SELECT e  FROM  Turno as t");
+		queryStr.append(" RIGHT  JOIN  t.expediente as e  ");
+		queryStr.append(" JOIN  e.numeroExpedientes as  nu  ");
+		queryStr.append(" WHERE  e.discriminante.catDiscriminanteId = ").append(discriminante);
+		queryStr.append(" AND   nu.funcionario.claveFuncionario = ").append(iclaveFuncionario);
+		if (fecha != null){
+			queryStr.append(" AND ( CONVERT (nvarchar, t.fechaAtencion, 112) = ")
+					.append(formato.format(fecha));
+			queryStr.append("  OR  CONVERT (nvarchar, e.fechaCreacion, 112) = ")
+				.append(formato.format(fecha)).append(" )");}
+
+		if (tTurno != null) {
+			queryStr.append(" OR ( t.turnoId IS NULL AND  t.tipoTurno = '");
+			queryStr.append(tTurno.name()).append("' ) ");
+		}
+
+		queryStr.append(" order by  e  ");
+		final PaginacionDTO pag = PaginacionThreadHolder.get();
+		if (pag != null) {
+				queryStr.append(pag.getDirOrd());
+		}
+		log.info("TODOS LOS EXPEDIENTES CON Y SIN  TURNO---->"+queryStr.toString());
+		expedientes = super.ejecutarQueryPaginado(queryStr, pag);
+		for (Expediente expediente : expedientes) {
+			 Turno turno= new Turno();
+			 turno.setExpediente(expediente);
+			 lista.add(turno);
+		}
+		return lista;
+	}
+
 }

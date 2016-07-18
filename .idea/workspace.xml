@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="483a50da-16bf-4dd2-9ba6-b2b91cc4c701" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-persistencia/src/main/java/mx/gob/segob/nsjp/dao/usuario/FuncionDAO.java" afterPath="$PROJECT_DIR$/nsjp-persistencia/src/main/java/mx/gob/segob/nsjp/dao/usuario/FuncionDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-persistencia/src/main/java/mx/gob/segob/nsjp/dao/usuario/impl/FuncionDAOImpl.java" afterPath="$PROJECT_DIR$/nsjp-persistencia/src/main/java/mx/gob/segob/nsjp/dao/usuario/impl/FuncionDAOImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-persistencia/src/test/java/mx/gob/segob/nsjp/dao/test/funcion/impl/FuncionDAOImplTest.java" afterPath="$PROJECT_DIR$/nsjp-persistencia/src/test/java/mx/gob/segob/nsjp/dao/test/funcion/impl/FuncionDAOImplTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-persistencia/src/test/resources/log4j-config-unitTesting.xml" afterPath="$PROJECT_DIR$/nsjp-persistencia/src/test/resources/log4j-config-unitTesting.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-servicios-impl/src/main/java/mx/gob/segob/nsjp/service/usuario/impl/UsuarioServiceImpl.java" afterPath="$PROJECT_DIR$/nsjp-servicios-impl/src/main/java/mx/gob/segob/nsjp/service/usuario/impl/UsuarioServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/darDeAltaUsuarioEnSistema.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/darDeAltaUsuarioEnSistema.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/registrarFuncionario.jsp" afterPath="$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/registrarFuncionario.jsp" />
-    </list>
+    <list default="true" id="483a50da-16bf-4dd2-9ba6-b2b91cc4c701" name="Default" comment="" />
     <ignored path="nsjp.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/nsjp-ws/target/" />
@@ -94,49 +85,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="registrarFuncionario.jsp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="registrarFuncionario.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/registrarFuncionario.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="954" column="16" selection-start-line="954" selection-start-column="16" selection-end-line="954" selection-end-column="69" />
+            <state relative-caret-position="210">
+              <caret line="958" column="25" selection-start-line="958" selection-start-column="25" selection-end-line="958" selection-end-column="25" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="darDeAltaUsuarioEnSistema.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/darDeAltaUsuarioEnSistema.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="443" column="65" selection-start-line="443" selection-start-column="65" selection-end-line="443" selection-end-column="65" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="consultarFuncionario.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/consultarFuncionario.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3051">
-              <caret line="67" column="79" selection-start-line="67" selection-start-column="72" selection-end-line="67" selection-end-column="79" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ValorDAOImplTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/nsjp-persistencia/src/test/java/mx/gob/segob/nsjp/dao/test/catalogo/impl/ValorDAOImplTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="32" column="49" selection-start-line="32" selection-start-column="49" selection-end-line="32" selection-end-column="49" />
-              <folding>
-                <element signature="n#!!doc" expanded="false" />
-                <element signature="imports" expanded="false" />
-                <element signature="e#1839#1840#0" expanded="false" />
-                <element signature="e#1903#1904#0" expanded="false" />
-                <element signature="e#1940#1941#0" expanded="false" />
-                <element signature="e#2016#2017#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -969,7 +923,7 @@
       <workItem from="1468564014888" duration="23550000" />
       <workItem from="1468823631661" duration="1364000" />
       <workItem from="1468860614216" duration="1314000" />
-      <workItem from="1468869566750" duration="1069000" />
+      <workItem from="1468869566750" duration="1557000" />
     </task>
     <servers />
   </component>
@@ -1006,7 +960,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50499000" />
+    <option name="totallyTimeSpent" value="50987000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -1520,18 +1474,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/registrarFuncionario.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="954" column="16" selection-start-line="954" selection-start-column="16" selection-end-line="954" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/darDeAltaUsuarioEnSistema.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="236">
           <caret line="443" column="65" selection-start-line="443" selection-start-column="65" selection-end-line="443" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsjp-web/src/main/webapp/WEB-INF/paginas/registrarFuncionario.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="958" column="25" selection-start-line="958" selection-start-column="25" selection-end-line="958" selection-end-column="25" />
           <folding />
         </state>
       </provider>

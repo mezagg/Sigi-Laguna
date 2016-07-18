@@ -29,7 +29,7 @@ public class RolDTO extends GenericDTO {
 	private RolDTO rolPadre; 
 	private List<ConfActividadDocumentoDTO> confActividadDocumentoDTO;
 	private List<ElementoMenuDTO> elementosMenu;
-	
+	private Boolean esCoordinacion;
 	/**
 	 * Constructor por Default
 	 */
@@ -222,6 +222,12 @@ public class RolDTO extends GenericDTO {
 	public void setElementosMenu(List<ElementoMenuDTO> elementosMenu) {
 		this.elementosMenu = elementosMenu;
 	}
-	
-	
+
+	public Boolean getEsCoordinacion() {
+		return esCoordinacion;
+	}
+
+	public void setEsCoordinacion(Boolean esCoordinacion) {
+		this.esCoordinacion = esCoordinacion;
+	}
 }

@@ -88,4 +88,9 @@ public interface TurnoDAO extends GenericDao<Turno, Long> {
 	 * @return lista de los ultimos turnos creados
 	 */
 	List<Turno> obtenerUltimosTurnos(Long discriminante);
+
+	/**
+	 * Obtiene expedientes sin turno de un atpenal
+	 */
+	List<Turno> obtenerExpedientesSinYConTurno(Long iclaveFuncionario, Long discriminante,Date today, TipoTurno tTurno);
 }

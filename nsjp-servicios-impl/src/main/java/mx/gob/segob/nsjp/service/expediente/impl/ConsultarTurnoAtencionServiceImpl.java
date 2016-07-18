@@ -126,19 +126,18 @@ public class ConsultarTurnoAtencionServiceImpl implements
                     .getCatDiscriminanteId();
         }
 
+        Long iclaveFuncionario = usuarioDto.getFuncionario().getClaveFuncionario();
+
         List<Turno> reslt = null;
 		// Se considera el Tipo de Turno, que va de acuerdo al área a la que
         // pertenece el usuario
         if (turnosDelDia != null && turnosDelDia) {
-            reslt = this.turnoDAO.obtenerTurnosAtencionPorIdUsuario(
-                    usuarioDto.getIdUsuario(), new Date(), tTurno,
-                    discriminanteId);
+            reslt = this.turnoDAO.obtenerExpedientesSinYConTurno(iclaveFuncionario,discriminanteId, new Date(),tTurno);
         } else {
-            reslt = this.turnoDAO.obtenerTurnosAtencionPorIdUsuario(
-                    usuarioDto.getIdUsuario(), null, tTurno, discriminanteId);
+
+            reslt = this.turnoDAO.obtenerExpedientesSinYConTurno(iclaveFuncionario,discriminanteId, null,tTurno);
         }
         for (Turno turno : reslt) {
-            TurnoDTO turnoDTO = TurnoTransformer.trannsformarTurno(turno);
 
             if (turno.getExpediente() != null) {
                 List<Involucrado> involucrados = new ArrayList<Involucrado>();
@@ -207,6 +206,9 @@ public class ConsultarTurnoAtencionServiceImpl implements
                     expedienteDTO.setFechaApertura(null);
                     expedienteDTO.setNumeroExpedienteId(0L);
                 }
+                TurnoDTO turnoDTO = new TurnoDTO();
+                if(turno.getTurnoId() != null){
+                    turnoDTO = TurnoTransformer.trannsformarTurno(turno);}
                 turnoDTO.setExpediente(expedienteDTO);
                 listTurnosDTO.add(turnoDTO);
             }

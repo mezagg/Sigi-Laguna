@@ -46,6 +46,7 @@ public class CatDiscriminanteWSDTO
     protected Long distritoId;
     protected String nombre;
     protected Short tipo;
+    protected String cAcronimo;
 
     /**
      * Gets the value of the catDiscriminanteId property.
@@ -167,4 +168,11 @@ public class CatDiscriminanteWSDTO
         this.tipo = value;
     }
 
+    public String getcAcronimo() {
+        return cAcronimo;
+    }
+
+    public void setcAcronimo(String cAcronimo) {
+        this.cAcronimo = cAcronimo;
+    }
 }

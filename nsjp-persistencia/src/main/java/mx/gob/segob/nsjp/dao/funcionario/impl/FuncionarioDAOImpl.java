@@ -1457,4 +1457,20 @@ public class FuncionarioDAOImpl extends
 
         return funcionarios;
     }
+
+    @Override
+    public Boolean esSubordinadoCoordinacion(Long jerarquiaOrganizacional) {
+        Boolean esSubordinadoCoor = false;
+        StringBuffer queryString = new StringBuffer();
+        queryString.append(" SELECT esCoordinacion ");
+        queryString.append(" FROM Rol ");
+        queryString.append(" WHERE jerarquiaOrganizacional.jerarquiaOrganizacionalId = ");
+        queryString.append(" (SELECT jerarquiaOrgResponsable.jerarquiaOrganizacionalId ");
+        queryString.append(" FROM JerarquiaOrganizacional ");
+        queryString.append(" WHERE jerarquiaOrganizacionalId = ").append(jerarquiaOrganizacional).append(") ");
+        logger.info("QUERY SUBORDINDO-->"+queryString.toString());
+        Query query = super.getSession().createQuery(queryString.toString());
+        esSubordinadoCoor = (Boolean) query.uniqueResult();
+        return esSubordinadoCoor;
+    }
 }

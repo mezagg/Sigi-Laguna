@@ -178,27 +178,22 @@ public class ExpedienteDAOImpl extends
         final StringBuffer queryStr = new StringBuffer();
         queryStr.append("select new Expediente(e.expedienteId, n.numeroExpediente, n.numeroExpedienteId) ");
         queryStr.append(" FROM Expediente e left join e.numeroExpedientes n");
-        queryStr.append(" WHERE e.expedienteId = ");
-        queryStr.append(" :expedienteId ");
+        queryStr.append(" WHERE e.expedienteId = ").append(expedienteId);
 
         queryStr.append(" AND n.numeroExpedienteId = ");
         queryStr.append(" (select MAX(obj.numeroExpedienteId) from NumeroExpediente obj where 1=1");
         if (areaId != null) {
             queryStr.append(" AND obj.jerarquiaOrganizacional.jerarquiaOrganizacionalId = ");
-            queryStr.append(" :areaId ");
+            queryStr.append(areaId);
         }
         queryStr.append(" AND obj.expediente.expedienteId =  ");
-        queryStr.append(" :expedienteId ");
+        queryStr.append(expedienteId);
         queryStr.append(" )");
         if (areaId != null) {
-            queryStr.append(" AND n.jerarquiaOrganizacional.jerarquiaOrganizacionalId = :areaId");
+            queryStr.append(" AND n.jerarquiaOrganizacional.jerarquiaOrganizacionalId = ").append(areaId);
         }
-
+        logger.info("QUERY PARA ULTIMO NUM EXPEDIENTE "+ queryStr.toString());
         Query query = super.getSession().createQuery(queryStr.toString());
-        query.setParameter("expedienteId", expedienteId);
-        if (areaId != null) {
-            query.setLong("areaId", areaId);
-        }
         return (Expediente) query.uniqueResult();
     }
 
@@ -399,12 +394,13 @@ public class ExpedienteDAOImpl extends
                 queryString.append(" AND ").append("e.expedienteId not in (")
                         .append("SELECT e FROM Expediente e ")
                         .append("LEFT JOIN e.actividads ac WHERE ")
-                        .append("ac.tipoActividad=").append(Actividades.ATENDER_CANALIZACION_UI.getValorId());
+                        .append(" ac.tipoActividad=").append(Actividades.ATENDER_CANALIZACION_UI.getValorId());
                 if (filtroExpedienteDTO.getUsuario() != null
                         && filtroExpedienteDTO.getUsuario().getFuncionario() != null
                         && filtroExpedienteDTO.getUsuario().getFuncionario().getUnidadIEspecializada() != null
                         && filtroExpedienteDTO.getUsuario().getFuncionario().getUnidadIEspecializada().getCatUIEId() != null) {
                     queryString.append(" and e.catUIEspecializada.catUIEId=").append(filtroExpedienteDTO.getUsuario().getFuncionario().getUnidadIEspecializada().getCatUIEId());
+                    queryString.append(" and  ac.funcionario.claveFuncionario =").append(filtroExpedienteDTO.getUsuario().getFuncionario().getClaveFuncionario());
                 }
                 queryString.append(")");
             }
@@ -443,14 +439,6 @@ public class ExpedienteDAOImpl extends
                 e.printStackTrace();
             }
             queryString.append(" )");
-        }
-
-        //FILTRO POR el CAT_UIE
-        if (filtroExpedienteDTO.getIdActividad().equals(Actividades.RECIBIR_CANALIZACION_UI.getValorId()) && filtroExpedienteDTO.getUsuario() != null
-                && filtroExpedienteDTO.getUsuario().getFuncionario() != null
-                && filtroExpedienteDTO.getUsuario().getFuncionario().getUnidadIEspecializada() != null
-                && filtroExpedienteDTO.getUsuario().getFuncionario().getUnidadIEspecializada().getCatUIEId() != null) {
-            queryString.append(" AND e.catUIEspecializada.catUIEId=").append(filtroExpedienteDTO.getUsuario().getFuncionario().getUnidadIEspecializada().getCatUIEId());
         }
 
         //FILTRO POR EL ESTATUS
@@ -516,6 +504,7 @@ public class ExpedienteDAOImpl extends
             }
         }
         logger.info("QUERY DEBUG----> "+ queryString.toString());
+
         if (filtroExpedienteDTO.getestatusMenuCoorJAR() != null
                 && (filtroExpedienteDTO.getestatusMenuCoorJAR().equals(EstatusMenuJAR.ASIGNADOS.getValorId())
                 || filtroExpedienteDTO.getestatusMenuCoorJAR().equals(EstatusMenuJAR.PORASIGNAR.getValorId())
@@ -1232,6 +1221,7 @@ public class ExpedienteDAOImpl extends
         queryString.append("FROM Expediente e LEFT JOIN e.actividads da ")
                 .append("WHERE  da.tipoActividad.valorId = :actividad")
                 .append(" AND  e.expedienteId = :expedienteId");
+        logger.info("QUERY CONSULTAR ACTIVIDADaCTUALExpediente---->" + queryString.toString());
         Query query = super.getSession().createQuery(queryString.toString());
         query.setParameter("actividad", actividad);
         query.setParameter("expedienteId", expedienteId);
@@ -1866,18 +1856,25 @@ public class ExpedienteDAOImpl extends
         queryString.append("ne.jerarquiaOrganizacional = ");
         queryString.append(Areas.JUSTICIA_ALTERNATIVA_RESTAURATIVA.ordinal() + " ");
         queryString.append(" AND ").append("ac.tipoActividad=").append(Actividades.RECIBIR_CANALIZACION_JAR.getValorId());
+        if(filtroExpedienteDTO.getEsAsignado()){
+         queryString.append(" AND ne.numeroExpediente != ''  ");}
+        else{
+            queryString.append(" AND ne.numeroExpediente = ''  ");
+        }
         if (filtroExpedienteDTO.getIdDiscriminante() != null && filtroExpedienteDTO.getIdDiscriminante() > 0) {
             if (filtroExpedienteDTO.getestatusMenuCoorJAR() != null) {
                 queryString.append(" AND e.discriminante.catDiscriminanteId in (");
-                queryString.append("select cf.catDiscriminante.catDiscriminanteId from ConfUsuarioCatDiscriminante cf where cf.usuario.usuarioId = ");
+                queryString.append("select cf.discriminante.catDiscriminanteId from Funcionario cf where cf.claveFuncionario = ");
                 queryString.append(filtroExpedienteDTO.getUsuario().getIdUsuario()).append(") ");
+                if(filtroExpedienteDTO.getEsPropio())
+                queryString.append(" AND  ne.funcionario.claveFuncionario = ").append(filtroExpedienteDTO.getUsuario().getIdUsuario());
             } else {
                 queryString.append(" AND e.discriminante.catDiscriminanteId=").append(filtroExpedienteDTO.getIdDiscriminante());
             }
         }
         queryString.append(" GROUP BY ne.numeroExpedienteId, ac.tipoActividad ");
         queryString.append(")");
-
+        logger.info("QUERY ASIGNADOS "+ queryString.toString());
         final PaginacionDTO pag = PaginacionThreadHolder.get();
 
         PaginacionDTO paguinaantigua = pag;
@@ -1904,6 +1901,7 @@ public class ExpedienteDAOImpl extends
                 queryString.append(" ").append(pag.getDirOrd());
             }
         }
+
         if (filtroExpedienteDTO.getestatusMenuCoorJAR() != null
                 && (filtroExpedienteDTO.getestatusMenuCoorJAR().equals(EstatusMenuJAR.ASIGNADOS.getValorId())
                 || filtroExpedienteDTO.getestatusMenuCoorJAR().equals(EstatusMenuJAR.PORASIGNAR.getValorId())

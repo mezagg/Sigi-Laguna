@@ -643,7 +643,7 @@ public interface ExpedienteDelegate {
 	 * @param idFuncionario
 	 * @throws NSJPNegocioException
 	 */
-	public void asociarExpedienteAFuncionario(Long idNumeroExpediente, Long idFuncionario) throws NSJPNegocioException;
+	public String asociarExpedienteAFuncionario(Long idNumeroExpediente, Long idFuncionario) throws NSJPNegocioException;
     /**
 	 * Consulta numeros de expediente de cierto tipo (TOCA, CAUSA o CARPETA) en base a los filstros enviados como parametro
 	 * si un filtro es nulo entonces no se considera en la cosulta
