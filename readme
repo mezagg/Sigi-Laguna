@@ -18,8 +18,8 @@ export PATH=$JAVA_HOME/bin:$M2_HOME/bin
 
 incluir en el repositorio de maven las siguientes librerias
 
-mvn install:install-file -Dfile=./nsjp-etc/kaptcha-2.3.jar -DgroupId=com.google.code -DartifactId=kaptcha -Dversion=2.3 -Dpackaging=jar -gs=settings_jdk1.6
-    mvn install:install-file -Dfile=./nsjp-etc/jdbc/sqljdbc4.jar -DgroupId=com.microsoft.sqlserver -DartifactId=sqljdbc4 -Dversion=4.0 -Dpackaging=jar -gs=settings_jdk1.6
+> mvn install:install-file -Dfile=./resources/libs/kaptcha-2.3.jar -DgroupId=com.google.code -DartifactId=kaptcha -Dversion=2.3 -Dpackaging=jar 
+> mvn install:install-file -Dfile=./resources/libs/sqljdbc4.jar -DgroupId=com.microsoft.sqlserver -DartifactId=sqljdbc4 -Dversion=4.0 -Dpackaging=jar 
 
 Para compilar:
 mvn clean install -Dmaven.test.skip=true -gs=settings_jdk1.6
@@ -33,38 +33,37 @@ mvn clean install -Dmaven.test.skip=true -gs=settings_jdk1.6
 3.- Antes de hacer deploy configurar del datasource en el server con el nombre: jdbc/nsjpDS
 
 
- Compilación sin pruebas:
- mvn clean install -DskipTests=true -gs=settings_jdk1.6
-
+ Compilación sin pruebas segun el ambiente:
+>  mvn clean install -DskipTests=true -P dev
+>  mvn clean install -DskipTests=true -P test
+>  mvn clean install -DskipTests=true -P qa
+>  mvn clean install -DskipTests=true -P prod
 
 
 <h2>Crear dominio en glassfish<h2>
- ./asadmin create-domain domain_pg
-<code>
-Using default port 4848 for Admin.
-Using default port 8080 for HTTP Instance.
-Using default port 7676 for JMS.
-Using default port 3700 for IIOP.
-Using default port 8181 for HTTP_SSL.
-Using default port 3820 for IIOP_SSL.
-Using default port 3920 for IIOP_MUTUALAUTH.
-Using default port 8686 for JMX_ADMIN.
-Using default port 6666 for OSGI_SHELL.
-Using default port 9009 for JAVA_DEBUGGER.
-<code>
+> ./asadmin create-domain domain_pg
+
+> Using default port 4848 for Admin.
+> Using default port 8080 for HTTP Instance.
+> Using default port 7676 for JMS.
+> Using default port 3700 for IIOP.
+> Using default port 8181 for HTTP_SSL.
+> Using default port 3820 for IIOP_SSL.
+> Using default port 3920 for IIOP_MUTUALAUTH.
+> Using default port 8686 for JMX_ADMIN.
+> Using default port 6666 for OSGI_SHELL.
+> Using default port 9009 for JAVA_DEBUGGER.
+
 
 Generar el pool de conexiones dentro del servidor de Glassfish
-<code>
-./asadmin create-jdbc-connection-pool \
---host localhost --port 4848 \
---datasourceclassname com.microsoft.sqlserver.jdbc.SQLServerDataSource \
---restype javax.sql.DataSource \
---property "portNumber=1433:password=nsjp:user=nsjp:serverName=cloud.lucasianmexico.com:databaseName=coa-sab-pg:connectionAttributes="\; sigi_pool
-</code>
+
+> ./asadmin create-jdbc-connection-pool \
+> --host localhost --port 4848 \
+> --datasourceclassname com.microsoft.sqlserver.jdbc.SQLServerDataSource \
+> --restype javax.sql.DataSource \
+> --property "portNumber=1433:password=nsjp:user=nsjp:serverName=cloud.lucasianmexico.com:databaseName=coa-sab-pg:connectionAttributes="\; sigi_pool
+
 
 Generar el recurso jndi al pool de conexiones
-<code>
-
-./asadmin create-jdbc-resource \
---connectionpoolid sigi_pool jdbc/nsjpDS
-</code>
+> ./asadmin create-jdbc-resource \
+> --connectionpoolid sigi_pool jdbc/nsjpDS
