@@ -18,8 +18,8 @@ export PATH=$JAVA_HOME/bin:$M2_HOME/bin
 
 incluir en el repositorio de maven las siguientes librerias
 
-> mvn install:install-file -Dfile=./resources/libs/kaptcha-2.3.jar -DgroupId=com.google.code -DartifactId=kaptcha -Dversion=2.3 -Dpackaging=jar 
-> mvn install:install-file -Dfile=./resources/libs/sqljdbc4.jar -DgroupId=com.microsoft.sqlserver -DartifactId=sqljdbc4 -Dversion=4.0 -Dpackaging=jar 
+``` mvn install:install-file -Dfile=./resources/libs/kaptcha-2.3.jar -DgroupId=com.google.code -DartifactId=kaptcha -Dversion=2.3 -Dpackaging=jar 
+``` mvn install:install-file -Dfile=./resources/libs/sqljdbc4.jar -DgroupId=com.microsoft.sqlserver -DartifactId=sqljdbc4 -Dversion=4.0 -Dpackaging=jar 
 
 Para compilar:
 mvn clean install -Dmaven.test.skip=true -gs=settings_jdk1.6
