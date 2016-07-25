@@ -50,7 +50,12 @@ public class CatUIEspecializadaDTO extends GenericDTO {
 		this.catUIEId = catUIEId;
 	}
 
+	public CatUIEspecializadaDTO(String nombreUIE ) {
+		super();
 
+		this.nombreUIE = nombreUIE;
+
+	}
 
 	public CatUIEspecializadaDTO(Long catUIEId, String claveUIE,
 			String nombreUIE, String acronimo ) {

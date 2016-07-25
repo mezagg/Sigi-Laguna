@@ -62,7 +62,8 @@
 	<!-- PODER JUDICIAL -->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
-		<property name="url" value="jdbc:sqlserver://cloud.lucasianmexico.com:1433;databaseName=COA-SAB-PG" />
+		<!--property name="url" value="jdbc:sqlserver://cloud.lucasianmexico.com:1433;databaseName=COA-SAB-PG" /-->
+		<property name="url" value="jdbc:sqlserver://192.168.1.108:1433;databaseName=COA-SAB-PG" />
 		<property name="username" value="nsjp" />
 		<property name="password" value="nsjp" />
 		<property name="maxActive" value="20" />

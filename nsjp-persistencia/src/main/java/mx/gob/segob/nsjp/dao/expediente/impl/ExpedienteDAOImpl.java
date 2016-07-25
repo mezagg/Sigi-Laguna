@@ -49,6 +49,7 @@ import mx.gob.segob.nsjp.dao.persona.DelitoPersonaDAO;
 import mx.gob.segob.nsjp.dao.usuario.UsuarioDAO;
 import mx.gob.segob.nsjp.dto.base.PaginacionDTO;
 import mx.gob.segob.nsjp.dto.caso.CasoDTO;
+import mx.gob.segob.nsjp.dto.expediente.ExpedienteDTO;
 import mx.gob.segob.nsjp.dto.expediente.ExpedienteViewDTO;
 import mx.gob.segob.nsjp.dto.expediente.FiltroExpedienteDTO;
 import mx.gob.segob.nsjp.dto.institucion.JerarquiaOrganizacionalDTO;
@@ -107,9 +108,11 @@ public class ExpedienteDAOImpl extends
         }
         logger.info("numeroExpediente :: [" + numeroExpediente
                 + "] y areaId :: " + areaId);
-
+//expedienteId, Date fechaCreacion, String estatus, String numeroExpediente
         final StringBuffer queryStr = new StringBuffer();
-        queryStr.append("select e FROM Expediente e left join e.numeroExpedientes n");
+        queryStr.append("select new Expediente(e.expedienteId, e.fechaCreacion, " +
+                "e.estatus.valor, n.numeroExpedienteId, n.numeroExpediente, e.caso.numeroGeneralCaso) " +
+                "FROM Expediente e left join e.numeroExpedientes n");
         queryStr.append(" WHERE n.numeroExpediente like '");
         queryStr.append(numeroExpediente);
         if (areaId != null && areaId > 0) {
@@ -523,15 +526,26 @@ public class ExpedienteDAOImpl extends
 
     @Override
     @SuppressWarnings("unchecked")
-    public List<NumeroExpediente> consultarExpedientesCanalizados(
+    public List<Expediente> consultarExpedientesCanalizados(
             FiltroExpedienteDTO filtroExpedienteDTO) {
-
+//String responsable, String denunciante, String delito, String origen, String nombreUnidadEsp
         final StringBuffer queryString = new StringBuffer();
         queryString
-                .append("SELECT DISTINCT ne FROM Expediente e ")
-                .append("LEFT JOIN e.actividads ac LEFT JOIN e.numeroExpedientes ne ")
-                .append("LEFT JOIN e.origen o WHERE 1=1 ");
+                .append("SELECT new Expediente(e.expedienteId, e.fechaCreacion, "+
+                        " e.estatus.valorId, e.estatus.valor, " +
+                        " ne.numeroExpedienteId, ne.numeroExpediente, e.caso.numeroGeneralCaso, " +
+                        " e.origen.valor, concat(nd.nombre ,' ', nd.apellidoPaterno, ' ',nd.apellidoMaterno), " +
+                        " e.catUIEspecializada.nombreUIE, cd.nombre , " +
+                        " concat(ne.funcionario.nombreFuncionario ,' ', ne.funcionario.apellidoPaternoFuncionario) ) " +
+                        " FROM Involucrado i " +
+                        " JOIN i.nombreDemograficos nd " +
+                        " JOIN i.expediente e " +
+                        " JOIN e.delitos d JOIN d.catDelito cd")
+                .append(" JOIN e.actividads ac ")
+                .append(" JOIN e.numeroExpedientes ne ")
 
+                .append(" WHERE  1=1 ")
+.append(" AND i.calidad.tipoCalidad.valorId ="+Calidades.DENUNCIANTE.getValorId());
         if (filtroExpedienteDTO.getIdArea() != null) {
             queryString.append(" AND ne.jerarquiaOrganizacional=")
                     .append(filtroExpedienteDTO.getIdArea());
@@ -1313,14 +1327,20 @@ public class ExpedienteDAOImpl extends
     }
 
     @SuppressWarnings("unchecked")
-    public List<NumeroExpediente> consultarExpedientesCanalizadosNoAtendidos(
+    public List<Expediente> consultarExpedientesCanalizadosNoAtendidos(
             FiltroExpedienteDTO filtroExpedienteDTO) {
 
         final StringBuffer queryString = new StringBuffer();
         queryString
-                .append("SELECT DISTINCT ne FROM Expediente e ")
-                .append("LEFT JOIN e.actividads ac LEFT JOIN e.numeroExpedientes ne ")
-                .append("LEFT JOIN e.origen o WHERE 1=1 ");
+                .append("SELECT new Expediente(e.expedienteId, e.fechaCreacion, "+
+                        " e.estatus.valor, ne.numeroExpedienteId, ne.numeroExpediente, e.caso, " +
+                        " e.origen.valor, " +
+                        " e.catUIEspecializada.nombreUIE)" +
+                        " FROM Expediente e ")
+                .append("LEFT JOIN e.actividads ac " +
+                        "LEFT JOIN e.numeroExpedientes ne ")
+                .append("LEFT JOIN e.origen LEFT JOIN e.caso " +
+                        " o WHERE 1=1 ");
 
         if (filtroExpedienteDTO.getJerarquiaOrgSubordinadas() != null && !filtroExpedienteDTO.getJerarquiaOrgSubordinadas().isEmpty()) {
             queryString.append(" and ne.jerarquiaOrganizacional.jerarquiaOrganizacionalId IN ( ");

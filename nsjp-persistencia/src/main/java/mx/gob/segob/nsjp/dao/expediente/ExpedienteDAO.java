@@ -31,6 +31,7 @@ import mx.gob.segob.nsjp.comun.excepcion.NSJPNegocioException;
 import mx.gob.segob.nsjp.comun.indicador.Indicadores;
 import mx.gob.segob.nsjp.dao.base.GenericDao;
 import mx.gob.segob.nsjp.dto.caso.CasoDTO;
+import mx.gob.segob.nsjp.dto.expediente.ExpedienteDTO;
 import mx.gob.segob.nsjp.dto.expediente.ExpedienteViewDTO;
 import mx.gob.segob.nsjp.dto.expediente.FiltroExpedienteDTO;
 import mx.gob.segob.nsjp.dto.usuario.UsuarioDTO;
@@ -49,9 +50,9 @@ import mx.gob.segob.nsjp.model.Valor;
 
 public interface ExpedienteDAO extends GenericDao<Expediente, Long> {
     /**
-     * Recupera el último número de expediente registrado en la BD.
+     * Recupera el ï¿½ltimo nï¿½mero de expediente registrado en la BD.
      * 
-     * @return Último número de expediente registrado en la BD.
+     * @return ï¿½ltimo nï¿½mero de expediente registrado en la BD.
      */
     public String obtenerUltimoNumero(Long area);
 
@@ -109,7 +110,7 @@ public interface ExpedienteDAO extends GenericDao<Expediente, Long> {
 	
 	/**
 	 * Obtiene los expedientes de acuerdo a la actividad, area y discriminante enviados como parametro.
-	 * Se utiliza un filtroExpedienteDTO como parámetro, para ser reusable el método por otros servicios.
+	 * Se utiliza un filtroExpedienteDTO como parï¿½metro, para ser reusable el mï¿½todo por otros servicios.
 	 * @param filtroExpedienteDTO
 	 * @return lista de expedientes recuperados con la consulta
 	 * 
@@ -117,11 +118,11 @@ public interface ExpedienteDAO extends GenericDao<Expediente, Long> {
 	 * Dicha consulta es usado por los siguientes roles y filtros:*
 	 *  ATPENAL
 	 *  - Canalizados a Conciliacion/Mediacion
-	 *  - Canalizados a Unidad de investigación
+	 *  - Canalizados a Unidad de investigaciï¿½n
 	 *  FACILITADOR
 	 *  - Bandeja principal
-	 *  - Por unidad de investigación
-	 *  - Por atención temprana penal
+	 *  - Por unidad de investigaciï¿½n
+	 *  - Por atenciï¿½n temprana penal
 	 *  COORDINADOR AMP
 	 *  - BANDEJA PRINCIPAL
 	 *  - Sin asignar
@@ -134,19 +135,13 @@ public interface ExpedienteDAO extends GenericDao<Expediente, Long> {
 	 *  - Bandeja principal
 	 *  - Abiertos
 	 *  - Cerrados
-	 *  - Abstención de investigación
+	 *  - Abstenciï¿½n de investigaciï¿½n
 	 *  UNIDAD DE INVESTIGACION
 	 *  - Bandeja principal
 	 */
 	public List<NumeroExpediente> consultarExpedientesActividadAreaAnio (FiltroExpedienteDTO filtroExpedienteDTO);
 	
-	/**
-	 * Consulta los expedientes por actividad, area y año, es escalable la consulta
-	 * @param filtroExpedienteDTO
-	 * @return
-	 */
-	public List<NumeroExpediente> consultarExpedientesCanalizados (FiltroExpedienteDTO filtroExpedienteDTO);
-	
+
 	 /**
      * Permite filtrar los Expedientes en base a:
      * @param etapa Permite filtrar  por las difierentes etapas que puede tener un NumeroExpediente
@@ -291,7 +286,7 @@ public interface ExpedienteDAO extends GenericDao<Expediente, Long> {
     
     
 	/**
-	 * Consultar el ExpedienteId al que se encuentra asociado el Número de Expediente
+	 * Consultar el ExpedienteId al que se encuentra asociado el Nï¿½mero de Expediente
 	 * por la cadena de numeroExpediente
 	 * @param numExp
 	 * @return
@@ -359,13 +354,21 @@ public interface ExpedienteDAO extends GenericDao<Expediente, Long> {
      */
     
     public List<Expediente> consultaExpedientesDoorAT(FiltroExpedienteDTO filtroExpedienteDTO);
-    
-    /**
+
+	/**
+	 * Consulta los expedientes por actividad, area y aï¿½o, es escalable la consulta
+	 * @param filtroExpedienteDTO
+	 * @return
+	 */
+	public List<Expediente> consultarExpedientesCanalizados (FiltroExpedienteDTO filtroExpedienteDTO);
+
+
+	/**
 	 * Consulta los expedientes canalizados no atendidos
 	 * @param filtroExpedienteDTO
 	 * @return
 	 */
-	public List<NumeroExpediente> consultarExpedientesCanalizadosNoAtendidos(FiltroExpedienteDTO filtroExpedienteDTO);    
+	public List<Expediente> consultarExpedientesCanalizadosNoAtendidos(FiltroExpedienteDTO filtroExpedienteDTO);
     
 	/**
 	 * M&eacute;todo ocupado por las consultas de expedientes en la
@@ -388,7 +391,7 @@ public interface ExpedienteDAO extends GenericDao<Expediente, Long> {
 	
 	
 	/**
-	 * Consulta la información relacionada a un expediente
+	 * Consulta la informaciï¿½n relacionada a un expediente
 	 * @param tipoBusqueda Representa que tipo de busqueda se desea ejucutar
 	 * @param valores Representa los parametros necesario para realizar la busqueda
 	 * @return
@@ -430,7 +433,7 @@ public interface ExpedienteDAO extends GenericDao<Expediente, Long> {
 	 * - Por el responsable del expediente
 	 * 
 	 * Adem&aacute;s de que consulta los expedientes que existen en Unidad de Investigaci&oacute;n 
-	 * con una solicitud de l&iacute;nea de investigaci&oacute;n pero aún no tienen un expediente en Policía Ministerial.  
+	 * con una solicitud de l&iacute;nea de investigaci&oacute;n pero aï¿½n no tienen un expediente en Policï¿½a Ministerial.  
 	 * @param filtroExpedienteDTO
 	 * @return
 	 */
@@ -444,7 +447,7 @@ public interface ExpedienteDAO extends GenericDao<Expediente, Long> {
 	 * - Por el responsable del expediente
 	 * 
 	 * Adem&aacute;s de que consulta los expedientes que existen en Unidad de Investigaci&oacute;n 
-	 * con una solicitud de l&iacute;nea de investigaci&oacute;n pero aún no tienen un expediente en Policía Ministerial.  
+	 * con una solicitud de l&iacute;nea de investigaci&oacute;n pero aï¿½n no tienen un expediente en Policï¿½a Ministerial.  
 	 * Se implementa de forma nativa
 	 * @param filtroExpedienteDTO
 	 * @param consultarSolicituedesDeInvestigacion Indica si se desean consultar las lineas de investigacion adicionalmente
@@ -455,10 +458,10 @@ public interface ExpedienteDAO extends GenericDao<Expediente, Long> {
 	
 	/**
 	 *  Permite reasignar una lista de expedientes atravez de un stored procedure, dicho SP realizara:
-	 * - Actualiza el responsable del expediente en policía ministerial
-	 * - Si existiera información del policía de la actividad anterior de Generar denuncia, lo cambia a la nueva actividad(Generar denuncia en PM)
-	 * - Cambia del responsable anterior al nuevo la actividad de generar denuncia en policía ministerial
-	 * - Actualiza la solicitud de línea de investigación para que pueda ser vista por el nuevo responsable
+	 * - Actualiza el responsable del expediente en policï¿½a ministerial
+	 * - Si existiera informaciï¿½n del policï¿½a de la actividad anterior de Generar denuncia, lo cambia a la nueva actividad(Generar denuncia en PM)
+	 * - Cambia del responsable anterior al nuevo la actividad de generar denuncia en policï¿½a ministerial
+	 * - Actualiza la solicitud de lï¿½nea de investigaciï¿½n para que pueda ser vista por el nuevo responsable
 	 * - Registrar en bitacora (HistoricoExpediente)
 	 * 
 	 * @param valores

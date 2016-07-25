@@ -50,12 +50,9 @@ public class Persona extends Elemento {
     private Valor tipoDoctoId;
     private Boolean esVivo;
     private String folioIdentificacion;
-    private Set<MedioDeContacto> medioDeContactos = new HashSet<MedioDeContacto>(
-            0);
-    private Set<NombreDemografico> nombreDemograficos = new HashSet<NombreDemografico>(
-            0);
-	private Set<MandamientoPersona> mandamientosPersona = new HashSet<MandamientoPersona>(
-			0); 
+    private Set<MedioDeContacto> medioDeContactos = new HashSet<MedioDeContacto>(0);
+    private Set<NombreDemografico> nombreDemograficos = new HashSet<NombreDemografico>(0);
+	private Set<MandamientoPersona> mandamientosPersona = new HashSet<MandamientoPersona>(0);
 
     // Constructors
 

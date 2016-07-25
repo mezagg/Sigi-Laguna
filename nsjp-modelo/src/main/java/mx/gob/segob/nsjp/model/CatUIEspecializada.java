@@ -55,6 +55,10 @@ public class CatUIEspecializada implements Serializable {
 	
 	public CatUIEspecializada() {
 	}
+
+	public CatUIEspecializada(String nombreUIE) {
+		this.nombreUIE = nombreUIE;
+	}
 	
 	/**
 	 * Método de acceso al campo catUIEId.

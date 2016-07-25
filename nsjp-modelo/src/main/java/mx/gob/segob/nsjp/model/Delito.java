@@ -53,6 +53,12 @@ public class Delito implements java.io.Serializable {
     	this.delitoId = delitoId;
     }
 
+    public Delito(String delito) {
+
+        this.catDelito = new CatDelito(delito);
+    }
+
+
     public Delito(Long delitoId, Expediente expediente, CatDelito catDelito, 
 			Boolean esProbable, Boolean esPrincipal) {
 		super();

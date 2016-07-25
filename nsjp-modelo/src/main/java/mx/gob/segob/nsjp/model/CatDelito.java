@@ -49,6 +49,10 @@ public class CatDelito implements java.io.Serializable {
     public CatDelito() {
     }
 
+	public CatDelito(String cnombre) {
+		this.nombre = cnombre;
+	}
+
     /** minimal constructor */
     public CatDelito(String cclaveDelito, String cnombre, Boolean besGrave) {
         this.claveDelito = cclaveDelito;

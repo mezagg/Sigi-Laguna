@@ -34,6 +34,7 @@ import mx.gob.segob.nsjp.dto.base.GenericDTO;
 import mx.gob.segob.nsjp.dto.caso.CasoDTO;
 import mx.gob.segob.nsjp.dto.catalogo.CatDiscriminanteDTO;
 import mx.gob.segob.nsjp.dto.catalogo.CatEtapaDTO;
+import mx.gob.segob.nsjp.dto.catalogo.CatUIEspecializadaDTO;
 import mx.gob.segob.nsjp.dto.catalogo.ValorDTO;
 import mx.gob.segob.nsjp.dto.configuracion.ConfInstitucionDTO;
 import mx.gob.segob.nsjp.dto.documento.AvisoDesignacionDTO;
@@ -275,6 +276,36 @@ public class ExpedienteDTO extends GenericDTO {
         this.expedienteId = expedienteId;
         this.numeroExpediente = noExp;
         this.casoDTO = caso;
+    }
+
+    public ExpedienteDTO(Long expedienteId, Date fechaCreacion, String estatus, Long numeroExpedienteId,
+                      String numeroExpediente, String numeroGeneralCaso,  String origen,
+                      String nombreDenunciante, String apPatDenunciante,String apMatDenunciante, String nombreUnidadEsp, String nombreFuncionario ) {
+        this.expedienteId = expedienteId;
+        this.fechaApertura = fechaCreacion;
+        this.estatus = new ValorDTO();
+        this.estatus.setValor(estatus);
+        this.numeroExpediente = numeroExpediente;
+        this.setNumeroExpedienteId(numeroExpedienteId);
+
+        this.casoDTO = new CasoDTO();
+        this.casoDTO.setNumeroGeneralCaso(numeroGeneralCaso);
+
+
+
+        this.origen = new ValorDTO();
+        this.origen.setValor(origen);
+        //this.casoDTO.setVictima(nombreDenunciante + " " + apPatDenunciante+" "+apMatDenunciante);
+       // this.addInvolucradoDTO(new InvolucradoDTO());
+        /*
+        NumeroExpediente ne = new NumeroExpediente();
+        Funcionario f = new Funcionario();
+        f.setNombreFuncionario(nombreFuncionario);
+        ne.setFuncionario(f);
+*/
+        this.setArea(new AreaDTO(nombreUnidadEsp));
+
+
     }
 
     /**

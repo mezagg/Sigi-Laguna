@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="0.0" y="320.0">mx.gob.segob.nsjp.model.NumeroExpediente</node>
+    <node x="510.42384453781506" y="504.3382352941177">mx.gob.segob.nsjp.model.Domicilio</node>
+    <node x="107.47440476190476" y="0.0">mx.gob.segob.nsjp.model.NombreDemografico</node>
+    <node x="82.375" y="410.0">mx.gob.segob.nsjp.model.Expediente</node>
+    <node x="51.54464285714286" y="240.0">mx.gob.segob.nsjp.model.Funcionario</node>
+    <node x="148.47440476190476" y="80.0">mx.gob.segob.nsjp.model.Persona</node>
+    <node x="269.0" y="410.0">mx.gob.segob.nsjp.model.Calidad</node>
+    <node x="174.0" y="320.0">mx.gob.segob.nsjp.model.Hecho</node>
+    <node x="209.27678571428575" y="500.0">mx.gob.segob.nsjp.model.Elemento</node>
+    <node x="51.54464285714286" y="160.0">mx.gob.segob.nsjp.model.Involucrado</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="mx.gob.segob.nsjp.model.NumeroExpediente" target="mx.gob.segob.nsjp.model.Expediente">
+      <point x="57.375" y="15.0" />
+      <point x="0.0" y="-15.0" />
+    </edge>
+    <edge source="mx.gob.segob.nsjp.model.Persona" target="mx.gob.segob.nsjp.model.NombreDemografico">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="mx.gob.segob.nsjp.model.Expediente" target="mx.gob.segob.nsjp.model.Elemento">
+      <point x="0.0" y="15.0" />
+      <point x="133.875" y="470.0" />
+      <point x="228.99107142857144" y="470.0" />
+      <point x="-26.285714285714306" y="-15.0" />
+    </edge>
+    <edge source="mx.gob.segob.nsjp.model.Expediente" target="mx.gob.segob.nsjp.model.NumeroExpediente">
+      <point x="-44.14285714285714" y="-15.0" />
+      <point x="89.73214285714286" y="390.0" />
+      <point x="19.125" y="390.0" />
+      <point x="-57.375" y="15.0" />
+    </edge>
+    <edge source="mx.gob.segob.nsjp.model.Elemento" target="mx.gob.segob.nsjp.model.Expediente">
+      <point x="-39.42857142857147" y="-15.0" />
+      <point x="215.84821428571428" y="480.0" />
+      <point x="99.54166666666666" y="480.0" />
+      <point x="-34.33333333333334" y="15.0" />
+    </edge>
+    <edge source="mx.gob.segob.nsjp.model.Calidad" target="mx.gob.segob.nsjp.model.Elemento">
+      <point x="27.0" y="15.0" />
+      <point x="336.5" y="480.0" />
+      <point x="294.70535714285717" y="480.0" />
+      <point x="39.428571428571416" y="-15.0" />
+    </edge>
+    <edge source="mx.gob.segob.nsjp.model.Involucrado" target="mx.gob.segob.nsjp.model.Funcionario">
+      <point x="36.0" y="15.0" />
+      <point x="36.0" y="-15.0" />
+    </edge>
+    <edge source="mx.gob.segob.nsjp.model.Elemento" target="mx.gob.segob.nsjp.model.Calidad">
+      <point x="13.142857142857082" y="-15.0" />
+      <point x="268.41964285714283" y="460.0" />
+      <point x="282.5" y="460.0" />
+      <point x="-27.0" y="15.0" />
+    </edge>
+    <edge source="mx.gob.segob.nsjp.model.Involucrado" target="mx.gob.segob.nsjp.model.Persona">
+      <point x="0.0" y="-15.0" />
+      <point x="105.54464285714286" y="135.0" />
+      <point x="169.22440476190476" y="135.0" />
+      <point x="-20.75" y="15.0" />
+    </edge>
+    <edge source="mx.gob.segob.nsjp.model.Persona" target="mx.gob.segob.nsjp.model.Elemento">
+      <point x="20.75" y="15.0" />
+      <point x="210.72440476190476" y="135.0" />
+      <point x="258.5" y="135.0" />
+      <point x="258.5" y="480.0" />
+      <point x="255.27678571428572" y="480.0" />
+      <point x="-2.8421709430404007E-14" y="-15.0" />
+    </edge>
+    <edge source="mx.gob.segob.nsjp.model.NumeroExpediente" target="mx.gob.segob.nsjp.model.Funcionario">
+      <point x="38.25" y="-15.0" />
+      <point x="114.75" y="295.0" />
+      <point x="105.54464285714286" y="295.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="mx.gob.segob.nsjp.model.Expediente" target="mx.gob.segob.nsjp.model.Hecho">
+      <point x="29.428571428571416" y="-15.0" />
+      <point x="163.30357142857142" y="380.0" />
+      <point x="192.5" y="380.0" />
+      <point x="-18.5" y="15.0" />
+    </edge>
+    <edge source="mx.gob.segob.nsjp.model.NombreDemografico" target="mx.gob.segob.nsjp.model.Persona">
+      <point x="55.0" y="15.0" />
+      <point x="244.97440476190476" y="55.0" />
+      <point x="217.64107142857142" y="55.0" />
+      <point x="27.666666666666657" y="-15.0" />
+    </edge>
+    <edge source="mx.gob.segob.nsjp.model.Hecho" target="mx.gob.segob.nsjp.model.Expediente">
+      <point x="18.5" y="15.0" />
+      <point x="229.5" y="390.0" />
+      <point x="178.01785714285714" y="390.0" />
+      <point x="44.14285714285714" y="-15.0" />
+    </edge>
+    <edge source="mx.gob.segob.nsjp.model.Funcionario" target="mx.gob.segob.nsjp.model.Involucrado">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="mx.gob.segob.nsjp.model.Domicilio" target="mx.gob.segob.nsjp.model.Elemento">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="mx.gob.segob.nsjp.model.Expediente" target="mx.gob.segob.nsjp.model.Funcionario">
+      <point x="14.714285714285722" y="-15.0" />
+      <point x="148.58928571428572" y="370.0" />
+      <point x="163.5" y="370.0" />
+      <point x="163.5" y="295.0" />
+      <point x="141.54464285714286" y="295.0" />
+      <point x="36.0" y="15.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.6476190476190476" x="175.0" y="305.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

@@ -115,6 +115,9 @@ public class Involucrado extends Persona {
 
     }
 
+
+
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "SituacionJuridica_val", nullable = true)
     public Valor getSituacionJuridica() {

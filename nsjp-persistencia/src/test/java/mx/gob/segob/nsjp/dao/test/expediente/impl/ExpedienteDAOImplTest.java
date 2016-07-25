@@ -22,10 +22,7 @@
 
 package mx.gob.segob.nsjp.dao.test.expediente.impl;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 import mx.gob.segob.nsjp.comun.enums.actividad.Actividades;
 import mx.gob.segob.nsjp.comun.enums.institucion.Areas;
@@ -39,15 +36,13 @@ import mx.gob.segob.nsjp.dto.base.PaginacionDTO;
 import mx.gob.segob.nsjp.dto.caso.CasoDTO;
 import mx.gob.segob.nsjp.dto.catalogo.CatDiscriminanteDTO;
 import mx.gob.segob.nsjp.dto.catalogo.CatDistritoDTO;
+import mx.gob.segob.nsjp.dto.expediente.ExpedienteDTO;
 import mx.gob.segob.nsjp.dto.expediente.ExpedienteViewDTO;
 import mx.gob.segob.nsjp.dto.expediente.FiltroExpedienteDTO;
 import mx.gob.segob.nsjp.dto.funcionario.FuncionarioDTO;
 import mx.gob.segob.nsjp.dto.institucion.AreaDTO;
 import mx.gob.segob.nsjp.dto.usuario.UsuarioDTO;
-import mx.gob.segob.nsjp.model.ConfInstitucion;
-import mx.gob.segob.nsjp.model.Expediente;
-import mx.gob.segob.nsjp.model.NumeroExpediente;
-import mx.gob.segob.nsjp.model.Valor;
+import mx.gob.segob.nsjp.model.*;
 
 /**
  * 
@@ -81,6 +76,26 @@ public class ExpedienteDAOImplTest extends BaseTestPersistencia<ExpedienteDAO> {
 
 		logger.info("Respuesta :: " + respuesta.size());
 	}
+
+
+	public void testBuscarExpedientes () {
+		logger.debug("Prueba para obtener los expedientes que correspondan a los criterios enviados");
+
+		//String numeroExpediente, Long areaId, Long discriminanteId
+		List<Expediente> respuesta = daoServcice.buscarExpedientes("%",null,null);
+		assertFalse("La lista no puede venir vacia", respuesta.isEmpty());
+
+		logger.info("Respuesta :: " + respuesta.size());
+		for (Expediente expediente : respuesta) {
+//			logger.info(" Expediente: "+ expediente.getExpedienteId());
+
+			logger.info("ExpedienteId: " +  expediente.getExpedienteId()+
+					" NumExpedienteId: " +  expediente.getNumeroExpedienteId()+
+					" NumExpediente: "+ expediente.getNumeroExpediente() +
+					" NUC: "+ expediente.getCaso().getNumeroGeneralCaso());
+		}
+	}
+
 	
 	public void _testObtenerExpedientes() {
 		logger.debug("Prueba para obtener los expedientes que correspondan con el parametro enviado");
@@ -319,8 +334,14 @@ public void testReadExpediente(){
 		try {
 			
 			FiltroExpedienteDTO filtroExpedienteDTO = new FiltroExpedienteDTO();
-			filtroExpedienteDTO.setNumeroExpediente("NSJYUCPJ0100220123334Y");
-			
+			filtroExpedienteDTO.setEsCordinadorGeneralAMP(1L);
+			filtroExpedienteDTO.setNumeroExpediente("%");
+			UsuarioDTO usuarioDTO = new UsuarioDTO();
+			FuncionarioDTO f = new FuncionarioDTO();
+			f.setClaveFuncionario(3L);
+
+			usuarioDTO.setFuncionario(f);
+			filtroExpedienteDTO.setUsuario(usuarioDTO);
 			List<Expediente> expedientes = daoServcice.buscadorDeExpedientes(filtroExpedienteDTO);
 			for (Expediente exp:expedientes) {
 				logger.info("NUMERO EXPEDIENTE:"+ exp.getNumeroExpediente());					
@@ -340,11 +361,39 @@ public void testReadExpediente(){
 		filtroExpedienteDTO.setIdActividad(new Long(Actividades.ATENDER_CANALIZACION_UI.getValorId()));
 		
 		
-		List<NumeroExpediente> respuesta = daoServcice.consultarExpedientesCanalizados(filtroExpedienteDTO);
+		List<Expediente> respuesta = daoServcice.consultarExpedientesCanalizados(filtroExpedienteDTO);
 		
 		if(respuesta!=null && respuesta.size()>0){
-			for (NumeroExpediente numeroExpediente : respuesta) {
-				logger.info("Expediente: " + numeroExpediente.getNumeroExpediente());	
+			for (Expediente expediente : respuesta) {
+
+				logger.info("ExpedienteId: " +  expediente.getExpedienteId()+
+						" NumExpedienteId: " +  expediente.getNumeroExpedienteId()+
+						" NumExpediente: "+ expediente.getNumeroExpediente() +
+						" NUC: "+ expediente.getCaso().getNumeroGeneralCaso() +
+						" Origen:"+expediente.getOrigen().getValor() +
+						" Unidad: "+ expediente.getCatUIEspecializada().getNombreUIE()
+
+
+						//+
+						//" Denunciante: " + expediente.get().getVictima()
+							//	+
+						//		" Funcionario: " +
+						);
+				logger.info(" Delito: ");
+				Iterator<Delito> itD =expediente.getDelitos().iterator();
+				while(itD.hasNext()){
+					Delito d = itD.next();
+					logger.info(d.getCatDelito().getNombre());
+				}
+
+
+				logger.info(" Funcionario: ");
+				Iterator<NumeroExpediente> it =expediente.getNumeroExpedientes().iterator();
+				while(it.hasNext()){
+					NumeroExpediente ne = it.next();
+					logger.info(ne.getFuncionario().getNombreCompleto());
+				}
+
 			}			
 		}
 		logger.info("TOTAL :::::::::: " + respuesta.size() + "::::::::::::::");
@@ -361,12 +410,12 @@ public void testReadExpediente(){
 		filtroExpedienteDTO.setIdTipoActividadComplemento(Actividades.ATENDER_CANALIZACION_UI.getValorId());
 		
 				
-		List<NumeroExpediente> respuesta = daoServcice.consultarExpedientesCanalizadosNoAtendidos(filtroExpedienteDTO);
+		List<Expediente> respuesta = daoServcice.consultarExpedientesCanalizadosNoAtendidos(filtroExpedienteDTO);
 					
 		if(respuesta!=null && respuesta.size()>0){
-			for (NumeroExpediente numeroExpediente : respuesta) {
+			for (Expediente expediente : respuesta) {
 				//logger.info("Numero Expediente ID: " + numeroExpediente.getNumeroExpedienteId());	
-				logger.info("Numero Expediente: " + numeroExpediente.getNumeroExpediente());	
+				logger.info("Numero Expediente: " + expediente.getNumeroExpediente());
 			}			
 		}
 		logger.info("TOTAL :::::::::: " + respuesta.size() + "::::::::::::::");
@@ -538,7 +587,7 @@ public void testConsultarExpedientesActividadAreaAnioJarAsignados(){
 		logger.info("Expediente ID" + elemento.getExpediente().getExpedienteId());		
 		logger.info("Numero de expediente ID" + elemento.getNumeroExpedienteId());				
 	}
-	logger.info("tamaño: " + lista.size());	
+	logger.info("tamaï¿½o: " + lista.size());	
 }
 
 
@@ -558,7 +607,7 @@ public void testConsultaCiudadadana(){
 		logger.info("Area: " + expedienteViewDTO.getArea());
 		logger.info("Estatus: " + expedienteViewDTO.getEstatus());
 	}
-	logger.info("El tamñano de la lista es: " + respuesta.size());
+	logger.info("El tamï¿½ano de la lista es: " + respuesta.size());
 	
 }
 

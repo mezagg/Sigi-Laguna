@@ -139,6 +139,8 @@ public class InvolucradoDTO extends PersonaDTO {
     public InvolucradoDTO() {
 
     }
+
+
     /**
      * Agrega una medida
      * 

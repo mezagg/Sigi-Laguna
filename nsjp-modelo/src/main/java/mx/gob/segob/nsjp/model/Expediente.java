@@ -86,6 +86,75 @@ public class Expediente implements java.io.Serializable {
     public Expediente() {
     }
 
+    public Expediente(Long expedienteId, Date fechaCreacion, String estatus, Long numeroExpedienteId,
+                      String numeroExpediente, String numeroGeneralCaso ) {
+        this.expedienteId = expedienteId;
+        this.fechaCreacion = fechaCreacion;
+        this.estatus = new Valor();
+        this.estatus.setValor(estatus);
+        this.numeroExpediente = numeroExpediente;
+        this.setNumeroExpedienteId(numeroExpedienteId);
+        this.caso = new Caso();
+        this.caso.setNumeroGeneralCaso(numeroGeneralCaso);
+    }/*
+    public Expediente(Long expedienteId, Date fechaCreacion, String estatus, Long numeroExpedienteId,
+                      String numeroExpediente, String numeroGeneralCaso,
+                      String responsable, String denunciante,  String delito,
+                      String origen, String nombreUnidadEsp ) {
+        this.expedienteId = expedienteId;
+        this.fechaCreacion = fechaCreacion;
+        this.estatus = new Valor();
+        this.estatus.setValor(estatus);
+        this.numeroExpediente = numeroExpediente;
+        this.setNumeroExpedienteId(numeroExpedienteId);
+        this.caso = new Caso();
+        this.caso.setNumeroGeneralCaso(numeroGeneralCaso);
+        this.caso.getImputado();
+        NumeroExpediente ne = new NumeroExpediente();
+        Funcionario f = new Funcionario();
+        f.setNombreFuncionario(responsable);
+        ne.setFuncionario(f);
+        this.origen = new Valor();
+        this.origen.setValor(origen);
+        this.catUIEspecializada = new CatUIEspecializada(nombreUnidadEsp);
+
+    }*/
+    //String responsable, String denunciante,String delito,
+/*
+    e.expedienteId, e.fechaCreacion, "+
+            " e.estatus.valorId, e.estatus.valor, " +
+            " ne.numeroExpedienteId, ne.numeroExpediente, e.caso.numeroGeneralCaso, " +
+            " e.origen.valor, concat(nd.nombre ,' ', nd.apellidoPaterno, ' ',nd.apellidoMaterno), " +
+            " e.catUIEspecializada.nombreUIE, d.catDelito.nombre, " +
+            " concat(ne.funcionario.nombreFuncionario ,' ', ne.funcionario.apellidoPaternoFuncionario) )
+*/
+    public Expediente(Long expedienteId, Date fechaCreacion, Long estatusId, String estatus, Long numeroExpedienteId,
+                      String numeroExpediente, String numeroGeneralCaso,  String origen,
+                      String nombreDenunciante, String nombreUnidadEsp, String delito, String nombreFuncionario ) {
+        this.expedienteId = expedienteId;
+        this.fechaCreacion = fechaCreacion;
+        this.estatus = new Valor(estatusId, estatus);
+
+        this.numeroExpediente = numeroExpediente;
+        this.setNumeroExpedienteId(numeroExpedienteId);
+        this.caso = new Caso();
+        this.caso.setNumeroGeneralCaso(numeroGeneralCaso);
+        this.caso.getImputado();
+        this.delitos.add(new Delito(delito));
+
+        this.origen = new Valor();
+        this.origen.setValor(origen);
+        this.caso.setVictima(nombreDenunciante );
+        NumeroExpediente ne = new NumeroExpediente();
+        Funcionario f = new Funcionario();
+        f.setNombreFuncionario(nombreFuncionario);
+        ne.setFuncionario(f);
+        this.numeroExpedientes.add(ne);
+        this.catUIEspecializada = new CatUIEspecializada(nombreUnidadEsp);
+
+
+    }
+
     /** minimal constructor */
     public Expediente(Long expedienteId) {
         this.expedienteId = expedienteId;

@@ -20,6 +20,7 @@
 package mx.gob.segob.nsjp.service.expediente.impl.transform;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -38,16 +39,7 @@ import mx.gob.segob.nsjp.dto.expediente.ExpedienteDTO;
 import mx.gob.segob.nsjp.dto.funcionario.FuncionarioDTO;
 import mx.gob.segob.nsjp.dto.institucion.AreaDTO;
 import mx.gob.segob.nsjp.dto.usuario.UsuarioDTO;
-import mx.gob.segob.nsjp.model.Audiencia;
-import mx.gob.segob.nsjp.model.AvisoDesignacion;
-import mx.gob.segob.nsjp.model.BitacoraEstatusNumExpediente;
-import mx.gob.segob.nsjp.model.BitacoraPermisoExpediente;
-import mx.gob.segob.nsjp.model.Caso;
-import mx.gob.segob.nsjp.model.CatDiscriminante;
-import mx.gob.segob.nsjp.model.Delito;
-import mx.gob.segob.nsjp.model.Expediente;
-import mx.gob.segob.nsjp.model.NumeroExpediente;
-import mx.gob.segob.nsjp.model.Valor;
+import mx.gob.segob.nsjp.model.*;
 import mx.gob.segob.nsjp.service.audiencia.impl.transform.EventoTransformer;
 import mx.gob.segob.nsjp.service.catalogo.impl.transform.CatDiscriminanteTransformer;
 import mx.gob.segob.nsjp.service.catalogo.impl.transform.CatDistritoTransformer;
@@ -56,6 +48,7 @@ import mx.gob.segob.nsjp.service.catalogo.impl.transform.CatUIEspecializadaTrans
 import mx.gob.segob.nsjp.service.delito.impl.transform.DelitoTransfromer;
 import mx.gob.segob.nsjp.service.documento.impl.tranform.AvisoDesignacionTransformer;
 import mx.gob.segob.nsjp.service.funcionario.impl.transform.FuncionarioTransformer;
+import mx.gob.segob.nsjp.service.involucrado.impl.transform.InvolucradoTransformer;
 import mx.gob.segob.nsjp.service.objeto.impl.transform.AlmacenTransformer;
 import mx.gob.segob.nsjp.service.solicitud.impl.transform.ConfInstitucionTransformer;
 import mx.gob.segob.nsjp.service.usuario.impl.transformer.ValorTransformer;
@@ -86,11 +79,12 @@ public class ExpedienteTransformer {
 			ExpedienteDTO expedienteDto = new ExpedienteDTO();
 			expedienteDto.setExpedienteId(expediente.getExpedienteId());
 			expedienteDto.setNumeroExpediente(expediente.getNumeroExpediente());
-			
+            expedienteDto.setNumeroExpedienteId(expediente.getNumeroExpedienteId());
+            expedienteDto.setNombreUIE(expediente.getCatUIEspecializada().getNombreUIE());
 			if (expediente.getEstatus() != null) {
-				expedienteDto.setEstatus(new ValorDTO(expediente.getEstatus().getValorId(), 
-						expediente.getEstatus().getValor()));
+				expedienteDto.setEstatus(ValorTransformer.transformar(expediente.getEstatus()));
 			}
+            expedienteDto.setEstatusNumeroExpediente(ValorTransformer.transformar(expediente.getEstatus()));
 			
 			expedienteDto.setFechaApertura(expediente.getFechaCreacion());
 			expedienteDto.setFechaCierre(expediente.getFechaCierre());
@@ -100,6 +94,14 @@ public class ExpedienteTransformer {
 			if (expediente.getOrigen() != null)
 				expedienteDto.setOrigen(new ValorDTO(expediente.getOrigen()
 						.getValorId(), expediente.getOrigen().getValor()));
+
+
+
+			Iterator<Delito> itDelito = expediente.getDelitos().iterator();
+			//Solo el primer delito se mostrará
+			if(itDelito.hasNext()){
+				expedienteDto.setDelitoPrincipal(DelitoTransfromer.transformarDelito(itDelito.next()));
+			}
 
 			if (expediente.getCaso() != null) {
 				Caso caso = expediente.getCaso();
@@ -116,6 +118,28 @@ public class ExpedienteTransformer {
 
 				expedienteDto.setCasoDTO(casoDTO);
 			}
+            //expedienteDto.setEstatus(ValorTransformer.transformar(ne.getEstatus()));
+			if (expediente.getNumeroExpedientes()!=null) {
+				Iterator<NumeroExpediente> itNe = expediente.getNumeroExpedientes().iterator();
+				NumeroExpediente ne = null;
+				if(itNe.hasNext()){
+					ne= itNe.next();
+					expedienteDto.setResponsableTramite(FuncionarioTransformer.transformarFuncionario(ne.getFuncionario()));
+
+				}
+			}
+
+			Iterator<Elemento> it = expediente.getElementos().iterator();
+			Elemento e;
+			Involucrado involucrado = null;
+			while (it.hasNext()){
+				e = it.next();
+				if(Involucrado.class.isInstance(e)) {
+					expedienteDto.addInvolucradoDTO(InvolucradoTransformer.transformarInvolucradoBasico(involucrado));
+				}
+			}
+
+
 			
 			if(expediente.getDiscriminante() != null && expediente.getDiscriminante().getCatDiscriminanteId() != null && expediente.getDiscriminante().getClave() != null){
 				expedienteDto.setDiscriminante(new CatDiscriminanteDTO(expediente.getDiscriminante().getCatDiscriminanteId(), expediente.getDiscriminante().getClave()));
@@ -233,7 +257,7 @@ public class ExpedienteTransformer {
 
 	/**
 	 * 
-	 * @param expedientes
+	 *
 	 * @return
 	 */
 	public static ExpedienteDTO transformarExpedienteBasico(

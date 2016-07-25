@@ -1516,7 +1516,7 @@ public class BuscarExpedienteServiceImpl implements BuscarExpedienteService {
             throw new NSJPNegocioException(CodigoError.PARAMETROS_INSUFICIENTES);
         }
 
-        List<NumeroExpediente> expsRespuesta = new ArrayList<NumeroExpediente>();
+        List<Expediente> expsRespuesta = new ArrayList<Expediente>();
 
         if (filtroExpedienteDTO.getIdTipoActividadComplemento() != null && filtroExpedienteDTO.getIdTipoActividadComplemento() > 0) {
             expsRespuesta = expedienteDAO
@@ -1527,11 +1527,14 @@ public class BuscarExpedienteServiceImpl implements BuscarExpedienteService {
         }
 
         List<ExpedienteDTO> expsDTO = new ArrayList<ExpedienteDTO>();
-        for (NumeroExpediente numeroExpediente : expsRespuesta) {
+        expsDTO = ExpedienteTransformer
+                .transformarExpediente(expsRespuesta);
+        //for (Expediente expediente : expsRespuesta) {
 
-            ExpedienteDTO expedienteDTO = ExpedienteTransformer
-                    .transformarExpedienteBasico(numeroExpediente);
+        //    ExpedienteDTO expedienteDTO = ExpedienteTransformer
+          //          .transformarExpediente(expediente);
 
+/*
             if (numeroExpediente.getExpediente().getActividads() != null) {
                 for (Actividad actividad : numeroExpediente.getExpediente()
                         .getActividads()) {
@@ -1563,7 +1566,8 @@ public class BuscarExpedienteServiceImpl implements BuscarExpedienteService {
                     expedienteDTO.setDelitoPrincipal(delitoDTO);
                 }
             }
-
+            */
+/*
             List<NumeroExpediente> numHijos = numeroExpedienteDAO.consultarnumExpedienteHijos(numeroExpediente.getNumeroExpedienteId());
 
             if (numHijos != null) {
@@ -1572,8 +1576,8 @@ public class BuscarExpedienteServiceImpl implements BuscarExpedienteService {
                     numHijosDTO.add(ExpedienteTransformer.transformarExpedienteBasico(numeroExpedienteHijo));
                 }
                 expedienteDTO.setNumExpHijos(numHijosDTO);
-            }
-
+            }*/
+/*
             //Si se trata de expedientes de procuraduria
             ConfInstitucion confInstitucion = this.expedienteDAO.consultarInsitucionActual();
             if (confInstitucion.getConfInstitucionId().equals(Instituciones.PGJ.getValorId())) {
@@ -1597,10 +1601,10 @@ public class BuscarExpedienteServiceImpl implements BuscarExpedienteService {
                     && numeroExpediente.getEstatus() != null && numeroExpediente.getEstatus().getValor() != null) {
                 expedienteDTO.setEstatusNumeroExpediente(new ValorDTO(numeroExpediente.getEstatus().getValorId(), numeroExpediente.getEstatus().getValor()));
             }
-
+*/
     		// ------------------------------------------------------------------------------------------------
-            expsDTO.add(expedienteDTO);
-        } // for
+       //     expsDTO.add(expedienteDTO);
+      //  } // for
 
         return new ArrayList<ExpedienteDTO>(expsDTO);
     }

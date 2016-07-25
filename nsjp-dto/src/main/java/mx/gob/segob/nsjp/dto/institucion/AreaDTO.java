@@ -56,7 +56,13 @@ public class AreaDTO extends GenericDTO {
         super();
         this.areaId = areaId;
         this.nombre = nomString;
-    }   
+    }
+
+    public AreaDTO(String nomString) {
+        super();
+
+        this.nombre = nomString;
+    }
     /**
      * @param areaId
      */

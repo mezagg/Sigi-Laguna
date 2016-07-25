@@ -785,7 +785,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
                 }
 
                 //Se toma solo un involucrado del expediente
-                String nombreCompleto = "";
+                /*String nombreCompleto = "";
                 List<InvolucradoDTO> involucradosDTO = expedienteDTO.getInvolucradoByCalidad(Calidades.DENUNCIANTE);
                 if (!involucradosDTO.isEmpty() && involucradosDTO.get(0) != null) {
                     InvolucradoDTO involucradoDTO = involucradosDTO.get(0);
@@ -797,7 +797,8 @@ public class AtencionTempranaPenalAction extends GenericAction {
                             }
                         }
                     }
-                }
+                }*/
+                String nombreCompleto = expedienteDTO.getCasoDTO().getVictima();
 
                 if (nombreCompleto != null && !nombreCompleto.equals("")) {
                     writer.print("<cell><![CDATA[<div class='celdaGrid'>" + nombreCompleto + " </div>]]></cell>");

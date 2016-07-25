@@ -119,7 +119,7 @@
                        {name:'Estatus',index:'Estatus', width:110}
                      ],
             pager: jQuery('#pager1'),
-            rowNum:10,
+            rowNum:20,
             rowList:[10,20,30,40,50,60,70,80,90,100],
             autowidth: true,
             shrinkToFit: true,
@@ -252,7 +252,7 @@
                 jQuery("#gridBienesPorEnajenar").jqGrid({ 
 			datatype: "xml", 
                          multiselect:true,
-			colNames:['Tipo','Descripción', 'Cantidad','Número Expediente','Fecha para enajenar','Fecha Aseguramiento'], 
+			colNames:['Tipo','Descripciï¿½n', 'Cantidad','Nï¿½mero Expediente','Fecha para enajenar','Fecha Aseguramiento'], 
 			colModel:[ 	{name:'tipo',index:'tipo', width:80},
 			           	{name:'descripcion',index:'descripcion', width:150}, 
                                         {name:'cantidad',index:'cantidad', width:80}, 
@@ -1393,7 +1393,7 @@ function consultaPorEnajenarFecha(){
                 $.ajax(settings).done(function(result) 
                 {
                   consultaPorEnajenarHoy();                  
-                  $.newWindow({id:"iframewindowOficioEnajenacion", statusBar: true, posx:200,posy:50,width:114,height:40,title:"Oficio de enajenación de bienes", type:"iframe", confirmarCierreVentana:false});
+                  $.newWindow({id:"iframewindowOficioEnajenacion", statusBar: true, posx:200,posy:50,width:114,height:40,title:"Oficio de enajenaciï¿½n de bienes", type:"iframe", confirmarCierreVentana:false});
                   $.updateWindowContent("iframewindowOficioEnajenacion",'<iframe src="<%=request.getContextPath()%>/consultarOficioEnajenacion.do?idsBienes='+idsBienes+'" width="114" height="40" />');
                 });
                 }    
