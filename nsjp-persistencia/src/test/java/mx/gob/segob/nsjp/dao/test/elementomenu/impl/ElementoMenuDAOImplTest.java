@@ -31,13 +31,19 @@ public class ElementoMenuDAOImplTest extends
 	
 	public void testConsultarElementosMenuXRol(){
 		List<ElementoMenu> elementosMenu = new ArrayList<ElementoMenu>();
-		Rol rol = new Rol(3L);
+		Rol rol = new Rol(57L);
 		TipoMenu tm = TipoMenu.ARRIBA;
-		elementosMenu=daoServcice.consultarElementosMenuXRol(rol, tm);
+		elementosMenu=daoServcice.consultarElementosMenuXRol(rol, tm, null);
 		assertNotNull(elementosMenu);
 		for (int i=0;i<elementosMenu.size();i++)
 		{
-		imprimeArbol(elementosMenu.get(i), 0);
+			imprimeArbol(elementosMenu.get(i), 0);
+		}
+		elementosMenu=daoServcice.consultarElementosMenuXRol(rol, null, null);
+		assertNotNull(elementosMenu);
+		for (int i=0;i<elementosMenu.size();i++)
+		{
+			imprimeArbol(elementosMenu.get(i), 0);
 		}
 	}
 	
@@ -62,14 +68,14 @@ public class ElementoMenuDAOImplTest extends
 
 	public void testInsertarSimpleElementoMenu() {
 		ElementoMenu elementoMenuPadre = new ElementoMenu();
-		Funcion funcion = new Funcion(1L, "Función 1", "La Función 1");
+		Funcion funcion = new Funcion(1L, "Funciï¿½n 1", "La Funciï¿½n 1");
 		ElementoMenu elementoMenu = new ElementoMenu(elementoMenuPadre,
 				funcion, "El menu de luis", 0, "El comando de luis");
 		Long result = daoServcice.insertarSimpleElementoMenu(elementoMenu);
 		if (result != null)
-			System.out.print("Se insertó correctamente el Elemento del Menú");
+			System.out.print("Se insertï¿½ correctamente el Elemento del Menï¿½");
 		else
-			System.out.print("Error al insertar el Menú");
+			System.out.print("Error al insertar el Menï¿½");
 	}
 
 	void imprimeArbol(ElementoMenu elementoMenu, int nivel) {
@@ -79,7 +85,7 @@ public class ElementoMenuDAOImplTest extends
 			for (int i = 0; i < nivel * 5; i++)
 				System.out.print("*");
 			System.out.println("Clave: " + elementoMenu.getElementoMenuId()
-					+ " Nombre: " + elementoMenu.getcNombre()+ " EsObligatorio: " + elementoMenu.isEsObligatorio());
+					+ " Nombre: " + elementoMenu.getcNombre()+ " TipoMenu:"+TipoMenu.getById(elementoMenu.getiPosicion().longValue())+" EsObligatorio: " + elementoMenu.isEsObligatorio() + " Padre:"+elementoMenu.getElementoMenuPadre().getElementoMenuId());
 			if (elementoMenu.getElementoMenuHijos() != null
 					&& !elementoMenu.getElementoMenuHijos().isEmpty())
 				for (int i = 0; i < elementoMenu.getElementoMenuHijos().size(); i++) {

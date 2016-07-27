@@ -148,7 +148,7 @@ public class LoginAction extends GenericAction {
 			// visitanteDTO.setiIntentos(3);
 			log.info("Los intentos de la IP " + visitanteDTO.getcIP()
 					+ " son: " + visitanteDTO.getiIntentos());
-			//FIXME Se recupera los datos de la configruación Global
+			//FIXME Se recupera los datos de la configruaciï¿½n Global
                         
 			
 			if (visitanteDTO != null) {
@@ -220,7 +220,7 @@ public class LoginAction extends GenericAction {
 			// log.debug("Password: " + password);
 			if (username != null && !username.trim().isEmpty()) {
 				request.setAttribute("nombreUsuario", username);
-				// validar la sesión de un usuario
+				// validar la sesiï¿½n de un usuario
 				UsuarioDTO usuarioEnSesion = new UsuarioDTO(username,
 						password, ip, idSesion); 
 					
@@ -276,7 +276,7 @@ public class LoginAction extends GenericAction {
 						}
 						usuarioFirmado.setUsuarioRoles(setUs);
 
-						log.debug("usuarioFirmado.tamaño en roles:: "
+						log.debug("usuarioFirmado.tamaï¿½o en roles:: "
 								+ usuarioFirmado.getUsuarioRoles().size());
 						if (usuarioFirmado.getiSesion() == 1) {// Validacion
 																// para
@@ -381,7 +381,7 @@ public class LoginAction extends GenericAction {
 								// mandara
 								// al request un error de tipo dos que indica
 								// que el
-								// usuario esta bloqueado por más de un intento
+								// usuario esta bloqueado por mï¿½s de un intento
 								// de
 								// loguear
                                                         this.recuperarConfiguracionGlobal(request);
@@ -544,13 +544,13 @@ public class LoginAction extends GenericAction {
 			mapaUsuarios.put("coordinadorAT", "coordinadorAT");
 			mapaUsuarios.put("directorAprehension", "direccionAprehensiones");
 
-			// Inicia Defensoría
+			// Inicia Defensorï¿½a
 			mapaUsuarios.put("coordinadorDef", "coordinadorDefensor");
 			mapaUsuarios.put("defensor", "defensoria");
 			mapaUsuarios.put("defensorAte", "defensorAtencion");
 			mapaUsuarios.put("coordinadorPer", "coordinadorPer");
 			mapaUsuarios.put("peritoDef", "peritoDef");
-			// Fin Defensoría
+			// Fin Defensorï¿½a
 			// Inicio Poder Judicial
 			mapaUsuarios.put("encargadoDGEPMC", "encargadoDGEPMC");
 			mapaUsuarios.put("sspPolicia", "sspPolicia");
@@ -754,7 +754,7 @@ public class LoginAction extends GenericAction {
 	}
 
 	/***
-	 * Metodo para mandar Validar la contraseña cuando la aplicacion se h
+	 * Metodo para mandar Validar la contraseï¿½a cuando la aplicacion se h
 	 * bloqueado
 	 * 
 	 * @param mapping
@@ -767,7 +767,7 @@ public class LoginAction extends GenericAction {
 	public ActionForward validaContrasena(ActionMapping mapping,
 			ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
-		log.info("ejecutando Action Login en metodo validaContraseña");
+		log.info("ejecutando Action Login en metodo validaContraseï¿½a");
 		try {
 			DynaActionForm forma = (DynaActionForm) form;
 			String password = (String) forma.get("password");
@@ -803,7 +803,7 @@ public class LoginAction extends GenericAction {
 					// ManejadorSesion.invalidate(idSesion);
 					usuario.setDatosIncorrectos(false);
 					//se guarda mensaje de error en idSesion
-					usuario.setIdSesion("Código captcha erróneo,<br/> favor de verificar.");
+					usuario.setIdSesion("Cï¿½digo captcha errï¿½neo,<br/> favor de verificar.");
 					converter.alias("usuarioDTO", UsuarioDTO.class);
 					String xml = converter.toXML(usuario);
 					// request.getSession().removeAttribute(Constants.KAPTCHA_SESSION_KEY);
@@ -814,7 +814,7 @@ public class LoginAction extends GenericAction {
 				usuario = new UsuarioDTO();
 				usuario.setDatosIncorrectos(false);
 				//se guarda mensaje de error en idSesion
-				usuario.setIdSesion("La sesión ha sido terminada,<br/> favor de volver a iniciar sesión.");
+				usuario.setIdSesion("La sesiï¿½n ha sido terminada,<br/> favor de volver a iniciar sesiï¿½n.");
 				converter.alias("usuarioDTO", UsuarioDTO.class);
 				String xml = converter.toXML(usuario);
 				escribir(response, xml, null);
@@ -828,10 +828,10 @@ public class LoginAction extends GenericAction {
 	}
 	
 	/**
-	 * Método que obtiene las primeras ramas del menu 
-	 * @param rolDTO rol del cual se quiere el menú
-	 * @param tipoMenu tipo de menú
-	 * @return Lista de ElementoMenuDTO con el menú solicitado
+	 * Mï¿½todo que obtiene las primeras ramas del menu 
+	 * @param rolDTO rol del cual se quiere el menï¿½
+	 * @param tipoMenu tipo de menï¿½
+	 * @return Lista de ElementoMenuDTO con el menï¿½ solicitado
 	 * @throws NSJPNegocioException
 	 */
 	public List<ElementoMenuDTO> getMenuInicial(RolDTO rolDTO, TipoMenu tipoMenu) throws NSJPNegocioException{

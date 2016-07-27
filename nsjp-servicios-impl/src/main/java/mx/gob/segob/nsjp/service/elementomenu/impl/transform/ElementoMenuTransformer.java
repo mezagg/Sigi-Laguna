@@ -78,7 +78,7 @@ public class ElementoMenuTransformer {
 			eM.setEsObligatorio(eMDTO.isEsObligatorio());
 			if (eMDTO.getElementoMenuHijosDTO() != null
 					&& !eMDTO.getElementoMenuHijosDTO().isEmpty()) {
-				List<ElementoMenu> lstEMHijos = new ArrayList<ElementoMenu>();
+				List<ElementoMenu> lstEMHijos = new ArrayList<ElementoMenu>(0);
 				for (int i = 0; i < eMDTO.getElementoMenuHijosDTO().size(); i++) {
 					lstEMHijos.add(transformarMinimo(eMDTO.getElementoMenuHijosDTO()
 							.get(i)));

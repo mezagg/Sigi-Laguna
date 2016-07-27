@@ -18,7 +18,7 @@ public interface ElementoMenuDAO extends GenericDao<ElementoMenu, Long> {
 	
 	public ElementoMenu consultarElementoMenu (ElementoMenu elementoMenu );
 	
-	public List<ElementoMenu> consultarElementosMenuXRol (Rol rol, TipoMenu tm);
+	public List<ElementoMenu> consultarElementosMenuXRol (Rol rol, TipoMenu tm, Long elementoMenuId);
 	
 	public List<ElementoMenu> consultarElementosMenuObligatorios ();
 	

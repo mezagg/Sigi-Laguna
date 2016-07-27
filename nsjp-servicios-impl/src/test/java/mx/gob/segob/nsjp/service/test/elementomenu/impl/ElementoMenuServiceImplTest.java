@@ -27,7 +27,7 @@ public class ElementoMenuServiceImplTest extends
 		roles.add(new RolDTO(3L));
 		roles.add(new RolDTO(5L));
 		roles.add(new RolDTO(7L));
-		roles.add(new RolDTO(56L));
+		roles.add(new RolDTO(57L));
 		tipos.add(TipoMenu.IZQUIERDO);
 		tipos.add(TipoMenu.ARRIBA);
 		try {
@@ -52,7 +52,7 @@ public class ElementoMenuServiceImplTest extends
 	}
 
 	public void testConsultarElementosMenuXRol() {
-		RolDTO rolDTO = new RolDTO(5L);
+		RolDTO rolDTO = new RolDTO(7L);
 		//5 y 7
 		TipoMenu tm = TipoMenu.IZQUIERDO;
 		List<ElementoMenuDTO> elementosMenuDTO = new ArrayList<ElementoMenuDTO>();

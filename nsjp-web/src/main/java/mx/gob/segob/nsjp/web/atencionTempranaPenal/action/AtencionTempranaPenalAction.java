@@ -268,12 +268,10 @@ public class AtencionTempranaPenalAction extends GenericAction {
                     writer.print("<cell><![CDATA[<div class='celdaGrid'>" + "---" + " </div>]]></cell>");
                 }
                 writer.print("<cell><![CDATA[<div class='celdaGrid'>" + expedienteDTO.getStrFechaApertura() + " </div>]]></cell>");
-                log.info("Este es el expediente con calidad de denunciante" + expedienteDTO.getInvolucradoByCalidad(Calidades.DENUNCIANTE));
-                log.info("invol tamano" + expedienteDTO.getInvolucradoByCalidad(Calidades.DENUNCIANTE).size());
-                log.info("invol tamano de" + expedienteDTO.getInvolucradosDTO().size());
+
                 boolean op = true;
                 for (InvolucradoDTO involucradoDTO : expedienteDTO.getInvolucradoByCalidad(Calidades.DENUNCIANTE)) {
-                    log.info("numero de involucrado nombre completo perdon:" + involucradoDTO.getNombreCompleto());
+                   
                     if (involucradoDTO.getNombreCompleto() != null && !involucradoDTO.getNombreCompleto().equals("")) {
                         writer.print("<cell><![CDATA[<div class='celdaGrid'>" + involucradoDTO.getNombreCompleto() + " </div>]]></cell>");
                     } else {
@@ -286,7 +284,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
                 if (op) {
                     boolean op2 = true;
                     for (InvolucradoDTO involucradoDTO : expedienteDTO.getInvolucradoByCalidad(Calidades.DENUNCIANTE_ORGANIZACION)) {
-                        log.info("numero de involucrado nombre completo de organizacion:" + involucradoDTO.getOrganizacionDTO().getNombreOrganizacion());
+                        
                         writer.print("<cell><![CDATA[<div class='celdaGrid'>" + involucradoDTO.getOrganizacionDTO().getNombreOrganizacion() + " </div>]]></cell>");
                         op2 = false;
 
@@ -309,7 +307,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             writer.close();
 
         } catch (Exception e) {
-            log.info(e.getCause(), e);
+            log.error(e.getCause(), e);
 
         }
         return null;
@@ -357,12 +355,10 @@ public class AtencionTempranaPenalAction extends GenericAction {
                     writer.print("<cell><![CDATA[<div class='celdaGrid'>" + "---" + " </div>]]></cell>");
                 }
                 writer.print("<cell><![CDATA[<div class='celdaGrid'>" + expedienteDTO.getStrFechaApertura() + " </div>]]></cell>");
-                log.info("Este es el expediente con calidad de denunciante" + expedienteDTO.getInvolucradoByCalidad(Calidades.DENUNCIANTE));
-                log.info("invol tamano" + expedienteDTO.getInvolucradoByCalidad(Calidades.DENUNCIANTE).size());
-                log.info("invol tamano de" + expedienteDTO.getInvolucradosDTO().size());
+
                 boolean op = true;
                 for (InvolucradoDTO involucradoDTO : expedienteDTO.getInvolucradoByCalidad(Calidades.DENUNCIANTE)) {
-                    log.info("numero de involucrado nombre completo perdon:" + involucradoDTO.getNombreCompleto());
+                    
                     if (involucradoDTO.getNombreCompleto() != null && !involucradoDTO.getNombreCompleto().equals("")) {
                         writer.print("<cell><![CDATA[<div class='celdaGrid'>" + involucradoDTO.getNombreCompleto() + " </div>]]></cell>");
                     } else {
@@ -375,7 +371,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
                 if (op) {
                     boolean op2 = true;
                     for (InvolucradoDTO involucradoDTO : expedienteDTO.getInvolucradoByCalidad(Calidades.DENUNCIANTE_ORGANIZACION)) {
-                        log.info("numero de involucrado nombre completo de organizacion:" + involucradoDTO.getOrganizacionDTO().getNombreOrganizacion());
+                        
                         writer.print("<cell><![CDATA[<div class='celdaGrid'>" + involucradoDTO.getOrganizacionDTO().getNombreOrganizacion() + " </div>]]></cell>");
                         op2 = false;
 
@@ -398,7 +394,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             writer.close();
 
         } catch (Exception e) {
-            log.info(e.getCause(), e);
+            log.error(e.getCause(), e);
 
         }
         return null;
@@ -411,7 +407,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
         try {
             UsuarioDTO usuarioDTO = getUsuarioFirmado(request);
 //				usuarioDTO.setAreaActual(new AreaDTO(Areas.COORDINACION_ATENCION_TEMPRANA_PG));
-            log.info("ejecutando Action AtencionTempranaPenalAction en metodo busquedaInicialTurnosGrid:#####" + turnoDelegate);
+            
             List<TurnoDTO> listTurnoDTOs = turnoDelegate.consultarTurnosAtendidosPorUsuario(usuarioDTO, true);
             if (log.isDebugEnabled()) {
                 log.debug("##################lista de Casos:::::::::" + listTurnoDTOs.size());
@@ -437,12 +433,10 @@ public class AtencionTempranaPenalAction extends GenericAction {
                 
                 //writer.print("<cell><![CDATA[<div class='celdaGrid'>" + expedienteDTO.getCasoDTO().getNumeroGeneralCaso() + " </div>]]></cell>");
                 writer.print("<cell><![CDATA[<div class='celdaGrid'>" + expedienteDTO.getStrFechaApertura() + " </div>]]></cell>");
-                log.info("Este es el expediente con calidad de denunciante" + expedienteDTO.getInvolucradoByCalidad(Calidades.DENUNCIANTE));
-                log.info("invol tamano" + expedienteDTO.getInvolucradoByCalidad(Calidades.DENUNCIANTE).size());
-                log.info("invol tamano de" + expedienteDTO.getInvolucradosDTO().size());
+
                 boolean op = true;
                 for (InvolucradoDTO involucradoDTO : expedienteDTO.getInvolucradoByCalidad(Calidades.DENUNCIANTE)) {
-                    log.info("numero de involucrado nombre completo perdon:" + involucradoDTO.getNombreCompleto());
+                    
                     writer.print("<cell><![CDATA[<div class='celdaGrid'>" + involucradoDTO.getNombreCompleto() + " </div>]]></cell>");
                     op = false;
 
@@ -464,7 +458,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             writer.close();
 
         } catch (Exception e) {
-            log.info(e.getCause(), e);
+            log.error(e.getCause(), e);
 
         }
         return null;
@@ -490,7 +484,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
                 expsAsignados = Boolean.parseBoolean(expedientesAsignados);
             }
 
-            log.info("ejecutando Action AtencionTempranaPenalAction en metodo busquedaCanalizadosRestaurativa:#####" + expedienteDelegate);
+            
             FiltroExpedienteDTO filtroExpedienteDTO = new FiltroExpedienteDTO();
 
             //AREA PARA AMP JAR
@@ -593,18 +587,16 @@ public class AtencionTempranaPenalAction extends GenericAction {
                 } else {
                     writer.print("<cell><![CDATA[<div class='celdaGrid'>" + expedienteDTO.getStrFechaApertura() + " </div>]]></cell>");
                 }
-                log.info("Este es el expediente con calidad de denunciante" + expedienteDTO.getInvolucradoByCalidad(Calidades.DENUNCIANTE));
-                log.info("invol tamano" + expedienteDTO.getInvolucradoByCalidad(Calidades.DENUNCIANTE).size());
-                log.info("invol tamano de" + expedienteDTO.getInvolucradosDTO().size());
-                boolean op = true;
+
+                 boolean op = true;
 
                 //Se toma solo un involucardo del expediente
                 List<InvolucradoDTO> involucradosDTO = expedienteDTO.getInvolucradoByCalidad(Calidades.DENUNCIANTE);
                 if (!involucradosDTO.isEmpty() && involucradosDTO.get(0) != null) {
                     InvolucradoDTO involucradoDTO = involucradosDTO.get(0);
-                    log.info("numero de involucrado nombre completo perdon:" + involucradoDTO.getNombreCompleto());
+                    
                     for (NombreDemograficoDTO nombreDemograficoDTO : involucradoDTO.getNombresDemograficoDTO()) {
-                        log.info("Verdadero nombre:" + nombreDemograficoDTO.getEsVerdadero());
+                        
 
                         if (nombreDemograficoDTO.getEsVerdadero() != null && nombreDemograficoDTO.getEsVerdadero()) {
                             if (involucradoDTO.getNombreCompleto() != null && !involucradoDTO.getNombreCompleto().equals("")) {
@@ -623,7 +615,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
                         InvolucradoDTO involucradoDTO = involucradosDTO.get(0);
                         if (involucradoDTO.getOrganizacionDTO() != null
                                 && involucradoDTO.getOrganizacionDTO().getNombreOrganizacion() != null) {
-                            log.info("nombre de la organizacion:" + involucradoDTO.getOrganizacionDTO().getNombreOrganizacion());
+                            
                             writer.print("<cell><![CDATA[<div class='celdaGrid'>" + involucradoDTO.getOrganizacionDTO().getNombreOrganizacion() + " </div>]]></cell>");
                         } else {
                             writer.print("<cell><![CDATA[<div class='celdaGrid'>" + "-----" + " </div>]]></cell>");
@@ -658,7 +650,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
                     if (expedienteDTO.getEstatusNumeroExpediente() != null
                             && expedienteDTO.getEstatusNumeroExpediente().getValor() != null) {
                         writer.print("<cell><![CDATA[<div class='celdaGrid'>" + expedienteDTO.getEstatusNumeroExpediente().getValor() + " </div>]]></cell>");
-                        log.info("etapa ex padre" + expedienteDTO.getEstatusExpedientePadre());
+                        
                     } else {
                         writer.print("<cell><![CDATA[<div class='celdaGrid'>Desconocido </div>]]></cell>");
                     }
@@ -683,7 +675,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             writer.close();
 
         } catch (Exception e) {
-            log.info(e.getCause(), e);
+            log.error(e.getCause(), e);
 
         }
         return null;
@@ -847,7 +839,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             writer.close();
 
         } catch (Exception e) {
-            log.info(e.getCause(), e);
+            log.error(e.getCause(), e);
 
         }
         return null;
@@ -891,12 +883,10 @@ public class AtencionTempranaPenalAction extends GenericAction {
                 writer.print("<row id='" + expedienteDTO.getNumeroExpedienteId() + "'>");
                 writer.print("<cell><![CDATA[<div class='celdaGrid'>" + expedienteDTO.getNumeroExpediente() + " </div>]]></cell>");
                 writer.print("<cell><![CDATA[<div class='celdaGrid'>" + expedienteDTO.getStrFechaApertura() + " </div>]]></cell>");
-                log.info("Este es el expediente con calidad de denunciante" + expedienteDTO.getInvolucradoByCalidad(Calidades.DENUNCIANTE));
-                log.info("invol tamano" + expedienteDTO.getInvolucradoByCalidad(Calidades.DENUNCIANTE).size());
-                log.info("invol tamano de" + expedienteDTO.getInvolucradosDTO().size());
+
                 boolean op = true;
                 for (InvolucradoDTO involucradoDTO : expedienteDTO.getInvolucradoByCalidad(Calidades.DENUNCIANTE)) {
-                    log.info("numero de involucrado nombre completo perdon:" + involucradoDTO.getNombreCompleto());
+                    
                     if (involucradoDTO.getNombreCompleto() != null && !involucradoDTO.getNombreCompleto().equals("")) {
                         writer.print("<cell><![CDATA[<div class='celdaGrid'>" + involucradoDTO.getNombreCompleto() + " </div>]]></cell>");
                     } else {
@@ -909,7 +899,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
                 if (op) {
                     boolean op2 = true;
                     for (InvolucradoDTO involucradoDTO : expedienteDTO.getInvolucradoByCalidad(Calidades.DENUNCIANTE_ORGANIZACION)) {
-                        log.info("numero de involucrado nombre completo de organizacion:" + involucradoDTO.getOrganizacionDTO().getNombreOrganizacion());
+                        
                         writer.print("<cell><![CDATA[<div class='celdaGrid'>" + involucradoDTO.getOrganizacionDTO().getNombreOrganizacion() + " </div>]]></cell>");
                         op2 = false;
 
@@ -954,7 +944,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             writer.flush();
             writer.close();
         } catch (Exception e) {
-            log.info(e.getCause(), e);
+            log.error(e.getCause(), e);
 
         }
         return null;
@@ -1016,14 +1006,12 @@ public class AtencionTempranaPenalAction extends GenericAction {
                 }
 
                 //DENUNCIANTE
-                log.info("Este es el expediente con calidad de denunciante" + expedienteDTO.getInvolucradoByCalidad(Calidades.DENUNCIANTE));
-                log.info("invol tamano" + expedienteDTO.getInvolucradoByCalidad(Calidades.DENUNCIANTE).size());
-                log.info("invol tamano de" + expedienteDTO.getInvolucradosDTO().size());
-                boolean op = true;
+
+                 boolean op = true;
                 for (InvolucradoDTO involucradoDTO : expedienteDTO.getInvolucradoByCalidad(Calidades.DENUNCIANTE)) {
-                    log.info("numero de involucrado nombre completo perdon:" + involucradoDTO.getNombreCompleto());
+                    
                     for (NombreDemograficoDTO nombreDemograficoDTO : involucradoDTO.getNombresDemograficoDTO()) {
-                        log.info("Verdadero nombre:" + nombreDemograficoDTO.getEsVerdadero());
+                        
                         if (nombreDemograficoDTO.getEsVerdadero() != null && nombreDemograficoDTO.getEsVerdadero()) {
                             writer.print("<cell><![CDATA[<div class='celdaGrid'>" + nombreDemograficoDTO.getNombre() + " " + nombreDemograficoDTO.getApellidoPaterno() + " " + nombreDemograficoDTO.getApellidoMaterno() + " </div>]]></cell>");
                             op = false;
@@ -1074,7 +1062,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             writer.close();
 
         } catch (Exception e) {
-            log.info(e.getCause(), e);
+            log.error(e.getCause(), e);
 
         }
         return null;
@@ -1086,7 +1074,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
         log.info("ejecutando Action AtencionTempranaPenalAction en metodo busquedaCanalizadosRestaurativa");
         try {
             UsuarioDTO usuarioDTO = getUsuarioFirmado(request);
-            log.info("ejecutando Action AtencionTempranaPenalAction en metodo busquedaCanalizadosRestaurativa:#####" + expedienteDelegate);
+
             FiltroExpedienteDTO filtroExpedienteDTO = new FiltroExpedienteDTO();
             filtroExpedienteDTO.setIdArea(new Long(Areas.ATENCION_TEMPRANA_PG_PENAL.ordinal()));
             filtroExpedienteDTO.setIdActividad(Actividades.RECIBIR_CANALIZACION_UI.getValorId());
@@ -1119,14 +1107,12 @@ public class AtencionTempranaPenalAction extends GenericAction {
                     writer.print("<cell><![CDATA[<div class='celdaGrid'>" + expedienteDTO.getStrFechaApertura() + " </div>]]></cell>");
                 }
 
-                log.info("Este es el expediente con calidad de denunciante" + expedienteDTO.getInvolucradoByCalidad(Calidades.DENUNCIANTE));
-                log.info("invol tamano" + expedienteDTO.getInvolucradoByCalidad(Calidades.DENUNCIANTE).size());
-                log.info("invol tamano de" + expedienteDTO.getInvolucradosDTO().size());
+
                 boolean op = true;
                 for (InvolucradoDTO involucradoDTO : expedienteDTO.getInvolucradoByCalidad(Calidades.DENUNCIANTE)) {
-                    log.info("numero de involucrado nombre completo perdon:" + involucradoDTO.getNombreCompleto());
+
                     for (NombreDemograficoDTO nombreDemograficoDTO : involucradoDTO.getNombresDemograficoDTO()) {
-                        log.info("Verdadero nombre:" + nombreDemograficoDTO.getEsVerdadero());
+
                         if (nombreDemograficoDTO.getEsVerdadero() != null && nombreDemograficoDTO.getEsVerdadero()) {
                             writer.print("<cell><![CDATA[<div class='celdaGrid'>" + nombreDemograficoDTO.getNombre() + " " + nombreDemograficoDTO.getApellidoPaterno() + " " + nombreDemograficoDTO.getApellidoMaterno() + " </div>]]></cell>");
                             op = false;
@@ -1151,7 +1137,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             writer.close();
 
         } catch (Exception e) {
-            log.info(e.getCause(), e);
+            log.error(e.getCause(), e);
 
         }
         return null;
@@ -1175,12 +1161,12 @@ public class AtencionTempranaPenalAction extends GenericAction {
             XStream converter=new XStream();
             converter.alias("turnoDTO", TurnoDTO.class);
             String xml = converter.toXML(turnDTO);
-            log.info("TURNO:: " + xml);
+
             //mandamos la respuesta al cliente
             escribir(response, xml, null);
         } catch (Exception e) {
-            log.info("TurnoSiguienteError");
-            log.info(e.getCause(), e);
+            log.error("TurnoSiguienteError");
+            log.error(e.getCause(), e);
             escribir(response, "TurnoSiguienteError", null);
         }
         return null;
@@ -1194,15 +1180,15 @@ public class AtencionTempranaPenalAction extends GenericAction {
         try {
             UsuarioDTO usuarioDTO = getUsuarioFirmado(request);
             String turno = request.getParameter("turno");
-            log.info("ejecutando Action AtencionTempranaPenalAction en metodo cancelarTurno id de turno a cancelar:" + turno);
+
             final TurnoDTO turnoDTO = new TurnoDTO();
             turnoDTO.setTurnoId(Long.parseLong(turno));
             turnoDelegate.cancelarTurnoParaAtencion(turnoDTO, usuarioDTO);
             //mandamos la respuesta al cliente
             escribir(response, "Turno Cancelado", null);
         } catch (Exception e) {
-            log.info("TurnoCanceladoError");
-            log.info(e.getCause(), e);
+            log.error("TurnoCanceladoError");
+            log.error(e.getCause(), e);
             escribir(response, "TurnoCanceladoError", null);
         }
         return null;
@@ -1224,7 +1210,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             escribir(response, xml, null);
         } catch (Exception e) {
             log.info("TurnoSiguienteError");
-            log.info(e.getCause(), e);
+            log.error(e.getCause(), e);
             escribir(response, "TurnoSiguienteError", null);
         }
         return null;
@@ -1280,7 +1266,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             writer.close();
 
         } catch (Exception e) {
-            log.info(e.getCause(), e);
+            log.error(e.getCause(), e);
 
         }
         return null;
@@ -1315,7 +1301,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             writer.close();
 
         } catch (Exception e) {
-            log.info(e.getCause(), e);
+            log.error(e.getCause(), e);
 
         }
         return null;
@@ -1353,7 +1339,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             writer.close();
 
         } catch (Exception e) {
-            log.info(e.getCause(), e);
+            log.error(e.getCause(), e);
 
         }
         return null;
@@ -2753,7 +2739,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             log.info("CONSULTA_DELITOS_INVOLUCRADO");
 
         } catch (Exception e) {
-            log.info(e.getCause(), e);
+            log.error(e.getCause(), e);
 
         }
         return null;
@@ -2839,7 +2825,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             log.info("CONSULTA_DELITOS_POR_TODOS");
 
         } catch (Exception e) {
-            log.info(e.getCause(), e);
+            log.error(e.getCause(), e);
         }
         return null;
     }
@@ -2885,7 +2871,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             //mandamos la respuesta a la vista
             escribirRespuesta(response, sb.toString());
         } catch (Exception e) {
-            log.info(e.getCause(), e);
+            log.error(e.getCause(), e);
             StringBuilder sb = new StringBuilder();
             sb.append("<relacionTodosLosDelitos>");
             sb.append("<tamanoLista>");
@@ -3345,7 +3331,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
 
             escribirRespuesta(response, xml);
         } catch (Exception e) {
-            log.info(e.getCause(), e);
+            log.error(e.getCause(), e);
             escribirRespuesta(response, "");
         }
         return null;
@@ -3384,7 +3370,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             escribirRespuesta(response, xml);
 
         } catch (Exception e) {
-            log.info(e.getCause(), e);
+            log.error(e.getCause(), e);
         }
         return null;
     }
@@ -3406,7 +3392,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             escribirRespuesta(response, xml);
 
         } catch (Exception e) {
-            log.info(e.getCause(), e);
+            log.error(e.getCause(), e);
         }
         return null;
     }
@@ -3559,7 +3545,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             log.info("CONSULTA_DELITOS_POR_DELITOS");
 
         } catch (Exception e) {
-            log.info(e.getCause(), e);
+            log.error(e.getCause(), e);
 
         }
         return null;
@@ -4488,7 +4474,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             writer.close();
             log.info("CONSULTA_DELITOS_POR_DELITOS");
         } catch (Exception e) {
-            log.info(e.getCause(), e);
+            log.error(e.getCause(), e);
 
         }
         return null;
@@ -4541,7 +4527,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             pw.flush();
             pw.close();
         } catch (Exception e) {
-            log.info(e);
+            log.error(e);
         }
         return null;
     }
@@ -4623,7 +4609,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             pw.flush();
             pw.close();
         } catch (Exception e) {
-            log.info(e);
+            log.error(e);
         }
         return null;
     }
@@ -4670,7 +4656,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             pw.flush();
             pw.close();
         } catch (Exception e) {
-            log.info(e);
+            log.error(e);
         }
         return null;
     }
@@ -4740,7 +4726,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
 
             escribirRespuesta(response, xml);
         } catch (Exception e) {
-            log.info(e.getCause(), e);
+            log.error(e.getCause(), e);
             String xml = "<respuesta><bandera>0</bandera></respuesta>";
             escribirRespuesta(response, xml);
         }
@@ -4771,7 +4757,6 @@ public class AtencionTempranaPenalAction extends GenericAction {
                     involucradoDTO.setElementoId(listRelacionDTO.get(posicion).getElementoBySujetoId().getElementoId());
                 }
 
-                log.info("$$$$ numero DE idProbableResponsable$$$ id de defensor asociado: " + listRelacionDTO.get(0).getElementoBySujetoId().getElementoId());
             }
             CalidadDTO calidadDTO = new CalidadDTO();
             calidadDTO.setCalidades(Calidades.DEFENSOR_PRIVADO);
@@ -4841,14 +4826,14 @@ public class AtencionTempranaPenalAction extends GenericAction {
                     && Roles.COORDINADORAMP.getValorId() == usuario
                     .getRolACtivo().getRol().getRolId()) {
 
-                log.info("%&/%% Rol del usuario: " + usuario.getRolPrincipal().getRol().getRolId());
+                log.debug("%&/%% Rol del usuario: " + usuario.getRolPrincipal().getRol().getRolId());
 
                 CatDiscriminanteDTO catDiscriminanteDTO = new CatDiscriminanteDTO();
                 catDiscriminanteDTO.setCatDiscriminanteId(usuario.getFuncionario().getDiscriminante().getCatDiscriminanteId().longValue());
                 listFuncionarioDTO = funcionarioDelegate.consultarFuncionariosPorDicriminanteYRolYUIE(
                         catDiscriminanteDTO.getCatDiscriminanteId(), Roles.AGENTEMP.getValorId(), (idUIE > 0 ? idUIE : null));
             } else {
-                log.info("%&/%% filtro: " + filtro);
+                log.debug("%&/%% filtro: " + filtro);
                 listFuncionarioDTO = solicitudPericialDelegate.consultarFuncionarioPorFiltro(filtro, null);
             }
             XStream converter=new XStream();
@@ -4856,7 +4841,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             converter.alias("funcionarioDTO", FuncionarioDTO.class);
             String xml = converter.toXML(listFuncionarioDTO);
             if (log.isDebugEnabled()) {
-                log.info(xml);
+                log.debug(xml);
             }
             escribirRespuesta(response, xml);
         } catch (Exception e) {
@@ -5276,14 +5261,12 @@ public class AtencionTempranaPenalAction extends GenericAction {
                 } else {
                     writer.print("<cell><![CDATA[<div class='celdaGrid'>" + expedienteDTO.getStrFechaApertura() + " </div>]]></cell>");
                 }
-                log.info("Este es el expediente con calidad de denunciante" + expedienteDTO.getInvolucradoByCalidad(Calidades.DENUNCIANTE));
-                log.info("invol tamano" + expedienteDTO.getInvolucradoByCalidad(Calidades.DENUNCIANTE).size());
-                log.info("invol tamano de" + expedienteDTO.getInvolucradosDTO().size());
+
                 boolean op = true;
                 for (InvolucradoDTO involucradoDTO : expedienteDTO.getInvolucradoByCalidad(Calidades.DENUNCIANTE)) {
-                    log.info("numero de involucrado nombre completo perdon:" + involucradoDTO.getNombreCompleto());
+                    
                     for (NombreDemograficoDTO nombreDemograficoDTO : involucradoDTO.getNombresDemograficoDTO()) {
-                        log.info("Verdadero nombre:" + nombreDemograficoDTO.getEsVerdadero());
+
                         if (nombreDemograficoDTO.getEsVerdadero() != null && nombreDemograficoDTO.getEsVerdadero()) {
                             writer.print("<cell><![CDATA[<div class='celdaGrid'>" + nombreDemograficoDTO.getNombre() + " " + nombreDemograficoDTO.getApellidoPaterno() + " " + nombreDemograficoDTO.getApellidoMaterno() + " </div>]]></cell>");
                             op = false;
@@ -5321,7 +5304,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             writer.close();
 
         } catch (Exception e) {
-            log.info(e.getCause(), e);
+            log.error(e.getCause(), e);
 
         }
         return null;
@@ -5333,11 +5316,11 @@ public class AtencionTempranaPenalAction extends GenericAction {
         log.info("ejecutando Action AtencionTempranaPenalAction en metodo registrafuncionarioNumeroExpediente");
         try {
             String funcionario = request.getParameter("funcionario");
-            log.info("ejecutando Action AtencionTempranaPenalAction en metodo registrafuncionarioNumeroExpediente el funcionario es:" + funcionario);
+            log.info("funcionario:" + funcionario);
             String NumeroExpediente_id = request.getParameter("idNumeroExpediente");
             Long idNumeroExpediente = 0L;
             String nuevoNumeroExpediente="";
-            log.info("ejecutando Action AtencionTempranaPenalAction en metodo registrafuncionarioNumeroExpediente el idNumeroExpediente es:" + idNumeroExpediente);
+            log.info("idNumeroExpediente:" + idNumeroExpediente);
             if (NumeroExpediente_id != null && !NumeroExpediente_id.equals("")) {
                 idNumeroExpediente = Long.parseLong(NumeroExpediente_id);
             }
@@ -5405,19 +5388,18 @@ public class AtencionTempranaPenalAction extends GenericAction {
             for (int i = 0; i < expedienteDTO.getInvolucradosDTO().size(); i++) {
                 InvolucradoDTO involucrado = expedienteDTO.getInvolucradosDTO().get(i);
                 InvolucradoViewDTO involucradoView = new InvolucradoViewDTO();
-                log.info("$$$$ Calidad a pintar del involucrado : " + involucrado.getCalidadDTO().getValorIdCalidad().getIdCampo());
+
                 involucradoView.setCalidad((involucrado.getCalidadDTO().getValorIdCalidad().getIdCampo()).toString());
-                log.info("&&&& Condicion del invoolucrado:" + involucrado.getCondicion());
-                log.info("&&&& Condicion del invoolucrado:" + involucrado.getCalidadDTO().getValorIdCalidad().getIdCampo());
+
                 if (involucrado.getCondicion() != null && involucrado.getCondicion() == (short) 1) {
-                    log.info("#################################33333");
+
                     involucradoView.setEsVictima(true);
                 }
 
-                log.info("$$$$ id a pintar del involucrado : " + involucrado.getElementoId());
+
                 involucradoView.setInvolucradoId(involucrado.getElementoId());
                 if (involucrado.getTipoPersona().equals(0L) && !(involucrado.getCalidadDTO().getValorIdCalidad().getIdCampo().equals(Calidades.TRADUCTOR.getValorId()))) {
-                    log.info("$$$$ nombre de la organisacion a pintar del involucrado : " + involucrado.getOrganizacionDTO().getNombreOrganizacion());
+
                     involucradoView.setNombre(involucrado.getOrganizacionDTO().getNombreOrganizacion());
                 } else {
                     //La logica se pasa a vista
@@ -5427,8 +5409,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
 //					}else{
                     involucradoView.setNombre(involucrado.getNombreCompleto());
 //					}
-                    log.info("PROBABLE RESPONSABLE::::: " + involucrado.getCalidadDTO().getValorIdCalidad().getIdCampo() + "::::" + Calidades.PROBABLE_RESPONSABLE_PERSONA.getValorId());
-                    log.info("PROBABLE RESPONSABLE::::: " + involucradoView.getNombre());
+
                 }
                 listaInvolucrados.add(involucradoView);
             }
@@ -5542,12 +5523,10 @@ public class AtencionTempranaPenalAction extends GenericAction {
                     writer.print("<cell><![CDATA[<div class='celdaGrid'>" + "---" + " </div>]]></cell>");
                 }
                 writer.print("<cell><![CDATA[<div class='celdaGrid'>" + expedienteDTO.getStrFechaApertura() + " </div>]]></cell>");
-                log.info("Este es el expediente con calidad de denunciante" + expedienteDTO.getInvolucradoByCalidad(Calidades.DENUNCIANTE));
-                log.info("invol tamano" + expedienteDTO.getInvolucradoByCalidad(Calidades.DENUNCIANTE).size());
-                log.info("invol tamano de" + expedienteDTO.getInvolucradosDTO().size());
+
                 boolean op = true;
                 for (InvolucradoDTO involucradoDTO : expedienteDTO.getInvolucradoByCalidad(Calidades.DENUNCIANTE)) {
-                    log.info("numero de involucrado nombre completo perdon:" + involucradoDTO.getNombreCompleto());
+
                     if (involucradoDTO.getNombreCompleto() != null && !involucradoDTO.getNombreCompleto().equals("")) {
                         writer.print("<cell><![CDATA[<div class='celdaGrid'>" + involucradoDTO.getNombreCompleto() + " </div>]]></cell>");
                     } else {
@@ -5583,7 +5562,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             writer.close();
 
         } catch (Exception e) {
-            log.info(e.getCause(), e);
+            log.error(e.getCause(), e);
 
         }
         return null;
@@ -5924,12 +5903,10 @@ public class AtencionTempranaPenalAction extends GenericAction {
                     writer.print("<cell><![CDATA[<div class='celdaGrid'>" + "---" + " </div>]]></cell>");
                 }
                 writer.print("<cell><![CDATA[<div class='celdaGrid'>" + expedienteDTO.getStrFechaApertura() + " </div>]]></cell>");
-                log.info("Este es el expediente con calidad de denunciante" + expedienteDTO.getInvolucradoByCalidad(Calidades.DENUNCIANTE));
-                log.info("invol tamano" + expedienteDTO.getInvolucradoByCalidad(Calidades.DENUNCIANTE).size());
-                log.info("invol tamano de" + expedienteDTO.getInvolucradosDTO().size());
+
                 boolean op = true;
                 for (InvolucradoDTO involucradoDTO : expedienteDTO.getInvolucradoByCalidad(Calidades.DENUNCIANTE)) {
-                    log.info("numero de involucrado nombre completo perdon:" + involucradoDTO.getNombreCompleto());
+
                     if (involucradoDTO.getNombreCompleto() != null && !involucradoDTO.getNombreCompleto().equals("")) {
                         writer.print("<cell><![CDATA[<div class='celdaGrid'>" + involucradoDTO.getNombreCompleto() + " </div>]]></cell>");
                     } else {
@@ -5961,7 +5938,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             writer.flush();
             writer.close();
         } catch (Exception e) {
-            log.info(e.getCause(), e);
+            log.error(e.getCause(), e);
         }
         return null;
     }
@@ -6049,7 +6026,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             writer.close();
 
         } catch (Exception e) {
-            log.info(e.getCause(), e);
+            log.error(e.getCause(), e);
 
         }
         return null;
@@ -6123,7 +6100,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             writer.close();
 
         } catch (Exception e) {
-            log.info(e.getCause(), e);
+            log.error(e.getCause(), e);
 
         }
         return null;
@@ -6427,7 +6404,7 @@ public class AtencionTempranaPenalAction extends GenericAction {
             writer.close();
 
         } catch (Exception e) {
-            log.info(e.getCause(), e);
+            log.error(e.getCause(), e);
 
         }
         return null;

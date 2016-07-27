@@ -67,27 +67,26 @@ public class ElementoMenuDAOImpl extends
 
 		return resp;
 	}
-
+//Long elementoMenuId,String cNombre, String cComando, String cIdHTML, String cClassHTML, Integer iOrden, Integer iPosicion, Long idElementoMenuPadre
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<ElementoMenu> consultarElementosMenuXRol(Rol rol, TipoMenu tm) {
+	public List<ElementoMenu> consultarElementosMenuXRol(Rol rol, TipoMenu tm, Long elementoMenuId) {
 		StringBuffer queryString = new StringBuffer();
+
+			queryString
+					.append("select new ElementoMenu (em.elementoMenuId, em.cNombre, em.cComando, em.cIdHTML, em.cClassHTML, em.cForward, em.iOrden, em.iPosicion, emp.elementoMenuId)" )
+					.append(" FROM ElementoMenu em left join em.elementoMenuPadre emp join em.roles r WHERE " );
 		if (tm != null) {
-			queryString
-					.append("FROM ElementoMenu em WHERE em.iPosicion = ")
-					.append(tm.getId())
-					.append(" and em.elementoMenuId IN ( ")
-					.append(" SELECT em.elementoMenuId FROM ElementoMenu em left join em.roles r WHERE r.rolId = ")
-					.append(rol.getRolId()).append(" ) ")
-					.append(" ORDER BY em.iOrden");
-			
-		}else{
-			queryString
-			.append("FROM ElementoMenu em WHERE em.elementoMenuId IN ( ")
-			.append(" SELECT em.elementoMenuId FROM ElementoMenu em left join em.roles r WHERE r.rolId = ")
-			.append(rol.getRolId()).append(" ) ")
-			.append(" ORDER BY em.iOrden");
+
+			queryString.append("em.iPosicion = "+tm.getId() +" and" );
 		}
+		if(elementoMenuId!=null){
+			queryString.append("emp.elementoMenuId = "+ elementoMenuId +" and" );
+		}
+			queryString.append(" r.rolId = "+rol.getRolId())
+					   .append(" ORDER BY em.elementoMenuPadre, em.iPosicion, em.iOrden");
+
+
 		Query query = super.getSession().createQuery(queryString.toString());
 		return query.list();
 	}

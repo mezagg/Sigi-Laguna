@@ -3,6 +3,7 @@
  */
 package mx.gob.segob.nsjp.model;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
@@ -52,7 +53,7 @@ public class ElementoMenu implements java.io.Serializable {
 	private ElementoMenu elementoMenuPadre;
 	private Funcion funcion;
 	private List<Rol> roles;
-	private List<ElementoMenu> elementoMenuHijos;
+	private List<ElementoMenu> elementoMenuHijos = new ArrayList<ElementoMenu>(0);
 	
 	
 	/**
@@ -83,6 +84,22 @@ public class ElementoMenu implements java.io.Serializable {
 		this.cNombre = cNombre;
 		this.iOrden = iOrden;
 		this.cComando = cComando;
+	}
+
+
+
+	public ElementoMenu(Long elementoMenuId,
+						String cNombre, String cComando, String cIdHTML, String cClassHTML, String cForward, Integer iOrden, Integer iPosicion, Long idElementoMenuPadre) {
+
+		this.elementoMenuId = elementoMenuId;
+		this.cNombre = cNombre;
+		this.cComando = cComando;
+		this.cIdHTML = cIdHTML;
+		this.cClassHTML = cClassHTML;
+		this.iOrden = iOrden;
+		this.iPosicion = iPosicion;
+		this.elementoMenuPadre = new ElementoMenu(idElementoMenuPadre);
+		this.cForward = cForward;
 	}
 
 	@Id

@@ -30,10 +30,10 @@ public class ElementoMenuServiceImpl implements ElementoMenuService {
 	@Autowired
 	private ElementoMenuDAO elementoMenuDAO;
 
-	Hashtable<String, List> menuDTOHashtable;
+	public static HashMap<String, List> menuDTOHashtable;
 
 	public ElementoMenuServiceImpl(){
-		menuDTOHashtable = new Hashtable<String, List>();
+		menuDTOHashtable = new HashMap<String, List>();
 		/*
 		Iterator i = lista.iterator();
 		ElementoMenuDTO menu;
@@ -49,25 +49,21 @@ public class ElementoMenuServiceImpl implements ElementoMenuService {
 			throws NSJPNegocioException {
 		List<ElementoMenuDTO> resp = null;
 
-		//if(menuDTOHashtable.containsKey(rolDTO.getRolId()))
-		//	return menuDTOHashtable.get(rolDTO.getRolId());
+		//resp = menuDTOHashtable.get(rolDTO.getNombreRol()+"_"+tm.name());
 
-		List<ElementoMenu> elementosMenu = elementoMenuDAO
-				.consultarElementosMenuXRol(RolTransformer
-						.transformarMinimo(rolDTO), tm);
-		if (elementosMenu != null && !elementosMenu.isEmpty()) {
-			resp = new ArrayList<ElementoMenuDTO>();
-			for (int i = 0; i < elementosMenu.size(); i++) {
-				if (elementosMenu.get(i).getElementoMenuPadre() == null) {
-					resp.add(construyeArbolDTO(elementosMenu,
-							elementosMenu.get(i), 1));
-				}
-			}
-		}
-//		menuDTOHashtable.put(""+rolDTO.getRolId(), resp);
+		//if(resp==null){
+			List<ElementoMenu> elementosMenu = elementoMenuDAO
+					.consultarElementosMenuXRol(RolTransformer.transformarMinimo(rolDTO), tm, null);
+
+			resp = construyeMenuDTO(elementosMenu );
+		//	menuDTOHashtable.put(rolDTO.getNombreRol()+"_"+tm.name(), resp);
+		//}
+
 		return resp;
 	}
-	
+
+
+
 	@Override
 	public List<ElementoMenuDTO> consultarElementosMenuObligatorios () throws NSJPNegocioException{
 		List<ElementoMenuDTO> resp = null;
@@ -90,33 +86,50 @@ public class ElementoMenuServiceImpl implements ElementoMenuService {
 			throws NSJPNegocioException {
 		ElementoMenuDTO resp = null;
 		ElementoMenu eM = null;
-		List<ElementoMenu> eMFacultados = elementoMenuDAO.consultarElementosMenuXRol(RolTransformer.transformar(rolDTO), null);
-		if (eMDTO != null) {
-			
-			eM = elementoMenuDAO
-					.consultarElementoMenu(ElementoMenuTransformer
-							.transformar(eMDTO));
-			
-			resp = construyeArbolDTO(eMFacultados, eM, 1);
-			
-			List<ElementoMenuDTO> hijos = resp.getElementoMenuHijosDTO();
-			
-			if(hijos != null && !hijos.isEmpty()){
-				Collections.sort(hijos, new ElementoMenuIOrden());
-				resp.setElementoMenuHijosDTO(hijos);
+		List<ElementoMenu> eMFacultados = elementoMenuDAO.consultarElementosMenuXRol(RolTransformer.transformar(rolDTO), null, eMDTO.getElementoMenuId());
+		List<ElementoMenuDTO> emDtos = construyeMenuDTO( eMFacultados );
+		eMDTO.getElementoMenuHijosDTO().addAll(emDtos);
+		//Collections.sort(hijos, new ElementoMenuIOrden());
+		return eMDTO;
+	}
+
+
+	private List<ElementoMenuDTO> construyeMenuDTO( List<ElementoMenu> elementosMenu) {
+		List<ElementoMenuDTO> resp =  new ArrayList<ElementoMenuDTO>();
+		ElementoMenu em;
+		ElementoMenuDTO emDto;
+		ElementoMenuDTO emDtoPadre;
+
+		HashMap<Long, ElementoMenuDTO> hm = new HashMap();
+		Iterator<ElementoMenu>it=elementosMenu.iterator();
+
+		while (it.hasNext()){
+			em =it.next();
+			emDto = ElementoMenuTransformer.transformar(em);
+			hm.put(em.getElementoMenuId(), emDto);
+			if(em.getElementoMenuPadre()!=null) {
+				System.out.println(">"+em.getElementoMenuId()+" "+em.getElementoMenuPadre().getElementoMenuId());
+				emDtoPadre = hm.get(em.getElementoMenuPadre().getElementoMenuId());
+				if(emDtoPadre!=null)
+					emDtoPadre.getElementoMenuHijosDTO().add(emDto);
+				else{
+					resp.add(emDto);
+				}
+			}else{
+				resp.add(emDto);
 			}
-			
+
 		}
 		return resp;
 	}
 
 	/** 
-	 * Dado un Elemento Menu y un nivel de profundiad se regresa el árbol pertinente
+	 * Dado un Elemento Menu y un nivel de profundiad se regresa el ï¿½rbol pertinente
 	 * Para la profundicad los valores indican lo siguiente
 	 * 0 - Padres
 	 * 1 - Padres e hijos
 	 * 2 - Padres, hijos y nietos
-	 * y así sucesivamente
+	 * y asï¿½ sucesivamente
 	 */
 	ElementoMenuDTO construyeArbolDTO(List<ElementoMenu> facultados,
 			ElementoMenu eM, int profundidad) {
@@ -161,11 +174,11 @@ public class ElementoMenuServiceImpl implements ElementoMenuService {
 			if ((o1 == null || o1.getiOrden() == null) && (o2 == null || o2.getiOrden()== null)) {
 				return 0;
 			}
-			//null mayor que un numero, se ordenan los null después de los números
+			//null mayor que un numero, se ordenan los null despuï¿½s de los nï¿½meros
 			if (o1 == null || o1.getiOrden() == null){
 				return 1;
 			}
-			// numero menor que null, se ordenan los números antes de los null
+			// numero menor que null, se ordenan los nï¿½meros antes de los null
 			if (o2 == null || o2.getiOrden()== null){
 				return -1;
 			}

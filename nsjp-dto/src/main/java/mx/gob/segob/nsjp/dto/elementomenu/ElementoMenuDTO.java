@@ -3,6 +3,8 @@
  */
 package mx.gob.segob.nsjp.dto.elementomenu;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import mx.gob.segob.nsjp.dto.base.GenericDTO;
@@ -28,8 +30,8 @@ public class ElementoMenuDTO extends GenericDTO {
 	private Integer iOrden;
 	private boolean esActivo;
 	private boolean esObligatorio;
-	private ElementoMenuDTO elementoMenuPadreDTO;
-	private List<ElementoMenuDTO> elementoMenuHijosDTO;
+	private ElementoMenuDTO elementoMenuPadreDTO ;
+	private List<ElementoMenuDTO> elementoMenuHijosDTO = new ArrayList<ElementoMenuDTO>(0);
 	private FuncionDTO funcion;
 	private String cForward;
 	/** Constructor por Default
@@ -44,6 +46,7 @@ public class ElementoMenuDTO extends GenericDTO {
 	 */
 	public ElementoMenuDTO(Long elementoMenuId){
 		this.elementoMenuId = elementoMenuId;
+		elementoMenuHijosDTO = new ArrayList<ElementoMenuDTO>(0);
 	}
 	/**
 	 * Constructor por Nombre y comando
@@ -53,7 +56,18 @@ public class ElementoMenuDTO extends GenericDTO {
 	public ElementoMenuDTO (String cNombre,String cComando){
 		this.cNombre=cNombre;
 		this.cComando=cComando;
+		elementoMenuHijosDTO = new ArrayList<ElementoMenuDTO>(0);
 	}
+	public ElementoMenuDTO (String cNombre,String cComando, String cIdHTML, String cClassHTML, String funcion, Long elementoMenuIdPadre){
+		this.cNombre=cNombre;
+		this.cComando=cComando;
+		this.cIdHTML=cIdHTML;
+		this.cClassHTML=cClassHTML;
+		this.funcion= new FuncionDTO(funcion);
+		this.elementoMenuPadreDTO= new ElementoMenuDTO(elementoMenuIdPadre);
+		elementoMenuHijosDTO = new ArrayList<ElementoMenuDTO>(0);
+	}
+
 	public Long getElementoMenuId() {
 		return elementoMenuId;
 	}
