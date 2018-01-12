@@ -33,3 +33,12 @@ mvn clean install -Dmaven.test.skip=true -gs=settings_jdk1.6
 
  Compilación sin pruebas:
  mvn clean install -DskipTests=true -gs=settings_jdk1.6
+
+ mvn clean install -DskipTests=true -P test
+
+﻿
+call asadmin --user admin --port 8048 undeploy nsjp-web
+./asadmin --user admin --port 8048 undeploy nsjp-pg
+
+call asadmin --host --user admin --port 8048 deploy --force=true --contextroot nsjp-pg d:\SIGI\codigo\SIGI-Saltillo\nsjp-web\target\nsjp-web.war
+./asadmin --user admin --port 8048 deploy --force=true --contextroot nsjp-pg ./nsjp-web/target/nsjp-web.war
