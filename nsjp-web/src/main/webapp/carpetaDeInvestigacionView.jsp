@@ -179,10 +179,10 @@
 			slideInterval: 3000
 		}); 
 		muestraGadgets();
-			
+			//<%=request.getContextPath()%>/BusquedaCanalizadosRestaurativa.do?area=UI&actividad=RECIBIR_CANALIZACION
 		jQuery("#gridDetalleFrmPrincipal").jqGrid({ 
-			url:'<%=request.getContextPath()%>/BusquedaCanalizadosRestaurativa.do?area=UI&actividad=RECIBIR_CANALIZACION', 
-			datatype: "xml", 
+			url:'http://localhost:9080/numeroExpediente/findByFuncionarioEstatus.json?username=<%=usuario.getFuncionario().getClaveFuncionario()%>&estatus=1712',
+			datatype: "jsonp", 
 			autowidth: true,
 			colNames:['Caso','Tipo','Fecha', 'Denunciante', 'Delito','Origen','Estatus'], 
 			colModel:[ 	{name:'Detalle',index:'NumeroExpediente',width:100},
@@ -354,10 +354,11 @@
 			sortorder: "desc"
 		}).navGrid('#pager4',{edit:false,add:false,del:false});	
 		
+		//'<%=request.getContextPath()%>/BusquedaCanalizadosRestaurativa.do?area=UI&actividad=RECIBIR_CANALIZACION'
 		//cargo los datos del grid desde la BD
 		jQuery("#gridDetalleFrmPrincipal").jqGrid('setGridParam',  
-				{url:'<%=request.getContextPath()%>/BusquedaCanalizadosRestaurativa.do?area=UI&actividad=RECIBIR_CANALIZACION', 
-				datatype: "xml" });
+				{url:'http://localhost:9080/numeroExpediente/findByFuncionarioEstatus.json?username=<%=usuario.getFuncionario().getClaveFuncionario()%>&estatus=1712',
+				datatype: "jsonp" });
 		$("#gridDetalleFrmPrincipal").trigger("reloadGrid"); 
 			 
 		

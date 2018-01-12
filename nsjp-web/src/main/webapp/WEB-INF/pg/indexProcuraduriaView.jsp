@@ -16,6 +16,7 @@
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles"%>
 
+<!-- indexProcuraduriaView -->
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/bloqueaTecla.js?n=1"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/comun.js?n=1"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/wdCalendar/Plugins/jquery.ui.datepicker-es.js"></script>
@@ -105,18 +106,18 @@
 		//Mandamos consultar los tipos de solicitud dependiendo del Area del Funcionario
 		consultarTiposSolicitudPorAreaDelFuncionarioGen('tableSolsGeneradas',"0");
 		consultarTiposSolicitudPorAreaDelFuncionario('tableSolsXAtender',idAreaUserLogged);
-
+//contextoPagina + '/BusquedaCanalizadosRestaurativa.do?area=UI&actividad=ATENDER_CANALIZACION'
 		jQuery("#gridDetalleFrmPrincipal").jqGrid({ 
-            url: contextoPagina + '/BusquedaCanalizadosRestaurativa.do?area=UI&actividad=ATENDER_CANALIZACION', 
-            datatype: "xml", 
-            colNames:['N\u00FAmero de Expediente','Tipo','Fecha', 'Denunciante', 'Delito','Origen','Estatus'], 
-            colModel:[ {name:'Detalle',index:'NumeroExpediente', width:120}, 
-                       {name:'Tipo',index:'Tipo', width:120, align:'center', hidden:true},
-                       {name:'Fecha',index:'Fecha', width:70,searchoptions:{dataInit:function(elem){$(elem).datepicker();}, attr:{title:'Select Date'}} }, 
-                       {name:'Nombre', sortable: false ,search: false, width:70}, 
-                       {name:'Resumen',sortable: false ,search: false, width:110},
-                       {name:'Origen',index:'Origen', width:110},
-                       {name:'Estatus',index:'Estatus', width:110}
+            url: 'http://localhost:9080/numeroExpediente/findByFuncionarioEstatus.json?funcionario=<%=usuario.getFuncionario().getClaveFuncionario()%>&estatus=1712',
+            datatype: "json",
+            //colNames:['N\u00FAmero de Expediente','Tipo','Fecha', 'Denunciante', 'Delito','Origen','Estatus'],
+            colModel:[ {label:'numeroExpediente',name:'numeroExpediente', width:120},
+                       {label:'tipo',name:'tipo', width:120, align:'center', hidden:true},
+                       {label:'fecha',name:'fecha', width:70,searchoptions:{dataInit:function(elem){$(elem).datepicker();}, attr:{title:'Select Date'}} },
+                       {label:'denunciante',name:'tipo', sortable: false ,search: false, width:70},
+                       {label:'delito',name:'delito',sortable: false ,search: false, width:110},
+                       {label:'origen',name:'origen', width:110},
+                       {label:'estatus',name:'estatus', width:110}
                      ],
             pager: jQuery('#pager1'),
             rowNum:10,
@@ -252,7 +253,7 @@
                 jQuery("#gridBienesPorEnajenar").jqGrid({ 
 			datatype: "xml", 
                          multiselect:true,
-			colNames:['Tipo','Descripción', 'Cantidad','Número Expediente','Fecha para enajenar','Fecha Aseguramiento'], 
+			colNames:['Tipo','Descripciï¿½n', 'Cantidad','Nï¿½mero Expediente','Fecha para enajenar','Fecha Aseguramiento'], 
 			colModel:[ 	{name:'tipo',index:'tipo', width:80},
 			           	{name:'descripcion',index:'descripcion', width:150}, 
                                         {name:'cantidad',index:'cantidad', width:80}, 
@@ -301,10 +302,13 @@
 		$("#gridDetalleFrmPrincipal").trigger("reloadGrid");
 		ocultaMuestraGrids("gridDetalleFrmPrincipal");
 	}
-	
+	//contextoPagina + '/BusquedaCanalizadosRestaurativa.do?area=UI&actividad=ATENDER_CANALIZACION'
 	// Esta funci&oacute;n es invocada tambi&eacute;n desde el men&uacute; intermedio, para recargar el grid
 	function regresaGrid(){
-		jQuery("#gridDetalleFrmPrincipal").jqGrid('setGridParam', {url: contextoPagina + '/BusquedaCanalizadosRestaurativa.do?area=UI&actividad=ATENDER_CANALIZACION',datatype: "xml" });
+		jQuery("#gridDetalleFrmPrincipal").jqGrid('setGridParam', {
+		    url: 'http://localhost:9080/numeroExpediente.json/findByFuncionarioEstatus.json?funcionario=<%=usuario.getFuncionario().getClaveFuncionario()%>&estatus=1712',
+			datatype: "jsonp" }
+			);
 		$("#gridDetalleFrmPrincipal").trigger("reloadGrid");
 		ocultaMuestraGrids("gridDetalleFrmPrincipal");
 	}
@@ -1393,7 +1397,7 @@ function consultaPorEnajenarFecha(){
                 $.ajax(settings).done(function(result) 
                 {
                   consultaPorEnajenarHoy();                  
-                  $.newWindow({id:"iframewindowOficioEnajenacion", statusBar: true, posx:200,posy:50,width:114,height:40,title:"Oficio de enajenación de bienes", type:"iframe", confirmarCierreVentana:false});
+                  $.newWindow({id:"iframewindowOficioEnajenacion", statusBar: true, posx:200,posy:50,width:114,height:40,title:"Oficio de enajenaciï¿½n de bienes", type:"iframe", confirmarCierreVentana:false});
                   $.updateWindowContent("iframewindowOficioEnajenacion",'<iframe src="<%=request.getContextPath()%>/consultarOficioEnajenacion.do?idsBienes='+idsBienes+'" width="114" height="40" />');
                 });
                 }    

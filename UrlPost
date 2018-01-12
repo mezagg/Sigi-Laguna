@@ -1,0 +1,49 @@
+
+http://localhost:8080/nsjp-web/BusquedaCanalizadosRestaurativa.do?area=UI&actividad=ATENDER_CANALIZACION&_search=false&nd=1493672743174&rows=20&page=1&sidx=Fecha&sord=desc
+
+1049 exp
+
+http://localhost:8080/nsjp-web/BusquedaExpCompartidosFuncionarioLogAMP.do?_search=false&nd=1493672743194&rows=10&page=1&sidx=1&sord=desc
+
+http://localhost:8080/nsjp-web/ConsultaNuevasNotificaciones.do?_search=false&nd=1493672743230&rows=10&page=1&sidx=detalle&sord=desc
+
+
+abiertos
+http://localhost:8080/nsjp-web/busquedaCanalizadosRestaurativaStatus.do?estatus=1712&_search=false&nd=1493673442606&rows=20&page=1&sidx=Fecha&sord=desc
+
+definitivos
+http://localhost:8080/nsjp-web/busquedaCanalizadosRestaurativaStatus.do?estatus=2501&_search=false&nd=1493673570573&rows=20&page=1&sidx=Fecha&sord=desc
+
+temporal
+http://localhost:8080/nsjp-web/busquedaCanalizadosRestaurativaStatus.do?estatus=2500&_search=false&nd=1493673631896&rows=20&page=1&sidx=Fecha&sord=desc
+
+expedientes compartidos
+http://localhost:8080/nsjp-web/BusquedaExpCompartidosFuncionarioLogAMP.do?_search=false&nd=1493674544278&rows=10&page=1&sidx=1&sord=desc
+
+turnados a coordinador
+http://localhost:8080/nsjp-web/busquedaCanalizadosRestaurativaStatus.do?estatus=2808&_search=false&nd=1493674661097&rows=20&page=1&sidx=Fecha&sord=desc
+
+suspendidos temporalment
+http://localhost:8080/nsjp-web/busquedaCanalizadosRestaurativaStatus.do?estatus=2497&_search=false&nd=1493674714139&rows=20&page=1&sidx=Fecha&sord=desc
+
+por atender
+http://localhost:8080/nsjp-web/busquedaCanalizadosRestaurativaStatus.do?estatus=2279&_search=false&nd=1493674760343&rows=20&page=1&sidx=Fecha&sord=desc
+
+concluido por convenio
+http://localhost:8080/nsjp-web/busquedaCanalizadosRestaurativaStatus.do?estatus=2540&_search=false&nd=1493674786165&rows=20&page=1&sidx=Fecha&sord=desc
+
+cerrado
+http://localhost:8080/nsjp-web/busquedaCanalizadosRestaurativaStatus.do?estatus=2100&_search=false&nd=1493674808963&rows=20&page=1&sidx=Fecha&sord=desc
+
+en convenio de mediacion
+http://localhost:8080/nsjp-web/busquedaCanalizadosRestaurativaStatus.do?estatus=6454&_search=false&nd=1493674835620&rows=20&page=1&sidx=Fecha&sord=desc
+
+
+RECIBIR_CANALIZACION_UI
+2133
+
+ATENDER_CANALIZACION_UI
+2134
+
+
+http://localhost:8080/nsjp-web/busquedaCanalizadosCoordinadorAmpGeneral.do?inicio=&fin=&numeroExpediente=&consultarCanalizacionesNoAtendidas=false&_search=false&nd=1493778445241&rows=10&page=1&sidx=Fecha&sord=desc

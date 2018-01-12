@@ -69,10 +69,10 @@
 
 	
 	<!--LOGGERS -->
-	<logger  name="org.hibernate.SQL" additivity="false">
+	<!--logger name="org.hibernate.SQL" additivity="false">
 		<level value="debug" />
 		<appender-ref ref="console_persistencia" />
-	</logger>
+	</logger-->
 
 	<!--CATEGORIES -->
 	<category name="mx.gob.segob.nsjp.web">
